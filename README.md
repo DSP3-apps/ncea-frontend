@@ -187,6 +187,7 @@ We're using semi-colons and comma-last. No rhyme or reason; and some of the hapi
 ## TODO
 
 - [ ] Make sure to update the readme.md file if it is outdated or contains new information
+- [ ] External API consumption should be segmented.
 - [ ] Enhance the creation of Hapi server logic
 - [ ] Check over the content of the 404 and 500 error pages and tailor to suit
 - [ ] Update the build status badges if they are outdated or wish to add new
