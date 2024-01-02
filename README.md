@@ -60,8 +60,8 @@ git clone https://github.com/DEFRA/ncea-frontend.git
 cd <project-root-directory>
 
 # Let's configure the identity for Git history purposes
-git config user.name "<BITBUCKET_USERNAME>"
-git config user.email "<BITBUCKET_ACCOUNT_EMAIL>"
+git config --global user.name "<BITBUCKET_USERNAME>"
+git config --global user.email "<BITBUCKET_ACCOUNT_EMAIL>"
 
 # Let's configure line endings
 # If Mac OS / Unix
