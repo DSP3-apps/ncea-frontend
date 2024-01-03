@@ -1,35 +1,34 @@
-const path = require('path');
-const nunjucks = require('nunjucks');
+import nunjucks from 'nunjucks';
+import path from 'path';
 
 module.exports = {
   plugin: require('@hapi/vision'),
   options: {
     engines: {
       njk: {
-        compile: (src: any, options: { environment: any }) => {
+        compile: (src: string, options: { environment: nunjucks.Environment | undefined }) => {
           const template = nunjucks.compile(src, options.environment);
 
-          return (context: any) => {
+          return (context: object | undefined) => {
             return template.render(context);
           };
         },
         prepare: (
           options: {
-            compileOptions: { environment: any };
+            compileOptions: { environment: nunjucks.Environment };
+            /* eslint-disable  @typescript-eslint/no-explicit-any */
             relativeTo: any;
-            path: any;
+            path: string;
           },
-          next: () => any
+          /* eslint-disable  @typescript-eslint/no-explicit-any */
+          next: () => any,
         ) => {
           options.compileOptions.environment = nunjucks.configure(
-            [
-              path.join(options.relativeTo || process.cwd(), options.path),
-              'node_modules/govuk-frontend/',
-            ],
+            [path.join(options.relativeTo || process.cwd(), options.path), 'node_modules/govuk-frontend/'],
             {
               autoescape: true,
               watch: false,
-            }
+            },
           );
 
           return next();

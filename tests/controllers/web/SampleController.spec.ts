@@ -1,27 +1,23 @@
 'use strict';
 
-const SampleController = require('../../../src/controllers/web/SampleController');
+import { mock } from 'jest-mock-extended';
+import { Request, ResponseToolkit } from '@hapi/hapi';
+import { SampleController } from '../../../src/controllers/web/SampleController';
 
 describe('Sample Controller > deals with render sample2 handler', () => {
-  const request = {
-    server: {
-      version: '21.3.2',
-    },
-  };
+  const mockRequest = mock<Request>();
 
-  const response = {
-    view: jest.fn(),
-  };
+  const mockResponse = mock<ResponseToolkit>();
 
   beforeAll(() => {
-    SampleController.renderSample2Handler(request, response);
+    return SampleController.renderSampleHandler(mockRequest, mockResponse);
   });
 
   it('should call the view with context', async () => {
     const context = {
-      title: 'Hapi ' + request.server.version,
+      title: 'Hapi ' + mockRequest.server.version,
       message: 'Hello Nunjucks!',
     };
-    expect(response.view).toHaveBeenCalledWith('sample', context);
+    expect(mockResponse.view).toHaveBeenCalledWith('sample', context);
   });
 });

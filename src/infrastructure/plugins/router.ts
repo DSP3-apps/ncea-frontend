@@ -2,10 +2,8 @@
 
 import { Server } from '@hapi/hapi';
 
-const routes = [].concat(
-  require('../../routes/web/home'),
-  require('../../routes/web/sample')
-);
+/* eslint-disable  @typescript-eslint/no-var-requires */
+const routes = [].concat(require('../../routes/web/home'), require('../../routes/web/sample'));
 
 module.exports = {
   plugin: {

@@ -1,12 +1,13 @@
 'use strict';
 
-const SampleController = require('../../controllers/web/SampleController');
+import { SampleController } from '../../controllers/web/SampleController';
+import { Request, ResponseToolkit } from '@hapi/hapi';
 
 module.exports = [
   {
     method: 'GET',
     path: '/sample',
-    handler: (request: any, h: any) => {
+    handler: (request: Request, h: ResponseToolkit) => {
       return h.view('sample', {
         title: 'Hapi ' + request.server.version,
         message: 'Hello Nunjucks!',
@@ -16,6 +17,6 @@ module.exports = [
   {
     method: 'GET',
     path: '/sample2',
-    handler: SampleController.renderSample2Handler,
+    handler: SampleController.renderSampleHandler,
   },
 ];

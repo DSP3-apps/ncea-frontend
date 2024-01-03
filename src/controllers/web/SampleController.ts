@@ -1,12 +1,17 @@
 'use strict';
 
-import { Request } from '@hapi/hapi';
+import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 
-module.exports = {
-  async renderSample2Handler(request: Request, response: any) {
+const SampleController = {
+  renderSampleHandler: async (
+    request: Request,
+    response: ResponseToolkit
+  ): Promise<ResponseObject> => {
     return response.view('sample', {
       title: 'Hapi ' + request.server.version,
       message: 'Hello Nunjucks!',
     });
   },
 };
+
+export { SampleController };

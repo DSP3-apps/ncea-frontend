@@ -1,6 +1,6 @@
 import { Server } from '@hapi/hapi';
 
-const createServer = require('./infrastructure/server');
+import { createServer } from './infrastructure/server';
 
 const bootstrap = async () => {
   const server: Server = await createServer();

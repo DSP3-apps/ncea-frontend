@@ -104,7 +104,7 @@ npm run start:dev
 ├── src                    // Keeps the application code
 │   ├── controllers        // The definition of all route handlers can be found here
 │   │   └── web            // For web view rendering, controllers are arranged by module names
-│   ├── helpers            // Helpers contain reusable methods that can be used by web controllers
+│   ├── utils              // utils contains common utility and helper reusable methods that can be used by web controllers
 │   ├── infrastructure     // Frameworks, drivers, and plugins, to name a few.
 │   │   ├── plugins        // Contains the custom plugins registered with the Hapi server
 │   │   │   ├── router.ts  // Custom plugin to register the routes

@@ -2,7 +2,7 @@
 
 import { Server } from '@hapi/hapi';
 
-const createServer = require('../../../src/infrastructure/server');
+import { createServer } from '../../../src/infrastructure/server';
 
 describe('Home Routes', () => {
   let server: Server;
