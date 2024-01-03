@@ -1,11 +1,11 @@
-import { Server } from '@hapi/hapi';
-
-import { createServer } from './infrastructure/server';
+import { initializeServer, startServer } from './infrastructure/server';
 
 const bootstrap = async () => {
-  const server: Server = await createServer();
-  await server.start();
-  console.log('Server running on %s', server.info.uri);
+  await initializeServer()
+    .then(startServer)
+    .catch((error: Error) => {
+      console.log(`Server initialization error, ${error}`);
+    });
 };
 
 bootstrap();

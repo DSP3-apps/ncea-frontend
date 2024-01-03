@@ -2,13 +2,13 @@
 
 import { Server } from '@hapi/hapi';
 
-import { createServer } from '../../../src/infrastructure/server';
+import { initializeServer } from '../../../src/infrastructure/server';
 
 describe('Home Routes', () => {
   let server: Server;
 
   beforeAll((done) => {
-    createServer().then((s: Server) => {
+    initializeServer().then((s: Server) => {
       server = s;
       done();
     });
