@@ -12,7 +12,7 @@
     "strict": true,
     "noImplicitAny": true,
     "skipLibCheck": true,
-    "types": ["node", "jest", "hapi__vision", "nunjucks"],
+    "types": ["node", "jest", "hapi__vision", "nunjucks", "hapi-pino"],
     "moduleDetection": "force"
   },
   "include": ["src/**/*.ts"],
