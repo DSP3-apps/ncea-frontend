@@ -13,6 +13,6 @@ module.exports = {
       level: (label: string) => ({ severity: label.toUpperCase() }),
     },
     timestamp: () => `,"timestamp":"${new Date(Date.now()).toISOString()}"`,
-    stream: `${__dirname}/../logs/app_${new Date().toJSON().slice(0, 10)}.log`,
+    stream: `${__dirname}/../log_files/app_${new Date().toJSON().slice(0, 10)}.log`,
   },
 };
