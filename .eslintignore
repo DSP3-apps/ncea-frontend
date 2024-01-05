@@ -1,0 +1,5 @@
+node_modules
+build
+coverage
+src/views/**
+src/infrastructure/log_files/**
