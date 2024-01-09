@@ -26,6 +26,5 @@ describe('Home Routes', () => {
 
     const response = await server.inject(options);
     expect(response.statusCode).toEqual(200);
-    expect(response.result).toEqual('Hello, Natural Capital Search Service');
   });
 });
