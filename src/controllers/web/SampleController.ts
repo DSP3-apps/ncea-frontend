@@ -9,7 +9,6 @@ const SampleController = {
     response: ResponseToolkit
   ): Promise<ResponseObject> => {
     const posts = await getSamplePosts();
-    console.log(posts.data);
 
     return response.view('sample', {
       title: 'Hapi ' + request.server.version,

@@ -1,4 +1,4 @@
-import { geoNetworkClient } from '../config/geoNetworkClient';
+import { geoNetworkClient } from '../../config/geoNetworkClient';
 
 const getSamplePosts = async () => geoNetworkClient.get('posts');
 
