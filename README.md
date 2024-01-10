@@ -106,6 +106,9 @@ npm run start:dev
 ├── src                    // Keeps the application code
 │   ├── controllers        // The definition of all route handlers can be found here
 │   │   └── web            // For web view rendering, controllers are arranged by module names
+│   ├── assets             // Contains all the sass styles and scripts
+│   │   ├── sass           // Contains all the sass styles and functions
+│   │   └── scripts        // Contains all the javascript modules or functions
 │   ├── utils              // utils contains common utility and helper reusable methods that can be used by controllers
 │   ├── services           // The definition of api clients and api handlers can be found here
 │   │   └── config         // To define and initiate the api client and interceptors
@@ -118,8 +121,10 @@ npm run start:dev
 │   │   └── server.ts      // Hapi.js server definition
 │   ├── routes             // Here is where all app routes are defined
 │   │   └── web            // WEB UI routes.
+│   │   │   └── assets.ts  // This is where all static asset routing requests are defined
 │   ├── views              // All server-rendered nunjucks templates, partials and helpers
 ├── └── index.ts           // The primary application entry point
+├── public                 // Contains all the static files and files compiles from GDS
 ├── tools                  // Contains all tools, such as static code analysis and unit test configurations.
 │   ├── .eslintrc          // Define eslint rules
 │   ├── .prettierrc        // Define prettier rules to enforce a consistent code style

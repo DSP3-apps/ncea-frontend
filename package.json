@@ -10,6 +10,7 @@
     "lint": "npm run lint:javascript",
     "lint:javascript": "eslint --config tools/.eslintrc src/**/* --ext .js,.ts",
     "lint:javascript:fix": "eslint --config tools/.eslintrc src/**/* --fix --ext .js,.ts",
+    "sass:compile": "sass --no-source-map --load-path=node_modules/govuk-frontend/dist/ --quiet-deps src/assets/sass/application.scss public/application.css",
     "prettier-format": "run-script-os",
     "prettier-format:win32": "prettier --config tools/.prettierrc \"./src/**/*.ts\" --write",
     "prettier-format:darwin:linux": "prettier --config tools/.prettierrc 'src/**/*.ts' --write",
@@ -54,6 +55,7 @@
     "prettier": "3.1.1",
     "rimraf": "5.0.5",
     "run-script-os": "1.1.6",
+    "sass": "1.69.7",
     "ts-jest": "29.1.1",
     "ts-node": "10.9.2",
     "typescript": "5.3.3"
