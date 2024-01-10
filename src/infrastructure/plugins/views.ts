@@ -24,7 +24,7 @@ module.exports = {
           next: () => any,
         ) => {
           options.compileOptions.environment = nunjucks.configure(
-            [path.join(options.relativeTo || process.cwd(), options.path), 'node_modules/govuk-frontend/'],
+            [path.join(options.relativeTo || process.cwd(), options.path), 'node_modules/govuk-frontend/dist'],
             {
               autoescape: true,
               watch: false,
@@ -38,5 +38,10 @@ module.exports = {
     path: '../../views',
     relativeTo: __dirname,
     isCached: process.env.NODE_ENV !== 'production',
+    context: {
+      assetPath: '/assets',
+      serviceName: 'Natural Capital Search Service',
+      pageTitle: 'Natural Capital Search Service - GOV.UK',
+    },
   },
 };
