@@ -7502,3 +7502,48 @@
 
 
 
+.app-main-class {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.full-width-banner {
+  width: 100%;
+  background-color: #008938;
+  box-shadow: 0 0 0 20vmax #008938;
+  clip-path: inset(0 -20vmax);
+  margin-bottom: 20px;
+}
+
+.banner-block {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.banner-block__heading-xl {
+  font-size: 36px;
+  font-style: normal;
+  line-height: 40px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+.banner-block__caption-l {
+  font-size: 19px;
+  font-style: normal;
+  line-height: 25px;
+  font-weight: 300;
+  color: #ffffff;
+}
+
+.video-block {
+  margin-bottom: 40px;
+}
+.video-block__caption-m {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+  color: #0b0c0c;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-top: 1.5px solid #b1b4b6;
+}
