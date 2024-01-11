@@ -119,6 +119,9 @@ npm run start:dev
 │   │   └── web            // WEB UI routes.
 │   │   │   └── assets.ts  // This is where all static asset routing requests are defined
 │   ├── views              // All server-rendered nunjucks templates, partials and helpers
+│   │   ├── layout         // Contains the basic customized layout of the template
+│   │   ├── partials       // Contains templates that can be reused, such as extend or macros.
+│   │   └── screens        // Contains the template for each screen, such as home, results, and so on.
 ├── └── index.ts           // The primary application entry point
 ├── public                 // Contains all the static files and files compiles from GDS
 ├── tools                  // Contains all tools, such as static code analysis and unit test configurations.

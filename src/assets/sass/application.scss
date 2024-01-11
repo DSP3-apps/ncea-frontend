@@ -9,46 +9,4 @@ $gov-defra-color-websafe: govuk-organisation-colour(
   padding-bottom: 10px;
 }
 
-.full-width-banner {
-  width: 100%;
-  background-color: $gov-defra-color-websafe;
-  box-shadow: 0 0 0 20vmax $gov-defra-color-websafe;
-  clip-path: inset(0 -20vmax);
-  margin-bottom: 20px;
-}
-
-.banner-block {
-  padding-top: 30px;
-  padding-bottom: 30px;
-
-  &__heading-xl {
-    font-size: 36px;
-    font-style: normal;
-    line-height: 40px;
-    color: govuk-colour('white');
-    margin-bottom: 20px;
-  }
-
-  &__caption-l {
-    font-size: 19px;
-    font-style: normal;
-    line-height: 25px;
-    font-weight: 300;
-    color: govuk-colour('white');
-  }
-}
-
-.video-block {
-  margin-bottom: 40px;
-
-  &__caption-m {
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 30px;
-    color: $govuk-text-colour;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    border-top: 1.5px solid $govuk-border-colour;
-  }
-}
+@import '../../views/screens/index';
