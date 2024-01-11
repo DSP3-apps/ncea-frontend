@@ -1,0 +1,26 @@
+.quick_search-container {
+  margin-bottom: 10px;
+
+  &__heading-m {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+    color: $govuk-text-colour;
+    margin: 0px;
+
+    &--large {
+      font-size: 36px;
+    }
+  }
+
+  &__caption-m {
+    width: 630px;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 25px;
+    color: $govuk-text-colour;
+    padding-top: 20px;
+  }
+}

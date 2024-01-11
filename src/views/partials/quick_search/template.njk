@@ -1,0 +1,14 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full quick_search-container">
+    <h1 class="govuk-heading-m quick_search-container__heading-m {%- if params.isResultPage %} quick_search-container__heading-m--large {% endif %}">
+      {% if params.isResultPage %}
+        Search
+      {% else %}
+        Quick Search
+      {% endif %}
+    </h1>
+    {% if not params.isResultPage %}
+      <span class="govuk-caption-m quick_search-container__caption-m">You can search by date, report title, theme or project codes, for example "seagrass beds, Porth Dinllaen, 2012".</span>
+    {% endif %}
+  </div>
+</div>

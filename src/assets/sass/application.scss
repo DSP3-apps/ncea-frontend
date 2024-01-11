@@ -9,4 +9,5 @@ $gov-defra-color-websafe: govuk-organisation-colour(
   padding-bottom: 10px;
 }
 
+@import '../../views/partials/index';
 @import '../../views/screens/index';

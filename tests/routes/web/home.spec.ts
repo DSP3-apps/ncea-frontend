@@ -38,7 +38,7 @@ describe('Home Routes', () => {
       document?.querySelector('.banner-container__heading-xl')?.textContent
     ).toBe('Natural Capital Search Service');
     expect(
-      document?.querySelector('.video-container__caption-m')?.textContent
+      document?.querySelector('.video-container__heading-m')?.textContent
     ).toBe('What is natural capital?');
   });
 });
