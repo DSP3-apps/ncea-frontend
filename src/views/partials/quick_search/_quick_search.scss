@@ -1,6 +1,4 @@
 .quick_search-container {
-  margin-bottom: 10px;
-
   &__heading-m {
     font-size: 24px;
     font-style: normal;
@@ -22,5 +20,44 @@
     line-height: 25px;
     color: $govuk-text-colour;
     padding-top: 20px;
+  }
+}
+
+.search-block {
+  &__form {
+    position: relative;
+    width: 630px;
+  }
+
+  &__label {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    border: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  &__button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: 0;
+    background-color: $gov-defra-color-websafe;
+    color: govuk-colour('white');
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 100%;
+    background-image: url(/assets/images/search-icon.png);
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+    text-indent: -5000px;
+    overflow: hidden;
   }
 }
