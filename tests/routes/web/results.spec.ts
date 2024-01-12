@@ -42,4 +42,20 @@ describe('Results Routes', () => {
     const response = await server.inject(options);
     expect(response.statusCode).toEqual(200);
   });
+  it('should check for the text Search', async () => {
+    const options = {
+      method: 'GET',
+      url: webRoutePaths.results,
+    };
+
+    const response = await server.inject(options);
+    const rawHTML = response.payload;
+    const parser = new DOMParser();
+    const document = parser.parseFromString(rawHTML, 'text/html');
+    expect(
+      document
+        ?.querySelector('.quick_search-container__heading-m')
+        ?.textContent?.trim()
+    ).toBe('Search');
+  });
 });
