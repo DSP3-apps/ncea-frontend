@@ -7502,76 +7502,24 @@
 
 
 
-.app-main-class {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.full-width-banner {
-  width: 100%;
-  background-color: #008938;
-  box-shadow: 0 0 0 20vmax #008938;
-  clip-path: inset(0 -20vmax);
-  margin-bottom: 20px;
-}
-
-.banner-container {
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-.banner-container__heading-xl {
-  font-size: 36px;
-  font-style: normal;
-  line-height: 40px;
-  color: #ffffff;
-  margin-bottom: 20px;
-}
-.banner-container__caption-l {
-  font-size: 19px;
-  font-style: normal;
-  line-height: 25px;
-  font-weight: 300;
-  color: #ffffff;
-}
-
-.video-container {
-  margin-bottom: 40px;
-}
-.video-container__heading-m {
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 30px;
-  color: #0b0c0c;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  margin: 0px;
-  border-top: 1.5px solid #b1b4b6;
-}
-.video-container__frame {
-  position: relative;
-  padding-bottom: 33%;
-  padding-top: 35px;
-  height: 0;
-  overflow: hidden;
-}
-.video-container__frame iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-@media screen and (max-width: 799px) {
-  .video-container__frame iframe {
-    width: 100%;
-    height: 100%;
-  }
-}
-
+/**
+ * Convert px units into rem values.
+ * @param {string} $values - Can be single, mix, or group of 3 or 4.
+ * @param {string} $fontBase [$fds-base-multiplier-rem] - Set unit base, or defaults to defined value in settings.
+ *
+ * @example scss - Use with single or multiple units
+ *  font-size: fds-rem(20px);
+ *  padding: fds-rem(20px 50px);
+ *
+ * @example scss - Use with a base unit size
+ *  font-size: fds-rem(20px, 10px);
+ */
 .quick_search-container__heading-m {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 700;
   line-height: 30px;
+  letter-spacing: "";
   color: #0b0c0c;
   margin: 0px;
 }
@@ -7580,10 +7528,11 @@
 }
 .quick_search-container__caption-m {
   width: 630px;
-  font-size: 19px;
+  font-size: 1.1875rem;
   font-style: normal;
   font-weight: 300;
   line-height: 25px;
+  letter-spacing: "";
   color: #0b0c0c;
   padding-top: 20px;
 }
@@ -7621,4 +7570,73 @@
   background-position: 10px 50%;
   text-indent: -5000px;
   overflow: hidden;
+}
+
+.app-main-class {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.full-width-banner {
+  width: 100%;
+  background-color: #008938;
+  box-shadow: 0 0 0 20vmax #008938;
+  clip-path: inset(0 -20vmax);
+  margin-bottom: 20px;
+}
+
+.banner-container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.banner-container__heading-xl {
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: "";
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+.banner-container__caption-l {
+  font-size: 1.1875rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 30px;
+  letter-spacing: "";
+  color: #ffffff;
+}
+
+.video-container {
+  margin-bottom: 40px;
+}
+.video-container__heading-m {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: "";
+  color: #0b0c0c;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin: 0px;
+  border-top: 1.5px solid #b1b4b6;
+}
+.video-container__frame {
+  position: relative;
+  padding-bottom: 33%;
+  padding-top: 35px;
+  height: 0;
+  overflow: hidden;
+}
+.video-container__frame iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+@media screen and (max-width: 799px) {
+  .video-container__frame iframe {
+    width: 100%;
+    height: 100%;
+  }
 }
