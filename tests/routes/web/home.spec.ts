@@ -4,17 +4,29 @@
 
 'use strict';
 
-import { Server } from '@hapi/hapi';
+import { Server, ServerInjectResponse } from '@hapi/hapi';
 
 import { initializeServer } from '../../../src/infrastructure/server';
 import { webRoutePaths } from '../../../src/utils/constants';
 
 describe('Home Screen', () => {
   let server: Server;
+  let response: ServerInjectResponse<object>;
+  let document: Document;
 
   beforeAll((done) => {
-    initializeServer().then((s: Server) => {
+    initializeServer().then(async (s: Server) => {
       server = s;
+
+      const options = {
+        method: 'GET',
+        url: webRoutePaths.home,
+      };
+
+      response = await server.inject(options);
+      const rawHTML = response.payload;
+      const parser = new DOMParser();
+      document = parser.parseFromString(rawHTML, 'text/html');
       done();
     });
   });
@@ -25,24 +37,12 @@ describe('Home Screen', () => {
 
   describe('Home > Sanpshot verification', () => {
     it('should match the home screen snapshot', async () => {
-      const options = {
-        method: 'GET',
-        url: webRoutePaths.home,
-      };
-
-      const response = await server.inject(options);
       expect(response.payload).toMatchSnapshot();
     });
   });
 
   describe('Home > Check home route status code', () => {
     it('should / route works with status code 200', async () => {
-      const options = {
-        method: 'GET',
-        url: webRoutePaths.home,
-      };
-
-      const response = await server.inject(options);
       expect(response.statusCode).toEqual(200);
     });
   });
@@ -50,43 +50,16 @@ describe('Home Screen', () => {
   describe('Home > Hero block', () => {
     describe('Hero content block classes', () => {
       it('renders custom full width class', async () => {
-        const options = {
-          method: 'GET',
-          url: webRoutePaths.home,
-        };
-
-        const response = await server.inject(options);
-        const rawHTML = response.payload;
-        const parser = new DOMParser();
-        const document = parser.parseFromString(rawHTML, 'text/html');
         expect(document.querySelector('.full-width-banner')).toBeTruthy();
       });
 
       it('renders custom banner container class', async () => {
-        const options = {
-          method: 'GET',
-          url: webRoutePaths.home,
-        };
-
-        const response = await server.inject(options);
-        const rawHTML = response.payload;
-        const parser = new DOMParser();
-        const document = parser.parseFromString(rawHTML, 'text/html');
         expect(document.querySelector('.banner-container')).toBeTruthy();
       });
     });
 
     describe('Hero content elements', () => {
       it('should render 2 child elements', async () => {
-        const options = {
-          method: 'GET',
-          url: webRoutePaths.home,
-        };
-
-        const response = await server.inject(options);
-        const rawHTML = response.payload;
-        const parser = new DOMParser();
-        const document = parser.parseFromString(rawHTML, 'text/html');
         const bannerContainer = document?.querySelector('.banner-container');
         expect(bannerContainer?.childElementCount).toEqual(2);
       });
@@ -94,15 +67,6 @@ describe('Home Screen', () => {
 
     describe('Hero content block heading', () => {
       it('should render the hero content heading', async () => {
-        const options = {
-          method: 'GET',
-          url: webRoutePaths.home,
-        };
-
-        const response = await server.inject(options);
-        const rawHTML = response.payload;
-        const parser = new DOMParser();
-        const document = parser.parseFromString(rawHTML, 'text/html');
         expect(
           document
             ?.querySelector('.banner-container__heading-xl')
@@ -112,46 +76,167 @@ describe('Home Screen', () => {
     });
   });
 
+  describe('Home > Search block', () => {
+    describe('Search block classes', () => {
+      it('renders custom quick search container class', async () => {
+        expect(document.querySelector('.quick_search-container')).toBeTruthy();
+      });
+
+      it('renders custom search block class', async () => {
+        expect(document.querySelector('.search-block')).toBeTruthy();
+      });
+    });
+
+    describe('Search block custom options', () => {
+      it('renders attributes correctly', async () => {
+        const searchBlock = document.querySelector('.search-block');
+        expect(searchBlock?.getAttribute('data-module')).toEqual('search');
+      });
+    });
+
+    describe('Search container content elements', () => {
+      it('should render 3 child elements', async () => {
+        const bannerContainer = document?.querySelector(
+          '.quick_search-container'
+        );
+        expect(bannerContainer?.childElementCount).toEqual(3);
+      });
+
+      it('should render caption on home screen', async () => {
+        expect(
+          document?.querySelector('.quick_search-container__caption-m')
+        ).toBeTruthy();
+      });
+    });
+
+    describe('Search container block heading', () => {
+      it('should render the search container heading', async () => {
+        expect(
+          document
+            ?.querySelector('.quick_search-container__heading-m')
+            ?.textContent?.trim()
+        ).toBe('Quick Search');
+      });
+
+      it('should not render the custom large class for heading', async () => {
+        expect(
+          document
+            ?.querySelector('.quick_search-container__heading-m')
+            ?.classList.contains('quick_search-container__heading-m--large')
+        ).toBeFalsy();
+      });
+    });
+
+    describe('Search container form', () => {
+      it('should render the form', async () => {
+        const formElement =
+          document?.querySelector('.search-block')?.firstElementChild;
+        expect(formElement?.tagName.toLowerCase()).toBe('form');
+      });
+
+      it('should render the form with options', async () => {
+        const formElement =
+          document?.querySelector('.search-block')?.firstElementChild;
+        expect(formElement?.getAttribute('role')).toBe('search');
+        expect(formElement?.getAttribute('action')).toBe('/search');
+      });
+
+      it('should render the form classes', async () => {
+        const formElement =
+          document?.querySelector('.search-block')?.firstElementChild;
+        expect(
+          formElement?.classList.contains('search-block__form')
+        ).toBeTruthy();
+        expect(
+          formElement?.firstElementChild?.classList.contains('govuk-form-group')
+        ).toBeTruthy();
+      });
+    });
+
+    describe('Search container input field', () => {
+      it('does render the input wrapper', () => {
+        const wrapper = document?.querySelector(
+          '.govuk-form-group > .govuk-input__wrapper'
+        );
+        expect(wrapper).toBeTruthy();
+      });
+
+      it('should render the input element', async () => {
+        const inputElement = document?.querySelector(
+          '.govuk-form-group > .govuk-input__wrapper'
+        )?.firstElementChild;
+        expect(inputElement?.tagName.toLowerCase()).toBe('input');
+      });
+
+      it('should renders with custom class', () => {
+        const inputElement = document?.querySelector(
+          '.govuk-form-group > .govuk-input__wrapper'
+        )?.firstElementChild;
+        expect(
+          inputElement?.classList.contains('search-block__input')
+        ).toBeTruthy();
+      });
+
+      it('should renders with id', () => {
+        const inputElement = document?.querySelector('.search-block__input');
+        expect(inputElement?.getAttribute('id')).toEqual('search');
+      });
+
+      it('should renders with name', () => {
+        const inputElement = document?.querySelector('.search-block__input');
+        expect(inputElement?.getAttribute('name')).toEqual('q');
+      });
+
+      it('should renders with type="text" by default', () => {
+        const inputElement = document?.querySelector('.search-block__input');
+        expect(inputElement?.getAttribute('type')).toEqual('text');
+      });
+
+      it('should renders with spellcheck attribute set to false', () => {
+        const inputElement = document?.querySelector('.search-block__input');
+        expect(inputElement?.getAttribute('spellcheck')).toEqual('false');
+      });
+    });
+
+    describe('Search container when it includes a suffix', () => {
+      it('should renders the suffix inside the wrapper', () => {
+        const suffix = document?.querySelector(
+          '.govuk-form-group > .govuk-input__wrapper > .govuk-input__suffix'
+        );
+        expect(suffix).toBeTruthy();
+      });
+
+      it('should renders a button in the suffix', () => {
+        const buttonElement = document?.querySelector(
+          '.govuk-form-group > .govuk-input__wrapper > .govuk-input__suffix'
+        )?.firstElementChild;
+        expect(buttonElement?.tagName?.toLowerCase()).toBe('button');
+      });
+
+      it('should renders a button with custom class in the suffix', () => {
+        const buttonElement = document?.querySelector(
+          '.govuk-form-group > .govuk-input__wrapper > .govuk-input__suffix'
+        )?.firstElementChild;
+        expect(
+          buttonElement?.classList?.contains('search-block__button')
+        ).toBeTruthy();
+      });
+    });
+  });
+
   describe('Home > YouTube video block', () => {
     describe('YouTube video block classes', () => {
       it('renders custom video container class', async () => {
-        const options = {
-          method: 'GET',
-          url: webRoutePaths.home,
-        };
-
-        const response = await server.inject(options);
-        const rawHTML = response.payload;
-        const parser = new DOMParser();
-        const document = parser.parseFromString(rawHTML, 'text/html');
         expect(document.querySelector('.video-container')).toBeTruthy();
       });
 
       it('renders custom video frame class', async () => {
-        const options = {
-          method: 'GET',
-          url: webRoutePaths.home,
-        };
-
-        const response = await server.inject(options);
-        const rawHTML = response.payload;
-        const parser = new DOMParser();
-        const document = parser.parseFromString(rawHTML, 'text/html');
         expect(document.querySelector('.video-container__frame')).toBeTruthy();
       });
     });
 
     describe('YouTube video block elements', () => {
       it('should render 2 child elements', async () => {
-        const options = {
-          method: 'GET',
-          url: webRoutePaths.home,
-        };
-
-        const response = await server.inject(options);
-        const rawHTML = response.payload;
-        const parser = new DOMParser();
-        const document = parser.parseFromString(rawHTML, 'text/html');
         const videoContainer = document?.querySelector('.video-container');
         expect(videoContainer?.childElementCount).toEqual(2);
       });
@@ -159,15 +244,6 @@ describe('Home Screen', () => {
 
     describe('YouTube video block heading', () => {
       it('should render the video content heading', async () => {
-        const options = {
-          method: 'GET',
-          url: webRoutePaths.home,
-        };
-
-        const response = await server.inject(options);
-        const rawHTML = response.payload;
-        const parser = new DOMParser();
-        const document = parser.parseFromString(rawHTML, 'text/html');
         expect(
           document
             ?.querySelector('.video-container__heading-m')
@@ -178,15 +254,6 @@ describe('Home Screen', () => {
 
     describe('YouTube video frame options', () => {
       it('should render youtube video in iframe', async () => {
-        const options = {
-          method: 'GET',
-          url: webRoutePaths.home,
-        };
-
-        const response = await server.inject(options);
-        const rawHTML = response.payload;
-        const parser = new DOMParser();
-        const document = parser.parseFromString(rawHTML, 'text/html');
         const videoFrame = document?.querySelector('.video-container__frame');
         expect(videoFrame?.firstElementChild?.tagName.toLowerCase()).toBe(
           'iframe'
@@ -194,15 +261,6 @@ describe('Home Screen', () => {
       });
 
       it('should render youtube video url', async () => {
-        const options = {
-          method: 'GET',
-          url: webRoutePaths.home,
-        };
-
-        const response = await server.inject(options);
-        const rawHTML = response.payload;
-        const parser = new DOMParser();
-        const document = parser.parseFromString(rawHTML, 'text/html');
         const videoFrame = document?.querySelector('.video-container__frame');
         expect(videoFrame?.firstElementChild?.getAttribute('src')).toBe(
           'https://www.youtube.com/embed/4wx0rMruSJo?si=h-SD8VoSUSNwqo1S'
