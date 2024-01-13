@@ -7536,10 +7536,20 @@
   color: #0b0c0c;
   padding-top: 20px;
 }
+@media screen and (max-width: 799px) {
+  .quick_search-container__caption-m {
+    width: 100%;
+  }
+}
 
 .search-block__form {
   position: relative;
   width: 630px;
+}
+@media screen and (max-width: 799px) {
+  .search-block__form {
+    width: 100%;
+  }
 }
 .search-block__label {
   position: absolute !important;

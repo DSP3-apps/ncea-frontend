@@ -15,12 +15,24 @@
     color: $govuk-text-colour;
     padding-top: 20px;
   }
+
+  @media screen and (max-width: 799px) {
+    &__caption-m {
+      width: 100%;
+    }
+  }
 }
 
 .search-block {
   &__form {
     position: relative;
     width: 630px;
+  }
+
+  @media screen and (max-width: 799px) {
+    &__form {
+      width: 100%;
+    }
   }
 
   &__label {
