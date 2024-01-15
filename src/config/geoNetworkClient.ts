@@ -1,5 +1,5 @@
-import axios, { AxiosError, AxiosResponse } from 'axios';
 import { apiBaseURL } from '../utils/constants';
+import axios, { AxiosError, AxiosResponse } from 'axios';
 
 const geoNetworkClient = axios.create({
   baseURL: apiBaseURL,
@@ -18,7 +18,7 @@ geoNetworkClient.interceptors.request.use(
   },
   (error) => {
     return Promise.reject(error);
-  }
+  },
 );
 
 // Response interceptor
@@ -37,7 +37,7 @@ geoNetworkClient.interceptors.response.use(
       // handle when the user token expires
     }
     return Promise.reject(error);
-  }
+  },
 );
 
 export { geoNetworkClient };
