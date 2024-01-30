@@ -4,4 +4,5 @@ export const searchApiURL = '/search/records/_search?bucket=s101';
 export const webRoutePaths = {
   home: '/',
   results: '/search',
+  guidedSearch: '/guided-search',
 };
