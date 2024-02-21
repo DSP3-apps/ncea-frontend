@@ -35,6 +35,7 @@ describe('Search API', () => {
             search_term: 'example',
           },
         },
+        sort: '',
       };
       const payload: IQuery = buildSearchQuery(searchFieldsObject);
       await getSearchResults(searchFieldsObject);
@@ -51,6 +52,7 @@ describe('Search API', () => {
             search_term: 'example',
           },
         },
+        sort: 'best_match',
       };
       const result = await getSearchResults(searchFieldsObject);
       expect(result).toEqual({ total: undefined, items: [] });
@@ -63,6 +65,7 @@ describe('Search API', () => {
             search_term: 'example',
           },
         },
+        sort: '',
       };
       elasticSearchClient.post = jest
         .fn()
@@ -73,7 +76,7 @@ describe('Search API', () => {
     });
 
     it('should return the default response when no fields data is present', async () => {
-      const result = await getSearchResults({ fields: {} });
+      const result = await getSearchResults({ fields: {}, sort: '' });
       expect(result).toEqual({ total: 0, items: [] });
     });
   });
@@ -86,6 +89,7 @@ describe('Search API', () => {
             search_term: 'example',
           },
         },
+        sort: '',
       };
       (elasticSearchClient.post as jest.Mock).mockResolvedValueOnce({
         data: { totalResults: 10 },
@@ -101,6 +105,7 @@ describe('Search API', () => {
             search_term: 'example',
           },
         },
+        sort: '',
       };
       (elasticSearchClient.post as jest.Mock).mockResolvedValueOnce({
         data: { count: 10 },
@@ -110,7 +115,7 @@ describe('Search API', () => {
     });
 
     it('should return the total results count as 0 if no must conditions are provided', async () => {
-      const result = await getSearchResultsCount({ fields: {} });
+      const result = await getSearchResultsCount({ fields: {}, sort: '' });
       expect(result).toEqual({ totalResults: 0 });
     });
 
@@ -121,6 +126,7 @@ describe('Search API', () => {
             search_term: 'example',
           },
         },
+        sort: '',
       };
       elasticSearchClient.post = jest
         .fn()

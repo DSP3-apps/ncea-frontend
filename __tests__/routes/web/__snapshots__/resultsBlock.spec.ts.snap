@@ -6,10 +6,40 @@ exports[`Results block template Guided search journey Search results with empty 
 
 
 
+
   <div class='govuk-section-break--visible'>
     <h2 class='govuk-heading-m results-stats'>
       0 results found 
     </h2>
+
+    <div class="option-container">
+      
+
+
+<div class="govuk-form-group option-group">
+  <label class="govuk-label option-label" for="sort">
+    Sort by
+  </label>
+
+
+  <select class="govuk-select option-block" id="sort" name="sort">
+  
+    
+      
+      
+      <option value="best_match">Best match</option>
+    
+  
+    
+      
+      
+      <option value="recent_study">Most recent study</option>
+    
+  
+  </select>
+</div>
+
+    </div>
   </div>
 
 
@@ -58,6 +88,7 @@ exports[`Results block template Guided search journey Search results with error 
 "
 
 
+
   <p class="govuk-caption-m govuk-!-font-size-14">Unable to fetch the search results. Please try again.</p>
 
 
@@ -74,10 +105,40 @@ exports[`Results block template Quick search journey Search results with data sh
 
 
 
+
   <div class='govuk-section-break--visible'>
     <h2 class='govuk-heading-m results-stats'>
       2 results
     </h2>
+
+    <div class="option-container">
+      
+
+
+<div class="govuk-form-group option-group">
+  <label class="govuk-label option-label" for="sort">
+    Sort by
+  </label>
+
+
+  <select class="govuk-select option-block" id="sort" name="sort">
+  
+    
+      
+      
+      <option value="best_match">Best match</option>
+    
+  
+    
+      
+      
+      <option value="recent_study">Most recent study</option>
+    
+  
+  </select>
+</div>
+
+    </div>
   </div>
 
 
@@ -184,10 +245,40 @@ exports[`Results block template Quick search journey Search results with empty d
 
 
 
+
   <div class='govuk-section-break--visible'>
     <h2 class='govuk-heading-m results-stats'>
       0 results found 
     </h2>
+
+    <div class="option-container">
+      
+
+
+<div class="govuk-form-group option-group">
+  <label class="govuk-label option-label" for="sort">
+    Sort by
+  </label>
+
+
+  <select class="govuk-select option-block" id="sort" name="sort">
+  
+    
+      
+      
+      <option value="best_match">Best match</option>
+    
+  
+    
+      
+      
+      <option value="recent_study">Most recent study</option>
+    
+  
+  </select>
+</div>
+
+    </div>
   </div>
 
 
@@ -209,6 +300,7 @@ exports[`Results block template Quick search journey Search results with empty d
 
 exports[`Results block template Quick search journey Search results with error should match the results screen snapshot 1`] = `
 "
+
 
 
   <p class="govuk-caption-m govuk-!-font-size-14">Unable to fetch the search results. Please try again.</p>

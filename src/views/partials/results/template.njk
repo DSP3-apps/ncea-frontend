@@ -1,4 +1,5 @@
-{% from 'govuk/components/button/macro.njk' import govukButton %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
 
 {% if hasError %}
   <p class="govuk-caption-m govuk-!-font-size-14">Unable to fetch the search results. Please try again.</p>
@@ -9,6 +10,31 @@
     <h2 class='govuk-heading-m results-stats'>
       {{searchResults.total}} results{% if not searchResults.total %} found {% endif %}
     </h2>
+
+    <div class="option-container">
+      {{ govukSelect({
+        id: "sort",
+        name: "sort",
+        label: {
+          text: "Sort by",
+          classes: "option-label"
+        },
+        classes: "option-block",
+        formGroup: {
+          classes: "option-group"
+        },
+        items: [
+          {
+            value: "best_match",
+            text: "Best match"
+          },
+          {
+            value: "recent_study",
+            text: "Most recent study"
+          }
+        ]
+      }) }}
+    </div>
   </div>
 {% endif %}
 

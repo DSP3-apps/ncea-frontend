@@ -31,14 +31,14 @@ const checkProperties = (dataObject, seen = new Set()) => {
 };
 
 const invokeAjaxCall = async (path) => {
-  const { fields } = getStorageData();
+  const { fields, sort } = getStorageData();
   try {
     const response = await fetch(path, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ fields }),
+      body: JSON.stringify({ fields, sort }),
     });
     if (response.ok) {
       return response;
@@ -60,6 +60,33 @@ const invokeSearchResults = () => {
   }
 };
 
+const hydrateSortOption = () => {
+  const { sort } = getStorageData();
+  const hasSortElement = document.getElementById('sort');
+  if (hasSortElement && sort) {
+    for (const option of hasSortElement.options) {
+      if (option.value === sort) {
+        option.selected = true;
+        break;
+      }
+    }
+  }
+};
+
+const attacheSortChangeListener = () => {
+  const hasSortElement = document.getElementById('sort');
+  if (hasSortElement) {
+    hasSortElement.addEventListener('change', () => {
+      const selectedValue =
+        hasSortElement.options[hasSortElement.selectedIndex];
+      const sessionData = getStorageData();
+      sessionData.sort = selectedValue.value;
+      storeStorageData(sessionData);
+      invokeSearchResults();
+    });
+  }
+};
+
 const getSearchResults = async (path) => {
   document.getElementById(resultsBlockId).innerHTML =
     '<p class="govuk-caption-m govuk-!-font-size-14">Your search request is being served...</p>';
@@ -67,7 +94,9 @@ const getSearchResults = async (path) => {
   if (response) {
     const searchResultsHtml = await response.text();
     document.getElementById(resultsBlockId).innerHTML = searchResultsHtml;
-    resetStorage();
+
+    hydrateSortOption();
+    attacheSortChangeListener();
   } else {
     document.getElementById(resultsBlockId).innerHTML =
       '<p class="govuk-caption-m govuk-!-font-size-14">Unable to fetch the search results. Please try again.</p>';
@@ -129,3 +158,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+export { hydrateSortOption, invokeSearchResults };
