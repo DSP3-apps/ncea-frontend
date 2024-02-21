@@ -22,7 +22,7 @@ exports[`Home Screen Home > Sanpshot verification should match the home screen s
 
 
     
-  <link rel="stylesheet" href="/assets/application.css">
+  <link rel="stylesheet" href="/assets/css/application.css">
 
     
   </head>
@@ -80,7 +80,6 @@ exports[`Home Screen Home > Sanpshot verification should match the home screen s
     <h1 class="govuk-heading-m quick_search-container__heading-m">
       
         Quick Search
-        
       
     </h1>
     

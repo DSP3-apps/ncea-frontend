@@ -22,7 +22,7 @@ exports[`Results Screen Sanpshot verification & status code should match the res
 
 
     
-  <link rel="stylesheet" href="/assets/application.css">
+  <link rel="stylesheet" href="/assets/css/application.css">
 
     
   </head>

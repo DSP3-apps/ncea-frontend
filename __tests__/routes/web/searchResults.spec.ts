@@ -123,7 +123,6 @@ describe('Results Screen', () => {
         expect(anchor?.textContent?.trim()).toEqual('Search results');
       });
     });
-
     describe('Search block classes', () => {
       it('renders custom quick search container class', async () => {
         expect(document.querySelector('.quick_search-container')).toBeTruthy();

@@ -93,14 +93,14 @@ describe('Guided Search - Geography Questionnaire Screen GET Request', () => {
     describe('Coordinate questionnaire block classes', () => {
       it('renders 4 govuk-grid-row class', async () => {
         expect(document.querySelector('.govuk-grid-row')).toBeTruthy();
-        expect(document.querySelectorAll('.govuk-grid-row').length).toEqual(4);
+        expect(document.querySelectorAll('.govuk-grid-row').length).toEqual(6);
       });
 
       it('renders 2 govuk-grid-column-full class', async () => {
         expect(document.querySelector('.govuk-grid-column-full')).toBeTruthy();
         expect(
           document.querySelectorAll('.govuk-grid-column-full').length,
-        ).toEqual(2);
+        ).toEqual(3);
       });
 
       it('renders 3 govuk-grid-column-one-half class', async () => {
@@ -149,7 +149,7 @@ describe('Guided Search - Geography Questionnaire Screen GET Request', () => {
       it('should render the block medium heading', async () => {
         expect(
           document?.querySelector('.govuk-heading-m')?.textContent?.trim(),
-        ).toBe('Geographical coordinate box');
+        ).toBe('Draw area on map');
       });
     });
 

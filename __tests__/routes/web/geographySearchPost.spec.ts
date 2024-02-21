@@ -136,7 +136,7 @@ describe('Guided Search - Geography Questionnaire Screen POST Request', () => {
         it('renders 4 govuk-grid-row class', async () => {
           expect(document.querySelector('.govuk-grid-row')).toBeTruthy();
           expect(document.querySelectorAll('.govuk-grid-row').length).toEqual(
-            4,
+            6,
           );
         });
 
@@ -146,7 +146,7 @@ describe('Guided Search - Geography Questionnaire Screen POST Request', () => {
           ).toBeTruthy();
           expect(
             document.querySelectorAll('.govuk-grid-column-full').length,
-          ).toEqual(2);
+          ).toEqual(3);
         });
 
         it('renders 3 govuk-grid-column-one-half class', async () => {
@@ -197,7 +197,7 @@ describe('Guided Search - Geography Questionnaire Screen POST Request', () => {
         it('should render the block medium heading', async () => {
           expect(
             document?.querySelector('.govuk-heading-m')?.textContent?.trim(),
-          ).toBe('Geographical coordinate box');
+          ).toBe('Draw area on map');
         });
       });
 
