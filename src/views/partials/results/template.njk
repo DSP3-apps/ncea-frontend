@@ -1,5 +1,5 @@
-{% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from 'govuk/components/button/macro.njk' import govukButton %}
+{% from 'govuk/components/select/macro.njk' import govukSelect %}
 
 {% if hasError %}
   <p class="govuk-caption-m govuk-!-font-size-14">Unable to fetch the search results. Please try again.</p>
@@ -92,15 +92,26 @@
         <p class='search-result__content'>
           {{item.content}}
         </p>
+
+        {% set openDataAttributes = {} %}
+        {% if item.resourceLocator %}
+          {% set openDataAttributes = openDataAttributes | merge({
+            onclick: "openDataModal('" + item.resourceLocator + "')"
+          }) %}
+        {% else %}
+          {% set openDataAttributes = openDataAttributes | merge({disabled: "true"}) %}
+        {% endif %}
+
         <div class='govuk-button-group search-result__button-group'>
           {{ govukButton({
-          text: 'Open data'
-        }) }}
+            text: 'Open data',
+            attributes: openDataAttributes
+          }) }}
 
           {{ govukButton({
-          text: 'More info',
-          classes: 'govuk-button--secondary'
-        }) }}
+            text: 'More info',
+            classes: 'govuk-button--secondary'
+          }) }}
         </div>
       </div>
     {% endfor %}
@@ -129,4 +140,8 @@
       {% endif %}
     </p>
   </div>
+{% endif %}
+
+{% if searchResults.total and not hasError %}
+  {%- include 'partials/open_data/template.njk' -%}
 {% endif %}
