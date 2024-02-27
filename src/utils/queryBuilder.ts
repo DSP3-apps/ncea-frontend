@@ -2,6 +2,7 @@ import { generateDateString } from './generateDateString';
 import {
   IBoolQuery,
   ICustomSortScript,
+  IGeoCoordinates,
   IGeoShapeQuery,
   IMatchQuery,
   IQuery,
@@ -84,8 +85,36 @@ const buildBestScoreSort = (): ISortQuery => ({
   },
 });
 
+const buildGeoShapeQuery = (geoCoordinates: IGeoCoordinates): IGeoShapeQuery => {
+  const geoShape: IShapeCoordinates = {
+    type: 'envelope',
+    coordinates: [
+      [parseFloat(geoCoordinates.west), parseFloat(geoCoordinates.north)],
+      [parseFloat(geoCoordinates.east), parseFloat(geoCoordinates.south)],
+    ],
+  };
+
+  const geoShapeQuery: IGeoShapeQuery = {
+    geo_shape: {
+      geom: {
+        shape: geoShape,
+        relation: 'intersects',
+        ignore_unmapped: true,
+      },
+    },
+  };
+
+  if (geoCoordinates.depth && geoShapeQuery.geo_shape.geom) {
+    geoShapeQuery.geo_shape.geom.depth = {
+      from: 0,
+      to: parseInt(geoCoordinates.depth),
+    };
+  }
+  return geoShapeQuery;
+};
+
 const buildSearchQuery = (searchFieldsObject: ISearchPayload, fieldsToSearch: string[] = []): IQuery => {
-  const { fields, sort, rowsPerPage } = searchFieldsObject;
+  const { fields, sort, rowsPerPage, page } = searchFieldsObject;
   const boolQuery: IBoolQuery = {
     bool: {
       must: [],
@@ -107,34 +136,10 @@ const buildSearchQuery = (searchFieldsObject: ISearchPayload, fieldsToSearch: st
     boolQuery.bool.must?.push(rangeQuery);
   }
 
-  const geoCoordinates = fields['coordinate-search'];
+  const geoCoordinates: IGeoCoordinates = fields['coordinate-search'] as IGeoCoordinates;
 
   if (geoCoordinates?.north && geoCoordinates?.south && geoCoordinates?.east && geoCoordinates?.west) {
-    const geoShape: IShapeCoordinates = {
-      type: 'envelope',
-      coordinates: [
-        [parseFloat(geoCoordinates.west), parseFloat(geoCoordinates.north)],
-        [parseFloat(geoCoordinates.east), parseFloat(geoCoordinates.south)],
-      ],
-    };
-
-    const geoShapeQuery: IGeoShapeQuery = {
-      geo_shape: {
-        geom: {
-          shape: geoShape,
-          relation: 'intersects',
-          ignore_unmapped: true,
-        },
-      },
-    };
-
-    if (geoCoordinates.depth && geoShapeQuery.geo_shape.geom) {
-      geoShapeQuery.geo_shape.geom.depth = {
-        from: 0,
-        to: parseInt(geoCoordinates.depth),
-      };
-    }
-
+    const geoShapeQuery: IGeoShapeQuery = buildGeoShapeQuery(geoCoordinates);
     boolQuery.bool.must?.push(geoShapeQuery);
   }
 
@@ -142,6 +147,7 @@ const buildSearchQuery = (searchFieldsObject: ISearchPayload, fieldsToSearch: st
     query: boolQuery,
     sort: [],
     size: rowsPerPage,
+    from: page === 1 ? 0 : (page - 1) * rowsPerPage,
   };
 
   if (sort) {

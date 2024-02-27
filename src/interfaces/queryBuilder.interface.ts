@@ -64,17 +64,15 @@ interface IQuery {
   query: IBoolQuery;
   sort?: ISortQuery[];
   size: number;
+  from: number;
 }
 
 interface IGeoCoordinates {
-  north: number;
-  south: number;
-  east: number;
-  west: number;
-  depth?: {
-    from: number;
-    to: number;
-  };
+  north: string;
+  south: string;
+  east: string;
+  west: string;
+  depth?: string;
 }
 
 interface ISearchFields {
@@ -102,6 +100,7 @@ interface ISearchPayload {
   fields: ISearchFields;
   sort: string;
   rowsPerPage: number;
+  page: number;
 }
 
 export {
