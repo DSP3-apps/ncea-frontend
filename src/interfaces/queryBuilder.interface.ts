@@ -27,7 +27,6 @@ interface IGeoShapeQuery {
         to: number;
       };
       relation: string;
-      ignore_unmapped: boolean;
     };
   };
 }
@@ -60,11 +59,20 @@ interface ISortQuery {
   [key: string]: ISortOrder | ICustomSortScript;
 }
 
+interface IAggregateQuery {
+  unique_values?: {
+    terms?: {
+      field?: string;
+    };
+  };
+}
+
 interface IQuery {
+  size?: number;
   query: IBoolQuery;
   sort?: ISortQuery[];
-  size: number;
-  from: number;
+  aggs?: IAggregateQuery;
+  from?: number;
 }
 
 interface IGeoCoordinates {
@@ -96,9 +104,14 @@ interface ISearchFields {
   };
 }
 
+interface ISearchFilter {
+  [key: string]: string;
+}
+
 interface ISearchPayload {
   fields: ISearchFields;
   sort: string;
+  filters: ISearchFilter;
   rowsPerPage: number;
   page: number;
 }
@@ -116,4 +129,6 @@ export {
   IQueryString,
   ISortQuery,
   ICustomSortScript,
+  IAggregateQuery,
+  ISearchFilter,
 };

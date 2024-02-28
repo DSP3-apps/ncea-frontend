@@ -1,5 +1,6 @@
 import { generateDateString } from './generateDateString';
 import {
+  IAggregateQuery,
   IBoolQuery,
   ICustomSortScript,
   IGeoCoordinates,
@@ -14,19 +15,19 @@ import {
   ISortQuery,
 } from '../interfaces/queryBuilder.interface';
 
-const quickSearchQuery = (fields: ISearchFields): IQueryString => {
+const quickSearchQuery = (searchTerm: string): IQueryString => {
   const queryString: IQueryString = {
     query_string: {
-      query: fields['quick-search']?.search_term as string,
+      query: searchTerm,
       default_operator: 'AND',
     },
   };
   return queryString;
 };
 
-const quickSearchQueryWithFields = (fields: ISearchFields, fieldsToSearch: string[] = []): IBoolQuery => {
+const searchQueryWithFields = (searchTerm: string, fieldsToSearch: string[]): IBoolQuery => {
   const matchQueries: IMatchQuery[] = fieldsToSearch.map((field: string) => ({
-    match: { [field]: fields['quick-search']?.search_term },
+    match: { [field]: searchTerm },
   })) as IMatchQuery[];
 
   const matchShould: IBoolQuery = {
@@ -99,7 +100,6 @@ const buildGeoShapeQuery = (geoCoordinates: IGeoCoordinates): IGeoShapeQuery => 
       geom: {
         shape: geoShape,
         relation: 'intersects',
-        ignore_unmapped: true,
       },
     },
   };
@@ -113,22 +113,72 @@ const buildGeoShapeQuery = (geoCoordinates: IGeoCoordinates): IGeoShapeQuery => 
   return geoShapeQuery;
 };
 
-const buildSearchQuery = (searchFieldsObject: ISearchPayload, fieldsToSearch: string[] = []): IQuery => {
-  const { fields, sort, rowsPerPage, page } = searchFieldsObject;
+const buildSortQuery = (finalQuery: IQuery, sort: string, isCount: boolean): IQuery => {
+  if (sort && !isCount) {
+    const sortQuery: ISortQuery =
+      sort === 'recent_study' ? buildCustomSortScriptForStudyPeriod() : buildBestScoreSort();
+    finalQuery.sort?.push(sortQuery);
+  } else {
+    delete finalQuery.sort;
+  }
+  return finalQuery;
+};
+
+const buildAggregationQuery = (
+  finalQuery: IQuery,
+  ignoreAggregation: boolean,
+  isCount: boolean,
+  aggregationField: string,
+): IQuery => {
+  if (!ignoreAggregation && !isCount && aggregationField) {
+    const aggregateQuery: IAggregateQuery = {
+      unique_values: {
+        terms: {
+          field: aggregationField,
+        },
+      },
+    };
+    finalQuery.aggs = aggregateQuery;
+    finalQuery.size = 0;
+  } else {
+    delete finalQuery.aggs;
+  }
+
+  return finalQuery;
+};
+
+const buildSearchQuery = (
+  searchFieldsObject: ISearchPayload,
+  fieldsToSearch: string[] = [],
+  isCount: boolean = false,
+  ignoreAggregation: boolean = false,
+  aggregationField: string = '',
+): IQuery => {
+  const { fields, sort, rowsPerPage, page, filters: filterOptions } = searchFieldsObject;
   const boolQuery: IBoolQuery = {
     bool: {
       must: [],
     },
   };
 
-  if (!fieldsToSearch.length && fields['quick-search']) {
-    const queryString: IQueryString = quickSearchQuery(fields);
+  if (fields['quick-search']) {
+    const searchTerm = fields['quick-search']?.search_term as string;
+    let queryString: IQueryString | IBoolQuery;
+    if (fieldsToSearch.length) {
+      queryString = searchQueryWithFields(searchTerm, fieldsToSearch);
+    } else {
+      queryString = quickSearchQuery(searchTerm);
+    }
     boolQuery.bool.must?.push(queryString);
   }
 
-  if (fields['quick-search'] && fieldsToSearch.length) {
-    const matchShould: IBoolQuery = quickSearchQueryWithFields(fields, fieldsToSearch);
-    boolQuery.bool.must?.push(matchShould);
+  if (filterOptions && Object.keys(filterOptions).length && !isCount && ignoreAggregation) {
+    const filteredOptions = Object.keys(filterOptions).filter((key) => filterOptions[key] !== 'all') ?? [];
+
+    filteredOptions.forEach((key) => {
+      const matchShould: IBoolQuery = searchQueryWithFields(filterOptions[key] as string, [key]);
+      boolQuery.bool.must?.push(matchShould);
+    });
   }
 
   if (fields['date-search']?.['from-date-year'] && fields['date-search']['to-date-year']) {
@@ -140,22 +190,24 @@ const buildSearchQuery = (searchFieldsObject: ISearchPayload, fieldsToSearch: st
 
   if (geoCoordinates?.north && geoCoordinates?.south && geoCoordinates?.east && geoCoordinates?.west) {
     const geoShapeQuery: IGeoShapeQuery = buildGeoShapeQuery(geoCoordinates);
+
     boolQuery.bool.must?.push(geoShapeQuery);
   }
 
-  const finalQuery: IQuery = {
+  let finalQuery: IQuery = {
     query: boolQuery,
     sort: [],
+    aggs: {},
     size: rowsPerPage,
-    from: page === 1 ? 0 : (page - 1) * rowsPerPage,
+    ...(page && { from: page === 1 ? 0 : (page - 1) * rowsPerPage }),
   };
 
-  if (sort) {
-    const sortQuery: ISortQuery =
-      sort === 'recent_study' ? buildCustomSortScriptForStudyPeriod() : buildBestScoreSort();
-    finalQuery.sort?.push(sortQuery);
-  } else {
-    delete finalQuery.sort;
+  finalQuery = buildSortQuery(finalQuery, sort, isCount);
+
+  finalQuery = buildAggregationQuery(finalQuery, ignoreAggregation, isCount, aggregationField);
+
+  if (isCount) {
+    delete finalQuery.size;
   }
 
   return finalQuery;
