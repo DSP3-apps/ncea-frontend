@@ -185,12 +185,15 @@ const formattedDetailsResponse: ISearchResults = {
       language: 'ENG',
       keywords: '',
       topic_categories: '',
+      organisationName: '',
       ncea_catalogue_number: '3c080cb6-2ed9-43e7-9323-9ce42b05b9a2',
-      host_catalogue_number: 'https://seabed.admiralty.co.uk 3c080cb6-2ed9-43e7-9323-9ce42b05b9a2',
+      host_catalogue_number:
+        'https://seabed.admiralty.co.uk 3c080cb6-2ed9-43e7-9323-9ce42b05b9a2',
       host_catalogue_entry: '',
       resource_type_and_hierarchy: 'dataset',
       hierarchy_level: 'Dataset',
-      resource_locators: 'Download from Seabed Mapping Service (<a class=\"govuk-link\" href=\"https://seabed.admiralty.co.uk\" target=\"_blank\">https://seabed.admiralty.co.uk</a>)',
+      resource_locators:
+        'Download from Seabed Mapping Service (<a class="govuk-link" href="https://seabed.admiralty.co.uk" target="_blank">https://seabed.admiralty.co.uk</a>)',
     },
   ],
 };
@@ -692,7 +695,7 @@ const formattedDetailsFullResponse: ISearchResults = {
       id: 'fb8dca0f-7425-4f50-86a1-c4673b1aef88',
       title:
         '20190731 - HI1597 - Firth of Clyde - Troon to Turnberry Point - 2m - Bathymetric Survey',
-      publishedBy: 'United Kingdom Hydrographic Office',
+      publishedBy: 'Maritime and Coastguard Agency',
       content:
         'This processed bathymetric data set has been derived from an Echosounder - multibeam survey. The source data was collected, validated and processed for the purpose of Safety Of Life At Sea (SOLAS). The data set must not be used for navigation or to create products that could be used for navigation.',
       studyPeriod: '24 May 2019 to 31 Jul 2019',
@@ -701,12 +704,15 @@ const formattedDetailsFullResponse: ISearchResults = {
       keywords:
         'Elevation, Marine Environmental Data and Information Network, Bathymetry and Elevation',
       topic_categories: 'Elevation',
+      organisationName: 'United Kingdom Hydrographic Office',
       ncea_catalogue_number: 'fb8dca0f-7425-4f50-86a1-c4673b1aef88',
-      host_catalogue_number: 'https://seabed.admiralty.co.uk fb8dca0f-7425-4f50-86a1-c4673b1aef88',
+      host_catalogue_number:
+        'https://seabed.admiralty.co.uk fb8dca0f-7425-4f50-86a1-c4673b1aef88',
       host_catalogue_entry: '',
       resource_type_and_hierarchy: 'dataset',
       hierarchy_level: 'Dataset',
-      resource_locators : 'Download from Seabed Mapping Service (<a class=\"govuk-link\" href=\"https://seabed.admiralty.co.uk\" target=\"_blank\">https://seabed.admiralty.co.uk</a>)'
+      resource_locators:
+        'Download from Seabed Mapping Service (<a class="govuk-link" href="https://seabed.admiralty.co.uk" target="_blank">https://seabed.admiralty.co.uk</a>)',
     },
   ],
 };
