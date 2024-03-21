@@ -145,6 +145,26 @@ describe('Details route template', () => {
         expect(titleElement?.tagName.toLowerCase()).toBe('h1');
       });
 
+      it('should render the alternate title', async () => {
+        const altTitleBlockElement =
+          document.querySelector('.details-alt_title');
+        expect(altTitleBlockElement).toBeDefined();
+        const altTitleBlockHeadingElement = document.querySelector(
+          '.govuk-details__summary-text',
+        );
+        const altTitleBlockValueElement = document.querySelector(
+          '.govuk-details__text',
+        );
+        expect(altTitleBlockHeadingElement?.textContent?.trim()).toBe(
+          'Alternate title (additional business name or alternative language)',
+        );
+        expect(altTitleBlockHeadingElement?.tagName.toLowerCase()).toBe('span');
+        expect(altTitleBlockValueElement?.textContent?.trim()).toBe(
+          detailsFullResponse?.alternateTitle,
+        );
+        expect(altTitleBlockValueElement?.tagName.toLowerCase()).toBe('div');
+      });
+
       it('should render the open data button and modal', async () => {
         const buttonElement = document.querySelector('.govuk-button');
         expect(buttonElement).toBeTruthy();
@@ -359,22 +379,38 @@ describe('Details route template', () => {
         expect(titleElement?.tagName.toLowerCase()).toBe('h1');
       });
 
-      it('should render the open data button parent div with a class', async () => {
+      it('should not render the alternate title', async () => {
+        const altTitleBlockElement =
+          document.querySelector('.details-alt_title');
+        expect(altTitleBlockElement).toBeNull();
+      });
+
+      it('should render the open data button with disabled state and with out modal', async () => {
+        const buttonElement = document.querySelector('.govuk-button');
+        expect(buttonElement).toBeTruthy();
+        expect(buttonElement.hasAttribute('disabled')).toBeTruthy();
+        expect(document.querySelector('.modal')).toBeFalsy();
+      });
+
+      it('should not render the open data button parent div with a class', async () => {
         const parentElement =
           document.querySelector('.govuk-button')?.parentElement;
         expect(parentElement).toBeTruthy();
         expect(parentElement?.tagName?.toLowerCase()).toBe('div');
         expect(
           parentElement?.classList?.contains('open-data-block--disabled'),
-        ).toBeFalsy();
+        ).toBeTruthy();
       });
 
       it('should render the open data text', async () => {
         const openDataTagElement = document.querySelector(
           '.open-data-block--tag',
         );
-        expect(openDataTagElement).toBe(null);
-        expect(openDataTagElement?.textContent?.trim()).toBe(undefined);
+        expect(openDataTagElement).toBeDefined();
+        expect(openDataTagElement?.tagName?.toLowerCase()).toBe('span');
+        expect(openDataTagElement?.textContent?.trim()).toBe(
+          'Access to this data resource is by application to the owner - please refer to access tab for further details',
+        );
       });
     });
 

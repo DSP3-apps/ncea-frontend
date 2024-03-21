@@ -8,6 +8,7 @@ export interface ISearchItem {
   language?: string;
   keywords?: string;
   topic_categories?: string;
+  alternateTitle?: string;
   organisationName?: string;
   ncea_catalogue_number?: string;
   host_catalogue_number?: string;

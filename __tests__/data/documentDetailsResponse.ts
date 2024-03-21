@@ -40,7 +40,7 @@ const detailsSuccessAPIResponse = {
           resourceIdentifier: [
             {
               code: '3c080cb6-2ed9-43e7-9323-9ce42b05b9a2',
-              codeSpace: 'https://seabed.admiralty.co.uk',
+              codeSpace: '',
               link: '',
             },
           ],
@@ -93,6 +93,11 @@ const detailsSuccessAPIResponse = {
             default: 'Geoserver WFS Fragments Country Boundaries Test Template',
             langeng: 'Geoserver WFS Fragments Country Boundaries Test Template',
           },
+          resourceAltTitleObject: [
+            {
+              default: '',
+            },
+          ],
           resourceAbstractObject: {
             default: '',
             lang: '',
@@ -181,15 +186,15 @@ const formattedDetailsResponse: ISearchResults = {
       publishedBy: '',
       content: '',
       studyPeriod: '',
-      resourceLocator: 'https://seabed.admiralty.co.uk',
+      resourceLocator: '',
       language: 'ENG',
       Metadata_language: "eng",
       keywords: '',
       topic_categories: '',
+      alternateTitle: '',
       organisationName: '',
       ncea_catalogue_number: '3c080cb6-2ed9-43e7-9323-9ce42b05b9a2',
-      host_catalogue_number:
-        'https://seabed.admiralty.co.uk 3c080cb6-2ed9-43e7-9323-9ce42b05b9a2',
+      host_catalogue_number: ' 3c080cb6-2ed9-43e7-9323-9ce42b05b9a2',
       host_catalogue_entry: '',
       resource_type_and_hierarchy: 'dataset',
       host_service_catalogue_number: "2fc172f5-4c8e-493b-8277-3492b3ed504c",
@@ -316,6 +321,11 @@ const detailsSuccessAPIFullData = {
             langeng:
               '20190731 - HI1597 - Firth of Clyde - Troon to Turnberry Point - 2m - Bathymetric Survey',
           },
+          resourceAltTitleObject: [
+            {
+              default: 'This is an alternate title',
+            },
+          ],
           publicationDateForResource: ['2022-03-23T17:26:25.000Z'],
           publicationYearForResource: '2022',
           publicationMonthForResource: '2022-03',
@@ -711,6 +721,7 @@ const formattedDetailsFullResponse: ISearchResults = {
       keywords:
         'Elevation, Marine Environmental Data and Information Network, Bathymetry and Elevation',
       topic_categories: 'Elevation',
+      alternateTitle: 'This is an alternate title',
       organisationName: 'United Kingdom Hydrographic Office',
       ncea_catalogue_number: 'fb8dca0f-7425-4f50-86a1-c4673b1aef88',
       host_catalogue_number:

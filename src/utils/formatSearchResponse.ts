@@ -57,6 +57,7 @@ const formatSearchResponse = async (
 const getOtherDetails = async (searchItem: Record<string, any>): Promise<Record<string, string>> => {
   const catalogueDate = searchItem?._source?.dateStamp ? new Date(searchItem?._source?.dateStamp) : '';
   return {
+    alternateTitle: searchItem?._source?.resourceAltTitleObject?.[0]?.default ?? '',
     language: searchItem?._source?.mainLanguage?.toUpperCase() ?? '',
     keywords: searchItem?._source?.tag?.map((item) => item.default).join(', ') ?? '',
     topic_categories: searchItem?._source?.cl_topic?.map((item) => item.default).join(', ') ?? '',
