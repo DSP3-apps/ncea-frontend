@@ -152,10 +152,8 @@ const detailsSuccessAPIResponse = {
           isHarvested: 'false',
           userSavedCount: '0',
           sourceCatalogue: '2fc172f5-4c8e-493b-8277-3492b3ed504c',
-          cl_accessConstraints:[
-         ],
-         licenseObject:[
-        ]
+          cl_accessConstraints: [],
+          licenseObject: [],
         },
       },
     ],
@@ -192,29 +190,33 @@ const formattedDetailsResponse: ISearchResults = {
       studyPeriod: '',
       resourceLocator: '',
       language: 'ENG',
-      Metadata_language: "eng",
+      Metadata_language: 'eng',
       keywords: '',
-      topic_categories: '',
+      topicCategories: '',
       alternateTitle: '',
       organisationName: '',
       ncea_catalogue_number: '3c080cb6-2ed9-43e7-9323-9ce42b05b9a2',
       host_catalogue_number: ' 3c080cb6-2ed9-43e7-9323-9ce42b05b9a2',
       host_catalogue_entry: '',
       resource_type_and_hierarchy: 'dataset',
-      host_service_catalogue_number: "2fc172f5-4c8e-493b-8277-3492b3ed504c",
+      host_service_catalogue_number: '2fc172f5-4c8e-493b-8277-3492b3ed504c',
       hierarchy_level: 'Dataset',
-      metadata_standard: '',
-      ncea_catalogue_date: "26-Jan-2010",
-      ncea_group_reference: "3c080cb6-2ed9-43e7-9323-9ce42b05b9a2",
-      project_number: "",
       resource_locators:
         'Download from Seabed Mapping Service (<a class="govuk-link" href="https://seabed.admiralty.co.uk" target="_blank">https://seabed.admiralty.co.uk</a>)',
-      license_constraints: "",
-      limitation_on_public_access: "",
-      available_formats: "",
-      character_encoding: "utf8",
-      data_owner: "",
-      frequency_of_update: "",
+      additionalInformation: '',
+      lineage: '',
+      publicationInformation: '',
+      conformity: '',
+      metadata_standard: '',
+      ncea_catalogue_date: '26-Jan-2010',
+      ncea_group_reference: '3c080cb6-2ed9-43e7-9323-9ce42b05b9a2',
+      project_number: '',
+      license_constraints: '',
+      limitation_on_public_access: '',
+      available_formats: '',
+      character_encoding: 'utf8',
+      data_owner: '',
+      frequency_of_update: '',
     },
   ],
 };
@@ -722,15 +724,15 @@ const formattedDetailsFullResponse: ISearchResults = {
       title:
         '20190731 - HI1597 - Firth of Clyde - Troon to Turnberry Point - 2m - Bathymetric Survey',
       publishedBy: 'Maritime and Coastguard Agency',
-      Metadata_language: 'eng',
       content:
         'This processed bathymetric data set has been derived from an Echosounder - multibeam survey. The source data was collected, validated and processed for the purpose of Safety Of Life At Sea (SOLAS). The data set must not be used for navigation or to create products that could be used for navigation.',
       studyPeriod: '24 May 2019 to 31 Jul 2019',
       resourceLocator: 'https://seabed.admiralty.co.uk',
       language: 'ENG',
+      Metadata_language: 'eng',
       keywords:
         'Elevation, Marine Environmental Data and Information Network, Bathymetry and Elevation',
-      topic_categories: 'Elevation',
+      topicCategories: 'Elevation',
       alternateTitle: 'This is an alternate title',
       organisationName: 'United Kingdom Hydrographic Office',
       ncea_catalogue_number: 'fb8dca0f-7425-4f50-86a1-c4673b1aef88',
@@ -739,22 +741,38 @@ const formattedDetailsFullResponse: ISearchResults = {
       host_catalogue_entry: '',
       resource_type_and_hierarchy: 'dataset',
       hierarchy_level: 'Dataset',
-      host_service_catalogue_number: "3ce46f92-509c-4529-a062-c8b48788340d",
-      metadata_standard: "MEDIN",
-      ncea_catalogue_date: "16-Jan-2024",
-      ncea_group_reference: "fb8dca0f-7425-4f50-86a1-c4673b1aef88",
-      project_number: "",
       resource_locators:
         'Download from Seabed Mapping Service (<a class="govuk-link" href="https://seabed.admiralty.co.uk" target="_blank">https://seabed.admiralty.co.uk</a>)',
-      license_constraints: "There are no limitations on public access to spatial data sets and services. <br>",
-      limitation_on_public_access: "Other restrictions <br>otherRestrictions <br>",
-      data_owner: "owner, Maritime and Coastguard Agency <br>customerservices@ukho.gov.uk",
-      frequency_of_update: "Not planned",
-      available_formats: [
-        "Geographic Information System",
-        "Delimited",
-      ],
-      character_encoding: "utf8",
+      additionalInformation: '',
+      lineage:
+        'This data set has been derived from an Echosounder - multibeam survey which was collected for the purpose of Safety of navigation, which was collected against S-44 survey specification (of the time). The survey has been validated and processed by the UKHO.',
+      publicationInformation: '23rd Mar 2022 - Last Revision',
+      conformity: `<table class="details-table">
+                      <thead>
+                        <tr>
+                          <th width="60%">Specification</th>
+                          <th>Degree</th>
+                          <th>Explanation</th>
+                        </tr>
+                      </thead><tbody><tr>
+                      <td>Commission Regulation (EU) No 1089/2010 of 23 November 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of spatial data sets and services</td>
+                      <td>false</td>
+                      <td>inapplicable</td>
+                    </tr></tbody></table>`,
+      host_service_catalogue_number: '3ce46f92-509c-4529-a062-c8b48788340d',
+      metadata_standard: 'MEDIN',
+      ncea_catalogue_date: '16-Jan-2024',
+      ncea_group_reference: 'fb8dca0f-7425-4f50-86a1-c4673b1aef88',
+      project_number: '',
+      license_constraints:
+        'There are no limitations on public access to spatial data sets and services. <br>',
+      limitation_on_public_access:
+        'Other restrictions <br>otherRestrictions <br>There are no limitations on public access to spatial data sets and services.',
+      data_owner:
+        'owner, Maritime and Coastguard Agency <br>customerservices@ukho.gov.uk',
+      frequency_of_update: 'Not planned',
+      available_formats: ['Geographic Information System', 'Delimited'],
+      character_encoding: 'utf8',
     },
   ],
 };

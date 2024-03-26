@@ -249,7 +249,7 @@ describe('Details route template', () => {
         expect(labelElement?.textContent?.trim()).toBe('Topic categories');
         expect(valueElement?.tagName.toLowerCase()).toBe('span');
         expect(valueElement?.textContent?.trim()).toBe(
-          detailsFullResponse?.topic_categories,
+          detailsFullResponse?.topicCategories,
         );
       });
 

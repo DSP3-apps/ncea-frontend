@@ -1,21 +1,30 @@
-export interface ISearchItem {
+export interface IBaseItem {
   id: string;
   title: string;
   publishedBy: string;
   content: string;
   studyPeriod: string;
   resourceLocator: string;
+  organisationName?: string;
+}
+
+export interface IGeneralItem {
+  alternateTitle?: string;
+  topicCategories?: string;
   language?: string;
   keywords?: string;
-  topic_categories?: string;
-  alternateTitle?: string;
-  organisationName?: string;
+}
+
+export interface IAccessItem {
   ncea_catalogue_number?: string;
   host_catalogue_number?: string;
   host_catalogue_entry?: string;
   resource_type_and_hierarchy?: string;
   hierarchy_level?: string;
   resource_locators?: string;
+}
+
+export interface IGovernance {
   ncea_group_reference?: string;
   metadata_standard?: string;
   project_number?: string;
@@ -29,6 +38,16 @@ export interface ISearchItem {
   frequency_of_update?: string;
   character_encoding?: string;
 }
+
+export interface IQualityItem {
+  publicationInformation?: string;
+  lineage?: string;
+  conformity?: string;
+  additionalInformation?: string;
+}
+
+export type IOtherSearchItem = IGeneralItem & IAccessItem & IQualityItem & IGovernance;
+export type ISearchItem = IBaseItem & IOtherSearchItem;
 
 export interface ISearchResults {
   total: number;

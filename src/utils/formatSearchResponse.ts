@@ -1,7 +1,9 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 import { formatDate } from './formatDate';
+import { getGeneralTabData } from './getGeneralTabData';
 import { getOrganisationDetails } from './getOrganisationDetails';
-import { ISearchItem, ISearchResults } from '../interfaces/searchResponse.interface';
+import { getQualityTabData } from './getQualityTabData';
+import { IOtherSearchItem, ISearchItem, ISearchResults } from '../interfaces/searchResponse.interface';
 
 const getStudyPeriod = (startDate: string, endDate: string): string => {
   const formattedStartDate: string = formatDate(startDate);
@@ -26,9 +28,9 @@ const formatSearchResponse = async (
     total: apiResponse?.hits?.total?.value,
     items: [],
   };
-  const apiSearchItems = apiResponse?.hits?.hits;
 
-  apiSearchItems.forEach(async (searchItem: Record<string, any>) => {
+  const apiSearchItems = apiResponse?.hits?.hits;
+  const responseItems: Promise<ISearchItem>[] = apiSearchItems.map(async (searchItem: Record<string, any>) => {
     const startDate: string = searchItem?._source?.resourceTemporalExtentDetails?.[0]?.start?.date ?? '';
     const endDate: string = searchItem?._source?.resourceTemporalExtentDetails?.[0]?.end?.date ?? '';
     const studyPeriod = getStudyPeriod(startDate, endDate);
@@ -44,13 +46,16 @@ const formatSearchResponse = async (
       resourceLocator: searchItem?._source?.resourceIdentifier?.[0]?.codeSpace ?? '',
       organisationName: organisationDetails.organisationValue,
     };
+
     if (isDetails) {
-      const otherDetails: Record<string, string> = await getOtherDetails(searchItem, publishedBy);
+      const otherDetails: IOtherSearchItem = await getOtherDetails(searchItem, publishedBy);
       item = { ...item, ...otherDetails };
     }
 
-    finalResponse.items.push(item);
+    return item;
   });
+
+  finalResponse.items = await Promise.all(responseItems);
   return finalResponse;
 };
 
@@ -77,7 +82,7 @@ const getLimitationPublicAccess = (searchItem: Record<string, any>): string => {
   if (searchItem?._source?.cl_accessConstraints?.[0]?.text) {
     limitationPublicAccess = limitationPublicAccess + `${searchItem?._source?.cl_accessConstraints?.[0]?.text} <br>`;
   }
-  if (searchItem?._source?.licenseObject?.[0]?.defasult) {
+  if (searchItem?._source?.licenseObject?.[0]?.default) {
     limitationPublicAccess = limitationPublicAccess + `${searchItem?._source?.licenseObject?.[0]?.default}`;
   }
 
@@ -100,14 +105,6 @@ const getPublishedBy = (publishedBy: Record<string, any>): string => {
   return dataOwner;
 };
 
-const getKeywords = (searchItem: Record<string, any>): string => {
-  return searchItem?._source?.tag?.map((item) => item.default).join(', ') ?? '';
-};
-
-const getTopicCategories = (searchItem: Record<string, any>): string => {
-  return searchItem?._source?.cl_topic?.map((item) => item.default).join(', ') ?? '';
-};
-
 const getHostCatalogueNumber = (searchItem: Record<string, any>): string => {
   return `${searchItem?._source?.resourceIdentifier?.[0]?.codeSpace ?? ''} ${searchItem?._source?.resourceIdentifier?.[0]?.code ?? ''}`;
 };
@@ -115,12 +112,10 @@ const getHostCatalogueNumber = (searchItem: Record<string, any>): string => {
 const getOtherDetails = async (
   searchItem: Record<string, any>,
   publishedBy: Record<string, any>,
-): Promise<Record<string, string>> => {
+): Promise<IOtherSearchItem> => {
   return {
     alternateTitle: searchItem?._source?.resourceAltTitleObject?.[0]?.default ?? '',
-    language: searchItem?._source?.mainLanguage?.toUpperCase() ?? '',
-    keywords: getKeywords(searchItem),
-    topic_categories: getTopicCategories(searchItem),
+    ...getGeneralTabData(searchItem),
     ncea_catalogue_number: searchItem?._source?.uuid,
     host_catalogue_number: getHostCatalogueNumber(searchItem),
     // Keeping this as a placeholder, as the Coupled Resource is not available now
@@ -128,12 +123,13 @@ const getOtherDetails = async (
     resource_type_and_hierarchy: searchItem?._source?.resourceType?.[0] ?? '',
     hierarchy_level: searchItem?._source?.cl_hierarchyLevel?.[0]?.default ?? '',
     resource_locators: `${searchItem?._source?.cl_function?.[0]?.default} from ${searchItem?._source?.link?.[0]?.nameObject?.default} (<a class="govuk-link" href="${searchItem?._source?.link?.[0]?.urlObject?.default}" target="_blank">${searchItem?._source?.link?.[0]?.urlObject?.default}</a>)`,
+    ...getQualityTabData(searchItem),
     host_service_catalogue_number: searchItem?._source?.sourceCatalogue ?? '',
     ncea_group_reference: searchItem?._source?.metadataIdentifier ?? '',
     metadata_standard: searchItem?._source?.standardNameObject?.default ?? '',
     project_number: '',
     Metadata_language: searchItem?._source?.mainLanguage ?? '',
-    ncea_catalogue_date: formatDate(searchItem?._source?.dateStamp, true),
+    ncea_catalogue_date: formatDate(searchItem?._source?.dateStamp, false, false, '-'),
     limitation_on_public_access: getLimitationPublicAccess(searchItem),
     license_constraints: getLicenseConstraints(searchItem),
     data_owner: getPublishedBy(publishedBy),

@@ -63,3 +63,28 @@
     display: block;
   }
 }
+
+.toggle-content__link {
+  @include font-style-stack(16px, 20px, 300);
+  color: $govuk-link-colour !important;
+}
+
+.details-table {
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 8px 0;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    padding-top: 0;
+  }
+
+  thead tr,
+  tbody tr {
+    border-bottom: 1px solid $govuk-border-colour;
+  }
+}
