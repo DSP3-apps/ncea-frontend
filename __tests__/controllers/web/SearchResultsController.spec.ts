@@ -69,7 +69,6 @@ describe('Deals with search results controller', () => {
         hasError: false,
         isQuickSearchJourney: true,
         paginationItems,
-        searchMapResults: searchResults,
         resourceTypeOptions: expectedResourceTypeOptions,
         dateSearchPath: webRoutePaths.guidedDateSearch,
       });
@@ -111,7 +110,6 @@ describe('Deals with search results controller', () => {
         hasError: false,
         isQuickSearchJourney: false,
         paginationItems,
-        searchMapResults: searchResults,
         resourceTypeOptions: expectedResourceTypeOptions,
         dateSearchPath: webRoutePaths.guidedDateSearch,
       });
@@ -316,6 +314,65 @@ describe('Deals with search results controller', () => {
         error,
         docDetails: undefined,
       });
+    });
+  });
+  describe('Deals with map results handler', () => {
+    it('should render the no results page for quick search journey', async () => {
+      const queryObject = {
+        q: 'marine',
+        jry: 'qs',
+        pg: '1',
+        rpp: '20',
+        srt: 'best_match',
+        rty: 'all',
+      };
+      const request: Request = { query: { ...queryObject } } as any;
+      const response: ResponseToolkit = {
+        response: jest.fn().mockReturnThis(),
+        code: jest.fn(),
+      } as any;
+      (getSearchResults as jest.Mock).mockResolvedValue({
+        total: 0,
+        items: [],
+      });
+      await SearchResultsController.getMapResultsHandler(request, response);
+      expect(response.response).toHaveBeenCalledTimes(2);
+    });
+
+    it('should render the no results page for guided search journey', async () => {
+      const queryObject = {
+        fdy: '2022',
+        tdy: '2023',
+        jry: 'gs',
+        pg: '1',
+        rpp: '20',
+        srt: 'best_match',
+        rty: 'all',
+      };
+      const request: Request = { query: { ...queryObject } } as any;
+      const response: ResponseToolkit = {
+        response: jest.fn().mockReturnThis(),
+        code: jest.fn(),
+      } as any;
+      (getSearchResults as jest.Mock).mockResolvedValue({
+        total: 0,
+        items: [],
+      });
+      await SearchResultsController.getMapResultsHandler(request, response);
+      expect(response.response).toHaveBeenCalledTimes(2);
+    });
+
+    it('should show an error when something fails at API layer', async () => {
+      const request: Request = { query: {} } as any;
+      const response: ResponseToolkit = {
+        response: jest.fn().mockReturnThis(),
+        code: jest.fn(),
+      } as any;
+      const error = new Error('Mocked error');
+      (getSearchResults as jest.Mock).mockRejectedValue(error);
+      await SearchResultsController.getMapResultsHandler(request, response);
+      expect(response.response).toHaveBeenCalledTimes(1);
+      expect(response.response().code).toHaveBeenCalledWith(500);
     });
   });
 });

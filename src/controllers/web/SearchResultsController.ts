@@ -22,18 +22,11 @@ const SearchResultsController = {
     const formId: string = formIds.quickSearch;
     const journey: string = readQueryParams(request.query, queryParamKeys.journey);
     const payload: ISearchPayload = generateQueryBuilderPayload(request.query);
-    const mapPayload: ISearchPayload = {
-      ...payload,
-      rowsPerPage: mapResultMaxCount,
-      fieldsExist: ['geom'],
-      requiredFields: requiredFieldsForMap,
-    };
     const resourceTypePayload: ISearchPayload = generateCountPayload(request.query);
     const { rowsPerPage, page } = payload;
     const isQuickSearchJourney = journey === 'qs';
     try {
       const searchResults: ISearchResults = await getSearchResults(payload);
-      const searchMapResults: ISearchResults = await getSearchResults(mapPayload);
       const resourceTypeOptionsData: IAggregationOptions = await getResourceTypeOptions(resourceTypePayload);
       const paginationItems = getPaginationItems(page, searchResults?.total ?? 0, rowsPerPage);
       return response.view('screens/results/template', {
@@ -42,7 +35,6 @@ const SearchResultsController = {
         hasError: false,
         isQuickSearchJourney,
         paginationItems,
-        searchMapResults,
         resourceTypeOptions: resourceTypeOptionsData,
         dateSearchPath: webRoutePaths.guidedDateSearch,
       });
@@ -79,6 +71,21 @@ const SearchResultsController = {
     };
     const view: string = payload?.pageName === 'home' ? 'screens/home/template' : 'screens/results/template';
     return response.view(view, context).code(400).takeover();
+  },
+  getMapResultsHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
+    const payload: ISearchPayload = generateQueryBuilderPayload(request.query);
+    try {
+      const mapPayload: ISearchPayload = {
+        ...payload,
+        rowsPerPage: mapResultMaxCount,
+        fieldsExist: ['geom'],
+        requiredFields: requiredFieldsForMap,
+      };
+      const searchMapResults: ISearchResults = await getSearchResults(mapPayload, true);
+      return response.response(searchMapResults).header('Content-Type', 'application/json');
+    } catch (error) {
+      return response.response({ error: 'An error occurred while processing your request' }).code(500);
+    }
   },
   renderSearchDetailsHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
     try {

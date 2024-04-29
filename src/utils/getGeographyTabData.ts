@@ -77,7 +77,6 @@ const getGeographyTabData = (searchItem: Record<string, any>): IGeographyItem =>
 };
 
 export {
-  getAccumulatedCoordinatesNCenter,
   getVerticalExtentHtml,
   getGeographicMarkers,
   getSamplingResolution,

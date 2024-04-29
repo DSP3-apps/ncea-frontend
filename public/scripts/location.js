@@ -1,4 +1,5 @@
 import { fireEventAfterStorage, getStorageData } from './customScripts.js';
+import { invokeAjaxCall } from './fetchResults.js';
 
 const index3 = 3;
 const precision = 6;
@@ -11,6 +12,10 @@ const isMapResultsScreen =
 let initialCenter;
 let initialZoom;
 let viewChanged = false;
+const mapResultsButtonId = 'map-result-button';
+const mapResultsCountId = 'map-result-count';
+const actionDataAttribute = 'data-action';
+const boundingBoxCheckbox = document.getElementById('bounding-box');
 
 const drawStyle = new ol.style.Style({
   stroke: new ol.style.Stroke({
@@ -28,6 +33,16 @@ const completedStyle = new ol.style.Style({
   }),
   fill: new ol.style.Fill({
     color: 'rgb(255, 251, 0, 0.2)',
+  }),
+});
+
+const mapResultsStyle = new ol.style.Style({
+  stroke: new ol.style.Stroke({
+    color: '#004618',
+    width: 2,
+  }),
+  fill: new ol.style.Fill({
+    color: 'rgb(62, 238, 0, 0.2)',
   }),
 });
 
@@ -229,6 +244,13 @@ function geographyTabListener() {
   disableInteractions();
 }
 
+function boundingBoxCheckboxChange(isChecked) {
+  if (boundingBoxCheckbox) {
+    boundingBoxCheckbox.checked = isChecked;
+    boundingBoxCheckbox.dispatchEvent(new Event('change'));
+  }
+}
+
 function resetMap() {
   map.getView().setZoom(initialZoom);
   map.getView().animate({ center: initialCenter, duration: 1000 });
@@ -245,6 +267,71 @@ function exitMapEventListener() {
     exitControl.addEventListener('click', resetMap);
   }
 }
+
+function drawBoundingBoxWithMarker(records) {
+  map.updateSize();
+  const centerArray = [];
+  records.forEach((record) => {
+    addPolygon(record.geographicBoundary, mapResultsStyle);
+    placeMarkers(
+      record.geographicCenter,
+      '/assets/images/blue-marker-icon.svg',
+    );
+    const [lon, lat] = record.geographicCenter.split(',').map(parseFloat);
+    centerArray.push([lon, lat]);
+  });
+  const totalCenters = centerArray.length;
+  if (totalCenters) {
+    const sumCenter = centerArray.reduce(
+      (acc, cur) => [acc[0] + cur[0], acc[1] + cur[1]],
+      [0, 0],
+    );
+    const averageCenter = [
+      sumCenter[0] / totalCenters,
+      sumCenter[1] / totalCenters,
+    ];
+    map.getView().setCenter(averageCenter);
+    map.getView().setZoom(2);
+    // map.getView().fit(vectorSource.getExtent(), { padding: [50, 50, 50, 50] });
+    initialCenter = map.getView().getCenter();
+    initialZoom = map.getView().getZoom();
+  }
+}
+
+const attachBoundingBoxToggleListener = () => {
+  if (boundingBoxCheckbox) {
+    boundingBoxCheckboxChange(true);
+    boundingBoxCheckbox.addEventListener('change', () => {
+      vectorLayer.setVisible(boundingBoxCheckbox.checked ? true : false);
+    });
+  }
+};
+
+const getMapResults = async (path) => {
+  const mapResultsButton = document.getElementById(mapResultsButtonId);
+  const mapResultsCount = document.getElementById(mapResultsCountId);
+  const response = await invokeAjaxCall(path, {}, false, 'GET');
+  if (response) {
+    if (response.status === 200) {
+      const mapResults = await response.json();
+      mapResultsButton.removeAttribute('disabled');
+      mapResultsCount.textContent = mapResults.total;
+      drawBoundingBoxWithMarker(mapResults.items);
+      attachBoundingBoxToggleListener();
+    } else {
+      mapResultsButton.setAttribute('disabled', true);
+    }
+    return;
+  }
+};
+
+const invokeMapResults = () => {
+  const fetchResults = document.querySelector('[data-fetch-map-results]');
+  if (fetchResults) {
+    const action = fetchResults.getAttribute(actionDataAttribute);
+    getMapResults(`${action}${window.location.search}`);
+  }
+};
 
 function animateZoom(delta) {
   map.getView().animate({
@@ -289,10 +376,9 @@ document.addEventListener('DOMContentLoaded', () => {
         geographyTabListener();
       }, timeout);
     } else if (isMapResultsScreen) {
+      invokeMapResults();
       exitMapEventListener();
       disableInteractions(true);
-      initialCenter = map.getView().getCenter();
-      initialZoom = map.getView().getZoom();
       customControls();
     } else {
       setTimeout(() => {

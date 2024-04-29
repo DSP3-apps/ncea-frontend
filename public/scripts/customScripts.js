@@ -238,9 +238,6 @@ window.addEventListener('storage', (event) => {
         updateSubmitButtonState(form);
       }
     });
-
-    if (updatedData.sort) {
-    }
   }
 });
 

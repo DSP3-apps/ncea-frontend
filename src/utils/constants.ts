@@ -7,6 +7,7 @@ export const webRoutePaths = {
   guidedDateSearch: '/date-search',
   geographySearch: '/coordinate-search',
   intermediate: '/intermediate',
+  getMapResults: '/search-map-results',
 };
 
 export const elasticSearchAPIPaths = {

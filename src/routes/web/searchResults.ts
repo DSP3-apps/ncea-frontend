@@ -27,6 +27,11 @@ const searchResultsRoutes = [
     path: `${webRoutePaths.results}/{id}`,
     handler: SearchResultsController.renderSearchDetailsHandler,
   },
+  {
+    method: 'GET',
+    path: webRoutePaths.getMapResults,
+    handler: SearchResultsController.getMapResultsHandler,
+  },
 ];
 
 export { searchResultsRoutes };
