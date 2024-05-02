@@ -1,4 +1,4 @@
-import { IAggregationOptions } from '../interfaces/searchResponse.interface';
+import { IFilterOptions } from '../interfaces/searchPayload.interface';
 import { TabOptions } from '../interfaces/detailsTab.interface';
 
 export const webRoutePaths = {
@@ -7,7 +7,11 @@ export const webRoutePaths = {
   guidedDateSearch: '/date-search',
   geographySearch: '/coordinate-search',
   intermediate: '/intermediate',
-  getMapResults: '/search-map-results',
+  getMapResults: '/map-results',
+  getMapFilters: '/map-filters',
+  filterResourceType: '/resource-type-filter',
+  filterStudyPeriod: '/study-period-filter',
+  sortResults: '/sort-results',
 };
 
 export const elasticSearchAPIPaths = {
@@ -20,12 +24,10 @@ export const formKeys = {
 };
 
 export const formIds = {
-  quickSearch: 'keyword',
-  dataQuestionnaire: 'date',
-  geographyQuestionnaire: 'extent',
+  quickSearchFID: 'keyword',
+  dataQuestionnaireFID: 'date',
+  geographyQuestionnaireFID: 'extent',
 };
-
-export const resourceTypeOptions: IAggregationOptions = [{ value: 'all', text: 'All' }];
 
 export const showMoreText: string = 'Show more';
 export const showLessText: string = 'Show less';
@@ -38,6 +40,8 @@ export const requiredFieldsForMap: string[] = [
   'resourceAbstractObject',
   'geom',
   'resourceIdentifier',
+  'resourceType',
+  'resourceTemporalExtentDetails',
 ];
 
 export const guidedSearchSteps = {
@@ -65,7 +69,36 @@ export const queryParamKeys = {
   sort: 'srt',
   journey: 'jry',
   resourceType: 'rty',
+  startYear: 'sy',
+  toYear: 'ty',
 };
+
+export const uniqueResourceTypesKey: string = 'unique_resource_types';
+export const startYearRangeKey: string = 'start_year_range';
+export const toYearRangeKey: string = 'to_year_range';
+export const yearRange: string = 'year_range';
+
+export const resourceTypeFilterField = 'resourceType';
+export const dateFilterField = 'resourceTemporalExtentDateRange';
+
+export const defaultFilterOptions: IFilterOptions = [
+  {
+    key: uniqueResourceTypesKey,
+    field: 'resourceType',
+    needCount: true,
+    propertyToRead: 'key',
+    hasBucket: true,
+    isTerm: true,
+  },
+  {
+    key: yearRange,
+    field: ['max_resourceTemporalExtentDetails.end.date', 'min_resourceTemporalExtentDetails.start.date'],
+    needCount: false,
+    propertyToRead: 'value',
+    hasBucket: false,
+    isDate: true,
+  },
+];
 
 export const detailsTabOptions: TabOptions = {
   general: [
