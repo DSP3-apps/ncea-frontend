@@ -29,10 +29,6 @@ interface IGeoShapeQuery {
   geo_shape: {
     [key: string]: {
       shape: IShapeCoordinates;
-      depth?: {
-        from: number;
-        to: number;
-      };
       relation: string;
     };
   };
@@ -106,7 +102,6 @@ interface IGeoCoordinates {
   sth: string;
   est: string;
   wst: string;
-  dpt?: string;
 }
 
 interface ISearchFields {
@@ -122,7 +117,6 @@ interface ISearchFields {
     tdd?: string;
   };
   extent?: {
-    dpt?: string;
     nth?: string;
     sth?: string;
     est?: string;

@@ -1,4 +1,8 @@
-import { fireEventAfterStorage, getStorageData } from './customScripts.js';
+import {
+  fireEventAfterStorage,
+  getStorageData,
+  updateSubmitButtonState,
+} from './customScripts.js';
 import { invokeAjaxCall } from './fetchResults.js';
 import {
   addFilterHeadingClickListeners,
@@ -253,6 +257,7 @@ function calculateCoordinates() {
         wst: west.toFixed(precision),
       };
       fireEventAfterStorage(sessionData);
+      toggleClearSelectionBlock();
     }
   }
 }
@@ -262,6 +267,52 @@ vectorSource.on('change', () => {
     calculateCoordinates();
   }
 });
+
+const toggleClearSelectionBlock = () => {
+  const north = document.getElementById('north');
+  const south = document.getElementById('south');
+  const east = document.getElementById('east');
+  const west = document.getElementById('west');
+  const clearSelection = document.getElementById('clear-map-selection');
+  if (
+    north &&
+    north.value &&
+    south &&
+    south.value &&
+    east &&
+    east.value &&
+    west &&
+    west.value
+  ) {
+    if (clearSelection) clearSelection.style.display = 'block';
+  } else {
+    if (clearSelection) clearSelection.style.display = 'none';
+  }
+};
+
+const attachClearSelectionListener = () => {
+  const clearSelection = document.getElementById('clear-map-selection');
+  if (clearSelection) {
+    clearSelection.addEventListener('click', function () {
+      vectorSource.clear();
+      const form = document.querySelector('[data-do-browser-storage]');
+      if (form) {
+        console.log(form.id);
+        const sessionData = getStorageData();
+        if (sessionData.fields.hasOwnProperty(form.id)) {
+          delete sessionData.fields[form.id];
+        }
+        fireEventAfterStorage(sessionData);
+        document.getElementById('north').value = '';
+        document.getElementById('south').value = '';
+        document.getElementById('east').value = '';
+        document.getElementById('west').value = '';
+        toggleClearSelectionBlock();
+        updateSubmitButtonState(form);
+      }
+    });
+  }
+};
 
 if (document.getElementById('north')) {
   document.getElementById('north').addEventListener('change', () => {
@@ -291,6 +342,7 @@ function calculatePolygonFromCoordinates() {
   const east = parseFloat(document.getElementById('east')[targetKey]);
   const west = parseFloat(document.getElementById('west')[targetKey]);
   vectorSource.clear();
+  !isDetailsScreen && toggleClearSelectionBlock();
   addPolygon({ north, south, east, west }, completedStyle);
 }
 
@@ -390,8 +442,16 @@ function boundingBoxCheckboxChange(isChecked) {
 }
 
 function resetFilterData() {
-  document.getElementById('study_period_filter-map_results').reset();
-  document.getElementById('resource_type_filter-map_results').reset();
+  const studyPeriodForm = document.getElementById(
+    'study_period_filter-map_results',
+  );
+  const resourceTypeForm = document.getElementById(
+    'resource_type_filter-map_results',
+  );
+  if (studyPeriodForm && resourceTypeForm) {
+    studyPeriodForm.reset();
+    resourceTypeForm.reset();
+  }
 }
 
 function resetMap() {
@@ -544,12 +604,14 @@ const getMapFilters = async (path) => {
       addFilterHeadingClickListeners('map_results');
       attachStudyPeriodChangeListener('map_results');
       attachMapResultsFilterCheckboxChangeListener();
-      document
-        .getElementById('map_results-start_year')
-        .addEventListener('change', updateStudyPeriodFilter);
-      document
-        .getElementById('map_results-to_year')
-        .addEventListener('change', updateStudyPeriodFilter);
+      const mapFilterStartYear = document.getElementById(
+        'map_results-start_year',
+      );
+      const mapFilterToYear = document.getElementById('map_results-to_year');
+      if (mapFilterStartYear && mapFilterToYear) {
+        mapFilterStartYear.addEventListener('change', updateStudyPeriodFilter);
+        mapFilterToYear.addEventListener('change', updateStudyPeriodFilter);
+      }
     }
   }
 };
@@ -648,6 +710,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       setTimeout(() => {
         calculatePolygonFromCoordinates();
+        attachClearSelectionListener();
       }, timeout);
     }
   }
