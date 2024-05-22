@@ -29,39 +29,19 @@
 {% endset %}
 
 {% set acceptHtml %}
-<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="#">change your cookie settings</a> at any time.</p>
+<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="{{routes.cookiePolicy}}">change your cookie settings</a> at any time.</p>
 {% endset %}
 
 {% set rejectHtml %}
-<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="#">change your cookie settings</a> at any time.</p>
+<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="{{routes.cookiePolicy}}">change your cookie settings</a> at any time.</p>
 {% endset %}
 
 {% block header %}
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id= {{gtmId}}"
-height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <script>
+    var gtmIdValue = "{{gtmId}}"
+  </script>
+  <script type="module" src="{{ assetPath }}/scripts/cookieScript.js"></script>
   <header class="header-container">
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != 'dataLayer'
-            ? '&l=' + l
-            : '';
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f
-          .parentNode
-          .insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', '{{gtmId}}');
-    </script>
-    <!-- End Google Tag Manager -->
 
     <!--Will be removed once Defra GA accounts been created -->
 
@@ -82,10 +62,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
 </script> #}
 
     {{ govukHeader({
-  homepageUrl: "https://www.gov.uk/",
-  serviceName: serviceName,
-  serviceUrl: routes.homePage
-}) }}
+      homepageUrl: "https://www.gov.uk/",
+      serviceName: serviceName,
+      serviceUrl: routes.homePage
+    }) }}
   </header>
 {% endblock %}
 
@@ -104,11 +84,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
 
 {% block bodyStart %}
   {{ govukCookieBanner({
-    ariaLabel: "Cookies on Natural Capital Search Service",
+    ariaLabel: "Cookies on "+serviceName,
     attributes: { id: "cookie_banner" },
     messages: [
       {
-        headingText: "Cookies on Natural Capital Search Service",
+        headingText: "Cookies on "+serviceName,
         html: cookieHtml,
         hidden: true,
         actions: [
@@ -124,7 +104,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
           },
           {
             text: "View cookies",
-            href: "#",
+            href: routes.cookiePolicy,
             classes: "help-link"
           }
         ],
@@ -173,7 +153,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
           text: "Privacy"
         },
         {
-          href: "#",
+          href: routes.cookiePolicy,
           text: "Cookies"
         },
         {
@@ -202,5 +182,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </script>
   <script type="text/javascript" src="{{ assetPath }}/scripts/appinsights.js"></script>
   <script type="module" src="{{ assetPath }}/scripts/customScripts.js"></script>
-  <script type="module" src="{{ assetPath }}/scripts/cookieScript.js"></script>
 {% endblock %}

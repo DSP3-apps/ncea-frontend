@@ -68,7 +68,7 @@ exports[`Details route template Document details with data Check status code and
         
           
             
-              <a class="govuk-link help-link" href="#">View cookies</a>
+              <a class="govuk-link help-link" href="/cookie-policy">View cookies</a>
             
           
         
@@ -83,7 +83,7 @@ exports[`Details route template Document details with data Check status code and
         
 
         <div class="govuk-cookie-banner__content">
-<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="#">change your cookie settings</a> at any time.</p>
+<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/cookie-policy">change your cookie settings</a> at any time.</p>
 </div>
       </div>
     </div>
@@ -108,7 +108,7 @@ exports[`Details route template Document details with data Check status code and
         
 
         <div class="govuk-cookie-banner__content">
-<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="#">change your cookie settings</a> at any time.</p>
+<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/cookie-policy">change your cookie settings</a> at any time.</p>
 </div>
       </div>
     </div>
@@ -136,31 +136,11 @@ exports[`Details route template Document details with data Check status code and
     
 
     
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id= "
-height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <script>
+    var gtmIdValue = ""
+  </script>
+  <script type="module" src="/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != 'dataLayer'
-            ? '&l=' + l
-            : '';
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f
-          .parentNode
-          .insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', '');
-    </script>
-    <!-- End Google Tag Manager -->
 
     <!--Will be removed once Defra GA accounts been created -->
 
@@ -987,7 +967,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="#">
+                  <a class="govuk-footer__link" href="/cookie-policy">
                     Cookies
                   </a>
                 </li>
@@ -1059,7 +1039,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </script>
   <script type="text/javascript" src="/assets/scripts/appinsights.js"></script>
   <script type="module" src="/assets/scripts/customScripts.js"></script>
-  <script type="module" src="/assets/scripts/cookieScript.js"></script>
 
   <script>
     var isDetails = true;
@@ -1148,7 +1127,7 @@ exports[`Details route template Document details with partial data Check status 
         
           
             
-              <a class="govuk-link help-link" href="#">View cookies</a>
+              <a class="govuk-link help-link" href="/cookie-policy">View cookies</a>
             
           
         
@@ -1163,7 +1142,7 @@ exports[`Details route template Document details with partial data Check status 
         
 
         <div class="govuk-cookie-banner__content">
-<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="#">change your cookie settings</a> at any time.</p>
+<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/cookie-policy">change your cookie settings</a> at any time.</p>
 </div>
       </div>
     </div>
@@ -1188,7 +1167,7 @@ exports[`Details route template Document details with partial data Check status 
         
 
         <div class="govuk-cookie-banner__content">
-<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="#">change your cookie settings</a> at any time.</p>
+<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/cookie-policy">change your cookie settings</a> at any time.</p>
 </div>
       </div>
     </div>
@@ -1216,31 +1195,11 @@ exports[`Details route template Document details with partial data Check status 
     
 
     
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id= "
-height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <script>
+    var gtmIdValue = ""
+  </script>
+  <script type="module" src="/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != 'dataLayer'
-            ? '&l=' + l
-            : '';
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f
-          .parentNode
-          .insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', '');
-    </script>
-    <!-- End Google Tag Manager -->
 
     <!--Will be removed once Defra GA accounts been created -->
 
@@ -2024,7 +1983,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="#">
+                  <a class="govuk-footer__link" href="/cookie-policy">
                     Cookies
                   </a>
                 </li>
@@ -2096,7 +2055,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </script>
   <script type="text/javascript" src="/assets/scripts/appinsights.js"></script>
   <script type="module" src="/assets/scripts/customScripts.js"></script>
-  <script type="module" src="/assets/scripts/cookieScript.js"></script>
 
   <script>
     var isDetails = true;
