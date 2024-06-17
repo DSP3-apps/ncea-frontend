@@ -71,3 +71,5 @@ env:
   NODE_ENV: $(nodeEnd)
   AZURE_KEYVAULT_URL: $(keyVaultUri)
   ELASTICSEARCH_API: $(elasticSearchApi)
+  ES_USERNAME: $(elasticSearchUser)
+  ES_PASSWORD: $(elasticSearchPassword)
