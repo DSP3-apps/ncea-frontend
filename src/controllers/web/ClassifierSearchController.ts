@@ -27,11 +27,15 @@ const ClassifierSearchController = {
 
     const queryString: string = level - 1 > 0 ? upsertQueryParams(payloadQuery, queryParamsObject, false) : '';
     const resultsPath: string = `${results}?${readQueryParams(payloadQuery, '', true)}`;
-
-    const skipPathUrl: string = queryString ? `${guidedDateSearch}?${queryString}` : guidedDateSearch;
     const classifierItems = await getClassifierThemes(level.toString(), parent);
+    const skipPathUrl = queryString ? `${guidedDateSearch}?${queryString}` : guidedDateSearch;
 
-    if (classifierItems.length > 0) {
+    if (classifierItems.length <= 0) {
+      return response.redirect(skipPathUrl);
+    }
+    const hasSearchResultOrlevelFirst = Number(totalCount) > 0 || level == 1;
+
+    if (hasSearchResultOrlevelFirst) {
       return response.view('screens/guided_search/classifier_selection.njk', {
         pageTitle: classifierPageTitle,
         guidedClassifierSearchPath,
@@ -46,7 +50,7 @@ const ClassifierSearchController = {
         backLinkClasses: 'back-link-classifier',
       });
     } else {
-      return response.redirect(skipPathUrl);
+      return response.redirect(`${webRoutePaths.results}?${queryString}`);
     }
   },
 };

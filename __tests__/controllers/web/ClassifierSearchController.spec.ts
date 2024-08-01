@@ -32,6 +32,7 @@ describe('Classifier Search Controller', () => {
         query: { level: '3', 'parent[]': 'lv2-001,lv2-002' },
       } as any;
 
+      const level3ClassifierItems = [];
       (getClassifierThemes as jest.Mock).mockResolvedValue(level3ClassifierItems);
       (getSearchResultsCount as jest.Mock).mockResolvedValue({ totalResults: 0 });
 
@@ -45,7 +46,7 @@ describe('Classifier Search Controller', () => {
       const queryParamsObject = {
         [queryParamKeys.level]: '2',
         [queryParamKeys.parent]: 'lv2-001,lv2-002',
-        [queryParamKeys.journey]:'gs',
+        [queryParamKeys.journey]: 'gs',
         [queryParamKeys.count]: '0',
       };
 
@@ -53,57 +54,7 @@ describe('Classifier Search Controller', () => {
       const resultsPath = `${results}?${readQueryParams(payloadQuery, '', true)}`;
       const skipPathUrl = `${skipPath}?${queryString}`;
 
-      expect(response.view).toHaveBeenCalledWith('screens/guided_search/classifier_selection.njk', {
-        guidedClassifierSearchPath,
-        nextLevel: "4",
-        pageTitle: "NCEA questionnaire  Search- subcategories",
-        skipPath: skipPathUrl,
-        formId: classifierSearch,
-        classifierItems: level3ClassifierItems,
-        count: '0',
-        journey: 'gs',
-        resultsPath,
-        backLinkPath: '#',
-        backLinkClasses: 'back-link-classifier',
-      });
-    });
-
-    it('should call the classifier view with context when level is less than 1', async () => {
-      request = {
-        query: { level: '0', 'parent[]': '' },
-      } as any;
-
-      (getClassifierThemes as jest.Mock).mockResolvedValue(level3ClassifierItems);
-
-      await ClassifierSearchController.renderClassifierSearchHandler(request, response);
-
-      const payloadQuery = {
-        level: '-1',
-        'parent[]': '',
-      };
-
-      const queryParamsObject = {
-        [queryParamKeys.journey]: 'gs',
-        [queryParamKeys.level]: '-1',
-        [queryParamKeys.parent]: '',
-        [queryParamKeys.count]: '0',
-      };
-
-      const resultsPath = `${results}?${readQueryParams(payloadQuery, '', true)}`;
-
-      expect(response.view).toHaveBeenCalledWith('screens/guided_search/classifier_selection.njk', {
-        guidedClassifierSearchPath,
-        nextLevel: "1",
-        pageTitle: undefined,
-        skipPath,
-        formId: classifierSearch,
-        classifierItems: level3ClassifierItems,
-        count: null,
-        journey: 'gs',
-        resultsPath,
-        backLinkPath: '#',
-        backLinkClasses: 'back-link-classifier',
-      });
+      expect(response.redirect).toHaveBeenCalledWith(`${skipPathUrl}`);
     });
 
     it('should call the classifier view with context when count is present', async () => {
@@ -146,6 +97,35 @@ describe('Classifier Search Controller', () => {
         backLinkClasses: 'back-link-classifier',
       });
     });
+
+    it('should redirect to results path when count is 0 and level is not 1', async () => {
+      request = {
+        query: { level: '2', 'parent[]': 'lv2-001,lv2-002' },
+      } as any;
+
+      (getClassifierThemes as jest.Mock).mockResolvedValue(level3ClassifierItems);
+      (getSearchResultsCount as jest.Mock).mockResolvedValue({ totalResults: 0 });
+
+      await ClassifierSearchController.renderClassifierSearchHandler(request, response);
+
+      const payloadQuery = {
+        level: '1',
+        'parent[]': 'lv2-001,lv2-002',
+      };
+
+      const queryParamsObject = {
+        [queryParamKeys.level]: '1',
+        [queryParamKeys.parent]: 'lv2-001,lv2-002',
+        [queryParamKeys.journey]: 'gs',
+        [queryParamKeys.count]: '0',
+      };
+
+      const queryString = upsertQueryParams(request.query, queryParamsObject, false);
+      const resultsPath = `${results}?${readQueryParams(payloadQuery, '', true)}`;
+
+      expect(response.redirect).toHaveBeenCalledWith(`${results}?${queryString}`);
+    });
+
     it('should redirect to date search page when there are no items for the parent category', async () => {
       request = {
         query: { level: '2', 'parent[]': 'lv1-001,lv1-002' },

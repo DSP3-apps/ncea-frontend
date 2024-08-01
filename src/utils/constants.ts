@@ -201,3 +201,9 @@ export const pageTitles = {
     'NCEA questionnaire  Search- subcategories',
   ],
 };
+
+export const levelMap = {
+  1: 'OrgNceaClassifiers.code.keyword',
+  2: 'OrgNceaClassifiers.classifiers.code.keyword',
+  3: 'OrgNceaClassifiers.classifiers.classifiers.code.keyword',
+};
