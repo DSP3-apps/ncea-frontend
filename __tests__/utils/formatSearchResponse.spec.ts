@@ -30,12 +30,14 @@ describe('Format the search response', () => {
                     default: 'United Kingdom Hydrographic Office',
                   },
                   role: 'custodian',
+                  organisationName:'United Kingdom Hydrographic Office',
                 },
                 {
                   organisationObject: {
                     default: 'Geological Survey of Ireland (GSI)',
                   },
                   role: 'owner',
+                  organisationName:'United Kingdom Hydrographic Office',
                 },
               ],
               ownerOrgForResourceObject: {
@@ -73,12 +75,14 @@ describe('Format the search response', () => {
                     default: 'United Kingdom Hydrographic Office',
                   },
                   role: 'originator',
+                  organisationName:'United Kingdom Hydrographic Office',
                 },
                 {
                   organisationObject: {
                     default: 'Geological Survey of Ireland (GSI)',
                   },
                   role: 'owner',
+                  organisationName:'United Kingdom Hydrographic Office',
                 },
               ],
               ownerOrgForResourceObject: {
@@ -149,12 +153,14 @@ describe('Format the search response', () => {
                     default: 'United Kingdom Hydrographic Office',
                   },
                   role: 'custodian',
+                  organisationName:'United Kingdom Hydrographic Office',
                 },
                 {
                   organisationObject: {
                     default: 'Geological Survey of Ireland (GSI)',
                   },
                   role: 'owner',
+                  organisationName:'United Kingdom Hydrographic Office',
                 },
               ],
               ownerOrgForResourceObject: {
@@ -200,6 +206,7 @@ describe('Format the search response', () => {
               data_owner: 'owner, Geological Survey of Ireland (GSI) <br>',
               frequency_of_update: '',
               limitation_on_public_access: '',
+              catalogue_number: "",
               limitation_on_public_access_otherconstraint: "",
               other_constraint: "",
               tag: [
@@ -231,12 +238,14 @@ describe('Format the search response', () => {
                     default: 'United Kingdom Hydrographic Office',
                   },
                   role: 'originator',
+                  organisationName:'United Kingdom Hydrographic Office',
                 },
                 {
                   organisationObject: {
                     default: 'Geological Survey of Ireland (GSI)',
                   },
                   role: 'owner',
+                  organisationName:'United Kingdom Hydrographic Office',
                 },
               ],
               ownerOrgForResourceObject: {
@@ -302,6 +311,7 @@ describe('Format the search response', () => {
               data_owner: 'owner, Geological Survey of Ireland (GSI) <br>',
               frequency_of_update: '',
               limitation_on_public_access: '',
+              catalogue_number: "",
               linkUrl: ['https://seabed.admiralty.co.uk'],
             },
           },
@@ -331,7 +341,6 @@ describe('Format the search response', () => {
           host_catalogue_number: '',
           host_catalogue_entry: '',
           resource_type_and_hierarchy: '',
-          hierarchy_level: '',
           resource_locators:
             '<p>Download from Seabed Mapping Service (<a class="govuk-link" href="https://seabed.admiralty.co.uk" target="_blank">https://seabed.admiralty.co.uk</a>)</p>',
           additionalInformation: '',
@@ -364,6 +373,8 @@ describe('Format the search response', () => {
           geographicMarkers: '',
           verticalExtent: '',
           samplingResolution: '',
+          catalogue_number: "",
+          contact_information: "United Kingdom Hydrographic Office, <br />United Kingdom Hydrographic Office",
         },
         {
           id: '2',
@@ -385,7 +396,6 @@ describe('Format the search response', () => {
             'https://seabed.admiralty.co.ukaf7cd14f-6c20-445f-abd0-7c41385ba999',
           host_catalogue_entry: '',
           resource_type_and_hierarchy: 'Dataset',
-          hierarchy_level: 'Dataset',
           resource_locators:
             '<p>Download from Seabed Mapping Service (<a class="govuk-link" href="https://seabed.admiralty.co.uk" target="_blank">https://seabed.admiralty.co.uk</a>)</p>',
           additionalInformation: '',
@@ -418,6 +428,8 @@ describe('Format the search response', () => {
           geographicMarkers: '',
           verticalExtent: '',
           samplingResolution: '',
+          catalogue_number: "",
+          contact_information: "United Kingdom Hydrographic Office, <br />United Kingdom Hydrographic Office",
         },
       ],
     };
@@ -521,12 +533,14 @@ describe('Format the search response', () => {
                     default: 'United Kingdom Hydrographic Office',
                   },
                   role: 'custodian',
+                  organisationName:'United Kingdom Hydrographic Office',
                 },
                 {
                   organisationObject: {
                     default: 'Maritime and Coastguard Agency',
                   },
                   role: 'owner',
+                  organisationName:'United Kingdom Hydrographic Office',
                 },
               ],
             },

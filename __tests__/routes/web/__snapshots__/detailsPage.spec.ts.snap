@@ -481,10 +481,10 @@ exports[`Details route template Document details with data Check status code and
     
       
         <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Hierarchy level name</h2>
+          <h2 class='tab-content-label'>Resource locators</h2>
           
             <span class='tab-content-value'>
-              Dataset
+              <p>Download from Seabed Mapping Service (<a class="govuk-link" href="https://seabed.admiralty.co.uk" target="_blank">https://seabed.admiralty.co.uk</a>)</p>
             </span>
           
         </div>
@@ -493,10 +493,10 @@ exports[`Details route template Document details with data Check status code and
     
       
         <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Resource locators</h2>
+          <h2 class='tab-content-label'>Contact information</h2>
           
             <span class='tab-content-value'>
-              <p>Download from Seabed Mapping Service (<a class="govuk-link" href="https://seabed.admiralty.co.uk" target="_blank">https://seabed.admiralty.co.uk</a>)</p>
+              United Kingdom Hydrographic Office :- customerservices@ukho.gov.uk, <br />undefined :- customerservices@ukho.gov.uk, <br />undefined :- customerservices@ukho.gov.uk, <br />undefined :- customerservices@ukho.gov.uk, <br />United Kingdom Hydrographic Office :- customerservices@ukho.gov.uk
             </span>
           
         </div>
@@ -518,7 +518,7 @@ exports[`Details route template Document details with data Check status code and
     
       
         <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Parent ID</h2>
+          <h2 class='tab-content-label'>Parent identifier</h2>
           
             <span class='tab-content-value'>
               fb8dca0f-7425-4f50-86a1-c4673b1aef88
@@ -1525,10 +1525,10 @@ exports[`Details route template Document details with partial data Check status 
     
       
         <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Hierarchy level name</h2>
+          <h2 class='tab-content-label'>Resource locators</h2>
           
             <span class='tab-content-value'>
-              Dataset
+              <p>Download from Seabed Mapping Service (<a class="govuk-link" href="https://seabed.admiralty.co.uk" target="_blank">https://seabed.admiralty.co.uk</a>)</p>
             </span>
           
         </div>
@@ -1537,10 +1537,10 @@ exports[`Details route template Document details with partial data Check status 
     
       
         <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Resource locators</h2>
+          <h2 class='tab-content-label'>Contact information</h2>
           
             <span class='tab-content-value'>
-              <p>Download from Seabed Mapping Service (<a class="govuk-link" href="https://seabed.admiralty.co.uk" target="_blank">https://seabed.admiralty.co.uk</a>)</p>
+              , <br />
             </span>
           
         </div>
@@ -1562,7 +1562,7 @@ exports[`Details route template Document details with partial data Check status 
     
       
         <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Parent ID</h2>
+          <h2 class='tab-content-label'>Parent identifier</h2>
           
             <span class='tab-content-value'>
               3c080cb6-2ed9-43e7-9323-9ce42b05b9a2

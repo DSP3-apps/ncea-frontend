@@ -79,6 +79,7 @@ const detailsSuccessAPIResponse = {
               position: '',
               phone: '',
               address: '',
+              organisationName:'',
             },
           ],
           cl_hierarchyLevel: [
@@ -112,6 +113,7 @@ const detailsSuccessAPIResponse = {
               position: '',
               phone: '',
               address: '',
+              organisationName:'',
             },
           ],
           hasOverview: 'false',
@@ -154,6 +156,7 @@ const detailsSuccessAPIResponse = {
           sourceCatalogue: '2fc172f5-4c8e-493b-8277-3492b3ed504c',
           cl_accessConstraints: [],
           licenseObject: [],
+          catalogue_number:''
         },
       },
     ],
@@ -202,7 +205,6 @@ const formattedDetailsResponse: ISearchResults = {
       host_catalogue_number: '3c080cb6-2ed9-43e7-9323-9ce42b05b9a2',
       host_catalogue_entry: '',
       resource_type_and_hierarchy: 'Dataset',
-      hierarchy_level: 'Dataset',
       resource_locators:
         '<p>Download from Seabed Mapping Service (<a class="govuk-link" href="https://seabed.admiralty.co.uk" target="_blank">https://seabed.admiralty.co.uk</a>)</p>',
       additionalInformation: '',
@@ -213,7 +215,7 @@ const formattedDetailsResponse: ISearchResults = {
       metadataDate: "26 January 2010",
       conformity: '',
       metadata_standard: '',
-      ncea_group_reference: '3c080cb6-2ed9-43e7-9323-9ce42b05b9a2',
+      ncea_group_reference: '',
       project_number: '',
       limitation_on_public_access: '',
       limitation_on_public_access_otherconstraint: "",
@@ -234,6 +236,8 @@ const formattedDetailsResponse: ISearchResults = {
       geographicMarkers: '',
       verticalExtent: '',
       samplingResolution: '',
+      contact_information: ", <br />",
+      catalogue_number:''
     },
   ],
 };
@@ -298,6 +302,7 @@ const detailsSuccessAPIFullData = {
               position: '',
               phone: '',
               address: '',
+              organisationName:'United Kingdom Hydrographic Office',
             },
           ],
           cl_hierarchyLevel: [
@@ -431,6 +436,7 @@ const detailsSuccessAPIFullData = {
               position: '',
               phone: '',
               address: '',
+              organisationName:'United Kingdom Hydrographic Office',
             },
             {
               organisationObject: {
@@ -756,6 +762,7 @@ const formattedDetailsFullResponse: ISearchResults = {
       toYear: '2019',
       resourceLocator: 'https://seabed.admiralty.co.uk',
       language: 'ENG',
+      catalogue_number: "",
       metadata_language: 'ENG',
       keywords:
         'Elevation, Marine Environmental Data and Information Network, Bathymetry and Elevation',
@@ -768,7 +775,6 @@ const formattedDetailsFullResponse: ISearchResults = {
         'https://seabed.admiralty.co.ukfb8dca0f-7425-4f50-86a1-c4673b1aef88',
       host_catalogue_entry: '',
       resource_type_and_hierarchy: 'Dataset',
-      hierarchy_level: 'Dataset',
       metadataDate: "16 January 2024",
       resource_locators:
         '<p>Download from Seabed Mapping Service (<a class="govuk-link" href="https://seabed.admiralty.co.uk" target="_blank">https://seabed.admiralty.co.uk</a>)</p>',
@@ -791,7 +797,7 @@ const formattedDetailsFullResponse: ISearchResults = {
                       <td>inapplicable</td>
                     </tr></tbody></table>`,
       metadata_standard: 'MEDIN',
-      ncea_group_reference: 'fb8dca0f-7425-4f50-86a1-c4673b1aef88',
+      ncea_group_reference: '',
       project_number: '',
       limitation_on_public_access: "",
       limitation_on_public_access_otherconstraint: "",
@@ -817,7 +823,8 @@ const formattedDetailsFullResponse: ISearchResults = {
       geographicMarkers: '-11.14563,49.0466505',
       verticalExtent: '',
       samplingResolution: '',
-    },
+      contact_information: "undefined :- customerservices@ukho.gov.uk, <br />United Kingdom Hydrographic Office :- customerservices@ukho.gov.uk, <br />undefined :- customerservices@ukho.gov.uk, <br />undefined :- customerservices@ukho.gov.uk, <br />United Kingdom Hydrographic Office :- customerservices@ukho.gov.uk",
+     },
   ],
 };
 
