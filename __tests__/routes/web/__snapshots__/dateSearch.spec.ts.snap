@@ -134,7 +134,7 @@ exports[`Guided Search - Date Questionnaire Screen Guided Search > Date Question
 
 
   <script>
-    var gtmIdValue = "GTM-PZJ4WBG7";
+      var gtmIdValue = "GTM-PZJ4WBG7";
   </script>
   <script type="module" src="/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
@@ -216,7 +216,7 @@ exports[`Guided Search - Date Questionnaire Screen Guided Search > Date Question
      <div class="govuk-grid-column-full">
 
                <div class="count-block">
-                    <a href="/search?pg=1&amp;rpp=20&amp;srt=best_match" class="govuk-link count-block-link">
+                    <a href="/search?pg=1&amp;rpp=20&amp;srt=most_relevant" class="govuk-link count-block-link">
                          Click to see
 
                               10
