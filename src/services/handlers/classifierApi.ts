@@ -28,9 +28,9 @@ const transformClassifierLevel3Details = (Level2Classifiers: Classify[]): Classi
 
 const invokeClassifierApi = async (level: string, parents: string = ''): Promise<AxiosResponse> => {
   try {
-    const classifierApiAuthKey = await getSecret(
-      environmentConfig.classifierApiKey ?? 'nceaClassifierMicroServiceApiKey',
-    );
+    // const classifierApiAuthKey = await getSecret(
+    //   environmentConfig.classifierApiKey ?? 'nceaClassifierMicroServiceApiKey',
+    // );
     let url = `${environmentConfig.classifierApiUrl}api/classifiers?level=${level}`;
 
     if (parents) {
@@ -38,7 +38,7 @@ const invokeClassifierApi = async (level: string, parents: string = ''): Promise
     }
     const headers = {
       headers: {
-        'X-API-Key': classifierApiAuthKey,
+        'X-API-Key': environmentConfig.classifierApiKey,
       },
     };
     const response: AxiosResponse = await axios.get(url, headers);
