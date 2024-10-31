@@ -18,14 +18,16 @@ const clientOptions: ClientOptions = {
       username: elasticSearchUsername as string,
       password: elasticSearchPassword as string,
     },
-    tls: {
-      ca: fs.readFileSync(certPath),
-      rejectUnauthorized: true,
-    },
+    // tls: {
+    //   ca: fs.readFileSync(certPath),
+    //   rejectUnauthorized: true,
+    // },
   }),
 };
+console.log('ELASTIC SEARCH CONFIG: ', clientOptions);
 const client = new Client(clientOptions);
 
+console.log('ELASTIC SEARCH QUERY');
 const performQuery = async <T>(payload: estypes.SearchRequest, isCount: boolean = false): Promise<T> => {
   try {
     const endPoint: string = isCount ? 'count' : 'search';
@@ -35,8 +37,10 @@ const performQuery = async <T>(payload: estypes.SearchRequest, isCount: boolean 
     });
     return result as T;
   } catch (error: any) {
+    console.log('ELASTIC SEARCH QUERY ERRORED: ', error);
     throw new Error(`Elasticsearch results: ${error.message}`);
   }
 };
+console.log('ELASTIC SEARCH QUERY PERFORMED');
 
 export { performQuery, hasCredentials, clientOptions };
