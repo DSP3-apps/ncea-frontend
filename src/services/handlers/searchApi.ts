@@ -1,4 +1,4 @@
-import { IFilterFlags } from '@/src/interfaces/searchPayload.interface';
+import { IFilterFlags } from '@/interfaces/searchPayload.interface';
 import { estypes } from '@elastic/elasticsearch';
 import { formatAggregationResponse } from '../../utils/formatAggregationResponse';
 import { formatSearchResponse } from '../../utils/formatSearchResponse';

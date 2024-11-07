@@ -4,7 +4,7 @@ module.exports = {
   transform: {
     '^.+\\.(ts|js)?$': 'ts-jest',
   },
-  rootDir: '../../',
+  rootDir: '.',
   testRegex: './__tests__/.*\\.(test|spec)?\\.(ts|js)$',
   coverageDirectory: 'coverage',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
@@ -12,7 +12,7 @@ module.exports = {
   roots: ['<rootDir>/__tests__', '<rootDir>/src'],
   coveragePathIgnorePatterns: ['<rootDir>/__tests__/'],
   coverageReporters: ['lcov', 'cobertura', 'html'],
-  setupFilesAfterEnv: ['<rootDir>/tools/jest/jest.env.js'],
+  setupFilesAfterEnv: ['<rootDir>/jest.env.js'],
   testTimeout: 9000,
   testResultsProcessor: 'jest-sonar-reporter',
   moduleNameMapper: {
