@@ -1,5 +1,10 @@
+import { pathsToModuleNameMapper } from 'ts-jest';
+
+import { compilerOptions } from './tsconfig.json';
+
 module.exports = {
   verbose: true,
+  preset: 'ts-jest',
   testEnvironment: 'node',
   transform: {
     '^.+\\.(ts|js)?$': 'ts-jest',
@@ -15,7 +20,7 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>/jest.env.js'],
   testTimeout: 9000,
   testResultsProcessor: 'jest-sonar-reporter',
-  moduleNameMapper: {
-    uuid: require.resolve('uuid'),
-  },
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths || {}, {
+    prefix: '<rootDir>/src/',
+  }),
 };
