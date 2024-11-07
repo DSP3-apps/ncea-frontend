@@ -1,11 +1,20 @@
 /* eslint-env node */
 const alwaysMultiLine = 'always-multiline';
+
 module.exports = {
-  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', '@tpzdsp/eslint-config-dsp', 'prettier'],
   ignorePatterns: ['build/**/*.js', 'public/**/*.js'],
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'prettier', 'jest'],
   root: true,
+  settings: {
+    'import/resolver': {
+      typescript: {
+        alwaysTryTypes: true,
+        project: './tsconfig.json',
+      },
+    },
+  },
   rules: {
     'comma-dangle': [
       'error',
@@ -20,16 +29,6 @@ module.exports = {
     'no-underscore-dangle': 0,
     'no-undef': 1,
     'linebreak-style': [0, 'unix'],
-    'sort-imports': [
-      2,
-      {
-        ignoreCase: false,
-        ignoreMemberSort: false,
-        ignoreDeclarationSort: false,
-        memberSyntaxSortOrder: ['all', 'single', 'multiple', 'none'],
-        allowSeparatedGroups: true,
-      },
-    ],
     'no-promise-executor-return': 0,
     'default-param-last': 0,
     'no-unsafe-optional-chaining': 1,
