@@ -29,9 +29,9 @@ const filterBlockId = 'map-filter-block';
 const boundingBoxCheckbox = document.getElementById('bounding-box');
 const extentSearchZoomLevel = 5;
 const responseSuccessStatusCode = 200;
-const highlightedMarkerIcon = '/assets/images/highlight-marker-icon.svg';
-const hoverMarkerIcon = '/assets/images/hover-marker-icon.svg';
-const markerIcon = '/assets/images/marker-icon.svg';
+const highlightedMarkerIcon = `/natural-capital-ecosystem-assessment/assets/images/highlight-marker-icon.svg`;
+const hoverMarkerIcon = `/natural-capital-ecosystem-assessment/assets/images/hover-marker-icon.svg`;
+const markerIcon = `/natural-capital-ecosystem-assessment/assets/images/marker-icon.svg`;
 const mapInfoBlock = document.getElementById('map-info');
 const contentMaxChar = 500;
 let selectedRecord = '';
@@ -466,7 +466,7 @@ function geographyTabListener() {
   map.updateSize();
   calculatePolygonFromCoordinates();
   if (typeof markers !== 'undefined' && markers) {
-    placeMarkers(markers, '/assets/images/marker.png');
+    placeMarkers(markers, `/natural-capital-ecosystem-assessment/assets/images/marker.png`);
   }
   const locationParts = center.split(',');
   map.getView().setCenter(ol.proj.fromLonLat(locationParts));

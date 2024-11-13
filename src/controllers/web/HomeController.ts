@@ -5,7 +5,7 @@ import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 import { IGuidedSearchStepsMatrix, IStepRouteMatrix } from '@/interfaces/guidedSearch.interface';
 import { ISearchPayload } from '@/interfaces/queryBuilder.interface';
 import { getSearchResultsCount } from '@/services/handlers/searchApi';
-import { formIds, guidedSearchSteps, pageTitles, queryParamKeys, webRoutePaths } from '@/utils/constants';
+import { BASE_PATH, formIds, guidedSearchSteps, pageTitles, queryParamKeys, webRoutePaths } from '@/utils/constants';
 import { generateCountPayload, readQueryParams, upsertQueryParams } from '@/utils/queryStringHelper';
 
 /**
@@ -54,14 +54,14 @@ const HomeController = {
             );
             return response.redirect(`${stepMatrix.next}?${queryString}`);
           } else {
-            return response.redirect(`${webRoutePaths.results}?${queryString}`);
+            return response.redirect(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
           }
         } catch (error) {
-          return response.redirect(`${webRoutePaths.results}?${queryString}`);
+          return response.redirect(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
         }
       }
     }
-    return response.redirect(webRoutePaths.home);
+    return response.redirect(`${BASE_PATH}${webRoutePaths.home}`);
   },
   helpHandler: (request: Request, response: ResponseToolkit): ResponseObject => {
     return response.view('screens/home/help', {

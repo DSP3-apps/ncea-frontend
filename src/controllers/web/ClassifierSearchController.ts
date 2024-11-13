@@ -4,7 +4,7 @@ import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 
 import { getClassifierThemes } from '@/services/handlers/classifierApi';
 import { getSearchResultsCount } from '@/services/handlers/searchApi';
-import { formIds, pageTitles, queryParamKeys, webRoutePaths } from '@/utils/constants';
+import { BASE_PATH, formIds, pageTitles, queryParamKeys, webRoutePaths } from '@/utils/constants';
 import { generateCountPayload, readQueryParams, upsertQueryParams } from '@/utils/queryStringHelper';
 
 const ClassifierSearchController = {
@@ -29,7 +29,7 @@ const ClassifierSearchController = {
     };
 
     const queryString: string = level - 1 > 0 ? upsertQueryParams(payloadQuery, queryParamsObject, true) : '';
-    const resultsPath: string = `${results}?${readQueryParams(queryParamsObject, '', true)}`;
+    const resultsPath: string = `${BASE_PATH}${results}?${readQueryParams(queryParamsObject, '', true)}`;
     const classifierItems = await getClassifierThemes(level.toString(), parent);
 
     if (classifierItems.length <= 0) {
@@ -40,7 +40,7 @@ const ClassifierSearchController = {
     if (hasSearchResultOrlevelFirst) {
       return response.view('screens/guided_search/classifier_selection.njk', {
         pageTitle: classifierPageTitle,
-        guidedClassifierSearchPath,
+        guidedClassifierSearchPath: `${BASE_PATH}${guidedClassifierSearchPath}`,
         nextLevel,
         skipPath: resultsPath,
         formId,
@@ -52,7 +52,7 @@ const ClassifierSearchController = {
         backLinkClasses: 'back-link-classifier',
       });
     } else {
-      return response.redirect(`${webRoutePaths.results}?${queryString}`);
+      return response.redirect(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
     }
   },
 };

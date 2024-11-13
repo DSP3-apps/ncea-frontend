@@ -1,26 +1,28 @@
 import { TabOptions } from '@/interfaces/detailsTab.interface';
 import { IFilterOptions } from '@/interfaces/searchPayload.interface';
 
+export const BASE_PATH = '/natural-capital-ecosystem-assessment';
+
 export const webRoutePaths = {
-  home: '/',
-  results: '/search',
-  guidedClassifierSearch: '/classifier-search',
-  guidedDateSearch: '/date-search',
-  geographySearch: '/coordinate-search',
-  intermediate: '/intermediate',
-  getMapResults: '/map-results',
-  getMapFilters: '/map-filters',
-  filterResourceType: '/resource-type-filter',
-  filterStudyPeriod: '/study-period-filter',
-  sortResults: '/sort-results',
-  help: '/help',
-  accessibilityStatement: '/accessibility-statement',
-  termsAndConditions: '/terms-conditions',
-  privacyPolicy: '/privacy-policy',
-  cookiePolicy: '/cookie-policy',
-  mdc: '/mdc/mdc.xsd',
-  mdcClassifiers: '/mdc/classifiers.xsd',
-  mdcIdentifiers: '/mdc/identifiers.xsd',
+  home: `/`,
+  results: `/search`,
+  guidedClassifierSearch: `/classifier-search`,
+  guidedDateSearch: `/date-search`,
+  geographySearch: `/coordinate-search`,
+  intermediate: `/intermediate`,
+  getMapResults: `/map-results`,
+  getMapFilters: `/map-filters`,
+  filterResourceType: `/resource-type-filter`,
+  filterStudyPeriod: `/study-period-filter`,
+  sortResults: `/sort-results`,
+  help: `/help`,
+  accessibilityStatement: `/accessibility-statement`,
+  termsAndConditions: `/terms-conditions`,
+  privacyPolicy: `/privacy-policy`,
+  cookiePolicy: `/cookie-policy`,
+  mdc: `/mdc/mdc.xsd`,
+  mdcClassifiers: `/mdc/classifiers.xsd`,
+  mdcIdentifiers: `/mdc/identifiers.xsd`,
 };
 
 export const elasticSearchAPIPaths = {

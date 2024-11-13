@@ -4,7 +4,7 @@ import { Lifecycle, Request, ResponseObject, ResponseToolkit } from '@hapi/hapi'
 import Joi from 'joi';
 
 import { geographyQuestionnaireOptions } from '@/data/geographyQuestionnaireOptions';
-import { formIds, pageTitles, queryParamKeys, webRoutePaths } from '@/utils/constants';
+import { BASE_PATH, formIds, pageTitles, queryParamKeys, webRoutePaths } from '@/utils/constants';
 import { readQueryParams, upsertQueryParams } from '@/utils/queryStringHelper';
 import { transformTextInputError } from '@/utils/transformErrors';
 
@@ -77,7 +77,7 @@ const GeographySearchController = {
       [queryParamKeys.west]: payload?.['west'] ?? '',
     };
     const queryString: string = upsertQueryParams(request.query, queryParamsObject, true);
-    return response.redirect(`${webRoutePaths.results}?${queryString}`);
+    return response.redirect(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
   },
 };
 

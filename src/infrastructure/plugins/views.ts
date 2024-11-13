@@ -5,10 +5,9 @@ import nunjucks from 'nunjucks';
 import dateFilter from 'nunjucks-date-filter';
 
 import { environmentConfig } from '@/config/environmentConfig';
-import { webRoutePaths } from '@/utils/constants';
+import { BASE_PATH, webRoutePaths } from '@/utils/constants';
 
 const {
-  home: homePage,
   results: searchResults,
   guidedClassifierSearch: guidedSearch,
   guidedDateSearch,
@@ -65,23 +64,23 @@ const customHapiViews = {
     relativeTo: __dirname,
     isCached: process.env.NODE_ENV !== 'production',
     context: {
-      assetPath: '/assets',
+      assetPath: `${BASE_PATH}/assets`,
       serviceName: 'Find natural capital data',
       pageTitle: 'Find natural capital data - GOV.UK',
       routes: {
-        homePage,
-        searchResults,
-        guidedSearch,
-        guidedDateSearch,
-        getMapResults,
-        getMapFilters,
-        filterResourceType,
-        filterStudyPeriod,
-        help,
-        accessibilityStatement,
-        termsAndConditions,
-        privacyPolicy,
-        cookiePolicy,
+        homePage: `${BASE_PATH}`,
+        searchResults: `${BASE_PATH}${searchResults}`,
+        guidedSearch: `${BASE_PATH}${guidedSearch}`,
+        guidedDateSearch: `${BASE_PATH}${guidedDateSearch}`,
+        getMapResults: `${BASE_PATH}${getMapResults}`,
+        getMapFilters: `${BASE_PATH}${getMapFilters}`,
+        filterResourceType: `${BASE_PATH}${filterResourceType}`,
+        filterStudyPeriod: `${BASE_PATH}${filterStudyPeriod}`,
+        help: `${BASE_PATH}${help}`,
+        accessibilityStatement: `${BASE_PATH}${accessibilityStatement}`,
+        termsAndConditions: `${BASE_PATH}${termsAndConditions}`,
+        privacyPolicy: `${BASE_PATH}${privacyPolicy}`,
+        cookiePolicy: `${BASE_PATH}${cookiePolicy}`,
       },
       appInsightsConnectionString: environmentConfig.appInsightsConnectionString,
       gtmId: environmentConfig.gtmId,

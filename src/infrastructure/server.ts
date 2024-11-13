@@ -36,7 +36,9 @@ const initializeServer = async (): Promise<Server> => {
   await server.register([inert, vision]);
 
   // Register the custom plugins
-  await server.register([customHapiViews, customHapiRoutes, customHapiPino]);
+  await server.register({ plugin: customHapiViews.plugin, options: customHapiViews.options });
+  await server.register({ plugin: customHapiRoutes }, { routes: { prefix: '/natural-capital-ecosystem-assessment' } });
+  await server.register([customHapiPino]);
 
   await server.initialize();
 

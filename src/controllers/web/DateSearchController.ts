@@ -6,7 +6,15 @@ import Joi from 'joi';
 import { fromDate, toDate } from '@/data/dateQuestionnaireFieldOptions';
 import { FormFieldError } from '@/interfaces/guidedSearch.interface';
 import { getSearchResultsCount } from '@/services/handlers/searchApi';
-import { formIds, formKeys, guidedSearchSteps, pageTitles, queryParamKeys, webRoutePaths } from '@/utils/constants';
+import {
+  BASE_PATH,
+  formIds,
+  formKeys,
+  guidedSearchSteps,
+  pageTitles,
+  queryParamKeys,
+  webRoutePaths,
+} from '@/utils/constants';
 import { generateCountPayload, readQueryParams, upsertQueryParams } from '@/utils/queryStringHelper';
 import { transformErrors } from '@/utils/transformErrors';
 
@@ -43,7 +51,7 @@ const DateSearchController = {
         backLinkClasses: 'back-link-date',
       });
     } else {
-      return response.redirect(`${webRoutePaths.results}?${queryString}`);
+      return response.redirect(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
     }
   },
   dateSearchFailActionHandler: (
@@ -104,7 +112,7 @@ const DateSearchController = {
       [queryParamKeys.toDateYear]: payload?.['to-date-year'] ?? '',
     };
     const queryString: string = upsertQueryParams(request.query, queryParamsObject, false);
-    return response.redirect(`${webRoutePaths.intermediate}/${guidedSearchSteps.date}?${queryString}`);
+    return response.redirect(`${BASE_PATH}${webRoutePaths.intermediate}/${guidedSearchSteps.date}?${queryString}`);
   },
 };
 

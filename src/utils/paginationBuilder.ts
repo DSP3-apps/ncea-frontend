@@ -1,6 +1,6 @@
 import { RequestQuery } from '@hapi/hapi';
 
-import { queryParamKeys, webRoutePaths } from './constants';
+import { BASE_PATH, queryParamKeys, webRoutePaths } from './constants';
 import { upsertQueryParams } from './queryStringHelper';
 
 const generatePaginationNumbers = (currentPage, totalPages, maxPagesDisplayed) => {
@@ -59,7 +59,7 @@ export const getPaginationItems = (
     };
     const queryString: string = upsertQueryParams(requestQuery, queryParamsObject, false);
     paginationItems['previous'] = {
-      href: `${webRoutePaths.results}?${queryString}`,
+      href: `${BASE_PATH}${webRoutePaths.results}?${queryString}`,
       attributes: {
         'data-page-id': `${currentPage - 1}`,
       },
@@ -77,7 +77,7 @@ export const getPaginationItems = (
       return {
         number: page,
         current: page === currentPage,
-        href: `${webRoutePaths.results}?${queryString}`,
+        href: `${BASE_PATH}${webRoutePaths.results}?${queryString}`,
         attributes: { 'data-page-id': page },
       };
     }
@@ -90,7 +90,7 @@ export const getPaginationItems = (
     };
     const queryString: string = upsertQueryParams(requestQuery, queryParamsObject, false);
     paginationItems['next'] = {
-      href: `${webRoutePaths.results}?${queryString}`,
+      href: `${BASE_PATH}${webRoutePaths.results}?${queryString}`,
       attributes: {
         'data-page-id': `${currentPage + 1}`,
       },

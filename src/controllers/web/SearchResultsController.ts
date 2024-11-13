@@ -8,6 +8,7 @@ import { ISearchPayload } from '@/interfaces/queryBuilder.interface';
 import { IAggregationOptions, ISearchItem, ISearchResults } from '@/interfaces/searchResponse.interface';
 import { getDocumentDetails, getFilterOptions, getSearchResults } from '@/services/handlers/searchApi';
 import {
+  BASE_PATH,
   formIds,
   mapResultMaxCount,
   pageTitles,
@@ -58,16 +59,16 @@ const SearchResultsController = {
       };
       const paginationItems = getPaginationItems(page, searchResults?.total ?? 0, rowsPerPage, request.query);
       const queryString = readQueryParams(request.query);
-      const filterResourceTypePath = `${webRoutePaths.filterResourceType}?${queryString}`;
-      const filterStudyPeriodPath = `${webRoutePaths.filterStudyPeriod}?${queryString}`;
-      const sortSubmitPath = `${webRoutePaths.sortResults}?${queryString}`;
+      const filterResourceTypePath = `${BASE_PATH}${webRoutePaths.filterResourceType}?${queryString}`;
+      const filterStudyPeriodPath = `${BASE_PATH}${webRoutePaths.filterStudyPeriod}?${queryString}`;
+      const sortSubmitPath = `${BASE_PATH}${webRoutePaths.sortResults}?${queryString}`;
       const processedFilterOptions = await processFilterOptions(filterOptions, request.query);
       const processedSortOptions = await processSortOptions(request.query);
       const resetStudyPeriodQueryString: string = deleteQueryParams(request.query, [
         queryParamKeys.startYear,
         queryParamKeys.toYear,
       ]);
-      const resetStudyPeriodLink: string = `${webRoutePaths.results}?${resetStudyPeriodQueryString}`;
+      const resetStudyPeriodLink: string = `${BASE_PATH}${webRoutePaths.results}?${resetStudyPeriodQueryString}`;
       return response.view('screens/results/template', {
         pageTitle: pageTitles.results,
         quickSearchFID,
@@ -80,7 +81,7 @@ const SearchResultsController = {
         filterResourceTypePath,
         filterStudyPeriodPath,
         sortSubmitPath,
-        dateSearchPath: webRoutePaths.guidedDateSearch,
+        dateSearchPath: `${BASE_PATH}${webRoutePaths.guidedDateSearch}`,
         filterInstance: 'search_results',
         queryString,
         hasStudyPeriodFilterApplied,
@@ -104,7 +105,7 @@ const SearchResultsController = {
       [queryParamKeys.journey]: 'qs',
     };
     const queryString: string = upsertQueryParams(request.query, queryParamsObject);
-    return response.redirect(`${webRoutePaths.results}?${queryString}`);
+    return response.redirect(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
   },
   quickSearchFailActionHandler: (request, response, error): Lifecycle.ReturnValue => {
     const { quickSearchFID } = formIds;
@@ -222,7 +223,7 @@ const SearchResultsController = {
       [queryParamKeys.page]: '1',
     };
     const queryString: string = upsertQueryParams(request.query, queryParamsObject, false);
-    return response.redirect(`${webRoutePaths.results}?${queryString}`);
+    return response.redirect(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
   },
   filterStudyPeriodHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
     const payload = request.payload as Record<string, string>;
@@ -232,7 +233,7 @@ const SearchResultsController = {
       [queryParamKeys.page]: '1',
     };
     const queryString: string = upsertQueryParams(request.query, queryParamsObject, false);
-    return response.redirect(`${webRoutePaths.results}?${queryString}`);
+    return response.redirect(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
   },
   sortSearchHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
     const payload = request.payload as Record<string, string>;
@@ -242,7 +243,7 @@ const SearchResultsController = {
       [queryParamKeys.page]: '1',
     };
     const queryString: string = upsertQueryParams(request.query, queryParamsObject, false);
-    return response.redirect(`${webRoutePaths.results}?${queryString}`);
+    return response.redirect(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
   },
 };
 

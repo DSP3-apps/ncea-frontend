@@ -499,15 +499,15 @@ if(Object.keys(classifierData).length >0){
           }
       } else {
           associatedLevel = [];
+        }
+        const parents = associatedLevel;
+        const params = new URLSearchParams({ level });
+        parents.forEach((parent) => params.append('parent[]', parent));
+        const url = `/natural-capital-ecosystem-assessment/classifier-search?${params.toString()}`;
+        window.location.href = url;
+      } else {
+        window.location = '/natural-capital-ecosystem-assessment';
       }
-      const parents = associatedLevel;
-      const params = new URLSearchParams({ level });
-      parents.forEach(parent => params.append('parent[]', parent));
-      const url = `/classifier-search?${params.toString()}`;
-      window.location.href = url;
-    }else{
-      window.location = '/'
-    }
     });
   }
 };
@@ -545,8 +545,8 @@ function redirectToClassifierSearch(){
   }
   const parents = associatedLevel;
   const params = new URLSearchParams({ level });
-  parents.forEach(parent => params.append('parent[]', parent));
-  const url = `/classifier-search?${params.toString()}`;
+  parents.forEach((parent) => params.append('parent[]', parent));
+  const url = `/natural-capital-ecosystem-assessment/classifier-search?${params.toString()}`;
   window.location.href = url;
 
 }
