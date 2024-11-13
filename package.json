@@ -17,7 +17,6 @@
     "lint:fix": "npm run lint --fix",
     "lint:rules": "eslint --print-config rules > eslint-rules.json",
     "sass:compile": "sass --watch --no-source-map --load-path=node_modules/govuk-frontend/dist/ --quiet-deps src/assets/sass/_root.scss public/css/application.css",
-    "format:all": "prettier --ignore-path .gitignore --write \"./src/**/*.+(js|ts|jsx|tsx)\"",
     "format:check": "prettier --ignore-path .gitignore --check \"./src/**/*.+(js|ts|jsx|tsx)\"",
     "test": "jest --watchAll -u",
     "test:ci": "jest --coverage -u",
