@@ -1,11 +1,12 @@
 'use strict';
 
-import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
-import { getSearchResultsCount } from '../../services/handlers/searchApi';
-import { IGuidedSearchStepsMatrix, IStepRouteMatrix } from '../../interfaces/guidedSearch.interface';
 import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
-import { formIds, guidedSearchSteps, pageTitles, queryParamKeys, webRoutePaths } from '../../utils/constants';
-import { generateCountPayload, readQueryParams, upsertQueryParams } from '../../utils/queryStringHelper';
+
+import { IGuidedSearchStepsMatrix, IStepRouteMatrix } from '@/interfaces/guidedSearch.interface';
+import { ISearchPayload } from '@/interfaces/queryBuilder.interface';
+import { getSearchResultsCount } from '@/services/handlers/searchApi';
+import { formIds, guidedSearchSteps, pageTitles, queryParamKeys, webRoutePaths } from '@/utils/constants';
+import { generateCountPayload, readQueryParams, upsertQueryParams } from '@/utils/queryStringHelper';
 
 /**
  * This code snippet exports a module named HomeController.

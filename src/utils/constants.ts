@@ -1,5 +1,5 @@
-import { IFilterOptions } from '../interfaces/searchPayload.interface';
-import { TabOptions } from '../interfaces/detailsTab.interface';
+import { TabOptions } from '@/interfaces/detailsTab.interface';
+import { IFilterOptions } from '@/interfaces/searchPayload.interface';
 
 export const webRoutePaths = {
   home: '/',

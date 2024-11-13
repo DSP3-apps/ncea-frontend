@@ -1,8 +1,8 @@
 'use strict';
 
-import { GeographySearchController } from '../../controllers/web/GeographySearchController';
-import { geographyQuestionnaireSchema } from '../../schema/geographyQuestionnaire.schema';
-import { webRoutePaths } from '../../utils/constants';
+import { GeographySearchController } from '@/controllers/web/GeographySearchController';
+import { geographyQuestionnaireSchema } from '@/schema/geographyQuestionnaire.schema';
+import { webRoutePaths } from '@/utils/constants';
 
 const geographySearchRoutes = [
   {

@@ -3,7 +3,7 @@ import {
   IAccumulatedCoordinates,
   IAccumulatedCoordinatesWithCenter,
   IGeographyItem,
-} from '../interfaces/searchResponse.interface';
+} from '@/interfaces/searchResponse.interface';
 
 import { getAccumulatedCoordinatesNCenter } from './getBoundingBoxData';
 

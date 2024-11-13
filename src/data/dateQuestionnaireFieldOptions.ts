@@ -1,4 +1,4 @@
-import { IDateInputComponent } from '../interfaces/fieldsComponent.interface';
+import { IDateInputComponent } from '@/interfaces/fieldsComponent.interface';
 
 const fieldset: { [key: string]: Record<string, string> } = {
   legend: {

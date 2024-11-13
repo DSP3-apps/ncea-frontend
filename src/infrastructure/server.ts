@@ -1,12 +1,14 @@
 'use strict';
 
-import { environmentConfig } from '../config/environmentConfig';
-import { getSecret } from '../utils/keyvault';
+import { Server } from '@hapi/hapi';
+import * as Hapi from '@hapi/hapi';
 import inert from '@hapi/inert';
 import vision from '@hapi/vision';
-import Hapi, { Server } from '@hapi/hapi';
 
+import { environmentConfig } from '../config/environmentConfig';
+import { getSecret } from '../utils/keyvault';
 import { customHapiPino, customHapiRoutes, customHapiViews } from './plugins/index';
+
 const appInsightsConnectionStringSecretName =
   environmentConfig.appInsightsSecretName ?? 'ApplicationInsights--ConnectionString';
 const shouldPushToAppInsights = environmentConfig.env === 'local';

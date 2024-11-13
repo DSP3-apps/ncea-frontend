@@ -1,9 +1,8 @@
 'use strict';
 
-import { SearchResultsController } from '../../controllers/web/SearchResultsController';
-
-import { searchSchema } from '../../schema/search.schema';
-import { webRoutePaths } from '../../utils/constants';
+import { SearchResultsController } from '@/controllers/web/SearchResultsController';
+import { searchSchema } from '@/schema/search.schema';
+import { webRoutePaths } from '@/utils/constants';
 
 const searchResultsRoutes = [
   {

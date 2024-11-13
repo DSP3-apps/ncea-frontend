@@ -1,14 +1,14 @@
 'use strict';
 
-import { FormFieldError } from '../../interfaces/guidedSearch.interface';
-import Joi from 'joi';
 import { Lifecycle, Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
+import Joi from 'joi';
 
-import { getSearchResultsCount } from '../../services/handlers/searchApi';
-import { transformErrors } from '../../utils/transformErrors';
-import { formIds, formKeys, guidedSearchSteps, pageTitles, queryParamKeys, webRoutePaths } from '../../utils/constants';
-import { fromDate, toDate } from '../../data/dateQuestionnaireFieldOptions';
-import { generateCountPayload, readQueryParams, upsertQueryParams } from '../../utils/queryStringHelper';
+import { fromDate, toDate } from '@/data/dateQuestionnaireFieldOptions';
+import { FormFieldError } from '@/interfaces/guidedSearch.interface';
+import { getSearchResultsCount } from '@/services/handlers/searchApi';
+import { formIds, formKeys, guidedSearchSteps, pageTitles, queryParamKeys, webRoutePaths } from '@/utils/constants';
+import { generateCountPayload, readQueryParams, upsertQueryParams } from '@/utils/queryStringHelper';
+import { transformErrors } from '@/utils/transformErrors';
 
 const DateSearchController = {
   renderGuidedSearchHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {

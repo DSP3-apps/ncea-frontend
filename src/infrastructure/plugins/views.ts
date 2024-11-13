@@ -1,9 +1,11 @@
-import dateFilter from 'nunjucks-date-filter';
-import { environmentConfig } from '../../config/environmentConfig';
-import nunjucks from 'nunjucks';
 import path from 'path';
+
 import vision from '@hapi/vision';
-import { webRoutePaths } from '../../utils/constants';
+import nunjucks from 'nunjucks';
+import dateFilter from 'nunjucks-date-filter';
+
+import { environmentConfig } from '@/config/environmentConfig';
+import { webRoutePaths } from '@/utils/constants';
 
 const {
   home: homePage,

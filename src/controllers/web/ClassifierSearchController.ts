@@ -1,10 +1,11 @@
 'use strict';
 
-import { getClassifierThemes } from '../../services/handlers/classifierApi';
-import { getSearchResultsCount } from '../../services/handlers/searchApi';
 import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
-import { formIds, pageTitles, queryParamKeys, webRoutePaths } from '../../utils/constants';
-import { generateCountPayload, readQueryParams, upsertQueryParams } from '../../utils/queryStringHelper';
+
+import { getClassifierThemes } from '@/services/handlers/classifierApi';
+import { getSearchResultsCount } from '@/services/handlers/searchApi';
+import { formIds, pageTitles, queryParamKeys, webRoutePaths } from '@/utils/constants';
+import { generateCountPayload, readQueryParams, upsertQueryParams } from '@/utils/queryStringHelper';
 
 const ClassifierSearchController = {
   renderClassifierSearchHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {

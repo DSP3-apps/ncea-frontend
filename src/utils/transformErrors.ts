@@ -1,7 +1,9 @@
 import Joi from 'joi';
+
+import { IFormFieldOptions, ITextInputComponent } from '@/interfaces/fieldsComponent.interface';
+import { FormFieldError, GovUKItems } from '@/interfaces/guidedSearch.interface';
+
 import { formKeys } from './constants';
-import { FormFieldError, GovUKItems } from '../interfaces/guidedSearch.interface';
-import { IFormFieldOptions, ITextInputComponent } from '../interfaces/fieldsComponent.interface';
 
 const transformErrors = (error: Joi.ValidationError, formName: string): FormFieldError | undefined => {
   if (formName === formKeys.dateQuestionnaire) {

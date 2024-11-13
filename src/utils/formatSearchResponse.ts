@@ -1,4 +1,5 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
+import { formatDate, getYear } from './formatDate';
 import { getAccessTabData } from './getAccessTabData';
 import { getAccumulatedCoordinatesNCenter } from './getBoundingBoxData';
 import { getGeneralTabData } from './getGeneralTabData';
@@ -16,7 +17,6 @@ import {
   ISearchItem,
   ISearchResults,
 } from '../interfaces/searchResponse.interface';
-import { formatDate, getYear } from './formatDate';
 
 const getAbstractContent = (data: Record<string, any>, id: string): string => {
   if (Object.keys(data).length && data?.default) {

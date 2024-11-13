@@ -1,7 +1,7 @@
 'use strict';
 
-import { MdcSchemaController } from '../../controllers/web/MdcSchemaController';
-import { webRoutePaths } from '../../utils/constants';
+import { MdcSchemaController } from '@/controllers/web/MdcSchemaController';
+import { webRoutePaths } from '@/utils/constants';
 
 const mdcRoutes = [
   {

@@ -1,15 +1,15 @@
-/* eslint-disable  @typescript-eslint/no-explicit-any */
+// import fs from 'fs';
+// import path from 'path';
+
+import { Client, ClientOptions, estypes } from '@elastic/elasticsearch';
 
 import { environmentConfig } from './environmentConfig';
-import fs from 'fs';
 import { geoNetworkIndex } from '../utils/constants';
-import path from 'path';
-import { Client, ClientOptions, estypes } from '@elastic/elasticsearch';
 
 const { elasticSearchAPI, elasticSearchUsername, elasticSearchPassword } = environmentConfig;
 
 const hasCredentials: boolean = !!elasticSearchUsername?.length && !!elasticSearchPassword?.length;
-const certPath: string = path.join('/usr/share/elasticsearch/config/certs', 'ca.crt');
+// const certPath: string = path.join('/usr/share/elasticsearch/config/certs', 'ca.crt');
 
 const clientOptions: ClientOptions = {
   node: elasticSearchAPI,
@@ -36,9 +36,13 @@ const performQuery = async <T>(payload: estypes.SearchRequest, isCount: boolean 
       ...payload,
     });
     return result as T;
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.log('ELASTIC SEARCH QUERY ERRORED: ', error);
-    throw new Error(`Elasticsearch results: ${error.message}`);
+    if (error instanceof Error) {
+      throw new Error(`Elasticsearch results: ${error.message}`);
+    } else {
+      throw new Error('Elasticsearch results: unknown error');
+    }
   }
 };
 console.log('ELASTIC SEARCH QUERY PERFORMED');

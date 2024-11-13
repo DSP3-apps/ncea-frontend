@@ -1,12 +1,12 @@
 'use strict';
 
-import Joi from 'joi';
 import { Lifecycle, Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
+import Joi from 'joi';
 
-import { geographyQuestionnaireOptions } from '../../data/geographyQuestionnaireOptions';
-import { transformTextInputError } from '../../utils/transformErrors';
-import { formIds, pageTitles, queryParamKeys, webRoutePaths } from '../../utils/constants';
-import { readQueryParams, upsertQueryParams } from '../../utils/queryStringHelper';
+import { geographyQuestionnaireOptions } from '@/data/geographyQuestionnaireOptions';
+import { formIds, pageTitles, queryParamKeys, webRoutePaths } from '@/utils/constants';
+import { readQueryParams, upsertQueryParams } from '@/utils/queryStringHelper';
+import { transformTextInputError } from '@/utils/transformErrors';
 
 const GeographySearchController = {
   renderGeographySearchHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {

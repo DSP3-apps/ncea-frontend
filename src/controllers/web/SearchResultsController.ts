@@ -1,20 +1,12 @@
 'use strict';
 
-import { FormattedTabOptions } from '../../interfaces/detailsTab.interface';
-import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
-import Joi from 'joi';
-import { IAggregationOptions, ISearchItem, ISearchResults } from '../../interfaces/searchResponse.interface';
 import { Lifecycle, Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
+import Joi from 'joi';
 
-import { getPaginationItems } from '../../utils/paginationBuilder';
-import { processDetailsTabData } from '../../utils/processDetailsTabData';
-import {
-  appendPublication,
-  deleteQueryParams,
-  generateQueryBuilderPayload,
-  readQueryParams,
-  upsertQueryParams,
-} from '../../utils/queryStringHelper';
+import { FormattedTabOptions } from '@/interfaces/detailsTab.interface';
+import { ISearchPayload } from '@/interfaces/queryBuilder.interface';
+import { IAggregationOptions, ISearchItem, ISearchResults } from '@/interfaces/searchResponse.interface';
+import { getDocumentDetails, getFilterOptions, getSearchResults } from '@/services/handlers/searchApi';
 import {
   formIds,
   mapResultMaxCount,
@@ -25,9 +17,17 @@ import {
   toYearRangeKey,
   uniqueResourceTypesKey,
   webRoutePaths,
-} from '../../utils/constants';
-import { getDocumentDetails, getFilterOptions, getSearchResults } from '../../services/handlers/searchApi';
-import { processFilterOptions, processSortOptions } from '../../utils/processFilterRSortOptions';
+} from '@/utils/constants';
+import { getPaginationItems } from '@/utils/paginationBuilder';
+import { processDetailsTabData } from '@/utils/processDetailsTabData';
+import { processFilterOptions, processSortOptions } from '@/utils/processFilterRSortOptions';
+import {
+  appendPublication,
+  deleteQueryParams,
+  generateQueryBuilderPayload,
+  readQueryParams,
+  upsertQueryParams,
+} from '@/utils/queryStringHelper';
 
 const SearchResultsController = {
   renderSearchResultsHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {

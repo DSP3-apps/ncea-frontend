@@ -1,5 +1,5 @@
-import Joi from 'joi';
 import dotenv from 'dotenv';
+import Joi from 'joi';
 
 const envs = ['local', 'sandbox', 'dev', 'qa', 'test', 'preprod', 'prod'];
 

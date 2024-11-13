@@ -1,7 +1,7 @@
 'use strict';
 
-import { ClassifierSearchController } from '../../controllers/web/ClassifierSearchController';
-import { webRoutePaths } from '../../utils/constants';
+import { ClassifierSearchController } from '@/controllers/web/ClassifierSearchController';
+import { webRoutePaths } from '@/utils/constants';
 
 const classifierSearchRoutes = [
   {

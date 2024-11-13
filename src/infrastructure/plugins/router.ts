@@ -1,6 +1,7 @@
 'use strict';
 
 import { Server } from '@hapi/hapi';
+
 import {
   classifierSearchRoutes,
   dateSearchRoutes,
@@ -10,7 +11,7 @@ import {
   mdcRoutes,
   searchResultsRoutes,
   staticRoutes,
-} from '../../routes/index';
+} from '@/routes/index';
 
 const routes = [
   ...errorRoutes,

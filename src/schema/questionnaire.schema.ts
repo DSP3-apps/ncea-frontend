@@ -1,5 +1,6 @@
 import Joi from 'joi';
-import { validateDate } from '../utils/formatDate';
+
+import { validateDate } from '@/utils/formatDate';
 
 const thisYear = new Date().getFullYear();
 

@@ -1,7 +1,8 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 'use strict';
 
-import { IGovernance } from '../interfaces/searchResponse.interface';
+import { IGovernance } from '@/interfaces/searchResponse.interface';
+
 import { combineAndSortContacts } from './getAccessTabData';
 
 const getGovernanceTabData = (searchItem: Record<string, any>): IGovernance[] => {

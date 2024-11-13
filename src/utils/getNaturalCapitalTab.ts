@@ -1,8 +1,8 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 'use strict';
 
-import { INatural } from '../interfaces/searchResponse.interface';
-import { naturalTabStaticData } from '../utils/constants';
+import { INatural } from '@/interfaces/searchResponse.interface';
+import { naturalTabStaticData } from '@/utils/constants';
 
 const generateClassifierTable = (data: Record<string, any>[]): string => {
   if (!Array.isArray(data) || data.length === 0) {

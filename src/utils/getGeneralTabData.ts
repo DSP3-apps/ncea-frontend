@@ -1,7 +1,7 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 'use strict';
 
-import { IGeneralItem } from '../interfaces/searchResponse.interface';
+import { IGeneralItem } from '@/interfaces/searchResponse.interface';
 
 const getResourceLanguages = (data: Record<string, any>): string => {
   const resourceLanguages: string | string[] = data?.resourceLanguage ?? [];

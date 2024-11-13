@@ -3,7 +3,7 @@ import {
   IAccumulatedCoordinatesWithCenter,
   ICoordinates,
   IVertex,
-} from '../interfaces/searchResponse.interface';
+} from '@/interfaces/searchResponse.interface';
 
 const getBoundingBox = (polygons: ICoordinates[]): IAccumulatedCoordinates | null => {
   let minLon = Infinity;

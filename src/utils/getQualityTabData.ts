@@ -1,7 +1,8 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 'use strict';
 
-import { IQualityItem } from '../interfaces/searchResponse.interface';
+import { IQualityItem } from '@/interfaces/searchResponse.interface';
+
 import { formatDate } from './formatDate';
 import { toggleContent } from './toggleContent';
 

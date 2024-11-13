@@ -1,6 +1,7 @@
 import { RequestQuery } from '@hapi/hapi';
-import { upsertQueryParams } from './queryStringHelper';
+
 import { queryParamKeys, webRoutePaths } from './constants';
+import { upsertQueryParams } from './queryStringHelper';
 
 const generatePaginationNumbers = (currentPage, totalPages, maxPagesDisplayed) => {
   const pages: (number | string)[] = [];
