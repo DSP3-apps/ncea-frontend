@@ -1,0 +1,74 @@
+# GitHub recommends pinning actions to a commit SHA.
+# To get a newer version, you will need to update the SHA.
+# You can also reference a tag or branch, but the action may change without warning.
+
+name: Build and Publish Container
+
+on:
+  # via github UI
+  workflow_dispatch:
+  push:
+    branches: ['*']
+    # Publish semver tags as releases.
+    tags: ['v*.*.*']
+  pull_request:
+    branches: ['main']
+
+env:
+  DEV_REGISTRY: agrimetricsdspdev.azurecr.io
+  PROD_REGISTRY: agrimetricsdspprod.azurecr.io
+  IMAGE_NAME: natural-capital-ecosystem-assessment
+  HUSKY: 0
+
+jobs:
+  build_and_publish:
+    name: Build and Push Container image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - run: npm ci
+      - run: npm run test:ci
+
+      - name: Log in to registry - ${{ env.DEV_REGISTRY }}
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.DEV_REGISTRY }}
+          username: ${{ secrets.DEV_DOCKER_USERNAME }}
+          password: ${{ secrets.DEV_DOCKER_PASSWORD }}
+
+      - name: Log in to registry - ${{ env.PROD_REGISTRY }}
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.PROD_REGISTRY }}
+          username: ${{ secrets.PROD_DOCKER_USERNAME }}
+          password: ${{ secrets.PROD_DOCKER_PASSWORD }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: |
+            ${{ env.DEV_REGISTRY }}/${{ env.IMAGE_NAME }}
+            ${{ env.PROD_REGISTRY }}/${{ env.IMAGE_NAME }}
+          flavor: |
+            latest=false
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=schedule
+            type=ref,event=branch
+            type=ref,event=tag
+            type=ref,event=pr
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
