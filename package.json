@@ -10,8 +10,8 @@
   "scripts": {
     "start:dev": "concurrently \"npm run sass:compile\" \"cross-env NODE_ENV=local npx nodemon --config tools/nodemon.json\"",
     "start": "npm run build && node ./build/index.js",
+    "copy-files": "cp -r ./src/views ./build",
     "build": "rimraf ./build && tsc && npm run copy-files",
-    "copy-files": "ts-node copyNonTSFiles.ts",
     "json-server": "json-server ./src/services/mock-data.json --port 3300",
     "lint": "eslint ./src/**/*.{js,ts}",
     "lint:fix": "npm run lint --fix",
@@ -83,7 +83,6 @@
     "joi": "17.12.1",
     "nunjucks": "3.2.4",
     "nunjucks-date-filter": "0.1.1",
-    "shelljs": "0.8.5",
     "ts-node": "10.9.2",
     "winston": "3.11.0",
     "winston-azure-application-insights": "4.0.0",
