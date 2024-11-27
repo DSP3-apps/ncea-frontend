@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/DSP3-apps/ncea-frontend/compare/v1.0.0...v1.0.1) (2024-11-27)
+
+
+### Bug Fixes
+
+* **project:** Update URLs to include an app base path ([9715855](https://github.com/DSP3-apps/ncea-frontend/commit/97158557bb9364e889be3e54dbcb2b1f2beb02c9)), closes [#NCEA-37](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-37)
+* **tests:** Update all broken tests due to base path change ([9be6f23](https://github.com/DSP3-apps/ncea-frontend/commit/9be6f23ad40d5117384dff1e553431cc565d315f))
+
 # 1.0.0 (2024-11-14)
 
 
