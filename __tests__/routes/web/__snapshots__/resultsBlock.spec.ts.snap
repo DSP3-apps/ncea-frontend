@@ -13,22 +13,22 @@ exports[`Results block template Guided search journey Search results with empty 
 
     
   
-      <link rel="icon" sizes="48x48" href="/assets/images/favicon.ico">
-      <link rel="icon" sizes="any" href="/assets/images/favicon.svg" type="image/svg+xml">
-      <link rel="mask-icon" href="/assets/images/govuk-icon-mask.svg" color="#0b0c0c">
-      <link rel="apple-touch-icon" href="/assets/images/govuk-icon-180.png">
-      <link rel="manifest" href="/assets/manifest.json">
+      <link rel="icon" sizes="48x48" href="/natural-capital-ecosystem-assessment/assets/images/favicon.ico">
+      <link rel="icon" sizes="any" href="/natural-capital-ecosystem-assessment/assets/images/favicon.svg" type="image/svg+xml">
+      <link rel="mask-icon" href="/natural-capital-ecosystem-assessment/assets/images/govuk-icon-mask.svg" color="#0b0c0c">
+      <link rel="apple-touch-icon" href="/natural-capital-ecosystem-assessment/assets/images/govuk-icon-180.png">
+      <link rel="manifest" href="/natural-capital-ecosystem-assessment/assets/manifest.json">
     
 
 
     
   
-  <link rel="stylesheet" href="/assets/css/application.css">
+  <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/application.css">
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
 
-  <link rel="stylesheet" href="/assets/css/ol.css">
+  <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
   
     
   </head>
@@ -68,7 +68,7 @@ exports[`Results block template Guided search journey Search results with empty 
         
           
             
-              <a class="govuk-link help-link" href="/cookie-policy">View cookies</a>
+              <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
             
           
         
@@ -83,7 +83,7 @@ exports[`Results block template Guided search journey Search results with empty 
         
 
         <div class="govuk-cookie-banner__content">
-<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/cookie-policy">change your cookie settings</a> at any time.</p>
+<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
 </div>
       </div>
     </div>
@@ -108,7 +108,7 @@ exports[`Results block template Guided search journey Search results with empty 
         
 
         <div class="govuk-cookie-banner__content">
-<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/cookie-policy">change your cookie settings</a> at any time.</p>
+<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
 </div>
       </div>
     </div>
@@ -139,7 +139,7 @@ exports[`Results block template Guided search journey Search results with empty 
   <script>
     var gtmIdValue = "";
   </script>
-  <script type="module" src="/assets/scripts/cookieScript.js"></script>
+  <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
 
     <!--Will be removed once Defra GA accounts been created -->
@@ -177,7 +177,7 @@ exports[`Results block template Guided search journey Search results with empty 
     <div class="govuk-header__content">
     
     
-      <a href="/" class="govuk-header__link govuk-header__service-name">
+      <a href="/natural-capital-ecosystem-assessment" class="govuk-header__link govuk-header__service-name">
         Find natural capital data
       </a>
     
@@ -224,13 +224,13 @@ exports[`Results block template Guided search journey Search results with empty 
     
   
 
-<a href="/" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button" data-do-storage-reset="">
+<a href="/natural-capital-ecosystem-assessment" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button" data-do-storage-reset="">
   New search
 </a>
 
     </div>
     
-      <div class="govuk-grid-row" id="map-result-block" data-action="/map-results" data-fetch-map-results>
+      <div class="govuk-grid-row" id="map-result-block" data-action="/natural-capital-ecosystem-assessment/map-results" data-fetch-map-results>
 <div id="modal" class="modal map-modal">
   <div class="modal-content">
     
@@ -323,7 +323,7 @@ exports[`Results block template Guided search journey Search results with empty 
       </div>
       <div id="defra-bounding-box-info" class="govuk-!-margin-bottom-2">Filter your results to reduce the number of bounding boxes</div>
       <div class="govuk-section-break--visible"></div>
-      <div id="map-filter-block" data-action="/map-filters" data-fetch-map-filters></div>
+      <div id="map-filter-block" data-action="/natural-capital-ecosystem-assessment/map-filters" data-fetch-map-filters></div>
     </div>
     <div class="defra-map-info" id="map-info" role="dialog" open="true" aria-modal="true" tabindex="-1">
       <div class="defra-map-info__container">
@@ -444,31 +444,31 @@ exports[`Results block template Guided search journey Search results with empty 
             <ul class="govuk-footer__inline-list">
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/help">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
                     Help
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/privacy-policy">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
                     Privacy
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/cookie-policy">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
                     Cookies
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/accessibility-statement">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
                     Accessibility statement
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/terms-conditions">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
                     Terms and conditions
                   </a>
                 </li>
@@ -518,25 +518,25 @@ exports[`Results block template Guided search journey Search results with empty 
     
     
   
-  <script type="module" src="/assets/all.js"></script>
+  <script type="module" src="/natural-capital-ecosystem-assessment/assets/all.js"></script>
   <script type="module">
-    import {initAll} from '/assets/all.js'
+    import {initAll} from '/natural-capital-ecosystem-assessment/assets/all.js'
     initAll()
   </script>
   <script>
     const appInsightsConnString = "";
   </script>
-  <script type="text/javascript" src="/assets/scripts/appinsights.js"></script>
-  <script type="module" src="/assets/scripts/customScripts.js"></script>
+  <script type="text/javascript" src="/natural-capital-ecosystem-assessment/assets/scripts/appinsights.js"></script>
+  <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/customScripts.js"></script>
 
-    <script type="module" src="/assets/scripts/dataModal.js"></script>
-    <script src="/assets/scripts/ol.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/dataModal.js"></script>
+    <script src="/natural-capital-ecosystem-assessment/assets/scripts/ol.js"></script>
     <script>
       var isViewMapResults = true;
     </script>
-    <script type="module" src="/assets/scripts/location.js"></script>
-    <script type="module" src="/assets/scripts/filters.js"></script>
-    <script type="module" src="/assets/scripts/details.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/location.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/filters.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/details.js"></script>
   
   </body>
 </html>
@@ -556,22 +556,22 @@ exports[`Results block template Guided search journey Search results with error 
 
     
   
-      <link rel="icon" sizes="48x48" href="/assets/images/favicon.ico">
-      <link rel="icon" sizes="any" href="/assets/images/favicon.svg" type="image/svg+xml">
-      <link rel="mask-icon" href="/assets/images/govuk-icon-mask.svg" color="#0b0c0c">
-      <link rel="apple-touch-icon" href="/assets/images/govuk-icon-180.png">
-      <link rel="manifest" href="/assets/manifest.json">
+      <link rel="icon" sizes="48x48" href="/natural-capital-ecosystem-assessment/assets/images/favicon.ico">
+      <link rel="icon" sizes="any" href="/natural-capital-ecosystem-assessment/assets/images/favicon.svg" type="image/svg+xml">
+      <link rel="mask-icon" href="/natural-capital-ecosystem-assessment/assets/images/govuk-icon-mask.svg" color="#0b0c0c">
+      <link rel="apple-touch-icon" href="/natural-capital-ecosystem-assessment/assets/images/govuk-icon-180.png">
+      <link rel="manifest" href="/natural-capital-ecosystem-assessment/assets/manifest.json">
     
 
 
     
   
-  <link rel="stylesheet" href="/assets/css/application.css">
+  <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/application.css">
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
 
-  <link rel="stylesheet" href="/assets/css/ol.css">
+  <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
   
     
   </head>
@@ -611,7 +611,7 @@ exports[`Results block template Guided search journey Search results with error 
         
           
             
-              <a class="govuk-link help-link" href="/cookie-policy">View cookies</a>
+              <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
             
           
         
@@ -626,7 +626,7 @@ exports[`Results block template Guided search journey Search results with error 
         
 
         <div class="govuk-cookie-banner__content">
-<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/cookie-policy">change your cookie settings</a> at any time.</p>
+<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
 </div>
       </div>
     </div>
@@ -651,7 +651,7 @@ exports[`Results block template Guided search journey Search results with error 
         
 
         <div class="govuk-cookie-banner__content">
-<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/cookie-policy">change your cookie settings</a> at any time.</p>
+<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
 </div>
       </div>
     </div>
@@ -682,7 +682,7 @@ exports[`Results block template Guided search journey Search results with error 
   <script>
     var gtmIdValue = "";
   </script>
-  <script type="module" src="/assets/scripts/cookieScript.js"></script>
+  <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
 
     <!--Will be removed once Defra GA accounts been created -->
@@ -720,7 +720,7 @@ exports[`Results block template Guided search journey Search results with error 
     <div class="govuk-header__content">
     
     
-      <a href="/" class="govuk-header__link govuk-header__service-name">
+      <a href="/natural-capital-ecosystem-assessment" class="govuk-header__link govuk-header__service-name">
         Find natural capital data
       </a>
     
@@ -767,13 +767,13 @@ exports[`Results block template Guided search journey Search results with error 
     
   
 
-<a href="/" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button" data-do-storage-reset="">
+<a href="/natural-capital-ecosystem-assessment" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button" data-do-storage-reset="">
   New search
 </a>
 
     </div>
     
-      <div class="govuk-grid-row" id="map-result-block" data-action="/map-results" data-fetch-map-results>
+      <div class="govuk-grid-row" id="map-result-block" data-action="/natural-capital-ecosystem-assessment/map-results" data-fetch-map-results>
 <div id="modal" class="modal map-modal">
   <div class="modal-content">
     
@@ -866,7 +866,7 @@ exports[`Results block template Guided search journey Search results with error 
       </div>
       <div id="defra-bounding-box-info" class="govuk-!-margin-bottom-2">Filter your results to reduce the number of bounding boxes</div>
       <div class="govuk-section-break--visible"></div>
-      <div id="map-filter-block" data-action="/map-filters" data-fetch-map-filters></div>
+      <div id="map-filter-block" data-action="/natural-capital-ecosystem-assessment/map-filters" data-fetch-map-filters></div>
     </div>
     <div class="defra-map-info" id="map-info" role="dialog" open="true" aria-modal="true" tabindex="-1">
       <div class="defra-map-info__container">
@@ -968,31 +968,31 @@ exports[`Results block template Guided search journey Search results with error 
             <ul class="govuk-footer__inline-list">
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/help">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
                     Help
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/privacy-policy">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
                     Privacy
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/cookie-policy">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
                     Cookies
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/accessibility-statement">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
                     Accessibility statement
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/terms-conditions">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
                     Terms and conditions
                   </a>
                 </li>
@@ -1042,25 +1042,25 @@ exports[`Results block template Guided search journey Search results with error 
     
     
   
-  <script type="module" src="/assets/all.js"></script>
+  <script type="module" src="/natural-capital-ecosystem-assessment/assets/all.js"></script>
   <script type="module">
-    import {initAll} from '/assets/all.js'
+    import {initAll} from '/natural-capital-ecosystem-assessment/assets/all.js'
     initAll()
   </script>
   <script>
     const appInsightsConnString = "";
   </script>
-  <script type="text/javascript" src="/assets/scripts/appinsights.js"></script>
-  <script type="module" src="/assets/scripts/customScripts.js"></script>
+  <script type="text/javascript" src="/natural-capital-ecosystem-assessment/assets/scripts/appinsights.js"></script>
+  <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/customScripts.js"></script>
 
-    <script type="module" src="/assets/scripts/dataModal.js"></script>
-    <script src="/assets/scripts/ol.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/dataModal.js"></script>
+    <script src="/natural-capital-ecosystem-assessment/assets/scripts/ol.js"></script>
     <script>
       var isViewMapResults = true;
     </script>
-    <script type="module" src="/assets/scripts/location.js"></script>
-    <script type="module" src="/assets/scripts/filters.js"></script>
-    <script type="module" src="/assets/scripts/details.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/location.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/filters.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/details.js"></script>
   
   </body>
 </html>
@@ -1080,22 +1080,22 @@ exports[`Results block template Quick search journey Search results with data sh
 
     
   
-      <link rel="icon" sizes="48x48" href="/assets/images/favicon.ico">
-      <link rel="icon" sizes="any" href="/assets/images/favicon.svg" type="image/svg+xml">
-      <link rel="mask-icon" href="/assets/images/govuk-icon-mask.svg" color="#0b0c0c">
-      <link rel="apple-touch-icon" href="/assets/images/govuk-icon-180.png">
-      <link rel="manifest" href="/assets/manifest.json">
+      <link rel="icon" sizes="48x48" href="/natural-capital-ecosystem-assessment/assets/images/favicon.ico">
+      <link rel="icon" sizes="any" href="/natural-capital-ecosystem-assessment/assets/images/favicon.svg" type="image/svg+xml">
+      <link rel="mask-icon" href="/natural-capital-ecosystem-assessment/assets/images/govuk-icon-mask.svg" color="#0b0c0c">
+      <link rel="apple-touch-icon" href="/natural-capital-ecosystem-assessment/assets/images/govuk-icon-180.png">
+      <link rel="manifest" href="/natural-capital-ecosystem-assessment/assets/manifest.json">
     
 
 
     
   
-  <link rel="stylesheet" href="/assets/css/application.css">
+  <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/application.css">
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
 
-  <link rel="stylesheet" href="/assets/css/ol.css">
+  <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
   
     
   </head>
@@ -1135,7 +1135,7 @@ exports[`Results block template Quick search journey Search results with data sh
         
           
             
-              <a class="govuk-link help-link" href="/cookie-policy">View cookies</a>
+              <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
             
           
         
@@ -1150,7 +1150,7 @@ exports[`Results block template Quick search journey Search results with data sh
         
 
         <div class="govuk-cookie-banner__content">
-<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/cookie-policy">change your cookie settings</a> at any time.</p>
+<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
 </div>
       </div>
     </div>
@@ -1175,7 +1175,7 @@ exports[`Results block template Quick search journey Search results with data sh
         
 
         <div class="govuk-cookie-banner__content">
-<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/cookie-policy">change your cookie settings</a> at any time.</p>
+<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
 </div>
       </div>
     </div>
@@ -1206,7 +1206,7 @@ exports[`Results block template Quick search journey Search results with data sh
   <script>
     var gtmIdValue = "";
   </script>
-  <script type="module" src="/assets/scripts/cookieScript.js"></script>
+  <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
 
     <!--Will be removed once Defra GA accounts been created -->
@@ -1244,7 +1244,7 @@ exports[`Results block template Quick search journey Search results with data sh
     <div class="govuk-header__content">
     
     
-      <a href="/" class="govuk-header__link govuk-header__service-name">
+      <a href="/natural-capital-ecosystem-assessment" class="govuk-header__link govuk-header__service-name">
         Find natural capital data
       </a>
     
@@ -1291,13 +1291,13 @@ exports[`Results block template Quick search journey Search results with data sh
     
   
 
-<a href="/" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button" data-do-storage-reset="">
+<a href="/natural-capital-ecosystem-assessment" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button" data-do-storage-reset="">
   New search
 </a>
 
     </div>
     
-      <div class="govuk-grid-row" id="map-result-block" data-action="/map-results" data-fetch-map-results>
+      <div class="govuk-grid-row" id="map-result-block" data-action="/natural-capital-ecosystem-assessment/map-results" data-fetch-map-results>
 <div id="modal" class="modal map-modal">
   <div class="modal-content">
     
@@ -1390,7 +1390,7 @@ exports[`Results block template Quick search journey Search results with data sh
       </div>
       <div id="defra-bounding-box-info" class="govuk-!-margin-bottom-2">Filter your results to reduce the number of bounding boxes</div>
       <div class="govuk-section-break--visible"></div>
-      <div id="map-filter-block" data-action="/map-filters" data-fetch-map-filters></div>
+      <div id="map-filter-block" data-action="/natural-capital-ecosystem-assessment/map-filters" data-fetch-map-filters></div>
     </div>
     <div class="defra-map-info" id="map-info" role="dialog" open="true" aria-modal="true" tabindex="-1">
       <div class="defra-map-info__container">
@@ -1506,7 +1506,7 @@ exports[`Results block template Quick search journey Search results with data sh
     </noscript>
   </div>
   
-    <form class='option-container govuk-section-break--visible' action="/sort-results?q=marine&amp;jry=qs&amp;pg=1&amp;rpp=20&amp;srt=most_relevant&amp;rty=all" id="sort_results" method="post">
+    <form class='option-container govuk-section-break--visible' action="/natural-capital-ecosystem-assessment/sort-results?q=marine&amp;jry=qs&amp;pg=1&amp;rpp=20&amp;srt=most_relevant&amp;rty=all" id="sort_results" method="post">
       
 
 
@@ -1626,7 +1626,7 @@ exports[`Results block template Quick search journey Search results with data sh
     
   
 
-<a href="/search/1?q=marine&amp;jry=qs&amp;pg=1&amp;rpp=20&amp;srt=most_relevant&amp;rty=all" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+<a href="/natural-capital-ecosystem-assessment/search/1?q=marine&amp;jry=qs&amp;pg=1&amp;rpp=20&amp;srt=most_relevant&amp;rty=all" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
   More info
 </a>
 
@@ -1682,7 +1682,7 @@ exports[`Results block template Quick search journey Search results with data sh
     
   
 
-<a href="/search/2?q=marine&amp;jry=qs&amp;pg=1&amp;rpp=20&amp;srt=most_relevant&amp;rty=all" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+<a href="/natural-capital-ecosystem-assessment/search/2?q=marine&amp;jry=qs&amp;pg=1&amp;rpp=20&amp;srt=most_relevant&amp;rty=all" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
   More info
 </a>
 
@@ -1691,7 +1691,7 @@ exports[`Results block template Quick search journey Search results with data sh
     
   </div>
   <nav class="govuk-pagination" role="navigation" aria-label="Pagination"><ul class="govuk-pagination__list"><li class="govuk-pagination__item govuk-pagination__item--current">
-            <a class="govuk-link govuk-pagination__link" href="/search?q=marine&amp;jry=qs&amp;pg=1&amp;rpp=20&amp;srt=most_relevant&amp;rty=all" aria-label="Page 1" aria-current="page" data-page-id="1">
+            <a class="govuk-link govuk-pagination__link" href="/natural-capital-ecosystem-assessment/search?q=marine&amp;jry=qs&amp;pg=1&amp;rpp=20&amp;srt=most_relevant&amp;rty=all" aria-label="Page 1" aria-current="page" data-page-id="1">
               1
             </a>
           </li></ul></nav>
@@ -1755,31 +1755,31 @@ exports[`Results block template Quick search journey Search results with data sh
             <ul class="govuk-footer__inline-list">
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/help">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
                     Help
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/privacy-policy">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
                     Privacy
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/cookie-policy">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
                     Cookies
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/accessibility-statement">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
                     Accessibility statement
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/terms-conditions">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
                     Terms and conditions
                   </a>
                 </li>
@@ -1829,25 +1829,25 @@ exports[`Results block template Quick search journey Search results with data sh
     
     
   
-  <script type="module" src="/assets/all.js"></script>
+  <script type="module" src="/natural-capital-ecosystem-assessment/assets/all.js"></script>
   <script type="module">
-    import {initAll} from '/assets/all.js'
+    import {initAll} from '/natural-capital-ecosystem-assessment/assets/all.js'
     initAll()
   </script>
   <script>
     const appInsightsConnString = "";
   </script>
-  <script type="text/javascript" src="/assets/scripts/appinsights.js"></script>
-  <script type="module" src="/assets/scripts/customScripts.js"></script>
+  <script type="text/javascript" src="/natural-capital-ecosystem-assessment/assets/scripts/appinsights.js"></script>
+  <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/customScripts.js"></script>
 
-    <script type="module" src="/assets/scripts/dataModal.js"></script>
-    <script src="/assets/scripts/ol.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/dataModal.js"></script>
+    <script src="/natural-capital-ecosystem-assessment/assets/scripts/ol.js"></script>
     <script>
       var isViewMapResults = true;
     </script>
-    <script type="module" src="/assets/scripts/location.js"></script>
-    <script type="module" src="/assets/scripts/filters.js"></script>
-    <script type="module" src="/assets/scripts/details.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/location.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/filters.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/details.js"></script>
   
   </body>
 </html>
@@ -1867,22 +1867,22 @@ exports[`Results block template Quick search journey Search results with empty d
 
     
   
-      <link rel="icon" sizes="48x48" href="/assets/images/favicon.ico">
-      <link rel="icon" sizes="any" href="/assets/images/favicon.svg" type="image/svg+xml">
-      <link rel="mask-icon" href="/assets/images/govuk-icon-mask.svg" color="#0b0c0c">
-      <link rel="apple-touch-icon" href="/assets/images/govuk-icon-180.png">
-      <link rel="manifest" href="/assets/manifest.json">
+      <link rel="icon" sizes="48x48" href="/natural-capital-ecosystem-assessment/assets/images/favicon.ico">
+      <link rel="icon" sizes="any" href="/natural-capital-ecosystem-assessment/assets/images/favicon.svg" type="image/svg+xml">
+      <link rel="mask-icon" href="/natural-capital-ecosystem-assessment/assets/images/govuk-icon-mask.svg" color="#0b0c0c">
+      <link rel="apple-touch-icon" href="/natural-capital-ecosystem-assessment/assets/images/govuk-icon-180.png">
+      <link rel="manifest" href="/natural-capital-ecosystem-assessment/assets/manifest.json">
     
 
 
     
   
-  <link rel="stylesheet" href="/assets/css/application.css">
+  <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/application.css">
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
 
-  <link rel="stylesheet" href="/assets/css/ol.css">
+  <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
   
     
   </head>
@@ -1922,7 +1922,7 @@ exports[`Results block template Quick search journey Search results with empty d
         
           
             
-              <a class="govuk-link help-link" href="/cookie-policy">View cookies</a>
+              <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
             
           
         
@@ -1937,7 +1937,7 @@ exports[`Results block template Quick search journey Search results with empty d
         
 
         <div class="govuk-cookie-banner__content">
-<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/cookie-policy">change your cookie settings</a> at any time.</p>
+<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
 </div>
       </div>
     </div>
@@ -1962,7 +1962,7 @@ exports[`Results block template Quick search journey Search results with empty d
         
 
         <div class="govuk-cookie-banner__content">
-<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/cookie-policy">change your cookie settings</a> at any time.</p>
+<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
 </div>
       </div>
     </div>
@@ -1993,7 +1993,7 @@ exports[`Results block template Quick search journey Search results with empty d
   <script>
     var gtmIdValue = "";
   </script>
-  <script type="module" src="/assets/scripts/cookieScript.js"></script>
+  <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
 
     <!--Will be removed once Defra GA accounts been created -->
@@ -2031,7 +2031,7 @@ exports[`Results block template Quick search journey Search results with empty d
     <div class="govuk-header__content">
     
     
-      <a href="/" class="govuk-header__link govuk-header__service-name">
+      <a href="/natural-capital-ecosystem-assessment" class="govuk-header__link govuk-header__service-name">
         Find natural capital data
       </a>
     
@@ -2078,13 +2078,13 @@ exports[`Results block template Quick search journey Search results with empty d
     
   
 
-<a href="/" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button" data-do-storage-reset="">
+<a href="/natural-capital-ecosystem-assessment" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button" data-do-storage-reset="">
   New search
 </a>
 
     </div>
     
-      <div class="govuk-grid-row" id="map-result-block" data-action="/map-results" data-fetch-map-results>
+      <div class="govuk-grid-row" id="map-result-block" data-action="/natural-capital-ecosystem-assessment/map-results" data-fetch-map-results>
 <div id="modal" class="modal map-modal">
   <div class="modal-content">
     
@@ -2177,7 +2177,7 @@ exports[`Results block template Quick search journey Search results with empty d
       </div>
       <div id="defra-bounding-box-info" class="govuk-!-margin-bottom-2">Filter your results to reduce the number of bounding boxes</div>
       <div class="govuk-section-break--visible"></div>
-      <div id="map-filter-block" data-action="/map-filters" data-fetch-map-filters></div>
+      <div id="map-filter-block" data-action="/natural-capital-ecosystem-assessment/map-filters" data-fetch-map-filters></div>
     </div>
     <div class="defra-map-info" id="map-info" role="dialog" open="true" aria-modal="true" tabindex="-1">
       <div class="defra-map-info__container">
@@ -2298,31 +2298,31 @@ exports[`Results block template Quick search journey Search results with empty d
             <ul class="govuk-footer__inline-list">
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/help">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
                     Help
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/privacy-policy">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
                     Privacy
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/cookie-policy">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
                     Cookies
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/accessibility-statement">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
                     Accessibility statement
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/terms-conditions">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
                     Terms and conditions
                   </a>
                 </li>
@@ -2372,25 +2372,25 @@ exports[`Results block template Quick search journey Search results with empty d
     
     
   
-  <script type="module" src="/assets/all.js"></script>
+  <script type="module" src="/natural-capital-ecosystem-assessment/assets/all.js"></script>
   <script type="module">
-    import {initAll} from '/assets/all.js'
+    import {initAll} from '/natural-capital-ecosystem-assessment/assets/all.js'
     initAll()
   </script>
   <script>
     const appInsightsConnString = "";
   </script>
-  <script type="text/javascript" src="/assets/scripts/appinsights.js"></script>
-  <script type="module" src="/assets/scripts/customScripts.js"></script>
+  <script type="text/javascript" src="/natural-capital-ecosystem-assessment/assets/scripts/appinsights.js"></script>
+  <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/customScripts.js"></script>
 
-    <script type="module" src="/assets/scripts/dataModal.js"></script>
-    <script src="/assets/scripts/ol.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/dataModal.js"></script>
+    <script src="/natural-capital-ecosystem-assessment/assets/scripts/ol.js"></script>
     <script>
       var isViewMapResults = true;
     </script>
-    <script type="module" src="/assets/scripts/location.js"></script>
-    <script type="module" src="/assets/scripts/filters.js"></script>
-    <script type="module" src="/assets/scripts/details.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/location.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/filters.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/details.js"></script>
   
   </body>
 </html>
@@ -2410,22 +2410,22 @@ exports[`Results block template Quick search journey Search results with error s
 
     
   
-      <link rel="icon" sizes="48x48" href="/assets/images/favicon.ico">
-      <link rel="icon" sizes="any" href="/assets/images/favicon.svg" type="image/svg+xml">
-      <link rel="mask-icon" href="/assets/images/govuk-icon-mask.svg" color="#0b0c0c">
-      <link rel="apple-touch-icon" href="/assets/images/govuk-icon-180.png">
-      <link rel="manifest" href="/assets/manifest.json">
+      <link rel="icon" sizes="48x48" href="/natural-capital-ecosystem-assessment/assets/images/favicon.ico">
+      <link rel="icon" sizes="any" href="/natural-capital-ecosystem-assessment/assets/images/favicon.svg" type="image/svg+xml">
+      <link rel="mask-icon" href="/natural-capital-ecosystem-assessment/assets/images/govuk-icon-mask.svg" color="#0b0c0c">
+      <link rel="apple-touch-icon" href="/natural-capital-ecosystem-assessment/assets/images/govuk-icon-180.png">
+      <link rel="manifest" href="/natural-capital-ecosystem-assessment/assets/manifest.json">
     
 
 
     
   
-  <link rel="stylesheet" href="/assets/css/application.css">
+  <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/application.css">
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
 
-  <link rel="stylesheet" href="/assets/css/ol.css">
+  <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
   
     
   </head>
@@ -2465,7 +2465,7 @@ exports[`Results block template Quick search journey Search results with error s
         
           
             
-              <a class="govuk-link help-link" href="/cookie-policy">View cookies</a>
+              <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
             
           
         
@@ -2480,7 +2480,7 @@ exports[`Results block template Quick search journey Search results with error s
         
 
         <div class="govuk-cookie-banner__content">
-<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/cookie-policy">change your cookie settings</a> at any time.</p>
+<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
 </div>
       </div>
     </div>
@@ -2505,7 +2505,7 @@ exports[`Results block template Quick search journey Search results with error s
         
 
         <div class="govuk-cookie-banner__content">
-<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/cookie-policy">change your cookie settings</a> at any time.</p>
+<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
 </div>
       </div>
     </div>
@@ -2536,7 +2536,7 @@ exports[`Results block template Quick search journey Search results with error s
   <script>
     var gtmIdValue = "";
   </script>
-  <script type="module" src="/assets/scripts/cookieScript.js"></script>
+  <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
 
     <!--Will be removed once Defra GA accounts been created -->
@@ -2574,7 +2574,7 @@ exports[`Results block template Quick search journey Search results with error s
     <div class="govuk-header__content">
     
     
-      <a href="/" class="govuk-header__link govuk-header__service-name">
+      <a href="/natural-capital-ecosystem-assessment" class="govuk-header__link govuk-header__service-name">
         Find natural capital data
       </a>
     
@@ -2621,13 +2621,13 @@ exports[`Results block template Quick search journey Search results with error s
     
   
 
-<a href="/" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button" data-do-storage-reset="">
+<a href="/natural-capital-ecosystem-assessment" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button" data-do-storage-reset="">
   New search
 </a>
 
     </div>
     
-      <div class="govuk-grid-row" id="map-result-block" data-action="/map-results" data-fetch-map-results>
+      <div class="govuk-grid-row" id="map-result-block" data-action="/natural-capital-ecosystem-assessment/map-results" data-fetch-map-results>
 <div id="modal" class="modal map-modal">
   <div class="modal-content">
     
@@ -2720,7 +2720,7 @@ exports[`Results block template Quick search journey Search results with error s
       </div>
       <div id="defra-bounding-box-info" class="govuk-!-margin-bottom-2">Filter your results to reduce the number of bounding boxes</div>
       <div class="govuk-section-break--visible"></div>
-      <div id="map-filter-block" data-action="/map-filters" data-fetch-map-filters></div>
+      <div id="map-filter-block" data-action="/natural-capital-ecosystem-assessment/map-filters" data-fetch-map-filters></div>
     </div>
     <div class="defra-map-info" id="map-info" role="dialog" open="true" aria-modal="true" tabindex="-1">
       <div class="defra-map-info__container">
@@ -2822,31 +2822,31 @@ exports[`Results block template Quick search journey Search results with error s
             <ul class="govuk-footer__inline-list">
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/help">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
                     Help
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/privacy-policy">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
                     Privacy
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/cookie-policy">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
                     Cookies
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/accessibility-statement">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
                     Accessibility statement
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/terms-conditions">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
                     Terms and conditions
                   </a>
                 </li>
@@ -2896,25 +2896,25 @@ exports[`Results block template Quick search journey Search results with error s
     
     
   
-  <script type="module" src="/assets/all.js"></script>
+  <script type="module" src="/natural-capital-ecosystem-assessment/assets/all.js"></script>
   <script type="module">
-    import {initAll} from '/assets/all.js'
+    import {initAll} from '/natural-capital-ecosystem-assessment/assets/all.js'
     initAll()
   </script>
   <script>
     const appInsightsConnString = "";
   </script>
-  <script type="text/javascript" src="/assets/scripts/appinsights.js"></script>
-  <script type="module" src="/assets/scripts/customScripts.js"></script>
+  <script type="text/javascript" src="/natural-capital-ecosystem-assessment/assets/scripts/appinsights.js"></script>
+  <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/customScripts.js"></script>
 
-    <script type="module" src="/assets/scripts/dataModal.js"></script>
-    <script src="/assets/scripts/ol.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/dataModal.js"></script>
+    <script src="/natural-capital-ecosystem-assessment/assets/scripts/ol.js"></script>
     <script>
       var isViewMapResults = true;
     </script>
-    <script type="module" src="/assets/scripts/location.js"></script>
-    <script type="module" src="/assets/scripts/filters.js"></script>
-    <script type="module" src="/assets/scripts/details.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/location.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/filters.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/details.js"></script>
   
   </body>
 </html>

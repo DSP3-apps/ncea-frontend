@@ -9,7 +9,7 @@ import { Server } from '@hapi/hapi';
 
 import { initializeServer } from '../../../src/infrastructure/server';
 import supertest from 'supertest';
-import { webRoutePaths } from '../../../src/utils/constants';
+import { BASE_PATH, webRoutePaths } from '../../../src/utils/constants';
 import {
   getFilterOptions,
   getSearchResults,
@@ -72,7 +72,7 @@ describe('Results block template', () => {
         (getFilterOptions as jest.Mock).mockResolvedValue(
           expectedResourceTypeOptions,
         );
-        const responseObject = await invokeRoute(webRoutePaths.results, {
+        const responseObject = await invokeRoute(`${BASE_PATH}${webRoutePaths.results}`, {
           q: 'marine',
           jry: 'qs',
           pg: '1',
@@ -154,7 +154,7 @@ describe('Results block template', () => {
         (getFilterOptions as jest.Mock).mockResolvedValue(
           expectedResourceTypeOptions,
         );
-        const responseObject = await invokeRoute(webRoutePaths.results, {
+        const responseObject = await invokeRoute(`${BASE_PATH}${webRoutePaths.results}`, {
           q: 'marine',
           jry: 'qs',
           pg: '1',
@@ -205,7 +205,7 @@ describe('Results block template', () => {
         (getSearchResults as jest.Mock).mockRejectedValue(
           new Error('mocked error'),
         );
-        const responseObject = await invokeRoute(webRoutePaths.results, {
+        const responseObject = await invokeRoute(`${BASE_PATH}${webRoutePaths.results}`, {
           q: 'marine',
           jry: 'qs',
           pg: '1',
@@ -249,7 +249,7 @@ describe('Results block template', () => {
         (getFilterOptions as jest.Mock).mockResolvedValue(
           expectedResourceTypeOptions,
         );
-        const responseObject = await invokeRoute(webRoutePaths.results, {
+        const responseObject = await invokeRoute(`${BASE_PATH}${webRoutePaths.results}`, {
           fdy: '2000',
           tdy: '2023',
           jry: 'gs',
@@ -307,7 +307,7 @@ describe('Results block template', () => {
         (getSearchResults as jest.Mock).mockRejectedValue(
           new Error('mocked error'),
         );
-        const responseObject = await invokeRoute(webRoutePaths.results, {
+        const responseObject = await invokeRoute(`${BASE_PATH}${webRoutePaths.results}`, {
           fdy: '2000',
           tdy: '2023',
           jry: 'gs',

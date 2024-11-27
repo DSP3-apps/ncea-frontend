@@ -1,6 +1,6 @@
 import { environmentConfig } from '../../../src/config/environmentConfig';
 import path from 'path';
-import { webRoutePaths } from '../../../src/utils/constants';
+import { BASE_PATH, webRoutePaths } from '../../../src/utils/constants';
 import nunjucks, { Environment } from 'nunjucks';
 import { customHapiViews } from '../../../src/infrastructure/plugins/views';
 
@@ -45,10 +45,7 @@ describe('Vision Plugin Configuration', () => {
       nextMock,
     );
     expect(nunjucksMock.configure).toHaveBeenCalledWith(
-      [
-        path.join('mockedRelativeTo', 'mockedPath'),
-        'node_modules/govuk-frontend/dist',
-      ],
+      [path.join('mockedRelativeTo', 'mockedPath'), 'node_modules/govuk-frontend/dist'],
       { autoescape: true, watch: false },
     );
     expect(nextMock).toHaveBeenCalledTimes(1);
@@ -56,26 +53,25 @@ describe('Vision Plugin Configuration', () => {
     expect(options.path).toBe('../../views');
     expect(options.isCached).toBe(process.env.NODE_ENV !== 'production');
     expect(options.context).toEqual({
-      assetPath: '/assets',
+      assetPath: `${BASE_PATH}/assets`,
       serviceName: 'Find natural capital data',
       pageTitle: 'Find natural capital data - GOV.UK',
       routes: {
-        homePage,
-        searchResults,
-        guidedSearch,
-        guidedDateSearch,
-        getMapResults,
-        getMapFilters,
-        filterResourceType,
-        filterStudyPeriod,
-        accessibilityStatement,
-        help,
-        termsAndConditions,
-        privacyPolicy,
-        cookiePolicy,
+        homePage: `${BASE_PATH}`,
+        searchResults: `${BASE_PATH}${searchResults}`,
+        guidedSearch: `${BASE_PATH}${guidedSearch}`,
+        guidedDateSearch: `${BASE_PATH}${guidedDateSearch}`,
+        getMapResults: `${BASE_PATH}${getMapResults}`,
+        getMapFilters: `${BASE_PATH}${getMapFilters}`,
+        filterResourceType: `${BASE_PATH}${filterResourceType}`,
+        filterStudyPeriod: `${BASE_PATH}${filterStudyPeriod}`,
+        accessibilityStatement: `${BASE_PATH}${accessibilityStatement}`,
+        help: `${BASE_PATH}${help}`,
+        termsAndConditions: `${BASE_PATH}${termsAndConditions}`,
+        privacyPolicy: `${BASE_PATH}${privacyPolicy}`,
+        cookiePolicy: `${BASE_PATH}${cookiePolicy}`,
       },
-      appInsightsConnectionString:
-        environmentConfig.appInsightsConnectionString,
+      appInsightsConnectionString: environmentConfig.appInsightsConnectionString,
       gtmId: environmentConfig.gtmId,
     });
     expect(mockEnvironment.addFilter).toHaveBeenCalledTimes(2);
@@ -83,15 +79,12 @@ describe('Vision Plugin Configuration', () => {
   it('should compile and render the template', () => {
     const nunjucksMock = jest.requireMock('nunjucks');
     const { options } = customHapiViews;
-    nunjucksMock.compile.mockImplementation(
-      (src: string, env: nunjucks.Environment) => {
-        const template = {
-          render: (context: object | undefined) =>
-            `renderedTemplate: ${JSON.stringify(context)}`,
-        };
-        return template;
-      },
-    );
+    nunjucksMock.compile.mockImplementation((src: string, env: nunjucks.Environment) => {
+      const template = {
+        render: (context: object | undefined) => `renderedTemplate: ${JSON.stringify(context)}`,
+      };
+      return template;
+    });
     const mockEnvironment: nunjucks.Environment = {} as any;
     const src = '<div>{{ data }}</div>';
     const compiledTemplate = options.engines.njk.compile(src, {
@@ -117,10 +110,7 @@ describe('Vision Plugin Configuration', () => {
       },
       nextMock,
     );
-    expect(mockEnvironment.addFilter).toHaveBeenCalledWith(
-      'date',
-      expect.any(Function),
-    );
+    expect(mockEnvironment.addFilter).toHaveBeenCalledWith('date', expect.any(Function));
   });
 
   it('should add a custom merge filter to the environment', () => {
@@ -144,9 +134,7 @@ describe('Vision Plugin Configuration', () => {
     );
 
     const addFilterMock = mockEnvironment.addFilter as jest.Mock;
-    const mergeFilterFunction = addFilterMock.mock.calls.find(
-      (call) => call[0] === 'merge',
-    )[1] as Function;
+    const mergeFilterFunction = addFilterMock.mock.calls.find((call) => call[0] === 'merge')[1] as Function;
 
     const obj1 = { a: 1, b: 2 };
     const obj2 = { c: 3, d: 4 };

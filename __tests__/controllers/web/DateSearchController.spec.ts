@@ -8,6 +8,7 @@ import {
   toDate,
 } from '../../../src/data/dateQuestionnaireFieldOptions';
 import {
+  BASE_PATH,
   formIds,
   guidedSearchSteps,
   pageTitles,
@@ -40,7 +41,7 @@ describe('Deals with the Date Search Controller', () => {
     };
     const queryString: string = upsertQueryParams(request.query, queryParamsObject, false);
     const guidedDateSearchPath: string = `${guidedDateSearch}?${queryString}`;
-    const skipPath: string = queryString ? `${geographySearch}?${queryString}` : geographySearch;
+    const skipPath: string = queryString ? `${geographySearch}?${queryString}` : `${BASE_PATH}${geographySearch}`;
 
     await DateSearchController.renderGuidedSearchHandler(request, response);
     expect(response.view).toHaveBeenCalledWith(
@@ -72,7 +73,7 @@ describe('Deals with the Date Search Controller', () => {
     const queryString: string = upsertQueryParams(request.query, queryParamsObject, false);
 
     await DateSearchController.renderGuidedSearchHandler(request, response);
-    expect(response.redirect).toHaveBeenCalledWith(`${webRoutePaths.results}?${queryString}`);
+    expect(response.redirect).toHaveBeenCalledWith(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
   });
 
   it('should build the query params and navigate to intermediate route with data', async () => {
@@ -103,7 +104,7 @@ describe('Deals with the Date Search Controller', () => {
     );
     await DateSearchController.dateSearchSubmitHandler(request, response);
     expect(response.redirect).toHaveBeenCalledWith(
-      `${webRoutePaths.intermediate}/${guidedSearchSteps.date}?${queryString}`,
+      `${BASE_PATH}${webRoutePaths.intermediate}/${guidedSearchSteps.date}?${queryString}`,
     );
   });
 
@@ -128,7 +129,7 @@ describe('Deals with the Date Search Controller', () => {
     );
     await DateSearchController.dateSearchSubmitHandler(request, response);
     expect(response.redirect).toHaveBeenCalledWith(
-      `${webRoutePaths.intermediate}/${guidedSearchSteps.date}?${queryString}`,
+      `${BASE_PATH}${webRoutePaths.intermediate}/${guidedSearchSteps.date}?${queryString}`,
     );
   });
 

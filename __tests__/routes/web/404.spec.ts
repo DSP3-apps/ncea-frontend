@@ -7,6 +7,7 @@
 import { Server, ServerInjectResponse } from '@hapi/hapi';
 
 import { initializeServer } from '../../../src/infrastructure/server';
+import { BASE_PATH } from '../../../src/utils/constants';
 
 jest.mock('../../../src/infrastructure/plugins/appinsights-logger', () => ({
   logger: jest.fn(),
@@ -33,7 +34,7 @@ describe('404 Screen', () => {
 
       const options = {
         method: 'GET',
-        url: '/404route',
+        url: `${BASE_PATH}/404route`,
       };
 
       response = await server.inject(options);

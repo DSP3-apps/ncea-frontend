@@ -7,7 +7,7 @@
 import { Server, ServerInjectResponse } from '@hapi/hapi';
 
 import { initializeServer } from '../../../src/infrastructure/server';
-import { webRoutePaths } from '../../../src/utils/constants';
+import { BASE_PATH, webRoutePaths } from '../../../src/utils/constants';
 
 jest.mock('../../../src/infrastructure/plugins/appinsights-logger', () => ({
   info: jest.fn(),
@@ -34,7 +34,7 @@ describe('Guided Search - Geography Questionnaire Screen GET Request', () => {
 
       const options = {
         method: 'GET',
-        url: webRoutePaths.geographySearch,
+        url: `${BASE_PATH}${webRoutePaths.geographySearch}`,
       };
 
       response = await server.inject(options);
@@ -161,9 +161,7 @@ describe('Guided Search - Geography Questionnaire Screen GET Request', () => {
         );
         expect(formElement).toBeTruthy();
         expect(formElement?.tagName.toLowerCase()).toBe('form');
-        expect(formElement?.getAttribute('action')).toBe(
-          `${webRoutePaths.geographySearch}?`,
-        );
+        expect(formElement?.getAttribute('action')).toBe(`${webRoutePaths.geographySearch}?`);
       });
     });
 

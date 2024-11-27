@@ -2,7 +2,7 @@
 
 import { ClassifierSearchController } from '../../../src/controllers/web/ClassifierSearchController';
 import { Request, ResponseToolkit } from '@hapi/hapi';
-import { formIds, queryParamKeys, webRoutePaths } from '../../../src/utils/constants';
+import { BASE_PATH, formIds, queryParamKeys, webRoutePaths } from '../../../src/utils/constants';
 import { level3ClassifierItems } from '../../data/classifierSearch';
 import { getClassifierThemes } from '../../../src/services/handlers/classifierApi';
 import { getSearchResultsCount } from '../../../src/services/handlers/searchApi';
@@ -48,14 +48,14 @@ describe('Classifier Search Controller', () => {
         [queryParamKeys.parent]: 'lv2-001,lv2-002',
         [queryParamKeys.journey]: 'gs',
         [queryParamKeys.count]: '0',
-        [queryParamKeys.page]:'1',
-        [queryParamKeys.rowsPerPage]:'20',
-        [queryParamKeys.sort]:'most_relevant'
+        [queryParamKeys.page]: '1',
+        [queryParamKeys.rowsPerPage]: '20',
+        [queryParamKeys.sort]: 'most_relevant',
       };
 
       const queryString = upsertQueryParams(request.query, queryParamsObject, false);
-      const resultsPath = `${results}?${readQueryParams(payloadQuery, '', true)}`;
-      const skipPathUrl = `${results}?${queryString}`;
+      const resultsPath = `${BASE_PATH}${results}?${readQueryParams(payloadQuery, '', true)}`;
+      const skipPathUrl = `${BASE_PATH}${results}?${queryString}`;
 
       expect(response.redirect).toHaveBeenCalledWith(`${skipPathUrl}`);
     });
@@ -73,31 +73,31 @@ describe('Classifier Search Controller', () => {
       const payloadQuery = {
         level: '2',
         'parent[]': 'lv2-001',
-        [queryParamKeys.journey]:'gs',
+        [queryParamKeys.journey]: 'gs',
         [queryParamKeys.count]: '10',
-        [queryParamKeys.page]:'1',
-        [queryParamKeys.rowsPerPage]:'20',
-        [queryParamKeys.sort]:'most_relevant'
+        [queryParamKeys.page]: '1',
+        [queryParamKeys.rowsPerPage]: '20',
+        [queryParamKeys.sort]: 'most_relevant',
       };
 
       const queryParamsObject = {
         [queryParamKeys.level]: '2',
         [queryParamKeys.parent]: 'lv2-001',
-        [queryParamKeys.journey]:'gs',
+        [queryParamKeys.journey]: 'gs',
         [queryParamKeys.count]: '10',
-        [queryParamKeys.page]:'1',
-        [queryParamKeys.rowsPerPage]:'20',
-        [queryParamKeys.sort]:'most_relevant'
+        [queryParamKeys.page]: '1',
+        [queryParamKeys.rowsPerPage]: '20',
+        [queryParamKeys.sort]: 'most_relevant',
       };
 
       const queryString = upsertQueryParams(request.query, queryParamsObject, false);
-      const resultsPath = `${results}?${readQueryParams(payloadQuery, '', true)}`;
-      const skipPathUrl = `${results}?${queryString}`;
+      const resultsPath = `${BASE_PATH}${results}?${readQueryParams(payloadQuery, '', true)}`;
+      const skipPathUrl = `${BASE_PATH}${results}?${queryString}`;
 
       expect(response.view).toHaveBeenCalledWith('screens/guided_search/classifier_selection.njk', {
-        guidedClassifierSearchPath,
-        nextLevel: "4",
-        pageTitle: "NCEA questionnaire  Search- subcategories",
+        guidedClassifierSearchPath: `${BASE_PATH}${guidedClassifierSearchPath}`,
+        nextLevel: '4',
+        pageTitle: 'NCEA questionnaire  Search- subcategories',
         skipPath: resultsPath,
         formId: classifierSearch,
         classifierItems: level3ClassifierItems,
@@ -129,15 +129,15 @@ describe('Classifier Search Controller', () => {
         [queryParamKeys.parent]: 'lv2-001,lv2-002',
         [queryParamKeys.journey]: 'gs',
         [queryParamKeys.count]: '0',
-        [queryParamKeys.page]:'1',
-        [queryParamKeys.rowsPerPage]:'20',
-        [queryParamKeys.sort]:'most_relevant'
+        [queryParamKeys.page]: '1',
+        [queryParamKeys.rowsPerPage]: '20',
+        [queryParamKeys.sort]: 'most_relevant',
       };
 
       const queryString = upsertQueryParams(request.query, queryParamsObject, false);
       const resultsPath = `${results}?${readQueryParams(payloadQuery, '', true)}`;
 
-      expect(response.redirect).toHaveBeenCalledWith(`${results}?${queryString}`);
+      expect(response.redirect).toHaveBeenCalledWith(`${BASE_PATH}${results}?${queryString}`);
     });
 
     it('should redirect to date search page when there are no items for the parent category', async () => {
@@ -160,13 +160,13 @@ describe('Classifier Search Controller', () => {
         [queryParamKeys.parent]: 'lv1-001',
         [queryParamKeys.journey]: 'gs',
         [queryParamKeys.count]: '10',
-        [queryParamKeys.page]:'1',
-        [queryParamKeys.rowsPerPage]:'20',
-        [queryParamKeys.sort]:'most_relevant'
+        [queryParamKeys.page]: '1',
+        [queryParamKeys.rowsPerPage]: '20',
+        [queryParamKeys.sort]: 'most_relevant',
       };
 
       const queryString = upsertQueryParams(request.query, queryParamsObject, false);
-      const skipPathUrl = `${results}?${queryString}`;
+      const skipPathUrl = `${BASE_PATH}${results}?${queryString}`;
 
       expect(response.redirect).toHaveBeenCalledWith(skipPathUrl);
     });

@@ -8,7 +8,7 @@ import { Server } from '@hapi/hapi';
 
 import { initializeServer } from '../../../src/infrastructure/server';
 import supertest from 'supertest';
-import { webRoutePaths } from '../../../src/utils/constants';
+import { BASE_PATH, webRoutePaths } from '../../../src/utils/constants';
 
 jest.mock('../../../src/infrastructure/plugins/appinsights-logger', () => ({
   info: jest.fn(),
@@ -45,7 +45,7 @@ describe('Accessibility Screen', () => {
       serverRequest = supertest(server.listener);
 
       const responseObject = await invokeRoute(
-        webRoutePaths.accessibilityStatement,
+        `${BASE_PATH}${webRoutePaths.accessibilityStatement}`,
       );
       response = responseObject.response;
       document = responseObject.document;
@@ -96,7 +96,7 @@ describe('Accessibility Screen', () => {
       const anchor = breadcrumbItems?.[0]?.firstElementChild;
       expect(anchor?.tagName.toLowerCase()).toBe('a');
       expect(anchor?.getAttribute('class')).toEqual('govuk-breadcrumbs__link');
-      expect(anchor?.getAttribute('href')).toEqual(webRoutePaths.home);
+      expect(anchor?.getAttribute('href')).toEqual(`${BASE_PATH}`);
       expect(anchor?.textContent?.trim()).toEqual('Home');
     });
 

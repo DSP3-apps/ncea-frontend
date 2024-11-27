@@ -1,11 +1,7 @@
 import Hapi from '@hapi/hapi';
 import inert from '@hapi/inert';
 import vision from '@hapi/vision';
-import {
-  customHapiPino,
-  customHapiRoutes,
-  customHapiViews,
-} from '../../src/infrastructure/plugins';
+import { customHapiPino, customHapiRoutes, customHapiViews } from '../../src/infrastructure/plugins';
 
 jest.mock('@hapi/hapi', () => ({
   server: jest.fn(() => ({
@@ -60,13 +56,16 @@ describe('Server initialization', () => {
       },
     });
 
-    expect(server.register).toHaveBeenCalledTimes(2);
+    expect(server.register).toHaveBeenCalledTimes(4);
     expect(server.register).toHaveBeenCalledWith([inert, vision]);
-    expect(server.register).toHaveBeenCalledWith([
-      customHapiViews,
-      customHapiRoutes,
-      customHapiPino,
-    ]);
+    expect(server.register).toHaveBeenCalledWith(customHapiViews);
+    expect(server.register).toHaveBeenCalledWith(
+      { plugin: customHapiRoutes },
+      {
+        routes: { prefix: '/natural-capital-ecosystem-assessment' },
+      },
+    );
+    expect(server.register).toHaveBeenCalledWith([customHapiPino]);
     expect(server.initialize).toHaveBeenCalled();
   });
 
@@ -75,9 +74,7 @@ describe('Server initialization', () => {
     const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
     const server = await startServer();
     expect(server.start).toHaveBeenCalled();
-    expect(consoleSpy).toHaveBeenCalledWith(
-      `Server running at: http://${server.info.host}:${server.info.port}`,
-    );
+    expect(consoleSpy).toHaveBeenCalledWith(`Server running at: http://${server.info.host}:${server.info.port}`);
     consoleSpy.mockRestore();
   });
 

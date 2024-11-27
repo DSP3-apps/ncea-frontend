@@ -1,6 +1,6 @@
 import { RequestQuery } from '@hapi/hapi';
 import { getPaginationItems } from '../../src/utils/paginationBuilder';
-import { queryParamKeys, webRoutePaths } from '../../src/utils/constants';
+import { BASE_PATH, queryParamKeys, webRoutePaths } from '../../src/utils/constants';
 import { upsertQueryParams } from '../../src/utils/queryStringHelper';
 
 const requestQuery: RequestQuery = {
@@ -19,7 +19,7 @@ const getUrl = (page: number): string => {
     queryParamsObject,
     false,
   );
-  return `${webRoutePaths.results}?${queryString}`;
+  return `${BASE_PATH}${webRoutePaths.results}?${queryString}`;
 };
 describe('Build the pagination items', () => {
   it('No pagination items when the total record is 0', () => {

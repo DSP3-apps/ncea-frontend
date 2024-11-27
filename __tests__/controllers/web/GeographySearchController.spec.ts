@@ -2,21 +2,13 @@
 
 import * as errorTransformer from '../../../src/utils/transformErrors';
 import { Request, ResponseToolkit } from '@hapi/hapi';
-import {
-  formIds,
-  pageTitles,
-  queryParamKeys,
-  webRoutePaths,
-} from '../../../src/utils/constants';
+import { BASE_PATH, formIds, pageTitles, queryParamKeys, webRoutePaths } from '../../../src/utils/constants';
 import Joi from 'joi';
 import { GeographySearchController } from '../../../src/controllers/web/GeographySearchController';
 import { geographyQuestionnaireOptions } from '../../../src/data/geographyQuestionnaireOptions';
 import { IFormFieldOptions } from '../../../src/interfaces/fieldsComponent.interface';
 import { geographyFormOptionWithDepthError } from '../../data/geographyQuestionnaire';
-import {
-  readQueryParams,
-  upsertQueryParams,
-} from '../../../src/utils/queryStringHelper';
+import { readQueryParams, upsertQueryParams } from '../../../src/utils/queryStringHelper';
 
 describe('Deals with guided geography search handler', () => {
   it('should render the guided geography search handler', async () => {
@@ -26,40 +18,26 @@ describe('Deals with guided geography search handler', () => {
     const response: ResponseToolkit = { view: jest.fn() } as any;
 
     const formFields = { ...geographyQuestionnaireOptions };
-    const {
-      geographySearch,
-      guidedDateSearch: guidedDateSearchPath,
-      results,
-    } = webRoutePaths;
+    const { geographySearch, guidedDateSearch: guidedDateSearchPath, results } = webRoutePaths;
     const queryString: string = readQueryParams(request.query, '');
     const geographySearchPath: string = `${geographySearch}?${queryString}`;
     const skipPath: string = `${results}?${queryString}`;
-    const resultPathQueryString: string = readQueryParams(
-      request.query,
-      '',
-      true,
-    );
+    const resultPathQueryString: string = readQueryParams(request.query, '', true);
     const resultsPath: string = `${results}?${resultPathQueryString}`;
     const formId: string = formIds.geographyQuestionnaireFID;
 
-    await GeographySearchController.renderGeographySearchHandler(
-      request,
-      response,
-    );
-    expect(response.view).toHaveBeenCalledWith(
-      'screens/guided_search/geography_questionnaire',
-      {
-        pageTitle: pageTitles.geography,
-        guidedDateSearchPath,
-        geographySearchPath,
-        formFields,
-        formId,
-        skipPath,
-        count: '20',
-        resultsPath,
-        backLinkPath: guidedDateSearchPath,
-      },
-    );
+    await GeographySearchController.renderGeographySearchHandler(request, response);
+    expect(response.view).toHaveBeenCalledWith('screens/guided_search/geography_questionnaire', {
+      pageTitle: pageTitles.geography,
+      guidedDateSearchPath: `${guidedDateSearchPath}`,
+      geographySearchPath,
+      formFields,
+      formId,
+      skipPath,
+      count: '20',
+      resultsPath,
+      backLinkPath: `${guidedDateSearchPath}`,
+    });
   });
 
   it('should redirect to next route', async () => {
@@ -78,15 +56,9 @@ describe('Deals with guided geography search handler', () => {
       [queryParamKeys.east]: extentFormFields?.['east'] ?? '',
       [queryParamKeys.west]: extentFormFields?.['west'] ?? '',
     };
-    const queryString: string = upsertQueryParams(
-      request.query,
-      queryParamsObject,
-      true,
-    );
+    const queryString: string = upsertQueryParams(request.query, queryParamsObject, true);
     await GeographySearchController.doGeographySearchHandler(request, response);
-    expect(response.redirect).toHaveBeenCalledWith(
-      `${webRoutePaths.results}?${queryString}`,
-    );
+    expect(response.redirect).toHaveBeenCalledWith(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
   });
 
   it('should build the query params and navigate to result route without data', async () => {
@@ -100,15 +72,9 @@ describe('Deals with guided geography search handler', () => {
       [queryParamKeys.east]: extentFormFields?.['east'] ?? '',
       [queryParamKeys.west]: extentFormFields?.['west'] ?? '',
     };
-    const queryString: string = upsertQueryParams(
-      request.query,
-      queryParamsObject,
-      true,
-    );
+    const queryString: string = upsertQueryParams(request.query, queryParamsObject, true);
     await GeographySearchController.doGeographySearchHandler(request, response);
-    expect(response.redirect).toHaveBeenCalledWith(
-      `${webRoutePaths.results}?${queryString}`,
-    );
+    expect(response.redirect).toHaveBeenCalledWith(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
   });
 
   it('should validate the geography questionnaire form', async () => {
@@ -131,44 +97,27 @@ describe('Deals with guided geography search handler', () => {
     } as unknown as Joi.ValidationError;
     jest
       .spyOn(errorTransformer, 'transformTextInputError')
-      .mockResolvedValue(
-        geographyFormOptionWithDepthError as IFormFieldOptions,
-      );
+      .mockResolvedValue(geographyFormOptionWithDepthError as IFormFieldOptions);
 
-    const {
-      geographySearch,
-      guidedDateSearch: guidedDateSearchPath,
-      results,
-    } = webRoutePaths;
+    const { geographySearch, guidedDateSearch: guidedDateSearchPath, results } = webRoutePaths;
     const queryString: string = readQueryParams(request.query, '');
     const geographySearchPath: string = `${geographySearch}?${queryString}`;
     const formId: string = formIds.geographyQuestionnaireFID;
     const skipPath: string = `${results}?${queryString}`;
-    const resultPathQueryString: string = readQueryParams(
-      request.query,
-      '',
-      true,
-    );
+    const resultPathQueryString: string = readQueryParams(request.query, '', true);
     const resultsPath: string = `${results}?${resultPathQueryString}`;
 
-    await GeographySearchController.doGeographySearchFailActionHandler(
-      request,
-      response,
-      error,
-    );
-    expect(response.view).toHaveBeenCalledWith(
-      'screens/guided_search/geography_questionnaire',
-      {
-        pageTitle: pageTitles.geography,
-        guidedDateSearchPath,
-        geographySearchPath,
-        formFields: geographyFormOptionWithDepthError,
-        formId,
-        skipPath,
-        count: '20',
-        resultsPath,
-        backLinkPath: guidedDateSearchPath,
-      },
-    );
+    await GeographySearchController.doGeographySearchFailActionHandler(request, response, error);
+    expect(response.view).toHaveBeenCalledWith('screens/guided_search/geography_questionnaire', {
+      pageTitle: pageTitles.geography,
+      guidedDateSearchPath,
+      geographySearchPath,
+      formFields: geographyFormOptionWithDepthError,
+      formId,
+      skipPath,
+      count: '20',
+      resultsPath,
+      backLinkPath: guidedDateSearchPath,
+    });
   });
 });

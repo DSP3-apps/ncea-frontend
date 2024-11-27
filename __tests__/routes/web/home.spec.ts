@@ -7,7 +7,7 @@
 import { Server, ServerInjectResponse } from '@hapi/hapi';
 
 import { initializeServer } from '../../../src/infrastructure/server';
-import { webRoutePaths } from '../../../src/utils/constants';
+import { BASE_PATH, webRoutePaths } from '../../../src/utils/constants';
 
 jest.mock('../../../src/infrastructure/plugins/appinsights-logger', () => ({
   info: jest.fn(),
@@ -34,7 +34,7 @@ describe('Home Screen', () => {
 
       const options = {
         method: 'GET',
-        url: webRoutePaths.home,
+        url: `${BASE_PATH}`,
       };
 
       response = await server.inject(options);
@@ -81,11 +81,9 @@ describe('Home Screen', () => {
 
     describe('Hero content block heading', () => {
       it('should render the hero content heading', async () => {
-        expect(
-          document
-            ?.querySelector('.banner-container__heading-xl')
-            ?.textContent?.trim(),
-        ).toBe('Find natural capital data');
+        expect(document?.querySelector('.banner-container__heading-xl')?.textContent?.trim()).toBe(
+          'Find natural capital data',
+        );
       });
     });
   });
@@ -110,26 +108,18 @@ describe('Home Screen', () => {
 
     describe('Search container content elements', () => {
       it('should render 3 child elements', async () => {
-        const bannerContainer = document?.querySelector(
-          '.quick_search-container',
-        );
+        const bannerContainer = document?.querySelector('.quick_search-container');
         expect(bannerContainer?.childElementCount).toEqual(3);
       });
 
       it('should render caption on home screen', async () => {
-        expect(
-          document?.querySelector('.quick_search-container__caption-m'),
-        ).toBeTruthy();
+        expect(document?.querySelector('.quick_search-container__caption-m')).toBeTruthy();
       });
     });
 
     describe('Search container block heading', () => {
       it('should render the search container heading', async () => {
-        expect(
-          document
-            ?.querySelector('.quick_search-container__heading-m')
-            ?.textContent?.trim(),
-        ).toBe('Quick search');
+        expect(document?.querySelector('.quick_search-container__heading-m')?.textContent?.trim()).toBe('Quick search');
       });
 
       it('should not render the custom large class for heading', async () => {
@@ -143,54 +133,37 @@ describe('Home Screen', () => {
 
     describe('Search container form', () => {
       it('should render the form', async () => {
-        const formElement =
-          document?.querySelector('.search-block')?.firstElementChild;
+        const formElement = document?.querySelector('.search-block')?.firstElementChild;
         expect(formElement?.tagName.toLowerCase()).toBe('form');
       });
 
       it('should render the form with options', async () => {
-        const formElement =
-          document?.querySelector('.search-block')?.firstElementChild;
+        const formElement = document?.querySelector('.search-block')?.firstElementChild;
         expect(formElement?.getAttribute('role')).toBe('search');
-        expect(formElement?.getAttribute('action')).toBe(webRoutePaths.results);
+        expect(formElement?.getAttribute('action')).toBe(`${BASE_PATH}${webRoutePaths.results}`);
       });
 
       it('should render the form classes', async () => {
-        const formElement =
-          document?.querySelector('.search-block')?.firstElementChild;
-        expect(
-          formElement?.classList.contains('search-block__form'),
-        ).toBeTruthy();
-        expect(
-          formElement?.firstElementChild?.classList.contains(
-            'govuk-form-group',
-          ),
-        ).toBeTruthy();
+        const formElement = document?.querySelector('.search-block')?.firstElementChild;
+        expect(formElement?.classList.contains('search-block__form')).toBeTruthy();
+        expect(formElement?.firstElementChild?.classList.contains('govuk-form-group')).toBeTruthy();
       });
     });
 
     describe('Search container input field', () => {
       it('does render the input wrapper', () => {
-        const wrapper = document?.querySelector(
-          '.govuk-form-group > .govuk-input__wrapper',
-        );
+        const wrapper = document?.querySelector('.govuk-form-group > .govuk-input__wrapper');
         expect(wrapper).toBeTruthy();
       });
 
       it('should render the input element', async () => {
-        const inputElement = document?.querySelector(
-          '.govuk-form-group > .govuk-input__wrapper',
-        )?.firstElementChild;
+        const inputElement = document?.querySelector('.govuk-form-group > .govuk-input__wrapper')?.firstElementChild;
         expect(inputElement?.tagName.toLowerCase()).toBe('input');
       });
 
       it('should renders with custom class', () => {
-        const inputElement = document?.querySelector(
-          '.govuk-form-group > .govuk-input__wrapper',
-        )?.firstElementChild;
-        expect(
-          inputElement?.classList.contains('search-block__input'),
-        ).toBeTruthy();
+        const inputElement = document?.querySelector('.govuk-form-group > .govuk-input__wrapper')?.firstElementChild;
+        expect(inputElement?.classList.contains('search-block__input')).toBeTruthy();
       });
 
       it('should renders with id', () => {
@@ -216,9 +189,7 @@ describe('Home Screen', () => {
 
     describe('Search container when it includes a suffix', () => {
       it('should renders the suffix inside the wrapper', () => {
-        const suffix = document?.querySelector(
-          '.govuk-form-group > .govuk-input__wrapper > .govuk-input__suffix',
-        );
+        const suffix = document?.querySelector('.govuk-form-group > .govuk-input__wrapper > .govuk-input__suffix');
         expect(suffix).toBeTruthy();
       });
 
@@ -233,9 +204,7 @@ describe('Home Screen', () => {
         const buttonElement = document?.querySelector(
           '.govuk-form-group > .govuk-input__wrapper > .govuk-input__suffix',
         )?.firstElementChild;
-        expect(
-          buttonElement?.classList?.contains('search-block__button'),
-        ).toBeTruthy();
+        expect(buttonElement?.classList?.contains('search-block__button')).toBeTruthy();
       });
     });
   });
@@ -243,17 +212,13 @@ describe('Home Screen', () => {
   describe('Home > Educational Copy block', () => {
     describe('Educational Copy block classes', () => {
       it('renders custom Educational Copy container class', async () => {
-        expect(
-          document.querySelector('.educational-copy-container'),
-        ).toBeTruthy();
+        expect(document.querySelector('.educational-copy-container')).toBeTruthy();
       });
     });
 
     describe('Educational Copy block elements', () => {
       it('should render 11 child elements', async () => {
-        const videoContainer = document?.querySelector(
-          '.educational-copy-container',
-        );
+        const videoContainer = document?.querySelector('.educational-copy-container');
         expect(videoContainer?.childElementCount).toEqual(11);
       });
     });
@@ -261,18 +226,12 @@ describe('Home Screen', () => {
 
   describe('Natural capital container block heading', () => {
     it('should render the Natural capital container heading', async () => {
-      expect(
-        document
-          ?.querySelectorAll('.govuk-heading-m')?.[2]
-          ?.textContent?.trim(),
-      ).toBe('Natural capital');
+      expect(document?.querySelectorAll('.govuk-heading-m')?.[2]?.textContent?.trim()).toBe('Natural capital');
     });
 
     it('should not render the custom large class for heading', async () => {
       expect(
-        document
-          ?.querySelectorAll('.govuk-heading-m')?.[1]
-          ?.classList.contains('govuk-heading-m--large'),
+        document?.querySelectorAll('.govuk-heading-m')?.[1]?.classList.contains('govuk-heading-m--large'),
       ).toBeFalsy();
     });
   });

@@ -13,16 +13,16 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
 
     
   
-      <link rel="icon" sizes="48x48" href="/assets/images/favicon.ico">
-      <link rel="icon" sizes="any" href="/assets/images/favicon.svg" type="image/svg+xml">
-      <link rel="mask-icon" href="/assets/images/govuk-icon-mask.svg" color="#0b0c0c">
-      <link rel="apple-touch-icon" href="/assets/images/govuk-icon-180.png">
-      <link rel="manifest" href="/assets/manifest.json">
+      <link rel="icon" sizes="48x48" href="/natural-capital-ecosystem-assessment/assets/images/favicon.ico">
+      <link rel="icon" sizes="any" href="/natural-capital-ecosystem-assessment/assets/images/favicon.svg" type="image/svg+xml">
+      <link rel="mask-icon" href="/natural-capital-ecosystem-assessment/assets/images/govuk-icon-mask.svg" color="#0b0c0c">
+      <link rel="apple-touch-icon" href="/natural-capital-ecosystem-assessment/assets/images/govuk-icon-180.png">
+      <link rel="manifest" href="/natural-capital-ecosystem-assessment/assets/manifest.json">
     
 
 
     
-  <link rel="stylesheet" href="/assets/css/application.css">
+  <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/application.css">
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
@@ -65,7 +65,7 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
         
           
             
-              <a class="govuk-link help-link" href="/cookie-policy">View cookies</a>
+              <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
             
           
         
@@ -80,7 +80,7 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
         
 
         <div class="govuk-cookie-banner__content">
-<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/cookie-policy">change your cookie settings</a> at any time.</p>
+<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
 </div>
       </div>
     </div>
@@ -105,7 +105,7 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
         
 
         <div class="govuk-cookie-banner__content">
-<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/cookie-policy">change your cookie settings</a> at any time.</p>
+<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
 </div>
       </div>
     </div>
@@ -136,7 +136,7 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
   <script>
     var gtmIdValue = "";
   </script>
-  <script type="module" src="/assets/scripts/cookieScript.js"></script>
+  <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
 
     <!--Will be removed once Defra GA accounts been created -->
@@ -174,7 +174,7 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
     <div class="govuk-header__content">
     
     
-      <a href="/" class="govuk-header__link govuk-header__service-name">
+      <a href="/natural-capital-ecosystem-assessment" class="govuk-header__link govuk-header__service-name">
         Find natural capital data
       </a>
     
@@ -243,31 +243,31 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
             <ul class="govuk-footer__inline-list">
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/help">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
                     Help
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/privacy-policy">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
                     Privacy
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/cookie-policy">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
                     Cookies
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/accessibility-statement">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
                     Accessibility statement
                   </a>
                 </li>
               
                 <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/terms-conditions">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
                     Terms and conditions
                   </a>
                 </li>
@@ -316,16 +316,16 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
 
     
   
-  <script type="module" src="/assets/all.js"></script>
+  <script type="module" src="/natural-capital-ecosystem-assessment/assets/all.js"></script>
   <script type="module">
-    import {initAll} from '/assets/all.js'
+    import {initAll} from '/natural-capital-ecosystem-assessment/assets/all.js'
     initAll()
   </script>
   <script>
     const appInsightsConnString = "";
   </script>
-  <script type="text/javascript" src="/assets/scripts/appinsights.js"></script>
-  <script type="module" src="/assets/scripts/customScripts.js"></script>
+  <script type="text/javascript" src="/natural-capital-ecosystem-assessment/assets/scripts/appinsights.js"></script>
+  <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/customScripts.js"></script>
 
   </body>
 </html>

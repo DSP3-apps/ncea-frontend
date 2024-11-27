@@ -3,6 +3,7 @@
 
 import { Request, ResponseToolkit } from '@hapi/hapi';
 import {
+  BASE_PATH,
   formIds,
   guidedSearchSteps,
   pageTitles,
@@ -43,19 +44,19 @@ describe('Deals with Home Controller', () => {
       const request: Request = { params: {} } as any;
       const response: ResponseToolkit = { redirect: jest.fn() } as any;
       await HomeController.intermediateHandler(request, response);
-      expect(response.redirect).toHaveBeenCalledWith(webRoutePaths.home);
+      expect(response.redirect).toHaveBeenCalledWith(`${BASE_PATH}${webRoutePaths.home}`);
     });
     it('should redirect to home if step is empty', async () => {
       const request: Request = { params: { step: '' } } as any;
       const response: ResponseToolkit = { redirect: jest.fn() } as any;
       await HomeController.intermediateHandler(request, response);
-      expect(response.redirect).toHaveBeenCalledWith(webRoutePaths.home);
+      expect(response.redirect).toHaveBeenCalledWith(`${BASE_PATH}${webRoutePaths.home}`);
     });
     it('should redirect to home if step is invalid', async () => {
       const request: Request = { params: { step: 'invalid' } } as any;
       const response: ResponseToolkit = { redirect: jest.fn() } as any;
       await HomeController.intermediateHandler(request, response);
-      expect(response.redirect).toHaveBeenCalledWith(webRoutePaths.home);
+      expect(response.redirect).toHaveBeenCalledWith(`${BASE_PATH}${webRoutePaths.home}`);
     });
     it('should redirect to geography page if step is date and search results count > 0', async () => {
       const dateFormFields = {
@@ -82,9 +83,7 @@ describe('Deals with Home Controller', () => {
         false,
       );
       await HomeController.intermediateHandler(request, response);
-      expect(response.redirect).toHaveBeenCalledWith(
-        `${webRoutePaths.geographySearch}?${queryString}`,
-      );
+      expect(response.redirect).toHaveBeenCalledWith(`${webRoutePaths.geographySearch}?${queryString}`);
     });
     it('should redirect to results page if step is date and search results count <= 0', async () => {
       const dateFormFields = {
@@ -106,9 +105,7 @@ describe('Deals with Home Controller', () => {
 
       const queryString: string = readQueryParams(request.query, '', true);
       await HomeController.intermediateHandler(request, response);
-      expect(response.redirect).toHaveBeenCalledWith(
-        `${webRoutePaths.results}?${queryString}`,
-      );
+      expect(response.redirect).toHaveBeenCalledWith(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
     });
     it('should redirect to results page if an error occurs during count retrieval', async () => {
       const request: Request = {
@@ -121,9 +118,7 @@ describe('Deals with Home Controller', () => {
 
       const queryString: string = readQueryParams(request.query, '', true);
       await HomeController.intermediateHandler(request, response);
-      expect(response.redirect).toHaveBeenCalledWith(
-        `${webRoutePaths.results}?${queryString}`,
-      );
+      expect(response.redirect).toHaveBeenCalledWith(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
     });
   });
   describe('Deals with the accessibilityHandler', () => {

@@ -9,7 +9,7 @@ import { Server } from '@hapi/hapi';
 import { getDocumentDetails } from '../../../src/services/handlers/searchApi';
 import { initializeServer } from '../../../src/infrastructure/server';
 import supertest from 'supertest';
-import { webRoutePaths } from '../../../src/utils/constants';
+import { BASE_PATH, webRoutePaths } from '../../../src/utils/constants';
 import {
   formattedDetailsFullResponse,
   formattedDetailsResponse,
@@ -65,9 +65,7 @@ describe('Details route template', () => {
 
     beforeAll(async () => {
       (getDocumentDetails as jest.Mock).mockResolvedValue(detailsFullResponse);
-      const responseObject = await invokeRoute(
-        `${webRoutePaths.results}/{1234-56789213123-1233-1234}`,
-      );
+      const responseObject = await invokeRoute(`${BASE_PATH}${webRoutePaths.results}/{1234-56789213123-1233-1234}`);
       response = responseObject.response;
       document = responseObject.document;
     });
@@ -111,7 +109,7 @@ describe('Details route template', () => {
         expect(anchor?.getAttribute('class')).toEqual(
           'govuk-breadcrumbs__link',
         );
-        expect(anchor?.getAttribute('href')).toEqual(webRoutePaths.home);
+        expect(anchor?.getAttribute('href')).toEqual(`${BASE_PATH}`);
         expect(anchor?.textContent?.trim()).toEqual('Home');
       });
 
@@ -124,9 +122,7 @@ describe('Details route template', () => {
         expect(anchor?.getAttribute('class')).toEqual(
           'govuk-breadcrumbs__link',
         );
-        expect(anchor?.getAttribute('href')).toEqual(
-          `${webRoutePaths.results}?`,
-        );
+        expect(anchor?.getAttribute('href')).toEqual(`${BASE_PATH}${webRoutePaths.results}?`);
         expect(anchor?.textContent?.trim()).toEqual('Search results');
       });
 
@@ -297,9 +293,7 @@ describe('Details route template', () => {
       (getDocumentDetails as jest.Mock).mockResolvedValue(
         detailsPartialResponse,
       );
-      const responseObject = await invokeRoute(
-        `${webRoutePaths.results}/{1234-56789213123-1233-1234}`,
-      );
+      const responseObject = await invokeRoute(`${BASE_PATH}${webRoutePaths.results}/{1234-56789213123-1233-1234}`);
       response = responseObject.response;
       document = responseObject.document;
     });
@@ -343,7 +337,7 @@ describe('Details route template', () => {
         expect(anchor?.getAttribute('class')).toEqual(
           'govuk-breadcrumbs__link',
         );
-        expect(anchor?.getAttribute('href')).toEqual(webRoutePaths.home);
+        expect(anchor?.getAttribute('href')).toEqual(`${BASE_PATH}`);
         expect(anchor?.textContent?.trim()).toEqual('Home');
       });
 
@@ -356,9 +350,7 @@ describe('Details route template', () => {
         expect(anchor?.getAttribute('class')).toEqual(
           'govuk-breadcrumbs__link',
         );
-        expect(anchor?.getAttribute('href')).toEqual(
-          `${webRoutePaths.results}?`,
-        );
+        expect(anchor?.getAttribute('href')).toEqual(`${BASE_PATH}${webRoutePaths.results}?`);
         expect(anchor?.textContent?.trim()).toEqual('Search results');
       });
 

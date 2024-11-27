@@ -6,7 +6,7 @@
 
 import { Server, ServerInjectResponse } from '@hapi/hapi';
 import { initializeServer } from '../../../src/infrastructure/server';
-import { webRoutePaths } from '../../../src/utils/constants';
+import { BASE_PATH, webRoutePaths } from '../../../src/utils/constants';
 import { DateSearchController } from '../../../src/controllers/web/DateSearchController';
 import { dateSearchRoutes } from '../../../src/routes/web/dateSearch';
 
@@ -42,7 +42,7 @@ describe('Guided Search - Date Questionnaire Screen', () => {
 
     const options = {
       method: 'GET',
-      url: webRoutePaths.guidedDateSearch,
+      url: `${BASE_PATH}${webRoutePaths.guidedDateSearch}`,
     };
 
     response = await server.inject(options);

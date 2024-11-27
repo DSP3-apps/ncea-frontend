@@ -8,7 +8,7 @@ import { Server } from '@hapi/hapi';
 
 import { initializeServer } from '../../../src/infrastructure/server';
 import supertest from 'supertest';
-import { webRoutePaths } from '../../../src/utils/constants';
+import { BASE_PATH, webRoutePaths } from '../../../src/utils/constants';
 
 jest.mock('../../../src/infrastructure/plugins/appinsights-logger', () => ({
   info: jest.fn(),
@@ -55,7 +55,7 @@ describe('Guided Search - Geography Questionnaire Screen POST Request', () => {
     let response;
 
     beforeAll(async () => {
-      const responseObject = await invokeRoute(webRoutePaths.geographySearch, {
+      const responseObject = await invokeRoute(`${BASE_PATH}${webRoutePaths.geographySearch}`, {
         north: '2',
         south: '2',
         east: '2',
@@ -71,7 +71,7 @@ describe('Guided Search - Geography Questionnaire Screen POST Request', () => {
     it('should redirect to results page', async () => {
       expect(response.redirect).toBe(true);
       expect(response.header.location).toBe(
-        `${webRoutePaths.results}?nth=2&sth=2&est=2&wst=2&pg=1&rpp=20&srt=most_relevant`,
+        `${BASE_PATH}${webRoutePaths.results}?nth=2&sth=2&est=2&wst=2&pg=1&rpp=20&srt=most_relevant`,
       );
     });
   });
@@ -81,7 +81,7 @@ describe('Guided Search - Geography Questionnaire Screen POST Request', () => {
     let document;
 
     beforeAll(async () => {
-      const responseObject = await invokeRoute(webRoutePaths.geographySearch, {
+      const responseObject = await invokeRoute(`${BASE_PATH}${webRoutePaths.geographySearch}`, {
         north: '2',
         south: '2',
         east: '2',
@@ -207,9 +207,7 @@ describe('Guided Search - Geography Questionnaire Screen POST Request', () => {
           );
           expect(formElement).toBeTruthy();
           expect(formElement?.tagName.toLowerCase()).toBe('form');
-          expect(formElement?.getAttribute('action')).toBe(
-            `${webRoutePaths.geographySearch}?`,
-          );
+          expect(formElement?.getAttribute('action')).toBe(`${webRoutePaths.geographySearch}?`);
         });
       });
 
@@ -262,7 +260,7 @@ describe('Guided Search - Geography Questionnaire Screen POST Request', () => {
 
   describe('Guided search POST validation', () => {
     it('should fail action - when four coordinates are not present', async () => {
-      const responseObject = await invokeRoute(webRoutePaths.geographySearch, {
+      const responseObject = await invokeRoute(`${BASE_PATH}${webRoutePaths.geographySearch}`, {
         north: '2',
         south: '2',
         east: '2',
@@ -271,7 +269,7 @@ describe('Guided Search - Geography Questionnaire Screen POST Request', () => {
       expect(responseObject.response.statusCode).toEqual(400);
     });
     it('should fail action - when the coordinates or depth is not a number', async () => {
-      const responseObject = await invokeRoute(webRoutePaths.geographySearch, {
+      const responseObject = await invokeRoute(`${BASE_PATH}${webRoutePaths.geographySearch}`, {
         north: 'north',
         south: '2',
         east: '2',

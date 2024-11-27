@@ -1,38 +1,19 @@
 'use strict';
 
 import Joi from 'joi';
-import {
-  IAggregationOptions,
-  ISearchItem,
-} from '../../../src/interfaces/searchResponse.interface';
+import { IAggregationOptions, ISearchItem } from '../../../src/interfaces/searchResponse.interface';
 import { SearchResultsController } from '../../../src/controllers/web/SearchResultsController';
 import { Request, ResponseToolkit } from '@hapi/hapi';
 
 import { formattedDetailsResponse } from '../../data/documentDetailsResponse';
 import { processDetailsTabData } from '../../../src/utils/processDetailsTabData';
-import {appendPublication} from '../../../src/utils/queryStringHelper'
+import { appendPublication } from '../../../src/utils/queryStringHelper';
 import { quickSearchJoiError } from '../../data/quickSearch';
-import {
-  getDocumentDetails,
-  getSearchResults,
-  getFilterOptions,
-} from '../../../src/services/handlers/searchApi';
-import {
-  formIds,
-  pageTitles,
-  queryParamKeys,
-  webRoutePaths,
-} from '../../../src/utils/constants';
+import { getDocumentDetails, getSearchResults, getFilterOptions } from '../../../src/services/handlers/searchApi';
+import { BASE_PATH, formIds, pageTitles, queryParamKeys, webRoutePaths } from '../../../src/utils/constants';
 import { getPaginationItems } from '../../../src/utils/paginationBuilder';
-import {
-  deleteQueryParams,
-  readQueryParams,
-  upsertQueryParams,
-} from '../../../src/utils/queryStringHelper';
-import {
-  processFilterOptions,
-  processSortOptions,
-} from '../../../src/utils/processFilterRSortOptions';
+import { deleteQueryParams, readQueryParams, upsertQueryParams } from '../../../src/utils/queryStringHelper';
+import { processFilterOptions, processSortOptions } from '../../../src/utils/processFilterRSortOptions';
 
 jest.mock('../../../src/services/handlers/searchApi', () => ({
   getSearchResults: jest.fn(),
@@ -65,28 +46,20 @@ describe('Deals with search results controller', () => {
           { value: 'filter2', text: 'Filter2' },
         ],
       };
-      (getFilterOptions as jest.Mock).mockResolvedValue(
-        expectedResourceTypeOptions,
-      );
+      (getFilterOptions as jest.Mock).mockResolvedValue(expectedResourceTypeOptions);
       const paginationItems = getPaginationItems(1, 0, 10, queryObject);
       const queryString = readQueryParams(request.query);
-      const filterResourceTypePath = `${webRoutePaths.filterResourceType}?${queryString}`;
-      const filterStudyPeriodPath = `${webRoutePaths.filterStudyPeriod}?${queryString}`;
-      const sortSubmitPath = `${webRoutePaths.sortResults}?${queryString}`;
-      const processedFilterOptions = await processFilterOptions(
-        expectedResourceTypeOptions,
-        request.query,
-      );
+      const filterResourceTypePath = `${BASE_PATH}${webRoutePaths.filterResourceType}?${queryString}`;
+      const filterStudyPeriodPath = `${BASE_PATH}${webRoutePaths.filterStudyPeriod}?${queryString}`;
+      const sortSubmitPath = `${BASE_PATH}${webRoutePaths.sortResults}?${queryString}`;
+      const processedFilterOptions = await processFilterOptions(expectedResourceTypeOptions, request.query);
       const processedSortOptions = await processSortOptions(request.query);
-      const resetStudyPeriodQueryString: string = deleteQueryParams(
-        request.query,
-        [queryParamKeys.startYear, queryParamKeys.toYear],
-      );
-      const resetStudyPeriodLink: string = `${webRoutePaths.results}?${resetStudyPeriodQueryString}`;
-      await SearchResultsController.renderSearchResultsHandler(
-        request,
-        response,
-      );
+      const resetStudyPeriodQueryString: string = deleteQueryParams(request.query, [
+        queryParamKeys.startYear,
+        queryParamKeys.toYear,
+      ]);
+      const resetStudyPeriodLink: string = `${BASE_PATH}${webRoutePaths.results}?${resetStudyPeriodQueryString}`;
+      await SearchResultsController.renderSearchResultsHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/results/template', {
         pageTitle: pageTitles.results,
         quickSearchFID,
@@ -99,13 +72,13 @@ describe('Deals with search results controller', () => {
         filterResourceTypePath,
         filterStudyPeriodPath,
         sortSubmitPath,
-        dateSearchPath: webRoutePaths.guidedDateSearch,
+        dateSearchPath: `${BASE_PATH}${webRoutePaths.guidedDateSearch}`,
         filterInstance: 'search_results',
         queryString,
         hasStudyPeriodFilterApplied: false,
         resetStudyPeriodLink,
-        backLinkClasses: "back-link-search-result",
-        backLinkPath: "#",
+        backLinkClasses: 'back-link-search-result',
+        backLinkPath: '#',
       });
     });
 
@@ -132,28 +105,20 @@ describe('Deals with search results controller', () => {
           { value: 'filter2', text: 'Filter2' },
         ],
       };
-      (getFilterOptions as jest.Mock).mockResolvedValue(
-        expectedResourceTypeOptions,
-      );
+      (getFilterOptions as jest.Mock).mockResolvedValue(expectedResourceTypeOptions);
       const paginationItems = getPaginationItems(1, 0, 10, queryObject);
       const queryString = readQueryParams(request.query);
-      const filterResourceTypePath = `${webRoutePaths.filterResourceType}?${queryString}`;
-      const filterStudyPeriodPath = `${webRoutePaths.filterStudyPeriod}?${queryString}`;
-      const sortSubmitPath = `${webRoutePaths.sortResults}?${queryString}`;
-      const processedFilterOptions = await processFilterOptions(
-        expectedResourceTypeOptions,
-        request.query,
-      );
+      const filterResourceTypePath = `${BASE_PATH}${webRoutePaths.filterResourceType}?${queryString}`;
+      const filterStudyPeriodPath = `${BASE_PATH}${webRoutePaths.filterStudyPeriod}?${queryString}`;
+      const sortSubmitPath = `${BASE_PATH}${webRoutePaths.sortResults}?${queryString}`;
+      const processedFilterOptions = await processFilterOptions(expectedResourceTypeOptions, request.query);
       const processedSortOptions = await processSortOptions(request.query);
-      const resetStudyPeriodQueryString: string = deleteQueryParams(
-        request.query,
-        [queryParamKeys.startYear, queryParamKeys.toYear],
-      );
-      const resetStudyPeriodLink: string = `${webRoutePaths.results}?${resetStudyPeriodQueryString}`;
-      await SearchResultsController.renderSearchResultsHandler(
-        request,
-        response,
-      );
+      const resetStudyPeriodQueryString: string = deleteQueryParams(request.query, [
+        queryParamKeys.startYear,
+        queryParamKeys.toYear,
+      ]);
+      const resetStudyPeriodLink: string = `${BASE_PATH}${webRoutePaths.results}?${resetStudyPeriodQueryString}`;
+      await SearchResultsController.renderSearchResultsHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/results/template', {
         pageTitle: pageTitles.results,
         quickSearchFID,
@@ -166,13 +131,13 @@ describe('Deals with search results controller', () => {
         filterResourceTypePath,
         filterStudyPeriodPath,
         sortSubmitPath,
-        dateSearchPath: webRoutePaths.guidedDateSearch,
+        dateSearchPath: `${BASE_PATH}${webRoutePaths.guidedDateSearch}`,
         filterInstance: 'search_results',
         queryString,
         hasStudyPeriodFilterApplied: false,
         resetStudyPeriodLink,
-        backLinkClasses: "back-link-search-result",
-        backLinkPath: "#",
+        backLinkClasses: 'back-link-search-result',
+        backLinkPath: '#',
       });
     });
 
@@ -190,10 +155,7 @@ describe('Deals with search results controller', () => {
       const response: ResponseToolkit = { view: jest.fn() } as any;
       const error = new Error('Mocked error');
       (getSearchResults as jest.Mock).mockRejectedValue(error);
-      await SearchResultsController.renderSearchResultsHandler(
-        request,
-        response,
-      );
+      await SearchResultsController.renderSearchResultsHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/results/template', {
         quickSearchFID,
         error,
@@ -214,14 +176,9 @@ describe('Deals with search results controller', () => {
         [queryParamKeys.quickSearch]: 'search term',
         [queryParamKeys.journey]: 'qs',
       };
-      const queryString: string = upsertQueryParams(
-        request.query,
-        queryParamsObject,
-      );
+      const queryString: string = upsertQueryParams(request.query, queryParamsObject);
       await SearchResultsController.quickSearchSubmitHandler(request, response);
-      expect(response.redirect).toHaveBeenCalledWith(
-        `${webRoutePaths.results}?${queryString}`,
-      );
+      expect(response.redirect).toHaveBeenCalledWith(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
     });
   });
 
@@ -238,11 +195,7 @@ describe('Deals with search results controller', () => {
       },
     } as any;
     beforeAll(() => {
-      return SearchResultsController.quickSearchFailActionHandler(
-        request,
-        response,
-        quickSearchJoiError,
-      );
+      return SearchResultsController.quickSearchFailActionHandler(request, response, quickSearchJoiError);
     });
 
     it('should render the home page with error messages', async () => {
@@ -255,10 +208,7 @@ describe('Deals with search results controller', () => {
         quickSearchFID,
         searchInputError,
       };
-      expect(response.view).toHaveBeenCalledWith(
-        'screens/home/template',
-        context,
-      );
+      expect(response.view).toHaveBeenCalledWith('screens/home/template', context);
     });
   });
 
@@ -275,11 +225,7 @@ describe('Deals with search results controller', () => {
       },
     } as any;
     beforeAll(() => {
-      return SearchResultsController.quickSearchFailActionHandler(
-        request,
-        response,
-        quickSearchJoiError,
-      );
+      return SearchResultsController.quickSearchFailActionHandler(request, response, quickSearchJoiError);
     });
 
     it('should render the results page with error messages', async () => {
@@ -292,10 +238,7 @@ describe('Deals with search results controller', () => {
         quickSearchFID,
         searchInputError,
       };
-      expect(response.view).toHaveBeenCalledWith(
-        'screens/results/template',
-        context,
-      );
+      expect(response.view).toHaveBeenCalledWith('screens/results/template', context);
     });
   });
 
@@ -327,10 +270,7 @@ describe('Deals with search results controller', () => {
         quickSearchFID,
         searchInputError,
       };
-      expect(response.view).toHaveBeenCalledWith(
-        'screens/home/template',
-        context,
-      );
+      expect(response.view).toHaveBeenCalledWith('screens/home/template', context);
     });
   });
 
@@ -348,14 +288,10 @@ describe('Deals with search results controller', () => {
         query: { ...queryObject },
       } as any;
       const response: ResponseToolkit = { view: jest.fn() } as any;
-      const expectedResponse: ISearchItem = formattedDetailsResponse
-        ?.items?.[0] as ISearchItem;
+      const expectedResponse: ISearchItem = formattedDetailsResponse?.items?.[0] as ISearchItem;
       const queryString: string = readQueryParams(request.query);
       (getDocumentDetails as jest.Mock).mockResolvedValue(expectedResponse);
-      await SearchResultsController.renderSearchDetailsHandler(
-        request,
-        response,
-      );
+      await SearchResultsController.renderSearchDetailsHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/details/template', {
         pageTitle: pageTitles.generalTab,
         pageTitles,
@@ -378,10 +314,7 @@ describe('Deals with search results controller', () => {
       } as any;
       const response: ResponseToolkit = { view: jest.fn() } as any;
       (getDocumentDetails as jest.Mock).mockResolvedValue({});
-      await SearchResultsController.renderSearchDetailsHandler(
-        request,
-        response,
-      );
+      await SearchResultsController.renderSearchDetailsHandler(request, response);
       const queryString: string = readQueryParams(request.query);
       expect(response.view).toHaveBeenCalledWith('screens/details/template', {
         pageTitle: pageTitles.generalTab,
@@ -397,10 +330,7 @@ describe('Deals with search results controller', () => {
       const response: ResponseToolkit = { view: jest.fn() } as any;
       const error = new Error('Mocked error');
       (getDocumentDetails as jest.Mock).mockRejectedValue(error);
-      await SearchResultsController.renderSearchDetailsHandler(
-        request,
-        response,
-      );
+      await SearchResultsController.renderSearchDetailsHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/details/template', {
         error,
         docDetails: undefined,
@@ -478,18 +408,9 @@ describe('Deals with search results controller', () => {
         [queryParamKeys.resourceType]: 'dataset',
         [queryParamKeys.page]: '1',
       };
-      const queryString: string = upsertQueryParams(
-        request.query,
-        queryParamsObject,
-        false,
-      );
-      await SearchResultsController.filterResourceTypeHandler(
-        request,
-        response,
-      );
-      expect(response.redirect).toHaveBeenCalledWith(
-        `${webRoutePaths.results}?${queryString}`,
-      );
+      const queryString: string = upsertQueryParams(request.query, queryParamsObject, false);
+      await SearchResultsController.filterResourceTypeHandler(request, response);
+      expect(response.redirect).toHaveBeenCalledWith(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
     });
 
     it('should build the query params with multiple resource types values and navigate to search page', async () => {
@@ -504,18 +425,9 @@ describe('Deals with search results controller', () => {
         [queryParamKeys.resourceType]: 'dataset,series',
         [queryParamKeys.page]: '1',
       };
-      const queryString: string = upsertQueryParams(
-        request.query,
-        queryParamsObject,
-        false,
-      );
-      await SearchResultsController.filterResourceTypeHandler(
-        request,
-        response,
-      );
-      expect(response.redirect).toHaveBeenCalledWith(
-        `${webRoutePaths.results}?${queryString}`,
-      );
+      const queryString: string = upsertQueryParams(request.query, queryParamsObject, false);
+      await SearchResultsController.filterResourceTypeHandler(request, response);
+      expect(response.redirect).toHaveBeenCalledWith(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
     });
   });
 
@@ -534,15 +446,9 @@ describe('Deals with search results controller', () => {
         [queryParamKeys.toYear]: '2022',
         [queryParamKeys.page]: '1',
       };
-      const queryString: string = upsertQueryParams(
-        request.query,
-        queryParamsObject,
-        false,
-      );
+      const queryString: string = upsertQueryParams(request.query, queryParamsObject, false);
       await SearchResultsController.filterStudyPeriodHandler(request, response);
-      expect(response.redirect).toHaveBeenCalledWith(
-        `${webRoutePaths.results}?${queryString}`,
-      );
+      expect(response.redirect).toHaveBeenCalledWith(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
     });
   });
 
@@ -561,15 +467,9 @@ describe('Deals with search results controller', () => {
         [queryParamKeys.rowsPerPage]: '20',
         [queryParamKeys.page]: '1',
       };
-      const queryString: string = upsertQueryParams(
-        request.query,
-        queryParamsObject,
-        false,
-      );
+      const queryString: string = upsertQueryParams(request.query, queryParamsObject, false);
       await SearchResultsController.sortSearchHandler(request, response);
-      expect(response.redirect).toHaveBeenCalledWith(
-        `${webRoutePaths.results}?${queryString}`,
-      );
+      expect(response.redirect).toHaveBeenCalledWith(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
     });
   });
 
@@ -590,13 +490,8 @@ describe('Deals with search results controller', () => {
           { value: 'filter2', text: 'Filter2' },
         ],
       };
-      (getFilterOptions as jest.Mock).mockResolvedValue(
-        expectedResourceTypeOptions,
-      );
-      const processedFilterOptions = await processFilterOptions(
-        expectedResourceTypeOptions,
-        request.query,
-      );
+      (getFilterOptions as jest.Mock).mockResolvedValue(expectedResourceTypeOptions);
+      const processedFilterOptions = await processFilterOptions(expectedResourceTypeOptions, request.query);
       await SearchResultsController.getMapFiltersHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('partials/results/filters', {
         filterOptions: processedFilterOptions,
@@ -646,5 +541,4 @@ describe('Deals with search results controller', () => {
       expect(result).toBe('someOtherType');
     });
   });
-
 });
