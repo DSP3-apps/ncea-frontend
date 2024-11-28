@@ -1,7 +1,7 @@
 import winston from 'winston';
 
-import { environmentConfig } from '@/config/environmentConfig';
-import { getSecret } from '@/utils/keyvault';
+import { environmentConfig } from '../../config/environmentConfig';
+import { getSecret } from '../../utils/keyvault';
 
 /* eslint-disable  @typescript-eslint/no-var-requires */
 const appInsights = require('applicationinsights');

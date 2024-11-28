@@ -1,10 +1,9 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 'use strict';
 
-import { IQualityItem } from '@/interfaces/searchResponse.interface';
-
 import { formatDate } from './formatDate';
 import { toggleContent } from './toggleContent';
+import { IQualityItem } from '../interfaces/searchResponse.interface';
 
 const getPublicationInformation = (data: Record<string, any>[], type: string): string => {
   if (Array.isArray(data) && data.length > 0) {

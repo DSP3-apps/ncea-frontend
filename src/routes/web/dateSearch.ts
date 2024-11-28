@@ -1,8 +1,8 @@
 'use strict';
 
-import { DateSearchController } from '@/controllers/web/DateSearchController';
-import { dateSchema } from '@/schema/questionnaire.schema';
-import { webRoutePaths } from '@/utils/constants';
+import { DateSearchController } from '../../controllers/web/DateSearchController';
+import { dateSchema } from '../../schema/questionnaire.schema';
+import { webRoutePaths } from '../../utils/constants';
 
 const dateSearchRoutes = [
   {

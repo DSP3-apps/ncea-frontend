@@ -1,6 +1,5 @@
-import { IDateObject } from '@/interfaces/searchPayload.interface';
-
 import { isEmpty } from './isEmpty';
+import { IDateObject } from '../interfaces/searchPayload.interface';
 
 const getMonth = (dateObject: IDateObject, isToDate: boolean): number => {
   let month: number;

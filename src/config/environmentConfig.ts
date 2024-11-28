@@ -27,6 +27,7 @@ const config: EnvironmentConfig = {
   elasticSearchPassword: process.env.ES_PASSWORD,
   webDomain: process.env.WEBDOMAIN,
 };
+console.log('ENV CONFIG: ', config);
 
 const { error, value } = environmentSchema.validate(config);
 

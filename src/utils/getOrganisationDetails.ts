@@ -1,4 +1,4 @@
-import { IOrganisationDetails } from '@/interfaces/searchResponse.interface';
+import { IOrganisationDetails } from '../interfaces/searchResponse.interface';
 
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 const getOrganisationDetails = (source: Record<string, any>, isDetails: boolean = false): IOrganisationDetails => {

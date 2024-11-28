@@ -1,7 +1,6 @@
-import { FormattedTabOption, FormattedTabOptions, TabOption } from '@/interfaces/detailsTab.interface';
-import { ISearchItem, TabbedItem } from '@/interfaces/searchResponse.interface';
-
 import { detailsTabOptions } from './constants';
+import { FormattedTabOption, FormattedTabOptions, TabOption } from '../interfaces/detailsTab.interface';
+import { ISearchItem, TabbedItem } from '../interfaces/searchResponse.interface';
 
 const addLink = (value: string): string => {
   return `<a class="govuk-link" href="${value}" target="_blank">${value}</a>`;

@@ -11,7 +11,7 @@ import {
   mdcRoutes,
   searchResultsRoutes,
   staticRoutes,
-} from '@/routes/index';
+} from '../../routes/index';
 
 const routes = [
   ...errorRoutes,

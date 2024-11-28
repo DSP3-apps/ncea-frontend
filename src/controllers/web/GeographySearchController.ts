@@ -3,10 +3,10 @@
 import { Lifecycle, Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 import Joi from 'joi';
 
-import { geographyQuestionnaireOptions } from '@/data/geographyQuestionnaireOptions';
-import { BASE_PATH, formIds, pageTitles, queryParamKeys, webRoutePaths } from '@/utils/constants';
-import { readQueryParams, upsertQueryParams } from '@/utils/queryStringHelper';
-import { transformTextInputError } from '@/utils/transformErrors';
+import { geographyQuestionnaireOptions } from '../../data/geographyQuestionnaireOptions';
+import { BASE_PATH, formIds, pageTitles, queryParamKeys, webRoutePaths } from '../../utils/constants';
+import { readQueryParams, upsertQueryParams } from '../../utils/queryStringHelper';
+import { transformTextInputError } from '../../utils/transformErrors';
 
 const GeographySearchController = {
   renderGeographySearchHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {

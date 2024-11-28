@@ -1,5 +1,7 @@
 import { estypes } from '@elastic/elasticsearch';
 
+import { levelMap, mapResultMaxCount, resourceTypeFilterField, studyPeriodFilterField } from './constants';
+import { generateDateString } from './generateDateString';
 import {
   IDateValues,
   IGeoCoordinates,
@@ -7,10 +9,7 @@ import {
   ISearchBuilderPayload,
   ISearchPayload,
   IShapeCoordinates,
-} from '@/interfaces/queryBuilder.interface';
-
-import { levelMap, mapResultMaxCount, resourceTypeFilterField, studyPeriodFilterField } from './constants';
-import { generateDateString } from './generateDateString';
+} from '../interfaces/queryBuilder.interface';
 
 const _generateQueryStringBlock = (
   searchTerm: string,

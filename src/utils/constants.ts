@@ -1,5 +1,5 @@
-import { TabOptions } from '@/interfaces/detailsTab.interface';
-import { IFilterOptions } from '@/interfaces/searchPayload.interface';
+import { TabOptions } from '../interfaces/detailsTab.interface';
+import { IFilterOptions } from '../interfaces/searchPayload.interface';
 
 export const BASE_PATH = '/natural-capital-ecosystem-assessment';
 

@@ -1,7 +1,7 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 'use strict';
 
-import { ILicense } from '@/interfaces/searchResponse.interface';
+import { ILicense } from '../interfaces/searchResponse.interface';
 
 const ensureArray = (response) => {
   if (response === undefined || response === null) {

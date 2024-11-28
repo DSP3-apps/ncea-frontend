@@ -3,9 +3,9 @@
 import { Lifecycle, Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 import Joi from 'joi';
 
-import { fromDate, toDate } from '@/data/dateQuestionnaireFieldOptions';
-import { FormFieldError } from '@/interfaces/guidedSearch.interface';
-import { getSearchResultsCount } from '@/services/handlers/searchApi';
+import { fromDate, toDate } from '../../data/dateQuestionnaireFieldOptions';
+import { FormFieldError } from '../../interfaces/guidedSearch.interface';
+import { getSearchResultsCount } from '../../services/handlers/searchApi';
 import {
   BASE_PATH,
   formIds,
@@ -14,9 +14,9 @@ import {
   pageTitles,
   queryParamKeys,
   webRoutePaths,
-} from '@/utils/constants';
-import { generateCountPayload, readQueryParams, upsertQueryParams } from '@/utils/queryStringHelper';
-import { transformErrors } from '@/utils/transformErrors';
+} from '../../utils/constants';
+import { generateCountPayload, readQueryParams, upsertQueryParams } from '../../utils/queryStringHelper';
+import { transformErrors } from '../../utils/transformErrors';
 
 const DateSearchController = {
   renderGuidedSearchHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {

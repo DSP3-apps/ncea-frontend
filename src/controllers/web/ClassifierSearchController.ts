@@ -2,10 +2,10 @@
 
 import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 
-import { getClassifierThemes } from '@/services/handlers/classifierApi';
-import { getSearchResultsCount } from '@/services/handlers/searchApi';
-import { BASE_PATH, formIds, pageTitles, queryParamKeys, webRoutePaths } from '@/utils/constants';
-import { generateCountPayload, readQueryParams, upsertQueryParams } from '@/utils/queryStringHelper';
+import { getClassifierThemes } from '../../services/handlers/classifierApi';
+import { getSearchResultsCount } from '../../services/handlers/searchApi';
+import { BASE_PATH, formIds, pageTitles, queryParamKeys, webRoutePaths } from '../../utils/constants';
+import { generateCountPayload, readQueryParams, upsertQueryParams } from '../../utils/queryStringHelper';
 
 const ClassifierSearchController = {
   renderClassifierSearchHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {

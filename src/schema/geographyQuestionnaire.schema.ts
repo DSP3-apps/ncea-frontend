@@ -1,6 +1,6 @@
 import Joi from 'joi';
 
-import { isEmpty } from '@/utils/isEmpty';
+import { isEmpty } from '../utils/isEmpty';
 
 const coordinatePattern = /^[-+]?([1-8]?\d(?:\.\d{1,6})?|90)$/;
 const longitudePattern = /^[-+]?(180(\.0{1,6})?|1[0-7]\d?|\d{1,2}(\.\d{1,6})?)$/;

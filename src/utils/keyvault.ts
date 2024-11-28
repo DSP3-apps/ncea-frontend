@@ -1,4 +1,4 @@
-import { getKeyVaultClient } from '@/config/azureKeyVaultClient';
+import { getKeyVaultClient } from '../config/azureKeyVaultClient';
 
 /**
  * Retrieves a secret from the Azure Key Vault.

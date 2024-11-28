@@ -1,8 +1,7 @@
-import { IFilterOption, IFilterOptions } from '@/interfaces/searchPayload.interface';
-import { IAggregationOption, IAggregationOptions } from '@/interfaces/searchResponse.interface';
-
 import { startYearRangeKey, toYearRangeKey, uniqueResourceTypesKey } from './constants';
 import { getYear } from './formatDate';
+import { IFilterOption, IFilterOptions } from '../interfaces/searchPayload.interface';
+import { IAggregationOption, IAggregationOptions } from '../interfaces/searchResponse.interface';
 
 const capitalizeWords = (string: string): string => {
   return string.replace(/\b\w/g, (match) => match.toUpperCase());

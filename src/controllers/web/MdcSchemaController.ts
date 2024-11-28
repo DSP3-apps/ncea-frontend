@@ -1,7 +1,7 @@
 'use strict';
 import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 
-import { environmentConfig } from '@/config/environmentConfig';
+import { environmentConfig } from '../../config/environmentConfig';
 
 const MdcSchemaController = {
   MdcSchemaHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {

@@ -3,10 +3,10 @@
 import { Lifecycle, Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 import Joi from 'joi';
 
-import { FormattedTabOptions } from '@/interfaces/detailsTab.interface';
-import { ISearchPayload } from '@/interfaces/queryBuilder.interface';
-import { IAggregationOptions, ISearchItem, ISearchResults } from '@/interfaces/searchResponse.interface';
-import { getDocumentDetails, getFilterOptions, getSearchResults } from '@/services/handlers/searchApi';
+import { FormattedTabOptions } from '../../interfaces/detailsTab.interface';
+import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
+import { IAggregationOptions, ISearchItem, ISearchResults } from '../../interfaces/searchResponse.interface';
+import { getDocumentDetails, getFilterOptions, getSearchResults } from '../../services/handlers/searchApi';
 import {
   BASE_PATH,
   formIds,
@@ -18,17 +18,17 @@ import {
   toYearRangeKey,
   uniqueResourceTypesKey,
   webRoutePaths,
-} from '@/utils/constants';
-import { getPaginationItems } from '@/utils/paginationBuilder';
-import { processDetailsTabData } from '@/utils/processDetailsTabData';
-import { processFilterOptions, processSortOptions } from '@/utils/processFilterRSortOptions';
+} from '../../utils/constants';
+import { getPaginationItems } from '../../utils/paginationBuilder';
+import { processDetailsTabData } from '../../utils/processDetailsTabData';
+import { processFilterOptions, processSortOptions } from '../../utils/processFilterRSortOptions';
 import {
   appendPublication,
   deleteQueryParams,
   generateQueryBuilderPayload,
   readQueryParams,
   upsertQueryParams,
-} from '@/utils/queryStringHelper';
+} from '../../utils/queryStringHelper';
 
 const SearchResultsController = {
   renderSearchResultsHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
@@ -105,6 +105,7 @@ const SearchResultsController = {
       [queryParamKeys.journey]: 'qs',
     };
     const queryString: string = upsertQueryParams(request.query, queryParamsObject);
+    // console.log('QUICK SEARCH SUBMIT HANDLER', queryString);
     return response.redirect(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
   },
   quickSearchFailActionHandler: (request, response, error): Lifecycle.ReturnValue => {

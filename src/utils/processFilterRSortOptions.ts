@@ -1,9 +1,8 @@
 import { RequestQuery } from '@hapi/hapi';
 
-import { IAggregationOption, IAggregationOptions } from '@/interfaces/searchResponse.interface';
-
 import { queryParamKeys, startYearRangeKey, toYearRangeKey, uniqueResourceTypesKey } from './constants';
 import { readQueryParams } from './queryStringHelper';
+import { IAggregationOption, IAggregationOptions } from '../interfaces/searchResponse.interface';
 
 const processFilterOptions = async (
   filterOptions: IAggregationOptions,

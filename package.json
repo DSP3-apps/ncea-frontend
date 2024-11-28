@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "start:dev": "concurrently \"npm run sass:compile\" \"cross-env NODE_ENV=local npx nodemon --config tools/nodemon.json\"",
-    "start": "npm run build && node ./build/index.js",
+    "start": "npm run build && node -r tsconfig-paths/register ./build/index.js",
     "copy-files": "cp -r ./src/views ./build",
     "build": "rimraf ./build && tsc && npm run copy-files",
     "json-server": "json-server ./src/services/mock-data.json --port 3300",
@@ -89,6 +89,7 @@
     "nunjucks-date-filter": "0.1.1",
     "semantic-release": "^22.0.12",
     "ts-node": "10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "winston": "3.11.0",
     "winston-azure-application-insights": "4.0.0",
     "winston-daily-rotate-file": "5.0.0"

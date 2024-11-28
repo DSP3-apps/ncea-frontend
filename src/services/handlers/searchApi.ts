@@ -1,19 +1,20 @@
 import { estypes } from '@elastic/elasticsearch';
 
-import { performQuery } from '@/config/elasticSearchClient';
-import { ISearchBuilderPayload, ISearchPayload } from '@/interfaces/queryBuilder.interface';
-import { IFilterFlags } from '@/interfaces/searchPayload.interface';
-import { IAggregationOptions, ISearchItem, ISearchResults } from '@/interfaces/searchResponse.interface';
-import { defaultFilterOptions, quickSearchTargetFields } from '@/utils/constants';
-import { formatAggregationResponse } from '@/utils/formatAggregationResponse';
-import { formatSearchResponse } from '@/utils/formatSearchResponse';
-import { generateFilterQuery, generateSearchQuery } from '@/utils/queryBuilder';
+import { performQuery } from '../../config/elasticSearchClient';
+import { ISearchBuilderPayload, ISearchPayload } from '../../interfaces/queryBuilder.interface';
+import { IFilterFlags } from '../../interfaces/searchPayload.interface';
+import { IAggregationOptions, ISearchItem, ISearchResults } from '../../interfaces/searchResponse.interface';
+import { defaultFilterOptions, quickSearchTargetFields } from '../../utils/constants';
+import { formatAggregationResponse } from '../../utils/formatAggregationResponse';
+import { formatSearchResponse } from '../../utils/formatSearchResponse';
+import { generateFilterQuery, generateSearchQuery } from '../../utils/queryBuilder';
 
 const getSearchResults = async (
   searchFieldsObject: ISearchPayload,
   isMapResults: boolean = false,
   isQuickSearchJourney: boolean = false,
 ): Promise<ISearchResults> => {
+  // console.log('GET SEARCH RESULTS: ', { searchFieldsObject, isMapResults, isQuickSearchJourney });
   try {
     if (Object.keys(searchFieldsObject.fields).length) {
       const searchBuilderPayload: ISearchBuilderPayload = {
@@ -23,8 +24,10 @@ const getSearchResults = async (
         }),
       };
       const payload = generateSearchQuery(searchBuilderPayload);
+      console.log('SEARCH QUERY PAYLOAD: ', JSON.stringify(payload));
       const response = await performQuery<estypes.SearchResponse>(payload);
       const finalResponse: ISearchResults = await formatSearchResponse(response, false, isMapResults);
+      console.log('FINAL RESPONSE: ', JSON.stringify(finalResponse));
       return finalResponse;
     } else {
       return Promise.resolve({ total: 0, items: [] });

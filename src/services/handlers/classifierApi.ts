@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 
-import { environmentConfig } from '@/config/environmentConfig';
-import { Classifiers, Classify } from '@/interfaces/classifierSearch.interface';
+import { environmentConfig } from '../../config/environmentConfig';
+import { Classifiers, Classify } from '../../interfaces/classifierSearch.interface';
 // import { getSecret } from '@/utils/keyvault';
 
 const transformClassifierDetails = (classifiers: Classify[]): Classify[] => {

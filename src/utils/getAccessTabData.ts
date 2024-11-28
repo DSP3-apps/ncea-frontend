@@ -1,10 +1,9 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 'use strict';
 
-import { Contact, IAccessItem } from '@/interfaces/searchResponse.interface';
-
 import { addSpaces, capitalizeWords } from './formatAggregationResponse';
 import { getOrganisationDetails } from './getOrganisationDetails';
+import { Contact, IAccessItem } from '../interfaces/searchResponse.interface';
 
 const rolePrecedence = ['owner', 'pointofcontact', 'custodian', 'distributor', 'originator'];
 

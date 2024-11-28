@@ -4,8 +4,8 @@ import vision from '@hapi/vision';
 import nunjucks from 'nunjucks';
 import dateFilter from 'nunjucks-date-filter';
 
-import { environmentConfig } from '@/config/environmentConfig';
-import { BASE_PATH, webRoutePaths } from '@/utils/constants';
+import { environmentConfig } from '../../config/environmentConfig';
+import { BASE_PATH, webRoutePaths } from '../../utils/constants';
 
 const {
   results: searchResults,

@@ -1,4 +1,4 @@
-import { IFormFieldOptions } from '@/interfaces/fieldsComponent.interface';
+import { IFormFieldOptions } from '../interfaces/fieldsComponent.interface';
 
 const geographyQuestionnaireOptions: IFormFieldOptions = {
   north: {

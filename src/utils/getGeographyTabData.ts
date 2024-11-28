@@ -1,11 +1,10 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
+import { getAccumulatedCoordinatesNCenter } from './getBoundingBoxData';
 import {
   IAccumulatedCoordinates,
   IAccumulatedCoordinatesWithCenter,
   IGeographyItem,
-} from '@/interfaces/searchResponse.interface';
-
-import { getAccumulatedCoordinatesNCenter } from './getBoundingBoxData';
+} from '../interfaces/searchResponse.interface';
 
 const getVerticalExtentHtml = (verticalRangeObject: { gte?: number; lte?: number }): string => {
   if (Object.keys(verticalRangeObject).length === 0) {

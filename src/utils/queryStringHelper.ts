@@ -1,8 +1,7 @@
 import { RequestQuery } from '@hapi/hapi';
 
-import { ISearchFields, ISearchPayload } from '@/interfaces/queryBuilder.interface';
-
 import { queryParamKeys, resourceTypeFilterField, studyPeriodFilterField } from './constants';
+import { ISearchFields, ISearchPayload } from '../interfaces/queryBuilder.interface';
 
 const setDefaultQueryParams = (searchParams: URLSearchParams): URLSearchParams => {
   const page = searchParams.get(queryParamKeys.page) ?? '1';

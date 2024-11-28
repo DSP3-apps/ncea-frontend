@@ -1,4 +1,4 @@
-import { initializeServer, startServer } from '@/infrastructure/server';
+import { initializeServer, startServer } from './infrastructure/server';
 
 const bootstrap = async () => {
   await initializeServer()
