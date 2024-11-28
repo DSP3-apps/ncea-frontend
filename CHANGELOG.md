@@ -1,3 +1,11 @@
+## [1.0.2](https://github.com/DSP3-apps/ncea-frontend/compare/v1.0.1...v1.0.2) (2024-11-28)
+
+
+### Bug Fixes
+
+* **project:** Revert absolute paths ([147641f](https://github.com/DSP3-apps/ncea-frontend/commit/147641ff84329c63cda904d75330906f921d8dca))
+* **styles:** Update path to missing images ([6423387](https://github.com/DSP3-apps/ncea-frontend/commit/6423387c93c892cda865e5e60a668f7acd88f48a))
+
 ## [1.0.1](https://github.com/DSP3-apps/ncea-frontend/compare/v1.0.0...v1.0.1) (2024-11-27)
 
 
