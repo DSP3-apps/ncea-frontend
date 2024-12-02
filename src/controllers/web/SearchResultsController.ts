@@ -3,10 +3,16 @@
 import { Lifecycle, Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 import Joi from 'joi';
 
+import { environmentConfig } from '../../config/environmentConfig';
 import { FormattedTabOptions } from '../../interfaces/detailsTab.interface';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { IAggregationOptions, ISearchItem, ISearchResults } from '../../interfaces/searchResponse.interface';
-import { getDocumentDetails, getFilterOptions, getSearchResults } from '../../services/handlers/searchApi';
+import {
+  getDocumentDetails,
+  getFilterOptions,
+  getMockSearchResults,
+  getSearchResults,
+} from '../../services/handlers/searchApi';
 import {
   BASE_PATH,
   formIds,
@@ -32,6 +38,7 @@ import {
 
 const SearchResultsController = {
   renderSearchResultsHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
+    // console.log('renderSearchResultsHandler', request.query);
     const { quickSearchFID } = formIds;
     const journey: string = readQueryParams(request.query, queryParamKeys.journey);
     const studyPeriodFromYear: string = readQueryParams(request.query, queryParamKeys.startYear);
@@ -41,17 +48,30 @@ const SearchResultsController = {
     const { rowsPerPage, page } = payload;
     const isQuickSearchJourney = journey === 'qs';
     try {
-      const searchResults: ISearchResults = await getSearchResults(payload, false, isQuickSearchJourney);
-      const studyPeriodFilterOptions: IAggregationOptions = await getFilterOptions(
-        payload,
-        { isStudyPeriod: true },
-        isQuickSearchJourney,
-      );
-      const resourceTypeFilterOptions: IAggregationOptions = await getFilterOptions(
-        payload,
-        { isStudyPeriod: false },
-        isQuickSearchJourney,
-      );
+      let searchResults: ISearchResults;
+      if (environmentConfig.useMockData) {
+        // console.log('MOCKING RESULTS', environmentConfig.useMockData);
+        searchResults = await getMockSearchResults(isQuickSearchJourney ? 'quick_search' : 'classifier_level_3', false);
+      } else {
+        searchResults = await getSearchResults(payload, false, isQuickSearchJourney);
+      }
+
+      // console.log('PAYLOAD', payload);
+      // console.log('SEARCH RESULTS', searchResults);
+
+      let studyPeriodFilterOptions: IAggregationOptions;
+      let resourceTypeFilterOptions: IAggregationOptions;
+      if (environmentConfig.useMockData) {
+        // TODO(dexterhill0): implement filter options
+        studyPeriodFilterOptions = {};
+        resourceTypeFilterOptions = {};
+      } else {
+        studyPeriodFilterOptions = await getFilterOptions(payload, { isStudyPeriod: true }, isQuickSearchJourney);
+        resourceTypeFilterOptions = await getFilterOptions(payload, { isStudyPeriod: false }, isQuickSearchJourney);
+      }
+
+      // console.log('FILTER OPTS', studyPeriodFilterOptions, resourceTypeFilterOptions);
+
       const filterOptions: IAggregationOptions = {
         [uniqueResourceTypesKey]: resourceTypeFilterOptions[uniqueResourceTypesKey] ?? [],
         [startYearRangeKey]: studyPeriodFilterOptions[startYearRangeKey] ?? [],
@@ -105,7 +125,6 @@ const SearchResultsController = {
       [queryParamKeys.journey]: 'qs',
     };
     const queryString: string = upsertQueryParams(request.query, queryParamsObject);
-    // console.log('QUICK SEARCH SUBMIT HANDLER', queryString);
     return response.redirect(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
   },
   quickSearchFailActionHandler: (request, response, error): Lifecycle.ReturnValue => {
@@ -136,7 +155,17 @@ const SearchResultsController = {
         fieldsExist: ['geom'],
         requiredFields: requiredFieldsForMap,
       };
-      const searchMapResults: ISearchResults = await getSearchResults(mapPayload, true, isQuickSearchJourney);
+
+      let searchMapResults: ISearchResults;
+      if (environmentConfig.useMockData) {
+        searchMapResults = await getMockSearchResults(
+          isQuickSearchJourney ? 'quick_search' : 'classifier_level_3',
+          true,
+        );
+      } else {
+        searchMapResults = await getSearchResults(mapPayload, true, isQuickSearchJourney);
+      }
+
       return response.response(searchMapResults).header('Content-Type', 'application/json');
     } catch (error) {
       return response.response({ error: 'An error occurred while processing your request' }).code(500);
@@ -153,18 +182,18 @@ const SearchResultsController = {
         fieldsExist: ['geom'],
         requiredFields: requiredFieldsForMap,
       };
-      const studyPeriodFilterOptions: IAggregationOptions = await getFilterOptions(
-        mapPayload,
-        { isStudyPeriod: true },
-        isQuickSearchJourney,
-      );
-      const resourceTypeFilterOptions: IAggregationOptions = await getFilterOptions(
-        mapPayload,
-        {
-          isStudyPeriod: false,
-        },
-        isQuickSearchJourney,
-      );
+
+      let studyPeriodFilterOptions: IAggregationOptions;
+      let resourceTypeFilterOptions: IAggregationOptions;
+      if (environmentConfig.useMockData) {
+        // TODO(dexterhill0): implement filter options
+        studyPeriodFilterOptions = {};
+        resourceTypeFilterOptions = {};
+      } else {
+        studyPeriodFilterOptions = await getFilterOptions(mapPayload, { isStudyPeriod: true }, isQuickSearchJourney);
+        resourceTypeFilterOptions = await getFilterOptions(mapPayload, { isStudyPeriod: false }, isQuickSearchJourney);
+      }
+
       const filterOptions: IAggregationOptions = {
         [uniqueResourceTypesKey]: resourceTypeFilterOptions[uniqueResourceTypesKey] ?? [],
         [startYearRangeKey]: studyPeriodFilterOptions[startYearRangeKey] ?? [],

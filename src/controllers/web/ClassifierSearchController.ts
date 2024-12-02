@@ -2,13 +2,16 @@
 
 import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 
-import { getClassifierThemes } from '../../services/handlers/classifierApi';
+import { environmentConfig } from '../../config/environmentConfig';
+import { Classifiers } from '../../interfaces/classifierSearch.interface';
+import { getClassifierThemes, getMockClassifierThemes } from '../../services/handlers/classifierApi';
 import { getSearchResultsCount } from '../../services/handlers/searchApi';
 import { BASE_PATH, formIds, pageTitles, queryParamKeys, webRoutePaths } from '../../utils/constants';
 import { generateCountPayload, readQueryParams, upsertQueryParams } from '../../utils/queryStringHelper';
 
 const ClassifierSearchController = {
   renderClassifierSearchHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
+    console.log('CLASSIFIER SEARCH');
     const { guidedClassifierSearch: guidedClassifierSearchPath, results } = webRoutePaths;
     const formId: string = formIds.classifierSearch;
     const level: number = Number(readQueryParams(request.query, 'level'));
@@ -19,8 +22,15 @@ const ClassifierSearchController = {
       level: (level - 1).toString(),
     };
     const classifierPageTitle = pageTitles.Classifier[level - 1];
-    const countPayload = generateCountPayload(payloadQuery);
-    const totalCount = (await getSearchResultsCount(countPayload)).totalResults.toString();
+
+    let totalCount: string;
+    if (environmentConfig.useMockData) {
+      totalCount = '1';
+    } else {
+      const countPayload = generateCountPayload(payloadQuery);
+      totalCount = (await getSearchResultsCount(countPayload)).totalResults.toString();
+    }
+
     const queryParamsObject: Record<string, string> = {
       ...request.query,
       level: (level - 1).toString(),
@@ -30,7 +40,13 @@ const ClassifierSearchController = {
 
     const queryString: string = level - 1 > 0 ? upsertQueryParams(payloadQuery, queryParamsObject, true) : '';
     const resultsPath: string = `${BASE_PATH}${results}?${readQueryParams(queryParamsObject, '', true)}`;
-    const classifierItems = await getClassifierThemes(level.toString(), parent);
+
+    let classifierItems: Classifiers[];
+    if (environmentConfig.useMockData) {
+      classifierItems = await getMockClassifierThemes(level);
+    } else {
+      classifierItems = await getClassifierThemes(level.toString(), parent);
+    }
 
     if (classifierItems.length <= 0) {
       return response.redirect(resultsPath);

@@ -9,12 +9,25 @@ import { formatAggregationResponse } from '../../utils/formatAggregationResponse
 import { formatSearchResponse } from '../../utils/formatSearchResponse';
 import { generateFilterQuery, generateSearchQuery } from '../../utils/queryBuilder';
 
+const getMockSearchResults = async (
+  kind: 'quick_search' | 'classifier_level_3',
+  isMapResults: boolean = false,
+): Promise<ISearchResults> => {
+  if (kind === 'quick_search') {
+    const qsData = (await import('../../assets/mock_data/peat-query-response.json')).default;
+    return await formatSearchResponse(qsData, false, isMapResults);
+  } else {
+    // classifier_level_3
+    const qsData = (await import('../../assets/mock_data/classifier-query-response.json')).default;
+    return await formatSearchResponse(qsData, false, isMapResults);
+  }
+};
+
 const getSearchResults = async (
   searchFieldsObject: ISearchPayload,
   isMapResults: boolean = false,
   isQuickSearchJourney: boolean = false,
 ): Promise<ISearchResults> => {
-  // console.log('GET SEARCH RESULTS: ', { searchFieldsObject, isMapResults, isQuickSearchJourney });
   try {
     if (Object.keys(searchFieldsObject.fields).length) {
       const searchBuilderPayload: ISearchBuilderPayload = {
@@ -24,10 +37,8 @@ const getSearchResults = async (
         }),
       };
       const payload = generateSearchQuery(searchBuilderPayload);
-      console.log('SEARCH QUERY PAYLOAD: ', JSON.stringify(payload));
       const response = await performQuery<estypes.SearchResponse>(payload);
       const finalResponse: ISearchResults = await formatSearchResponse(response, false, isMapResults);
-      console.log('FINAL RESPONSE: ', JSON.stringify(finalResponse));
       return finalResponse;
     } else {
       return Promise.resolve({ total: 0, items: [] });
@@ -108,4 +119,4 @@ const getDocumentDetails = async (docId: string): Promise<ISearchItem> => {
   }
 };
 
-export { getDocumentDetails, getFilterOptions, getSearchResultsCount, getSearchResults };
+export { getDocumentDetails, getFilterOptions, getSearchResultsCount, getSearchResults, getMockSearchResults };

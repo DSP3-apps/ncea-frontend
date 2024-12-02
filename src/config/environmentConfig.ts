@@ -26,6 +26,7 @@ const config: EnvironmentConfig = {
   elasticSearchUsername: process.env.ES_USERNAME,
   elasticSearchPassword: process.env.ES_PASSWORD,
   webDomain: process.env.WEBDOMAIN,
+  useMockData: (process.env.USE_MOCK_DATA ?? 'true') === 'true',
 };
 console.log('ENV CONFIG: ', config);
 

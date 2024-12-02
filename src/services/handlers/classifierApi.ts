@@ -49,6 +49,17 @@ const invokeClassifierApi = async (level: string, parents: string = ''): Promise
   }
 };
 
+export const getMockClassifierThemes = async (level: number): Promise<Classifiers[]> => {
+  if (level === 1) {
+    return (await import('../../assets/mock_data/classifier-search-level-1.json')).default;
+  } else if (level === 2) {
+    return (await import('../../assets/mock_data/classifier-search-level-2.json')).default;
+  } else {
+    // level 3
+    return (await import('../../assets/mock_data/classifier-search-level-3.json')).default;
+  }
+};
+
 export const getClassifierThemes = async (level: string, parents: string = ''): Promise<Classifiers[]> => {
   try {
     const response: AxiosResponse = await invokeClassifierApi(level, parents);

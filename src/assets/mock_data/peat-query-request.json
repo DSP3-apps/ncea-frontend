@@ -1,0 +1,40 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "peat",
+            "default_operator": "AND",
+            "fields": [
+              "metadataIdentifier",
+              "resourceTitleObject.default",
+              "resourceAltTitleObject.default",
+              "resourceAbstractObject.default",
+              "lineageObject.default",
+              "tag.default",
+              "cl_topic.default",
+              "resourceType",
+              "supplementalInformationObject.default"
+            ]
+          }
+        },
+        {
+          "exists": {
+            "field": "geom"
+          }
+        }
+      ],
+      "filter": []
+    }
+  },
+  "size": 0,
+  "aggs": {
+    "unique_resource_types": {
+      "terms": {
+        "field": "resourceType"
+      }
+    }
+  },
+  "terminate_after": 10000
+}

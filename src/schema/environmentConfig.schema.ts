@@ -52,4 +52,8 @@ export const environmentSchema: Joi.ObjectSchema = Joi.object({
   webDomain: Joi.string().allow('').default('').messages({
     'string.base': 'The web domain must be a string.',
   }),
+  useMockData: Joi.bool().valid(true, false).default(true).messages({
+    'boolean.base': 'useMockData must be a boolean value',
+    'any.only': 'useMockData is not valid',
+  }),
 });

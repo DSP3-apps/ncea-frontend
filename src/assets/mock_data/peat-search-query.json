@@ -1,0 +1,34 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "peat",
+            "default_operator": "AND",
+            "fields": [
+              "metadataIdentifier",
+              "resourceTitleObject.default",
+              "resourceAltTitleObject.default",
+              "resourceAbstractObject.default",
+              "lineageObject.default",
+              "tag.default",
+              "cl_topic.default",
+              "resourceType",
+              "supplementalInformationObject.default"
+            ]
+          }
+        }
+      ],
+      "filter": []
+    }
+  },
+  "sort": {
+    "_score": {
+      "order": "desc"
+    }
+  },
+  "size": 20,
+  "from": 0,
+  "_source": []
+}
