@@ -11,7 +11,6 @@ import { generateCountPayload, readQueryParams, upsertQueryParams } from '../../
 
 const ClassifierSearchController = {
   renderClassifierSearchHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
-    console.log('CLASSIFIER SEARCH');
     const { guidedClassifierSearch: guidedClassifierSearchPath, results } = webRoutePaths;
     const formId: string = formIds.classifierSearch;
     const level: number = Number(readQueryParams(request.query, 'level'));

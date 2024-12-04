@@ -68,6 +68,14 @@ const getSearchResultsCount = async (searchFieldsObject: ISearchPayload): Promis
   }
 };
 
+const getMockFilterOptions = async (filterFlags?: IFilterFlags): Promise<IAggregationOptions> => {
+  if (filterFlags?.isStudyPeriod) {
+    return (await import('../../assets/mock_data/peat-query-study-period-filters.json')).default;
+  } else {
+    return (await import('../../assets/mock_data/peat-query-resource-type-filters.json')).default;
+  }
+};
+
 const getFilterOptions = async (
   searchFieldsObject: ISearchPayload,
   filterFlags?: IFilterFlags,
@@ -119,4 +127,11 @@ const getDocumentDetails = async (docId: string): Promise<ISearchItem> => {
   }
 };
 
-export { getDocumentDetails, getFilterOptions, getSearchResultsCount, getSearchResults, getMockSearchResults };
+export {
+  getDocumentDetails,
+  getFilterOptions,
+  getMockFilterOptions,
+  getSearchResultsCount,
+  getSearchResults,
+  getMockSearchResults,
+};

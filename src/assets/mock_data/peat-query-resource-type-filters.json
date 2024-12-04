@@ -1,0 +1,9 @@
+{
+  "unique_resource_types": [
+    { "value": "dataset", "text": "Dataset (48)" },
+    { "value": "series", "text": "Series (2)" },
+    { "value": "nonGeographicDataset", "text": "Non Geographic Dataset (1)" }
+  ],
+  "start_year_range": [],
+  "to_year_range": []
+}

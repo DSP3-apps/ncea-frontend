@@ -10,6 +10,7 @@ import { IAggregationOptions, ISearchItem, ISearchResults } from '../../interfac
 import {
   getDocumentDetails,
   getFilterOptions,
+  getMockFilterOptions,
   getMockSearchResults,
   getSearchResults,
 } from '../../services/handlers/searchApi';
@@ -38,7 +39,6 @@ import {
 
 const SearchResultsController = {
   renderSearchResultsHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
-    // console.log('renderSearchResultsHandler', request.query);
     const { quickSearchFID } = formIds;
     const journey: string = readQueryParams(request.query, queryParamKeys.journey);
     const studyPeriodFromYear: string = readQueryParams(request.query, queryParamKeys.startYear);
@@ -50,27 +50,20 @@ const SearchResultsController = {
     try {
       let searchResults: ISearchResults;
       if (environmentConfig.useMockData) {
-        // console.log('MOCKING RESULTS', environmentConfig.useMockData);
         searchResults = await getMockSearchResults(isQuickSearchJourney ? 'quick_search' : 'classifier_level_3', false);
       } else {
         searchResults = await getSearchResults(payload, false, isQuickSearchJourney);
       }
 
-      // console.log('PAYLOAD', payload);
-      // console.log('SEARCH RESULTS', searchResults);
-
       let studyPeriodFilterOptions: IAggregationOptions;
       let resourceTypeFilterOptions: IAggregationOptions;
       if (environmentConfig.useMockData) {
-        // TODO(dexterhill0): implement filter options
-        studyPeriodFilterOptions = {};
-        resourceTypeFilterOptions = {};
+        studyPeriodFilterOptions = await getMockFilterOptions({ isStudyPeriod: true });
+        resourceTypeFilterOptions = await getMockFilterOptions({ isStudyPeriod: false });
       } else {
         studyPeriodFilterOptions = await getFilterOptions(payload, { isStudyPeriod: true }, isQuickSearchJourney);
         resourceTypeFilterOptions = await getFilterOptions(payload, { isStudyPeriod: false }, isQuickSearchJourney);
       }
-
-      // console.log('FILTER OPTS', studyPeriodFilterOptions, resourceTypeFilterOptions);
 
       const filterOptions: IAggregationOptions = {
         [uniqueResourceTypesKey]: resourceTypeFilterOptions[uniqueResourceTypesKey] ?? [],
@@ -110,6 +103,7 @@ const SearchResultsController = {
         backLinkClasses: 'back-link-search-result',
       });
     } catch (error) {
+      console.error(error);
       return response.view('screens/results/template', {
         quickSearchFID,
         error,
@@ -186,9 +180,8 @@ const SearchResultsController = {
       let studyPeriodFilterOptions: IAggregationOptions;
       let resourceTypeFilterOptions: IAggregationOptions;
       if (environmentConfig.useMockData) {
-        // TODO(dexterhill0): implement filter options
-        studyPeriodFilterOptions = {};
-        resourceTypeFilterOptions = {};
+        studyPeriodFilterOptions = await getMockFilterOptions({ isStudyPeriod: true });
+        resourceTypeFilterOptions = await getMockFilterOptions({ isStudyPeriod: false });
       } else {
         studyPeriodFilterOptions = await getFilterOptions(mapPayload, { isStudyPeriod: true }, isQuickSearchJourney);
         resourceTypeFilterOptions = await getFilterOptions(mapPayload, { isStudyPeriod: false }, isQuickSearchJourney);
