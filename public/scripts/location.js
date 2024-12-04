@@ -7,6 +7,7 @@ import { invokeAjaxCall } from './fetchResults.js';
 import {
   addFilterHeadingClickListeners,
   attachStudyPeriodChangeListener,
+  addCategoryAccordionToggleListeners
 } from './filters.js';
 
 const index3 = 3;
@@ -677,6 +678,7 @@ const getMapFilters = async (path) => {
   if (response && response?.status === responseSuccessStatusCode) {
     const mapFiltersHtml = await response.text();
     document.getElementById(filterBlockId).innerHTML = mapFiltersHtml;
+    addCategoryAccordionToggleListeners('map_results')
     addFilterHeadingClickListeners('map_results');
     attachStudyPeriodChangeListener('map_results');
     attachMapResultsFilterCheckboxChangeListener();

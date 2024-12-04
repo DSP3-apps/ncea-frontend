@@ -2747,9 +2747,9 @@
 .govuk-checkboxes--small .govuk-checkboxes__input {
   margin-left: -10px;
 }
-.govuk-checkboxes--small .govuk-checkboxes__label {
+/* .govuk-checkboxes--small .govuk-checkboxes__label {
   padding-left: 1px;
-}
+} */
 .govuk-checkboxes--small .govuk-checkboxes__label::before {
   top: 10px;
   left: 0;
@@ -8506,4 +8506,43 @@
   .tab-content-row {
     grid-template-columns: auto 1fr;
   }
+}
+
+.filter-options__accordion {
+  cursor: pointer;
+}
+
+.filter-options__accordion--open {
+  rotate: 180deg;
+}
+
+.filter-options__filters--hidden {
+  display: none;
+}
+
+.filter-options__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-options__legend {
+  /* visible to screen readers only */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.filter-options__accordion-child {
+  padding-left: 10px;
+}
+
+.filter-options__filters {
+  max-height: 250px;
+  overflow-y: scroll;
 }

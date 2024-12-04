@@ -36,6 +36,7 @@ import {
   readQueryParams,
   upsertQueryParams,
 } from '../../utils/queryStringHelper';
+import { searchFilters } from '../../utils/searchFilters';
 
 const SearchResultsController = {
   renderSearchResultsHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
@@ -90,6 +91,7 @@ const SearchResultsController = {
         isQuickSearchJourney,
         paginationItems,
         filterOptions: processedFilterOptions,
+        dspFilterOptions: searchFilters,
         sortOptions: processedSortOptions,
         filterResourceTypePath,
         filterStudyPeriodPath,
@@ -198,6 +200,7 @@ const SearchResultsController = {
         filterInstance: 'map_results',
         filterResourceTypePath: '',
         filterStudyPeriodPath: '',
+        dspFilterOptions: searchFilters,
       });
     } catch (error) {
       return response.view('partials/results/filters', {
