@@ -6,7 +6,7 @@
   <section>
     <div class="govuk-checkboxes govuk-checkboxes--small filter-options__ncea-only">
       <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-        <input class="govuk-checkboxes__input" id="ncea-metadata-{{filterInstance}}" type="checkbox">
+        <input class="govuk-checkboxes__input" id="ncea-metadata-{{filterInstance}}" {% if dspFilterOptions.nceaOnly %}checked{% endif %} name="ncea-only" type="checkbox" value="true">
         <label class="govuk-label govuk-checkboxes__label" for="ncea-metadata-{{filterInstance}}">
           NCEA Metadata Only
         </label> 
@@ -14,7 +14,7 @@
     </div>
 
     <div>
-      {% for category in dspFilterOptions %}
+      {% for category in dspFilterOptions.categories %}
         <div class="filter-options__container">
           {# they should start hidden #}
           <label for="filters-{{category.value}}-accordion-toggle-{{filterInstance}}" class="filter-options__accordion" data-category-{{filterInstance}}="{{category.value}}">
@@ -25,7 +25,7 @@
               </h3>
             </button>
           </label>
-          <fieldset class="filter-options__filters filter-options__accordion-child filter-options__filters--hidden govuk-fieldset" disabled id="filters-{{category.value}}-filters-{{filterInstance}}">
+          <fieldset class="filter-options__filters filter-options__accordion-child filter-options__filters--hidden govuk-fieldset" id="filters-{{category.value}}-filters-{{filterInstance}}">
             <legend class="filter-options__legend">
               <h3>
                 {{category.name}} Filters
@@ -34,7 +34,7 @@
             <div class="govuk-form-group">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                  <input class="govuk-checkboxes__input" id="filters-{{category.value}}-all-{{filterInstance}}" type="checkbox">
+                  <input class="govuk-checkboxes__input" {% if category.selectedAll %}checked{% endif %} id="filters-{{category.value}}-all-{{filterInstance}}" name="{{category.value}}" type="checkbox" value="all">
                   <label class="govuk-label govuk-checkboxes__label" for="filters-{{category.value}}-all-{{filterInstance}}">
                     All
                   </label>
@@ -42,7 +42,7 @@
 
                 {% for filter in category.filters %}
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input" id="filters-{{filter.value}}-filter-{{filterInstance}}" name="{{filter.name}}" type="checkbox" value="{{filter.value}}">
+                    <input class="govuk-checkboxes__input" {% if filter.checked %}checked{% endif %} id="filters-{{filter.value}}-filter-{{filterInstance}}" name="{{category.value}}" type="checkbox" value="{{filter.value}}" data-multiple="true" data-ncea-only="{{ filter.hasNCEAData }}">
                     <label class="govuk-label govuk-checkboxes__label" for="filters-{{filter.value}}-filter-{{filterInstance}}">
                       {{filter.name}}
                     </label>
@@ -66,6 +66,7 @@
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-date-filters-{{filterInstance}}">
         {{ govukDateInput({
           id: "date-before-"+filterInstance,
+          namePrefix: "before",
           fieldset: {
             legend: {
               text: "Updated after",
@@ -74,11 +75,29 @@
           },
           hint: {
             text: "For example, 27 3 2007"
-          }
+          },
+          items: [
+            {
+              classes: "govuk-input--width-2",
+              name: "day",
+              value: dspFilterOptions.lastUpdated.before.day
+            },
+            {
+              classes: "govuk-input--width-2",
+              name: "month",
+              value: dspFilterOptions.lastUpdated.before.month
+            },
+            {
+              classes: "govuk-input--width-4",
+              name: "year",
+              value: dspFilterOptions.lastUpdated.before.year
+            }
+          ]
         }) }}
 
         {{ govukDateInput({
           id: "date-after-"+filterInstance,
+          namePrefix: "after",
           fieldset: {
             legend: {
               text: "Updated before",
@@ -87,7 +106,24 @@
           },
           hint: {
             text: "For example, 27 3 2007"
-          }
+          },
+          items: [
+            {
+              classes: "govuk-input--width-2",
+              name: "day",
+              value: dspFilterOptions.lastUpdated.after.day
+            },
+            {
+              classes: "govuk-input--width-2",
+              name: "month",
+              value: dspFilterOptions.lastUpdated.after.month
+            },
+            {
+              classes: "govuk-input--width-4",
+              name: "year",
+              value: dspFilterOptions.lastUpdated.after.year
+            }
+          ]
         }) }}
       </div>
     </div>
@@ -102,7 +138,9 @@
       </label>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-licence-filters-{{filterInstance}}">
         {{ govukInput({
-          id: 'licence-'+filterInstance
+          id: 'licence-'+filterInstance,
+          name: 'licence',
+          value: dspFilterOptions.license
         }) }}
       </div>
     </div>
@@ -117,14 +155,16 @@
       </label>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-keywords-filters-{{filterInstance}}">
         {{ govukInput({
-          id: 'keywords-'+filterInstance
+          id: 'keywords-'+filterInstance,
+          name: 'keywords',
+          value: dspFilterOptions.keywords
         }) }}
       </div>
     </div>
 
     <div class="govuk-checkboxes govuk-checkboxes--small">
       <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-        <input class="govuk-checkboxes__input" id="retired-archived-{{filterInstance}}" type="checkbox">
+        <input class="govuk-checkboxes__input" id="retired-archived-{{filterInstance}}" {% if dspFilterOptions.retiredAndArchived %}checked{% endif %} name="retired-archived" type="checkbox" value="true">
         <label class="govuk-label govuk-checkboxes__label" for="retired-archived-{{filterInstance}}">
           <span class="filter-options__retired-label">Include Retired & Archived records</span>
         </label>
@@ -133,7 +173,7 @@
 
     <div class="govuk-!-margin-top-4 govuk-section-break--visible"></div>
 
-    <a href="#" class="filter-options__reset-link govuk-body-m">Reset Filters</a>
+    <a href="{{dspFilterReset}}" class="filter-options__reset-link govuk-body-m">Reset Filters</a>
   </section>
 </form>
   

@@ -28,7 +28,11 @@ import {
 } from '../../utils/constants';
 import { getPaginationItems } from '../../utils/paginationBuilder';
 import { processDetailsTabData } from '../../utils/processDetailsTabData';
-import { processFilterOptions, processSortOptions } from '../../utils/processFilterRSortOptions';
+import {
+  processDSPFilterOptions,
+  processFilterOptions,
+  processSortOptions,
+} from '../../utils/processFilterRSortOptions';
 import {
   appendPublication,
   deleteQueryParams,
@@ -36,7 +40,7 @@ import {
   readQueryParams,
   upsertQueryParams,
 } from '../../utils/queryStringHelper';
-import { searchFilters } from '../../utils/searchFilters';
+import { buildFilterResetUrl, searchFilters } from '../../utils/searchFilters';
 
 const SearchResultsController = {
   renderSearchResultsHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
@@ -78,6 +82,10 @@ const SearchResultsController = {
       const sortSubmitPath = `${BASE_PATH}${webRoutePaths.sortResults}?${queryString}`;
       const processedFilterOptions = await processFilterOptions(filterOptions, request.query);
       const processedSortOptions = await processSortOptions(request.query);
+
+      const processedDspFilterOptions = processDSPFilterOptions(request.query);
+      const dspFilterResetUrl = buildFilterResetUrl(request.query);
+
       const resetStudyPeriodQueryString: string = deleteQueryParams(request.query, [
         queryParamKeys.startYear,
         queryParamKeys.toYear,
@@ -91,7 +99,8 @@ const SearchResultsController = {
         isQuickSearchJourney,
         paginationItems,
         filterOptions: processedFilterOptions,
-        dspFilterOptions: searchFilters,
+        dspFilterOptions: processedDspFilterOptions,
+        dspFilterReset: dspFilterResetUrl,
         sortOptions: processedSortOptions,
         filterResourceTypePath,
         filterStudyPeriodPath,
