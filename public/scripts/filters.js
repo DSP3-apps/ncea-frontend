@@ -14,12 +14,20 @@ const addCategoryAccordionToggleListeners = (instance) => {
     const icon = document.getElementById(`filters-${categoryName}-accordion-icon-${instance}`);
     const filters = document.getElementById(`filters-${categoryName}-filters-${instance}`);
 
-    input.addEventListener('change', () => {
-      if (input.checked) {
+    input.addEventListener('click', () => {
+      const expanded = input.getAttribute('data-expanded');
+
+      if (expanded === 'false') {
+        input.setAttribute('data-expanded', 'true');
+        input.setAttribute('aria-expanded', 'true');
+
         icon.classList.add('filter-options__accordion--open');
         filters.disabled = false;
         filters.classList.remove('filter-options__filters--hidden');
       } else {
+        input.setAttribute('data-expanded', 'false');
+        input.setAttribute('aria-expanded', 'false');
+
         icon.classList.remove('filter-options__accordion--open');
         filters.disabled = true;
         filters.classList.add('filter-options__filters--hidden');
