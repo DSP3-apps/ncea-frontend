@@ -2,29 +2,28 @@
 {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
 
-<form autocomplete="off">
+<form autocomplete="off" id="filters-{{filterInstance}}">
   <section>
-    <div class="govuk-checkboxes govuk-checkboxes--small">
+    <div class="govuk-checkboxes govuk-checkboxes--small filter-options__ncea-only">
       <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
         <input class="govuk-checkboxes__input" id="ncea-metadata-{{filterInstance}}" type="checkbox">
         <label class="govuk-label govuk-checkboxes__label" for="ncea-metadata-{{filterInstance}}">
           NCEA Metadata Only
-        </label>
+        </label> 
       </div>
     </div>
-
-    <div class="govuk-!-margin-top-4 govuk-section-break--visible"></div>
 
     <div>
       {% for category in dspFilterOptions %}
         <div class="filter-options__container">
           {# they should start hidden #}
           <label for="filters-{{category.value}}-accordion-toggle-{{filterInstance}}" class="filter-options__accordion" data-category-{{filterInstance}}="{{category.value}}">
-            <input type="checkbox" id="filters-{{category.value}}-accordion-toggle-{{filterInstance}}" class="filter-options__accordion-toggle" />
-            <svg id="filters-{{category.value}}-accordion-icon-{{filterInstance}}" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
-            <span>
-              {{category.name}}
-            </span>
+            <button type="button" aria-expanded="false" data-expanded="false" id="filters-{{category.value}}-accordion-toggle-{{filterInstance}}" class="filter-options__accordion-toggle">
+              <svg id="filters-{{category.value}}-accordion-icon-{{filterInstance}}" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
+              <h3 class='govuk-body-m filter-options__category-heading'>
+                {{ category.name }}
+              </h3>
+            </button>
           </label>
           <fieldset class="filter-options__filters filter-options__accordion-child filter-options__filters--hidden govuk-fieldset" disabled id="filters-{{category.value}}-filters-{{filterInstance}}">
             <legend class="filter-options__legend">
@@ -35,8 +34,8 @@
             <div class="govuk-form-group">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                  <input class="govuk-checkboxes__input" id="filters-{{category.value}}-all" type="checkbox">
-                  <label class="govuk-label govuk-checkboxes__label" for="filters-{{category.value}}-all">
+                  <input class="govuk-checkboxes__input" id="filters-{{category.value}}-all-{{filterInstance}}" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="filters-{{category.value}}-all-{{filterInstance}}">
                     All
                   </label>
                 </div>
@@ -57,11 +56,12 @@
 
     <div class="filter-options__container">
       <label for="filters-date-accordion-toggle-{{filterInstance}}" class="filter-options__accordion" data-category-{{filterInstance}}="date">
-        <input type="checkbox" id="filters-date-accordion-toggle-{{filterInstance}}" class="filter-options__accordion-toggle" />
-        <svg id="filters-date-accordion-icon-{{filterInstance}}" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
-        <span>
-          Date last updated
-        </span>
+        <button type="button" aria-expanded="false" data-expanded="false" id="filters-date-accordion-toggle-{{filterInstance}}" class="filter-options__accordion-toggle">
+          <svg id="filters-date-accordion-icon-{{filterInstance}}" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
+          <h3 class='filter-options__category-heading govuk-body-m'>
+            Date Last Updated
+          </h3>
+        </button>
       </label>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-date-filters-{{filterInstance}}">
         {{ govukDateInput({
@@ -93,11 +93,12 @@
     </div>
     <div class="filter-options__container">
       <label for="filters-licence-accordion-toggle-{{filterInstance}}" class="filter-options__accordion" data-category-{{filterInstance}}="licence">
-        <input type="checkbox" id="filters-licence-accordion-toggle-{{filterInstance}}" class="filter-options__accordion-toggle" />
-        <svg id="filters-licence-accordion-icon-{{filterInstance}}" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
-        <span>
-          Licence
-        </span>
+        <button type="button" aria-expanded="false" data-expanded="false" id="filters-licence-accordion-toggle-{{filterInstance}}" class="filter-options__accordion-toggle">
+          <svg id="filters-licence-accordion-icon-{{filterInstance}}" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
+          <h3 class='filter-options__category-heading govuk-body-m'>
+            Licence
+          </h3>
+        </button>
       </label>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-licence-filters-{{filterInstance}}">
         {{ govukInput({
@@ -107,11 +108,12 @@
     </div>
     <div class="filter-options__container">
       <label for="filters-keywords-accordion-toggle-{{filterInstance}}" class="filter-options__accordion" data-category-{{filterInstance}}="keywords">
-        <input type="checkbox" id="filters-keywords-accordion-toggle-{{filterInstance}}" class="filter-options__accordion-toggle" />
-        <svg id="filters-keywords-accordion-icon-{{filterInstance}}" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
-        <span>
-          Keywords
-        </span>
+        <button type="button" aria-expanded="false" data-expanded="false" id="filters-keywords-accordion-toggle-{{filterInstance}}" class="filter-options__accordion-toggle">
+          <svg id="filters-keywords-accordion-icon-{{filterInstance}}" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
+          <h3 class='filter-options__category-heading govuk-body-m'>
+            Keywords
+          </h3>
+        </button>
       </label>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-keywords-filters-{{filterInstance}}">
         {{ govukInput({
@@ -120,20 +122,18 @@
       </div>
     </div>
 
-    <div class="govuk-!-margin-top-4 govuk-section-break--visible"></div>
-
     <div class="govuk-checkboxes govuk-checkboxes--small">
       <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
         <input class="govuk-checkboxes__input" id="retired-archived-{{filterInstance}}" type="checkbox">
         <label class="govuk-label govuk-checkboxes__label" for="retired-archived-{{filterInstance}}">
-          Include Retired & Archived records
+          <span class="filter-options__retired-label">Include Retired & Archived records</span>
         </label>
       </div>
     </div>
 
     <div class="govuk-!-margin-top-4 govuk-section-break--visible"></div>
 
-    <a href="#" class="govuk-link">Reset Filters</a>
+    <a href="#" class="filter-options__reset-link govuk-body-m">Reset Filters</a>
   </section>
 </form>
   
@@ -141,9 +141,9 @@
   <form action="{{filterStudyPeriodPath}}" id="study_period_filter-{{filterInstance}}" method="post">
     <section class="defra-filter-section">
       <h2 class='govuk-heading-m filter-study-period-heading govuk-!-margin-top-3 govuk-!-margin-bottom-3'>
-      Study period including:
-    </h2>
-     <p class="search-result__parameter-value">Results may include records from studies that overlap with your selected dates</p>
+        Study period including:
+      </h2>
+      <p class="search-result__parameter-value">Results may include records from studies that overlap with your selected dates</p>
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
           <div class="filter-study-period-group">

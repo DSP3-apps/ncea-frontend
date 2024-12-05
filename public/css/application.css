@@ -8546,3 +8546,65 @@
   max-height: 250px;
   overflow-y: scroll;
 }
+
+.filter-options__category-heading {
+  font-weight: normal;
+  text-decoration: underline;
+  margin: 0;
+}
+
+.filter-options__accordion-toggle {
+  padding: 4px;
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  align-items: center;
+  background: none;
+  color: inherit;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+
+.filter-options__accordion-toggle > h3 {
+  color: #1d70b8;
+}
+
+.filter-options__accordion-toggle:hover > h3 {
+  color: #194578;
+}
+
+.filter-options__accordion-toggle:focus {
+  outline: none;
+  text-decoration: none;
+  background-color: #ffdd00;
+}
+
+.filter-options__accordion-toggle:focus > h3 {
+  color: #0b0c0c;
+}
+
+.filter-options__reset-link {
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #1d70b8;
+  text-decoration: underline;
+}
+
+.filter-options__reset-link:hover {
+  color: #194578;
+}
+
+.filter-options__retired-label {
+  color: #194578;
+}
+
+.filter-options__ncea-only {
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
