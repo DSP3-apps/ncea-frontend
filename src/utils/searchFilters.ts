@@ -1,7 +1,60 @@
+import { RequestQuery } from '@hapi/hapi';
+
+import { BASE_PATH, webRoutePaths } from './constants';
+import { readQueryParams } from './queryStringHelper';
+
+interface ISearchFilterOption {
+  name: string;
+  value: string;
+  hasNCEAData?: boolean;
+}
+
+type ISearchFilter = {
+  name: string;
+  value: string;
+  filters: ISearchFilterOption[];
+};
+
+export interface ISearchFilterProcessed {
+  name: string;
+  value: string;
+  selectedAll: boolean;
+  filters: ({ checked: boolean } & ISearchFilterOption)[];
+}
+
+export type ISearchFilters = ISearchFilter[];
+export interface ISearchFiltersProcessed {
+  nceaOnly: boolean;
+  categories: ISearchFilterProcessed[];
+  keywords: string;
+  license: string;
+  lastUpdated: {
+    before: {
+      day: string;
+      month: string;
+      year: string;
+    };
+    after: {
+      day: string;
+      month: string;
+      year: string;
+    };
+  };
+  retiredAndArchived: boolean;
+}
+
+export const buildFilterResetUrl = (requestQuery: RequestQuery): string => {
+  const nceaOnly = readQueryParams(requestQuery, 'ncea-only') === 'true';
+
+  const params: string = nceaOnly ? 'ncea-only=true' : '';
+
+  return `${BASE_PATH}${webRoutePaths.results}?${params}`;
+};
+
 // the `All` option is added automatically
 // the `Date last updated`, `Licence` `Keywords`, `Include Retired & Archived records` filters are added manually
 // as they differ from these filters
-export const searchFilters = [
+export const searchFilters: ISearchFilters = [
   {
     name: 'Organisation',
     value: 'org',
@@ -231,7 +284,7 @@ export const searchFilters = [
       },
       {
         name: 'Generic Sensor Format (ALL)',
-        value: 'all',
+        value: 'gsf-all',
       },
       {
         name: 'Graphical Interchange Format (GIF)',

@@ -2,7 +2,59 @@ import { RequestQuery } from '@hapi/hapi';
 
 import { queryParamKeys, startYearRangeKey, toYearRangeKey, uniqueResourceTypesKey } from './constants';
 import { readQueryParams } from './queryStringHelper';
+import { ISearchFilterProcessed, ISearchFiltersProcessed, searchFilters } from './searchFilters';
 import { IAggregationOption, IAggregationOptions } from '../interfaces/searchResponse.interface';
+
+const processDSPFilterOptions = (requestQuery: RequestQuery): ISearchFiltersProcessed => {
+  const categories: ISearchFiltersProcessed['categories'] = [];
+
+  const nceaOnly = readQueryParams(requestQuery, 'ncea-only') === 'true';
+
+  for (const category of searchFilters) {
+    const catQueryValue = readQueryParams(requestQuery, category.value).split(',');
+
+    const newCategory: ISearchFilterProcessed = {
+      name: category.name,
+      value: category.value,
+      selectedAll: catQueryValue.includes('all'),
+      filters: [],
+    };
+
+    for (const filter of category.filters) {
+      if (nceaOnly && filter.hasNCEAData != null && !filter.hasNCEAData) continue;
+
+      const checked =
+        catQueryValue.includes(filter.value) && (!nceaOnly || filter.hasNCEAData == null || filter.hasNCEAData);
+
+      newCategory.filters.push({
+        ...filter,
+        checked,
+      });
+    }
+
+    categories.push(newCategory);
+  }
+
+  return {
+    nceaOnly,
+    categories: categories,
+    keywords: readQueryParams(requestQuery, 'keywords'),
+    license: readQueryParams(requestQuery, 'licence'),
+    lastUpdated: {
+      before: {
+        day: readQueryParams(requestQuery, 'before-day'),
+        month: readQueryParams(requestQuery, 'before-month'),
+        year: readQueryParams(requestQuery, 'before-year'),
+      },
+      after: {
+        day: readQueryParams(requestQuery, 'after-day'),
+        month: readQueryParams(requestQuery, 'after-month'),
+        year: readQueryParams(requestQuery, 'after-year'),
+      },
+    },
+    retiredAndArchived: readQueryParams(requestQuery, 'retired-archived') === 'true',
+  };
+};
 
 const processFilterOptions = async (
   filterOptions: IAggregationOptions,
@@ -98,4 +150,4 @@ const processSortOptions = async (requestQuery: RequestQuery): Promise<IAggregat
   };
 };
 
-export { processFilterOptions, processSortOptions };
+export { processFilterOptions, processSortOptions, processDSPFilterOptions };
