@@ -79,6 +79,7 @@ const formatSearchResponse = async (
     const startYear: string = getYear(startDate);
     const toYear: string = getYear(endDate);
 
+    console.log('API SEARCH ITEMS');
     if (minStartYear === '' || (startYear !== '' && startYear < minStartYear)) {
       minStartYear = startYear;
     }
@@ -87,6 +88,7 @@ const formatSearchResponse = async (
       maxToYear = toYear;
     }
 
+    console.log('2 API SEARCH ITEMS');
     let item: ISearchItem = {
       id: searchItem?._id,
       title: searchItem?._source?.resourceTitleObject?.default ?? '',
@@ -98,6 +100,7 @@ const formatSearchResponse = async (
       resourceLocator: getResourceLocatorURL(searchItem?._source?.linkUrl ?? ''),
       organisationName: organisationDetails.organisationValue,
     };
+    console.log('3 API SEARCH ITEMS');
 
     if (isMapResults) {
       const coordinatesData: IAccumulatedCoordinatesWithCenter = getAccumulatedCoordinatesNCenter(
@@ -110,11 +113,13 @@ const formatSearchResponse = async (
         resourceType: searchItem?._source?.resourceType ?? [],
       };
     }
+    console.log('4 API SEARCH ITEMS');
 
     if (isDetails) {
       const otherDetails: IOtherSearchItem = await getOtherDetails(searchItem);
       item = { ...item, ...otherDetails };
     }
+    console.log('5 FORMATTED ITEMS: ', JSON.stringify(item));
 
     return item;
   });

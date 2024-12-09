@@ -1,5 +1,6 @@
 import { estypes } from '@elastic/elasticsearch';
 
+import { QUICK_SEARCH_RESPONSE } from './mocks/quick-search';
 import { performQuery } from '../../config/elasticSearchClient';
 import { ISearchBuilderPayload, ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { IFilterFlags } from '../../interfaces/searchPayload.interface';
@@ -24,10 +25,12 @@ const getSearchResults = async (
         }),
       };
       const payload = generateSearchQuery(searchBuilderPayload);
-      console.log('SEARCH QUERY PAYLOAD: ', JSON.stringify(payload));
-      const response = await performQuery<estypes.SearchResponse>(payload);
+      console.log('1. SEARCH QUERY PAYLOAD: ');
+      const response = QUICK_SEARCH_RESPONSE;
+      console.log('2 FINAL RESPONSE: ');
+      // const response = await performQuery<estypes.SearchResponse>(payload);
       const finalResponse: ISearchResults = await formatSearchResponse(response, false, isMapResults);
-      console.log('FINAL RESPONSE: ', JSON.stringify(finalResponse));
+      console.log('3 FINAL RESPONSE: ');
       return finalResponse;
     } else {
       return Promise.resolve({ total: 0, items: [] });

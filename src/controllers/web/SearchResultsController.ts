@@ -42,22 +42,27 @@ const SearchResultsController = {
     const isQuickSearchJourney = journey === 'qs';
     try {
       const searchResults: ISearchResults = await getSearchResults(payload, false, isQuickSearchJourney);
+      console.log('1 SEARCH RESULTS');
       const studyPeriodFilterOptions: IAggregationOptions = await getFilterOptions(
         payload,
         { isStudyPeriod: true },
         isQuickSearchJourney,
       );
+      console.log('2 SEARCH RESULTS');
       const resourceTypeFilterOptions: IAggregationOptions = await getFilterOptions(
         payload,
         { isStudyPeriod: false },
         isQuickSearchJourney,
       );
+      console.log('3 SEARCH RESULTS');
       const filterOptions: IAggregationOptions = {
         [uniqueResourceTypesKey]: resourceTypeFilterOptions[uniqueResourceTypesKey] ?? [],
         [startYearRangeKey]: studyPeriodFilterOptions[startYearRangeKey] ?? [],
         [toYearRangeKey]: studyPeriodFilterOptions[toYearRangeKey] ?? [],
       };
+      console.log('4 SEARCH RESULTS');
       const paginationItems = getPaginationItems(page, searchResults?.total ?? 0, rowsPerPage, request.query);
+      console.log('5 SEARCH RESULTS');
       const queryString = readQueryParams(request.query);
       const filterResourceTypePath = `${BASE_PATH}${webRoutePaths.filterResourceType}?${queryString}`;
       const filterStudyPeriodPath = `${BASE_PATH}${webRoutePaths.filterStudyPeriod}?${queryString}`;
@@ -68,7 +73,9 @@ const SearchResultsController = {
         queryParamKeys.startYear,
         queryParamKeys.toYear,
       ]);
+      console.log('6 SEARCH RESULTS');
       const resetStudyPeriodLink: string = `${BASE_PATH}${webRoutePaths.results}?${resetStudyPeriodQueryString}`;
+      console.log('7 SEARCH RESULTS');
       return response.view('screens/results/template', {
         pageTitle: pageTitles.results,
         quickSearchFID,
