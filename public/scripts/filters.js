@@ -37,18 +37,29 @@ const addCategoryAccordionToggleListeners = (instance) => {
 const addFilterFormChangeListener = (instance) => {
   const form = document.getElementById(`filters-${instance}`);
 
-  // this handles the case where a non-NCEA org exists in the query, and then
-  // the data scope is changed
-  // without this, the org would stay in the url, but as the checkbox is no longer checked,
-  // this will remove it making the url correct
-  const formData = new FormData(form);
-  const params = new URLSearchParams(formData);
-
-  const newUrl = `${window.location.pathname}?${params.toString()}`;
-  window.history.replaceState(null, '', newUrl);
-
   form.addEventListener('change', () => {
-    form.submit();
+    const data = new FormData(form);
+
+    const isNCEAOnly = data.get('ncea-only') === 'true';
+
+    if (isNCEAOnly) {
+      const allNCEA = document.querySelectorAll("[data-ncea-only='false']");
+
+      allNCEA.forEach((cb) => {
+        for (const key of data.keys()) {
+          const values = data.getAll(key);
+
+          data.set(
+            key,
+            values.filter((v) => v != cb.value),
+          );
+        }
+      });
+    }
+
+    const url = new URLSearchParams(data);
+
+    window.location.search = url.toString();
   });
 };
 
