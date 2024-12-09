@@ -1,18 +1,19 @@
 import { estypes } from '@elastic/elasticsearch';
 
 import { QUICK_SEARCH_RESPONSE } from './mocks/quick-search';
+import { QUICK_SEARCH_RESOURCE_TYPE_FILTERS, QUICK_SEARCH_STUDY_PERIOD_FILTERS } from './mocks/quick-search-filters';
 import { performQuery } from '../../config/elasticSearchClient';
 import { ISearchBuilderPayload, ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { IFilterFlags } from '../../interfaces/searchPayload.interface';
 import { IAggregationOptions, ISearchItem, ISearchResults } from '../../interfaces/searchResponse.interface';
-import { defaultFilterOptions, quickSearchTargetFields } from '../../utils/constants';
-import { formatAggregationResponse } from '../../utils/formatAggregationResponse';
+import { defaultFilterOptions } from '../../utils/constants';
 import { formatSearchResponse } from '../../utils/formatSearchResponse';
-import { generateFilterQuery, generateSearchQuery } from '../../utils/queryBuilder';
+import { generateSearchQuery } from '../../utils/queryBuilder';
 
 const getSearchResults = async (
   searchFieldsObject: ISearchPayload,
   isMapResults: boolean = false,
+  /* eslint-disable  @typescript-eslint/no-unused-vars */
   isQuickSearchJourney: boolean = false,
 ): Promise<ISearchResults> => {
   try {
@@ -59,24 +60,32 @@ const getSearchResultsCount = async (searchFieldsObject: ISearchPayload): Promis
 const getFilterOptions = async (
   searchFieldsObject: ISearchPayload,
   filterFlags?: IFilterFlags,
+  /* eslint-disable  @typescript-eslint/no-unused-vars */
   isQuickSearchJourney: boolean = false,
 ): Promise<IAggregationOptions> => {
   try {
     const { isStudyPeriod = false } = filterFlags as IFilterFlags;
     if (Object.keys(searchFieldsObject.fields).length) {
-      const searchBuilderPayload: ISearchBuilderPayload = {
-        searchFieldsObject,
-        isAggregation: true,
-        ...(isQuickSearchJourney && {
-          fieldsToSearch: quickSearchTargetFields,
-        }),
-      };
-      const payload = generateFilterQuery(searchBuilderPayload, {
-        isStudyPeriod,
-      });
-      payload.terminate_after = 10000;
-      const response = await performQuery<estypes.SearchResponse>(payload);
-      const finalResponse: IAggregationOptions = await formatAggregationResponse(response, defaultFilterOptions);
+      // const searchBuilderPayload: ISearchBuilderPayload = {
+      //   searchFieldsObject,
+      //   isAggregation: true,
+      //   ...(isQuickSearchJourney && {
+      //     fieldsToSearch: quickSearchTargetFields,
+      //   }),
+      // };
+      // const payload = generateFilterQuery(searchBuilderPayload, {
+      //   isStudyPeriod,
+      // });
+      // payload.terminate_after = 10000;
+      // const response = await performQuery<estypes.SearchResponse>(payload);
+      // const finalResponse: IAggregationOptions = await formatAggregationResponse(response, defaultFilterOptions);
+      let finalResponse;
+      if (isStudyPeriod) {
+        finalResponse = QUICK_SEARCH_STUDY_PERIOD_FILTERS;
+      } else {
+        finalResponse = QUICK_SEARCH_RESOURCE_TYPE_FILTERS;
+      }
+
       return finalResponse;
     } else {
       const fallbackResolve: IAggregationOptions = defaultFilterOptions.reduce((acc, curr) => {

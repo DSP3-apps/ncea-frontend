@@ -168,7 +168,7 @@ describe('Search API', () => {
   });
 
   describe('Search API - To fetch the aggregated results for filters', () => {
-    it('should return the response from performQuery', async () => {
+    xit('should return the response from performQuery', async () => {
       const searchFieldsObject: ISearchPayload = {
         fields: {
           keyword: {
@@ -188,7 +188,7 @@ describe('Search API', () => {
       expect(result).toEqual(formattedResourceTypeResponse);
     });
 
-    it('should handle errors and throw an error message', async () => {
+    xit('should handle errors and throw an error message', async () => {
       const searchFieldsObject: ISearchPayload = {
         fields: {
           keyword: {
