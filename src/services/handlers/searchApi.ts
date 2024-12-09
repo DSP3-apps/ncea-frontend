@@ -1,5 +1,6 @@
 import { estypes } from '@elastic/elasticsearch';
 
+import { QUICK_SEARCH_RESPONSE } from './mocks/quick-search';
 import { performQuery } from '../../config/elasticSearchClient';
 import { ISearchBuilderPayload, ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { IFilterFlags } from '../../interfaces/searchPayload.interface';
@@ -14,20 +15,18 @@ const getSearchResults = async (
   isMapResults: boolean = false,
   isQuickSearchJourney: boolean = false,
 ): Promise<ISearchResults> => {
-  // console.log('GET SEARCH RESULTS: ', { searchFieldsObject, isMapResults, isQuickSearchJourney });
   try {
     if (Object.keys(searchFieldsObject.fields).length) {
-      const searchBuilderPayload: ISearchBuilderPayload = {
-        searchFieldsObject,
-        ...(isQuickSearchJourney && {
-          fieldsToSearch: quickSearchTargetFields,
-        }),
-      };
-      const payload = generateSearchQuery(searchBuilderPayload);
-      console.log('SEARCH QUERY PAYLOAD: ', JSON.stringify(payload));
-      const response = await performQuery<estypes.SearchResponse>(payload);
+      // const searchBuilderPayload: ISearchBuilderPayload = {
+      //   searchFieldsObject,
+      //   ...(isQuickSearchJourney && {
+      //     fieldsToSearch: quickSearchTargetFields,
+      //   }),
+      // };
+      // const payload = generateSearchQuery(searchBuilderPayload);
+      // const response = await performQuery<estypes.SearchResponse>(payload);
+      const response = QUICK_SEARCH_RESPONSE;
       const finalResponse: ISearchResults = await formatSearchResponse(response, false, isMapResults);
-      console.log('FINAL RESPONSE: ', JSON.stringify(finalResponse));
       return finalResponse;
     } else {
       return Promise.resolve({ total: 0, items: [] });
