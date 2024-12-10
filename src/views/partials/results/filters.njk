@@ -11,13 +11,13 @@
         </legend>
         <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="scope-{{filterInstance}}" {% if dspFilterOptions.nceaOnly %}checked{% endif %} name="scope" type="radio" value="ncea">
+            <input class="govuk-radios__input" id="scope-{{filterInstance}}" {% if dspFilterOptions.nceaOnly %}checked{% endif %} name="{{dspFilterNames.scope}}" type="radio" value="{{dataScopeValues.ncea}}">
             <label class="govuk-label govuk-radios__label" for="scope-{{filterInstance}}">
               NCEA Metadata Only
             </label>
           </div>
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="scope-all-{{filterInstance}}" {% if not dspFilterOptions.nceaOnly %}checked{% endif %} name="scope" type="radio" value="all">
+            <input class="govuk-radios__input" id="scope-all-{{filterInstance}}" {% if not dspFilterOptions.nceaOnly %}checked{% endif %} name="{{dspFilterNames.scope}}" type="radio" value="{{dataScopeValues.all}}">
             <label class="govuk-label govuk-radios__label" for="scope-all-{{filterInstance}}">
               DSP and NCEA Metadata
             </label>
@@ -152,7 +152,7 @@
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-licence-filters-{{filterInstance}}">
         {{ govukInput({
           id: 'licence-'+filterInstance,
-          name: 'licence',
+          name: dspFilterNames.licence,
           value: dspFilterOptions.license
         }) }}
       </div>
@@ -169,7 +169,7 @@
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-keywords-filters-{{filterInstance}}">
         {{ govukInput({
           id: 'keywords-'+filterInstance,
-          name: 'keywords',
+          name: dspFilterNames.keywords,
           value: dspFilterOptions.keywords
         }) }}
       </div>
@@ -177,7 +177,7 @@
 
     <div class="govuk-checkboxes govuk-checkboxes--small">
       <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-        <input class="govuk-checkboxes__input" id="retired-archived-{{filterInstance}}" {% if dspFilterOptions.retiredAndArchived %}checked{% endif %} name="retired-archived" type="checkbox" value="true">
+        <input class="govuk-checkboxes__input" id="retired-archived-{{filterInstance}}" {% if dspFilterOptions.retiredAndArchived %}checked{% endif %} name="{{dspFilterNames.retiredAndArchived}}" type="checkbox" value="true">
         <label class="govuk-label govuk-checkboxes__label" for="retired-archived-{{filterInstance}}">
           <span class="filter-options__retired-label">Include Retired & Archived records</span>
         </label>
