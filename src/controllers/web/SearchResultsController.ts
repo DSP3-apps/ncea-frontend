@@ -60,27 +60,9 @@ const SearchResultsController = {
         searchResults = await getSearchResults(payload, false, isQuickSearchJourney);
       }
 
-      let studyPeriodFilterOptions: IAggregationOptions;
-      let resourceTypeFilterOptions: IAggregationOptions;
-      if (environmentConfig.useMockData) {
-        studyPeriodFilterOptions = await getMockFilterOptions({ isStudyPeriod: true });
-        resourceTypeFilterOptions = await getMockFilterOptions({ isStudyPeriod: false });
-      } else {
-        studyPeriodFilterOptions = await getFilterOptions(payload, { isStudyPeriod: true }, isQuickSearchJourney);
-        resourceTypeFilterOptions = await getFilterOptions(payload, { isStudyPeriod: false }, isQuickSearchJourney);
-      }
-
-      const filterOptions: IAggregationOptions = {
-        [uniqueResourceTypesKey]: resourceTypeFilterOptions[uniqueResourceTypesKey] ?? [],
-        [startYearRangeKey]: studyPeriodFilterOptions[startYearRangeKey] ?? [],
-        [toYearRangeKey]: studyPeriodFilterOptions[toYearRangeKey] ?? [],
-      };
       const paginationItems = getPaginationItems(page, searchResults?.total ?? 0, rowsPerPage, request.query);
       const queryString = readQueryParams(request.query);
-      const filterResourceTypePath = `${BASE_PATH}${webRoutePaths.filterResourceType}?${queryString}`;
-      const filterStudyPeriodPath = `${BASE_PATH}${webRoutePaths.filterStudyPeriod}?${queryString}`;
       const sortSubmitPath = `${BASE_PATH}${webRoutePaths.sortResults}?${queryString}`;
-      const processedFilterOptions = await processFilterOptions(filterOptions, request.query);
       const processedSortOptions = await processSortOptions(request.query);
 
       const processedDspFilterOptions = processDSPFilterOptions(request.query);
@@ -98,12 +80,9 @@ const SearchResultsController = {
         hasError: false,
         isQuickSearchJourney,
         paginationItems,
-        filterOptions: processedFilterOptions,
         dspFilterOptions: processedDspFilterOptions,
         dspFilterReset: dspFilterResetUrl,
         sortOptions: processedSortOptions,
-        filterResourceTypePath,
-        filterStudyPeriodPath,
         sortSubmitPath,
         dateSearchPath: `${BASE_PATH}${webRoutePaths.guidedDateSearch}`,
         filterInstance: 'search_results',

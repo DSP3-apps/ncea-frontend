@@ -45,16 +45,16 @@ const addFilterFormChangeListener = (instance) => {
     if (isNCEAOnly) {
       const allNCEA = document.querySelectorAll("[data-ncea-only='false']");
 
-      allNCEA.forEach((cb) => {
+      for (const nceaCb of allNCEA) {
         for (const key of data.keys()) {
           const values = data.getAll(key);
 
           data.set(
             key,
-            values.filter((v) => v != cb.value),
+            values.filter((v) => v != nceaCb.value),
           );
         }
-      });
+      }
     }
 
     const url = new URLSearchParams(data);
@@ -179,7 +179,7 @@ const attachSearchResultsSortChangeListener = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   addFilterHeadingClickListeners('search_results');
-  attachStudyPeriodChangeListener('search_results', true);
+  // attachStudyPeriodChangeListener('search_results', true);
   attachSearchResultsFilterCheckboxChangeListener();
   attachSearchResultsSortChangeListener();
 
