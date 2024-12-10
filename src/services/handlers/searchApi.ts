@@ -1,9 +1,12 @@
 import { estypes } from '@elastic/elasticsearch';
 
+import { CLASSIFIER_SEARCH_RESPONSE } from './mocks/classifier-search';
+import { CLASSIFIER_COUNT_LEVEL_2 } from './mocks/classifier-themes-level-2';
+import { CLASSIFIER_COUNT_LEVEL_3 } from './mocks/classifier-themes-level-3';
 import { QUICK_SEARCH_RESPONSE } from './mocks/quick-search';
 import { QUICK_SEARCH_RESOURCE_TYPE_FILTERS, QUICK_SEARCH_STUDY_PERIOD_FILTERS } from './mocks/quick-search-filters';
 import { performQuery } from '../../config/elasticSearchClient';
-import { ISearchBuilderPayload, ISearchPayload } from '../../interfaces/queryBuilder.interface';
+import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { IFilterFlags } from '../../interfaces/searchPayload.interface';
 import { IAggregationOptions, ISearchItem, ISearchResults } from '../../interfaces/searchResponse.interface';
 import { defaultFilterOptions } from '../../utils/constants';
@@ -13,7 +16,6 @@ import { generateSearchQuery } from '../../utils/queryBuilder';
 const getSearchResults = async (
   searchFieldsObject: ISearchPayload,
   isMapResults: boolean = false,
-  /* eslint-disable  @typescript-eslint/no-unused-vars */
   isQuickSearchJourney: boolean = false,
 ): Promise<ISearchResults> => {
   try {
@@ -26,7 +28,7 @@ const getSearchResults = async (
       // };
       // const payload = generateSearchQuery(searchBuilderPayload);
       // const response = await performQuery<estypes.SearchResponse>(payload);
-      const response = QUICK_SEARCH_RESPONSE;
+      const response = isQuickSearchJourney ? QUICK_SEARCH_RESPONSE : CLASSIFIER_SEARCH_RESPONSE;
       const finalResponse: ISearchResults = await formatSearchResponse(response, false, isMapResults);
       return finalResponse;
     } else {
@@ -38,15 +40,27 @@ const getSearchResults = async (
   }
 };
 
-const getSearchResultsCount = async (searchFieldsObject: ISearchPayload): Promise<{ totalResults: number }> => {
+const getSearchResultsCount = async (
+  searchFieldsObject: ISearchPayload,
+  level: number = 1,
+): Promise<{ totalResults: number }> => {
   try {
-    const searchBuilderPayload: ISearchBuilderPayload = {
-      searchFieldsObject,
-      isCount: true,
-    };
-    const payload = generateSearchQuery(searchBuilderPayload);
+    // const searchBuilderPayload: ISearchBuilderPayload = {
+    //   searchFieldsObject,
+    //   isCount: true,
+    // };
+    // const payload = generateSearchQuery(searchBuilderPayload);
     if (Object.keys(searchFieldsObject.fields).length) {
-      const response = await performQuery<estypes.CountResponse>(payload, true);
+      // const response = await performQuery<estypes.CountResponse>(payload, true);
+
+      // level 1 does not have a count as it's the first page
+      let response;
+      if (level === 2) {
+        response = CLASSIFIER_COUNT_LEVEL_2;
+      } else if (level === 3) {
+        response = CLASSIFIER_COUNT_LEVEL_3;
+      }
+
       return { totalResults: response?.count ?? 0 };
     } else {
       return Promise.resolve({ totalResults: 0 });
