@@ -2,13 +2,19 @@ import { RequestQuery } from '@hapi/hapi';
 
 import { queryParamKeys, startYearRangeKey, toYearRangeKey, uniqueResourceTypesKey } from './constants';
 import { readQueryParams } from './queryStringHelper';
-import { ISearchFilterProcessed, ISearchFiltersProcessed, searchFilters } from './searchFilters';
+import {
+  DataScopeValues,
+  ISearchFilterProcessed,
+  ISearchFiltersProcessed,
+  filterNames,
+  searchFilters,
+} from './searchFilters';
 import { IAggregationOption, IAggregationOptions } from '../interfaces/searchResponse.interface';
 
 const processDSPFilterOptions = (requestQuery: RequestQuery): ISearchFiltersProcessed => {
   const categories: ISearchFiltersProcessed['categories'] = [];
 
-  const nceaOnly = readQueryParams(requestQuery, 'scope') === 'ncea';
+  const nceaOnly = readQueryParams(requestQuery, filterNames.scope) === DataScopeValues.NCEA;
 
   for (const category of searchFilters) {
     const catQueryValue = readQueryParams(requestQuery, category.value).split(',');
@@ -38,21 +44,21 @@ const processDSPFilterOptions = (requestQuery: RequestQuery): ISearchFiltersProc
   return {
     nceaOnly,
     categories: categories,
-    keywords: readQueryParams(requestQuery, 'keywords'),
-    license: readQueryParams(requestQuery, 'licence'),
+    keywords: readQueryParams(requestQuery, filterNames.keywords),
+    license: readQueryParams(requestQuery, filterNames.licence),
     lastUpdated: {
       before: {
-        day: readQueryParams(requestQuery, 'before-day'),
-        month: readQueryParams(requestQuery, 'before-month'),
-        year: readQueryParams(requestQuery, 'before-year'),
+        day: readQueryParams(requestQuery, filterNames.updatedBefore.day),
+        month: readQueryParams(requestQuery, filterNames.updatedBefore.month),
+        year: readQueryParams(requestQuery, filterNames.updatedBefore.year),
       },
       after: {
-        day: readQueryParams(requestQuery, 'after-day'),
-        month: readQueryParams(requestQuery, 'after-month'),
-        year: readQueryParams(requestQuery, 'after-year'),
+        day: readQueryParams(requestQuery, filterNames.updatedAfter.day),
+        month: readQueryParams(requestQuery, filterNames.updatedAfter.month),
+        year: readQueryParams(requestQuery, filterNames.updatedAfter.year),
       },
     },
-    retiredAndArchived: readQueryParams(requestQuery, 'retired-archived') === 'true',
+    retiredAndArchived: readQueryParams(requestQuery, filterNames.retiredAndArchived) === 'true',
   };
 };
 

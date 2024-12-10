@@ -40,6 +40,7 @@ const addFilterFormChangeListener = (instance) => {
   form.addEventListener('change', () => {
     const data = new FormData(form);
 
+    // this is also defined in `utils/searchFilters.ts`
     const isNCEAOnly = data.get('scope') === 'ncea';
 
     if (isNCEAOnly) {

@@ -3,6 +3,27 @@ import { RequestQuery } from '@hapi/hapi';
 import { BASE_PATH, webRoutePaths } from './constants';
 import { readQueryParams } from './queryStringHelper';
 
+export const filterNames = {
+  scope: 'scope',
+  retiredAndArchived: 'retired-archived',
+  keywords: 'keywords',
+  licence: 'licence',
+  updatedBefore: {
+    day: 'before-day',
+    month: 'before-month',
+    year: 'before-year',
+  },
+  updatedAfter: {
+    day: 'after-day',
+    month: 'after-month',
+    year: 'after-year',
+  },
+};
+
+export enum DataScopeValues {
+  All = 'all',
+  NCEA = 'ncea',
+}
 interface ISearchFilterOption {
   name: string;
   value: string;
@@ -44,9 +65,9 @@ export interface ISearchFiltersProcessed {
 }
 
 export const buildFilterResetUrl = (requestQuery: RequestQuery): string => {
-  const nceaOnly = readQueryParams(requestQuery, 'scope') === 'ncea';
+  const nceaOnly = readQueryParams(requestQuery, filterNames.scope) === DataScopeValues.NCEA;
 
-  const params: string = nceaOnly ? 'scope=ncea' : '';
+  const params: string = nceaOnly ? `${filterNames.scope}=${DataScopeValues.NCEA}` : '';
 
   return `${BASE_PATH}${webRoutePaths.results}?${params}`;
 };

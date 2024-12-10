@@ -40,7 +40,7 @@ import {
   readQueryParams,
   upsertQueryParams,
 } from '../../utils/queryStringHelper';
-import { buildFilterResetUrl, searchFilters } from '../../utils/searchFilters';
+import { DataScopeValues, buildFilterResetUrl, filterNames, searchFilters } from '../../utils/searchFilters';
 
 const SearchResultsController = {
   renderSearchResultsHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
@@ -82,6 +82,8 @@ const SearchResultsController = {
         paginationItems,
         dspFilterOptions: processedDspFilterOptions,
         dspFilterReset: dspFilterResetUrl,
+        dspFilterNames: filterNames,
+        dataScopeValues: { ncea: DataScopeValues.NCEA, all: DataScopeValues.All },
         sortOptions: processedSortOptions,
         sortSubmitPath,
         dateSearchPath: `${BASE_PATH}${webRoutePaths.guidedDateSearch}`,
