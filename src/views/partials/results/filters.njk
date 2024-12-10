@@ -4,13 +4,26 @@
 
 <form autocomplete="off" id="filters-{{filterInstance}}">
   <section>
-    <div class="govuk-checkboxes govuk-checkboxes--small filter-options__ncea-only">
-      <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-        <input class="govuk-checkboxes__input" id="ncea-metadata-{{filterInstance}}" {% if dspFilterOptions.nceaOnly %}checked{% endif %} name="ncea-only" type="checkbox" value="true">
-        <label class="govuk-label govuk-checkboxes__label" for="ncea-metadata-{{filterInstance}}">
-          NCEA Metadata Only
-        </label> 
-      </div>
+    <div class="govuk-form-group filter-options__ncea-only">
+      <fieldset class="govuk-fieldset">
+        <legend class="filter-options__legend">
+          <h3>Data Scope Filter </h3>
+        </legend>
+        <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="scope-{{filterInstance}}" {% if dspFilterOptions.nceaOnly %}checked{% endif %} name="scope" type="radio" value="ncea">
+            <label class="govuk-label govuk-radios__label" for="scope-{{filterInstance}}">
+              NCEA Metadata Only
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="scope-all-{{filterInstance}}" {% if not dspFilterOptions.nceaOnly %}checked{% endif %} name="scope" type="radio" value="all">
+            <label class="govuk-label govuk-radios__label" for="scope-all-{{filterInstance}}">
+              DSP and NCEA Metadata
+            </label>
+          </div>
+        </div>
+      </fieldset>
     </div>
 
     <div>

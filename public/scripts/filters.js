@@ -40,7 +40,7 @@ const addFilterFormChangeListener = (instance) => {
   form.addEventListener('change', () => {
     const data = new FormData(form);
 
-    const isNCEAOnly = data.get('ncea-only') === 'true';
+    const isNCEAOnly = data.get('scope') === 'ncea';
 
     if (isNCEAOnly) {
       const allNCEA = document.querySelectorAll("[data-ncea-only='false']");
