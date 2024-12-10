@@ -64,10 +64,7 @@ const SearchResultsController = {
       };
       const paginationItems = getPaginationItems(page, searchResults?.total ?? 0, rowsPerPage, request.query);
       const queryString = readQueryParams(request.query);
-      const filterResourceTypePath = `${BASE_PATH}${webRoutePaths.filterResourceType}?${queryString}`;
-      const filterStudyPeriodPath = `${BASE_PATH}${webRoutePaths.filterStudyPeriod}?${queryString}`;
       const sortSubmitPath = `${BASE_PATH}${webRoutePaths.sortResults}?${queryString}`;
-      const processedFilterOptions = await processFilterOptions(filterOptions, request.query);
       const processedSortOptions = await processSortOptions(request.query);
 
       const processedDspFilterOptions = processDSPFilterOptions(request.query);
@@ -85,12 +82,9 @@ const SearchResultsController = {
         hasError: false,
         isQuickSearchJourney,
         paginationItems,
-        filterOptions: processedFilterOptions,
         dspFilterOptions: processedDspFilterOptions,
         dspFilterReset: dspFilterResetUrl,
         sortOptions: processedSortOptions,
-        filterResourceTypePath,
-        filterStudyPeriodPath,
         sortSubmitPath,
         dateSearchPath: `${BASE_PATH}${webRoutePaths.guidedDateSearch}`,
         filterInstance: 'search_results',
@@ -116,7 +110,6 @@ const SearchResultsController = {
       [queryParamKeys.journey]: 'qs',
     };
     const queryString: string = upsertQueryParams(request.query, queryParamsObject);
-    // console.log('QUICK SEARCH SUBMIT HANDLER', queryString);
     return response.redirect(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
   },
   quickSearchFailActionHandler: (request, response, error): Lifecycle.ReturnValue => {

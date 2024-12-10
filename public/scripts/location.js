@@ -513,7 +513,7 @@ function resetMap() {
 
 function exitMap() {
   resetMap();
-  resetFilterData();
+  // resetFilterData();
   if (resetData) {
     appliedFilterOptions = { ...defaultFilterOptions };
     invokeMapResults(true, true);
