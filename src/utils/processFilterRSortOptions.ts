@@ -8,7 +8,7 @@ import { IAggregationOption, IAggregationOptions } from '../interfaces/searchRes
 const processDSPFilterOptions = (requestQuery: RequestQuery): ISearchFiltersProcessed => {
   const categories: ISearchFiltersProcessed['categories'] = [];
 
-  const nceaOnly = readQueryParams(requestQuery, 'ncea-only') === 'true';
+  const nceaOnly = readQueryParams(requestQuery, 'scope') === 'ncea';
 
   for (const category of searchFilters) {
     const catQueryValue = readQueryParams(requestQuery, category.value).split(',');

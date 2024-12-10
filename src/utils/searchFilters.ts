@@ -44,9 +44,9 @@ export interface ISearchFiltersProcessed {
 }
 
 export const buildFilterResetUrl = (requestQuery: RequestQuery): string => {
-  const nceaOnly = readQueryParams(requestQuery, 'ncea-only') === 'true';
+  const nceaOnly = readQueryParams(requestQuery, 'scope') === 'ncea';
 
-  const params: string = nceaOnly ? 'ncea-only=true' : '';
+  const params: string = nceaOnly ? 'scope=ncea' : '';
 
   return `${BASE_PATH}${webRoutePaths.results}?${params}`;
 };
