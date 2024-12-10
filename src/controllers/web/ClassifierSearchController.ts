@@ -20,7 +20,7 @@ const ClassifierSearchController = {
     };
     const classifierPageTitle = pageTitles.Classifier[level - 1];
     const countPayload = generateCountPayload(payloadQuery);
-    const totalCount = (await getSearchResultsCount(countPayload)).totalResults.toString();
+    const totalCount = (await getSearchResultsCount(countPayload, level)).totalResults.toString();
     const queryParamsObject: Record<string, string> = {
       ...request.query,
       level: (level - 1).toString(),
