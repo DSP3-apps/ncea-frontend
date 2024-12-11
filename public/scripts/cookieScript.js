@@ -51,9 +51,7 @@ const removeGtmScript = (gtmId) => {
   if (noscript) {
     noscript.parentNode.removeChild(noscript);
   }
-  const scripts = document.querySelectorAll(
-    `script[src*="googletagmanager.com/gtm.js?id=${gtmId}"]`,
-  );
+  const scripts = document.querySelectorAll(`script[src*="googletagmanager.com/gtm.js?id=${gtmId}"]`);
   scripts.forEach((script) => {
     script.parentNode.removeChild(script);
   });
@@ -77,18 +75,12 @@ const getCookie = (name) => {
   for (const cookie of cookies) {
     const trimmedCookie = cookie.trim();
     if (trimmedCookie.indexOf(nameEx) === 0) {
-      const cookieValue = trimmedCookie.substring(
-        nameEx.length,
-        trimmedCookie.length,
-      );
-      const expiration = trimmedCookie
-        .split(';')
-        .find((item) => item.trim().startsWith('expires='));
+      const cookieValue = trimmedCookie.substring(nameEx.length, trimmedCookie.length);
+      const expiration = trimmedCookie.split(';').find((item) => item.trim().startsWith('expires='));
       if (!expiration || new Date(expiration.split('=')[1]) > new Date()) {
         return cookieValue;
       } else {
-        document.cookie =
-          name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+        document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
         return null;
       }
     }

@@ -15,8 +15,7 @@ const localStorageKey = 'ncea-search-data';
 const expiryInMinutes = 15;
 const todayCheckbox = document.getElementById('today-date');
 const keywordElement = document.getElementById('keyword');
-const searchTermInput = document.getElementById("search_term");
-
+const searchTermInput = document.getElementById('search_term');
 
 // Store the data to storage
 const storeStorageData = (newSessionData) => {
@@ -53,8 +52,7 @@ const checkStorageExpiry = (storeTimestamp) => {
 
 // Populate data with values from session storage
 const getStorageData = () => {
-  const sessionData =
-    localStorage.getItem(localStorageKey) || defaultSessionData;
+  const sessionData = localStorage.getItem(localStorageKey) || defaultSessionData;
   const isStorageExpired = checkStorageExpiry(sessionData.version ?? '');
   return isStorageExpired ? defaultSessionData : JSON.parse(sessionData);
 };
@@ -63,15 +61,11 @@ const getStorageData = () => {
 const hydrateFormFromStorage = (form) => {
   const sessionData = getStorageData();
   Object.keys(sessionData.fields[form.id] ?? {}).forEach((fieldAltName) => {
-    const input = form.querySelector(
-      `input[type="text"][altName="${fieldAltName}"]`,
-    );
+    const input = form.querySelector(`input[type="text"][altName="${fieldAltName}"]`);
     if (input) {
       input.value = sessionData.fields[form.id][fieldAltName];
     }
-    const checkbox = form.querySelector(
-      `input[type="checkbox"][altName="${fieldAltName}"]`,
-    );
+    const checkbox = form.querySelector(`input[type="checkbox"][altName="${fieldAltName}"]`);
     if (checkbox) {
       checkbox.checked = sessionData.fields[form.id][fieldAltName] === 'true';
     }
@@ -82,9 +76,7 @@ const hydrateFormFromStorage = (form) => {
       if (levelKey === 'currentLevel') return;
       const valuesArray = classifierData[levelKey] || [];
       valuesArray.forEach((value) => {
-        const checkbox = form.querySelector(
-          `input[type="checkbox"][value="${value}"]`
-        );
+        const checkbox = form.querySelector(`input[type="checkbox"][value="${value}"]`);
         if (checkbox) {
           checkbox.checked = true;
         }
@@ -101,12 +93,12 @@ const isAllFieldEmpty = (formId) => {
     return true;
   }
 
-  if(formId === 'classifier-search'){
+  if (formId === 'classifier-search') {
     const urlParams = new URLSearchParams(window.location.search);
     const levelNo = parseInt(urlParams.get('level'), 10);
-    const currentLevelValues = form['level'+levelNo];
+    const currentLevelValues = form['level' + levelNo];
     return currentLevelValues === undefined || currentLevelValues.length === 0;
-  }else{
+  } else {
     return !Object.values(form).some((value) => {
       if (Array.isArray(value)) {
         return value.length > 0;
@@ -148,18 +140,18 @@ const attachEventListeners = (form) => {
           sessionData.fields['classifier-search'][levelKey] = [];
         }
 
-       sessionData.fields['classifier-search']['currentLevel'] = levelKey
+        sessionData.fields['classifier-search']['currentLevel'] = levelKey;
 
         const valuesArray = sessionData.fields['classifier-search'][levelKey];
         const checkboxValue = value.split(',');
         if (input.checked) {
-          checkboxValue.forEach(val => {
+          checkboxValue.forEach((val) => {
             if (!valuesArray.includes(val)) {
               valuesArray.push(val);
             }
           });
         } else {
-          checkboxValue.forEach(val => {
+          checkboxValue.forEach((val) => {
             const valueIndex = valuesArray.indexOf(val);
             if (valueIndex !== -1) {
               valuesArray.splice(valueIndex, 1);
@@ -171,7 +163,6 @@ const attachEventListeners = (form) => {
         if (sessionData.fields['classifier-search'][levelKey].length === 0) {
           delete sessionData.fields['classifier-search'][levelKey];
         }
-
       } else {
         const value = input.value;
         if (!sessionData.fields.hasOwnProperty(form.id)) {
@@ -198,9 +189,7 @@ const resetStorage = () => {
 };
 
 const previousQuestion = () => {
-  const previousQuestionElements = document.querySelectorAll(
-    '[data-do-previous-page]',
-  );
+  const previousQuestionElements = document.querySelectorAll('[data-do-previous-page]');
   if (previousQuestionElements.length > 0) {
     previousQuestionElements.forEach((element) => {
       element.addEventListener('click', () => {
@@ -212,10 +201,10 @@ const previousQuestion = () => {
 };
 
 const skipStorage = () => {
- //clear local storage if user comes to home page by clicking on 'find natural capital data' from header
-  if (  document.title === "NCEA Search Service Home" && keywordElement) {
-      storeStorageData(JSON.parse(defaultSessionData));
-      searchTermInput.value='';
+  //clear local storage if user comes to home page by clicking on 'find natural capital data' from header
+  if (document.title === 'NCEA Search Service Home' && keywordElement) {
+    storeStorageData(JSON.parse(defaultSessionData));
+    searchTermInput.value = '';
   }
   const skipElements = document.querySelectorAll('[data-do-storage-skip]');
   const urlParams = new URLSearchParams(window.location.search);
@@ -227,15 +216,13 @@ const skipStorage = () => {
         if (associatedForm) {
           const sessionData = getStorageData();
           if (sessionData.fields.hasOwnProperty(associatedForm.id)) {
-            if (associatedForm.id === 'classifier-search' ) {
-
-              if(sessionData.fields['classifier-search'].currentLevel.slice(-1)==level){
-                delete sessionData.fields['classifier-search']['level'+level];
+            if (associatedForm.id === 'classifier-search') {
+              if (sessionData.fields['classifier-search'].currentLevel.slice(-1) == level) {
+                delete sessionData.fields['classifier-search']['level' + level];
               }
-              if(level<=3){
-                sessionData.fields['classifier-search']['currentLevel'] = 'level'+level
+              if (level <= 3) {
+                sessionData.fields['classifier-search']['currentLevel'] = 'level' + level;
               }
-
             } else {
               delete sessionData.fields[associatedForm.id];
             }
@@ -250,9 +237,7 @@ const skipStorage = () => {
 };
 
 const nextQuestion = () => {
-  const nextQuestionElements = document.querySelectorAll(
-    '[data-next-question]',
-  );
+  const nextQuestionElements = document.querySelectorAll('[data-next-question]');
   if (nextQuestionElements.length > 0) {
     nextQuestionElements.forEach((element) => {
       element.addEventListener('click', (event) => {
@@ -262,7 +247,6 @@ const nextQuestion = () => {
           sessionData.stepState[associatedForm.id] = 'submitted';
           sessionData.previousStep = `${window.location.pathname}${window.location.search}`;
 
-
           storeStorageData(sessionData);
         }
       });
@@ -270,8 +254,7 @@ const nextQuestion = () => {
   }
 };
 
-const hasGuidedSearchProperties = (fieldsData, formKey) =>
-  Object.keys(fieldsData).some((key) => key !== formKey);
+const hasGuidedSearchProperties = (fieldsData, formKey) => Object.keys(fieldsData).some((key) => key !== formKey);
 
 const handleSearchJourney = (event) => {
   const quickSearchJourney = event.target.getAttribute('data-do-quick-search');
@@ -356,11 +339,7 @@ const todayCheckboxStatus = () => {
       const date = currentDate.getDate();
       const month = currentDate.getMonth() + 1;
       const year = currentDate.getFullYear();
-      if (
-        parseInt(tdd) !== date &&
-        parseInt(month) !== tmd &&
-        parseInt(year) !== tdy
-      ) {
+      if (parseInt(tdd) !== date && parseInt(month) !== tmd && parseInt(year) !== tdy) {
         hydrateTodayDate(true);
       }
     }
@@ -370,39 +349,38 @@ const todayCheckboxStatus = () => {
 const todayDateUncheck = (checked) => {
   const sessionData = getStorageData();
   if (!sessionData.fields.hasOwnProperty('date')) {
-      sessionData.fields['date'] = {};
+    sessionData.fields['date'] = {};
   }
   if (checked) {
-      const currentDate = new Date();
-      const day = currentDate.getDate();
-      const month = currentDate.getMonth() + 1;
-      const year = currentDate.getFullYear();
-      sessionData.fields['date'] = {
-          ...sessionData.fields['date'],
-          tdcheck: 'true',
-          tdd: day.toString(),
-          tdm: month.toString(),
-          tdy: year.toString(),
-      };
+    const currentDate = new Date();
+    const day = currentDate.getDate();
+    const month = currentDate.getMonth() + 1;
+    const year = currentDate.getFullYear();
+    sessionData.fields['date'] = {
+      ...sessionData.fields['date'],
+      tdcheck: 'true',
+      tdd: day.toString(),
+      tdm: month.toString(),
+      tdy: year.toString(),
+    };
   } else {
-      sessionData.fields['date'] = {
-          ...sessionData.fields['date'],
-          tdcheck: 'false',
-      };
-
+    sessionData.fields['date'] = {
+      ...sessionData.fields['date'],
+      tdcheck: 'false',
+    };
   }
   storeStorageData(sessionData);
-}
+};
 
 const toggleClassifierCheckbox = () => {
   //code for checking or unchecking the select all
   const selectAllCheckboxes = document.querySelectorAll('input[type="checkbox"][id^="checkboxall-"]');
-  selectAllCheckboxes.forEach(all => {
+  selectAllCheckboxes.forEach((all) => {
     all.addEventListener('change', (event) => {
-      const suffix = all.getAttribute("id").split('-')[1];
+      const suffix = all.getAttribute('id').split('-')[1];
       const checkboxItems = document.querySelectorAll(`input[type="checkbox"][id^="checkbox-${suffix}-"]`);
       const isChecked = event.target.checked;
-      checkboxItems.forEach(chkbox => {
+      checkboxItems.forEach((chkbox) => {
         chkbox.checked = isChecked;
       });
     });
@@ -410,17 +388,17 @@ const toggleClassifierCheckbox = () => {
 
   //code for other checkboxes
   const otherCheckboxes = document.querySelectorAll('input[type="checkbox"][id^="checkbox-"]');
-  otherCheckboxes.forEach(chkbox => {
+  otherCheckboxes.forEach((chkbox) => {
     chkbox.addEventListener('change', (event) => {
-      const suffix = chkbox.getAttribute("id").split('-')[1];
+      const suffix = chkbox.getAttribute('id').split('-')[1];
       const selectAll = document.querySelector(`input[type="checkbox"][id^="checkboxall-${suffix}-all"]`);
       const isChecked = event.target.checked;
-      if(!isChecked && selectAll.checked){
+      if (!isChecked && selectAll.checked) {
         selectAll.checked = false;
       }
     });
   });
-}
+};
 
 // Function to attach event listeners to date input fields
 const attachDateInputListeners = () => {
@@ -431,7 +409,7 @@ const attachDateInputListeners = () => {
   const uncheckTodayDate = () => {
     if (todayCheckbox && todayCheckbox.checked) {
       todayCheckbox.checked = false;
-     todayDateUncheck(false);
+      todayDateUncheck(false);
     }
   };
 
@@ -458,13 +436,13 @@ const classifierBackLinkHandler = () => {
 
       if (currentLevel && currentLevel > 1) {
         const previousLevel = currentLevel - 1;
-        const previousLevelKey = `level${previousLevel-1}`;
+        const previousLevelKey = `level${previousLevel - 1}`;
         const parentValues = classifierData[previousLevelKey] || [];
 
         urlParams.set('level', previousLevel);
         urlParams.delete('parent[]');
 
-        parentValues.forEach(value => {
+        parentValues.forEach((value) => {
           urlParams.append('parent[]', value);
         });
 
@@ -483,21 +461,20 @@ const searchResultBackLinkHandler = () => {
   const classifierData = sessionData.fields['classifier-search'] || {};
   if (backLinkElements) {
     backLinkElements.addEventListener('click', () => {
-if(Object.keys(classifierData).length >0){
+      if (Object.keys(classifierData).length > 0) {
+        const currentLevel = classifierData.currentLevel;
+        const levelKeys = Object.keys(classifierData).filter((key) => key.startsWith('level'));
 
-      const currentLevel = classifierData.currentLevel;
-      const levelKeys = Object.keys(classifierData).filter(key => key.startsWith('level'));
+        const currentLevelNumber = currentLevel && parseInt(currentLevel.replace('level', ''));
+        let level = currentLevelNumber || 1;
+        let associatedLevel = [];
 
-      const currentLevelNumber = currentLevel && parseInt(currentLevel.replace('level', ''));
-      let level = currentLevelNumber || 1;
-      let associatedLevel = [];
-
-      if (currentLevelNumber > 1) {
+        if (currentLevelNumber > 1) {
           const previousLevel = `level${currentLevelNumber - 1}`;
           if (classifierData[previousLevel]) {
-              associatedLevel = classifierData[previousLevel];
+            associatedLevel = classifierData[previousLevel];
           }
-      } else {
+        } else {
           associatedLevel = [];
         }
         const parents = associatedLevel;
@@ -519,36 +496,35 @@ const clickToSeeLinkHandler = () => {
       const sessionData = getStorageData();
       const urlParams = new URLSearchParams(window.location.search);
       const currentLevel = parseInt(urlParams.get('level'), 10);
-      sessionData.fields['classifier-search']['currentLevel'] = 'level'+currentLevel;
+      sessionData.fields['classifier-search']['currentLevel'] = 'level' + currentLevel;
       storeStorageData(sessionData);
     });
   }
 };
 
-function redirectToClassifierSearch(){
+function redirectToClassifierSearch() {
   const sessionData = getStorageData();
   const classifierData = sessionData.fields['classifier-search'] || {};
   const currentLevel = classifierData.currentLevel;
-  const levelKeys = Object.keys(classifierData).filter(key => key.startsWith('level'));
+  const levelKeys = Object.keys(classifierData).filter((key) => key.startsWith('level'));
 
   const currentLevelNumber = currentLevel && parseInt(currentLevel.replace('level', ''));
   let level = currentLevelNumber || 1;
   let associatedLevel = [];
 
   if (currentLevelNumber > 1) {
-      const previousLevel = `level${currentLevelNumber - 1}`;
-      if (classifierData[previousLevel]) {
-          associatedLevel = classifierData[previousLevel];
-      }
+    const previousLevel = `level${currentLevelNumber - 1}`;
+    if (classifierData[previousLevel]) {
+      associatedLevel = classifierData[previousLevel];
+    }
   } else {
-      associatedLevel = [];
+    associatedLevel = [];
   }
   const parents = associatedLevel;
   const params = new URLSearchParams({ level });
   parents.forEach((parent) => params.append('parent[]', parent));
   const url = `/natural-capital-ecosystem-assessment/classifier-search?${params.toString()}`;
   window.location.href = url;
-
 }
 
 if (typeof Storage !== 'undefined') {
@@ -575,12 +551,10 @@ if (typeof Storage !== 'undefined') {
     classifierBackLinkHandler();
     searchResultBackLinkHandler();
     toggleClassifierCheckbox();
-   document.querySelector('.back-link-date') && document.querySelector('.back-link-date').addEventListener('click', redirectToClassifierSearch);
+    document.querySelector('.back-link-date') &&
+      document.querySelector('.back-link-date').addEventListener('click', redirectToClassifierSearch);
 
-
-    const searchJourneyElement = document.querySelectorAll(
-      '[data-do-quick-search]',
-    );
+    const searchJourneyElement = document.querySelectorAll('[data-do-quick-search]');
     if (searchJourneyElement.length) {
       searchJourneyElement.forEach((searchElement) => {
         searchElement.addEventListener('click', handleSearchJourney);
@@ -606,4 +580,3 @@ window.addEventListener('storage', (event) => {
 });
 
 export { getStorageData, fireEventAfterStorage, updateSubmitButtonState };
-

@@ -1,13 +1,9 @@
-import {
-  fireEventAfterStorage,
-  getStorageData,
-  updateSubmitButtonState,
-} from './customScripts.js';
+import { fireEventAfterStorage, getStorageData, updateSubmitButtonState } from './customScripts.js';
 import { invokeAjaxCall } from './fetchResults.js';
 import {
   addFilterHeadingClickListeners,
   attachStudyPeriodChangeListener,
-  addCategoryAccordionToggleListeners
+  addCategoryAccordionToggleListeners,
 } from './filters.js';
 
 const index3 = 3;
@@ -16,8 +12,7 @@ const timeout = 200;
 const mapTarget = 'coordinate-map';
 const isDetailsScreen = typeof isDetails !== 'undefined' && isDetails;
 const hasCenter = typeof center !== 'undefined' && center;
-const isMapResultsScreen =
-  typeof isViewMapResults !== 'undefined' && isViewMapResults;
+const isMapResultsScreen = typeof isViewMapResults !== 'undefined' && isViewMapResults;
 let initialCenter;
 const initialZoom = 2;
 let viewChanged = false;
@@ -124,11 +119,9 @@ draw.on('drawend', (event) => {
   feature.setStyle(completedStyle);
 });
 
-const isMarkerFeature = (feature) =>
-  feature?.getGeometry()?.getType() === 'Point';
+const isMarkerFeature = (feature) => feature?.getGeometry()?.getType() === 'Point';
 
-const isPolygonFeature = (feature) =>
-  feature?.getGeometry()?.getType() === 'Polygon';
+const isPolygonFeature = (feature) => feature?.getGeometry()?.getType() === 'Polygon';
 
 const map = new ol.Map({
   target: mapTarget,
@@ -157,13 +150,8 @@ if (isMapResultsScreen) {
 function mapEventListener() {
   map.on('pointermove', (event) => {
     const pixel = event.pixel;
-    const feature = map.forEachFeatureAtPixel(
-      pixel,
-      (featureItem) => featureItem,
-    );
-    map.getTargetElement().style.cursor = isMarkerFeature(feature)
-      ? 'pointer'
-      : '';
+    const feature = map.forEachFeatureAtPixel(pixel, (featureItem) => featureItem);
+    map.getTargetElement().style.cursor = isMarkerFeature(feature) ? 'pointer' : '';
     markerSource.getFeatures().forEach(function (feature) {
       if (
         isMarkerFeature(feature) &&
@@ -180,10 +168,7 @@ function mapEventListener() {
   });
   map.on('click', (event) => {
     const pixel = event.pixel;
-    const feature = map.forEachFeatureAtPixel(
-      pixel,
-      (featureItem) => featureItem,
-    );
+    const feature = map.forEachFeatureAtPixel(pixel, (featureItem) => featureItem);
     resetFeatureStyle();
     closeInfoPopup();
     if (feature && isMarkerFeature(feature)) {
@@ -238,10 +223,7 @@ function showInformationPopup(recordId, boundingBox) {
       } else {
         publishedBlock.style.display = 'none';
       }
-      contentElement.textContent = truncateString(
-        selectedRecord.content,
-        contentMaxChar,
-      );
+      contentElement.textContent = truncateString(selectedRecord.content, contentMaxChar);
     }
   }
 }
@@ -272,17 +254,8 @@ function closeInfoPopup() {
 
 function calculateCoordinates() {
   const extent = vectorSource.getExtent();
-  if (
-    extent[0] !== Infinity &&
-    extent[1] !== Infinity &&
-    extent[2] !== -Infinity &&
-    extent[index3] !== -Infinity
-  ) {
-    const [west, south, east, north] = ol.proj.transformExtent(
-      extent,
-      defaultMapProjection,
-      extentTransformProjection,
-    );
+  if (extent[0] !== Infinity && extent[1] !== Infinity && extent[2] !== -Infinity && extent[index3] !== -Infinity) {
+    const [west, south, east, north] = ol.proj.transformExtent(extent, defaultMapProjection, extentTransformProjection);
 
     const form = document.querySelector('[data-do-browser-storage]');
     if (form) {
@@ -382,11 +355,7 @@ function calculatePolygonFromCoordinates() {
 function addPolygon(coordinates, style, addToVector = true) {
   const { north, south, east, west } = coordinates;
   if (north && south && east && west) {
-    const extent = ol.proj.transformExtent(
-      [west, south, east, north],
-      extentTransformProjection,
-      defaultMapProjection,
-    );
+    const extent = ol.proj.transformExtent([west, south, east, north], extentTransformProjection, defaultMapProjection);
     const polygonFeature = new ol.Feature({
       geometry: new ol.geom.Polygon([
         [
@@ -412,14 +381,10 @@ function disableInteractions() {
   map.getInteractions().forEach((interaction) => {
     const isZoomInteractions =
       interaction instanceof ol.interaction.DoubleClickZoom ||
-      (!isMapResultsScreen &&
-        interaction instanceof ol.interaction.MouseWheelZoom);
+      (!isMapResultsScreen && interaction instanceof ol.interaction.MouseWheelZoom);
     const isDragDrawModifySnap =
-      interaction instanceof ol.interaction.DragPan ||
-      interaction instanceof ol.interaction.Draw;
-    const isModifySnap =
-      interaction instanceof ol.interaction.Modify ||
-      interaction instanceof ol.interaction.Snap;
+      interaction instanceof ol.interaction.DragPan || interaction instanceof ol.interaction.Draw;
+    const isModifySnap = interaction instanceof ol.interaction.Modify || interaction instanceof ol.interaction.Snap;
     if (isZoomInteractions || isDragDrawModifySnap || isModifySnap) {
       map.removeInteraction(interaction);
     }
@@ -439,10 +404,10 @@ const getHighlighterMarkerStyle = (iconPath) => {
   return new ol.style.Style({
     image: new ol.style.Icon({
       src: iconPath,
-      anchor: [0.5,1],
+      anchor: [0.5, 1],
       scale: 1.0,
     }),
-    zIndex: 10
+    zIndex: 10,
   });
 };
 
@@ -486,12 +451,8 @@ function boundingBoxCheckboxChange(isChecked) {
 }
 
 function resetFilterData() {
-  const studyPeriodForm = document.getElementById(
-    'study_period_filter-map_results',
-  );
-  const resourceTypeForm = document.getElementById(
-    'resource_type_filter-map_results',
-  );
+  const studyPeriodForm = document.getElementById('study_period_filter-map_results');
+  const resourceTypeForm = document.getElementById('resource_type_filter-map_results');
   if (studyPeriodForm && resourceTypeForm) {
     studyPeriodForm.reset();
     resourceTypeForm.reset();
@@ -535,11 +496,7 @@ function drawBoundingBoxWithMarker(fitToMapExtentFlag, doRecenter = true) {
   map.updateSize();
   const centerArray = [];
   mapResults.forEach((record) => {
-    const boundingBox = addPolygon(
-      record.geographicBoundary,
-      mapResultsStyle,
-      false,
-    );
+    const boundingBox = addPolygon(record.geographicBoundary, mapResultsStyle, false);
     placeMarkers(record.geographicCenter, markerIcon, record.id, boundingBox);
 
     const markersArray = record.geographicCenter.split('_');
@@ -553,14 +510,8 @@ function drawBoundingBoxWithMarker(fitToMapExtentFlag, doRecenter = true) {
   if (doRecenter) {
     const totalCenters = centerArray.length;
     if (totalCenters) {
-      const sumCenter = centerArray.reduce(
-        (acc, cur) => [acc[0] + cur[0], acc[1] + cur[1]],
-        [0, 0],
-      );
-      const averageCenter = [
-        sumCenter[0] / totalCenters,
-        sumCenter[1] / totalCenters,
-      ];
+      const sumCenter = centerArray.reduce((acc, cur) => [acc[0] + cur[0], acc[1] + cur[1]], [0, 0]);
+      const averageCenter = [sumCenter[0] / totalCenters, sumCenter[1] / totalCenters];
       map.getView().setCenter(ol.proj.fromLonLat(averageCenter));
       map.getView().setZoom(initialZoom);
     }
@@ -572,11 +523,7 @@ const boundingBoxListener = (boundingBoxCheckboxState) => {
   polygonFeatureData.forEach((feature) => {
     const isFeatureExists = vectorSource
       .getFeatures()
-      .some(
-        (f) =>
-          f.getGeometry().getCoordinates().toString() ===
-          feature.getGeometry().getCoordinates().toString(),
-      );
+      .some((f) => f.getGeometry().getCoordinates().toString() === feature.getGeometry().getCoordinates().toString());
     if (feature !== selectedBoundingBox) {
       if (boundingBoxCheckboxState) {
         !isFeatureExists && vectorSource.addFeature(feature);
@@ -601,9 +548,7 @@ const attachBoundingBoxToggleListener = () => {
 };
 
 const attachMapResultsFilterCheckboxChangeListener = () => {
-  const mapResultsFilterCheckboxes = document.querySelectorAll(
-    '[data-instance="map_results"]',
-  );
+  const mapResultsFilterCheckboxes = document.querySelectorAll('[data-instance="map_results"]');
   if (mapResultsFilterCheckboxes.length) {
     mapResultsFilterCheckboxes.forEach((checkbox) => {
       checkbox.addEventListener('change', function (event) {
@@ -624,12 +569,8 @@ const attachMapResultsFilterCheckboxChangeListener = () => {
 
 const updateStudyPeriodFilter = () => {
   setTimeout(() => {
-    appliedFilterOptions.startYear = document.getElementById(
-      'map_results-start_year',
-    ).value;
-    appliedFilterOptions.toYear = document.getElementById(
-      'map_results-to_year',
-    ).value;
+    appliedFilterOptions.startYear = document.getElementById('map_results-start_year').value;
+    appliedFilterOptions.toYear = document.getElementById('map_results-to_year').value;
     resetData = true;
     invokeMapResults(true);
     invokeMapFilters();
@@ -647,13 +588,8 @@ const getMapResults = async (path, fitToMapExtentFlag) => {
       mapResultsCount.textContent = mapResultsJson.total;
       if (mapResultsJson.total > 0) {
         document.querySelector('.map-container').style.display = 'block';
-        const boundingBoxInfo = document.getElementById(
-          'defra-bounding-box-info',
-        );
-        if (
-          boundingBoxInfo &&
-          mapResultsJson.total > maxCountForBoundingBoxInfo
-        ) {
+        const boundingBoxInfo = document.getElementById('defra-bounding-box-info');
+        if (boundingBoxInfo && mapResultsJson.total > maxCountForBoundingBoxInfo) {
           boundingBoxInfo.style.display = 'block';
         } else {
           boundingBoxInfo.style.display = 'none';
@@ -678,13 +614,11 @@ const getMapFilters = async (path) => {
   if (response && response?.status === responseSuccessStatusCode) {
     const mapFiltersHtml = await response.text();
     document.getElementById(filterBlockId).innerHTML = mapFiltersHtml;
-    addCategoryAccordionToggleListeners('map_results')
+    addCategoryAccordionToggleListeners('map_results');
     addFilterHeadingClickListeners('map_results');
     attachStudyPeriodChangeListener('map_results');
     attachMapResultsFilterCheckboxChangeListener();
-    const mapFilterStartYear = document.getElementById(
-      'map_results-start_year',
-    );
+    const mapFilterStartYear = document.getElementById('map_results-start_year');
     const mapFilterToYear = document.getElementById('map_results-to_year');
     if (mapFilterStartYear && mapFilterToYear) {
       mapFilterStartYear.addEventListener('change', updateStudyPeriodFilter);
@@ -721,9 +655,7 @@ const checkLatestBrowser = () => {
       mapResultsButton.style.marginBottom = '10px';
       mapResultsButton.setAttribute('disabled', true);
     }
-    const mapUnavailableInfo = document.getElementById(
-      'map-results-unavailable',
-    );
+    const mapUnavailableInfo = document.getElementById('map-results-unavailable');
     if (mapUnavailableInfo) {
       mapUnavailableInfo.style.display = 'block';
     }
@@ -731,27 +663,19 @@ const checkLatestBrowser = () => {
   }
 };
 
-const invokeMapResults = (
-  fitToMapExtentFlag = false,
-  needOriginalQueryParams = false,
-) => {
+const invokeMapResults = (fitToMapExtentFlag = false, needOriginalQueryParams = false) => {
   if (checkLatestBrowser()) {
     const fetchResults = document.querySelector('[data-fetch-map-results]');
     if (fetchResults) {
       const action = fetchResults.getAttribute(actionDataAttribute);
-      getMapResults(
-        getPathWithQueryParams(action, needOriginalQueryParams),
-        fitToMapExtentFlag,
-      );
+      getMapResults(getPathWithQueryParams(action, needOriginalQueryParams), fitToMapExtentFlag);
     }
   }
 };
 
 const toggleResetStudyPeriodLink = () => {
   const { startYear, toYear } = appliedFilterOptions;
-  const mapResetFilter = document.getElementById(
-    'reset-map-study-period-filter',
-  );
+  const mapResetFilter = document.getElementById('reset-map-study-period-filter');
   if (mapResetFilter) {
     mapResetFilter.addEventListener('click', () => {
       appliedFilterOptions = {
@@ -775,9 +699,7 @@ const invokeMapFilters = async (needOriginalQueryParams = false) => {
     const fetchFilters = document.querySelector('[data-fetch-map-filters]');
     if (fetchFilters) {
       const action = fetchFilters.getAttribute(actionDataAttribute);
-      await getMapFilters(
-        getPathWithQueryParams(action, needOriginalQueryParams),
-      );
+      await getMapFilters(getPathWithQueryParams(action, needOriginalQueryParams));
       toggleResetStudyPeriodLink();
     }
   }
@@ -826,9 +748,7 @@ function keydownHandler(event) {
   const key = event.key;
   if (key >= 1 && key <= maxMarkerAllowed) {
     const markerIndex = parseInt(key) - 1;
-    const visibleMarkers = markerLayer
-      .getSource()
-      .getFeaturesInExtent(map.getView().calculateExtent(map.getSize()));
+    const visibleMarkers = markerLayer.getSource().getFeaturesInExtent(map.getView().calculateExtent(map.getSize()));
     if (markerIndex < visibleMarkers.length) {
       const markerOverlay = markerOverlays[markerIndex];
       if (markerOverlay) {
@@ -856,21 +776,17 @@ function keyupHandler(event) {
   const key = event.key;
   //Will be required if Tab press
   // if (key === 'Tab') {
-    const visibleMarkers = markerLayer
-      .getSource()
-      .getFeaturesInExtent(map.getView().calculateExtent(map.getSize()));
-    visibleMarkers.forEach((marker, index) => {
-      createTooltipOverlay(index);
-      const coord = marker.getGeometry().getCoordinates();
-      markerOverlays[index].setPosition(coord);
-    });
+  const visibleMarkers = markerLayer.getSource().getFeaturesInExtent(map.getView().calculateExtent(map.getSize()));
+  visibleMarkers.forEach((marker, index) => {
+    createTooltipOverlay(index);
+    const coord = marker.getGeometry().getCoordinates();
+    markerOverlays[index].setPosition(coord);
+  });
   // }
 }
 
 function checkNUpdateMarkerTooltip() {
-  const visibleMarkers = markerLayer
-    .getSource()
-    .getFeaturesInExtent(map.getView().calculateExtent(map.getSize()));
+  const visibleMarkers = markerLayer.getSource().getFeaturesInExtent(map.getView().calculateExtent(map.getSize()));
   markerOverlays.forEach((overlay) => map.removeOverlay(overlay));
   markerOverlays.length = 0;
   document.removeEventListener('keydown', keydownHandler);
@@ -955,11 +871,7 @@ function infoListener() {
     }
     if (!hasResourceListener) {
       goToResourceElement.addEventListener('click', () => {
-        window.openDataModal(
-          selectedRecord.organisationName,
-          selectedRecord.resourceLocator,
-          true,
-        );
+        window.openDataModal(selectedRecord.organisationName, selectedRecord.resourceLocator, true);
       });
       hasResourceListener = true;
     }
@@ -1012,6 +924,7 @@ document.addEventListener('DOMContentLoaded', () => {
       invokeMapResults();
       invokeMapFilters();
       exitMapEventListener();
+
       disableInteractions();
       customControls();
       checkNUpdateMarkerTooltip();
