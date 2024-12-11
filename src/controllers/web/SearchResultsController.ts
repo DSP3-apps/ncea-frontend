@@ -47,21 +47,6 @@ const SearchResultsController = {
     const isQuickSearchJourney = journey === 'qs';
     try {
       const searchResults: ISearchResults = await getSearchResults(payload, false, isQuickSearchJourney);
-      const studyPeriodFilterOptions: IAggregationOptions = await getFilterOptions(
-        payload,
-        { isStudyPeriod: true },
-        isQuickSearchJourney,
-      );
-      const resourceTypeFilterOptions: IAggregationOptions = await getFilterOptions(
-        payload,
-        { isStudyPeriod: false },
-        isQuickSearchJourney,
-      );
-      const filterOptions: IAggregationOptions = {
-        [uniqueResourceTypesKey]: resourceTypeFilterOptions[uniqueResourceTypesKey] ?? [],
-        [startYearRangeKey]: studyPeriodFilterOptions[startYearRangeKey] ?? [],
-        [toYearRangeKey]: studyPeriodFilterOptions[toYearRangeKey] ?? [],
-      };
       const paginationItems = getPaginationItems(page, searchResults?.total ?? 0, rowsPerPage, request.query);
       const queryString = readQueryParams(request.query);
       const sortSubmitPath = `${BASE_PATH}${webRoutePaths.sortResults}?${queryString}`;

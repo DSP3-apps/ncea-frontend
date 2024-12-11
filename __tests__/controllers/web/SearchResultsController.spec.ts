@@ -13,7 +13,12 @@ import { getDocumentDetails, getSearchResults, getFilterOptions } from '../../..
 import { BASE_PATH, formIds, pageTitles, queryParamKeys, webRoutePaths } from '../../../src/utils/constants';
 import { getPaginationItems } from '../../../src/utils/paginationBuilder';
 import { deleteQueryParams, readQueryParams, upsertQueryParams } from '../../../src/utils/queryStringHelper';
-import { processFilterOptions, processSortOptions } from '../../../src/utils/processFilterRSortOptions';
+import {
+  processDSPFilterOptions,
+  processFilterOptions,
+  processSortOptions,
+} from '../../../src/utils/processFilterRSortOptions';
+import { buildFilterResetUrl, DataScopeValues, filterNames, searchFilters } from '../../../src/utils/searchFilters';
 
 jest.mock('../../../src/services/handlers/searchApi', () => ({
   getSearchResults: jest.fn(),
@@ -49,16 +54,17 @@ describe('Deals with search results controller', () => {
       (getFilterOptions as jest.Mock).mockResolvedValue(expectedResourceTypeOptions);
       const paginationItems = getPaginationItems(1, 0, 10, queryObject);
       const queryString = readQueryParams(request.query);
-      const filterResourceTypePath = `${BASE_PATH}${webRoutePaths.filterResourceType}?${queryString}`;
-      const filterStudyPeriodPath = `${BASE_PATH}${webRoutePaths.filterStudyPeriod}?${queryString}`;
       const sortSubmitPath = `${BASE_PATH}${webRoutePaths.sortResults}?${queryString}`;
-      const processedFilterOptions = await processFilterOptions(expectedResourceTypeOptions, request.query);
       const processedSortOptions = await processSortOptions(request.query);
       const resetStudyPeriodQueryString: string = deleteQueryParams(request.query, [
         queryParamKeys.startYear,
         queryParamKeys.toYear,
       ]);
       const resetStudyPeriodLink: string = `${BASE_PATH}${webRoutePaths.results}?${resetStudyPeriodQueryString}`;
+
+      const processedDspFilterOptions = processDSPFilterOptions(request.query);
+      const dspFilterResetUrl = buildFilterResetUrl(request.query);
+
       await SearchResultsController.renderSearchResultsHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/results/template', {
         pageTitle: pageTitles.results,
@@ -67,18 +73,19 @@ describe('Deals with search results controller', () => {
         hasError: false,
         isQuickSearchJourney: true,
         paginationItems,
-        filterOptions: processedFilterOptions,
+        dspFilterOptions: processedDspFilterOptions,
+        dspFilterReset: dspFilterResetUrl,
+        dspFilterNames: filterNames,
+        dataScopeValues: { ncea: DataScopeValues.NCEA, all: DataScopeValues.ALL },
         sortOptions: processedSortOptions,
-        filterResourceTypePath,
-        filterStudyPeriodPath,
         sortSubmitPath,
         dateSearchPath: `${BASE_PATH}${webRoutePaths.guidedDateSearch}`,
         filterInstance: 'search_results',
         queryString,
         hasStudyPeriodFilterApplied: false,
         resetStudyPeriodLink,
-        backLinkClasses: 'back-link-search-result',
         backLinkPath: '#',
+        backLinkClasses: 'back-link-search-result',
       });
     });
 
@@ -108,16 +115,17 @@ describe('Deals with search results controller', () => {
       (getFilterOptions as jest.Mock).mockResolvedValue(expectedResourceTypeOptions);
       const paginationItems = getPaginationItems(1, 0, 10, queryObject);
       const queryString = readQueryParams(request.query);
-      const filterResourceTypePath = `${BASE_PATH}${webRoutePaths.filterResourceType}?${queryString}`;
-      const filterStudyPeriodPath = `${BASE_PATH}${webRoutePaths.filterStudyPeriod}?${queryString}`;
       const sortSubmitPath = `${BASE_PATH}${webRoutePaths.sortResults}?${queryString}`;
-      const processedFilterOptions = await processFilterOptions(expectedResourceTypeOptions, request.query);
       const processedSortOptions = await processSortOptions(request.query);
       const resetStudyPeriodQueryString: string = deleteQueryParams(request.query, [
         queryParamKeys.startYear,
         queryParamKeys.toYear,
       ]);
       const resetStudyPeriodLink: string = `${BASE_PATH}${webRoutePaths.results}?${resetStudyPeriodQueryString}`;
+
+      const processedDspFilterOptions = processDSPFilterOptions(request.query);
+      const dspFilterResetUrl = buildFilterResetUrl(request.query);
+
       await SearchResultsController.renderSearchResultsHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/results/template', {
         pageTitle: pageTitles.results,
@@ -126,10 +134,11 @@ describe('Deals with search results controller', () => {
         hasError: false,
         isQuickSearchJourney: false,
         paginationItems,
-        filterOptions: processedFilterOptions,
         sortOptions: processedSortOptions,
-        filterResourceTypePath,
-        filterStudyPeriodPath,
+        dspFilterOptions: processedDspFilterOptions,
+        dspFilterReset: dspFilterResetUrl,
+        dspFilterNames: filterNames,
+        dataScopeValues: { ncea: DataScopeValues.NCEA, all: DataScopeValues.ALL },
         sortSubmitPath,
         dateSearchPath: `${BASE_PATH}${webRoutePaths.guidedDateSearch}`,
         filterInstance: 'search_results',
@@ -498,6 +507,7 @@ describe('Deals with search results controller', () => {
         filterInstance: 'map_results',
         filterResourceTypePath: '',
         filterStudyPeriodPath: '',
+        dspFilterOptions: searchFilters,
       });
     });
 
