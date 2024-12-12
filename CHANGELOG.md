@@ -1,3 +1,16 @@
+# [1.1.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.0.2...v1.1.0) (2024-12-12)
+
+
+### Bug Fixes
+
+* **mock data:** mock out filter network request ([e49f62d](https://github.com/DSP3-apps/ncea-frontend/commit/e49f62d9f7bae38f8b3b23e863c198c423ad59a7)), closes [#NCEA-42](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-42)
+* **mocked data:** mock out quick search network request ([e79bf47](https://github.com/DSP3-apps/ncea-frontend/commit/e79bf474014b2256cadf0e88e0fcd379ad4ddede)), closes [#NCEA-42](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-42)
+
+
+### Features
+
+* **mock data:** mock out classifier search network requests ([67c29f3](https://github.com/DSP3-apps/ncea-frontend/commit/67c29f387cc34853d15f75aae1e5b5e0fe11b313)), closes [#NCEA-42](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-42)
+
 ## [1.0.2](https://github.com/DSP3-apps/ncea-frontend/compare/v1.0.1...v1.0.2) (2024-11-28)
 
 
