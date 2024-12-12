@@ -4,6 +4,12 @@ const filterSPFormId = 'study_period_filter';
 const filterRTFormId = 'resource_type_filter';
 const searchResultSortFormId = 'sort_results';
 
+/**
+ * Attatch event listeners to the filters accordions so
+ * they can be interacted with (opened and closed).
+ *
+ * @param {string} instance
+ */
 const addCategoryAccordionToggleListeners = (instance) => {
   const categories = document.querySelectorAll(`[data-category-${instance}]`);
 
@@ -52,6 +58,12 @@ const appendMetaSearchParams = (filterParams) => {
   filterParams.set('pg', params.get('pg')); // current page
 };
 
+/**
+ * Attatch event listener to the form containing the filters
+ * so the page responds when filter is changed.
+ *
+ * @param {string} instance
+ */
 const addFilterFormChangeListener = (instance) => {
   const form = document.getElementById(`filters-${instance}`);
 

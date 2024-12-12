@@ -11,6 +11,16 @@ import {
 } from './searchFilters';
 import { IAggregationOption, IAggregationOptions } from '../interfaces/searchResponse.interface';
 
+/**
+ * Takes the incoming requests, extract the query parameters and builds up
+ * an object that represents each filter and its current state (enabled/disabled or current value).
+ *
+ * Without this, if filters were applied and then the page refreshed, the applied
+ * filters would not stay applied.
+ *
+ * @param requestQuery The incoming request
+ * @returns Processed filter options
+ */
 const processDSPFilterOptions = (requestQuery: RequestQuery): ISearchFiltersProcessed => {
   const categories: ISearchFiltersProcessed['categories'] = [];
 
@@ -27,6 +37,10 @@ const processDSPFilterOptions = (requestQuery: RequestQuery): ISearchFiltersProc
     };
 
     for (const filter of category.filters) {
+      // the list of filter options (each individual filter under the category heading)
+      // can optionally have the `hasNCEAData` key.
+      // if the key does not exist (null), we act like it is explicitely set to `true`,
+      // if it exists (not null), then only if it's set to `false` do we skip that iteration
       if (nceaOnly && filter.hasNCEAData != null && !filter.hasNCEAData) continue;
 
       const checked =
