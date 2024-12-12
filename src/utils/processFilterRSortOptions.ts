@@ -2,7 +2,65 @@ import { RequestQuery } from '@hapi/hapi';
 
 import { queryParamKeys, startYearRangeKey, toYearRangeKey, uniqueResourceTypesKey } from './constants';
 import { readQueryParams } from './queryStringHelper';
+import {
+  DataScopeValues,
+  ISearchFilterProcessed,
+  ISearchFiltersProcessed,
+  filterNames,
+  searchFilters,
+} from './searchFilters';
 import { IAggregationOption, IAggregationOptions } from '../interfaces/searchResponse.interface';
+
+const processDSPFilterOptions = (requestQuery: RequestQuery): ISearchFiltersProcessed => {
+  const categories: ISearchFiltersProcessed['categories'] = [];
+
+  const nceaOnly = readQueryParams(requestQuery, filterNames.scope) === DataScopeValues.NCEA;
+
+  for (const category of searchFilters) {
+    const catQueryValue = readQueryParams(requestQuery, category.value).split(',');
+
+    const newCategory: ISearchFilterProcessed = {
+      name: category.name,
+      value: category.value,
+      selectedAll: catQueryValue.includes('all'),
+      filters: [],
+    };
+
+    for (const filter of category.filters) {
+      if (nceaOnly && filter.hasNCEAData != null && !filter.hasNCEAData) continue;
+
+      const checked =
+        catQueryValue.includes(filter.value) && (!nceaOnly || filter.hasNCEAData == null || filter.hasNCEAData);
+
+      newCategory.filters.push({
+        ...filter,
+        checked,
+      });
+    }
+
+    categories.push(newCategory);
+  }
+
+  return {
+    nceaOnly,
+    categories: categories,
+    keywords: readQueryParams(requestQuery, filterNames.keywords),
+    license: readQueryParams(requestQuery, filterNames.licence),
+    lastUpdated: {
+      before: {
+        day: readQueryParams(requestQuery, filterNames.updatedBefore.day),
+        month: readQueryParams(requestQuery, filterNames.updatedBefore.month),
+        year: readQueryParams(requestQuery, filterNames.updatedBefore.year),
+      },
+      after: {
+        day: readQueryParams(requestQuery, filterNames.updatedAfter.day),
+        month: readQueryParams(requestQuery, filterNames.updatedAfter.month),
+        year: readQueryParams(requestQuery, filterNames.updatedAfter.year),
+      },
+    },
+    retiredAndArchived: readQueryParams(requestQuery, filterNames.retiredAndArchived) === 'true',
+  };
+};
 
 const processFilterOptions = async (
   filterOptions: IAggregationOptions,
@@ -98,4 +156,4 @@ const processSortOptions = async (requestQuery: RequestQuery): Promise<IAggregat
   };
 };
 
-export { processFilterOptions, processSortOptions };
+export { processFilterOptions, processSortOptions, processDSPFilterOptions };

@@ -34,9 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleOverlayContainer();
     freezeScroll();
     const resourcePartyElement = document.getElementById('resource_party');
-    const resourceLocatorLink = document.getElementById(
-      'resource-locator-link',
-    );
+    const resourceLocatorLink = document.getElementById('resource-locator-link');
     if (isOnMap) {
       overlayContainer.style.zIndex = 1001;
     }
@@ -64,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleModalContainer('map-modal');
     unfreezeScroll();
   }
-
 
   function openSkipQuestionnaireModal(skipPath) {
     toggleModalContainer('skip-questionnaire-modal');

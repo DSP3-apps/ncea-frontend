@@ -5,12 +5,7 @@ const toggleOverlay = (showOverlay) => {
   }
 };
 
-const invokeAjaxCall = async (
-  path,
-  payload,
-  showOverlay = false,
-  method = 'POST',
-) => {
+const invokeAjaxCall = async (path, payload, showOverlay = false, method = 'POST') => {
   try {
     const isPostWithPayload = method === 'POST' && Object.keys(payload).length;
     toggleOverlay(showOverlay);

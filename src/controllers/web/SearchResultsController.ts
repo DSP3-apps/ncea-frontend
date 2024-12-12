@@ -21,7 +21,11 @@ import {
 } from '../../utils/constants';
 import { getPaginationItems } from '../../utils/paginationBuilder';
 import { processDetailsTabData } from '../../utils/processDetailsTabData';
-import { processFilterOptions, processSortOptions } from '../../utils/processFilterRSortOptions';
+import {
+  processDSPFilterOptions,
+  processFilterOptions,
+  processSortOptions,
+} from '../../utils/processFilterRSortOptions';
 import {
   appendPublication,
   deleteQueryParams,
@@ -29,6 +33,7 @@ import {
   readQueryParams,
   upsertQueryParams,
 } from '../../utils/queryStringHelper';
+import { DataScopeValues, buildFilterResetUrl, filterNames, searchFilters } from '../../utils/searchFilters';
 
 const SearchResultsController = {
   renderSearchResultsHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
@@ -42,28 +47,14 @@ const SearchResultsController = {
     const isQuickSearchJourney = journey === 'qs';
     try {
       const searchResults: ISearchResults = await getSearchResults(payload, false, isQuickSearchJourney);
-      const studyPeriodFilterOptions: IAggregationOptions = await getFilterOptions(
-        payload,
-        { isStudyPeriod: true },
-        isQuickSearchJourney,
-      );
-      const resourceTypeFilterOptions: IAggregationOptions = await getFilterOptions(
-        payload,
-        { isStudyPeriod: false },
-        isQuickSearchJourney,
-      );
-      const filterOptions: IAggregationOptions = {
-        [uniqueResourceTypesKey]: resourceTypeFilterOptions[uniqueResourceTypesKey] ?? [],
-        [startYearRangeKey]: studyPeriodFilterOptions[startYearRangeKey] ?? [],
-        [toYearRangeKey]: studyPeriodFilterOptions[toYearRangeKey] ?? [],
-      };
       const paginationItems = getPaginationItems(page, searchResults?.total ?? 0, rowsPerPage, request.query);
       const queryString = readQueryParams(request.query);
-      const filterResourceTypePath = `${BASE_PATH}${webRoutePaths.filterResourceType}?${queryString}`;
-      const filterStudyPeriodPath = `${BASE_PATH}${webRoutePaths.filterStudyPeriod}?${queryString}`;
       const sortSubmitPath = `${BASE_PATH}${webRoutePaths.sortResults}?${queryString}`;
-      const processedFilterOptions = await processFilterOptions(filterOptions, request.query);
       const processedSortOptions = await processSortOptions(request.query);
+
+      const processedDspFilterOptions = processDSPFilterOptions(request.query);
+      const dspFilterResetUrl = buildFilterResetUrl(request.query);
+
       const resetStudyPeriodQueryString: string = deleteQueryParams(request.query, [
         queryParamKeys.startYear,
         queryParamKeys.toYear,
@@ -76,10 +67,11 @@ const SearchResultsController = {
         hasError: false,
         isQuickSearchJourney,
         paginationItems,
-        filterOptions: processedFilterOptions,
+        dspFilterOptions: processedDspFilterOptions,
+        dspFilterReset: dspFilterResetUrl,
+        dspFilterNames: filterNames,
+        dataScopeValues: { ncea: DataScopeValues.NCEA, all: DataScopeValues.ALL },
         sortOptions: processedSortOptions,
-        filterResourceTypePath,
-        filterStudyPeriodPath,
         sortSubmitPath,
         dateSearchPath: `${BASE_PATH}${webRoutePaths.guidedDateSearch}`,
         filterInstance: 'search_results',
@@ -105,7 +97,6 @@ const SearchResultsController = {
       [queryParamKeys.journey]: 'qs',
     };
     const queryString: string = upsertQueryParams(request.query, queryParamsObject);
-    // console.log('QUICK SEARCH SUBMIT HANDLER', queryString);
     return response.redirect(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
   },
   quickSearchFailActionHandler: (request, response, error): Lifecycle.ReturnValue => {
@@ -176,6 +167,7 @@ const SearchResultsController = {
         filterInstance: 'map_results',
         filterResourceTypePath: '',
         filterStudyPeriodPath: '',
+        dspFilterOptions: searchFilters,
       });
     } catch (error) {
       return response.view('partials/results/filters', {

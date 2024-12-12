@@ -1,92 +1,191 @@
 {% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
 
-{% if filterOptions.start_year_range and filterOptions.start_year_range.length > 0 and filterOptions.to_year_range and filterOptions.to_year_range.length > 0 %}
-  <form action="{{filterStudyPeriodPath}}" id="study_period_filter-{{filterInstance}}" method="post">
-    <section class="defra-filter-section">
-      <h2 class='govuk-heading-m filter-study-period-heading govuk-!-margin-top-3 govuk-!-margin-bottom-3'>
-      Study period including:
-    </h2>
-     <p class="search-result__parameter-value">Results may include records from studies that overlap with your selected dates</p>
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-full">
-          <div class="filter-study-period-group">
-            {{ govukSelect({
-            id: filterInstance+'-start_year',
-            name: "start_year",
-            label: {
-              text: "From year",
-              classes: 'govuk-!-margin-bottom-2'
-            },
-            items: filterOptions.start_year_range,
-            formGroup: {
-              classes: 'govuk-!-margin-right-4 govuk-!-margin-bottom-3'
-            }
-          }) }}
-            {{ govukSelect({
-            id: filterInstance+'-to_year',
-            name: "to_year",
-            label: {
-              text: "To year",
-              classes: 'govuk-!-margin-bottom-2'
-            },
-            items: filterOptions.to_year_range,
-            formGroup: {
-              classes: 'govuk-!-margin-bottom-3'
-            }
-          }) }}
-
+<form autocomplete="off" id="filters-{{filterInstance}}">
+  <section>
+    <div class="govuk-form-group filter-options__ncea-only">
+      <fieldset class="govuk-fieldset">
+        <legend class="filter-options__legend">
+          <h3>Data Scope Filter </h3>
+        </legend>
+        <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="scope-{{filterInstance}}" {% if dspFilterOptions.nceaOnly %}checked{% endif %} name="{{dspFilterNames.scope}}" type="radio" value="{{dataScopeValues.ncea}}">
+            <label class="govuk-label govuk-radios__label" for="scope-{{filterInstance}}">
+              NCEA Metadata Only
+            </label>
           </div>
-
-          {% if filterInstance === 'search_results' and hasStudyPeriodFilterApplied %}
-            <a href="{{resetStudyPeriodLink}}" class="govuk-link defra-reset-study-period--link">
-              Reset study period
-            </a>
-          {% endif %}
-          {% if filterInstance === 'map_results' %}
-            <a href="javascript:;" id="reset-map-study-period-filter" class="govuk-link defra-reset-study-period--link">
-              Reset study period
-            </a>
-          {% endif %}
-          <div class="govuk-!-margin-top-4 govuk-section-break--visible"></div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="scope-all-{{filterInstance}}" {% if not dspFilterOptions.nceaOnly %}checked{% endif %} name="{{dspFilterNames.scope}}" type="radio" value="{{dataScopeValues.all}}">
+            <label class="govuk-label govuk-radios__label" for="scope-all-{{filterInstance}}">
+              DSP and NCEA Metadata
+            </label>
+          </div>
         </div>
-      </section>
-    </form>
-  {% endif %}
+      </fieldset>
+    </div>
 
-  {% if filterOptions.unique_resource_types and filterOptions.unique_resource_types.length > 0 %}
-    <form action="{{filterResourceTypePath}}" id="resource_type_filter-{{filterInstance}}" method="post">
-      <section>
-        <section class="defra-filter-options defra-filter-options--open govuk-!-margin-bottom-6">
-          <section class="defra-filter-options__heading defra-filter-options__heading--open" id="toggle_resource_type-{{filterInstance}}">
-            <button type="button" class="defra-filter-options__button defra-filter-options__title">Resource type</button>
-            <svg version="1.1" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="0" height="0" class="defra-filter-options__icon defra-filter-options__icon--up" aria-hidden="true" focusable="false">
-              <path d="m798.16 609.84l-256-256c-16.683-16.683-43.691-16.683-60.331 0l-256 256c-16.683 16.683-16.683 43.691 0 60.331s43.691 16.683 60.331 0l225.84-225.84 225.84 225.84c16.683 16.683 43.691 16.683 60.331 0s16.683-43.691 0-60.331z"></path>
-            </svg>
-            <svg version="1.1" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="0" height="0" class="defra-filter-options__icon defra-filter-options__icon--down" aria-hidden="true" focusable="false">
-              <path d="m225.84 414.16l256 256c16.683 16.683 43.691 16.683 60.331 0l256-256c16.683-16.683 16.683-43.691 0-60.331s-43.691-16.683-60.331 0l-225.84 225.84-225.84-225.84c-16.683-16.683-43.691-16.683-60.331 0s-16.683 43.691 0 60.331z"></path>
-            </svg>
-          </section>
-          <section class="defra-filter-options__container">
-            <section class="defra-filter-options__container--inner">
-              <div class="govuk-form-group govuk-!-margin-bottom-0">
-                <fieldset class="govuk-fieldset" aria-describedby="{{filterInstance+'resource-type-filter'}}">
-                  <div class="govuk-checkboxes" data-module="govuk-checkboxes" id="{{filterInstance+'resource-type-filter'}}">
-                    {% for item in filterOptions.unique_resource_types %}
-                      <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input defra-checkboxes__input" id="{{filterInstance+'-resource_type-'+item.value}}" name="resource_type" type="checkbox" value="{{item.value}}" {% if item.checked %} checked {% endif %} data-instance="{{filterInstance}}">
-                        <label class="govuk-label govuk-checkboxes__label defra-checkboxes__label" for="{{filterInstance+'-resource_type-'+item.value}}">
-                          {{item.text}}
-                        </label>
-                      </div>
-                    {% endfor %}
+    <div>
+      {% for category in dspFilterOptions.categories %}
+        <div class="filter-options__container">
+          {# they should start hidden #}
+          <label for="filters-{{category.value}}-accordion-toggle-{{filterInstance}}" class="filter-options__accordion" data-category-{{filterInstance}}="{{category.value}}">
+            <button type="button" aria-expanded="false" data-expanded="false" id="filters-{{category.value}}-accordion-toggle-{{filterInstance}}" class="filter-options__accordion-toggle">
+              <svg id="filters-{{category.value}}-accordion-icon-{{filterInstance}}" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
+              <h3 class='govuk-body-m filter-options__category-heading'>
+                {{ category.name }}
+              </h3>
+            </button>
+          </label>
+          <fieldset class="filter-options__filters filter-options__accordion-child filter-options__filters--hidden govuk-fieldset" id="filters-{{category.value}}-filters-{{filterInstance}}">
+            <legend class="filter-options__legend">
+              <h3>
+                {{category.name}} Filters
+              </h3>
+            </legend>
+            <div class="govuk-form-group">
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
+                  <input class="govuk-checkboxes__input" {% if category.selectedAll %}checked{% endif %} id="filters-{{category.value}}-all-{{filterInstance}}" name="{{category.value}}" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="filters-{{category.value}}-all-{{filterInstance}}">
+                    All
+                  </label>
+                </div>
+
+                {% for filter in category.filters %}
+                  <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
+                    <input class="govuk-checkboxes__input" {% if filter.checked %}checked{% endif %} id="filters-{{filter.value}}-filter-{{filterInstance}}" name="{{category.value}}" type="checkbox" value="{{filter.value}}" data-multiple="true" data-ncea-only="{{ filter.hasNCEAData }}">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-{{filter.value}}-filter-{{filterInstance}}">
+                      {{filter.name}}
+                    </label>
                   </div>
-                </fieldset>
+                {% endfor %}
               </div>
-            </section>
-          </section>
-        </section>
-        <div class="govuk-section-break--visible"></div>
-      </section>
-    </form>
-  {% endif %}
+          </fieldset>
+        </div>
+      {% endfor %}
+    </div>
 
+    <div class="filter-options__container">
+      <label for="filters-date-accordion-toggle-{{filterInstance}}" class="filter-options__accordion" data-category-{{filterInstance}}="date">
+        <button type="button" aria-expanded="false" data-expanded="false" id="filters-date-accordion-toggle-{{filterInstance}}" class="filter-options__accordion-toggle">
+          <svg id="filters-date-accordion-icon-{{filterInstance}}" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
+          <h3 class='filter-options__category-heading govuk-body-m'>
+            Date Last Updated
+          </h3>
+        </button>
+      </label>
+      <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-date-filters-{{filterInstance}}">
+        {{ govukDateInput({
+          id: "date-before-"+filterInstance,
+          namePrefix: "before",
+          fieldset: {
+            legend: {
+              text: "Updated after",
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          hint: {
+            text: "For example, 27 3 2007"
+          },
+          items: [
+            {
+              classes: "govuk-input--width-2",
+              name: "day",
+              value: dspFilterOptions.lastUpdated.before.day
+            },
+            {
+              classes: "govuk-input--width-2",
+              name: "month",
+              value: dspFilterOptions.lastUpdated.before.month
+            },
+            {
+              classes: "govuk-input--width-4",
+              name: "year",
+              value: dspFilterOptions.lastUpdated.before.year
+            }
+          ]
+        }) }}
+
+        {{ govukDateInput({
+          id: "date-after-"+filterInstance,
+          namePrefix: "after",
+          fieldset: {
+            legend: {
+              text: "Updated before",
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          hint: {
+            text: "For example, 27 3 2007"
+          },
+          items: [
+            {
+              classes: "govuk-input--width-2",
+              name: "day",
+              value: dspFilterOptions.lastUpdated.after.day
+            },
+            {
+              classes: "govuk-input--width-2",
+              name: "month",
+              value: dspFilterOptions.lastUpdated.after.month
+            },
+            {
+              classes: "govuk-input--width-4",
+              name: "year",
+              value: dspFilterOptions.lastUpdated.after.year
+            }
+          ]
+        }) }}
+      </div>
+    </div>
+    <div class="filter-options__container">
+      <label for="filters-licence-accordion-toggle-{{filterInstance}}" class="filter-options__accordion" data-category-{{filterInstance}}="licence">
+        <button type="button" aria-expanded="false" data-expanded="false" id="filters-licence-accordion-toggle-{{filterInstance}}" class="filter-options__accordion-toggle">
+          <svg id="filters-licence-accordion-icon-{{filterInstance}}" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
+          <h3 class='filter-options__category-heading govuk-body-m'>
+            Licence
+          </h3>
+        </button>
+      </label>
+      <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-licence-filters-{{filterInstance}}">
+        {{ govukInput({
+          id: 'licence-'+filterInstance,
+          name: dspFilterNames.licence,
+          value: dspFilterOptions.license
+        }) }}
+      </div>
+    </div>
+    <div class="filter-options__container">
+      <label for="filters-keywords-accordion-toggle-{{filterInstance}}" class="filter-options__accordion" data-category-{{filterInstance}}="keywords">
+        <button type="button" aria-expanded="false" data-expanded="false" id="filters-keywords-accordion-toggle-{{filterInstance}}" class="filter-options__accordion-toggle">
+          <svg id="filters-keywords-accordion-icon-{{filterInstance}}" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
+          <h3 class='filter-options__category-heading govuk-body-m'>
+            Keywords
+          </h3>
+        </button>
+      </label>
+      <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-keywords-filters-{{filterInstance}}">
+        {{ govukInput({
+          id: 'keywords-'+filterInstance,
+          name: dspFilterNames.keywords,
+          value: dspFilterOptions.keywords
+        }) }}
+      </div>
+    </div>
+
+    <div class="govuk-checkboxes govuk-checkboxes--small">
+      <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
+        <input class="govuk-checkboxes__input" id="retired-archived-{{filterInstance}}" {% if dspFilterOptions.retiredAndArchived %}checked{% endif %} name="{{dspFilterNames.retiredAndArchived}}" type="checkbox" value="true">
+        <label class="govuk-label govuk-checkboxes__label" for="retired-archived-{{filterInstance}}">
+          <span class="filter-options__retired-label">Include Retired & Archived records</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="govuk-!-margin-top-4 govuk-section-break--visible"></div>
+
+    <a href="{{dspFilterReset}}" class="filter-options__reset-link govuk-body-m">Reset Filters</a>
+  </section>
+</form>

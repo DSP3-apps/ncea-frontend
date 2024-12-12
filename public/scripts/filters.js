@@ -4,10 +4,68 @@ const filterSPFormId = 'study_period_filter';
 const filterRTFormId = 'resource_type_filter';
 const searchResultSortFormId = 'sort_results';
 
+const addCategoryAccordionToggleListeners = (instance) => {
+  const categories = document.querySelectorAll(`[data-category-${instance}]`);
+
+  for (const category of categories) {
+    const categoryName = category.getAttribute(`data-category-${instance}`);
+
+    const input = document.getElementById(`filters-${categoryName}-accordion-toggle-${instance}`);
+    const icon = document.getElementById(`filters-${categoryName}-accordion-icon-${instance}`);
+    const filters = document.getElementById(`filters-${categoryName}-filters-${instance}`);
+
+    input.addEventListener('click', () => {
+      const expanded = input.getAttribute('data-expanded');
+
+      if (expanded === 'false') {
+        input.setAttribute('data-expanded', 'true');
+        input.setAttribute('aria-expanded', 'true');
+
+        icon.classList.add('filter-options__accordion--open');
+        filters.classList.remove('filter-options__filters--hidden');
+      } else {
+        input.setAttribute('data-expanded', 'false');
+        input.setAttribute('aria-expanded', 'false');
+
+        icon.classList.remove('filter-options__accordion--open');
+        filters.classList.add('filter-options__filters--hidden');
+      }
+    });
+  }
+};
+
+const addFilterFormChangeListener = (instance) => {
+  const form = document.getElementById(`filters-${instance}`);
+
+  form.addEventListener('change', () => {
+    const data = new FormData(form);
+
+    // this is also defined in `utils/searchFilters.ts`
+    const isNCEAOnly = data.get('scope') === 'ncea';
+
+    if (isNCEAOnly) {
+      const allNCEA = document.querySelectorAll("[data-ncea-only='false']");
+
+      for (const nceaCb of allNCEA) {
+        for (const key of data.keys()) {
+          const values = data.getAll(key);
+
+          data.set(
+            key,
+            values.filter((v) => v != nceaCb.value),
+          );
+        }
+      }
+    }
+
+    const url = new URLSearchParams(data);
+
+    window.location.search = url.toString();
+  });
+};
+
 const addFilterHeadingClickListeners = (instance) => {
-  const filterHeadingElement = document.getElementById(
-    `toggle_resource_type-${instance}`,
-  );
+  const filterHeadingElement = document.getElementById(`toggle_resource_type-${instance}`);
   if (filterHeadingElement) {
     filterHeadingElement.addEventListener('click', function () {
       const parentNode = filterHeadingElement.parentNode;
@@ -95,9 +153,7 @@ const attachStudyPeriodChangeListener = (instance, doSubmit = false) => {
 };
 
 const attachSearchResultsFilterCheckboxChangeListener = () => {
-  const searchResultsFilterCheckboxes = document.querySelectorAll(
-    '[data-instance="search_results"]',
-  );
+  const searchResultsFilterCheckboxes = document.querySelectorAll('[data-instance="search_results"]');
   if (searchResultsFilterCheckboxes.length) {
     searchResultsFilterCheckboxes.forEach((checkbox) => {
       checkbox.addEventListener('change', function () {
@@ -124,9 +180,12 @@ const attachSearchResultsSortChangeListener = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   addFilterHeadingClickListeners('search_results');
-  attachStudyPeriodChangeListener('search_results', true);
+  // attachStudyPeriodChangeListener('search_results', true);
   attachSearchResultsFilterCheckboxChangeListener();
   attachSearchResultsSortChangeListener();
+
+  addCategoryAccordionToggleListeners('search_results');
+  addFilterFormChangeListener('search_results');
 });
 
-export { addFilterHeadingClickListeners, attachStudyPeriodChangeListener };
+export { addFilterHeadingClickListeners, attachStudyPeriodChangeListener, addCategoryAccordionToggleListeners };
