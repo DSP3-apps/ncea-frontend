@@ -70,6 +70,7 @@ const formatSearchResponse = async (
   let maxToYear: string = '';
 
   const apiSearchItems = apiResponse?.hits?.hits;
+
   const responseItems: Promise<ISearchItem>[] = apiSearchItems.map(async (searchItem: Record<string, any>) => {
     const startDate: string = searchItem?._source?.resourceTemporalExtentDetails?.[0]?.start?.date ?? '';
     const endDate: string = searchItem?._source?.resourceTemporalExtentDetails?.[0]?.end?.date ?? '';
@@ -99,7 +100,7 @@ const formatSearchResponse = async (
       organisationName: organisationDetails.organisationValue,
     };
 
-    if (isMapResults) {
+    if (isMapResults && searchItem._source?.geom != null) {
       const coordinatesData: IAccumulatedCoordinatesWithCenter = getAccumulatedCoordinatesNCenter(
         searchItem._source.geom,
       ) as IAccumulatedCoordinatesWithCenter;
@@ -109,6 +110,8 @@ const formatSearchResponse = async (
         geographicCenter: coordinatesData.center,
         resourceType: searchItem?._source?.resourceType ?? [],
       };
+    } else if (isMapResults) {
+      return null;
     }
 
     if (isDetails) {
@@ -119,7 +122,10 @@ const formatSearchResponse = async (
     return item;
   });
 
-  finalResponse.items = await Promise.all(responseItems);
+  finalResponse.items = (await Promise.all(responseItems)).filter((item) => item != null);
+  if (isMapResults) {
+    finalResponse.total = finalResponse.items.length;
+  }
   return finalResponse;
 };
 
