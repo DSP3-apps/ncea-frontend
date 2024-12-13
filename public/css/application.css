@@ -2805,24 +2805,6 @@
   margin-bottom: 0;
 }
 
-@media screen {
-  .govuk-details {
-    border-left: 10px solid #b1b4b6;
-  }
-  .govuk-details__summary {
-    margin-top: 15px;
-  }
-  .govuk-details__summary-text {
-    font-weight: 700;
-    margin-bottom: 15px;
-    padding-left: 20px;
-  }
-}
-@media screen and (min-width: 40.0625em) {
-  .govuk-details__summary-text {
-    margin-bottom: 20px;
-  }
-}
 @supports not (-ms-ime-align: auto) {
   .govuk-details__summary {
     position: relative;

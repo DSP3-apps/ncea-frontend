@@ -4,6 +4,12 @@ const filterSPFormId = 'study_period_filter';
 const filterRTFormId = 'resource_type_filter';
 const searchResultSortFormId = 'sort_results';
 
+/**
+ * Attatch event listeners to the filters accordions so
+ * they can be interacted with (opened and closed).
+ *
+ * @param {string} instance
+ */
 const addCategoryAccordionToggleListeners = (instance) => {
   const categories = document.querySelectorAll(`[data-category-${instance}]`);
 
@@ -34,6 +40,30 @@ const addCategoryAccordionToggleListeners = (instance) => {
   }
 };
 
+/**
+ * Appends meta filter paramters to a new set of params.
+ *
+ * When the params get replaced in the url, we do not want to lose
+ * the query or related entries, so this will add them back.
+ *
+ * @param {URLSearchParams} filterParams
+ */
+const appendMetaSearchParams = (filterParams) => {
+  const params = new URLSearchParams(window.location.search);
+
+  filterParams.set('q', params.get('q')); // query
+  filterParams.set('rpp', params.get('rpp')); // results per page
+  filterParams.set('srt', params.get('srt')); // sort
+  filterParams.set('jry', params.get('jry')); // journey (quick / classifier)
+  filterParams.set('pg', params.get('pg')); // current page
+};
+
+/**
+ * Attatch event listener to the form containing the filters
+ * so the page responds when filter is changed.
+ *
+ * @param {string} instance
+ */
 const addFilterFormChangeListener = (instance) => {
   const form = document.getElementById(`filters-${instance}`);
 
@@ -59,6 +89,7 @@ const addFilterFormChangeListener = (instance) => {
     }
 
     const url = new URLSearchParams(data);
+    appendMetaSearchParams(url);
 
     window.location.search = url.toString();
   });

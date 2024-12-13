@@ -1,4 +1,4 @@
-export const CLASSIFIER_COUNT_LEVEL_3 = { count: 8091, _shards: { total: 1, successful: 1, skipped: 0, failed: 0 } };
+export const CLASSIFIER_COUNT_LEVEL_3 = { count: 1032, _shards: { total: 1, successful: 1, skipped: 0, failed: 0 } };
 
 export const CLASSIFIER_LEVEL_3 = [
   {
