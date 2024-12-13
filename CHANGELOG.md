@@ -1,3 +1,24 @@
+# [1.2.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.1.0...v1.2.0) (2024-12-13)
+
+
+### Bug Fixes
+
+* **filters:** Fix query paramters removed from url upon filter change ([d339c09](https://github.com/DSP3-apps/ncea-frontend/commit/d339c09b5071fb65e9ce0f46ea8ede3a4cec7b68)), closes [#NCEA-123](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-123)
+* **filters:** Fix styling issue in classifier search ([38f2a67](https://github.com/DSP3-apps/ncea-frontend/commit/38f2a67240b75de71690af28ddf3b8b6e864d18b))
+* **filters:** Prevent invalid state in url ([75e3e0e](https://github.com/DSP3-apps/ncea-frontend/commit/75e3e0e850ac0c79cb0dd13020fce0558d5aa9ed)), closes [#NCEA-123](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-123)
+* **frontend:** Fix incorrect count in classifier search ([d1f9589](https://github.com/DSP3-apps/ncea-frontend/commit/d1f95897de43e07c70c52f54096ebed39f25fa56)), closes [#NCEA-123](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-123)
+* **map:** Fix map view not appearing in quick search ([079e62a](https://github.com/DSP3-apps/ncea-frontend/commit/079e62afaa0af3608c3f36ab9c877acdbba73997))
+* **tests:** Fix tests after merging DSP filters ([fede729](https://github.com/DSP3-apps/ncea-frontend/commit/fede7295940b841c7cff4992af4e26ec5c0fdae7)), closes [#NCEA-123](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-123)
+
+
+### Features
+
+* **filter scope:** Change data scope filter to radio button ([a02dd21](https://github.com/DSP3-apps/ncea-frontend/commit/a02dd21925f311d21f2f7560c1f596c0e29df59b)), closes [#NCEA-123](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-123)
+* **filters:** Add styling to new filters ([e39c320](https://github.com/DSP3-apps/ncea-frontend/commit/e39c320fa9008c80c83702f52854ed608863e158)), closes [#NCEA-123](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-123)
+* **filters:** Create markup for new DSP filters ([8518c3f](https://github.com/DSP3-apps/ncea-frontend/commit/8518c3f1bed983d2b48da2e84ff303dafbf74798)), closes [#NCEA-123](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-123)
+* **filters:** Implement filter functionality ([ddd0169](https://github.com/DSP3-apps/ncea-frontend/commit/ddd0169304c4b6c354ec9d80fe6647a9583ac9d5)), closes [#NCEA-123](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-123)
+* **filters:** Replace magic strings with constants ([89baf17](https://github.com/DSP3-apps/ncea-frontend/commit/89baf17e3c382895b7d65758085cd51675b15e14)), closes [#NCEA-123](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-123)
+
 # [1.1.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.0.2...v1.1.0) (2024-12-12)
 
 
