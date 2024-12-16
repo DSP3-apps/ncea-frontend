@@ -20,6 +20,7 @@ export const QUICK_SEARCH_RESPONSE = {
         _id: '263846b9eee8aa345e9b1ba04fdedade',
         _score: 11.707571,
         _source: {
+          status: 'active', // added for filtering
           docType: 'metadata',
           document: '',
           metadataIdentifier: '263846b9eee8aa345e9b1ba04fdedade',
@@ -45,7 +46,8 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contact: [
             {
-              organisationName: '\n        English Heritage\n      ',
+              organisationName: 'English Heritage',
+              organisationValue: 'ne', // added for filtering
               role: 'pointOfContact',
               email: 'chris.pater@english-heritage.org.uk',
               website: '',
@@ -154,7 +156,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForResource: [
             {
-              organisationName: '\n            English Heritage\n          ',
+              organisationName: 'English Heritage',
               role: 'originator',
               email: 'chris.pater@english-heritage.org.uk',
               website: '',
@@ -170,7 +172,7 @@ export const QUICK_SEARCH_RESPONSE = {
               administrativeArea: '',
             },
             {
-              organisationName: '\n            English Heritage\n          ',
+              organisationName: 'English Heritage',
               role: 'custodian',
               email: 'chris.pater@english-heritage.org.uk',
               website: '',
@@ -391,7 +393,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForDistribution: [
             {
-              organisationName: '\n                English Heritage\n              ',
+              organisationName: 'English Heritage',
               role: 'distributor',
               email: 'chris.pater@english-heritage.org.uk',
               website: '',
@@ -492,6 +494,7 @@ export const QUICK_SEARCH_RESPONSE = {
         _id: 'd386067ffbcc9d82cf307d8e79db5ba2',
         _score: 10.281776,
         _source: {
+          status: 'active', // added for filtering
           docType: 'metadata',
           document: '',
           metadataIdentifier: 'd386067ffbcc9d82cf307d8e79db5ba2',
@@ -517,7 +520,8 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contact: [
             {
-              organisationName: '\n        DASSH, The Archive for Marine Species and Habitat Data\n      ',
+              organisationName: 'DASSH, The Archive for Marine Species and Habitat Data',
+              organisationValue: 'cefas', // added for filtering
               role: 'pointOfContact',
               email: 'dassh.enquiries@mba.ac.uk',
               website: '',
@@ -626,7 +630,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForResource: [
             {
-              organisationName: '\n            Net Gain: The North Sea Marine Conservation Zones Project\n          ',
+              organisationName: 'Net Gain: The North Sea Marine Conservation Zones Project',
               role: 'originator',
               email: 'info@netgainmcz.org',
               website: '',
@@ -642,7 +646,7 @@ export const QUICK_SEARCH_RESPONSE = {
               administrativeArea: '',
             },
             {
-              organisationName: '\n            Net Gain: The North Sea Marine Conservation Zones Project\n          ',
+              organisationName: 'Net Gain: The North Sea Marine Conservation Zones Project',
               role: 'custodian',
               email: 'info@netgainmcz.org',
               website: '',
@@ -923,7 +927,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForDistribution: [
             {
-              organisationName: '\n                Natural England\n              ',
+              organisationName: 'Natural England',
               role: 'distributor',
               email: 'enquiries@naturalengland.org.uk',
               website: '',
@@ -943,6 +947,7 @@ export const QUICK_SEARCH_RESPONSE = {
             'http://publications.naturalengland.org.uk/publication/1466980',
             'http://publications.naturalengland.org.uk',
           ],
+          linkProtocol: ['http-wr', 'http-wr'], // changed for filtering
           linkUrlProtocol: [
             'http://publications.naturalengland.org.uk/publication/1466980',
             'http://publications.naturalengland.org.uk',
@@ -1085,6 +1090,7 @@ export const QUICK_SEARCH_RESPONSE = {
         _id: 'efcf9dbf8f3a3a5a2f52b0d85596da8b',
         _score: 9.039342,
         _source: {
+          status: 'active', // added for filtering
           docType: 'metadata',
           document: '',
           metadataIdentifier: 'efcf9dbf8f3a3a5a2f52b0d85596da8b',
@@ -1110,7 +1116,8 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contact: [
             {
-              organisationName: '\n        DASSH, The Archive for Marine Species and Habitat Data\n      ',
+              organisationName: 'DASSH, The Archive for Marine Species and Habitat Data',
+              organisationValue: 'cefas', // added for filtering
               role: 'pointOfContact',
               email: 'dassh.enquiries@mba.ac.uk',
               website: '',
@@ -1221,7 +1228,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForResource: [
             {
-              organisationName: '\n            Net Gain: The North Sea Marine Conservation Zones Project\n          ',
+              organisationName: 'Net Gain: The North Sea Marine Conservation Zones Project',
               role: 'originator',
               email: 'info@netgainmcz.org',
               website: '',
@@ -1237,7 +1244,7 @@ export const QUICK_SEARCH_RESPONSE = {
               administrativeArea: '',
             },
             {
-              organisationName: '\n            Net Gain: The North Sea Marine Conservation Zones Project\n          ',
+              organisationName: 'Net Gain: The North Sea Marine Conservation Zones Project',
               role: 'custodian',
               email: 'info@netgainmcz.org',
               website: '',
@@ -1518,7 +1525,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForDistribution: [
             {
-              organisationName: '\n                Natural England\n              ',
+              organisationName: 'Natural England',
               role: 'distributor',
               email: 'enquiries@naturalengland.org.uk',
               website: '',
@@ -1538,6 +1545,7 @@ export const QUICK_SEARCH_RESPONSE = {
             'http://publications.naturalengland.org.uk/publication/1466980',
             'http://publications.naturalengland.org.uk',
           ],
+          linkProtocol: ['http-wr', 'http-wr'], // changed for filtering
           linkUrlProtocol: [
             'http://publications.naturalengland.org.uk/publication/1466980',
             'http://publications.naturalengland.org.uk',
@@ -1682,6 +1690,7 @@ export const QUICK_SEARCH_RESPONSE = {
         _id: 'dd9aa6b8e92f53c77370e6e9418d2be4',
         _score: 8.972845,
         _source: {
+          status: 'active', // added for filtering
           docType: 'metadata',
           document: '',
           metadataIdentifier: 'dd9aa6b8e92f53c77370e6e9418d2be4',
@@ -1707,7 +1716,8 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contact: [
             {
-              organisationName: '\n        DASSH, The Archive for Marine Species and Habitat Data\n      ',
+              organisationName: 'DASSH, The Archive for Marine Species and Habitat Data',
+              organisationValue: 'cefas', // added for filtering
               role: 'pointOfContact',
               email: 'plearoyd@lincstrust.co.uk',
               website: '',
@@ -1804,7 +1814,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForResource: [
             {
-              organisationName: '\n            DASSH, The Archive for Marine Species and Habitat Data\n          ',
+              organisationName: 'DASSH, The Archive for Marine Species and Habitat Data',
               role: 'originator',
               email: 'dassh.enquiries@mba.ac.uk',
               website: '',
@@ -1820,7 +1830,7 @@ export const QUICK_SEARCH_RESPONSE = {
               administrativeArea: '',
             },
             {
-              organisationName: '\n            DASSH, The Archive for Marine Species and Habitat Data\n          ',
+              organisationName: 'DASSH, The Archive for Marine Species and Habitat Data',
               role: 'custodian',
               email: 'dassh.enquiries@mba.ac.uk',
               website: '',
@@ -2041,8 +2051,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForDistribution: [
             {
-              organisationName:
-                '\n                Data Archive for Seabed Species and Habitats (DASSH)\n              ',
+              organisationName: 'Data Archive for Seabed Species and Habitats (DASSH)',
               role: 'distributor',
               email: 'dassh.enquiries@mba.ac.uk',
               website: '',
@@ -2170,6 +2179,7 @@ export const QUICK_SEARCH_RESPONSE = {
         _score: 8.663944,
         _ignored: ['OrgResourceConstraints.OrgOtherConstraints.keyword'],
         _source: {
+          status: 'active', // added for filtering
           docType: 'metadata',
           document: '',
           metadataIdentifier: '4f4c4942-4343-5764-6473-313134373337',
@@ -2195,7 +2205,8 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contact: [
             {
-              organisationName: '\n        Natural Resources Wales (NRW)\n      ',
+              organisationName: 'Natural Resources Wales (NRW)',
+              organisationValue: 'ne', // added for filtering
               role: 'pointOfContact',
               email: 'enquiries@naturalresourceswales.gov.uk',
               website: '',
@@ -2319,7 +2330,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForResource: [
             {
-              organisationName: '\n            Natural Resources Wales (NRW)\n          ',
+              organisationName: 'Natural Resources Wales (NRW)',
               role: 'custodian',
               email: 'enquiries@naturalresourceswales.gov.uk',
               website: '',
@@ -2335,7 +2346,7 @@ export const QUICK_SEARCH_RESPONSE = {
               administrativeArea: '',
             },
             {
-              organisationName: '\n            Countryside Council for Wales (CCW)\n          ',
+              organisationName: 'Countryside Council for Wales (CCW)',
               role: 'originator',
               email: 'enquiries@naturalresourceswales.gov.uk',
               website: '',
@@ -2351,7 +2362,7 @@ export const QUICK_SEARCH_RESPONSE = {
               administrativeArea: '',
             },
             {
-              organisationName: '\n            Various\n          ',
+              organisationName: 'Various',
               role: 'originator',
               email: 'enquiries@naturalresourceswales.gov.uk',
               website: '',
@@ -2574,7 +2585,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForDistribution: [
             {
-              organisationName: '\n                Natural Resources Wales (NRW)\n              ',
+              organisationName: 'Natural Resources Wales (NRW)',
               role: 'distributor',
               email: 'enquiries@naturalresourceswales.gov.uk',
               website: '',
@@ -2695,6 +2706,7 @@ export const QUICK_SEARCH_RESPONSE = {
         _score: 8.565469,
         _ignored: ['lineageObject.langeng.keyword', 'lineageObject.default.sort', 'lineageObject.default.keyword'],
         _source: {
+          status: 'retired', // added for filtering
           docType: 'metadata',
           document: '',
           metadataIdentifier: '3ee09ec4eee4da764a29b4ee3845074c',
@@ -2720,7 +2732,8 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contact: [
             {
-              organisationName: '\n        Data Archive for Seabed Species and Habitats (DASSH)\n      ',
+              organisationName: 'Data Archive for Seabed Species and Habitats (DASSH)',
+              organisationValue: 'mmo', // added for filtering
               role: 'pointOfContact',
               email: 'dassh.enquiries@mba.ac.uk',
               website: '',
@@ -2829,7 +2842,7 @@ export const QUICK_SEARCH_RESPONSE = {
           ],
           contactForResource: [
             {
-              organisationName: '\n            Department for Environment, Food and Rural Affairs (DEFRA)\n          ',
+              organisationName: 'Department for Environment, Food and Rural Affairs (DEFRA)',
               role: 'originator',
               email: 'SPIRE@defra.gsi.gov.uk',
               website: '',
@@ -2845,8 +2858,7 @@ export const QUICK_SEARCH_RESPONSE = {
               administrativeArea: '',
             },
             {
-              organisationName:
-                '\n            Joint Nature Conservation Committee (JNCC) - Marine Conservation Branch, Peterborough\n          ',
+              organisationName: 'Joint Nature Conservation Committee (JNCC) - Marine Conservation Branch, Peterborough',
               role: 'originator',
               email: 'comment@jncc.gov.uk',
               website: '',
@@ -2862,7 +2874,7 @@ export const QUICK_SEARCH_RESPONSE = {
               administrativeArea: '',
             },
             {
-              organisationName: '\n            Marine Environmental Data and Information Network\n          ',
+              organisationName: 'Marine Environmental Data and Information Network',
               role: 'custodian',
               email: 'gaev@bodc.ac.uk',
               website: '',
@@ -3058,8 +3070,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForDistribution: [
             {
-              organisationName:
-                '\n                Joint Nature Conservation Committee (JNCC) - Marine Conservation Branch, Peterborough\n              ',
+              organisationName: 'Joint Nature Conservation Committee (JNCC) - Marine Conservation Branch, Peterborough',
               role: 'distributor',
               email: 'comment@jncc.gov.uk',
               website: '',
@@ -3076,6 +3087,7 @@ export const QUICK_SEARCH_RESPONSE = {
             },
           ],
           linkUrl: 'https://www.bodc.ac.uk/data/download/asset/2478/generic/',
+          linkProtocol: ['http-fd'], // changed for filtering
           linkUrlProtocol: 'https://www.bodc.ac.uk/data/download/asset/2478/generic/',
           link: [
             {
@@ -3180,6 +3192,7 @@ export const QUICK_SEARCH_RESPONSE = {
         _score: 8.276622,
         _ignored: ['OrgResourceConstraints.OrgOtherConstraints.keyword'],
         _source: {
+          status: 'active', // added for filtering
           docType: 'metadata',
           document: '',
           metadataIdentifier: '4f4c4942-4343-5764-6473-313134393432',
@@ -3205,7 +3218,8 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contact: [
             {
-              organisationName: '\n        Natural Resources Wales (NRW)\n      ',
+              organisationName: 'Natural Resources Wales (NRW)',
+              organisationValue: 'ne', // added for filtering
               role: 'pointOfContact',
               email: 'enquiries@naturalresourceswales.gov.uk',
               website: '',
@@ -3323,7 +3337,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForResource: [
             {
-              organisationName: '\n            Natural Resources Wales (NRW)\n          ',
+              organisationName: 'Natural Resources Wales (NRW)',
               role: 'custodian',
               email: 'enquiries@naturalresourceswales.gov.uk',
               website: '',
@@ -3339,8 +3353,7 @@ export const QUICK_SEARCH_RESPONSE = {
               administrativeArea: '',
             },
             {
-              organisationName:
-                '\n            Countryside Council for Wales (CCW). Marine and Freshwater Ecosystems Group\n          ',
+              organisationName: 'Countryside Council for Wales (CCW). Marine and Freshwater Ecosystems Group',
               role: 'originator',
               email: 'enquiries@ccw.gov.uk',
               website: '',
@@ -3356,7 +3369,7 @@ export const QUICK_SEARCH_RESPONSE = {
               administrativeArea: '',
             },
             {
-              organisationName: '\n            Aquatic Survey and Monitoring Ltd (ASML)\n          ',
+              organisationName: 'Aquatic Survey and Monitoring Ltd (ASML)',
               role: 'originator',
               email: 'tom@aquatic-environments.co.uk',
               website: '',
@@ -3582,7 +3595,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForDistribution: [
             {
-              organisationName: '\n                Natural Resources Wales (NRW)\n              ',
+              organisationName: 'Natural Resources Wales (NRW)',
               role: 'distributor',
               email: 'enquiries@naturalresourceswales.gov.uk',
               website: '',
@@ -3701,6 +3714,7 @@ export const QUICK_SEARCH_RESPONSE = {
         _id: '2cbc391c-4f5e-3aa1-93e4-9e64ba0c053b',
         _score: 7.8367724,
         _source: {
+          status: 'active', // added for filtering
           docType: 'metadata',
           document: '',
           metadataIdentifier: '2cbc391c-4f5e-3aa1-93e4-9e64ba0c053b',
@@ -3726,7 +3740,8 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contact: [
             {
-              organisationName: '\n        Archaeology Data Service\n      ',
+              organisationName: 'Archaeology Data Service',
+              organisationValue: 'ea', // added for filtering
               role: 'pointOfContact',
               email: 'help@archaeologydataservice.ac.uk',
               website: '',
@@ -3821,7 +3836,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForResource: [
             {
-              organisationName: '\n            DASSH, The Archive for Marine Species and Habitat Data\n          ',
+              organisationName: 'DASSH, The Archive for Marine Species and Habitat Data',
               role: 'originator',
               email: 'dassh.enquiries@mba.ac.uk',
               website: '',
@@ -3837,7 +3852,7 @@ export const QUICK_SEARCH_RESPONSE = {
               administrativeArea: '',
             },
             {
-              organisationName: '\n            Archaeology Data Service\n          ',
+              organisationName: 'Archaeology Data Service',
               role: 'custodian',
               email: 'help@archaeologydataservice.ac.uk',
               website: '',
@@ -4026,7 +4041,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForDistribution: [
             {
-              organisationName: '\n                Archaeology Data Service\n              ',
+              organisationName: 'Archaeology Data Service',
               role: 'distributor',
               email: 'help@archaeologydataservice.ac.uk',
               website: '',
@@ -4115,6 +4130,7 @@ export const QUICK_SEARCH_RESPONSE = {
         _id: '77738544-e31a-4719-a551-d1b616109b8e',
         _score: 7.311495,
         _source: {
+          status: 'retired', // added for filtering
           docType: 'metadata',
           document: '',
           metadataIdentifier: '77738544-e31a-4719-a551-d1b616109b8e',
@@ -4132,7 +4148,8 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contact: [
             {
-              organisationName: '\n        Digital and Data Solutions, JNCC\n      ',
+              organisationName: 'Digital and Data Solutions, JNCC',
+              organisationValue: 'jncc', // added for filtering
               role: 'pointOfContact',
               email: 'data@jncc.gov.uk',
               website: '',
@@ -4212,7 +4229,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForResource: [
             {
-              organisationName: '\n            Digital and Data Solutions, JNCC\n          ',
+              organisationName: 'Digital and Data Solutions, JNCC',
               role: 'custodian',
               email: 'data@jncc.gov.uk',
               website: '',
@@ -4363,9 +4380,11 @@ export const QUICK_SEARCH_RESPONSE = {
             default: 'This survey was extracted from a Marine Recorder snapshot.',
             langeng: 'This survey was extracted from a Marine Recorder snapshot.',
           },
-          format: ['Comma Separated Values'],
+          // format: ['Comma Separated Values'],
+          format: ['csv'], // changed for filtering
           linkUrl:
             'http://data.jncc.gov.uk/data/77738544-e31a-4719-a551-d1b616109b8e-1997-MNCR-north-Norfolk-littoral-survey.csv',
+          linkProtocol: ['http-fd'], // changed for filtering
           linkUrlProtocol:
             'http://data.jncc.gov.uk/data/77738544-e31a-4719-a551-d1b616109b8e-1997-MNCR-north-Norfolk-littoral-survey.csv',
           link: [
@@ -4473,6 +4492,7 @@ export const QUICK_SEARCH_RESPONSE = {
         _id: '47a9f1f7-13cb-42f3-9616-89ec8edc2d19',
         _score: 7.311495,
         _source: {
+          status: 'active', // added for filtering
           docType: 'metadata',
           document: '',
           metadataIdentifier: '47a9f1f7-13cb-42f3-9616-89ec8edc2d19',
@@ -4490,7 +4510,8 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contact: [
             {
-              organisationName: '\n        Digital and Data Solutions, JNCC\n      ',
+              organisationName: 'Digital and Data Solutions, JNCC',
+              organisationValue: 'jncc', // added for filtering
               role: 'pointOfContact',
               email: 'data@jncc.gov.uk',
               website: '',
@@ -4570,7 +4591,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForResource: [
             {
-              organisationName: '\n            Digital and Data Solutions, JNCC\n          ',
+              organisationName: 'Digital and Data Solutions, JNCC',
               role: 'custodian',
               email: 'data@jncc.gov.uk',
               website: '',
@@ -4721,9 +4742,11 @@ export const QUICK_SEARCH_RESPONSE = {
             default: 'This survey was extracted from a Marine Recorder snapshot.',
             langeng: 'This survey was extracted from a Marine Recorder snapshot.',
           },
-          format: ['Comma Separated Values'],
+          // format: ['Comma Separated Values'],
+          format: ['csv'], // changed for filtering
           linkUrl:
             'http://data.jncc.gov.uk/data/47a9f1f7-13cb-42f3-9616-89ec8edc2d19-1997-MNCR-north-Norfolk-littoral-survey.csv',
+          linkProtocol: ['http-fd'], // changed for filtering
           linkUrlProtocol:
             'http://data.jncc.gov.uk/data/47a9f1f7-13cb-42f3-9616-89ec8edc2d19-1997-MNCR-north-Norfolk-littoral-survey.csv',
           link: [
@@ -4831,6 +4854,7 @@ export const QUICK_SEARCH_RESPONSE = {
         _id: '4f4c4942-4343-5764-6473-313032303335',
         _score: 6.883801,
         _source: {
+          status: 'active', // added for filtering
           docType: 'metadata',
           document: '',
           metadataIdentifier: '4f4c4942-4343-5764-6473-313032303335',
@@ -4856,7 +4880,8 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contact: [
             {
-              organisationName: '\n        Natural Resources Wales (NRW)\n      ',
+              organisationName: 'Natural Resources Wales (NRW)',
+              organisationValue: 'ne', // added for filtering
               role: 'pointOfContact',
               email: 'enquiries@naturalresourceswales.gov.uk',
               website: '',
@@ -4974,7 +4999,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForResource: [
             {
-              organisationName: '\n            Natural Resources Wales (NRW)\n          ',
+              organisationName: 'Natural Resources Wales (NRW)',
               role: 'custodian',
               email: 'enquiries@naturalresourceswales.gov.uk',
               website: '',
@@ -4990,7 +5015,7 @@ export const QUICK_SEARCH_RESPONSE = {
               administrativeArea: '',
             },
             {
-              organisationName: '\n            Countryside Council for Wales (CCW)\n          ',
+              organisationName: 'Countryside Council for Wales (CCW)',
               role: 'originator',
               email: 'enquiries@naturalresourceswales.gov.uk',
               website: '',
@@ -5006,7 +5031,7 @@ export const QUICK_SEARCH_RESPONSE = {
               administrativeArea: '',
             },
             {
-              organisationName: '\n            Hull University. Institute Of Estuarine And Coastal Studies\n          ',
+              organisationName: 'Hull University. Institute Of Estuarine And Coastal Studies',
               role: 'originator',
               email: 'iecs@hull.ac.uk',
               website: '',
@@ -5231,7 +5256,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForDistribution: [
             {
-              organisationName: '\n                Natural Resources Wales (NRW)\n              ',
+              organisationName: 'Natural Resources Wales (NRW)',
               role: 'distributor',
               email: 'enquiries@naturalresourceswales.gov.uk',
               website: '',
@@ -5353,6 +5378,7 @@ export const QUICK_SEARCH_RESPONSE = {
         _id: 'c18e1393-d5fc-4559-b5bb-2501f63a3465',
         _score: 6.087425,
         _source: {
+          status: 'retired', // added for filtering
           docType: 'metadata',
           document: '',
           metadataIdentifier: 'c18e1393-d5fc-4559-b5bb-2501f63a3465',
@@ -5370,7 +5396,8 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contact: [
             {
-              organisationName: '\n        Digital and Data Solutions, JNCC\n      ',
+              organisationName: 'Digital and Data Solutions, JNCC',
+              organisationValue: 'jncc', // added for filtering
               role: 'pointOfContact',
               email: 'data@jncc.gov.uk',
               website: '',
@@ -5450,7 +5477,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForResource: [
             {
-              organisationName: '\n            Digital and Data Solutions, JNCC\n          ',
+              organisationName: 'Digital and Data Solutions, JNCC',
               role: 'custodian',
               email: 'data@jncc.gov.uk',
               website: '',
@@ -5607,9 +5634,11 @@ export const QUICK_SEARCH_RESPONSE = {
             default: 'This survey was extracted from a Marine Recorder snapshot.',
             langeng: 'This survey was extracted from a Marine Recorder snapshot.',
           },
-          format: ['Comma Separated Values'],
+          // format: ['Comma Separated Values'],
+          format: ['csv'], // changed for filtering
           linkUrl:
             'http://data.jncc.gov.uk/data/c18e1393-d5fc-4559-b5bb-2501f63a3465-1988-MNCR-Shetland-littoral-and-sublittoral-survey.csv',
+          linkProtocol: ['http-fd'], // changed for filtering
           linkUrlProtocol:
             'http://data.jncc.gov.uk/data/c18e1393-d5fc-4559-b5bb-2501f63a3465-1988-MNCR-Shetland-littoral-and-sublittoral-survey.csv',
           link: [
@@ -5723,6 +5752,7 @@ export const QUICK_SEARCH_RESPONSE = {
         _id: '5c16e038-557a-401d-b5cd-d96d7cd1eea5',
         _score: 6.087425,
         _source: {
+          status: 'active', // added for filtering
           docType: 'metadata',
           document: '',
           metadataIdentifier: '5c16e038-557a-401d-b5cd-d96d7cd1eea5',
@@ -5740,7 +5770,8 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contact: [
             {
-              organisationName: '\n        Digital and Data Solutions, JNCC\n      ',
+              organisationName: 'Digital and Data Solutions, JNCC',
+              organisationValue: 'jncc', // added for filtering
               role: 'pointOfContact',
               email: 'data@jncc.gov.uk',
               website: '',
@@ -5820,7 +5851,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForResource: [
             {
-              organisationName: '\n            Digital and Data Solutions, JNCC\n          ',
+              organisationName: 'Digital and Data Solutions, JNCC',
               role: 'custodian',
               email: 'data@jncc.gov.uk',
               website: '',
@@ -5977,9 +6008,11 @@ export const QUICK_SEARCH_RESPONSE = {
             default: 'This survey was extracted from a Marine Recorder snapshot.',
             langeng: 'This survey was extracted from a Marine Recorder snapshot.',
           },
-          format: ['Comma Separated Values'],
+          // format: ['Comma Separated Values'],
+          format: ['csv'], // changed for filtering
           linkUrl:
             'http://data.jncc.gov.uk/data/5c16e038-557a-401d-b5cd-d96d7cd1eea5-1988-MNCR-Shetland-littoral-and-sublittoral-survey.csv',
+          linkProtocol: ['http-fd'], // changed for filtering
           linkUrlProtocol:
             'http://data.jncc.gov.uk/data/5c16e038-557a-401d-b5cd-d96d7cd1eea5-1988-MNCR-Shetland-littoral-and-sublittoral-survey.csv',
           link: [
@@ -6094,6 +6127,7 @@ export const QUICK_SEARCH_RESPONSE = {
         _score: 5.8778534,
         _ignored: ['lineageObject.langeng.keyword', 'lineageObject.default.sort', 'lineageObject.default.keyword'],
         _source: {
+          status: 'active', // added for filtering
           docType: 'metadata',
           document: '',
           metadataIdentifier: 'f4fdb861719553e0757a2d2cc4d02d8e',
@@ -6119,7 +6153,8 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contact: [
             {
-              organisationName: '\n        Data Archive for Seabed Species and Habitats (DASSH)\n      ',
+              organisationName: 'Data Archive for Seabed Species and Habitats (DASSH)',
+              organisationValue: 'cefas', // added for filtering
               role: 'pointOfContact',
               email: 'dassh.enquiries@mba.ac.uk',
               website: '',
@@ -6228,7 +6263,7 @@ export const QUICK_SEARCH_RESPONSE = {
           ],
           contactForResource: [
             {
-              organisationName: '\n            Department for Environment, Food and Rural Affairs (DEFRA)\n          ',
+              organisationName: 'Department for Environment, Food and Rural Affairs (DEFRA)',
               role: 'originator',
               email: 'SPIRE@defra.gsi.gov.uk',
               website: '',
@@ -6244,8 +6279,7 @@ export const QUICK_SEARCH_RESPONSE = {
               administrativeArea: '',
             },
             {
-              organisationName:
-                '\n            Joint Nature Conservation Committee (JNCC) - Marine Conservation Branch, Peterborough\n          ',
+              organisationName: 'Joint Nature Conservation Committee (JNCC) - Marine Conservation Branch, Peterborough',
               role: 'originator',
               email: 'comment@jncc.gov.uk',
               website: '',
@@ -6261,7 +6295,7 @@ export const QUICK_SEARCH_RESPONSE = {
               administrativeArea: '',
             },
             {
-              organisationName: '\n            Marine Environmental Data and Information Network\n          ',
+              organisationName: 'Marine Environmental Data and Information Network',
               role: 'custodian',
               email: 'gaev@bodc.ac.uk',
               website: '',
@@ -6457,8 +6491,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForDistribution: [
             {
-              organisationName:
-                '\n                Joint Nature Conservation Committee (JNCC) - Marine Conservation Branch, Peterborough\n              ',
+              organisationName: 'Joint Nature Conservation Committee (JNCC) - Marine Conservation Branch, Peterborough',
               role: 'distributor',
               email: 'comment@jncc.gov.uk',
               website: '',
@@ -6475,6 +6508,7 @@ export const QUICK_SEARCH_RESPONSE = {
             },
           ],
           linkUrl: 'https://www.bodc.ac.uk/data/download/asset/2490/generic/',
+          linkProtocol: ['http-fd'], // changed for filtering
           linkUrlProtocol: 'https://www.bodc.ac.uk/data/download/asset/2490/generic/',
           link: [
             {
@@ -6579,6 +6613,7 @@ export const QUICK_SEARCH_RESPONSE = {
         _score: 5.724451,
         _ignored: ['lineageObject.langeng.keyword', 'lineageObject.default.sort', 'lineageObject.default.keyword'],
         _source: {
+          status: 'active', // added for filtering
           docType: 'metadata',
           document: '',
           metadataIdentifier: '80a19d9af3e4ac1cbaf0ac9f4dadb801',
@@ -6604,7 +6639,8 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contact: [
             {
-              organisationName: '\n        Data Archive for Seabed Species and Habitats (DASSH)\n      ',
+              organisationName: 'Data Archive for Seabed Species and Habitats (DASSH)',
+              organisationValue: 'cefas', // added for filtering
               role: 'pointOfContact',
               email: 'dassh.enquiries@mba.ac.uk',
               website: '',
@@ -6713,7 +6749,7 @@ export const QUICK_SEARCH_RESPONSE = {
           ],
           contactForResource: [
             {
-              organisationName: '\n            Department for Environment, Food and Rural Affairs (DEFRA)\n          ',
+              organisationName: 'Department for Environment, Food and Rural Affairs (DEFRA)',
               role: 'originator',
               email: 'SPIRE@defra.gsi.gov.uk',
               website: '',
@@ -6729,8 +6765,7 @@ export const QUICK_SEARCH_RESPONSE = {
               administrativeArea: '',
             },
             {
-              organisationName:
-                '\n            Joint Nature Conservation Committee (JNCC) - Marine Conservation Branch, Peterborough\n          ',
+              organisationName: 'Joint Nature Conservation Committee (JNCC) - Marine Conservation Branch, Peterborough',
               role: 'originator',
               email: 'comment@jncc.gov.uk',
               website: '',
@@ -6746,7 +6781,7 @@ export const QUICK_SEARCH_RESPONSE = {
               administrativeArea: '',
             },
             {
-              organisationName: '\n            Marine Environmental Data and Information Network\n          ',
+              organisationName: 'Marine Environmental Data and Information Network',
               role: 'custodian',
               email: 'gaev@bodc.ac.uk',
               website: '',
@@ -6942,8 +6977,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForDistribution: [
             {
-              organisationName:
-                '\n                Joint Nature Conservation Committee (JNCC) - Marine Conservation Branch, Peterborough\n              ',
+              organisationName: 'Joint Nature Conservation Committee (JNCC) - Marine Conservation Branch, Peterborough',
               role: 'distributor',
               email: 'comment@jncc.gov.uk',
               website: '',
@@ -6960,6 +6994,7 @@ export const QUICK_SEARCH_RESPONSE = {
             },
           ],
           linkUrl: 'https://www.bodc.ac.uk/data/download/asset/2489/generic/',
+          linkProtocol: ['http-fd'], // changed for filtering
           linkUrlProtocol: 'https://www.bodc.ac.uk/data/download/asset/2489/generic/',
           link: [
             {
@@ -7068,6 +7103,7 @@ export const QUICK_SEARCH_RESPONSE = {
           'link.descriptionObject.default.keyword',
         ],
         _source: {
+          status: 'active', // added for filtering
           docType: 'metadata',
           document: '',
           metadataIdentifier: '0acff943-5ea1-225b-e054-002128a47908',
@@ -7093,7 +7129,8 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contact: [
             {
-              organisationName: '\n        British Geological Survey (BGS)\n      ',
+              organisationName: 'British Geological Survey (BGS)',
+              organisationValue: 'ea', // added for filtering
               role: 'pointOfContact',
               email: 'enquiries@bgs.ac.uk',
               website: '',
@@ -7216,7 +7253,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForResource: [
             {
-              organisationName: '\n            British Geological Survey (BGS)\n          ',
+              organisationName: 'British Geological Survey (BGS)',
               role: 'custodian',
               email: 'enquiries@bgs.ac.uk',
               website: '',
@@ -7232,7 +7269,7 @@ export const QUICK_SEARCH_RESPONSE = {
               administrativeArea: '',
             },
             {
-              organisationName: '\n            Department for Environment, Food and Rural Affairs\n          ',
+              organisationName: 'Department for Environment, Food and Rural Affairs',
               role: 'originator',
               email: 'offshoredata@bgs.ac.uk',
               website: '',
@@ -7516,7 +7553,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForDistribution: [
             {
-              organisationName: '\n                British Geological Survey (BGS)\n              ',
+              organisationName: 'British Geological Survey (BGS)',
               role: 'distributor',
               email: 'enquiries@bgs.ac.uk',
               website: '',
@@ -7533,7 +7570,8 @@ export const QUICK_SEARCH_RESPONSE = {
             },
           ],
           linkUrl: 'http://mapapps2.bgs.ac.uk/geoindex_offshore/home.html?cruise=MCZ_FRNE_cend0514',
-          linkProtocol: ['HTTP'],
+          // linkProtocol: ['HTTP'],
+          linkProtocol: ['http-wr'], // changed for filtering
           linkUrlProtocolHTTP: 'http://mapapps2.bgs.ac.uk/geoindex_offshore/home.html?cruise=MCZ_FRNE_cend0514',
           link: [
             {
@@ -7662,6 +7700,7 @@ export const QUICK_SEARCH_RESPONSE = {
         _id: '4945cf20c014b1941ee939fd88478cfc',
         _score: 5.308798,
         _source: {
+          status: 'active', // added for filtering
           docType: 'metadata',
           document: '',
           metadataIdentifier: '4945cf20c014b1941ee939fd88478cfc',
@@ -7687,7 +7726,8 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contact: [
             {
-              organisationName: '\n        SeaStar Survey\n      ',
+              organisationName: 'SeaStar Survey',
+              organisationValue: 'ne', // added for filtering
               role: 'pointOfContact',
               email: 'info@seastarsurvey.co.uk',
               website: '',
@@ -7798,7 +7838,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForResource: [
             {
-              organisationName: '\n            SeaStar Survey\n          ',
+              organisationName: 'SeaStar Survey',
               role: 'originator',
               email: 'info@seastarsurvey.co.uk',
               website: '',
@@ -7814,7 +7854,7 @@ export const QUICK_SEARCH_RESPONSE = {
               administrativeArea: '',
             },
             {
-              organisationName: '\n            Natural England\n          ',
+              organisationName: 'Natural England',
               role: 'custodian',
               email: 'enquiries@naturalengland.org.uk',
               website: '',
@@ -8248,7 +8288,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForDistribution: [
             {
-              organisationName: '\n                Natural England\n              ',
+              organisationName: 'Natural England',
               role: 'distributor',
               email: 'enquiries@naturalengland.org.uk',
               website: '',
@@ -8365,6 +8405,7 @@ export const QUICK_SEARCH_RESPONSE = {
         _id: '536bfee9-794f-4889-b2ad-2ee9a74ded35',
         _score: 5.132653,
         _source: {
+          status: 'active', // added for filtering
           docType: 'metadata',
           document: '',
           metadataIdentifier: '536bfee9-794f-4889-b2ad-2ee9a74ded35',
@@ -8382,7 +8423,8 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contact: [
             {
-              organisationName: '\n        Digital and Data Solutions, JNCC\n      ',
+              organisationName: 'Digital and Data Solutions, JNCC',
+              organisationValue: 'jncc', // added for filtering
               role: 'pointOfContact',
               email: 'data@jncc.gov.uk',
               website: '',
@@ -8470,7 +8512,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForResource: [
             {
-              organisationName: '\n            Digital and Data Solutions, JNCC\n          ',
+              organisationName: 'Digital and Data Solutions, JNCC',
               role: 'custodian',
               email: 'data@jncc.gov.uk',
               website: '',
@@ -8616,9 +8658,11 @@ export const QUICK_SEARCH_RESPONSE = {
             langeng:
               'This information has been extracted from the Ramsar Information Sheets compiled by the Statutory Nature Conservation Body.',
           },
-          format: ['Comma Separated Values'],
+          // format: ['Comma Separated Values'],
+          format: ['csv'], // changed for filtering
           linkUrl:
             'http://data.jncc.gov.uk/data/536bfee9-794f-4889-b2ad-2ee9a74ded35-UK-Ramsar-habitat-cover-201510.csv',
+          linkProtocol: ['http-fd'], // changed for filtering
           linkUrlProtocol:
             'http://data.jncc.gov.uk/data/536bfee9-794f-4889-b2ad-2ee9a74ded35-UK-Ramsar-habitat-cover-201510.csv',
           link: [
@@ -8714,6 +8758,7 @@ export const QUICK_SEARCH_RESPONSE = {
         _id: 'ad049067-4107-3647-9a95-cda0ead55ca8',
         _score: 4.8296547,
         _source: {
+          status: 'active', // added for filtering
           docType: 'metadata',
           document: '',
           metadataIdentifier: 'ad049067-4107-3647-9a95-cda0ead55ca8',
@@ -8739,7 +8784,8 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contact: [
             {
-              organisationName: '\n        Archaeology Data Service\n      ',
+              organisationName: 'Archaeology Data Service',
+              organisationValue: 'ea', // added for filtering
               role: 'pointOfContact',
               email: 'help@archaeologydataservice.ac.uk',
               website: '',
@@ -8852,7 +8898,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForResource: [
             {
-              organisationName: '\n            Archaeology Data Service\n          ',
+              organisationName: 'Archaeology Data Service',
               role: 'originator',
               email: 'help@archaeologydataservice.ac.uk',
               website: '',
@@ -8868,7 +8914,7 @@ export const QUICK_SEARCH_RESPONSE = {
               administrativeArea: '',
             },
             {
-              organisationName: '\n            Archaeology Data Service\n          ',
+              organisationName: 'Archaeology Data Service',
               role: 'custodian',
               email: 'help@archaeologydataservice.ac.uk',
               website: '',
@@ -9081,7 +9127,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForDistribution: [
             {
-              organisationName: '\n                Archaeology Data Service\n              ',
+              organisationName: 'Archaeology Data Service',
               role: 'distributor',
               email: 'help@archaeologydataservice.ac.uk',
               website: '',
@@ -9098,6 +9144,7 @@ export const QUICK_SEARCH_RESPONSE = {
             },
           ],
           linkUrl: 'http://dx.doi.org/10.5284/1009323',
+          linkProtocol: ['http-wr'], // changed for filtering
           linkUrlProtocol: 'http://dx.doi.org/10.5284/1009323',
           link: [
             {
@@ -9200,6 +9247,7 @@ export const QUICK_SEARCH_RESPONSE = {
         _score: 4.691185,
         _ignored: ['OrgResourceConstraints.OrgOtherConstraints.keyword'],
         _source: {
+          status: 'retired', // added for filtering
           docType: 'metadata',
           document: '',
           metadataIdentifier: '4f4c4942-4343-5764-6473-313134363734',
@@ -9225,7 +9273,8 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contact: [
             {
-              organisationName: '\n        Natural Resources Wales (NRW)\n      ',
+              organisationName: 'Natural Resources Wales (NRW)',
+              organisationValue: 'rpa', // added for filtering
               role: 'pointOfContact',
               email: 'enquiries@naturalresourceswales.gov.uk',
               website: '',
@@ -9429,7 +9478,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForResource: [
             {
-              organisationName: '\n            Natural Resources Wales (NRW)\n          ',
+              organisationName: 'Natural Resources Wales (NRW)',
               role: 'custodian',
               email: 'enquiries@naturalresourceswales.gov.uk',
               website: '',
@@ -9445,7 +9494,7 @@ export const QUICK_SEARCH_RESPONSE = {
               administrativeArea: '',
             },
             {
-              organisationName: '\n            Countryside Council for Wales (CCW)\n          ',
+              organisationName: 'Countryside Council for Wales (CCW)',
               role: 'originator',
               email: 'enquiries@naturalresourceswales.gov.uk',
               website: '',
@@ -9668,7 +9717,7 @@ export const QUICK_SEARCH_RESPONSE = {
           },
           contactForDistribution: [
             {
-              organisationName: '\n                Natural Resources Wales (NRW)\n              ',
+              organisationName: 'Natural Resources Wales (NRW)',
               role: 'distributor',
               email: 'enquiries@naturalresourceswales.gov.uk',
               website: '',
