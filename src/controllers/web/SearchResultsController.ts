@@ -46,13 +46,20 @@ const SearchResultsController = {
     const { rowsPerPage, page } = payload;
     const isQuickSearchJourney = journey === 'qs';
     try {
-      const searchResults: ISearchResults = await getSearchResults(payload, false, isQuickSearchJourney);
+      const processedDspFilterOptions = processDSPFilterOptions(request.query);
+
+      const searchResults: ISearchResults = await getSearchResults(
+        payload,
+        processedDspFilterOptions,
+        false,
+        isQuickSearchJourney,
+      );
+
       const paginationItems = getPaginationItems(page, searchResults?.total ?? 0, rowsPerPage, request.query);
       const queryString = readQueryParams(request.query);
       const sortSubmitPath = `${BASE_PATH}${webRoutePaths.sortResults}?${queryString}`;
       const processedSortOptions = await processSortOptions(request.query);
 
-      const processedDspFilterOptions = processDSPFilterOptions(request.query);
       const dspFilterResetUrl = buildFilterResetUrl(request.query);
 
       const resetStudyPeriodQueryString: string = deleteQueryParams(request.query, [
@@ -127,7 +134,15 @@ const SearchResultsController = {
         fieldsExist: ['geom'],
         requiredFields: requiredFieldsForMap,
       };
-      const searchMapResults: ISearchResults = await getSearchResults(mapPayload, true, isQuickSearchJourney);
+
+      const processedDspFilterOptions = processDSPFilterOptions(request.query);
+
+      const searchMapResults: ISearchResults = await getSearchResults(
+        mapPayload,
+        processedDspFilterOptions,
+        true,
+        isQuickSearchJourney,
+      );
       return response.response(searchMapResults).header('Content-Type', 'application/json');
     } catch (error) {
       return response.response({ error: 'An error occurred while processing your request' }).code(500);
