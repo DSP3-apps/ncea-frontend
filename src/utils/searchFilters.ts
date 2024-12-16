@@ -1,3 +1,4 @@
+import { estypes } from '@elastic/elasticsearch';
 import { RequestQuery } from '@hapi/hapi';
 
 import { BASE_PATH, webRoutePaths } from './constants';
@@ -71,6 +72,154 @@ export const buildFilterResetUrl = (requestQuery: RequestQuery): string => {
   const params: string = nceaOnly ? `${filterNames.scope}=${DataScopeValues.NCEA}` : '';
 
   return `${BASE_PATH}${webRoutePaths.results}?${params}`;
+};
+
+const convertToDate = (day: string, month: string, year: string): Date | null => {
+  const yearN = parseInt(year);
+  if (isNaN(yearN)) {
+    // if the date is invalid (i.e. no year) return null
+    return null;
+  }
+
+  const dayN = parseInt(day);
+  const monthN = parseInt(month);
+  // if a day was given without a month, that doesn't make sense so return null
+  if (!isNaN(dayN) && isNaN(monthN)) {
+    return null;
+  }
+
+  if (isNaN(dayN)) {
+    return new Date(yearN, monthN);
+  } else {
+    return new Date(yearN, monthN, dayN);
+  }
+};
+
+// this is here to describe the keys that need to exist on
+// the `estypes.SearchResponse` object
+interface ESFilterKeys {
+  status: 'active' | 'retired';
+  resourceTitleObject: { langeng: string };
+  resourceAbstractObject: { langeng: string };
+  revisionDateForResource: string[];
+  MD_LegalConstraintsOtherConstraintsObject: string;
+  MD_LegalConstraintsUseLimitationObject?: string;
+  organisationValue: string;
+  geom?: object;
+  linkProtocol?: string[];
+  format?: string[];
+}
+
+export const applyMockFilters = (
+  input: estypes.SearchResponse<ESFilterKeys>,
+  filters: ISearchFiltersProcessed,
+  query: string,
+): estypes.SearchResponse<ESFilterKeys> => {
+  // since the mock data is just an object in a TS file,
+  // the fact that this function modifies in-place means the
+  // variable would be modified which causes future-filtering to
+  // fail since the output of previous filters are carried over
+  // this deep-clones the object from the variable
+  const clonedInput = JSON.parse(JSON.stringify(input));
+  const hits = clonedInput.hits.hits;
+
+  if (!filters.retiredAndArchived) {
+    clonedInput.hits.hits = hits.filter((hit) => hit._source?.status !== 'retired');
+  }
+
+  if (filters.keywords.length > 0) {
+    const keywords = filters.keywords.split(/, |,| /).map((k) => k.trim());
+
+    clonedInput.hits.hits = hits.filter((hit) => {
+      keywords.some((keyword) => {
+        return (
+          hit._source?.resourceTitleObject?.langeng?.includes(keyword) ||
+          hit._source?.resourceAbstractObject?.langeng?.includes(keyword)
+        );
+      });
+    });
+  }
+
+  if (filters.license.length > 0) {
+    clonedInput.hits.hits = hits.filter((hit) => {
+      return (
+        hit._source?.MD_LegalConstraintsOtherConstraintsObject?.includes(filters.license) ||
+        hit._source?.MD_LegalConstraintsUseLimitationObject?.includes(filters.license)
+      );
+    });
+  }
+
+  const filterBefore = filters.lastUpdated.before;
+  const filterAfter = filters.lastUpdated.after;
+  if (Object.values(filterBefore).some((v) => v.length > 0) || Object.values(filterAfter).some((v) => v.length > 0)) {
+    clonedInput.hits.hits = hits.filter((hit) => {
+      const lastUpdatedString = [...(hit._source?.revisionDateForResource ?? [])].pop(); // get last item
+      const lastUpdated = new Date(lastUpdatedString ?? '');
+
+      if (isNaN(lastUpdated.getTime())) {
+        return false;
+      }
+
+      const filterBeforeDate = convertToDate(filterBefore.day, filterBefore.month, filterBefore.year);
+      if (!filterBeforeDate) {
+        // if the date is invalid, dont exclude any results
+        return true;
+      }
+
+      const filterAfterDate = convertToDate(filterAfter.day, filterAfter.month, filterAfter.year);
+      if (!filterAfterDate) {
+        // if the date is invalid, dont exclude any results
+        return true;
+      }
+
+      return lastUpdated > filterBeforeDate && lastUpdated < filterAfterDate;
+    });
+  }
+
+  // filters.categories.forEach((cat) => {
+  //   // get all selected filters in this category
+  //   // if `All` is selected, ignore getting the other selected values
+  //   const valuesSelected = cat.selectedAll ? [] : cat.filters.filter((f) => f.checked).map((f) => f.value);
+
+  //   clonedInput.hits.hits = hits.filter((hit) => {
+  //     if (cat.selectedAll) {
+  //       return true;
+  //     }
+
+  //     switch (cat.value) {
+  //       case 'org':
+  //         return valuesSelected.includes(hit._source?.organisationValue ?? '');
+  //       case 'st':
+  //         // currently the only possible value is `title` anyway
+  //         return valuesSelected.includes('title') ? hit._source?.resourceTitleObject?.langeng?.includes(query) : true;
+  //       case 'dt':
+  //         console.log('DATA TYPE', valuesSelected, !!hit._source?.geom);
+  //         if (valuesSelected.includes('spatial')) {
+  //           return !!hit._source?.geom;
+  //         } else {
+  //           // non-spatial
+  //           return !hit._source?.geom;
+  //         }
+  //       case 'svt':
+  //         return hit._source?.linkProtocol && valuesSelected.some((v) => hit._source?.linkProtocol.includes(v));
+  //       case 'fmt':
+  //         return hit._source?.format && valuesSelected.some((v) => hit._source?.format.includes(v));
+  //     }
+  //   });
+  // });
+  // console.log('AFTER CATS', clonedInput.hits.hits.length);
+
+  // console.log('FINA:', clonedInput.hits.hits.length);
+
+  if (typeof clonedInput.hits.total === 'number') {
+    clonedInput.hits.total = hits.length;
+  } else {
+    clonedInput.hits.total && (clonedInput.hits.total.value = hits.length);
+  }
+
+  console.log('IN FILTER', clonedInput.hits.total);
+
+  return clonedInput;
 };
 
 // the `All` option is added automatically
