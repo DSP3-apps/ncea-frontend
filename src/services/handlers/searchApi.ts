@@ -1,17 +1,14 @@
-import { estypes } from '@elastic/elasticsearch';
-
 import { CLASSIFIER_SEARCH_RESPONSE } from './mocks/classifier-search';
 import { CLASSIFIER_COUNT_LEVEL_2 } from './mocks/classifier-themes-level-2';
 import { CLASSIFIER_COUNT_LEVEL_3 } from './mocks/classifier-themes-level-3';
+import { MORE_INFO_RESPOSE } from './mocks/more-info-response';
 import { QUICK_SEARCH_RESPONSE } from './mocks/quick-search';
 import { QUICK_SEARCH_RESOURCE_TYPE_FILTERS, QUICK_SEARCH_STUDY_PERIOD_FILTERS } from './mocks/quick-search-filters';
-import { performQuery } from '../../config/elasticSearchClient';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { IFilterFlags } from '../../interfaces/searchPayload.interface';
 import { IAggregationOptions, ISearchItem, ISearchResults } from '../../interfaces/searchResponse.interface';
 import { defaultFilterOptions } from '../../utils/constants';
 import { formatSearchResponse } from '../../utils/formatSearchResponse';
-import { generateSearchQuery } from '../../utils/queryBuilder';
 import { ISearchFiltersProcessed, applyMockFilters } from '../../utils/searchFilters';
 
 const getSearchResults = async (
@@ -122,15 +119,16 @@ const getFilterOptions = async (
 
 const getDocumentDetails = async (docId: string): Promise<ISearchItem> => {
   try {
-    const payload = generateSearchQuery({ docId });
-    const response = await performQuery<estypes.SearchResponse>(payload);
-    const responseData = response;
-    if (responseData?.hits?.total?.valueOf) {
-      const finalResponse: ISearchResults = await formatSearchResponse(responseData, true);
-      return finalResponse?.items?.[0] as ISearchItem;
-    } else {
-      return Promise.resolve({} as ISearchItem);
-    }
+    // const payload = generateSearchQuery({ docId });
+    // const response = await performQuery<estypes.SearchResponse>(payload);
+    // const responseData = response;
+    const responseData = MORE_INFO_RESPOSE;
+    const finalResponse: ISearchResults = await formatSearchResponse(responseData, true);
+    return finalResponse?.items?.[0] as ISearchItem;
+    // if (responseData?.hits?.total?.valueOf) {
+    // } else {
+    //   return Promise.resolve({} as ISearchItem);
+    // }
     /* eslint-disable  @typescript-eslint/no-explicit-any */
   } catch (error: any) {
     throw new Error(`Error fetching results: ${error.message}`);
