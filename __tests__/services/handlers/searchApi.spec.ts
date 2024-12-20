@@ -1,7 +1,12 @@
 import { generateSearchQuery } from '../../../src/utils/queryBuilder';
 import { performQuery } from '../../../src/config/elasticSearchClient';
 import { ISearchPayload } from '../../../src/interfaces/queryBuilder.interface';
-import { resourceTypeFilterField, uniqueResourceTypesKey, yearRange } from '../../../src/utils/constants';
+import {
+  defaultFilters,
+  resourceTypeFilterField,
+  uniqueResourceTypesKey,
+  yearRange,
+} from '../../../src/utils/constants';
 import { formattedResourceTypeResponse, resourceTypeAPIResponse } from '../../data/resourceTypeResponse';
 import {
   getDocumentDetails,
@@ -16,6 +21,17 @@ import { IAggregationOptions, ISearchResults } from '../../../src/interfaces/sea
 import { estypes } from '@elastic/elasticsearch';
 import { QUICK_SEARCH_RESPONSE } from '../../../src/services/handlers/mocks/quick-search';
 import { CLASSIFIER_COUNT_LEVEL_2 } from '../../../src/services/handlers/mocks/classifier-themes-level-2';
+import { applyMockFilters } from '../../../src/utils/searchFilters';
+
+import {
+  categoryFilteredData,
+  defaultQuery,
+  keywordFilteredData,
+  lastUpdatedFilteredData,
+  licenseFilteredData,
+  restrictiveFilteredData,
+} from '../../data/quickSearch';
+import { writeFileSync } from 'fs';
 
 jest.mock('../../../src/config/elasticSearchClient', () => ({
   performQuery: jest.fn(() => {
@@ -53,9 +69,10 @@ describe('Search API', () => {
       const payload: estypes.SearchRequest = generateSearchQuery({
         searchFieldsObject,
       });
-      await getSearchResults(searchFieldsObject, false, true);
+      await getSearchResults(searchFieldsObject, defaultFilters, false, true);
       // expect(performQuery).toHaveBeenCalledWith(payload);
-      expect(formatSearchResponse).toHaveBeenCalledWith(QUICK_SEARCH_RESPONSE, false, false);
+      const defaultResults = applyMockFilters(QUICK_SEARCH_RESPONSE as never, defaultFilters, 'example');
+      expect(formatSearchResponse).toHaveBeenCalledWith(defaultResults, false, false);
     });
 
     it('should return the response from elasticSearchClient.post', async () => {
@@ -70,9 +87,10 @@ describe('Search API', () => {
         rowsPerPage: 20,
         page: 1,
       };
-      const result = await getSearchResults(searchFieldsObject, false, true);
+      const result = await getSearchResults(searchFieldsObject, defaultFilters, false, true);
       // expect(result).toEqual({ total: undefined, items: [] });
-      expect(result).toEqual(formatSearchResponse(QUICK_SEARCH_RESPONSE, false, false));
+      const defaultResults = applyMockFilters(QUICK_SEARCH_RESPONSE as never, defaultFilters, 'example');
+      expect(result).toEqual(formatSearchResponse(defaultResults, false, false));
     });
 
     xit('should handle errors and throw an error message', async () => {
@@ -88,18 +106,182 @@ describe('Search API', () => {
         page: 1,
       };
       (performQuery as jest.Mock).mockRejectedValueOnce(new Error('Mocked error'));
-      await expect(getSearchResults(searchFieldsObject)).rejects.toThrow('Error fetching results: Mocked error');
+      await expect(getSearchResults(searchFieldsObject, defaultFilters)).rejects.toThrow(
+        'Error fetching results: Mocked error',
+      );
     });
 
     it('should return the default response when no fields data is present', async () => {
-      const result = await getSearchResults({
-        fields: {},
-        sort: '',
-        rowsPerPage: 20,
-        filters: {},
-        page: 1,
-      });
+      const result = await getSearchResults(
+        {
+          fields: {},
+          sort: '',
+          rowsPerPage: 20,
+          filters: {},
+          page: 1,
+        },
+        defaultFilters,
+      );
       expect(result).toEqual({ total: 0, items: [] });
+    });
+  });
+
+  describe('Search API - To fetch the search results with filters', () => {
+    it('should return filtered data when a license is provided', async () => {
+      const searchFieldsObject: ISearchPayload = defaultQuery;
+      await getSearchResults(
+        searchFieldsObject,
+        {
+          ...defaultFilters,
+          license: 'ogl',
+        },
+        false,
+        true,
+      );
+      expect(formatSearchResponse).toHaveBeenCalledWith(licenseFilteredData, false, false);
+    });
+
+    it('should return filtered data when keywords are provided', async () => {
+      const searchFieldsObject: ISearchPayload = defaultQuery;
+      await getSearchResults(
+        searchFieldsObject,
+        {
+          ...defaultFilters,
+          keywords: 'april',
+        },
+        false,
+        true,
+      );
+      expect(formatSearchResponse).toHaveBeenCalledWith(keywordFilteredData, false, false);
+    });
+
+    it('should return equal or more results including archived and retired', async () => {
+      const searchFieldsObject: ISearchPayload = defaultQuery;
+      const results = await getSearchResults(
+        searchFieldsObject,
+        {
+          ...defaultFilters,
+          retiredAndArchived: true,
+        },
+        false,
+        true,
+      );
+
+      const unfilteredFormatted = await formatSearchResponse(QUICK_SEARCH_RESPONSE);
+
+      expect(results.total).toEqual(unfilteredFormatted.total);
+    });
+
+    it('should return filtered data with category filters applied', async () => {
+      const searchFieldsObject: ISearchPayload = defaultQuery;
+      await getSearchResults(
+        searchFieldsObject,
+        {
+          ...defaultFilters,
+          categories: [
+            {
+              name: 'Organisation',
+              value: 'org',
+              selectedAll: false,
+              filters: [{ name: 'Environment Agency', value: 'ea', checked: true }],
+            },
+            {
+              name: 'Service Type',
+              value: 'svt',
+              selectedAll: false,
+              filters: [{ name: 'HTTP Web Resource', value: 'http-wr', checked: true }],
+            },
+          ],
+        },
+        false,
+        true,
+      );
+      expect(formatSearchResponse).toHaveBeenCalledWith(categoryFilteredData, false, false);
+    });
+
+    it('should return no data with too restrictive filters applied', async () => {
+      const searchFieldsObject: ISearchPayload = defaultQuery;
+      await getSearchResults(
+        searchFieldsObject,
+        {
+          ...defaultFilters,
+          categories: [
+            {
+              name: 'Organisation',
+              value: 'org',
+              selectedAll: false,
+              filters: [{ name: 'Environment Agency', value: 'ea', checked: true }],
+            },
+            {
+              name: 'Data Type',
+              value: 'dt',
+              selectedAll: false,
+              filters: [{ name: 'Non-spatial', value: 'non-spatial', checked: true }],
+            },
+          ],
+        },
+        false,
+        true,
+      );
+      expect(formatSearchResponse).toHaveBeenCalledWith(restrictiveFilteredData, false, false);
+    });
+
+    describe('To fetch data filtered by last updated date', () => {
+      it('should return filtered data when a valid date is provided', async () => {
+        const searchFieldsObject: ISearchPayload = defaultQuery;
+        await getSearchResults(
+          searchFieldsObject,
+          {
+            ...defaultFilters,
+            lastUpdated: {
+              before: {
+                day: '01',
+                month: '07',
+                year: '2023',
+              },
+              after: {
+                day: '01',
+                month: '02',
+                year: '2015',
+              },
+            },
+          },
+          false,
+          true,
+        );
+        expect(formatSearchResponse).toHaveBeenCalledWith(lastUpdatedFilteredData, false, false);
+      });
+
+      it('should return unfiltered data when an invalid date is provided', async () => {
+        const searchFieldsObject: ISearchPayload = defaultQuery;
+        const results = await getSearchResults(
+          searchFieldsObject,
+          {
+            ...defaultFilters,
+            retiredAndArchived: true, // include retired and archived as the filter below does not exclude them
+            lastUpdated: {
+              before: {
+                day: '01',
+                month: '',
+                year: '',
+              },
+              after: {
+                day: '01',
+                month: '',
+                year: '',
+              },
+            },
+          },
+          false,
+          true,
+        );
+
+        const expectedCount = QUICK_SEARCH_RESPONSE.hits.hits.filter(
+          (hit) => !!hit._source?.revisionDateForResource,
+        ).length;
+
+        expect(results.total).toEqual(expectedCount);
+      });
     });
   });
 
