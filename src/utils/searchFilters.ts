@@ -2,7 +2,7 @@ import { estypes } from '@elastic/elasticsearch';
 import { RequestQuery } from '@hapi/hapi';
 
 import { BASE_PATH, webRoutePaths } from './constants';
-import { readQueryParams } from './queryStringHelper';
+import { getMetaQueryParams, readQueryParams } from './queryStringHelper';
 
 export const filterNames = {
   scope: 'scope',
@@ -69,9 +69,11 @@ export interface ISearchFiltersProcessed {
 export const buildFilterResetUrl = (requestQuery: RequestQuery): string => {
   const nceaOnly = readQueryParams(requestQuery, filterNames.scope) === DataScopeValues.NCEA;
 
-  const params: string = nceaOnly ? `${filterNames.scope}=${DataScopeValues.NCEA}` : '';
+  const params = getMetaQueryParams(requestQuery);
 
-  return `${BASE_PATH}${webRoutePaths.results}?${params}`;
+  params.set(filterNames.scope, nceaOnly ? DataScopeValues.NCEA : DataScopeValues.ALL);
+
+  return `${BASE_PATH}${webRoutePaths.results}?${params.toString()}`;
 };
 
 const convertToDate = (day: string, month: string, year: string): Date | null => {
