@@ -72,6 +72,16 @@
       serviceUrl: routes.homePage,
       useTudorCrown: true
     }) }}
+
+    <div class="govuk-grid-col login">
+      {% if isLoggedIn %}
+        <p>Welcome {{ username }}</p>
+        <a href="" class="govuk-link">Logout</a>
+      {% else %}
+        <p>Welcome guest</p>
+        <a href="" class="govuk-link">Login</a>
+      {% endif %}
+    </div>
   </header>
 {% endblock %}
 

@@ -2,6 +2,7 @@
 
 import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 
+import { CustomRequestApplicationState } from '../../interfaces/cookies';
 import { IGuidedSearchStepsMatrix, IStepRouteMatrix } from '../../interfaces/guidedSearch.interface';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { getSearchResultsCount } from '../../services/handlers/searchApi';
@@ -25,15 +26,30 @@ import { generateCountPayload, readQueryParams, upsertQueryParams } from '../../
  */
 
 const HomeController = {
-  renderHomeHandler: (request: Request, response: ResponseToolkit): ResponseObject => {
+  renderHomeHandler: (request: CustomRequestApplicationState, response: ResponseToolkit): ResponseObject => {
+    let username = 'Guest';
+    console.log('USER JWT: ', request.app.jwt);
+    console.log('USER JWT USER: ', request.app.user);
+    if (request.app.user) {
+      const user = request.app.user;
+      username = user.name;
+      console.log('USER: ', user);
+    }
+    console.log('USERNAME: ', username);
+
     const { quickSearchFID } = formIds;
     return response.view('screens/home/template', {
       pageTitle: pageTitles.home,
       quickSearchFID,
       searchInputError: undefined,
+      isLoggedIn: true,
+      username: 'mark.small@telespazio.com',
     });
   },
-  intermediateHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
+  intermediateHandler: async (
+    request: CustomRequestApplicationState,
+    response: ResponseToolkit,
+  ): Promise<ResponseObject> => {
     const stepRouteMatrix: IGuidedSearchStepsMatrix = {
       [guidedSearchSteps.date]: {
         self: webRoutePaths.guidedDateSearch,
@@ -70,27 +86,29 @@ const HomeController = {
     }
     return response.redirect(`${BASE_PATH}${webRoutePaths.home}`);
   },
-  helpHandler: (request: Request, response: ResponseToolkit): ResponseObject => {
+  helpHandler: (request: CustomRequestApplicationState, response: ResponseToolkit): ResponseObject => {
+    console.log('HELP PAGE USER JWT: ', request.app.jwt);
+    console.log('HELP PAGE USER JWT USER: ', request.app.user);
     return response.view('screens/home/help', {
       pageTitle: pageTitles.help,
     });
   },
-  accessibilityHandler: (request: Request, response: ResponseToolkit): ResponseObject => {
+  accessibilityHandler: (request: CustomRequestApplicationState, response: ResponseToolkit): ResponseObject => {
     return response.view('screens/home/accessibility', {
       pageTitle: pageTitles.accessibility,
     });
   },
-  termsConditionsHandler: (request: Request, response: ResponseToolkit): ResponseObject => {
+  termsConditionsHandler: (request: CustomRequestApplicationState, response: ResponseToolkit): ResponseObject => {
     return response.view('screens/home/terms_conditions', {
       pageTitle: pageTitles.termsAndConditions,
     });
   },
-  privacyPolicyHandler: (request: Request, response: ResponseToolkit): ResponseObject => {
+  privacyPolicyHandler: (request: CustomRequestApplicationState, response: ResponseToolkit): ResponseObject => {
     return response.view('screens/home/privacy_policy', {
       pageTitle: pageTitles.privacyPolicy,
     });
   },
-  cookiePolicyHandler: (request: Request, response: ResponseToolkit): ResponseObject => {
+  cookiePolicyHandler: (request: CustomRequestApplicationState, response: ResponseToolkit): ResponseObject => {
     return response.view('screens/home/cookie_policy', {
       pageTitle: pageTitles.cookiePolicy,
     });
