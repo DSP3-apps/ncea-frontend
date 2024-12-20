@@ -584,9 +584,9 @@ const getMapResults = async (path, fitToMapExtentFlag) => {
   if (response) {
     if (response.status === responseSuccessStatusCode) {
       const mapResultsJson = await response.json();
-      mapResultsButton.removeAttribute('disabled');
       mapResultsCount.textContent = mapResultsJson.total;
       if (mapResultsJson.total > 0) {
+        mapResultsButton.removeAttribute('disabled');
         document.querySelector('.map-container').style.display = 'block';
         const boundingBoxInfo = document.getElementById('defra-bounding-box-info');
         if (boundingBoxInfo && mapResultsJson.total > maxCountForBoundingBoxInfo) {
