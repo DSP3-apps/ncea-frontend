@@ -3,6 +3,19 @@ import { RequestQuery } from '@hapi/hapi';
 import { queryParamKeys, resourceTypeFilterField, studyPeriodFilterField } from './constants';
 import { ISearchFields, ISearchPayload } from '../interfaces/queryBuilder.interface';
 
+const getMetaQueryParams = (requestQuery: RequestQuery): URLSearchParams => {
+  const searchParams = getQueryStringParams(requestQuery);
+  const filterParams = new URLSearchParams();
+
+  filterParams.set(queryParamKeys.quickSearch, searchParams.get(queryParamKeys.quickSearch) ?? '');
+  filterParams.set(queryParamKeys.rowsPerPage, searchParams.get(queryParamKeys.rowsPerPage) ?? '10');
+  filterParams.set(queryParamKeys.sort, searchParams.get(queryParamKeys.sort) ?? 'most_relevant');
+  filterParams.set(queryParamKeys.journey, searchParams.get(queryParamKeys.journey) ?? '');
+  filterParams.set(queryParamKeys.page, searchParams.get(queryParamKeys.page) ?? '1');
+
+  return filterParams;
+};
+
 const setDefaultQueryParams = (searchParams: URLSearchParams): URLSearchParams => {
   const page = searchParams.get(queryParamKeys.page) ?? '1';
   searchParams.set(queryParamKeys.page, page);
@@ -198,4 +211,5 @@ export {
   getClassifierParams,
   deleteQueryParams,
   appendPublication,
+  getMetaQueryParams,
 };
