@@ -1,16 +1,20 @@
-@import "govuk/all";
+// the default asset path is `/assets/fonts` but as all the apps have a bath path
+// we need to override this so the font and other assets load correctly
+$govuk-assets-path: '/natural-capital-ecosystem-assessment/assets/';
 
-@import "./settings/colors";
+@import 'govuk/all';
 
-@import "./tools/fonts";
+@import './settings/colors';
 
-@import "./components/search";
-@import "./components/results_count";
-@import "./components/modal";
+@import './tools/fonts';
 
-@import "./templates/layout";
-@import "./templates/home";
-@import "./templates/header";
-@import "./templates/geography";
-@import "./templates/results";
-@import "./templates/details";
+@import './components/search';
+@import './components/results_count';
+@import './components/modal';
+
+@import './templates/layout';
+@import './templates/home';
+@import './templates/header';
+@import './templates/geography';
+@import './templates/results';
+@import './templates/details';
