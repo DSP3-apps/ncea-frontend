@@ -9,7 +9,7 @@ export const QUICK_SEARCH_RESPONSE = {
   },
   hits: {
     total: {
-      value: 51,
+      value: 20,
       relation: 'eq',
     },
     max_score: 11.707571,
