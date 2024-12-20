@@ -1,3 +1,5 @@
+@import 'govuk/components/checkboxes/_index.scss';
+
 .search-result {
   &__item {
     display: flex;
@@ -93,12 +95,12 @@
 
   &__heading-l {
     @include font-style-stack(36px, 40px);
-    color: govuk-colour("white");
+    color: govuk-colour('white');
   }
 
   &__body-l {
     @include font-style-stack(19px, 24px, 300);
-    color: govuk-colour("white");
+    color: govuk-colour('white');
   }
 
   &__button-group {
@@ -203,9 +205,9 @@
     padding: 10px;
     width: 40px;
     cursor: pointer;
-    background-color: govuk-colour("white");
+    background-color: govuk-colour('white');
     text-decoration: none;
-    color: govuk-colour("black");
+    color: govuk-colour('black');
     pointer-events: auto;
     display: flex;
     align-items: center;
@@ -230,12 +232,12 @@
     width: 50px;
     padding: 0;
     cursor: pointer;
-    background-color: govuk-colour("white");
-    color: govuk-colour("black");
+    background-color: govuk-colour('white');
+    color: govuk-colour('black');
     display: none;
 
     &:hover {
-      background-color: govuk-colour("light-grey");
+      background-color: govuk-colour('light-grey');
     }
   }
 
@@ -251,11 +253,11 @@
       width: 50px;
       padding: 0;
       cursor: pointer;
-      background-color: govuk-colour("white");
-      color: govuk-colour("black");
+      background-color: govuk-colour('white');
+      color: govuk-colour('black');
 
       &:hover {
-        background-color: govuk-colour("light-grey");
+        background-color: govuk-colour('light-grey');
       }
 
       &:focus-visible {
@@ -266,10 +268,10 @@
 
   &-info {
     position: absolute;
-    background-color: govuk-colour("white");
+    background-color: govuk-colour('white');
     bottom: 15px;
     left: 15px;
-    border: 2px solid govuk-colour("black");
+    border: 2px solid govuk-colour('black');
     padding: 10px;
     display: none;
     width: 320px;
@@ -387,7 +389,7 @@
     padding: 0;
 
     &:after {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       right: 0;
@@ -433,7 +435,7 @@
     max-height: 200px;
     overflow-y: auto;
     overflow-x: hidden;
-    background-color: govuk-colour("white");
+    background-color: govuk-colour('white');
 
     &::-webkit-scrollbar {
       -webkit-appearance: none;
@@ -500,4 +502,109 @@
     color: $govuk-error-colour;
     display: none;
   }
+}
+
+.govuk-checkboxes--small .govuk-checkboxes__label {
+  padding: 7px 25px !important;
+}
+
+.filter-options__accordion {
+  cursor: pointer;
+}
+
+.filter-options__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-options__legend {
+  /* visible to screen readers only */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.filter-options__accordion-child {
+  padding-left: 10px;
+}
+
+.filter-options__filters {
+  max-height: 250px;
+  overflow-y: scroll;
+
+  &--open {
+    rotate: 180deg;
+  }
+
+  &--hidden {
+    display: none;
+  }
+}
+
+.filter-options__category-heading {
+  font-weight: normal;
+  text-decoration: underline;
+  margin: 0;
+}
+
+.filter-options__accordion-toggle {
+  padding: 4px;
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  align-items: center;
+  background: none;
+  color: inherit;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+
+.filter-options__accordion-toggle > h3 {
+  color: #1d70b8;
+}
+
+.filter-options__accordion-toggle:hover > h3 {
+  color: #194578;
+}
+
+.filter-options__accordion-toggle:focus {
+  outline: none;
+  text-decoration: none;
+  background-color: #ffdd00;
+}
+
+.filter-options__accordion-toggle:focus > h3 {
+  color: #0b0c0c;
+}
+
+.filter-options__reset-link {
+  font-family: 'GDS Transport', arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #1d70b8;
+  text-decoration: underline;
+
+  &:hover {
+    color: #194578;
+  }
+}
+
+.filter-options__retired-label {
+  color: #194578;
+}
+
+.filter-options__ncea-only {
+  margin-top: 4px;
+  margin-bottom: 12px;
 }
