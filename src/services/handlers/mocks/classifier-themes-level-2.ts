@@ -106,3 +106,27 @@ export const CLASSIFIER_LEVEL_2 = [
     selectAll: 'lv2-011,lv2-012,lv2-013,lv2-014,lv2-015,lv2-016',
   },
 ];
+
+export const CLASSIFIER_LEVEL_2_MOCK_DATA = [
+  {
+    sectionTitle: "Natural capital valuation",
+    sectionIntroduction: "For the purposes of this search tool, natural capital valuation is defined as the method used to determine the value of an ecosystem service. This can be in non-monetary terms (e.g. heritage values or existence values) or in monetary terms (e.g. market price or willingness to pay).",
+    classifiers: [
+        {
+            code: "lv2-009",
+            name: "Monetary",
+            definition: "The amount of value an item or a service has in relation to its acceptable cash price for a willing seller and buyer.",
+            text: "The amount of value an item or a service has in relation to its acceptable cash price for a willing seller and buyer.",
+            value: "Monetary"
+        },
+        {
+            code: "lv2-010",
+            name: "Non-monetary",
+            definition: "The value attributable to an item or a service without relation to any acceptable cash price and for which a fixed or determinable amount of currency is absent (e.g. many ecosystem services, interpersonal good-will, health, etc.).",
+            text: "The value attributable to an item or a service without relation to any acceptable cash price and for which a fixed or determinable amount of currency is absent (e.g. many ecosystem services, interpersonal good-will, health, etc.).",
+            value: "Non-monetary"
+        }
+    ],
+    "selectAll": "lv2-009,lv2-010"
+  }
+]

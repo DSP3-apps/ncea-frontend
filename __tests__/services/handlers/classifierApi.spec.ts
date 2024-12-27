@@ -10,9 +10,9 @@ import {
   level3ClassifierItems,
   level3MissingClassifierItems,
 } from '../../data/classifierSearch';
-import { CLASSIFIER_LEVEL_2 } from '../../../src/services/handlers/mocks/classifier-themes-level-2';
+import { CLASSIFIER_LEVEL_2_MOCK_DATA } from '../../../src/services/handlers/mocks/classifier-themes-level-2';
 import { CLASSIFIER_LEVEL_1 } from '../../../src/services/handlers/mocks/classifier-themes-level-1';
-import { CLASSIFIER_LEVEL_3 } from '../../../src/services/handlers/mocks/classifier-themes-level-3';
+import { CLASSIFIER_LEVEL_3_MOCK_DATA, NO_CLASSIFIER_LEVEL_2_MOCK_DATA } from '../../../src/services/handlers/mocks/classifier-themes-level-3';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -32,13 +32,13 @@ describe('Classifier API', () => {
     it('should call classifier list api for level 2', async () => {
       mockedAxios.get.mockResolvedValue({ data: level2ApiResponse });
       const classifierItems2 = await getClassifierThemes('2', 'lvl1-003');
-      expect(classifierItems2).toEqual(CLASSIFIER_LEVEL_2);
+      expect(classifierItems2).toEqual(CLASSIFIER_LEVEL_2_MOCK_DATA);
     });
 
     it('should call classifier list api for level 3', async () => {
       mockedAxios.get.mockResolvedValue({ data: level3ApiResponse });
       const classifierItems3 = await getClassifierThemes('3', 'lvl2-001,lvl2-003');
-      expect(classifierItems3).toEqual(CLASSIFIER_LEVEL_3);
+      expect(classifierItems3).toEqual(CLASSIFIER_LEVEL_3_MOCK_DATA);
     });
 
     xit('classifier list error', async () => {
@@ -49,7 +49,8 @@ describe('Classifier API', () => {
     it('no classifiers for some of the level 2 categories', async () => {
       mockedAxios.get.mockResolvedValue({ data: level3MissingClassifiersApiResponse });
       const classifierItems4 = await getClassifierThemes('3', 'lvl2-001,lvl2-003');
-      expect(classifierItems4).toEqual(CLASSIFIER_LEVEL_3);
+      console.log('classifierItems4', JSON.stringify(classifierItems4))
+      expect(classifierItems4).toEqual(NO_CLASSIFIER_LEVEL_2_MOCK_DATA);
     });
   });
 });

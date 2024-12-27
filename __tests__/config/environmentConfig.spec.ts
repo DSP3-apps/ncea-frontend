@@ -50,7 +50,7 @@ describe('Environment environmentConfig', () => {
       } = require('../../src/config/environmentConfig');
       expect(environmentConfig).toBeDefined();
       expect(typeof environmentConfig).toBe('object');
-      expect(Object.keys(environmentConfig).length).toBe(13);
+      expect(Object.keys(environmentConfig).length).toBe(15);
     });
 
     it('should validate and export the configuration object', () => {
@@ -81,6 +81,8 @@ describe('Environment environmentConfig', () => {
         webDomain: Joi.string().allow('').default(''),
         classifierApiUrl: Joi.string().allow('').default(''),
         classifierApiKey: Joi.string().allow('').default(''),
+        classifierApiTestUrl: Joi.string().allow('').default(''),
+        classifierApiTestKey: Joi.string().allow('').default(''),        
       });
 
       const {
