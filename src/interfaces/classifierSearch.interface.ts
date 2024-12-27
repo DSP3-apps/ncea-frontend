@@ -20,7 +20,6 @@ export interface Classifiers {
   value?: string;
 }
 
-
 export interface AxiosResponse {
-  data: []
+  data: [];
 }

@@ -1,7 +1,9 @@
 import axios from 'axios';
-import { Classifiers, Classify, AxiosResponse } from '@/interfaces/classifierSearch.interface';
-import { CLASSIFIERS_API_ERROR_MSG } from '../../utils/constants'
+
 import { environmentConfig } from '@/config/environmentConfig';
+import { AxiosResponse, Classifiers, Classify } from '@/interfaces/classifierSearch.interface';
+
+import { CLASSIFIERS_API_ERROR_MSG } from '../../utils/constants';
 
 const transformClassifierDetails = (classifiers: Classify[]): Classify[] => {
   return classifiers?.map((classifier) => ({
@@ -35,7 +37,7 @@ const invokeClassifierApi = async (level: string, parents: string = ''): Promise
     }
     const headers = {
       headers: {
-        'X-API-Key': environmentConfig.classifierApiTestKey
+        'X-API-Key': environmentConfig.classifierApiTestKey,
       },
     };
     const response: AxiosResponse = await axios.get(url, headers);
@@ -53,7 +55,6 @@ export const getClassifierThemes = async (
   try {
     const response = await invokeClassifierApi(level, parents);
     const classifierResponse: Classifiers[] = [];
-    
     response.data.forEach((classifier: Classifiers) => {
       if (classifier.level === 3) {
         classifierResponse.push({
