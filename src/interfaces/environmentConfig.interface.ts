@@ -12,4 +12,6 @@ export interface EnvironmentConfig {
   elasticSearchUsername?: string;
   elasticSearchPassword?: string;
   webDomain?: string;
+  classifierApiTestUrl?: string | undefined;
+  classifierApiTestKey?: string | undefined;
 }

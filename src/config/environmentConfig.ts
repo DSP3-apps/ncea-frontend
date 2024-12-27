@@ -26,6 +26,8 @@ const config: EnvironmentConfig = {
   elasticSearchUsername: process.env.ES_USERNAME,
   elasticSearchPassword: process.env.ES_PASSWORD,
   webDomain: process.env.WEBDOMAIN,
+  classifierApiTestUrl:  process.env.CLASSIFIER_API_TEST_URL,
+  classifierApiTestKey:  process.env.CLASSIFIER_API_TEST_KEY
 };
 console.log('ENV CONFIG: ', config);
 
