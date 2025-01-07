@@ -5,10 +5,6 @@ import {
   level2ApiResponse,
   level3ApiResponse,
   level3MissingClassifiersApiResponse,
-  level1ClassifierItems,
-  level2ClassifierItems,
-  level3ClassifierItems,
-  level3MissingClassifierItems,
 } from '../../data/classifierSearch';
 import { CLASSIFIER_LEVEL_2_MOCK_DATA } from '../../../src/services/handlers/mocks/classifier-themes-level-2';
 import { CLASSIFIER_LEVEL_1 } from '../../../src/services/handlers/mocks/classifier-themes-level-1';
@@ -41,7 +37,7 @@ describe('Classifier API', () => {
       expect(classifierItems3).toEqual(CLASSIFIER_LEVEL_3_MOCK_DATA);
     });
 
-    xit('classifier list error', async () => {
+    it('classifier list error', async () => {
       mockedAxios.get.mockRejectedValue('Network error: Something went wrong');
       const classifierItems4 = await getClassifierThemes('3', 'lvl2-001,lvl2-003');
       expect(classifierItems4).toEqual([]);
@@ -49,7 +45,6 @@ describe('Classifier API', () => {
     it('no classifiers for some of the level 2 categories', async () => {
       mockedAxios.get.mockResolvedValue({ data: level3MissingClassifiersApiResponse });
       const classifierItems4 = await getClassifierThemes('3', 'lvl2-001,lvl2-003');
-      console.log('classifierItems4', JSON.stringify(classifierItems4))
       expect(classifierItems4).toEqual(NO_CLASSIFIER_LEVEL_2_MOCK_DATA);
     });
   });
