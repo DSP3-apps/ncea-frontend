@@ -6,6 +6,7 @@ import {
   BASE_PATH,
   formIds,
   guidedSearchSteps,
+  logOutPath,
   pageTitles,
   queryParamKeys,
   webRoutePaths,
@@ -27,8 +28,8 @@ jest.mock('../../../src/services/handlers/searchApi', () => ({
 
 describe('Deals with Home Controller', () => {
   describe('Deals with the renderHomeHandler', () => {
-    it('should call the home view with context', async () => {
-      const request: Request = {} as any;
+    it('should call the home view with context with guest user', async () => {
+      const request: Request = { app : { user : {}} } as any;
       const response: ResponseToolkit = { view: jest.fn() } as any;
       await HomeController.renderHomeHandler(request, response);
       const { quickSearchFID } = formIds;
@@ -36,6 +37,23 @@ describe('Deals with Home Controller', () => {
         pageTitle: pageTitles.home,
         quickSearchFID,
         searchInputError: undefined,
+        isLoggedIn: false,
+        userDisplayName: '',
+        logOutPath,
+      });
+    });
+    it('should call the home view with context with logged in user', async () => {
+      const request: Request = { app : { user : { email: 'test@test.com'}} } as any;
+      const response: ResponseToolkit = { view: jest.fn() } as any;
+      await HomeController.renderHomeHandler(request, response);
+      const { quickSearchFID } = formIds;
+      expect(response.view).toHaveBeenCalledWith('screens/home/template', {
+        pageTitle: pageTitles.home,
+        quickSearchFID,
+        searchInputError: undefined,
+        isLoggedIn: true,
+        userDisplayName: 'test@test.com',
+        logOutPath,
       });
     });
   });
@@ -122,58 +140,134 @@ describe('Deals with Home Controller', () => {
     });
   });
   describe('Deals with the accessibilityHandler', () => {
-    it('should call the accessibility view with context', async () => {
-      const request: Request = {} as any;
+    it('should call the accessibility view with context with guest user', async () => {
+      const request: Request = { app : { user : {}} } as any;
       const response: ResponseToolkit = { view: jest.fn() } as any;
       await HomeController.accessibilityHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/home/accessibility', {
         pageTitle: pageTitles.accessibility,
+        isLoggedIn: false,
+        userDisplayName: '',
+        logOutPath,
+      });
+    });
+    it('should call the accessibility view with context with logged in user', async () => {
+      const request: Request = { app : { user : { email: 'test@test.com'}} } as any;
+      const response: ResponseToolkit = { view: jest.fn() } as any;
+      await HomeController.accessibilityHandler(request, response);
+      expect(response.view).toHaveBeenCalledWith('screens/home/accessibility', {
+        pageTitle: pageTitles.accessibility,
+        isLoggedIn: true,
+        userDisplayName: 'test@test.com',
+        logOutPath,
       });
     });
   });
   describe('Deals with the helpHandler', () => {
-    it('should call the help view with context', async () => {
-      const request: Request = {} as any;
+    it('should call the help view with context with guest user', async () => {
+      const request: Request = { app : { user : {}} } as any;
       const response: ResponseToolkit = { view: jest.fn() } as any;
       await HomeController.helpHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/home/help', {
         pageTitle: pageTitles.help,
+        isLoggedIn: false,
+        userDisplayName: '',
+        logOutPath,
+      });
+    });
+    it('should call the help view with context with logged in user', async () => {
+      const request: Request = { app : { user : { email: 'test@test.com'}} } as any;
+      const response: ResponseToolkit = { view: jest.fn() } as any;
+      await HomeController.helpHandler(request, response);
+      expect(response.view).toHaveBeenCalledWith('screens/home/help', {
+        pageTitle: pageTitles.help,
+        isLoggedIn: true,
+        userDisplayName: 'test@test.com',
+        logOutPath,
       });
     });
   });
   describe('Deals with the termsConditionsHandler', () => {
-    it('should call the accessibility view with context', async () => {
-      const request: Request = {} as any;
+    it('should call the accessibility view with context with guest user', async () => {
+      const request: Request = { app : { user : {}} } as any;
       const response: ResponseToolkit = { view: jest.fn() } as any;
       await HomeController.termsConditionsHandler(request, response);
       expect(response.view).toHaveBeenCalledWith(
         'screens/home/terms_conditions',
         {
           pageTitle: pageTitles.termsAndConditions,
+          isLoggedIn: false,
+          userDisplayName: '',
+          logOutPath,
+        },
+      );
+    });
+    it('should call the accessibility view with context with guest user', async () => {
+      const request: Request = { app : { user : { email: 'test@test.com'}} } as any;
+      const response: ResponseToolkit = { view: jest.fn() } as any;
+      await HomeController.termsConditionsHandler(request, response);
+      expect(response.view).toHaveBeenCalledWith(
+        'screens/home/terms_conditions',
+        {
+          pageTitle: pageTitles.termsAndConditions,
+          isLoggedIn: true,
+          userDisplayName: 'test@test.com',
+          logOutPath,
         },
       );
     });
   });
-  describe('Deals with the privacyPolicyHandler', () => {
+  describe('Deals with the privacyPolicyHandler with guest user', () => {
     it('should call the privacy policy view with context', async () => {
-      const request: Request = {} as any;
+      const request: Request = { app : { user : {}} } as any;
       const response: ResponseToolkit = { view: jest.fn() } as any;
       await HomeController.privacyPolicyHandler(request, response);
       expect(response.view).toHaveBeenCalledWith(
         'screens/home/privacy_policy',
         {
           pageTitle: pageTitles.privacyPolicy,
+          isLoggedIn: false,
+          userDisplayName: '',
+          logOutPath,
+        },
+      );
+    });
+    it('should call the privacy policy view with context', async () => {
+      const request: Request = { app : { user : { email: 'test@test.com'}} } as any;
+      const response: ResponseToolkit = { view: jest.fn() } as any;
+      await HomeController.privacyPolicyHandler(request, response);
+      expect(response.view).toHaveBeenCalledWith(
+        'screens/home/privacy_policy',
+        {
+          pageTitle: pageTitles.privacyPolicy,
+          isLoggedIn: true,
+          userDisplayName: 'test@test.com',
+          logOutPath,
         },
       );
     });
   });
   describe('Deals with the cookiePolicyHandler', () => {
-    it('should call the accessibility view with context', async () => {
-      const request: Request = {} as any;
+    it('should call the accessibility view with context with logged in user', async () => {
+      const request: Request = { app : { user : { email: 'test@test.com'}} } as any;
       const response: ResponseToolkit = { view: jest.fn() } as any;
       await HomeController.cookiePolicyHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/home/cookie_policy', {
         pageTitle: pageTitles.cookiePolicy,
+        isLoggedIn: true,
+        userDisplayName: 'test@test.com',
+        logOutPath,
+      });
+    });
+    it('should call the accessibility view with context with guest user', async () => {
+      const request: Request = { app : { user : {}} } as any;
+      const response: ResponseToolkit = { view: jest.fn() } as any;
+      await HomeController.cookiePolicyHandler(request, response);
+      expect(response.view).toHaveBeenCalledWith('screens/home/cookie_policy', {
+        pageTitle: pageTitles.cookiePolicy,
+        isLoggedIn: false,
+        userDisplayName: '',
+        logOutPath,
       });
     });
   });

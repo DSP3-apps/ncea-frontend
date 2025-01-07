@@ -8,6 +8,7 @@ jest.mock('@hapi/hapi', () => ({
     register: jest.fn(),
     initialize: jest.fn(),
     start: jest.fn(),
+    ext: jest.fn(),
     info: { uri: 'http://localhost:4000', port: '4000' },
   })),
   Server: jest.fn(),
@@ -56,7 +57,7 @@ describe('Server initialization', () => {
       },
     });
 
-    expect(server.register).toHaveBeenCalledTimes(4);
+    expect(server.register).toHaveBeenCalledTimes(5);
     expect(server.register).toHaveBeenCalledWith([inert, vision]);
     expect(server.register).toHaveBeenCalledWith(customHapiViews);
     expect(server.register).toHaveBeenCalledWith(
