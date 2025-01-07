@@ -1,6 +1,6 @@
 'use strict';
 
-import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
+import { ResponseObject, ResponseToolkit } from '@hapi/hapi';
 
 import { CustomRequestApplicationState } from '../../interfaces/cookies';
 import { IGuidedSearchStepsMatrix, IStepRouteMatrix } from '../../interfaces/guidedSearch.interface';
@@ -10,10 +10,12 @@ import {
   BASE_PATH,
   formIds,
   guidedSearchSteps,
+  logOutPath,
   pageTitles,
   queryParamKeys,
   webRoutePaths,
 } from '../../utils/constants';
+import { getLoginDetails } from '../../utils/loginDetails';
 import { generateCountPayload, readQueryParams, upsertQueryParams } from '../../utils/queryStringHelper';
 
 /**
@@ -27,23 +29,15 @@ import { generateCountPayload, readQueryParams, upsertQueryParams } from '../../
 
 const HomeController = {
   renderHomeHandler: (request: CustomRequestApplicationState, response: ResponseToolkit): ResponseObject => {
-    let username = 'Guest';
-    console.log('USER JWT: ', request.app.jwt);
-    console.log('USER JWT USER: ', request.app.user);
-    if (request.app.user) {
-      const user = request.app.user;
-      username = user.name;
-      console.log('USER: ', user);
-    }
-    console.log('USERNAME: ', username);
-
+    const { userDisplayName, isLoggedIn } = getLoginDetails(request.app.user);
     const { quickSearchFID } = formIds;
     return response.view('screens/home/template', {
       pageTitle: pageTitles.home,
       quickSearchFID,
       searchInputError: undefined,
-      isLoggedIn: true,
-      username: 'mark.small@telespazio.com',
+      isLoggedIn,
+      userDisplayName,
+      logOutPath,
     });
   },
   intermediateHandler: async (
@@ -87,31 +81,53 @@ const HomeController = {
     return response.redirect(`${BASE_PATH}${webRoutePaths.home}`);
   },
   helpHandler: (request: CustomRequestApplicationState, response: ResponseToolkit): ResponseObject => {
-    console.log('HELP PAGE USER JWT: ', request.app.jwt);
-    console.log('HELP PAGE USER JWT USER: ', request.app.user);
+    const { userDisplayName, isLoggedIn } = getLoginDetails(request.app.user);
     return response.view('screens/home/help', {
       pageTitle: pageTitles.help,
+      userDisplayName,
+      isLoggedIn,
+      logOutPath,
     });
   },
   accessibilityHandler: (request: CustomRequestApplicationState, response: ResponseToolkit): ResponseObject => {
+    const { userDisplayName, isLoggedIn } = getLoginDetails(request.app.user);
     return response.view('screens/home/accessibility', {
       pageTitle: pageTitles.accessibility,
+      userDisplayName,
+      isLoggedIn,
+      logOutPath,
     });
   },
   termsConditionsHandler: (request: CustomRequestApplicationState, response: ResponseToolkit): ResponseObject => {
+    const { userDisplayName, isLoggedIn } = getLoginDetails(request.app.user);
     return response.view('screens/home/terms_conditions', {
       pageTitle: pageTitles.termsAndConditions,
+      userDisplayName,
+      isLoggedIn,
+      logOutPath,
     });
   },
   privacyPolicyHandler: (request: CustomRequestApplicationState, response: ResponseToolkit): ResponseObject => {
+    const { userDisplayName, isLoggedIn } = getLoginDetails(request.app.user);
     return response.view('screens/home/privacy_policy', {
       pageTitle: pageTitles.privacyPolicy,
+      userDisplayName,
+      isLoggedIn,
+      logOutPath,
     });
   },
   cookiePolicyHandler: (request: CustomRequestApplicationState, response: ResponseToolkit): ResponseObject => {
+    const { userDisplayName, isLoggedIn } = getLoginDetails(request.app.user);
     return response.view('screens/home/cookie_policy', {
       pageTitle: pageTitles.cookiePolicy,
+      userDisplayName,
+      isLoggedIn,
+      logOutPath,
     });
+  },
+  logoutHandler: (request: CustomRequestApplicationState, response: ResponseToolkit) => {
+    response.response('Cookie cleared').unstate('auth0-jwt-live');
+    return response.redirect(`${BASE_PATH}`); // Redirect to landing page
   },
 };
 

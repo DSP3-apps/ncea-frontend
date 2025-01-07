@@ -45,6 +45,11 @@ const homeRoutes = [
     path: webRoutePaths.cookiePolicy,
     handler: HomeController.cookiePolicyHandler,
   },
+  {
+    method: 'GET',
+    path: webRoutePaths.logout,
+    handler: HomeController.logoutHandler,
+  },
 ];
 
 export { homeRoutes };

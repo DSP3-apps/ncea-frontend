@@ -75,10 +75,10 @@
 
     <div class="govuk-grid-col login">
       {% if isLoggedIn %}
-        <p>Welcome {{ username }}</p>
-        <a href="" class="govuk-link">Logout</a>
+        <p>Welcome {{ userDisplayName }}</p>
+        <a href={{logOutPath}} class="govuk-link">Logout</a>
       {% else %}
-        <p>Welcome guest</p>
+        <p>Welcome Guest</p>
         <a href="" class="govuk-link">Login</a>
       {% endif %}
     </div>
