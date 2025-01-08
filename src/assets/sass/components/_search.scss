@@ -55,12 +55,12 @@
     right: 0;
     border: 0;
     background-color: $gov-defra-color-websafe;
-    color: govuk-colour("white");
+    color: govuk-colour('white');
     cursor: pointer;
     padding: 0;
     width: 40px;
     height: inherit;
-    background-image: url(/natural-capital-ecosystem-assessment/assets/images/search-icon.png);
+    background-image: govuk-image-url('search-icon.png');
     background-repeat: no-repeat;
     background-position: 10px 50%;
     text-indent: -5000px;
@@ -75,12 +75,12 @@
 
   &__heading-l {
     @include font-style-stack(36px, 40px);
-    color: govuk-colour("white");
+    color: govuk-colour('white');
   }
 
   &__body-l {
     @include font-style-stack(19px, 24px, 300);
-    color: govuk-colour("white");
+    color: govuk-colour('white');
   }
 
   &__button-group {
@@ -91,20 +91,39 @@
 .map-container {
   width: 640px;
   height: 130px;
-  background-image: url(/natural-capital-ecosystem-assessment/assets/images/view-result-button-map.png);
-  border-width: 2px;
-  border-color: #002D18;
-  border-style: solid;
-  background-size: cover;
-  display: none;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-image: govuk-image-url('view-result-button-map.png');
+    border-width: 2px;
+    border-color: #002d18;
+    border-style: solid;
+    background-size: cover;
+  }
+
+  &.disabled::before {
+    filter: grayscale(100%);
+  }
 }
 
-#map-results-block a{
-  left: 159.5px;
-  padding: 7px 12px 6px 12px;
-  top: 50.5px;
+#map-results-block {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.no-script-container{
+.no-script-container {
   padding-top: 15px;
+}
+
+.spatial-data-button {
+  &.no-data {
+    opacity: 1 !important;
+  }
 }

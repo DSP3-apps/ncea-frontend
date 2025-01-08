@@ -1,5 +1,5 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
-import { formatDate, getYear } from './formatDate';
+import { formatDate, getYear } from './dates';
 import { getAccessTabData } from './getAccessTabData';
 import { getAccumulatedCoordinatesNCenter } from './getBoundingBoxData';
 import { getGeneralTabData } from './getGeneralTabData';

@@ -1,5 +1,5 @@
 import { startYearRangeKey, toYearRangeKey, uniqueResourceTypesKey } from './constants';
-import { getYear } from './formatDate';
+import { getYear } from './dates';
 import { IFilterOption, IFilterOptions } from '../interfaces/searchPayload.interface';
 import { IAggregationOption, IAggregationOptions } from '../interfaces/searchResponse.interface';
 

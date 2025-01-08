@@ -1,3 +1,4 @@
+import { ISearchFiltersProcessed } from './searchFilters';
 import { TabOptions } from '../interfaces/detailsTab.interface';
 import { IFilterOptions } from '../interfaces/searchPayload.interface';
 
@@ -241,4 +242,24 @@ export const naturalTabStaticData = {
     'Natural capital records are classified by themes and categories which indicate whether the record relates to natural capital assets (such as habitats and species), the ecosystem services they deliver, the pressures that act on them and/or their value.',
   noRecord: 'This record is not classifiable within the current natural capital vocabulary.',
   link: 'Natural capital classification glossary',
+};
+
+export const defaultFilters: ISearchFiltersProcessed = {
+  nceaOnly: false,
+  keywords: '',
+  license: '',
+  categories: [],
+  lastUpdated: {
+    before: {
+      day: '',
+      month: '',
+      year: '',
+    },
+    after: {
+      day: '',
+      month: '',
+      year: '',
+    },
+  },
+  retiredAndArchived: false,
 };
