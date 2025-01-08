@@ -48,12 +48,10 @@ describe('Generate Date string', () => {
       const currentDate = new Date();
       const month = currentDate.getMonth() + 1;
       const day = currentDate.getDate();
-      const dateObject = { year: 2024, month };
+      const dateObject = { year: currentDate.getFullYear(), month };
       const expectedMonth = month.toString().length === 1 ? `0${month}` : month;
       const expectedDay = day.toString().length === 1 ? `0${day}` : day;
-      expect(generateDateString(dateObject, true)).toBe(
-        `2024-${expectedMonth}-${expectedDay}`,
-      );
+      expect(generateDateString(dateObject, true)).toBe(`${currentDate.getFullYear()}-${expectedMonth}-${expectedDay}`);
     });
 
     it('should generate a date string when day is empty with last day of the month if the provided month is current month and year is less than the current year', () => {
