@@ -60,7 +60,7 @@
     padding: 0;
     width: 40px;
     height: inherit;
-    background-image: url(/natural-capital-ecosystem-assessment/assets/images/search-icon.png);
+    background-image: govuk-image-url('search-icon.png');
     background-repeat: no-repeat;
     background-position: 10px 50%;
     text-indent: -5000px;
@@ -98,7 +98,7 @@
     content: '';
     width: 100%;
     height: 100%;
-    background-image: url(/natural-capital-ecosystem-assessment/assets/images/view-result-button-map.png);
+    background-image: govuk-image-url('view-result-button-map.png');
     border-width: 2px;
     border-color: #002d18;
     border-style: solid;
