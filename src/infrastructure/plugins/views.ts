@@ -84,6 +84,7 @@ const customHapiViews = {
       },
       appInsightsConnectionString: environmentConfig.appInsightsConnectionString,
       gtmId: environmentConfig.gtmId,
+      appVersion: process.env.npm_package_version,
     },
   },
 };
