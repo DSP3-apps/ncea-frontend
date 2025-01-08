@@ -43,7 +43,6 @@ const getSearchResults = async (
     }
     /* eslint-disable  @typescript-eslint/no-explicit-any */
   } catch (error: any) {
-    console.error(error);
     throw new Error(`Error fetching results: ${error.message}`);
   }
 };

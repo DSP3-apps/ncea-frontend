@@ -70,6 +70,9 @@ export interface ISearchFiltersProcessed {
 export const buildFilterResetUrl = (requestQuery: RequestQuery): string => {
   const nceaOnly = readQueryParams(requestQuery, filterNames.scope) === DataScopeValues.NCEA;
 
+  // this will only return the meta params important to the query
+  // this is required otherwise the reset url would reflect all the filters enabled, which
+  // would mean nothing gets reset.
   const params = getMetaQueryParams(requestQuery);
 
   params.set(filterNames.scope, nceaOnly ? DataScopeValues.NCEA : DataScopeValues.ALL);
@@ -77,7 +80,18 @@ export const buildFilterResetUrl = (requestQuery: RequestQuery): string => {
   return `${BASE_PATH}${webRoutePaths.results}?${params.toString()}`;
 };
 
-// escape regex characters to prevent error
+/**
+ * This function will escape any characters special to a regex, in a given string. This is
+ * useful when user input is turned into a regex, as it prevents them using characters that
+ * would be interpreted as regex instructions.
+ *
+ * ```js
+ * let userInput = 'string.to*escape';
+ * console.log(escapeRegExp(userInput));
+ * // > 'string\\.to\\*escape'
+ * ```
+ * This function is temporary until the search API from AGM is finished.
+ */
 const escapeRegExp = (string: string) => {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
 };
