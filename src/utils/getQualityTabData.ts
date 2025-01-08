@@ -1,7 +1,7 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 'use strict';
 
-import { formatDate } from './formatDate';
+import { formatDate } from './dates';
 import { toggleContent } from './toggleContent';
 import { IQualityItem } from '../interfaces/searchResponse.interface';
 

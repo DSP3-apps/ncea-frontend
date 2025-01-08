@@ -2,6 +2,7 @@ import { estypes } from '@elastic/elasticsearch';
 import { RequestQuery } from '@hapi/hapi';
 
 import { BASE_PATH, webRoutePaths } from './constants';
+import { convertToDate } from './dates';
 import { getMetaQueryParams, readQueryParams } from './queryStringHelper';
 
 export const filterNames = {
@@ -74,29 +75,6 @@ export const buildFilterResetUrl = (requestQuery: RequestQuery): string => {
   params.set(filterNames.scope, nceaOnly ? DataScopeValues.NCEA : DataScopeValues.ALL);
 
   return `${BASE_PATH}${webRoutePaths.results}?${params.toString()}`;
-};
-
-const convertToDate = (day: string, month: string, year: string): Date | null => {
-  const yearN = parseInt(year);
-  if (isNaN(yearN)) {
-    // if the date is invalid (i.e. no year) return null
-    return null;
-  }
-
-  const dayN = parseInt(day);
-  const monthN = parseInt(month);
-  // if a day was given without a month, that doesn't make sense so return null
-  if (!isNaN(dayN) && isNaN(monthN)) {
-    return null;
-  }
-
-  if (isNaN(dayN) && isNaN(monthN)) {
-    return new Date(yearN, 1);
-  } else if (isNaN(dayN)) {
-    return new Date(yearN, monthN);
-  } else {
-    return new Date(yearN, monthN, dayN);
-  }
 };
 
 // escape regex characters to prevent error

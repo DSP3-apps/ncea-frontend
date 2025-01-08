@@ -1,4 +1,4 @@
-import { formatDate } from '../../src/utils/formatDate';
+import { formatDate } from '../../src/utils/dates';
 
 describe('Format the given date', () => {
   it('should format date without time correctly', () => {
@@ -6,12 +6,8 @@ describe('Format the given date', () => {
   });
 
   it('should format date with time correctly', () => {
-    expect(formatDate('2012-03-29T06:00:00.000Z')).toBe(
-      '29 March 2012 at 06am',
-    );
-    expect(formatDate('2012-03-29T14:30:00.000Z')).toBe(
-      '29 March 2012 at 14:30pm',
-    );
+    expect(formatDate('2012-03-29T06:00:00.000Z')).toBe('29 March 2012 at 06am');
+    expect(formatDate('2012-03-29T14:30:00.000Z')).toBe('29 March 2012 at 14:30pm');
   });
 
   it('should format the partial date', () => {
@@ -29,27 +25,15 @@ describe('Format the given date', () => {
   });
 
   it('should format the date with suffix and time correctly', async () => {
-    expect(formatDate('2012-03-29T06:00:00.000Z', true, true)).toBe(
-      '29th March 2012 at 06am',
-    );
+    expect(formatDate('2012-03-29T06:00:00.000Z', true, true)).toBe('29th March 2012 at 06am');
   });
 
   it('should format the date with suffix and without time correctly', async () => {
-    expect(formatDate('2012-03-29T06:00:00', false, true)).toBe(
-      '29th March 2012',
-    );
-    expect(formatDate('2012-03-11T06:00:00', false, true)).toBe(
-      '11th March 2012',
-    );
-    expect(formatDate('2012-03-01T06:00:00', false, true)).toBe(
-      '1st March 2012',
-    );
-    expect(formatDate('2012-03-02T06:00:00', false, true)).toBe(
-      '2nd March 2012',
-    );
-    expect(formatDate('2012-03-03T06:00:00', false, true)).toBe(
-      '3rd March 2012',
-    );
+    expect(formatDate('2012-03-29T06:00:00', false, true)).toBe('29th March 2012');
+    expect(formatDate('2012-03-11T06:00:00', false, true)).toBe('11th March 2012');
+    expect(formatDate('2012-03-01T06:00:00', false, true)).toBe('1st March 2012');
+    expect(formatDate('2012-03-02T06:00:00', false, true)).toBe('2nd March 2012');
+    expect(formatDate('2012-03-03T06:00:00', false, true)).toBe('3rd March 2012');
   });
 
   it('should handle invalid date strings', () => {

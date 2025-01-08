@@ -90,4 +90,27 @@ const validateDate = (date: number, month: number, year: number): boolean => {
   return dtDate === date && dtMonth === month && dtYear === year;
 };
 
-export { formatDate, getYear, validateDate };
+const convertToDate = (day: string, month: string, year: string): Date | null => {
+  const yearN = parseInt(year);
+  if (isNaN(yearN)) {
+    // if the date is invalid (i.e. no year) return null
+    return null;
+  }
+
+  const dayN = parseInt(day);
+  const monthN = parseInt(month);
+  // if a day was given without a month, that doesn't make sense so return null
+  if (!isNaN(dayN) && isNaN(monthN)) {
+    return null;
+  }
+
+  if (isNaN(dayN) && isNaN(monthN)) {
+    return new Date(yearN, 1);
+  } else if (isNaN(dayN)) {
+    return new Date(yearN, monthN);
+  } else {
+    return new Date(yearN, monthN, dayN);
+  }
+};
+
+export { formatDate, getYear, validateDate, convertToDate };
