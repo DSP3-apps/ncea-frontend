@@ -1595,6 +1595,12 @@ exports[`Results block template Guided search journey Search results with empty 
             </ul>
           
           
+            <div class="govuk-footer__meta-custom">
+              
+<p>Version: v1.2.0</p>
+
+            </div>
+          
         
         <svg
           aria-hidden="true"
@@ -2345,6 +2351,12 @@ exports[`Results block template Guided search journey Search results with error 
               
             </ul>
           
+          
+            <div class="govuk-footer__meta-custom">
+              
+<p>Version: v1.2.0</p>
+
+            </div>
           
         
         <svg
@@ -4252,6 +4264,12 @@ exports[`Results block template Quick search journey Search results with data sh
             </ul>
           
           
+            <div class="govuk-footer__meta-custom">
+              
+<p>Version: v1.2.0</p>
+
+            </div>
+          
         
         <svg
           aria-hidden="true"
@@ -5914,6 +5932,12 @@ exports[`Results block template Quick search journey Search results with empty d
             </ul>
           
           
+            <div class="govuk-footer__meta-custom">
+              
+<p>Version: v1.2.0</p>
+
+            </div>
+          
         
         <svg
           aria-hidden="true"
@@ -6664,6 +6688,12 @@ exports[`Results block template Quick search journey Search results with error s
               
             </ul>
           
+          
+            <div class="govuk-footer__meta-custom">
+              
+<p>Version: v1.2.0</p>
+
+            </div>
           
         
         <svg

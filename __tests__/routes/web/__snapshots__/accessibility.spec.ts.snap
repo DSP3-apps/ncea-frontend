@@ -301,6 +301,12 @@ exports[`Accessibility Screen Accessibility > Sanpshot verification should match
             </ul>
           
           
+            <div class="govuk-footer__meta-custom">
+              
+<p>Version: v1.2.0</p>
+
+            </div>
+          
         
         <svg
           aria-hidden="true"
