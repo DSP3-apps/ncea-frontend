@@ -1,13 +1,6 @@
-import {
-  IDateRange,
-  IGovernance,
-  ISearchResults,
-} from '../../src/interfaces/searchResponse.interface';
-import { formatDate } from '../../src/utils/formatDate';
-import {
-  formatSearchResponse,
-  getStudyPeriodDetails,
-} from '../../src/utils/formatSearchResponse';
+import { IDateRange, IGovernance, ISearchResults } from '../../src/interfaces/searchResponse.interface';
+import { formatDate } from '../../src/utils/dates';
+import { formatSearchResponse, getStudyPeriodDetails } from '../../src/utils/formatSearchResponse';
 import {
   detailsSuccessAPIFullData,
   detailsSuccessAPIResponse,
@@ -31,14 +24,14 @@ describe('Format the search response', () => {
                     default: 'United Kingdom Hydrographic Office',
                   },
                   role: 'custodian',
-                  organisationName:'United Kingdom Hydrographic Office',
+                  organisationName: 'United Kingdom Hydrographic Office',
                 },
                 {
                   organisationObject: {
                     default: 'Geological Survey of Ireland (GSI)',
                   },
                   role: 'owner',
-                  organisationName:'United Kingdom Hydrographic Office',
+                  organisationName: 'United Kingdom Hydrographic Office',
                 },
               ],
               ownerOrgForResourceObject: {
@@ -76,14 +69,14 @@ describe('Format the search response', () => {
                     default: 'United Kingdom Hydrographic Office',
                   },
                   role: 'originator',
-                  organisationName:'United Kingdom Hydrographic Office',
+                  organisationName: 'United Kingdom Hydrographic Office',
                 },
                 {
                   organisationObject: {
                     default: 'Geological Survey of Ireland (GSI)',
                   },
                   role: 'owner',
-                  organisationName:'United Kingdom Hydrographic Office',
+                  organisationName: 'United Kingdom Hydrographic Office',
                 },
               ],
               ownerOrgForResourceObject: {
@@ -150,37 +143,37 @@ describe('Format the search response', () => {
               resourceTitleObject: { default: 'Title 1' },
               contactForResource: [
                 {
-                  "organisationName": "Data Archive for Seabed Species and Habitats (DASSH)",
-                  "role": "originator",
-                  "email": "dassh.enquiries@mba.ac.uk",
-                  "website": "",
-                  "logo": "",
-                  "individual": "E. Wilson",
-                  "position": "",
-                  "phone": "01752 633102",
-                  "address": "Marine Biological Association of the UK, The Laboratory, Citadel Hill, Plymouth, PL1 2PB",
-                  "deliveryPoint": "Marine Biological Association of the UK, The Laboratory, Citadel Hill",
-                  "postalCode": "PL1 2PB",
-                  "city": "Plymouth",
-                  "country": "",
-                  "administrativeArea": ""
+                  organisationName: 'Data Archive for Seabed Species and Habitats (DASSH)',
+                  role: 'originator',
+                  email: 'dassh.enquiries@mba.ac.uk',
+                  website: '',
+                  logo: '',
+                  individual: 'E. Wilson',
+                  position: '',
+                  phone: '01752 633102',
+                  address: 'Marine Biological Association of the UK, The Laboratory, Citadel Hill, Plymouth, PL1 2PB',
+                  deliveryPoint: 'Marine Biological Association of the UK, The Laboratory, Citadel Hill',
+                  postalCode: 'PL1 2PB',
+                  city: 'Plymouth',
+                  country: '',
+                  administrativeArea: '',
                 },
                 {
-                  "organisationName": "Data Archive for Seabed Species and Habitats (DASSH)",
-                  "role": "custodian",
-                  "email": "dassh.enquiries@mba.ac.uk",
-                  "website": "",
-                  "logo": "",
-                  "individual": "Becky Seeley",
-                  "position": "",
-                  "phone": "01752 633102",
-                  "address": "Marine Biological Association of the UK, The Laboratory, Citadel Hill, Plymouth, PL1 2PB",
-                  "deliveryPoint": "Marine Biological Association of the UK, The Laboratory, Citadel Hill",
-                  "postalCode": "PL1 2PB",
-                  "city": "Plymouth",
-                  "country": "",
-                  "administrativeArea": ""
-                }
+                  organisationName: 'Data Archive for Seabed Species and Habitats (DASSH)',
+                  role: 'custodian',
+                  email: 'dassh.enquiries@mba.ac.uk',
+                  website: '',
+                  logo: '',
+                  individual: 'Becky Seeley',
+                  position: '',
+                  phone: '01752 633102',
+                  address: 'Marine Biological Association of the UK, The Laboratory, Citadel Hill, Plymouth, PL1 2PB',
+                  deliveryPoint: 'Marine Biological Association of the UK, The Laboratory, Citadel Hill',
+                  postalCode: 'PL1 2PB',
+                  city: 'Plymouth',
+                  country: '',
+                  administrativeArea: '',
+                },
               ],
               ownerOrgForResourceObject: {
                 default: 'Geological Survey of Ireland (GSI)',
@@ -199,21 +192,21 @@ describe('Format the search response', () => {
               ],
               contact: [
                 {
-                  "organisationName": "Data Archivxe for Seabed Species and Habitats (DASSH)",
-                  "role": "pointOfContact",
-                  "email": "dassh.enquiries@mba.ac.uk",
-                  "website": "",
-                  "logo": "",
-                  "individual": "Esther Hughes",
-                  "position": "Data Manager",
-                  "phone": "01752 633102",
-                  "address": "Marine Biological Association of the UK, The Laboratory, Citadel Hill, Plymouth, PL1 2PB",
-                  "deliveryPoint": "Marine Biological Association of the UK, The Laboratory, Citadel Hill",
-                  "postalCode": "PL1 2PB",
-                  "city": "Plymouth",
-                  "country": "",
-                  "administrativeArea": ""
-                }
+                  organisationName: 'Data Archivxe for Seabed Species and Habitats (DASSH)',
+                  role: 'pointOfContact',
+                  email: 'dassh.enquiries@mba.ac.uk',
+                  website: '',
+                  logo: '',
+                  individual: 'Esther Hughes',
+                  position: 'Data Manager',
+                  phone: '01752 633102',
+                  address: 'Marine Biological Association of the UK, The Laboratory, Citadel Hill, Plymouth, PL1 2PB',
+                  deliveryPoint: 'Marine Biological Association of the UK, The Laboratory, Citadel Hill',
+                  postalCode: 'PL1 2PB',
+                  city: 'Plymouth',
+                  country: '',
+                  administrativeArea: '',
+                },
               ],
               cl_function: [
                 {
@@ -243,9 +236,9 @@ describe('Format the search response', () => {
               data_owner: 'owner, Geological Survey of Ireland (GSI) <br>',
               frequency_of_update: '',
               limitation_on_public_access: '',
-              catalogue_number: "",
-              limitation_on_public_access_otherconstraint: "",
-              other_constraint: "",
+              catalogue_number: '',
+              limitation_on_public_access_otherconstraint: '',
+              other_constraint: '',
               tag: [
                 {
                   default: 'Elevation',
@@ -271,25 +264,25 @@ describe('Format the search response', () => {
               resourceTitleObject: { default: 'Title 2' },
               contactForResource: [
                 {
-                  role: "custodian",
-                  email: "renewables@centrica.com",
-                  website: "www.centricaenergy.com",
-                  logo: "",
-                  individual: "",
-                  position: "Project manager",
-                  phone: "+44 (0)1753 492 188",
-                  address: "Maidenhead Road, Windsor, Berkshire, SL4 5GD"
+                  role: 'custodian',
+                  email: 'renewables@centrica.com',
+                  website: 'www.centricaenergy.com',
+                  logo: '',
+                  individual: '',
+                  position: 'Project manager',
+                  phone: '+44 (0)1753 492 188',
+                  address: 'Maidenhead Road, Windsor, Berkshire, SL4 5GD',
                 },
                 {
-                  role: "originator",
-                  email: "renewables@centrica.com",
-                  website: "www.centricaenergy.com",
-                  logo: "",
-                  individual: "",
-                  position: "Project manager",
-                  phone: "+44 (0)1753 492 188",
-                  address: "Maidenhead Road, Windsor, Berkshire, SL4 5GD"
-                }
+                  role: 'originator',
+                  email: 'renewables@centrica.com',
+                  website: 'www.centricaenergy.com',
+                  logo: '',
+                  individual: '',
+                  position: 'Project manager',
+                  phone: '+44 (0)1753 492 188',
+                  address: 'Maidenhead Road, Windsor, Berkshire, SL4 5GD',
+                },
               ],
               ownerOrgForResourceObject: {
                 default: 'Geological Survey of Ireland (GSI)',
@@ -306,15 +299,15 @@ describe('Format the search response', () => {
               ],
               contact: [
                 {
-                  role: "pointOfContact",
-                  email: "renewables@centrica.com",
-                  website: "www.centricaenergy.com",
-                  logo: "",
-                  individual: "",
-                  position: "Project manager",
-                  phone: "+44 (0)1753 492 188",
-                  address: "Maidenhead Road, Windsor, Berkshire, SL4 5GD"
-                }
+                  role: 'pointOfContact',
+                  email: 'renewables@centrica.com',
+                  website: 'www.centricaenergy.com',
+                  logo: '',
+                  individual: '',
+                  position: 'Project manager',
+                  phone: '+44 (0)1753 492 188',
+                  address: 'Maidenhead Road, Windsor, Berkshire, SL4 5GD',
+                },
               ],
               cl_function: [
                 {
@@ -366,7 +359,7 @@ describe('Format the search response', () => {
               data_owner: 'owner, Geological Survey of Ireland (GSI) <br>',
               frequency_of_update: '',
               limitation_on_public_access: '',
-              catalogue_number: "",
+              catalogue_number: '',
               linkUrl: ['https://seabed.admiralty.co.uk'],
             },
           },
@@ -379,7 +372,7 @@ describe('Format the search response', () => {
         {
           id: '1',
           title: 'Title 1',
-          publishedBy: "",
+          publishedBy: '',
           content: 'Content 1',
           studyPeriod: '4 January 1960 to 4 January 1960',
           startYear: '1960',
@@ -387,9 +380,8 @@ describe('Format the search response', () => {
           resourceLocator: '',
           organisationName: 'United Kingdom Hydrographic Office',
           alternateTitle: '',
-          other_constraint: "",
-          keywords:
-            'Elevation, Marine Environmental Data and Information Network, Bathymetry and Elevation',
+          other_constraint: '',
+          keywords: 'Elevation, Marine Environmental Data and Information Network, Bathymetry and Elevation',
           language: '',
           topicCategories: '',
           ncea_catalogue_number: 'af7cd14f-6c20-445f-abd0-7c41385ba999',
@@ -402,9 +394,9 @@ describe('Format the search response', () => {
           additionalInformation: '',
           lineage: '',
           publicationInformation: '',
-          creationInformation:'',
-          revisionInformation:'',
-          metadataDate:'',
+          creationInformation: '',
+          revisionInformation: '',
+          metadataDate: '',
           conformity: '',
           project_number: '',
           metadata_standard: '',
@@ -412,11 +404,11 @@ describe('Format the search response', () => {
           ncea_group_reference: '',
           available_formats: '',
           character_encoding: 'utf8',
-          conditions_for_access_and_useOtherConstraints: "",
-          conditions_for_access_and_use_useConstraints: "",
+          conditions_for_access_and_useOtherConstraints: '',
+          conditions_for_access_and_use_useConstraints: '',
           frequency_of_update: '',
           limitation_on_public_access: '',
-          limitation_on_public_access_otherconstraint: "",
+          limitation_on_public_access_otherconstraint: '',
           spatialDataService: '',
           spatialRepresentationService: '',
           spatialReferencingSystem: '',
@@ -428,63 +420,65 @@ describe('Format the search response', () => {
           geographicMarkers: '',
           verticalExtent: '',
           samplingResolution: '',
-          catalogue_number: "",
-          contact_information:  "Data Archivxe for Seabed Species and Habitats (DASSH) :- dassh.enquiries@mba.ac.uk, <br />Data Archive for Seabed Species and Habitats (DASSH) :- dassh.enquiries@mba.ac.uk, <br />Data Archive for Seabed Species and Habitats (DASSH) :- dassh.enquiries@mba.ac.uk",
-          Natural_capital_displayData: "",
-          Natural_capital_description: "Natural capital records are classified by themes and categories which indicate whether the record relates to natural capital assets (such as habitats and species), the ecosystem services they deliver, the pressures that act on them and/or their value.",
-         Natural_capital_glossary_link: "Natural capital classification glossary",
-         Natural_capital_no_data: "This record is not classifiable within the current natural capital vocabulary.",
-         Natural_capital_title: "Natural capital classification",
-          "0" :{
-                   "administrative_area": "",
-                   "city": "Plymouth",
-                   "country": "",
-                   "delivery_point": "Marine Biological Association of the UK, The Laboratory, Citadel Hill, Plymouth, PL1 2PB",
-                 "email": "dassh.enquiries@mba.ac.uk",
-                 "individual_name": "Esther Hughes",
-                 "organization_name": "Data Archivxe for Seabed Species and Habitats (DASSH)",
-                 "position_name": "Data Manager",
-                 "postal_code": "PL1 2PB",
-                   "role": "pointOfContact",
-                   "tab": "governance",
-                   "telephone_number": "01752 633102",
-                       "web_address": "",
-                 },
-                 "1" :{
-                   "administrative_area": "",
-                   "city": "Plymouth",
-                   "country": "",
-                   "delivery_point": "Marine Biological Association of the UK, The Laboratory, Citadel Hill, Plymouth, PL1 2PB",
-                   "email": "dassh.enquiries@mba.ac.uk",
-                   "individual_name": "Becky Seeley",
-                   "organization_name": "Data Archive for Seabed Species and Habitats (DASSH)",
-                   "position_name": "",
-                   "postal_code": "PL1 2PB",
-                   "role": "custodian",
-                   "tab": "governance",
-                   "telephone_number":"01752 633102",
-                   "web_address": "",
-                 },
-                 "2" :{
-                   "administrative_area": "",
-                   "city": "Plymouth",
-                   "country": "",
-                   "delivery_point": "Marine Biological Association of the UK, The Laboratory, Citadel Hill, Plymouth, PL1 2PB",
-                   "email": "dassh.enquiries@mba.ac.uk",
-                   "individual_name": "E. Wilson",
-                   "organization_name": "Data Archive for Seabed Species and Habitats (DASSH)",
-                   "position_name": "",
-                   "postal_code": "PL1 2PB",
-                   "role": "originator",
-                   "tab": "governance",
-                   "telephone_number":  "01752 633102",
-                    "web_address": "",
-                 },
+          catalogue_number: '',
+          contact_information:
+            'Data Archivxe for Seabed Species and Habitats (DASSH) :- dassh.enquiries@mba.ac.uk, <br />Data Archive for Seabed Species and Habitats (DASSH) :- dassh.enquiries@mba.ac.uk, <br />Data Archive for Seabed Species and Habitats (DASSH) :- dassh.enquiries@mba.ac.uk',
+          Natural_capital_displayData: '',
+          Natural_capital_description:
+            'Natural capital records are classified by themes and categories which indicate whether the record relates to natural capital assets (such as habitats and species), the ecosystem services they deliver, the pressures that act on them and/or their value.',
+          Natural_capital_glossary_link: 'Natural capital classification glossary',
+          Natural_capital_no_data: 'This record is not classifiable within the current natural capital vocabulary.',
+          Natural_capital_title: 'Natural capital classification',
+          '0': {
+            administrative_area: '',
+            city: 'Plymouth',
+            country: '',
+            delivery_point: 'Marine Biological Association of the UK, The Laboratory, Citadel Hill, Plymouth, PL1 2PB',
+            email: 'dassh.enquiries@mba.ac.uk',
+            individual_name: 'Esther Hughes',
+            organization_name: 'Data Archivxe for Seabed Species and Habitats (DASSH)',
+            position_name: 'Data Manager',
+            postal_code: 'PL1 2PB',
+            role: 'pointOfContact',
+            tab: 'governance',
+            telephone_number: '01752 633102',
+            web_address: '',
+          },
+          '1': {
+            administrative_area: '',
+            city: 'Plymouth',
+            country: '',
+            delivery_point: 'Marine Biological Association of the UK, The Laboratory, Citadel Hill, Plymouth, PL1 2PB',
+            email: 'dassh.enquiries@mba.ac.uk',
+            individual_name: 'Becky Seeley',
+            organization_name: 'Data Archive for Seabed Species and Habitats (DASSH)',
+            position_name: '',
+            postal_code: 'PL1 2PB',
+            role: 'custodian',
+            tab: 'governance',
+            telephone_number: '01752 633102',
+            web_address: '',
+          },
+          '2': {
+            administrative_area: '',
+            city: 'Plymouth',
+            country: '',
+            delivery_point: 'Marine Biological Association of the UK, The Laboratory, Citadel Hill, Plymouth, PL1 2PB',
+            email: 'dassh.enquiries@mba.ac.uk',
+            individual_name: 'E. Wilson',
+            organization_name: 'Data Archive for Seabed Species and Habitats (DASSH)',
+            position_name: '',
+            postal_code: 'PL1 2PB',
+            role: 'originator',
+            tab: 'governance',
+            telephone_number: '01752 633102',
+            web_address: '',
+          },
         },
         {
           id: '2',
           title: 'Title 2',
-          publishedBy: "",
+          publishedBy: '',
           content: 'Content 2',
           studyPeriod: '4 January 1960 to 12 January 2009',
           startYear: '1960',
@@ -497,8 +491,7 @@ describe('Format the search response', () => {
           topicCategories: '',
           ncea_catalogue_number: 'ac7db62c-1908-48a3-a4be-8ca8526b4948',
           ncea_catalogue_entry: '',
-          host_catalogue_number:
-            'https://seabed.admiralty.co.ukaf7cd14f-6c20-445f-abd0-7c41385ba999',
+          host_catalogue_number: 'https://seabed.admiralty.co.ukaf7cd14f-6c20-445f-abd0-7c41385ba999',
           host_catalogue_entry: '',
           resource_type_and_hierarchy: 'Dataset',
           resource_locators:
@@ -506,9 +499,9 @@ describe('Format the search response', () => {
           additionalInformation: '',
           lineage: '',
           publicationInformation: '',
-          creationInformation:'',
-          revisionInformation:'',
-          metadataDate:'',
+          creationInformation: '',
+          revisionInformation: '',
+          metadataDate: '',
           conformity: '',
           project_number: '',
           metadata_standard: '',
@@ -516,12 +509,12 @@ describe('Format the search response', () => {
           ncea_group_reference: '',
           available_formats: '',
           character_encoding: 'utf8',
-          conditions_for_access_and_useOtherConstraints: "",
-          conditions_for_access_and_use_useConstraints: "",
+          conditions_for_access_and_useOtherConstraints: '',
+          conditions_for_access_and_use_useConstraints: '',
           frequency_of_update: '',
           limitation_on_public_access: '',
-          limitation_on_public_access_otherconstraint: "",
-          other_constraint: "",
+          limitation_on_public_access_otherconstraint: '',
+          other_constraint: '',
           spatialDataService: '',
           spatialRepresentationService: '',
           spatialReferencingSystem: '',
@@ -533,62 +526,63 @@ describe('Format the search response', () => {
           geographicMarkers: '',
           verticalExtent: '',
           samplingResolution: '',
-          catalogue_number: "",
-          contact_information:  "undefined :- renewables@centrica.com, <br />undefined :- renewables@centrica.com, <br />undefined :- renewables@centrica.com",
-          Natural_capital_displayData: "",
-          Natural_capital_description: "Natural capital records are classified by themes and categories which indicate whether the record relates to natural capital assets (such as habitats and species), the ecosystem services they deliver, the pressures that act on them and/or their value.",
-          Natural_capital_glossary_link: "Natural capital classification glossary",
-          Natural_capital_no_data: "This record is not classifiable within the current natural capital vocabulary.",
-          Natural_capital_title: "Natural capital classification",
-          "0":  {
-           "administrative_area": "",
-           "city": "",
-           "country": "",
-           "delivery_point": "Maidenhead Road, Windsor, Berkshire, SL4 5GD",
-           "email": "renewables@centrica.com",
-           "individual_name": "",
-           "organization_name": "",
-           "position_name": "Project manager",
-           "postal_code": "",
-           "role": "pointOfContact",
-           "tab": "governance",
-           "telephone_number": "+44 (0)1753 492 188",
-           "web_address": "www.centricaenergy.com",
-         },
-         "1":  {
-           "administrative_area": "",
-           "city": "",
-           "country": "",
-           "delivery_point": "Maidenhead Road, Windsor, Berkshire, SL4 5GD",
-           "email": "renewables@centrica.com",
-           "individual_name": "",
-           "organization_name": "",
-           "position_name": "Project manager",
-           "postal_code": "",
-           "role": "custodian",
-           "tab": "governance",
-           "telephone_number": "+44 (0)1753 492 188",
-           "web_address": "www.centricaenergy.com",
-         },
-         "2":  {
-           "administrative_area": "",
-           "city": "",
-           "country": "",
-           "delivery_point": "Maidenhead Road, Windsor, Berkshire, SL4 5GD",
-           "email": "renewables@centrica.com",
-           "individual_name": "",
-           "organization_name": "",
-           "position_name": "Project manager",
-           "postal_code": "",
-           "role": "originator",
-           "tab": "governance",
-           "telephone_number": "+44 (0)1753 492 188",
-           "web_address": "www.centricaenergy.com",
-         },
+          catalogue_number: '',
+          contact_information:
+            'undefined :- renewables@centrica.com, <br />undefined :- renewables@centrica.com, <br />undefined :- renewables@centrica.com',
+          Natural_capital_displayData: '',
+          Natural_capital_description:
+            'Natural capital records are classified by themes and categories which indicate whether the record relates to natural capital assets (such as habitats and species), the ecosystem services they deliver, the pressures that act on them and/or their value.',
+          Natural_capital_glossary_link: 'Natural capital classification glossary',
+          Natural_capital_no_data: 'This record is not classifiable within the current natural capital vocabulary.',
+          Natural_capital_title: 'Natural capital classification',
+          '0': {
+            administrative_area: '',
+            city: '',
+            country: '',
+            delivery_point: 'Maidenhead Road, Windsor, Berkshire, SL4 5GD',
+            email: 'renewables@centrica.com',
+            individual_name: '',
+            organization_name: '',
+            position_name: 'Project manager',
+            postal_code: '',
+            role: 'pointOfContact',
+            tab: 'governance',
+            telephone_number: '+44 (0)1753 492 188',
+            web_address: 'www.centricaenergy.com',
+          },
+          '1': {
+            administrative_area: '',
+            city: '',
+            country: '',
+            delivery_point: 'Maidenhead Road, Windsor, Berkshire, SL4 5GD',
+            email: 'renewables@centrica.com',
+            individual_name: '',
+            organization_name: '',
+            position_name: 'Project manager',
+            postal_code: '',
+            role: 'custodian',
+            tab: 'governance',
+            telephone_number: '+44 (0)1753 492 188',
+            web_address: 'www.centricaenergy.com',
+          },
+          '2': {
+            administrative_area: '',
+            city: '',
+            country: '',
+            delivery_point: 'Maidenhead Road, Windsor, Berkshire, SL4 5GD',
+            email: 'renewables@centrica.com',
+            individual_name: '',
+            organization_name: '',
+            position_name: 'Project manager',
+            postal_code: '',
+            role: 'originator',
+            tab: 'governance',
+            telephone_number: '+44 (0)1753 492 188',
+            web_address: 'www.centricaenergy.com',
+          },
         },
       ],
     };
-
 
     const result = await formatSearchResponse(apiResponse, true);
     expect(result).toEqual(expectedResponse);
@@ -690,14 +684,14 @@ describe('Format the search response', () => {
                     default: 'United Kingdom Hydrographic Office',
                   },
                   role: 'custodian',
-                  organisationName:'United Kingdom Hydrographic Office',
+                  organisationName: 'United Kingdom Hydrographic Office',
                 },
                 {
                   organisationObject: {
                     default: 'Maritime and Coastguard Agency',
                   },
                   role: 'owner',
-                  organisationName:'United Kingdom Hydrographic Office',
+                  organisationName: 'United Kingdom Hydrographic Office',
                 },
               ],
             },
@@ -706,9 +700,7 @@ describe('Format the search response', () => {
       },
     };
     const result = await formatSearchResponse(apiResponse, true);
-    expect(result.items?.[0]?.organisationName).toBe(
-      'United Kingdom Hydrographic Office',
-    );
+    expect(result.items?.[0]?.organisationName).toBe('United Kingdom Hydrographic Office');
   });
 
   it('should return organisation having role pointOfContact when custodian is not present', async () => {
@@ -730,8 +722,7 @@ describe('Format the search response', () => {
                 },
                 {
                   organisationObject: {
-                    default:
-                      'United Kingdom Hydrographic Office (pointOfContact)',
+                    default: 'United Kingdom Hydrographic Office (pointOfContact)',
                   },
                   role: 'pointOfContact',
                 },
@@ -751,9 +742,7 @@ describe('Format the search response', () => {
       },
     };
     const result = await formatSearchResponse(apiResponse, true);
-    expect(result.items?.[0]?.organisationName).toBe(
-      'United Kingdom Hydrographic Office (pointOfContact)',
-    );
+    expect(result.items?.[0]?.organisationName).toBe('United Kingdom Hydrographic Office (pointOfContact)');
   });
 
   it('should have the geo coordinates for map results', async () => {
@@ -777,9 +766,7 @@ describe('Format the search response', () => {
         { start: { date: '2022-01-01' }, end: { date: '2022-01-31' } },
         { start: { date: '2022-02-01' }, end: { date: '2022-02-28' } },
       ];
-      expect(getStudyPeriodDetails(false, dateRanges)).toBe(
-        '1 January 2022 to 31 January 2022',
-      );
+      expect(getStudyPeriodDetails(false, dateRanges)).toBe('1 January 2022 to 31 January 2022');
     });
     test('returns formatted strings for all date ranges when isDetails is true', () => {
       const dateRanges: IDateRange[] = [
@@ -791,25 +778,15 @@ describe('Format the search response', () => {
       );
     });
     test('handles missing start date', () => {
-      const dateRanges: IDateRange[] = [
-        { start: { date: '' }, end: { date: '2022-01-31' } },
-      ];
-      expect(getStudyPeriodDetails(true, dateRanges)).toBe(
-        '31 January 2022 to 31 January 2022',
-      );
+      const dateRanges: IDateRange[] = [{ start: { date: '' }, end: { date: '2022-01-31' } }];
+      expect(getStudyPeriodDetails(true, dateRanges)).toBe('31 January 2022 to 31 January 2022');
     });
     test('handles missing end date', () => {
-      const dateRanges: IDateRange[] = [
-        { start: { date: '2022-01-01' }, end: { date: '' } },
-      ];
-      expect(getStudyPeriodDetails(true, dateRanges)).toBe(
-        '1 January 2022 to 1 January 2022',
-      );
+      const dateRanges: IDateRange[] = [{ start: { date: '2022-01-01' }, end: { date: '' } }];
+      expect(getStudyPeriodDetails(true, dateRanges)).toBe('1 January 2022 to 1 January 2022');
     });
     test('handles missing both start and end date', () => {
-      const dateRanges: IDateRange[] = [
-        { start: { date: '' }, end: { date: '' } },
-      ];
+      const dateRanges: IDateRange[] = [{ start: { date: '' }, end: { date: '' } }];
       expect(getStudyPeriodDetails(true, dateRanges)).toBe('');
     });
     test('handles undefined date ranges', () => {

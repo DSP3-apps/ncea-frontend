@@ -12,9 +12,11 @@ import { IAggregationOptions, ISearchItem, ISearchResults } from '../../interfac
 import { defaultFilterOptions } from '../../utils/constants';
 import { formatSearchResponse } from '../../utils/formatSearchResponse';
 import { generateSearchQuery } from '../../utils/queryBuilder';
+import { ISearchFiltersProcessed, applyMockFilters } from '../../utils/searchFilters';
 
 const getSearchResults = async (
   searchFieldsObject: ISearchPayload,
+  filters: ISearchFiltersProcessed,
   isMapResults: boolean = false,
   isQuickSearchJourney: boolean = false,
 ): Promise<ISearchResults> => {
@@ -29,7 +31,12 @@ const getSearchResults = async (
       // const payload = generateSearchQuery(searchBuilderPayload);
       // const response = await performQuery<estypes.SearchResponse>(payload);
       const response = isQuickSearchJourney ? QUICK_SEARCH_RESPONSE : CLASSIFIER_SEARCH_RESPONSE;
-      const finalResponse: ISearchResults = await formatSearchResponse(response, false, isMapResults);
+      const finalResponse: ISearchResults = await formatSearchResponse(
+        applyMockFilters(response as never, filters, searchFieldsObject.fields.keyword?.q ?? ''),
+        false,
+        isMapResults,
+      );
+
       return finalResponse;
     } else {
       return Promise.resolve({ total: 0, items: [] });

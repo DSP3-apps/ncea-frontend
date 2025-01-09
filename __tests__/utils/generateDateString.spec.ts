@@ -45,19 +45,13 @@ describe('Generate Date string', () => {
     });
 
     it('should generate a date string when day is empty with current day of the month if the provided month is current month and year is current year', () => {
-      const mockDate = new Date('2024-10-01')
-      const spy = jest.spyOn(global, 'Date').mockImplementation(() => mockDate)
-      Date.UTC = jest.fn(() => 1704592311)
       const currentDate = new Date();
       const month = currentDate.getMonth() + 1;
       const day = currentDate.getDate();
-      const dateObject = { year: 2024, month };
+      const dateObject = { year: currentDate.getFullYear(), month };
       const expectedMonth = month.toString().length === 1 ? `0${month}` : month;
       const expectedDay = day.toString().length === 1 ? `0${day}` : day;
-      expect(generateDateString(dateObject, true)).toBe(
-        `2024-${expectedMonth}-${expectedDay}`,
-      );
-      spy.mockRestore()
+      expect(generateDateString(dateObject, true)).toBe(`${currentDate.getFullYear()}-${expectedMonth}-${expectedDay}`);
     });
 
     it('should generate a date string when day is empty with last day of the month if the provided month is current month and year is less than the current year', () => {

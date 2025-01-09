@@ -1,7 +1,9 @@
+import { estypes } from '@elastic/elasticsearch';
 import { RequestQuery } from '@hapi/hapi';
 
 import { BASE_PATH, webRoutePaths } from './constants';
-import { readQueryParams } from './queryStringHelper';
+import { convertToDate } from './dates';
+import { getMetaQueryParams, readQueryParams } from './queryStringHelper';
 
 export const filterNames = {
   scope: 'scope',
@@ -68,9 +70,185 @@ export interface ISearchFiltersProcessed {
 export const buildFilterResetUrl = (requestQuery: RequestQuery): string => {
   const nceaOnly = readQueryParams(requestQuery, filterNames.scope) === DataScopeValues.NCEA;
 
-  const params: string = nceaOnly ? `${filterNames.scope}=${DataScopeValues.NCEA}` : '';
+  // this will only return the meta params important to the query
+  // this is required otherwise the reset url would reflect all the filters enabled, which
+  // would mean nothing gets reset.
+  const params = getMetaQueryParams(requestQuery);
 
-  return `${BASE_PATH}${webRoutePaths.results}?${params}`;
+  params.set(filterNames.scope, nceaOnly ? DataScopeValues.NCEA : DataScopeValues.ALL);
+
+  return `${BASE_PATH}${webRoutePaths.results}?${params.toString()}`;
+};
+
+/**
+ * This function will escape any characters special to a regex, in a given string. This is
+ * useful when user input is turned into a regex, as it prevents them using characters that
+ * would be interpreted as regex instructions.
+ *
+ * ```js
+ * let userInput = 'string.to*escape';
+ * console.log(escapeRegExp(userInput));
+ * // > 'string\\.to\\*escape'
+ * ```
+ * This function is temporary until the search API from AGM is finished.
+ */
+const escapeRegExp = (string: string) => {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+};
+
+// this is here to describe the keys that need to exist on
+// the `estypes.SearchResponse` object
+interface ESFilterKeys {
+  status: 'active' | 'retired';
+  resourceTitleObject: { langeng: string };
+  resourceAbstractObject: { langeng: string };
+  revisionDateForResource: string[];
+  MD_LegalConstraintsOtherConstraintsObject: string;
+  MD_LegalConstraintsUseLimitationObject?: string;
+  organisationValue: string;
+  geom?: object;
+  linkProtocol?: string[];
+  format?: string[];
+}
+
+export const applyMockFilters = (
+  input: estypes.SearchResponse<ESFilterKeys>,
+  filters: ISearchFiltersProcessed,
+  query: string,
+): estypes.SearchResponse<ESFilterKeys> => {
+  const queryRegex = new RegExp(escapeRegExp(query), 'i');
+
+  // since the mock data is just an object in a TS file,
+  // the fact that this function modifies in-place means the
+  // variable would be modified which causes future-filtering to
+  // fail since the output of previous filters are carried over
+  // this deep-clones the object from the variable
+  const clonedInput = JSON.parse(JSON.stringify(input));
+  const results = clonedInput.hits;
+
+  if (!filters.retiredAndArchived) {
+    results.hits = results.hits.filter((hit) => hit._source?.status !== 'retired');
+  }
+
+  if (filters.keywords.length > 0) {
+    // split keywords by a few different delimiters
+    const keywords = filters.keywords.split(/, |,| /).map((k) => k.trim());
+
+    results.hits = results.hits.filter((hit) => {
+      return keywords.some((keyword) => {
+        // turn into a regex for case-insensitive match
+        const rg = new RegExp(escapeRegExp(keyword), 'i');
+
+        return (
+          rg.test(hit._source?.resourceTitleObject?.default ?? '') ||
+          rg.test(hit._source?.resourceAbstractObject?.default ?? '')
+        );
+      });
+    });
+  }
+
+  if (filters.license.length > 0) {
+    results.hits = results.hits.filter((hit) => {
+      // turn into a regex for case-insensitive match
+      const rg = new RegExp(escapeRegExp(filters.license), 'i');
+
+      // may have more than once license so flatten them into a single array
+      return [
+        ...(hit._source?.MD_LegalConstraintsOtherConstraintsObject ?? []),
+        ...(hit._source?.MD_LegalConstraintsUseLimitationObject ?? []),
+      ].some((licence) => {
+        return rg.test(licence.default ?? '');
+      });
+    });
+  }
+
+  const filterBefore = filters.lastUpdated.before;
+  const filterAfter = filters.lastUpdated.after;
+  // if any one of day/month/year contains a value, do the filtering
+  if (Object.values(filterBefore).some((v) => v.length > 0) || Object.values(filterAfter).some((v) => v.length > 0)) {
+    results.hits = results.hits.filter((hit) => {
+      const lastUpdatedString = [...(hit._source?.revisionDateForResource ?? [])].pop(); // get last item (most recent update)
+      const lastUpdated = new Date(lastUpdatedString ?? '');
+
+      if (isNaN(lastUpdated.getTime())) {
+        return false;
+      }
+
+      // default to `true` so no results are excluded if either date is invalid
+      let isWithinDate = true;
+
+      const filterBeforeDate = convertToDate(filterBefore.day, filterBefore.month, filterBefore.year);
+      if (!filterBeforeDate) {
+        // if the date is invalid, dont exclude any results
+        return isWithinDate;
+      }
+
+      isWithinDate = isWithinDate && lastUpdated < filterBeforeDate;
+
+      const filterAfterDate = convertToDate(filterAfter.day, filterAfter.month, filterAfter.year);
+      if (!filterAfterDate) {
+        // if the date is invalid, dont exclude any results
+        return isWithinDate;
+      }
+
+      return isWithinDate && lastUpdated > filterAfterDate;
+    });
+  }
+
+  filters.categories.forEach((cat) => {
+    // get all selected filters in this category
+    // if `All` is selected, ignore getting the other selected values
+    const valuesSelected = cat.selectedAll ? [] : cat.filters.filter((f) => f.checked).map((f) => f.value);
+
+    results.hits = results.hits.filter((hit) => {
+      if (cat.selectedAll) {
+        return true;
+      }
+
+      switch (cat.value) {
+        case 'org':
+          // we want to return `true` if no values are selected
+          return (
+            valuesSelected.length === 0 || valuesSelected.includes(hit._source?.contact?.[0].organisationValue ?? '')
+          );
+        case 'st':
+          // currently the only possible value is `title` anyway
+          return valuesSelected.includes('title')
+            ? queryRegex.test(hit._source?.resourceTitleObject?.default ?? '')
+            : true;
+        case 'dt':
+          if (valuesSelected.length === 0) {
+            return true;
+          }
+          if (valuesSelected.includes('spatial')) {
+            return !!hit._source?.geom;
+          } else {
+            // non-spatial
+            return !hit._source?.geom;
+          }
+        case 'svt':
+          return (
+            valuesSelected.length === 0 ||
+            (hit._source?.linkProtocol && valuesSelected.some((v) => hit._source?.linkProtocol.includes(v)))
+          );
+        case 'fmt':
+          return (
+            valuesSelected.length === 0 ||
+            (hit._source?.format && valuesSelected.some((v) => hit._source?.format.includes(v)))
+          );
+      }
+
+      return true;
+    });
+  });
+
+  if (typeof results.total === 'number') {
+    results.total = results.hits.length;
+  } else {
+    results.total && (results.total.value = results.hits.length);
+  }
+
+  return clonedInput;
 };
 
 // the `All` option is added automatically

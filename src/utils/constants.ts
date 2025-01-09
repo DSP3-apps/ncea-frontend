@@ -1,3 +1,4 @@
+import { ISearchFiltersProcessed } from './searchFilters';
 import { TabOptions } from '../interfaces/detailsTab.interface';
 import { IFilterOptions } from '../interfaces/searchPayload.interface';
 
@@ -243,3 +244,22 @@ export const naturalTabStaticData = {
   link: 'Natural capital classification glossary',
 };
 export const CLASSIFIERS_API_ERROR_MSG = 'Error invoking classifier list api.';
+export const defaultFilters: ISearchFiltersProcessed = {
+  nceaOnly: false,
+  keywords: '',
+  license: '',
+  categories: [],
+  lastUpdated: {
+    before: {
+      day: '',
+      month: '',
+      year: '',
+    },
+    after: {
+      day: '',
+      month: '',
+      year: '',
+    },
+  },
+  retiredAndArchived: false,
+};

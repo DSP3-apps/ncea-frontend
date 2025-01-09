@@ -33,7 +33,7 @@
           <label for="filters-{{category.value}}-accordion-toggle-{{filterInstance}}" class="filter-options__accordion" data-category-{{filterInstance}}="{{category.value}}">
             <button type="button" aria-expanded="false" data-expanded="false" id="filters-{{category.value}}-accordion-toggle-{{filterInstance}}" class="filter-options__accordion-toggle">
               <svg id="filters-{{category.value}}-accordion-icon-{{filterInstance}}" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
-              <h3 class='govuk-body-m filter-options__category-heading'>
+              <h3 class="govuk-body-m filter-options__category-heading">
                 {{ category.name }}
               </h3>
             </button>
@@ -71,7 +71,7 @@
       <label for="filters-date-accordion-toggle-{{filterInstance}}" class="filter-options__accordion" data-category-{{filterInstance}}="date">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters-date-accordion-toggle-{{filterInstance}}" class="filter-options__accordion-toggle">
           <svg id="filters-date-accordion-icon-{{filterInstance}}" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
-          <h3 class='filter-options__category-heading govuk-body-m'>
+          <h3 class="filter-options__category-heading govuk-body-m">
             Date Last Updated
           </h3>
         </button>
@@ -82,7 +82,7 @@
           namePrefix: "before",
           fieldset: {
             legend: {
-              text: "Updated after",
+              text: "Updated before",
               classes: "govuk-fieldset__legend--s"
             }
           },
@@ -113,7 +113,7 @@
           namePrefix: "after",
           fieldset: {
             legend: {
-              text: "Updated before",
+              text: "Updated after",
               classes: "govuk-fieldset__legend--s"
             }
           },
@@ -144,14 +144,14 @@
       <label for="filters-licence-accordion-toggle-{{filterInstance}}" class="filter-options__accordion" data-category-{{filterInstance}}="licence">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters-licence-accordion-toggle-{{filterInstance}}" class="filter-options__accordion-toggle">
           <svg id="filters-licence-accordion-icon-{{filterInstance}}" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
-          <h3 class='filter-options__category-heading govuk-body-m'>
+          <h3 class="filter-options__category-heading govuk-body-m">
             Licence
           </h3>
         </button>
       </label>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-licence-filters-{{filterInstance}}">
         {{ govukInput({
-          id: 'licence-'+filterInstance,
+          id: "licence-"+filterInstance,
           name: dspFilterNames.licence,
           value: dspFilterOptions.license
         }) }}
@@ -161,14 +161,14 @@
       <label for="filters-keywords-accordion-toggle-{{filterInstance}}" class="filter-options__accordion" data-category-{{filterInstance}}="keywords">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters-keywords-accordion-toggle-{{filterInstance}}" class="filter-options__accordion-toggle">
           <svg id="filters-keywords-accordion-icon-{{filterInstance}}" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
-          <h3 class='filter-options__category-heading govuk-body-m'>
+          <h3 class="filter-options__category-heading govuk-body-m">
             Keywords
           </h3>
         </button>
       </label>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-keywords-filters-{{filterInstance}}">
         {{ govukInput({
-          id: 'keywords-'+filterInstance,
+          id: "keywords-"+filterInstance,
           name: dspFilterNames.keywords,
           value: dspFilterOptions.keywords
         }) }}
