@@ -1,3 +1,4 @@
+import fs from 'fs';
 import path from 'path';
 
 import vision from '@hapi/vision';
@@ -6,6 +7,9 @@ import dateFilter from 'nunjucks-date-filter';
 
 import { environmentConfig } from '../../config/environmentConfig';
 import { BASE_PATH, webRoutePaths } from '../../utils/constants';
+
+const packageJsonPath = path.join(process.cwd(), 'package.json');
+const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
 
 const {
   results: searchResults,
@@ -84,7 +88,7 @@ const customHapiViews = {
       },
       appInsightsConnectionString: environmentConfig.appInsightsConnectionString,
       gtmId: environmentConfig.gtmId,
-      appVersion: process.env.npm_package_version,
+      appVersion: packageJson.version,
     },
   },
 };

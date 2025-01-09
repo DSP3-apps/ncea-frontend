@@ -30,6 +30,9 @@ COPY --from=builder /app/node_modules ./node_modules
 # Copy the 'public' folder from the builder stage
 COPY --from=builder /app/public ./public
 
+# Copy the package.json file,from which app version is getting
+COPY --from=builder /app/package.json ./
+
 # Create the 'log_files' folder
 RUN mkdir /app/log_files
 

@@ -512,6 +512,12 @@ exports[`Guided Search - Date Questionnaire Screen Guided Search > Date Question
             </ul>
           
           
+            <div class="govuk-footer__meta-custom">
+              
+<p>Version: v1.2.0</p>
+
+            </div>
+          
         
         <svg
           aria-hidden="true"
