@@ -1261,6 +1261,12 @@ exports[`Details route template Document details with data Check status code and
             </ul>
           
           
+            <div class="govuk-footer__meta-custom">
+              
+<p>Version: v1.2.0</p>
+
+            </div>
+          
         
         <svg
           aria-hidden="true"
@@ -2358,6 +2364,12 @@ exports[`Details route template Document details with partial data Check status 
               
             </ul>
           
+          
+            <div class="govuk-footer__meta-custom">
+              
+<p>Version: v1.2.0</p>
+
+            </div>
           
         
         <svg

@@ -275,6 +275,12 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
             </ul>
           
           
+            <div class="govuk-footer__meta-custom">
+              
+<p>Version: v1.2.0</p>
+
+            </div>
+          
         
         <svg
           aria-hidden="true"

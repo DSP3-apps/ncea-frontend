@@ -410,6 +410,12 @@ exports[`Guided Search - Geography Questionnaire Screen GET Request Geography Qu
             </ul>
           
           
+            <div class="govuk-footer__meta-custom">
+              
+<p>Version: v1.2.0</p>
+
+            </div>
+          
         
         <svg
           aria-hidden="true"
