@@ -52,10 +52,4 @@ export const environmentSchema: Joi.ObjectSchema = Joi.object({
   webDomain: Joi.string().allow('').default('').messages({
     'string.base': 'The web domain must be a string.',
   }),
-  classifierApiTestUrl: Joi.string().uri().allow('').default('').messages({
-    'string.uri': 'Classifier search api URI must be a valid URL or an empty string',
-  }),
-  classifierApiTestKey: Joi.string().allow('').default('').messages({
-    'string.base': 'Classifier search api key must be a string',
-  }),
 });

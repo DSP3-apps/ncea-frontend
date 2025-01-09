@@ -80,9 +80,7 @@ describe('Environment environmentConfig', () => {
         elasticSearchPassword: Joi.string().allow('').default(''),
         webDomain: Joi.string().allow('').default(''),
         classifierApiUrl: Joi.string().allow('').default(''),
-        classifierApiKey: Joi.string().allow('').default(''),
-        classifierApiTestUrl: Joi.string().allow('').default(''),
-        classifierApiTestKey: Joi.string().allow('').default(''),        
+        classifierApiKey: Joi.string().allow('').default(''),     
       });
 
       const {

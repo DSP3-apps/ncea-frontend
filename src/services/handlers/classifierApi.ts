@@ -30,14 +30,14 @@ const transformClassifierLevel3Details = (Level2Classifiers: Classify[]): Classi
 
 const invokeClassifierApi = async (level: string, parents: string = ''): Promise<AxiosResponse> => {
   try {
-    let url = `${environmentConfig.classifierApiTestUrl}api/classifiers?level=${level}`;
+    let url = `${environmentConfig.classifierApiUrl}api/classifiers?level=${level}`;
 
     if (parents) {
       url = url + `&Parents=${parents}`;
     }
     const headers = {
       headers: {
-        'X-API-Key': environmentConfig.classifierApiTestKey,
+        'X-API-Key': environmentConfig.classifierApiKey,
       },
     };
     const response: AxiosResponse = await axios.get(url, headers);

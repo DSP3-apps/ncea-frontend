@@ -58,8 +58,6 @@ describe('Environment Configuration Schema', () => {
         classifierApiUrl: 'https://example.com/api',
         classifierApiKey: 'your-key',
         webDomain: '',
-        classifierApiTestUrl: 'https://test-url.com',
-        classifierApiTestKey: 'test-key'
       };
 
       const { error, value } = environmentSchema.validate(validConfig);
