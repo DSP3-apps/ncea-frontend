@@ -1,3 +1,24 @@
+# [1.3.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.2.0...v1.3.0) (2025-01-09)
+
+
+### Bug Fixes
+
+* **filters:** Include query params in reset URL ([37c2ea1](https://github.com/DSP3-apps/ncea-frontend/commit/37c2ea1356cbfa22db7d28b0e479eccb71921f06)), closes [#NCEA-5](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-5)
+* **filters:** Modify mocked data to allow filtering to work ([3c3f20d](https://github.com/DSP3-apps/ncea-frontend/commit/3c3f20d242d46eb5e8a153f17b0085db973a3243)), closes [#NCEA-138](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-138)
+* **filters:** Move styles to SCSS ([a1c37d5](https://github.com/DSP3-apps/ncea-frontend/commit/a1c37d5aa965fa9f10ea503dda554cf564952558))
+* **tests:** Fix date test when day of month empty ([3f8e887](https://github.com/DSP3-apps/ncea-frontend/commit/3f8e887b3d8b650626f89d8b33268d74273ad0c6))
+* **ui:** Fix wrong UK Gov crest logo in footer ([9c81c6c](https://github.com/DSP3-apps/ncea-frontend/commit/9c81c6c47aecd168cf9eb6aba2c76bfca2d725c0))
+
+
+### Features
+
+* **filters:** Implement filter behaviour ([285a180](https://github.com/DSP3-apps/ncea-frontend/commit/285a1803bb172342af440d197185409aef5f12e9)), closes [#NCEA-138](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-138)
+* **filters:** Prevent map from disappearing due to lack of spatial data ([b972efd](https://github.com/DSP3-apps/ncea-frontend/commit/b972efded18b06aedd8a0a4b7e4bde254923b263)), closes [#NCEA-5](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-5)
+* **frontdend:** added the version in the footer section ([64c702c](https://github.com/DSP3-apps/ncea-frontend/commit/64c702c5c3b4d13dfe122ec608b8b44949ecc53a))
+* **frontend:** Add SASS compilation in build to generate the application.css styles in build process, Ignore the commit of application.css from every commit. ([c7a5994](https://github.com/DSP3-apps/ncea-frontend/commit/c7a5994600a30de864fb8c7422586f0997667202))
+* **frontend:** Add version number to footer. ([b2ab57c](https://github.com/DSP3-apps/ncea-frontend/commit/b2ab57c93aa8572280b45cbe695cc01d70f1da94))
+* **test:** Add tests for filters ([308555a](https://github.com/DSP3-apps/ncea-frontend/commit/308555a8edf53be0e57d119c5abcd0c874fc0ca7)), closes [#NCEA-138](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-138)
+
 # [1.2.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.1.0...v1.2.0) (2024-12-13)
 
 
