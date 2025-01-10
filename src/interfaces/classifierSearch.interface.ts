@@ -19,7 +19,3 @@ export interface Classifiers {
   text?: string;
   value?: string;
 }
-
-export interface AxiosResponse {
-  data: [];
-}
