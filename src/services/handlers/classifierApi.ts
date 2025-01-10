@@ -1,9 +1,5 @@
-import axios from 'axios';
-
 import { environmentConfig } from '@/config/environmentConfig';
-import { AxiosResponse, Classifiers, Classify } from '@/interfaces/classifierSearch.interface';
-
-import { CLASSIFIERS_API_ERROR_MSG } from '../../utils/constants';
+import { Classifiers, Classify } from '@/interfaces/classifierSearch.interface';
 
 const transformClassifierDetails = (classifiers: Classify[]): Classify[] => {
   return classifiers?.map((classifier) => ({
@@ -28,34 +24,25 @@ const transformClassifierLevel3Details = (Level2Classifiers: Classify[]): Classi
   });
 };
 
-const invokeClassifierApi = async (level: string, parents: string = ''): Promise<AxiosResponse> => {
-  try {
-    let url = `${environmentConfig.classifierApiUrl}api/classifiers?level=${level}`;
+const invokeClassifierApi = async (level: string, parents: string = '') => {
+  let url = `${environmentConfig.classifierApiUrl}api/classifiers?level=${level}`;
 
-    if (parents) {
-      url = url + `&Parents=${parents}`;
-    }
-    const headers = {
-      headers: {
-        'X-API-Key': environmentConfig.classifierApiKey,
-      },
-    };
-    const response: AxiosResponse = await axios.get(url, headers);
-    return response;
-  } catch (error: unknown) {
-    throw new Error(CLASSIFIERS_API_ERROR_MSG);
+  if (parents) {
+    url = url + `&Parents=${parents}`;
   }
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: { 'X-API-Key': environmentConfig.classifierApiKey } as HeadersInit,
+  });
+  const data = await response.json();
+  return data;
 };
 
-export const getClassifierThemes = async (
-  level: string,
-  /* eslint-disable  @typescript-eslint/no-unused-vars */
-  parents: string = '',
-): Promise<Classifiers[]> => {
+export const getClassifierThemes = async (level: string, parents: string = ''): Promise<Classifiers[]> => {
   try {
     const response = await invokeClassifierApi(level, parents);
     const classifierResponse: Classifiers[] = [];
-    response.data.forEach((classifier: Classifiers) => {
+    response.forEach((classifier: Classifiers) => {
       if (classifier.level === 3) {
         classifierResponse.push({
           sectionTitle: classifier.sectionTitle,

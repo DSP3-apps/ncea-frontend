@@ -3,7 +3,7 @@
 import { ClassifierSearchController } from '../../../src/controllers/web/ClassifierSearchController';
 import { Request, ResponseToolkit } from '@hapi/hapi';
 import { BASE_PATH, formIds, queryParamKeys, webRoutePaths } from '../../../src/utils/constants';
-import { level3ClassifierItems } from '../../data/classifierSearch';
+import { LEVEL3_CLASSIFIER_ITEMS } from '../../../src/services/handlers/mocks/classifier-themes-level-3';
 import { getClassifierThemes } from '../../../src/services/handlers/classifierApi';
 import { getSearchResultsCount } from '../../../src/services/handlers/searchApi';
 import { readQueryParams, upsertQueryParams } from '../../../src/utils/queryStringHelper';
@@ -33,7 +33,7 @@ describe('Classifier Search Controller', () => {
       } as any;
 
       const level3ClassifierItems = [];
-      (getClassifierThemes as jest.Mock).mockResolvedValue(level3ClassifierItems);
+      (getClassifierThemes as jest.Mock).mockResolvedValue(LEVEL3_CLASSIFIER_ITEMS);
       (getSearchResultsCount as jest.Mock).mockResolvedValue({ totalResults: 0 });
 
       await ClassifierSearchController.renderClassifierSearchHandler(request, response);
@@ -65,7 +65,7 @@ describe('Classifier Search Controller', () => {
         query: { level: '3', 'parent[]': 'lv2-001' },
       } as any;
 
-      (getClassifierThemes as jest.Mock).mockResolvedValue(level3ClassifierItems);
+      (getClassifierThemes as jest.Mock).mockResolvedValue(LEVEL3_CLASSIFIER_ITEMS);
       (getSearchResultsCount as jest.Mock).mockResolvedValue({ totalResults: 10 });
 
       await ClassifierSearchController.renderClassifierSearchHandler(request, response);
@@ -100,7 +100,7 @@ describe('Classifier Search Controller', () => {
         pageTitle: 'NCEA questionnaire  Search- subcategories',
         skipPath: resultsPath,
         formId: classifierSearch,
-        classifierItems: level3ClassifierItems,
+        classifierItems: LEVEL3_CLASSIFIER_ITEMS,
         count: '10',
         journey: 'gs',
         resultsPath,
@@ -114,7 +114,7 @@ describe('Classifier Search Controller', () => {
         query: { level: '2', 'parent[]': 'lv2-001,lv2-002' },
       } as any;
 
-      (getClassifierThemes as jest.Mock).mockResolvedValue(level3ClassifierItems);
+      (getClassifierThemes as jest.Mock).mockResolvedValue(LEVEL3_CLASSIFIER_ITEMS);
       (getSearchResultsCount as jest.Mock).mockResolvedValue({ totalResults: 0 });
 
       await ClassifierSearchController.renderClassifierSearchHandler(request, response);
