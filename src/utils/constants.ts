@@ -243,7 +243,6 @@ export const naturalTabStaticData = {
   noRecord: 'This record is not classifiable within the current natural capital vocabulary.',
   link: 'Natural capital classification glossary',
 };
-export const CLASSIFIERS_API_ERROR_MSG = 'Error invoking classifier list api.';
 export const defaultFilters: ISearchFiltersProcessed = {
   nceaOnly: false,
   keywords: '',
