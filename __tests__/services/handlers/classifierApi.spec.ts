@@ -4,8 +4,8 @@ import { CLASSIFIER_LEVEL_2_MOCK_DATA, LEVEL2_API_RESPONSE } from '../../../src/
 import { CLASSIFIER_LEVEL_1, LEVEL1_API_RESPONSE } from '../../../src/services/handlers/mocks/classifier-themes-level-1';
 import { CLASSIFIER_LEVEL_3_MOCK_DATA, NO_CLASSIFIER_LEVEL_2_MOCK_DATA, LEVEL3_API_RESPONSE, LEVEL3_MISSING_CLASSIFIER_API_RESPONSE } from '../../../src/services/handlers/mocks/classifier-themes-level-3';
 
-describe.only('Classifier API', () => {
-  describe.only('getClassifierThemes', () => {
+describe('Classifier API', () => {
+  describe('getClassifierThemes', () => {
     it('should call classifier list api for level 1', async () => {
       global.fetch = jest.fn().mockResolvedValue({
         json: () => Promise.resolve(LEVEL1_API_RESPONSE)
