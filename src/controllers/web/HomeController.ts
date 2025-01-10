@@ -1,8 +1,8 @@
 'use strict';
 
-import { ResponseObject, ResponseToolkit } from '@hapi/hapi';
+import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 
-import { CustomRequestApplicationState } from '../../interfaces/cookies';
+import { COOKIE_NAME } from '../../interfaces/cookies';
 import { IGuidedSearchStepsMatrix, IStepRouteMatrix } from '../../interfaces/guidedSearch.interface';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { getSearchResultsCount } from '../../services/handlers/searchApi';
@@ -15,7 +15,6 @@ import {
   queryParamKeys,
   webRoutePaths,
 } from '../../utils/constants';
-import { getLoginDetails } from '../../utils/loginDetails';
 import { generateCountPayload, readQueryParams, upsertQueryParams } from '../../utils/queryStringHelper';
 
 /**
@@ -28,22 +27,17 @@ import { generateCountPayload, readQueryParams, upsertQueryParams } from '../../
  */
 
 const HomeController = {
-  renderHomeHandler: (request: CustomRequestApplicationState, response: ResponseToolkit): ResponseObject => {
-    const { userDisplayName, isLoggedIn } = getLoginDetails(request.app.user);
+  renderHomeHandler: (request: Request, response: ResponseToolkit): ResponseObject => {
     const { quickSearchFID } = formIds;
     return response.view('screens/home/template', {
       pageTitle: pageTitles.home,
       quickSearchFID,
       searchInputError: undefined,
-      isLoggedIn,
-      userDisplayName,
+      user: request.auth.credentials,
       logOutPath,
     });
   },
-  intermediateHandler: async (
-    request: CustomRequestApplicationState,
-    response: ResponseToolkit,
-  ): Promise<ResponseObject> => {
+  intermediateHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
     const stepRouteMatrix: IGuidedSearchStepsMatrix = {
       [guidedSearchSteps.date]: {
         self: webRoutePaths.guidedDateSearch,
@@ -80,53 +74,43 @@ const HomeController = {
     }
     return response.redirect(`${BASE_PATH}${webRoutePaths.home}`);
   },
-  helpHandler: (request: CustomRequestApplicationState, response: ResponseToolkit): ResponseObject => {
-    const { userDisplayName, isLoggedIn } = getLoginDetails(request.app.user);
+  helpHandler: (request: Request, response: ResponseToolkit): ResponseObject => {
     return response.view('screens/home/help', {
       pageTitle: pageTitles.help,
-      userDisplayName,
-      isLoggedIn,
+      user: request.auth.credentials,
       logOutPath,
     });
   },
-  accessibilityHandler: (request: CustomRequestApplicationState, response: ResponseToolkit): ResponseObject => {
-    const { userDisplayName, isLoggedIn } = getLoginDetails(request.app.user);
+  accessibilityHandler: (request: Request, response: ResponseToolkit): ResponseObject => {
     return response.view('screens/home/accessibility', {
       pageTitle: pageTitles.accessibility,
-      userDisplayName,
-      isLoggedIn,
+      user: request.auth.credentials,
       logOutPath,
     });
   },
-  termsConditionsHandler: (request: CustomRequestApplicationState, response: ResponseToolkit): ResponseObject => {
-    const { userDisplayName, isLoggedIn } = getLoginDetails(request.app.user);
+  termsConditionsHandler: (request: Request, response: ResponseToolkit): ResponseObject => {
     return response.view('screens/home/terms_conditions', {
       pageTitle: pageTitles.termsAndConditions,
-      userDisplayName,
-      isLoggedIn,
+      user: request.auth.credentials,
       logOutPath,
     });
   },
-  privacyPolicyHandler: (request: CustomRequestApplicationState, response: ResponseToolkit): ResponseObject => {
-    const { userDisplayName, isLoggedIn } = getLoginDetails(request.app.user);
+  privacyPolicyHandler: (request: Request, response: ResponseToolkit): ResponseObject => {
     return response.view('screens/home/privacy_policy', {
       pageTitle: pageTitles.privacyPolicy,
-      userDisplayName,
-      isLoggedIn,
+      user: request.auth.credentials,
       logOutPath,
     });
   },
-  cookiePolicyHandler: (request: CustomRequestApplicationState, response: ResponseToolkit): ResponseObject => {
-    const { userDisplayName, isLoggedIn } = getLoginDetails(request.app.user);
+  cookiePolicyHandler: (request: Request, response: ResponseToolkit): ResponseObject => {
     return response.view('screens/home/cookie_policy', {
       pageTitle: pageTitles.cookiePolicy,
-      userDisplayName,
-      isLoggedIn,
+      user: request.auth.credentials,
       logOutPath,
     });
   },
-  logoutHandler: (request: CustomRequestApplicationState, response: ResponseToolkit) => {
-    response.response('Cookie cleared').unstate('auth0-jwt-live');
+  logoutHandler: (request: Request, response: ResponseToolkit) => {
+    response.response('Cookie cleared').unstate(COOKIE_NAME);
     return response.redirect(`${BASE_PATH}`); // Redirect to landing page
   },
 };

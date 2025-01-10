@@ -74,8 +74,8 @@
     }) }}
 
     <div class="govuk-grid-col login">
-      {% if isLoggedIn %}
-        <p>Welcome {{ userDisplayName }}</p>
+      {% if user %}
+        <p>Welcome {{ user.email }}</p>
         <a href={{logOutPath}} class="govuk-link">Logout</a>
       {% else %}
         <p>Welcome Guest</p>

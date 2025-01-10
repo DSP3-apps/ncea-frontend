@@ -1,19 +1,14 @@
 'use strict';
 
-// import { parse } from 'path';
-
-import Cookie from '@hapi/cookie';
 import { Server } from '@hapi/hapi';
 import * as Hapi from '@hapi/hapi';
 import inert from '@hapi/inert';
 import vision from '@hapi/vision';
-import { decode } from 'jsonwebtoken';
 
 import { environmentConfig } from '../config/environmentConfig';
-// import { HttpCodes } from '../utils/http';
 import { getSecret } from '../utils/keyvault';
+import { authSchema } from './plugins/auth';
 import { customHapiPino, customHapiRoutes, customHapiViews } from './plugins/index';
-import { CustomRequestApplicationState, DecodedJWT } from '../interfaces/cookies';
 
 const appInsightsConnectionStringSecretName =
   environmentConfig.appInsightsSecretName ?? 'ApplicationInsights--ConnectionString';
@@ -38,37 +33,17 @@ const initializeServer = async (): Promise<Server> => {
     environmentConfig.appInsightsConnectionString = appInsightsConnectionString;
     customHapiViews.options.context.appInsightsConnectionString = appInsightsConnectionString;
   }
+
   // Register vendors plugins
   await server.register([inert, vision]);
 
-  // Register the cookie plugin
-  await server.register(Cookie);
+  // Register the custom auth schema
+  server.auth.scheme('auth', authSchema);
+  // Register the strategy based on the schema above
+  server.auth.strategy('auth-strategy', 'auth', {});
 
-  server.ext('onPreHandler', async (request: CustomRequestApplicationState, h) => {
-    // FIXME: This is what I see as the preferred solution, however state is always null.
-    // The state is always null because the cookie is not being set in the request object
-    // and I don't know why. So I've commented out this solution in favor of the one below
-    // which manually parses the cookies from the headers.
-
-    const cookies = request.headers.cookie;
-    if (cookies) {
-      const parsedCookies = Object.fromEntries(cookies.split('; ').map((c) => c.split('=')));
-
-      if (parsedCookies['auth0-jwt-live']) {
-        try {
-          const decodedJwt = decode(parsedCookies['auth0-jwt-live']) as unknown as DecodedJWT;
-
-          // Save the JWT in request.app for later use.
-          request.app.jwt = parsedCookies['auth0-jwt-live'];
-          request.app.user = decodedJwt;
-        } catch (error) {
-          console.error('Error decoding JWT: ', error);
-        }
-      }
-    }
-
-    return h.continue;
-  });
+  // Use the custom auth strategy on all routes
+  server.auth.default('auth-strategy');
 
   // Register the custom plugins
   await server.register({ plugin: customHapiViews.plugin, options: customHapiViews.options });
