@@ -2,6 +2,7 @@ import Hapi from '@hapi/hapi';
 import inert from '@hapi/inert';
 import vision from '@hapi/vision';
 import { customHapiPino, customHapiRoutes, customHapiViews } from '../../src/infrastructure/plugins';
+import { authSchema } from '../../src/infrastructure/plugins/auth';
 
 jest.mock('@hapi/hapi', () => ({
   server: jest.fn(() => ({
@@ -10,6 +11,11 @@ jest.mock('@hapi/hapi', () => ({
     start: jest.fn(),
     ext: jest.fn(),
     info: { uri: 'http://localhost:4000', port: '4000' },
+    auth: {
+      scheme: jest.fn(),
+      strategy: jest.fn(),
+      default: jest.fn(),
+    },
   })),
   Server: jest.fn(),
 }));
@@ -57,7 +63,7 @@ describe('Server initialization', () => {
       },
     });
 
-    expect(server.register).toHaveBeenCalledTimes(5);
+    expect(server.register).toHaveBeenCalledTimes(4);
     expect(server.register).toHaveBeenCalledWith([inert, vision]);
     expect(server.register).toHaveBeenCalledWith(customHapiViews);
     expect(server.register).toHaveBeenCalledWith(
@@ -67,6 +73,11 @@ describe('Server initialization', () => {
       },
     );
     expect(server.register).toHaveBeenCalledWith([customHapiPino]);
+
+    expect(server.auth.scheme).toHaveBeenCalledWith('auth', authSchema);
+    expect(server.auth.strategy).toHaveBeenCalledWith('auth-strategy', 'auth', {});
+    expect(server.auth.default).toHaveBeenCalledWith('auth-strategy');
+
     expect(server.initialize).toHaveBeenCalled();
   });
 

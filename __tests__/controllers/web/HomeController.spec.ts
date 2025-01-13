@@ -1,7 +1,7 @@
-
 'use strict';
 
 import { Request, ResponseToolkit } from '@hapi/hapi';
+import { decode } from 'jsonwebtoken';
 import {
   BASE_PATH,
   formIds,
@@ -13,10 +13,9 @@ import {
 } from '../../../src/utils/constants';
 import { HomeController } from '../../../src/controllers/web/HomeController';
 import { getSearchResultsCount } from '../../../src/services/handlers/searchApi';
-import {
-  readQueryParams,
-  upsertQueryParams,
-} from '../../../src/utils/queryStringHelper';
+import { readQueryParams, upsertQueryParams } from '../../../src/utils/queryStringHelper';
+import { authSchema } from '../../../src/infrastructure/plugins/auth';
+import { COOKIE_NAME } from '../../../src/interfaces/cookies';
 
 jest.mock('../../../src/infrastructure/plugins/appinsights-logger', () => ({
   info: jest.fn(),
@@ -26,10 +25,45 @@ jest.mock('../../../src/services/handlers/searchApi', () => ({
   getSearchResultsCount: jest.fn(),
 }));
 
+jest.mock('jsonwebtoken', () => ({
+  // Mock the function to track calls but still invoke the original to do the decoding
+  // `jest.spyOn` would be more sensible but it throws an error I am not sure how to fix
+  decode: jest.fn().mockImplementation(jest.requireActual('jsonwebtoken').decode),
+}));
+
+// Mock jwt
+const MOCK_JWT =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdXRoMHwwZWNhZjYzMjNjZmY0NzkwLWIxZjZkNjciLCJhcGltVXNlcklkIjoiNTBkMjNhMDYtYTUzOS00NWJjLTk5ZjQtMDYyNTAzNGE5NDBhIiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwiZ3JvdXBJbmZvSWRzIjpbXSwiYXBwX3VzZXJfZ3JvdXBfbmFtZXMiOltdLCJncm91cHMiOltdLCJzdWJzY3JpcHRpb24iOiJGcmVlIiwiY2xpZW50SWQiOiJjbUZ1Wkc5dElHUmhkR0VLSTNnPSIsImFwcHMiOnsiZmllbGRFeHBsb3JlciI6eyJlbnRpdGxlbWVudHMiOlsiVFJJQUwiXX19LCJpYXQiOjE3MzY1MTg4NDksImV4cCI6OTk5OTk5OTk5OSwiYXVkIjoiYXBpLmV4YW1wbGUuY29tIiwiaXNzIjoiRXhhbXBsZSJ9.7gv8uy3g7XsNh5dYshfC409PIIcgEttxnabJO4mmig0';
+
+/**
+ * Generated a mock request with mock authenication data from a given JWT
+ */
+const getMockAuthedRequest = (jwt: string): Request => {
+  const request = { auth: {} };
+
+  (authSchema as any)({ state: jest.fn() }).authenticate(
+    {
+      headers: {
+        cookie: `${COOKIE_NAME}=${jwt}`,
+      },
+    },
+    {
+      authenticated: jest.fn().mockImplementation((data) => {
+        request.auth = data;
+      }),
+      continue: Symbol(),
+    },
+  );
+
+  return request as any;
+};
+
 describe('Deals with Home Controller', () => {
   describe('Deals with the renderHomeHandler', () => {
     it('should call the home view with context with guest user', async () => {
-      const request: Request = { app : { user : {}} } as any;
+      const request = getMockAuthedRequest('');
+      expect(decode).toHaveReturnedWith(null);
+
       const response: ResponseToolkit = { view: jest.fn() } as any;
       await HomeController.renderHomeHandler(request, response);
       const { quickSearchFID } = formIds;
@@ -37,13 +71,14 @@ describe('Deals with Home Controller', () => {
         pageTitle: pageTitles.home,
         quickSearchFID,
         searchInputError: undefined,
-        isLoggedIn: false,
-        userDisplayName: '',
+        user: undefined,
         logOutPath,
       });
     });
     it('should call the home view with context with logged in user', async () => {
-      const request: Request = { app : { user : { email: 'test@test.com'}} } as any;
+      const request = getMockAuthedRequest(MOCK_JWT);
+      expect(decode).toHaveReturned();
+
       const response: ResponseToolkit = { view: jest.fn() } as any;
       await HomeController.renderHomeHandler(request, response);
       const { quickSearchFID } = formIds;
@@ -51,8 +86,8 @@ describe('Deals with Home Controller', () => {
         pageTitle: pageTitles.home,
         quickSearchFID,
         searchInputError: undefined,
-        isLoggedIn: true,
-        userDisplayName: 'test@test.com',
+        // We only want a partial match on the jwt as it contains lots of keys
+        user: expect.objectContaining({ email: 'test@test.com' }),
         logOutPath,
       });
     });
@@ -141,132 +176,130 @@ describe('Deals with Home Controller', () => {
   });
   describe('Deals with the accessibilityHandler', () => {
     it('should call the accessibility view with context with guest user', async () => {
-      const request: Request = { app : { user : {}} } as any;
+      const request = getMockAuthedRequest('');
+      expect(decode).toHaveReturnedWith(null);
+
       const response: ResponseToolkit = { view: jest.fn() } as any;
       await HomeController.accessibilityHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/home/accessibility', {
         pageTitle: pageTitles.accessibility,
-        isLoggedIn: false,
-        userDisplayName: '',
+        user: undefined,
         logOutPath,
       });
     });
     it('should call the accessibility view with context with logged in user', async () => {
-      const request: Request = { app : { user : { email: 'test@test.com'}} } as any;
+      const request = getMockAuthedRequest(MOCK_JWT);
+      expect(decode).toHaveReturned();
+
       const response: ResponseToolkit = { view: jest.fn() } as any;
       await HomeController.accessibilityHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/home/accessibility', {
         pageTitle: pageTitles.accessibility,
-        isLoggedIn: true,
-        userDisplayName: 'test@test.com',
+        user: expect.objectContaining({ email: 'test@test.com' }),
         logOutPath,
       });
     });
   });
   describe('Deals with the helpHandler', () => {
     it('should call the help view with context with guest user', async () => {
-      const request: Request = { app : { user : {}} } as any;
+      const request = getMockAuthedRequest('');
+      expect(decode).toHaveReturnedWith(null);
+
       const response: ResponseToolkit = { view: jest.fn() } as any;
       await HomeController.helpHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/home/help', {
         pageTitle: pageTitles.help,
-        isLoggedIn: false,
-        userDisplayName: '',
+        user: undefined,
         logOutPath,
       });
     });
     it('should call the help view with context with logged in user', async () => {
-      const request: Request = { app : { user : { email: 'test@test.com'}} } as any;
+      const request = getMockAuthedRequest(MOCK_JWT);
+      expect(decode).toHaveReturned();
+
       const response: ResponseToolkit = { view: jest.fn() } as any;
       await HomeController.helpHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/home/help', {
         pageTitle: pageTitles.help,
-        isLoggedIn: true,
-        userDisplayName: 'test@test.com',
+        user: expect.objectContaining({ email: 'test@test.com' }),
         logOutPath,
       });
     });
   });
   describe('Deals with the termsConditionsHandler', () => {
     it('should call the accessibility view with context with guest user', async () => {
-      const request: Request = { app : { user : {}} } as any;
+      const request = getMockAuthedRequest('');
+      expect(decode).toHaveReturnedWith(null);
+
       const response: ResponseToolkit = { view: jest.fn() } as any;
       await HomeController.termsConditionsHandler(request, response);
-      expect(response.view).toHaveBeenCalledWith(
-        'screens/home/terms_conditions',
-        {
-          pageTitle: pageTitles.termsAndConditions,
-          isLoggedIn: false,
-          userDisplayName: '',
-          logOutPath,
-        },
-      );
-    });
-    it('should call the accessibility view with context with guest user', async () => {
-      const request: Request = { app : { user : { email: 'test@test.com'}} } as any;
-      const response: ResponseToolkit = { view: jest.fn() } as any;
-      await HomeController.termsConditionsHandler(request, response);
-      expect(response.view).toHaveBeenCalledWith(
-        'screens/home/terms_conditions',
-        {
-          pageTitle: pageTitles.termsAndConditions,
-          isLoggedIn: true,
-          userDisplayName: 'test@test.com',
-          logOutPath,
-        },
-      );
-    });
-  });
-  describe('Deals with the privacyPolicyHandler with guest user', () => {
-    it('should call the privacy policy view with context', async () => {
-      const request: Request = { app : { user : {}} } as any;
-      const response: ResponseToolkit = { view: jest.fn() } as any;
-      await HomeController.privacyPolicyHandler(request, response);
-      expect(response.view).toHaveBeenCalledWith(
-        'screens/home/privacy_policy',
-        {
-          pageTitle: pageTitles.privacyPolicy,
-          isLoggedIn: false,
-          userDisplayName: '',
-          logOutPath,
-        },
-      );
-    });
-    it('should call the privacy policy view with context', async () => {
-      const request: Request = { app : { user : { email: 'test@test.com'}} } as any;
-      const response: ResponseToolkit = { view: jest.fn() } as any;
-      await HomeController.privacyPolicyHandler(request, response);
-      expect(response.view).toHaveBeenCalledWith(
-        'screens/home/privacy_policy',
-        {
-          pageTitle: pageTitles.privacyPolicy,
-          isLoggedIn: true,
-          userDisplayName: 'test@test.com',
-          logOutPath,
-        },
-      );
-    });
-  });
-  describe('Deals with the cookiePolicyHandler', () => {
-    it('should call the accessibility view with context with logged in user', async () => {
-      const request: Request = { app : { user : { email: 'test@test.com'}} } as any;
-      const response: ResponseToolkit = { view: jest.fn() } as any;
-      await HomeController.cookiePolicyHandler(request, response);
-      expect(response.view).toHaveBeenCalledWith('screens/home/cookie_policy', {
-        pageTitle: pageTitles.cookiePolicy,
-        isLoggedIn: true,
-        userDisplayName: 'test@test.com',
+      expect(response.view).toHaveBeenCalledWith('screens/home/terms_conditions', {
+        pageTitle: pageTitles.termsAndConditions,
+        user: undefined,
         logOutPath,
       });
     });
     it('should call the accessibility view with context with guest user', async () => {
-      const request: Request = { app : { user : {}} } as any;
+      const request = getMockAuthedRequest(MOCK_JWT);
+      expect(decode).toHaveReturned();
+
+      const response: ResponseToolkit = { view: jest.fn() } as any;
+      await HomeController.termsConditionsHandler(request, response);
+      expect(response.view).toHaveBeenCalledWith('screens/home/terms_conditions', {
+        pageTitle: pageTitles.termsAndConditions,
+        user: expect.objectContaining({ email: 'test@test.com' }),
+        logOutPath,
+      });
+    });
+  });
+  describe('Deals with the privacyPolicyHandler with guest user', () => {
+    it('should call the privacy policy view with context', async () => {
+      const request = getMockAuthedRequest('');
+      expect(decode).toHaveReturnedWith(null);
+
+      const response: ResponseToolkit = { view: jest.fn() } as any;
+      await HomeController.privacyPolicyHandler(request, response);
+      expect(response.view).toHaveBeenCalledWith('screens/home/privacy_policy', {
+        pageTitle: pageTitles.privacyPolicy,
+        user: undefined,
+        logOutPath,
+      });
+    });
+    it('should call the privacy policy view with context', async () => {
+      const request = getMockAuthedRequest(MOCK_JWT);
+      expect(decode).toHaveReturned();
+
+      const response: ResponseToolkit = { view: jest.fn() } as any;
+      await HomeController.privacyPolicyHandler(request, response);
+      expect(response.view).toHaveBeenCalledWith('screens/home/privacy_policy', {
+        pageTitle: pageTitles.privacyPolicy,
+        user: expect.objectContaining({ email: 'test@test.com' }),
+        logOutPath,
+      });
+    });
+  });
+  describe('Deals with the cookiePolicyHandler', () => {
+    it('should call the accessibility view with context with logged in user', async () => {
+      const request = getMockAuthedRequest(MOCK_JWT);
+      expect(decode).toHaveReturned();
+
       const response: ResponseToolkit = { view: jest.fn() } as any;
       await HomeController.cookiePolicyHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/home/cookie_policy', {
         pageTitle: pageTitles.cookiePolicy,
-        isLoggedIn: false,
-        userDisplayName: '',
+        user: expect.objectContaining({ email: 'test@test.com' }),
+        logOutPath,
+      });
+    });
+    it('should call the accessibility view with context with guest user', async () => {
+      const request = getMockAuthedRequest('');
+      expect(decode).toHaveReturnedWith(null);
+
+      const response: ResponseToolkit = { view: jest.fn() } as any;
+      await HomeController.cookiePolicyHandler(request, response);
+      expect(response.view).toHaveBeenCalledWith('screens/home/cookie_policy', {
+        pageTitle: pageTitles.cookiePolicy,
+        user: undefined,
         logOutPath,
       });
     });
