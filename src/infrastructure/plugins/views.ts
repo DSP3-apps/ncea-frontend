@@ -89,6 +89,7 @@ const customHapiViews = {
       appInsightsConnectionString: environmentConfig.appInsightsConnectionString,
       gtmId: environmentConfig.gtmId,
       appVersion: packageJson.version,
+      isAppLocal: process.env.NODE_ENV === 'local'
     },
   },
 };

@@ -608,3 +608,43 @@
   margin-top: 4px;
   margin-bottom: 12px;
 }
+
+.filter-options__keyboard-filter-content {
+  position: absolute;
+  top: 75%;
+  left: 3%;
+  right: 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  z-index: 1000;
+  display: none;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.filter-options__keyboard-filter-content ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.filter-options__keyboard-filter-content ul li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.filter-options__keyboard-filter-content ul li:hover {
+  background-color: #f1f1f1;
+}
+
+.keywords-filter-dropdown {
+  width: 300px;
+  margin: 20px auto;
+  position: relative;
+}
+
+.filter-options__keyword-filter {
+  position: relative;
+}

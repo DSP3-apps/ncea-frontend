@@ -157,7 +157,7 @@
         }) }}
       </div>
     </div>
-    <div class="filter-options__container">
+    <div class="filter-options__container filter-options__keyword-filter">
       <label for="filters-keywords-accordion-toggle-{{filterInstance}}" class="filter-options__accordion" data-category-{{filterInstance}}="keywords">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters-keywords-accordion-toggle-{{filterInstance}}" class="filter-options__accordion-toggle">
           <svg id="filters-keywords-accordion-icon-{{filterInstance}}" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
@@ -172,6 +172,10 @@
           name: dspFilterNames.keywords,
           value: dspFilterOptions.keywords
         }) }}
+      </div>
+      <div class="filter-options__keyboard-filter-content">
+          <ul class="filter-options__keyboard-filter-list" id="keyboard-filter-list">
+          </ul>
       </div>
     </div>
 
