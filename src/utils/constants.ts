@@ -264,4 +264,4 @@ export const defaultFilters: ISearchFiltersProcessed = {
   retiredAndArchived: false,
 };
 
-export const keywordsFiltersBaseUrlPath = 'https://environment-test.data.gov.uk'
+export const keywordsFiltersBaseUrlPath = 'https://environment-test.data.gov.uk';
