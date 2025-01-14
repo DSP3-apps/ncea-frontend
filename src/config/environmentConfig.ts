@@ -26,6 +26,7 @@ const config: EnvironmentConfig = {
   elasticSearchUsername: process.env.ES_USERNAME,
   elasticSearchPassword: process.env.ES_PASSWORD,
   webDomain: process.env.WEBDOMAIN,
+  keyboardFiltersBaseUrl: process.env.KEYBOARD_FILTER_LOCAL_BASE_URL || '',
 };
 console.log('ENV CONFIG: ', config);
 

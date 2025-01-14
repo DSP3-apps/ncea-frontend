@@ -74,6 +74,7 @@ describe('Vision Plugin Configuration', () => {
       appInsightsConnectionString: environmentConfig.appInsightsConnectionString,
       gtmId: environmentConfig.gtmId,
       appVersion: process.env.npm_package_version,
+      keyboardFiltersBaseUrl: ''
     });
     expect(mockEnvironment.addFilter).toHaveBeenCalledTimes(2);
   });

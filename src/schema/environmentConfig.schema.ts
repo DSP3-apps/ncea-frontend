@@ -52,4 +52,7 @@ export const environmentSchema: Joi.ObjectSchema = Joi.object({
   webDomain: Joi.string().allow('').default('').messages({
     'string.base': 'The web domain must be a string.',
   }),
+  keyboardFiltersBaseUrl: Joi.string().allow('').default('').messages({
+    'string.base': 'The keyboard filters base url must be a string.',
+  }),
 });

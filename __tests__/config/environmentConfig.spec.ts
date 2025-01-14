@@ -50,7 +50,7 @@ describe('Environment environmentConfig', () => {
       } = require('../../src/config/environmentConfig');
       expect(environmentConfig).toBeDefined();
       expect(typeof environmentConfig).toBe('object');
-      expect(Object.keys(environmentConfig).length).toBe(13);
+      expect(Object.keys(environmentConfig).length).toBe(14);
     });
 
     it('should validate and export the configuration object', () => {
@@ -61,7 +61,8 @@ describe('Environment environmentConfig', () => {
         AZURE_KEYVAULT_URL: 'https://azure-keyvault.com',
         APPINSIGHTS_SECRET_NAME: 'appinsights--connections string',
         ELASTICSEARCH_API: 'https://elasticsearch-api.com',
-        WEBDOMAIN: ''
+        WEBDOMAIN: '',
+        KEYBOARD_FILTER_LOCAL_BASE_URL: ''
       };
       process.env = { ...mockConfig };
 
@@ -81,6 +82,7 @@ describe('Environment environmentConfig', () => {
         webDomain: Joi.string().allow('').default(''),
         classifierApiUrl: Joi.string().allow('').default(''),
         classifierApiKey: Joi.string().allow('').default(''),
+        keyboardFiltersBaseUrl: Joi.string().allow('').default(''),
       });
 
       const {

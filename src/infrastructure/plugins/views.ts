@@ -89,6 +89,7 @@ const customHapiViews = {
       appInsightsConnectionString: environmentConfig.appInsightsConnectionString,
       gtmId: environmentConfig.gtmId,
       appVersion: packageJson.version,
+      keyboardFiltersBaseUrl: environmentConfig.keyboardFiltersBaseUrl,
     },
   },
 };
