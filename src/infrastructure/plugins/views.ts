@@ -6,7 +6,7 @@ import nunjucks from 'nunjucks';
 import dateFilter from 'nunjucks-date-filter';
 
 import { environmentConfig } from '../../config/environmentConfig';
-import { BASE_PATH, webRoutePaths } from '../../utils/constants';
+import { BASE_PATH, logoutApi, webRoutePaths } from '../../utils/constants';
 
 const packageJsonPath = path.join(process.cwd(), 'package.json');
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
@@ -85,6 +85,9 @@ const customHapiViews = {
         termsAndConditions: `${BASE_PATH}${termsAndConditions}`,
         privacyPolicy: `${BASE_PATH}${privacyPolicy}`,
         cookiePolicy: `${BASE_PATH}${cookiePolicy}`,
+        // Logging out in development won't work due to the cookie being added manually
+        // so leave the URL blank
+        logOut: environmentConfig.isLocal ? '' : `${logoutApi}`,
       },
       appInsightsConnectionString: environmentConfig.appInsightsConnectionString,
       gtmId: environmentConfig.gtmId,

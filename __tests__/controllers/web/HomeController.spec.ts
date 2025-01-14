@@ -4,9 +4,9 @@ import { Request, ResponseToolkit } from '@hapi/hapi';
 import { decode } from 'jsonwebtoken';
 import {
   BASE_PATH,
+  jwtCookieName,
   formIds,
   guidedSearchSteps,
-  logOutPath,
   pageTitles,
   queryParamKeys,
   webRoutePaths,
@@ -15,7 +15,6 @@ import { HomeController } from '../../../src/controllers/web/HomeController';
 import { getSearchResultsCount } from '../../../src/services/handlers/searchApi';
 import { readQueryParams, upsertQueryParams } from '../../../src/utils/queryStringHelper';
 import { authSchema } from '../../../src/infrastructure/plugins/auth';
-import { COOKIE_NAME } from '../../../src/interfaces/cookies';
 
 jest.mock('../../../src/infrastructure/plugins/appinsights-logger', () => ({
   info: jest.fn(),
@@ -44,7 +43,7 @@ const getMockAuthedRequest = (jwt: string): Request => {
   (authSchema as any)({ state: jest.fn() }).authenticate(
     {
       headers: {
-        cookie: `${COOKIE_NAME}=${jwt}`,
+        cookie: `${jwtCookieName}=${jwt}`,
       },
     },
     {
@@ -55,7 +54,27 @@ const getMockAuthedRequest = (jwt: string): Request => {
     },
   );
 
-  return request as any;
+  return request as Request;
+};
+
+/**
+ * Returns a mock response toolkit object that is provided
+ * with extra context via the `context` argument.
+ *
+ * This is intended to replicate the behaviour of the server normally which uses
+ * a custom view plugin to inject common context data into each view, before it is
+ * rendered.
+ */
+const getViewMockResponseToolkitWithContext = (viewContext: object): ResponseToolkit => {
+  const viewMock = jest.fn((viewName, userArgs) => {
+    // This replaces the last invocation of the mock function to trick jest into thinking it was called with the merged
+    // arguments, rather than just the ones the user passed in
+    viewMock.mock.calls[viewMock.mock.calls.length - 1] = [viewName, { ...userArgs, ...viewContext }];
+  });
+
+  return {
+    view: viewMock,
+  } as any;
 };
 
 describe('Deals with Home Controller', () => {
@@ -64,22 +83,21 @@ describe('Deals with Home Controller', () => {
       const request = getMockAuthedRequest('');
       expect(decode).toHaveReturnedWith(null);
 
-      const response: ResponseToolkit = { view: jest.fn() } as any;
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
       await HomeController.renderHomeHandler(request, response);
       const { quickSearchFID } = formIds;
       expect(response.view).toHaveBeenCalledWith('screens/home/template', {
         pageTitle: pageTitles.home,
         quickSearchFID,
         searchInputError: undefined,
-        user: undefined,
-        logOutPath,
+        user: null,
       });
     });
     it('should call the home view with context with logged in user', async () => {
       const request = getMockAuthedRequest(MOCK_JWT);
       expect(decode).toHaveReturned();
 
-      const response: ResponseToolkit = { view: jest.fn() } as any;
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
       await HomeController.renderHomeHandler(request, response);
       const { quickSearchFID } = formIds;
       expect(response.view).toHaveBeenCalledWith('screens/home/template', {
@@ -88,7 +106,6 @@ describe('Deals with Home Controller', () => {
         searchInputError: undefined,
         // We only want a partial match on the jwt as it contains lots of keys
         user: expect.objectContaining({ email: 'test@test.com' }),
-        logOutPath,
       });
     });
   });
@@ -179,24 +196,22 @@ describe('Deals with Home Controller', () => {
       const request = getMockAuthedRequest('');
       expect(decode).toHaveReturnedWith(null);
 
-      const response: ResponseToolkit = { view: jest.fn() } as any;
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
       await HomeController.accessibilityHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/home/accessibility', {
         pageTitle: pageTitles.accessibility,
-        user: undefined,
-        logOutPath,
+        user: null,
       });
     });
     it('should call the accessibility view with context with logged in user', async () => {
       const request = getMockAuthedRequest(MOCK_JWT);
       expect(decode).toHaveReturned();
 
-      const response: ResponseToolkit = { view: jest.fn() } as any;
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
       await HomeController.accessibilityHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/home/accessibility', {
         pageTitle: pageTitles.accessibility,
         user: expect.objectContaining({ email: 'test@test.com' }),
-        logOutPath,
       });
     });
   });
@@ -205,24 +220,22 @@ describe('Deals with Home Controller', () => {
       const request = getMockAuthedRequest('');
       expect(decode).toHaveReturnedWith(null);
 
-      const response: ResponseToolkit = { view: jest.fn() } as any;
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
       await HomeController.helpHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/home/help', {
         pageTitle: pageTitles.help,
-        user: undefined,
-        logOutPath,
+        user: null,
       });
     });
     it('should call the help view with context with logged in user', async () => {
       const request = getMockAuthedRequest(MOCK_JWT);
       expect(decode).toHaveReturned();
 
-      const response: ResponseToolkit = { view: jest.fn() } as any;
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
       await HomeController.helpHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/home/help', {
         pageTitle: pageTitles.help,
         user: expect.objectContaining({ email: 'test@test.com' }),
-        logOutPath,
       });
     });
   });
@@ -231,24 +244,22 @@ describe('Deals with Home Controller', () => {
       const request = getMockAuthedRequest('');
       expect(decode).toHaveReturnedWith(null);
 
-      const response: ResponseToolkit = { view: jest.fn() } as any;
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
       await HomeController.termsConditionsHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/home/terms_conditions', {
         pageTitle: pageTitles.termsAndConditions,
-        user: undefined,
-        logOutPath,
+        user: null,
       });
     });
     it('should call the accessibility view with context with guest user', async () => {
       const request = getMockAuthedRequest(MOCK_JWT);
       expect(decode).toHaveReturned();
 
-      const response: ResponseToolkit = { view: jest.fn() } as any;
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
       await HomeController.termsConditionsHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/home/terms_conditions', {
         pageTitle: pageTitles.termsAndConditions,
         user: expect.objectContaining({ email: 'test@test.com' }),
-        logOutPath,
       });
     });
   });
@@ -257,24 +268,22 @@ describe('Deals with Home Controller', () => {
       const request = getMockAuthedRequest('');
       expect(decode).toHaveReturnedWith(null);
 
-      const response: ResponseToolkit = { view: jest.fn() } as any;
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
       await HomeController.privacyPolicyHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/home/privacy_policy', {
         pageTitle: pageTitles.privacyPolicy,
-        user: undefined,
-        logOutPath,
+        user: null,
       });
     });
     it('should call the privacy policy view with context', async () => {
       const request = getMockAuthedRequest(MOCK_JWT);
       expect(decode).toHaveReturned();
 
-      const response: ResponseToolkit = { view: jest.fn() } as any;
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
       await HomeController.privacyPolicyHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/home/privacy_policy', {
         pageTitle: pageTitles.privacyPolicy,
         user: expect.objectContaining({ email: 'test@test.com' }),
-        logOutPath,
       });
     });
   });
@@ -283,24 +292,22 @@ describe('Deals with Home Controller', () => {
       const request = getMockAuthedRequest(MOCK_JWT);
       expect(decode).toHaveReturned();
 
-      const response: ResponseToolkit = { view: jest.fn() } as any;
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
       await HomeController.cookiePolicyHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/home/cookie_policy', {
         pageTitle: pageTitles.cookiePolicy,
         user: expect.objectContaining({ email: 'test@test.com' }),
-        logOutPath,
       });
     });
     it('should call the accessibility view with context with guest user', async () => {
       const request = getMockAuthedRequest('');
       expect(decode).toHaveReturnedWith(null);
 
-      const response: ResponseToolkit = { view: jest.fn() } as any;
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
       await HomeController.cookiePolicyHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/home/cookie_policy', {
         pageTitle: pageTitles.cookiePolicy,
-        user: undefined,
-        logOutPath,
+        user: null,
       });
     });
   });

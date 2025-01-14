@@ -1,11 +1,12 @@
-import { ServerAuthScheme } from '@hapi/hapi';
+import { Request, ResponseToolkit, ServerAuthScheme } from '@hapi/hapi';
 import { decode } from 'jsonwebtoken';
 
-import { environmentConfig } from '@/config/environmentConfig';
-import { COOKIE_NAME, DecodedJWT } from '@/interfaces/cookies';
+import { environmentConfig } from '../../config/environmentConfig';
+import { DecodedJWT } from '../../interfaces/cookies';
+import { jwtCookieName } from '../../utils/constants';
 
 export const authSchema: ServerAuthScheme = (server) => {
-  server.state(COOKIE_NAME, {
+  server.state(jwtCookieName, {
     ttl: null, // Cookie expiration managed by DSP Core.
     isSecure: !environmentConfig.isLocal, // Only allow HTTPS cookies.
     isHttpOnly: true, // Prevents client side JS from reading the cookie.
@@ -23,18 +24,11 @@ export const authSchema: ServerAuthScheme = (server) => {
         return h.continue;
       }
 
-      // FIXME: This is what I see as the preferred solution, however state is always null.
-      // The state is always null because the cookie is not being set in the request object
-      // and I don't know why. So I've commented out this solution in favor of the one below
-      // which manually parses the cookies from the headers.
-
-      // const jwtCookie = request?.state?.[COOKIE_NAME];
-
       try {
         const parsedCookies = Object.fromEntries(cookies.split('; ').map((c) => c.split('=')));
-        const jwtCookie = parsedCookies[COOKIE_NAME];
+        const jwt = parsedCookies[jwtCookieName];
 
-        const decodedJwt = decode(jwtCookie) as unknown as DecodedJWT;
+        const decodedJwt = decode(jwt) as unknown as DecodedJWT;
 
         // It can fail without an error, just returning `null` instead
         if (!decodedJwt) {
@@ -43,11 +37,41 @@ export const authSchema: ServerAuthScheme = (server) => {
 
         // If valid, return an object representing the authenticated user
         return h.authenticated({
-          credentials: decodedJwt,
+          credentials: {
+            jwt, // raw jwt token to be used in future api requests
+            user: decodedJwt,
+          },
         });
       } catch (error) {
         return h.continue;
       }
     },
   };
+};
+
+/**
+ * Injects user credentials into response context which is automatically passed into every view.
+ * This means every view has access to user data without needing to pass in in explicitely.
+ */
+export const injectAuthIntoContext = (request: Request, h: ResponseToolkit) => {
+  const response = request.response;
+
+  // `response` is a union type of `Boom<any> | ResponseObject` and we only want `ResponseObject`
+  // `variety` is a key only on `ResponseObject` so that will narrow the type
+  if ('variety' in response) {
+    const source = response.source;
+
+    // `source` can be of any type as it is just data returned from any lifecycle method
+    // the whole `source` object is read-only but the inner properties are not
+    // we constrain the type to an object and check if it has the `context` key, which is
+    // the data passed to each view
+    if (source && typeof source === 'object' && 'context' in source && source.context) {
+      const context = source.context as Record<string, unknown>;
+
+      // finally we assign the user data if there is any
+      context.user = request.auth.credentials?.user || null;
+    }
+  }
+
+  return h.continue;
 };

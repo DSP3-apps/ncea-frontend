@@ -1,5 +1,3 @@
-export const COOKIE_NAME = 'auth0-jwt-live';
-
 // Define an interface for the decoded JWT payload
 export interface DecodedJWT {
   name: string;

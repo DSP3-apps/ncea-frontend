@@ -2,7 +2,6 @@
 
 import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 
-import { COOKIE_NAME } from '../../interfaces/cookies';
 import { IGuidedSearchStepsMatrix, IStepRouteMatrix } from '../../interfaces/guidedSearch.interface';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { getSearchResultsCount } from '../../services/handlers/searchApi';
@@ -10,7 +9,6 @@ import {
   BASE_PATH,
   formIds,
   guidedSearchSteps,
-  logOutPath,
   pageTitles,
   queryParamKeys,
   webRoutePaths,
@@ -33,8 +31,6 @@ const HomeController = {
       pageTitle: pageTitles.home,
       quickSearchFID,
       searchInputError: undefined,
-      user: request.auth.credentials,
-      logOutPath,
     });
   },
   intermediateHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
@@ -77,41 +73,27 @@ const HomeController = {
   helpHandler: (request: Request, response: ResponseToolkit): ResponseObject => {
     return response.view('screens/home/help', {
       pageTitle: pageTitles.help,
-      user: request.auth.credentials,
-      logOutPath,
     });
   },
   accessibilityHandler: (request: Request, response: ResponseToolkit): ResponseObject => {
     return response.view('screens/home/accessibility', {
       pageTitle: pageTitles.accessibility,
-      user: request.auth.credentials,
-      logOutPath,
     });
   },
   termsConditionsHandler: (request: Request, response: ResponseToolkit): ResponseObject => {
     return response.view('screens/home/terms_conditions', {
       pageTitle: pageTitles.termsAndConditions,
-      user: request.auth.credentials,
-      logOutPath,
     });
   },
   privacyPolicyHandler: (request: Request, response: ResponseToolkit): ResponseObject => {
     return response.view('screens/home/privacy_policy', {
       pageTitle: pageTitles.privacyPolicy,
-      user: request.auth.credentials,
-      logOutPath,
     });
   },
   cookiePolicyHandler: (request: Request, response: ResponseToolkit): ResponseObject => {
     return response.view('screens/home/cookie_policy', {
       pageTitle: pageTitles.cookiePolicy,
-      user: request.auth.credentials,
-      logOutPath,
     });
-  },
-  logoutHandler: (request: Request, response: ResponseToolkit) => {
-    response.response('Cookie cleared').unstate(COOKIE_NAME);
-    return response.redirect(`${BASE_PATH}`); // Redirect to landing page
   },
 };
 
