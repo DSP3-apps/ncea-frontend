@@ -6,7 +6,7 @@ import nunjucks from 'nunjucks';
 import dateFilter from 'nunjucks-date-filter';
 
 import { environmentConfig } from '../../config/environmentConfig';
-import { BASE_PATH, keywordsFiltersBaseUrlPath, webRoutePaths } from '../../utils/constants';
+import { BASE_PATH, webRoutePaths } from '../../utils/constants';
 
 const packageJsonPath = path.join(process.cwd(), 'package.json');
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
