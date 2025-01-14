@@ -12,4 +12,5 @@ export interface EnvironmentConfig {
   elasticSearchUsername?: string;
   elasticSearchPassword?: string;
   webDomain?: string;
+  keyboardFiltersBaseUrl?: string | undefined;
 }

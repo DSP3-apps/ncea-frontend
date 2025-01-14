@@ -1,16 +1,14 @@
 $(document).ready(function () {
-    const getTagsApiUrl = Boolean(keyboardFiltersBaseUrlValue) ? `${keyboardFiltersBaseUrlValue}/backend/catalog/api/catalog/tags` : 'backend/catalog/api/catalog/tags'
+    const getTagsApiUrl = Boolean(keyboardFiltersBaseUrlValue) ? `${keyboardFiltersBaseUrlValue}/backend/catalog/api/catalog/tags` : '/backend/catalog/api/catalog/tags'
     $.ajax({
         url: `${getTagsApiUrl}`,
         type: 'GET',
         headers: { 'Content-Type': 'application/json' },
         success: function(data) {
             let liElement = $()
-            if (data.tags.length > 0) {
-                data.tags.map(item => {
+                data?.tags?.map(item => {
                     liElement = liElement.add('<li class="govuk-font-family">' + item.label + '</li>')
                 })
-            }
             $(".filter-options__keyboard-filter-list").append(liElement)     
         }
     });
@@ -28,7 +26,7 @@ $(document).ready(function () {
         $('.filter-options__keyboard-filter-content').hide();
 
         const params = new URLSearchParams(window.location.search);
-        if (Boolean(params.get('keywords'))) {
+        if (!!(params.get('keywords'))) {
             const updatedValue = `${params.get('keywords')},${selectedValue}`
             params.set('keywords', updatedValue)
         } else {

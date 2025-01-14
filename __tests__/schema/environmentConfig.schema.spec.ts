@@ -57,7 +57,8 @@ describe('Environment Configuration Schema', () => {
         elasticSearchPassword: 'es-password',
         classifierApiUrl: 'https://example.com/api',
         classifierApiKey: 'your-key',
-        webDomain: ''
+        webDomain: '',
+        keyboardFiltersBaseUrl: '',
       };
 
       const { error, value } = environmentSchema.validate(validConfig);
