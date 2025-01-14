@@ -8,7 +8,7 @@ $(document).ready(function () {
             let liElement = $()
             if (data.tags.length > 0) {
                 data.tags.map(item => {
-                    liElement = liElement.add('<li>' + item.label + '</li>')
+                    liElement = liElement.add('<li class="govuk-font-family">' + item.label + '</li>')
                 })
             }
             $(".filter-options__keyboard-filter-list").append(liElement)     
