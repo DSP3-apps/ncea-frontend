@@ -7,6 +7,7 @@ import vision from '@hapi/vision';
 
 import { environmentConfig } from '../config/environmentConfig';
 import { getSecret } from '../utils/keyvault';
+import { authSchema, injectAuthIntoContext } from './plugins/auth';
 import { customHapiPino, customHapiRoutes, customHapiViews } from './plugins/index';
 
 const appInsightsConnectionStringSecretName =
@@ -32,8 +33,20 @@ const initializeServer = async (): Promise<Server> => {
     environmentConfig.appInsightsConnectionString = appInsightsConnectionString;
     customHapiViews.options.context.appInsightsConnectionString = appInsightsConnectionString;
   }
+
   // Register vendors plugins
   await server.register([inert, vision]);
+
+  // Register the custom auth schema
+  server.auth.scheme('auth', authSchema);
+  // Register the strategy based on the schema above
+  server.auth.strategy('auth-strategy', 'auth', {});
+
+  // Use the custom auth strategy on all routes
+  server.auth.default('auth-strategy');
+
+  // Register event handler that injects user data into a view context before it is rendered
+  server.ext('onPreResponse', injectAuthIntoContext);
 
   // Register the custom plugins
   await server.register({ plugin: customHapiViews.plugin, options: customHapiViews.options });

@@ -1,9 +1,10 @@
-
 'use strict';
 
 import { Request, ResponseToolkit } from '@hapi/hapi';
+import { decode } from 'jsonwebtoken';
 import {
   BASE_PATH,
+  jwtCookieName,
   formIds,
   guidedSearchSteps,
   pageTitles,
@@ -12,10 +13,8 @@ import {
 } from '../../../src/utils/constants';
 import { HomeController } from '../../../src/controllers/web/HomeController';
 import { getSearchResultsCount } from '../../../src/services/handlers/searchApi';
-import {
-  readQueryParams,
-  upsertQueryParams,
-} from '../../../src/utils/queryStringHelper';
+import { readQueryParams, upsertQueryParams } from '../../../src/utils/queryStringHelper';
+import { authSchema } from '../../../src/infrastructure/plugins/auth';
 
 jest.mock('../../../src/infrastructure/plugins/appinsights-logger', () => ({
   info: jest.fn(),
@@ -25,17 +24,88 @@ jest.mock('../../../src/services/handlers/searchApi', () => ({
   getSearchResultsCount: jest.fn(),
 }));
 
+jest.mock('jsonwebtoken', () => ({
+  // Mock the function to track calls but still invoke the original to do the decoding
+  // `jest.spyOn` would be more sensible but it throws an error I am not sure how to fix
+  decode: jest.fn().mockImplementation(jest.requireActual('jsonwebtoken').decode),
+}));
+
+// Mock jwt
+const MOCK_JWT =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdXRoMHwwZWNhZjYzMjNjZmY0NzkwLWIxZjZkNjciLCJhcGltVXNlcklkIjoiNTBkMjNhMDYtYTUzOS00NWJjLTk5ZjQtMDYyNTAzNGE5NDBhIiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwiZ3JvdXBJbmZvSWRzIjpbXSwiYXBwX3VzZXJfZ3JvdXBfbmFtZXMiOltdLCJncm91cHMiOltdLCJzdWJzY3JpcHRpb24iOiJGcmVlIiwiY2xpZW50SWQiOiJjbUZ1Wkc5dElHUmhkR0VLSTNnPSIsImFwcHMiOnsiZmllbGRFeHBsb3JlciI6eyJlbnRpdGxlbWVudHMiOlsiVFJJQUwiXX19LCJpYXQiOjE3MzY1MTg4NDksImV4cCI6OTk5OTk5OTk5OSwiYXVkIjoiYXBpLmV4YW1wbGUuY29tIiwiaXNzIjoiRXhhbXBsZSJ9.7gv8uy3g7XsNh5dYshfC409PIIcgEttxnabJO4mmig0';
+
+/**
+ * Generated a mock request with mock authenication data from a given JWT
+ */
+const getMockAuthedRequest = (jwt: string): Request => {
+  const request = { auth: {} };
+
+  (authSchema as any)({ state: jest.fn() }).authenticate(
+    {
+      headers: {
+        cookie: `${jwtCookieName}=${jwt}`,
+      },
+    },
+    {
+      authenticated: jest.fn().mockImplementation((data) => {
+        request.auth = data;
+      }),
+      continue: Symbol(),
+    },
+  );
+
+  return request as Request;
+};
+
+/**
+ * Returns a mock response toolkit object that is provided
+ * with extra context via the `context` argument.
+ *
+ * This is intended to replicate the behaviour of the server normally which uses
+ * a custom view plugin to inject common context data into each view, before it is
+ * rendered.
+ */
+const getViewMockResponseToolkitWithContext = (viewContext: object): ResponseToolkit => {
+  const viewMock = jest.fn((viewName, userArgs) => {
+    // This replaces the last invocation of the mock function to trick jest into thinking it was called with the merged
+    // arguments, rather than just the ones the user passed in
+    viewMock.mock.calls[viewMock.mock.calls.length - 1] = [viewName, { ...userArgs, ...viewContext }];
+  });
+
+  return {
+    view: viewMock,
+  } as any;
+};
+
 describe('Deals with Home Controller', () => {
   describe('Deals with the renderHomeHandler', () => {
-    it('should call the home view with context', async () => {
-      const request: Request = {} as any;
-      const response: ResponseToolkit = { view: jest.fn() } as any;
+    it('should call the home view with context with guest user', async () => {
+      const request = getMockAuthedRequest('');
+      expect(decode).toHaveReturnedWith(null);
+
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
       await HomeController.renderHomeHandler(request, response);
       const { quickSearchFID } = formIds;
       expect(response.view).toHaveBeenCalledWith('screens/home/template', {
         pageTitle: pageTitles.home,
         quickSearchFID,
         searchInputError: undefined,
+        user: null,
+      });
+    });
+    it('should call the home view with context with logged in user', async () => {
+      const request = getMockAuthedRequest(MOCK_JWT);
+      expect(decode).toHaveReturned();
+
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
+      await HomeController.renderHomeHandler(request, response);
+      const { quickSearchFID } = formIds;
+      expect(response.view).toHaveBeenCalledWith('screens/home/template', {
+        pageTitle: pageTitles.home,
+        quickSearchFID,
+        searchInputError: undefined,
+        // We only want a partial match on the jwt as it contains lots of keys
+        user: expect.objectContaining({ email: 'test@test.com' }),
       });
     });
   });
@@ -122,58 +192,122 @@ describe('Deals with Home Controller', () => {
     });
   });
   describe('Deals with the accessibilityHandler', () => {
-    it('should call the accessibility view with context', async () => {
-      const request: Request = {} as any;
-      const response: ResponseToolkit = { view: jest.fn() } as any;
+    it('should call the accessibility view with context with guest user', async () => {
+      const request = getMockAuthedRequest('');
+      expect(decode).toHaveReturnedWith(null);
+
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
       await HomeController.accessibilityHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/home/accessibility', {
         pageTitle: pageTitles.accessibility,
+        user: null,
+      });
+    });
+    it('should call the accessibility view with context with logged in user', async () => {
+      const request = getMockAuthedRequest(MOCK_JWT);
+      expect(decode).toHaveReturned();
+
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
+      await HomeController.accessibilityHandler(request, response);
+      expect(response.view).toHaveBeenCalledWith('screens/home/accessibility', {
+        pageTitle: pageTitles.accessibility,
+        user: expect.objectContaining({ email: 'test@test.com' }),
       });
     });
   });
   describe('Deals with the helpHandler', () => {
-    it('should call the help view with context', async () => {
-      const request: Request = {} as any;
-      const response: ResponseToolkit = { view: jest.fn() } as any;
+    it('should call the help view with context with guest user', async () => {
+      const request = getMockAuthedRequest('');
+      expect(decode).toHaveReturnedWith(null);
+
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
       await HomeController.helpHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/home/help', {
         pageTitle: pageTitles.help,
+        user: null,
+      });
+    });
+    it('should call the help view with context with logged in user', async () => {
+      const request = getMockAuthedRequest(MOCK_JWT);
+      expect(decode).toHaveReturned();
+
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
+      await HomeController.helpHandler(request, response);
+      expect(response.view).toHaveBeenCalledWith('screens/home/help', {
+        pageTitle: pageTitles.help,
+        user: expect.objectContaining({ email: 'test@test.com' }),
       });
     });
   });
   describe('Deals with the termsConditionsHandler', () => {
-    it('should call the accessibility view with context', async () => {
-      const request: Request = {} as any;
-      const response: ResponseToolkit = { view: jest.fn() } as any;
+    it('should call the accessibility view with context with guest user', async () => {
+      const request = getMockAuthedRequest('');
+      expect(decode).toHaveReturnedWith(null);
+
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
       await HomeController.termsConditionsHandler(request, response);
-      expect(response.view).toHaveBeenCalledWith(
-        'screens/home/terms_conditions',
-        {
-          pageTitle: pageTitles.termsAndConditions,
-        },
-      );
+      expect(response.view).toHaveBeenCalledWith('screens/home/terms_conditions', {
+        pageTitle: pageTitles.termsAndConditions,
+        user: null,
+      });
+    });
+    it('should call the accessibility view with context with guest user', async () => {
+      const request = getMockAuthedRequest(MOCK_JWT);
+      expect(decode).toHaveReturned();
+
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
+      await HomeController.termsConditionsHandler(request, response);
+      expect(response.view).toHaveBeenCalledWith('screens/home/terms_conditions', {
+        pageTitle: pageTitles.termsAndConditions,
+        user: expect.objectContaining({ email: 'test@test.com' }),
+      });
     });
   });
-  describe('Deals with the privacyPolicyHandler', () => {
+  describe('Deals with the privacyPolicyHandler with guest user', () => {
     it('should call the privacy policy view with context', async () => {
-      const request: Request = {} as any;
-      const response: ResponseToolkit = { view: jest.fn() } as any;
+      const request = getMockAuthedRequest('');
+      expect(decode).toHaveReturnedWith(null);
+
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
       await HomeController.privacyPolicyHandler(request, response);
-      expect(response.view).toHaveBeenCalledWith(
-        'screens/home/privacy_policy',
-        {
-          pageTitle: pageTitles.privacyPolicy,
-        },
-      );
+      expect(response.view).toHaveBeenCalledWith('screens/home/privacy_policy', {
+        pageTitle: pageTitles.privacyPolicy,
+        user: null,
+      });
+    });
+    it('should call the privacy policy view with context', async () => {
+      const request = getMockAuthedRequest(MOCK_JWT);
+      expect(decode).toHaveReturned();
+
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
+      await HomeController.privacyPolicyHandler(request, response);
+      expect(response.view).toHaveBeenCalledWith('screens/home/privacy_policy', {
+        pageTitle: pageTitles.privacyPolicy,
+        user: expect.objectContaining({ email: 'test@test.com' }),
+      });
     });
   });
   describe('Deals with the cookiePolicyHandler', () => {
-    it('should call the accessibility view with context', async () => {
-      const request: Request = {} as any;
-      const response: ResponseToolkit = { view: jest.fn() } as any;
+    it('should call the accessibility view with context with logged in user', async () => {
+      const request = getMockAuthedRequest(MOCK_JWT);
+      expect(decode).toHaveReturned();
+
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
       await HomeController.cookiePolicyHandler(request, response);
       expect(response.view).toHaveBeenCalledWith('screens/home/cookie_policy', {
         pageTitle: pageTitles.cookiePolicy,
+        user: expect.objectContaining({ email: 'test@test.com' }),
+      });
+    });
+    it('should call the accessibility view with context with guest user', async () => {
+      const request = getMockAuthedRequest('');
+      expect(decode).toHaveReturnedWith(null);
+
+      const response = getViewMockResponseToolkitWithContext({ user: request.auth.credentials?.user ?? null });
+      await HomeController.cookiePolicyHandler(request, response);
+      expect(response.view).toHaveBeenCalledWith('screens/home/cookie_policy', {
+        pageTitle: pageTitles.cookiePolicy,
+        user: null,
       });
     });
   });

@@ -263,3 +263,8 @@ export const defaultFilters: ISearchFiltersProcessed = {
   },
   retiredAndArchived: false,
 };
+
+export const logoutApiUrl = `/api/logout`;
+export const loginUrl = `/login`;
+
+export const jwtCookieName = 'auth0-jwt-live';

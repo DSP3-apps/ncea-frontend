@@ -33,6 +33,7 @@ The Natural Capital and Ecosystem Assessment programme (NCEA) is a DEFRA program
 - [Commands](#commands)
 - [Flow of Control](#flow-of-control)
 - [Environment Variables](#environment-variables)
+- [Login / Logout](#login--logout)
 - [TODO](#todo)
 
 ## Prerequisites
@@ -248,6 +249,13 @@ Variable Groups
   - _nodeEnv_
   - _port_
   - _serviceAccountSearchWebApp_
+
+## Login / Logout
+
+To login or logout, the auth cookie must be handled manually. To login, You can create a cookie by navigating to the [live environment](https://environment.data.gov.uk) and logging in.
+In your browser dev tools, a cookie called `auth0-jwt-live` will have been created. You must copy this cookie into the local dev environment.
+To logout, you must delete the local cookie.
+
 
 ## TODO
 

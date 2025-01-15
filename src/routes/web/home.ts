@@ -8,6 +8,12 @@ const homeRoutes = [
     method: 'GET',
     path: webRoutePaths.home,
     handler: HomeController.renderHomeHandler,
+    options: {
+      state: {
+        parse: false, // Parse cookies before setting them.
+        failAction: 'log', // Return a 400 error code upon cookie parsing error.
+      },
+    },
   },
   {
     method: 'GET',

@@ -35,96 +35,129 @@ exports[`Details route template Document details with data Check status code and
   <body class="govuk-template__body app-body-class">
     <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
     
-  <div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on the find natural capital data service" id="cookie_banner">
-    <div class="govuk-cookie-banner__message govuk-width-container" id="cookie_block" hidden>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        
-        <h2 class="govuk-cookie-banner__heading govuk-heading-m">Cookies on the find natural capital data service</h2>
-        
-
-        <div class="govuk-cookie-banner__content">
-<p class="govuk-body">We use some essential cookies to make this service work.</p>
-<p class="govuk-body">We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements</p>
-</div>
-      </div>
-    </div>
-
-      
-      <div class="govuk-button-group">
-        
-          
-            <button type="button" class="govuk-button" data-module="govuk-button" id="accept_button">
-              Accept analytics cookies
-            </button>
-          
-        
-          
-            <button type="button" class="govuk-button" data-module="govuk-button" id="reject_button">
-              Reject analytics cookies
-            </button>
-          
-        
-          
-            
-              <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
-            
-          
-        
-      </div>
-      
-    </div>
   
-    <div class="govuk-cookie-banner__message govuk-width-container" role="alert" id="accept_block" hidden>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+<div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on the find natural capital data service"
+    
         
-
-        <div class="govuk-cookie-banner__content">
-<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
-</div>
-      </div>
-    </div>
-
       
-      <div class="govuk-button-group">
-        
-          
-            <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-              Hide cookie message
-            </button>
-          
-        
-      </div>
-      
-    </div>
+    
+   id="cookie_banner">
   
-    <div class="govuk-cookie-banner__message govuk-width-container" role="alert" id="reject_block" hidden>
+  <div class="govuk-cookie-banner__message govuk-width-container"
+    
+        
+      
+    
+   id="cookie_block" hidden>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         
-
+        <h2 class="govuk-cookie-banner__heading govuk-heading-m">
+          Cookies on the find natural capital data service
+        </h2>
+        
         <div class="govuk-cookie-banner__content">
-<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
-</div>
+          
+          <p class="govuk-body">We use some essential cookies to make this service work.</p>
+          <p class="govuk-body">We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements</p>
+          
+        </div>
       </div>
     </div>
 
+    
+    <div class="govuk-button-group">
+    
       
-      <div class="govuk-button-group">
-        
+      <button type="button" class="govuk-button" data-module="govuk-button"
           
-            <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-              Hide cookie message
-            </button>
+              
+            
           
-        
-      </div>
+         id="accept_button">
+        Accept analytics cookies
+      </button>
+    
       
+      <button type="button" class="govuk-button" data-module="govuk-button"
+          
+              
+            
+          
+         id="reject_button">
+        Reject analytics cookies
+      </button>
+    
+      
+      <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
+    
     </div>
+    
+
+  </div>
+  
+  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
+    
+        
+      
+    
+   id="accept_block" hidden>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        
+        <div class="govuk-cookie-banner__content">
+          
+          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+          
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="govuk-button-group">
+    
+      
+      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
+        Hide cookie message
+      </button>
+    
+    </div>
+    
+
+  </div>
+  
+  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
+    
+        
+      
+    
+   id="reject_block" hidden>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        
+        <div class="govuk-cookie-banner__content">
+          
+          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+          
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="govuk-button-group">
+    
+      
+      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
+        Hide cookie message
+      </button>
+    
+    </div>
+    
+
+  </div>
   
 </div>
 
@@ -138,6 +171,7 @@ exports[`Details route template Document details with data Check status code and
     
   <script>
     var gtmIdValue = "";
+    var keyboardFiltersBaseUrlValue = ""
   </script>
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
@@ -147,47 +181,48 @@ exports[`Details route template Document details with data Check status code and
     <!-- Google tag (gtag.js) -->
     
 
-    
-
-
-
-<header class="govuk-header" role="banner" data-module="govuk-header">
+    <header class="govuk-header" data-module="govuk-header">
   <div class="govuk-header__container govuk-width-container">
     <div class="govuk-header__logo">
       <a href="https://www.gov.uk/" class="govuk-header__link govuk-header__link--homepage">
-        
-<svg
-  focusable="false"
-  role="img"
-  class="govuk-header__logotype"
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 148 30"
-  height="30"
-  width="148"
-  aria-label="GOV.UK"
->
-  <title>GOV.UK</title>
-  <path d="M22.6 10.4c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m-5.9 6.7c-.9.4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m10.8-3.7c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s0 2-1 2.4m3.3 4.8c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4M17 4.7l2.3 1.2V2.5l-2.3.7-.2-.2.9-3h-3.4l.9 3-.2.2c-.1.1-2.3-.7-2.3-.7v3.4L15 4.7c.1.1.1.2.2.2l-1.3 4c-.1.2-.1.4-.1.6 0 1.1.8 2 1.9 2.2h.7c1-.2 1.9-1.1 1.9-2.1 0-.2 0-.4-.1-.6l-1.3-4c-.1-.2 0-.2.1-.3m-7.6 5.7c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m-5 3c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s.1 2 1 2.4m-3.2 4.8c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m14.8 11c4.4 0 8.6.3 12.3.8 1.1-4.5 2.4-7 3.7-8.8l-2.5-.9c.2 1.3.3 1.9 0 2.7-.4-.4-.8-1.1-1.1-2.3l-1.2 4c.7-.5 1.3-.8 2-.9-1.1 2.5-2.6 3.1-3.5 3-1.1-.2-1.7-1.2-1.5-2.1.3-1.2 1.5-1.5 2.1-.1 1.1-2.3-.8-3-2-2.3 1.9-1.9 2.1-3.5.6-5.6-2.1 1.6-2.1 3.2-1.2 5.5-1.2-1.4-3.2-.6-2.5 1.6.9-1.4 2.1-.5 1.9.8-.2 1.1-1.7 2.1-3.5 1.9-2.7-.2-2.9-2.1-2.9-3.6.7-.1 1.9.5 2.9 1.9l.4-4.3c-1.1 1.1-2.1 1.4-3.2 1.4.4-1.2 2.1-3 2.1-3h-5.4s1.7 1.9 2.1 3c-1.1 0-2.1-.2-3.2-1.4l.4 4.3c1-1.4 2.2-2 2.9-1.9-.1 1.5-.2 3.4-2.9 3.6-1.9.2-3.4-.8-3.5-1.9-.2-1.3 1-2.2 1.9-.8.7-2.3-1.2-3-2.5-1.6.9-2.2.9-3.9-1.2-5.5-1.5 2-1.3 3.7.6 5.6-1.2-.7-3.1 0-2 2.3.6-1.4 1.8-1.1 2.1.1.2.9-.3 1.9-1.5 2.1-.9.2-2.4-.5-3.5-3 .6 0 1.2.3 2 .9l-1.2-4c-.3 1.1-.7 1.9-1.1 2.3-.3-.8-.2-1.4 0-2.7l-2.9.9C1.3 23 2.6 25.5 3.7 30c3.7-.5 7.9-.8 12.3-.8m28.3-11.6c0 .9.1 1.7.3 2.5.2.8.6 1.5 1 2.2.5.6 1 1.1 1.7 1.5.7.4 1.5.6 2.5.6.9 0 1.7-.1 2.3-.4s1.1-.7 1.5-1.1c.4-.4.6-.9.8-1.5.1-.5.2-1 .2-1.5v-.2h-5.3v-3.2h9.4V28H55v-2.5c-.3.4-.6.8-1 1.1-.4.3-.8.6-1.3.9-.5.2-1 .4-1.6.6s-1.2.2-1.8.2c-1.5 0-2.9-.3-4-.8-1.2-.6-2.2-1.3-3-2.3-.8-1-1.4-2.1-1.8-3.4-.3-1.4-.5-2.8-.5-4.3s.2-2.9.7-4.2c.5-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.6 2.6-.8 4.1-.8 1 0 1.9.1 2.8.3.9.2 1.7.6 2.4 1s1.4.9 1.9 1.5c.6.6 1 1.3 1.4 2l-3.7 2.1c-.2-.4-.5-.9-.8-1.2-.3-.4-.6-.7-1-1-.4-.3-.8-.5-1.3-.7-.5-.2-1.1-.2-1.7-.2-1 0-1.8.2-2.5.6-.7.4-1.3.9-1.7 1.5-.5.6-.8 1.4-1 2.2-.3.8-.4 1.9-.4 2.7zM71.5 6.8c1.5 0 2.9.3 4.2.8 1.2.6 2.3 1.3 3.1 2.3.9 1 1.5 2.1 2 3.4s.7 2.7.7 4.2-.2 2.9-.7 4.2c-.4 1.3-1.1 2.4-2 3.4-.9 1-1.9 1.7-3.1 2.3-1.2.6-2.6.8-4.2.8s-2.9-.3-4.2-.8c-1.2-.6-2.3-1.3-3.1-2.3-.9-1-1.5-2.1-2-3.4-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2c.4-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.5 2.6-.8 4.2-.8zm0 17.6c.9 0 1.7-.2 2.4-.5s1.3-.8 1.7-1.4c.5-.6.8-1.3 1.1-2.2.2-.8.4-1.7.4-2.7v-.1c0-1-.1-1.9-.4-2.7-.2-.8-.6-1.6-1.1-2.2-.5-.6-1.1-1.1-1.7-1.4-.7-.3-1.5-.5-2.4-.5s-1.7.2-2.4.5-1.3.8-1.7 1.4c-.5.6-.8 1.3-1.1 2.2-.2.8-.4 1.7-.4 2.7v.1c0 1 .1 1.9.4 2.7.2.8.6 1.6 1.1 2.2.5.6 1.1 1.1 1.7 1.4.6.3 1.4.5 2.4.5zM88.9 28 83 7h4.7l4 15.7h.1l4-15.7h4.7l-5.9 21h-5.7zm28.8-3.6c.6 0 1.2-.1 1.7-.3.5-.2 1-.4 1.4-.8.4-.4.7-.8.9-1.4.2-.6.3-1.2.3-2v-13h4.1v13.6c0 1.2-.2 2.2-.6 3.1s-1 1.7-1.8 2.4c-.7.7-1.6 1.2-2.7 1.5-1 .4-2.2.5-3.4.5-1.2 0-2.4-.2-3.4-.5-1-.4-1.9-.9-2.7-1.5-.8-.7-1.3-1.5-1.8-2.4-.4-.9-.6-2-.6-3.1V6.9h4.2v13c0 .8.1 1.4.3 2 .2.6.5 1 .9 1.4.4.4.8.6 1.4.8.6.2 1.1.3 1.8.3zm13-17.4h4.2v9.1l7.4-9.1h5.2l-7.2 8.4L148 28h-4.9l-5.5-9.4-2.7 3V28h-4.2V7zm-27.6 16.1c-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.7-1.2 2.7-2.7-1.2-2.7-2.7-2.7z"></path>
-</svg>
-
+        <svg
+          focusable="false"
+          role="img"
+          class="govuk-header__logotype"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 148 30"
+          height="30"
+          width="148"
+          aria-label="GOV.UK"
+        >
+          <title>GOV.UK</title>
+          <path d="M22.6 10.4c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m-5.9 6.7c-.9.4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m10.8-3.7c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s0 2-1 2.4m3.3 4.8c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4M17 4.7l2.3 1.2V2.5l-2.3.7-.2-.2.9-3h-3.4l.9 3-.2.2c-.1.1-2.3-.7-2.3-.7v3.4L15 4.7c.1.1.1.2.2.2l-1.3 4c-.1.2-.1.4-.1.6 0 1.1.8 2 1.9 2.2h.7c1-.2 1.9-1.1 1.9-2.1 0-.2 0-.4-.1-.6l-1.3-4c-.1-.2 0-.2.1-.3m-7.6 5.7c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m-5 3c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s.1 2 1 2.4m-3.2 4.8c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m14.8 11c4.4 0 8.6.3 12.3.8 1.1-4.5 2.4-7 3.7-8.8l-2.5-.9c.2 1.3.3 1.9 0 2.7-.4-.4-.8-1.1-1.1-2.3l-1.2 4c.7-.5 1.3-.8 2-.9-1.1 2.5-2.6 3.1-3.5 3-1.1-.2-1.7-1.2-1.5-2.1.3-1.2 1.5-1.5 2.1-.1 1.1-2.3-.8-3-2-2.3 1.9-1.9 2.1-3.5.6-5.6-2.1 1.6-2.1 3.2-1.2 5.5-1.2-1.4-3.2-.6-2.5 1.6.9-1.4 2.1-.5 1.9.8-.2 1.1-1.7 2.1-3.5 1.9-2.7-.2-2.9-2.1-2.9-3.6.7-.1 1.9.5 2.9 1.9l.4-4.3c-1.1 1.1-2.1 1.4-3.2 1.4.4-1.2 2.1-3 2.1-3h-5.4s1.7 1.9 2.1 3c-1.1 0-2.1-.2-3.2-1.4l.4 4.3c1-1.4 2.2-2 2.9-1.9-.1 1.5-.2 3.4-2.9 3.6-1.9.2-3.4-.8-3.5-1.9-.2-1.3 1-2.2 1.9-.8.7-2.3-1.2-3-2.5-1.6.9-2.2.9-3.9-1.2-5.5-1.5 2-1.3 3.7.6 5.6-1.2-.7-3.1 0-2 2.3.6-1.4 1.8-1.1 2.1.1.2.9-.3 1.9-1.5 2.1-.9.2-2.4-.5-3.5-3 .6 0 1.2.3 2 .9l-1.2-4c-.3 1.1-.7 1.9-1.1 2.3-.3-.8-.2-1.4 0-2.7l-2.9.9C1.3 23 2.6 25.5 3.7 30c3.7-.5 7.9-.8 12.3-.8m28.3-11.6c0 .9.1 1.7.3 2.5.2.8.6 1.5 1 2.2.5.6 1 1.1 1.7 1.5.7.4 1.5.6 2.5.6.9 0 1.7-.1 2.3-.4s1.1-.7 1.5-1.1c.4-.4.6-.9.8-1.5.1-.5.2-1 .2-1.5v-.2h-5.3v-3.2h9.4V28H55v-2.5c-.3.4-.6.8-1 1.1-.4.3-.8.6-1.3.9-.5.2-1 .4-1.6.6s-1.2.2-1.8.2c-1.5 0-2.9-.3-4-.8-1.2-.6-2.2-1.3-3-2.3-.8-1-1.4-2.1-1.8-3.4-.3-1.4-.5-2.8-.5-4.3s.2-2.9.7-4.2c.5-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.6 2.6-.8 4.1-.8 1 0 1.9.1 2.8.3.9.2 1.7.6 2.4 1s1.4.9 1.9 1.5c.6.6 1 1.3 1.4 2l-3.7 2.1c-.2-.4-.5-.9-.8-1.2-.3-.4-.6-.7-1-1-.4-.3-.8-.5-1.3-.7-.5-.2-1.1-.2-1.7-.2-1 0-1.8.2-2.5.6-.7.4-1.3.9-1.7 1.5-.5.6-.8 1.4-1 2.2-.3.8-.4 1.9-.4 2.7zM71.5 6.8c1.5 0 2.9.3 4.2.8 1.2.6 2.3 1.3 3.1 2.3.9 1 1.5 2.1 2 3.4s.7 2.7.7 4.2-.2 2.9-.7 4.2c-.4 1.3-1.1 2.4-2 3.4-.9 1-1.9 1.7-3.1 2.3-1.2.6-2.6.8-4.2.8s-2.9-.3-4.2-.8c-1.2-.6-2.3-1.3-3.1-2.3-.9-1-1.5-2.1-2-3.4-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2c.4-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.5 2.6-.8 4.2-.8zm0 17.6c.9 0 1.7-.2 2.4-.5s1.3-.8 1.7-1.4c.5-.6.8-1.3 1.1-2.2.2-.8.4-1.7.4-2.7v-.1c0-1-.1-1.9-.4-2.7-.2-.8-.6-1.6-1.1-2.2-.5-.6-1.1-1.1-1.7-1.4-.7-.3-1.5-.5-2.4-.5s-1.7.2-2.4.5-1.3.8-1.7 1.4c-.5.6-.8 1.3-1.1 2.2-.2.8-.4 1.7-.4 2.7v.1c0 1 .1 1.9.4 2.7.2.8.6 1.6 1.1 2.2.5.6 1.1 1.1 1.7 1.4.6.3 1.4.5 2.4.5zM88.9 28 83 7h4.7l4 15.7h.1l4-15.7h4.7l-5.9 21h-5.7zm28.8-3.6c.6 0 1.2-.1 1.7-.3.5-.2 1-.4 1.4-.8.4-.4.7-.8.9-1.4.2-.6.3-1.2.3-2v-13h4.1v13.6c0 1.2-.2 2.2-.6 3.1s-1 1.7-1.8 2.4c-.7.7-1.6 1.2-2.7 1.5-1 .4-2.2.5-3.4.5-1.2 0-2.4-.2-3.4-.5-1-.4-1.9-.9-2.7-1.5-.8-.7-1.3-1.5-1.8-2.4-.4-.9-.6-2-.6-3.1V6.9h4.2v13c0 .8.1 1.4.3 2 .2.6.5 1 .9 1.4.4.4.8.6 1.4.8.6.2 1.1.3 1.8.3zm13-17.4h4.2v9.1l7.4-9.1h5.2l-7.2 8.4L148 28h-4.9l-5.5-9.4-2.7 3V28h-4.2V7zm-27.6 16.1c-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.7-1.2 2.7-2.7-1.2-2.7-2.7-2.7z"></path>
+        </svg>
         
       </a>
     </div>
-    
+  
     <div class="govuk-header__content">
     
-    
+      
       <a href="/natural-capital-ecosystem-assessment" class="govuk-header__link govuk-header__service-name">
         Find natural capital data
       </a>
-    
+      
     
     
     </div>
-    
+  
   </div>
 </header>
 
+
+    <div class="govuk-grid-col login">
+      
+        <p class="govuk-body-m">Welcome, Guest</p>
+        <a href="" class="govuk-link govuk-body-m">Login</a>
+      
+    </div>
   </header>
 
 
@@ -196,7 +231,8 @@ exports[`Details route template Document details with data Check status code and
       <div class="govuk-width-container">
         
   
-  <div class="govuk-phase-banner">
+  
+<div class="govuk-phase-banner">
   <p class="govuk-phase-banner__content">
     <strong class="govuk-tag govuk-phase-banner__content__tag">
       Beta
@@ -215,12 +251,17 @@ exports[`Details route template Document details with data Check status code and
     
   
 
-  <div class="govuk-breadcrumbs">
+  <nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
   <ol class="govuk-breadcrumbs__list">
 
   
     <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="/natural-capital-ecosystem-assessment" data-do-storage-reset="">Home</a>
+      <a class="govuk-breadcrumbs__link" href="/natural-capital-ecosystem-assessment"
+    
+        
+      
+    
+   data-do-storage-reset="">Home</a>
     </li>
   
 
@@ -235,10 +276,10 @@ exports[`Details route template Document details with data Check status code and
   
 
   </ol>
-</div>
+</nav>
 
 
-        <main class="govuk-main-wrapper app-main-class" id="main-content" role="main">
+        <main class="govuk-main-wrapper app-main-class" id="main-content">
           
     
       
@@ -284,7 +325,12 @@ exports[`Details route template Document details with data Check status code and
     
   
 
-<button type="submit" class="govuk-button govuk-!-margin-bottom-4 go-to-resource govuk-button--start" data-module="govuk-button" onclick="openDataModal(&#39;United Kingdom Hydrographic Office&#39;, &#39;https://seabed.admiralty.co.uk&#39;)">
+<button type="submit" class="govuk-button govuk-!-margin-bottom-4 go-to-resource govuk-button--start" data-module="govuk-button"
+    
+        
+      
+    
+   onclick="openDataModal(&#39;United Kingdom Hydrographic Office&#39;, &#39;https://seabed.admiralty.co.uk&#39;)">
   Go to resource
   <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
     <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"/>
@@ -297,880 +343,842 @@ exports[`Details route template Document details with data Check status code and
   <h2 class="govuk-tabs__title">
     Contents
   </h2>
-  
+
   <ul class="govuk-tabs__list">
     
-      
+          <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#general"
         
-        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-          <a class="govuk-tabs__tab" href="#general" onclick="changeTitle(&quot;NCEA Catalogue Detail - General&quot;)">
-            General
-          </a>
-        </li>
+            
+          
+        
+       onclick="changeTitle(&quot;NCEA Catalogue Detail - General&quot;)">
+        General
+      </a>
+    </li>
       
     
-      
+          <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#access"
         
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#access" onclick="changeTitle(&quot;NCEA Catalogue Detail - Access&quot;)">
-            Access
-          </a>
-        </li>
+            
+          
+        
+       onclick="changeTitle(&quot;NCEA Catalogue Detail - Access&quot;)">
+        Access
+      </a>
+    </li>
       
     
-      
+          <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#natural"
         
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#natural" onclick="changeTitle(&quot;NCEA Catalogue Detail - Natural Capital&quot;)">
-            Natural capital
-          </a>
-        </li>
+            
+          
+        
+       onclick="changeTitle(&quot;NCEA Catalogue Detail - Natural Capital&quot;)">
+        Natural capital
+      </a>
+    </li>
       
     
-      
+          <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#quality"
         
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#quality" onclick="changeTitle(&quot;NCEA Catalogue Detail - Quality&quot;)">
-            Quality
-          </a>
-        </li>
+            
+          
+        
+       onclick="changeTitle(&quot;NCEA Catalogue Detail - Quality&quot;)">
+        Quality
+      </a>
+    </li>
       
     
-      
+          <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#geography"
         
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#geography" onclick="changeTitle(&quot;NCEA Catalogue Detail - Geography&quot;)">
-            Geography
-          </a>
-        </li>
+            
+          
+        
+       onclick="changeTitle(&quot;NCEA Catalogue Detail - Geography&quot;)">
+        Geography
+      </a>
+    </li>
       
     
-      
+          <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#license"
         
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#license" onclick="changeTitle(&quot;NCEA Catalogue Detail - License&quot;)">
-            License
-          </a>
-        </li>
+            
+          
+        
+       onclick="changeTitle(&quot;NCEA Catalogue Detail - License&quot;)">
+        License
+      </a>
+    </li>
       
     
-      
+          <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#governance"
         
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#governance" onclick="changeTitle(&quot;NCEA Catalogue Detail - Governance&quot;)">
-            Governance
-          </a>
-        </li>
+            
+          
+        
+       onclick="changeTitle(&quot;NCEA Catalogue Detail - Governance&quot;)">
+        Governance
+      </a>
+    </li>
       
     
   </ul>
   
-  
-    
-      
       <div class="govuk-tabs__panel" id="general">
+  
+    <div class='tab-content-container'>
         
           
-  <div class='tab-content-container'>
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Abstract</h2>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Abstract</h2>
+              
+                <span class='tab-content-value'>
+                  This processed bathymetric data set has been derived from an Echosounder - multibeam survey. The source data was collected, validated and processed for the purpose of Safety Of Life At Sea (SOLAS). The data set must not be used for navigation or to create products that could be used for navigation.
+                </span>
+              
+            </div>
           
-            <span class='tab-content-value'>
-              This processed bathymetric data set has been derived from an Echosounder - multibeam survey. The source data was collected, validated and processed for the purpose of Safety Of Life At Sea (SOLAS). The data set must not be used for navigation or to create products that could be used for navigation.
-            </span>
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Study periods</h2>
+        
           
-            <span class='tab-content-value'>
-              24 May 2019 to 31 July 2019
-            </span>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Study periods</h2>
+              
+                <span class='tab-content-value'>
+                  24 May 2019 to 31 July 2019
+                </span>
+              
+            </div>
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Topic categories</h2>
           
-            <span class='tab-content-value'>
-              Elevation
-            </span>
+        
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Keywords</h2>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Topic categories</h2>
+              
+                <span class='tab-content-value'>
+                  Elevation
+                </span>
+              
+            </div>
           
-            <span class='tab-content-value'>
-              Elevation, Marine Environmental Data and Information Network, Bathymetry and Elevation
-            </span>
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Resource languages</h2>
+        
           
-            <span class='tab-content-value'>
-              ENG
-            </span>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Keywords</h2>
+              
+                <span class='tab-content-value'>
+                  Elevation, Marine Environmental Data and Information Network, Bathymetry and Elevation
+                </span>
+              
+            </div>
           
-        </div>
-      
-      
-    
-  </div>
-
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Resource languages</h2>
+              
+                <span class='tab-content-value'>
+                  ENG
+                </span>
+              
+            </div>
+          
+          
         
       </div>
+  
+  </div>
     
   
-    
-      
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="access">
+  
+    <div class='tab-content-container'>
         
           
-  <div class='tab-content-container'>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>File Identifier</h2>
+              
+                <span class='tab-content-value'>
+                  fb8dca0f-7425-4f50-86a1-c4673b1aef88
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Resource Identifier</h2>
+              
+                <span class='tab-content-value'>
+                  https://seabed.admiralty.co.ukfb8dca0f-7425-4f50-86a1-c4673b1aef88
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Coupled resources</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>File Identifier</h2>
+              
+            </div>
           
-            <span class='tab-content-value'>
-              fb8dca0f-7425-4f50-86a1-c4673b1aef88
-            </span>
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Resource type</h2>
+              
+                <span class='tab-content-value'>
+                  Dataset
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Resource locators</h2>
+              
+                <span class='tab-content-value'>
+                  <p>Download from Seabed Mapping Service (<a class="govuk-link" href="https://seabed.admiralty.co.uk" target="_blank">https://seabed.admiralty.co.uk</a>)</p>
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Contact information</h2>
+              
+                <span class='tab-content-value'>
+                  undefined :- customerservices@ukho.gov.uk, <br />United Kingdom Hydrographic Office :- customerservices@ukho.gov.uk, <br />undefined :- customerservices@ukho.gov.uk, <br />undefined :- customerservices@ukho.gov.uk, <br />United Kingdom Hydrographic Office :- customerservices@ukho.gov.uk
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Catalouge entry</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Resource Identifier</h2>
+              
+            </div>
           
-            <span class='tab-content-value'>
-              https://seabed.admiralty.co.ukfb8dca0f-7425-4f50-86a1-c4673b1aef88
-            </span>
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>NCEA catalogue number</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Coupled resources</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Parent identifier</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Resource type</h2>
+              
+            </div>
           
-            <span class='tab-content-value'>
-              Dataset
-            </span>
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Metadata standard</h2>
+              
+                <span class='tab-content-value'>
+                  MEDIN
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Project number</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Resource locators</h2>
+              
+            </div>
           
-            <span class='tab-content-value'>
-              <p>Download from Seabed Mapping Service (<a class="govuk-link" href="https://seabed.admiralty.co.uk" target="_blank">https://seabed.admiralty.co.uk</a>)</p>
-            </span>
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Contact information</h2>
+        
           
-            <span class='tab-content-value'>
-              undefined :- customerservices@ukho.gov.uk, <br />United Kingdom Hydrographic Office :- customerservices@ukho.gov.uk, <br />undefined :- customerservices@ukho.gov.uk, <br />undefined :- customerservices@ukho.gov.uk, <br />United Kingdom Hydrographic Office :- customerservices@ukho.gov.uk
-            </span>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Metadata language</h2>
+              
+                <span class='tab-content-value'>
+                  ENG
+                </span>
+              
+            </div>
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Catalouge entry</h2>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
-          
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>NCEA catalogue number</h2>
-          
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
-          
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Parent identifier</h2>
-          
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
-          
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Metadata standard</h2>
-          
-            <span class='tab-content-value'>
-              MEDIN
-            </span>
-          
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Project number</h2>
-          
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
-          
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Metadata language</h2>
-          
-            <span class='tab-content-value'>
-              ENG
-            </span>
-          
-        </div>
-      
-      
-    
-  </div>
-
         
       </div>
+  
+  </div>
     
   
-    
-      
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="natural">
-        
-          
-
-
-
-
-
   
+    <h1 class="quick_search-container__heading-m">Natural capital classification</h1>
+    
+    
+      <p class="ncea-static-page__content-item govuk-!-margin-top-4"">Natural capital records are classified by themes and categories which indicate whether the record relates to natural capital assets (such as habitats and species), the ecosystem services they deliver, the pressures that act on them and/or their value.</p>
+    
+     
+      <p class="search-result__heading govuk-!-margin-top-4">This record is not classifiable within the current natural capital vocabulary.</p>
   
-    
-      
-    
-  
-    
-      
+  </div>
     
   
-    
-      
-    
-  
-    
-  
-    
-      
-    
-  
-
-
-
-  <h1 class="quick_search-container__heading-m">Natural capital classification</h1>
-
-
-  <p class="ncea-static-page__content-item govuk-!-margin-top-4"">Natural capital records are classified by themes and categories which indicate whether the record relates to natural capital assets (such as habitats and species), the ecosystem services they deliver, the pressures that act on them and/or their value.</p>
-
- 
-  <p class="search-result__heading govuk-!-margin-top-4">This record is not classifiable within the current natural capital vocabulary.</p>
-
-
-
-
-        
-      </div>
-    
-  
-    
-      
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="quality">
+  
+    <div class='tab-content-container'>
         
           
-  <div class='tab-content-container'>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Date of publication</h2>
+              
+                <span class='tab-content-value'>
+                  23 March 2022
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Date of creation</h2>
+              
+                <span class='tab-content-value'>
+                  23 March 2022
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Date of last revision</h2>
+              
+                <span class='tab-content-value'>
+                  23 March 2022
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Metadata date</h2>
+              
+                <span class='tab-content-value'>
+                  16 January 2024
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Lineage</h2>
+              
+                <span class='tab-content-value'>
+                  This data set has been derived from an Echosounder - multibeam survey which was collected for the purpose of Safety of navigation, which was collected against S-44 survey specification (of the time). The survey has been validated and processed by the UKHO.
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Conformity</h2>
+              
+                <span class='tab-content-value'>
+                  <table class="details-table">
+                          <thead>
+                            <tr>
+                              <th width="60%">Specification</th>
+                              <th width="10%">Degree</th>
+                              <th>Explanation</th>
+                            </tr>
+                          </thead><tbody><tr>
+                          <td>Commission Regulation (EU) No 1089/2010 of 23 November 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of spatial data sets and services</td>
+                          <td>false</td>
+                          <td>inapplicable</td>
+                        </tr></tbody></table>
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Additional information</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Date of publication</h2>
+              
+            </div>
           
-            <span class='tab-content-value'>
-              23 March 2022
-            </span>
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Date of creation</h2>
-          
-            <span class='tab-content-value'>
-              23 March 2022
-            </span>
-          
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Date of last revision</h2>
-          
-            <span class='tab-content-value'>
-              23 March 2022
-            </span>
-          
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Metadata date</h2>
-          
-            <span class='tab-content-value'>
-              16 January 2024
-            </span>
-          
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Lineage</h2>
-          
-            <span class='tab-content-value'>
-              This data set has been derived from an Echosounder - multibeam survey which was collected for the purpose of Safety of navigation, which was collected against S-44 survey specification (of the time). The survey has been validated and processed by the UKHO.
-            </span>
-          
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Conformity</h2>
-          
-            <span class='tab-content-value'>
-              <table class="details-table">
-                      <thead>
-                        <tr>
-                          <th width="60%">Specification</th>
-                          <th width="10%">Degree</th>
-                          <th>Explanation</th>
-                        </tr>
-                      </thead><tbody><tr>
-                      <td>Commission Regulation (EU) No 1089/2010 of 23 November 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of spatial data sets and services</td>
-                      <td>false</td>
-                      <td>inapplicable</td>
-                    </tr></tbody></table>
-            </span>
-          
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Additional information</h2>
-          
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
-          
-        </div>
-      
-      
-    
-  </div>
-
         
       </div>
+  
+  </div>
     
   
-    
-      
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="geography">
+  
+    <div class='tab-content-container'>
         
           
-  <div class='tab-content-container'>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Spatial data service</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Spatial data service</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Spatial representation service</h2>
+              
+                <span class='tab-content-value'>
+                  Grid
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Spatial referencing system</h2>
+              
+                <span class='tab-content-value'>
+                  WGS 84
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Geographic locations</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Spatial representation service</h2>
+              
+            </div>
           
-            <span class='tab-content-value'>
-              Grid
-            </span>
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Geographic boundary</h2>
+              
+                <span class='tab-content-value'>
+                  <p>West bounding longitude: <span id="west">-15.320435</span></p><p>East bounding longitude: <span id="east">-6.970825</span></p><p>North bounding latitude: <span id="north">50.180526</span></p><p>South bounding latitude: <span id="south">47.912775</span></p>
+                </span>
+              
+            </div>
+          
+          
+        
+          
+          
+            <div id="coordinate-map" class="detail-map" style="height: 335px;"></div>
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Vertical extent<br /><span>(Meters above sea level)</span></h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Spatial referencing system</h2>
+              
+            </div>
           
-            <span class='tab-content-value'>
-              WGS 84
-            </span>
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Spatial resolution</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Geographic locations</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Geographic boundary</h2>
-          
-            <span class='tab-content-value'>
-              <p>West bounding longitude: <span id="west">-15.320435</span></p><p>East bounding longitude: <span id="east">-6.970825</span></p><p>North bounding latitude: <span id="north">50.180526</span></p><p>South bounding latitude: <span id="south">47.912775</span></p>
-            </span>
-          
-        </div>
-      
-      
-    
-      
-      
-        <div id="coordinate-map" class="detail-map" style="height: 335px;"></div>
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Vertical extent<br /><span>(Meters above sea level)</span></h2>
-          
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
-          
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Spatial resolution</h2>
-          
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
-          
-        </div>
-      
-      
-    
-  </div>
-
         
       </div>
+  
+  </div>
     
   
-    
-      
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="license">
+  
+    <div class='tab-content-container'>
         
           
-  <div class='tab-content-container'>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Limitations on public access -<br /> Access constraints</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Limitations on public access -<br /> Access constraints</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Limitations on public access -<br /> Other constraints</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Limitations on public access -<br /> Other constraints</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Conditions for access and use -<br /> Use constraints</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Conditions for access and use -<br /> Use constraints</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Conditions for access and use -<br /> Other constraints</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Conditions for access and use -<br /> Other constraints</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Distribution formats</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Distribution formats</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Frequency of update</h2>
+        
           
-            <span class='tab-content-value'>
-              Not planned
-            </span>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Frequency of update</h2>
+              
+                <span class='tab-content-value'>
+                  Not planned
+                </span>
+              
+            </div>
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Character encoding</h2>
           
-            <span class='tab-content-value'>
-              utf8
-            </span>
+        
           
-        </div>
-      
-      
-    
-  </div>
-
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Character encoding</h2>
+              
+                <span class='tab-content-value'>
+                  utf8
+                </span>
+              
+            </div>
+          
+          
         
       </div>
+  
+  </div>
     
   
-    
-      
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="governance">
+  
+    <div class='tab-content-container'>
         
           
-  <div class='tab-content-container'>
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Role</h2>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Role</h2>
+              
+                <span class='tab-content-value'>
+                  owner
+                </span>
+              
+            </div>
           
-            <span class='tab-content-value'>
-              owner
-            </span>
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Email</h2>
+        
           
-            <span class='tab-content-value'>
-              customerservices@ukho.gov.uk
-            </span>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Email</h2>
+              
+                <span class='tab-content-value'>
+                  customerservices@ukho.gov.uk
+                </span>
+              
+            </div>
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'><div class="govuk-section-break--visible"></div></h2>
           
-            <span class='tab-content-value'>
-              <div class="govuk-section-break--visible"></div>
-            </span>
+        
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Role</h2>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'><div class="govuk-section-break--visible"></div></h2>
+              
+                <span class='tab-content-value'>
+                  <div class="govuk-section-break--visible"></div>
+                </span>
+              
+            </div>
           
-            <span class='tab-content-value'>
-              pointOfContact
-            </span>
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Organization name</h2>
+        
           
-            <span class='tab-content-value'>
-              United Kingdom Hydrographic Office
-            </span>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Role</h2>
+              
+                <span class='tab-content-value'>
+                  pointOfContact
+                </span>
+              
+            </div>
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Email</h2>
           
-            <span class='tab-content-value'>
-              customerservices@ukho.gov.uk
-            </span>
+        
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'><div class="govuk-section-break--visible"></div></h2>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Organization name</h2>
+              
+                <span class='tab-content-value'>
+                  United Kingdom Hydrographic Office
+                </span>
+              
+            </div>
           
-            <span class='tab-content-value'>
-              <div class="govuk-section-break--visible"></div>
-            </span>
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Role</h2>
+        
           
-            <span class='tab-content-value'>
-              custodian
-            </span>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Email</h2>
+              
+                <span class='tab-content-value'>
+                  customerservices@ukho.gov.uk
+                </span>
+              
+            </div>
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Email</h2>
           
-            <span class='tab-content-value'>
-              customerservices@ukho.gov.uk
-            </span>
+        
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'><div class="govuk-section-break--visible"></div></h2>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'><div class="govuk-section-break--visible"></div></h2>
+              
+                <span class='tab-content-value'>
+                  <div class="govuk-section-break--visible"></div>
+                </span>
+              
+            </div>
           
-            <span class='tab-content-value'>
-              <div class="govuk-section-break--visible"></div>
-            </span>
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Role</h2>
+        
           
-            <span class='tab-content-value'>
-              distributor
-            </span>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Role</h2>
+              
+                <span class='tab-content-value'>
+                  custodian
+                </span>
+              
+            </div>
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Email</h2>
           
-            <span class='tab-content-value'>
-              customerservices@ukho.gov.uk
-            </span>
+        
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'><div class="govuk-section-break--visible"></div></h2>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Email</h2>
+              
+                <span class='tab-content-value'>
+                  customerservices@ukho.gov.uk
+                </span>
+              
+            </div>
           
-            <span class='tab-content-value'>
-              <div class="govuk-section-break--visible"></div>
-            </span>
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Role</h2>
+        
           
-            <span class='tab-content-value'>
-              originator
-            </span>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'><div class="govuk-section-break--visible"></div></h2>
+              
+                <span class='tab-content-value'>
+                  <div class="govuk-section-break--visible"></div>
+                </span>
+              
+            </div>
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Organization name</h2>
           
-            <span class='tab-content-value'>
-              United Kingdom Hydrographic Office
-            </span>
+        
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Email</h2>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Role</h2>
+              
+                <span class='tab-content-value'>
+                  distributor
+                </span>
+              
+            </div>
           
-            <span class='tab-content-value'>
-              customerservices@ukho.gov.uk
-            </span>
           
-        </div>
-      
-      
-    
-  </div>
-
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Email</h2>
+              
+                <span class='tab-content-value'>
+                  customerservices@ukho.gov.uk
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'><div class="govuk-section-break--visible"></div></h2>
+              
+                <span class='tab-content-value'>
+                  <div class="govuk-section-break--visible"></div>
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Role</h2>
+              
+                <span class='tab-content-value'>
+                  originator
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Organization name</h2>
+              
+                <span class='tab-content-value'>
+                  United Kingdom Hydrographic Office
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Email</h2>
+              
+                <span class='tab-content-value'>
+                  customerservices@ukho.gov.uk
+                </span>
+              
+            </div>
+          
+          
         
       </div>
+  
+  </div>
     
   
+
 </div>
 
 
@@ -1191,7 +1199,12 @@ exports[`Details route template Document details with data Check status code and
     
   
 
-<button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button" onclick="closeDataModal()">
+<button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button"
+    
+        
+      
+    
+   onclick="closeDataModal()">
   Cancel
 </button>
 
@@ -1202,7 +1215,15 @@ exports[`Details route template Document details with data Check status code and
     
   
 
-<a href="#" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" onclick="closeDataModal()" target="_blank" id="resource-locator-link">
+<a href="#" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button"
+    
+        
+      
+    
+        
+      
+    
+   onclick="closeDataModal()" target="_blank" id="resource-locator-link">
   Open site
 </a>
 
@@ -1218,55 +1239,53 @@ exports[`Details route template Document details with data Check status code and
 
 
     
-  <footer class="govuk-footer" role="contentinfo">
+  <footer class="govuk-footer">
   <div class="govuk-width-container">
     
     <div class="govuk-footer__meta">
       <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
         
-          <h2 class="govuk-visually-hidden">Support links</h2>
-          
-            <ul class="govuk-footer__inline-list">
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
-                    Help
-                  </a>
-                </li>
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
-                    Privacy
-                  </a>
-                </li>
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
-                    Cookies
-                  </a>
-                </li>
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
-                    Accessibility statement
-                  </a>
-                </li>
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
-                    Terms and conditions
-                  </a>
-                </li>
-              
-            </ul>
-          
-          
-            <div class="govuk-footer__meta-custom">
-              
-<p>Version: v1.2.0</p>
-
-            </div>
-          
+        <h2 class="govuk-visually-hidden">Support links</h2>
+        
+        <ul class="govuk-footer__inline-list">
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
+              Help
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
+              Privacy
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
+              Cookies
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
+              Accessibility statement
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
+              Terms and conditions
+            </a>
+          </li>
+        
+        </ul>
+        
+        
+        <div class="govuk-footer__meta-custom">
+          <p>Version: v1.3.0</p>
+        </div>
+        
         
         <svg
           aria-hidden="true"
@@ -1283,21 +1302,25 @@ exports[`Details route template Document details with data Check status code and
           />
         </svg>
         <span class="govuk-footer__licence-description">
-          
-            All content is available under the
-            <a
-              class="govuk-footer__link"
-              href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
-              rel="license"
-            >Open Government Licence v3.0</a>, except where otherwise stated
-          
+        
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        
         </span>
       </div>
       <div class="govuk-footer__meta-item">
         <a
           class="govuk-footer__link govuk-footer__copyright-logo"
           href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
-        >© Crown copyright</a>
+        >
+        
+          © Crown copyright
+        
+        </a>
       </div>
     </div>
   </div>
@@ -1374,96 +1397,129 @@ exports[`Details route template Document details with partial data Check status 
   <body class="govuk-template__body app-body-class">
     <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
     
-  <div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on the find natural capital data service" id="cookie_banner">
-    <div class="govuk-cookie-banner__message govuk-width-container" id="cookie_block" hidden>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        
-        <h2 class="govuk-cookie-banner__heading govuk-heading-m">Cookies on the find natural capital data service</h2>
-        
-
-        <div class="govuk-cookie-banner__content">
-<p class="govuk-body">We use some essential cookies to make this service work.</p>
-<p class="govuk-body">We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements</p>
-</div>
-      </div>
-    </div>
-
-      
-      <div class="govuk-button-group">
-        
-          
-            <button type="button" class="govuk-button" data-module="govuk-button" id="accept_button">
-              Accept analytics cookies
-            </button>
-          
-        
-          
-            <button type="button" class="govuk-button" data-module="govuk-button" id="reject_button">
-              Reject analytics cookies
-            </button>
-          
-        
-          
-            
-              <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
-            
-          
-        
-      </div>
-      
-    </div>
   
-    <div class="govuk-cookie-banner__message govuk-width-container" role="alert" id="accept_block" hidden>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+<div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on the find natural capital data service"
+    
         
-
-        <div class="govuk-cookie-banner__content">
-<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
-</div>
-      </div>
-    </div>
-
       
-      <div class="govuk-button-group">
-        
-          
-            <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-              Hide cookie message
-            </button>
-          
-        
-      </div>
-      
-    </div>
+    
+   id="cookie_banner">
   
-    <div class="govuk-cookie-banner__message govuk-width-container" role="alert" id="reject_block" hidden>
+  <div class="govuk-cookie-banner__message govuk-width-container"
+    
+        
+      
+    
+   id="cookie_block" hidden>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         
-
+        <h2 class="govuk-cookie-banner__heading govuk-heading-m">
+          Cookies on the find natural capital data service
+        </h2>
+        
         <div class="govuk-cookie-banner__content">
-<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
-</div>
+          
+          <p class="govuk-body">We use some essential cookies to make this service work.</p>
+          <p class="govuk-body">We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements</p>
+          
+        </div>
       </div>
     </div>
 
+    
+    <div class="govuk-button-group">
+    
       
-      <div class="govuk-button-group">
-        
+      <button type="button" class="govuk-button" data-module="govuk-button"
           
-            <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-              Hide cookie message
-            </button>
+              
+            
           
-        
-      </div>
+         id="accept_button">
+        Accept analytics cookies
+      </button>
+    
       
+      <button type="button" class="govuk-button" data-module="govuk-button"
+          
+              
+            
+          
+         id="reject_button">
+        Reject analytics cookies
+      </button>
+    
+      
+      <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
+    
     </div>
+    
+
+  </div>
+  
+  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
+    
+        
+      
+    
+   id="accept_block" hidden>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        
+        <div class="govuk-cookie-banner__content">
+          
+          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+          
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="govuk-button-group">
+    
+      
+      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
+        Hide cookie message
+      </button>
+    
+    </div>
+    
+
+  </div>
+  
+  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
+    
+        
+      
+    
+   id="reject_block" hidden>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        
+        <div class="govuk-cookie-banner__content">
+          
+          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+          
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="govuk-button-group">
+    
+      
+      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
+        Hide cookie message
+      </button>
+    
+    </div>
+    
+
+  </div>
   
 </div>
 
@@ -1477,6 +1533,7 @@ exports[`Details route template Document details with partial data Check status 
     
   <script>
     var gtmIdValue = "";
+    var keyboardFiltersBaseUrlValue = ""
   </script>
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
@@ -1486,47 +1543,48 @@ exports[`Details route template Document details with partial data Check status 
     <!-- Google tag (gtag.js) -->
     
 
-    
-
-
-
-<header class="govuk-header" role="banner" data-module="govuk-header">
+    <header class="govuk-header" data-module="govuk-header">
   <div class="govuk-header__container govuk-width-container">
     <div class="govuk-header__logo">
       <a href="https://www.gov.uk/" class="govuk-header__link govuk-header__link--homepage">
-        
-<svg
-  focusable="false"
-  role="img"
-  class="govuk-header__logotype"
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 148 30"
-  height="30"
-  width="148"
-  aria-label="GOV.UK"
->
-  <title>GOV.UK</title>
-  <path d="M22.6 10.4c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m-5.9 6.7c-.9.4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m10.8-3.7c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s0 2-1 2.4m3.3 4.8c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4M17 4.7l2.3 1.2V2.5l-2.3.7-.2-.2.9-3h-3.4l.9 3-.2.2c-.1.1-2.3-.7-2.3-.7v3.4L15 4.7c.1.1.1.2.2.2l-1.3 4c-.1.2-.1.4-.1.6 0 1.1.8 2 1.9 2.2h.7c1-.2 1.9-1.1 1.9-2.1 0-.2 0-.4-.1-.6l-1.3-4c-.1-.2 0-.2.1-.3m-7.6 5.7c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m-5 3c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s.1 2 1 2.4m-3.2 4.8c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m14.8 11c4.4 0 8.6.3 12.3.8 1.1-4.5 2.4-7 3.7-8.8l-2.5-.9c.2 1.3.3 1.9 0 2.7-.4-.4-.8-1.1-1.1-2.3l-1.2 4c.7-.5 1.3-.8 2-.9-1.1 2.5-2.6 3.1-3.5 3-1.1-.2-1.7-1.2-1.5-2.1.3-1.2 1.5-1.5 2.1-.1 1.1-2.3-.8-3-2-2.3 1.9-1.9 2.1-3.5.6-5.6-2.1 1.6-2.1 3.2-1.2 5.5-1.2-1.4-3.2-.6-2.5 1.6.9-1.4 2.1-.5 1.9.8-.2 1.1-1.7 2.1-3.5 1.9-2.7-.2-2.9-2.1-2.9-3.6.7-.1 1.9.5 2.9 1.9l.4-4.3c-1.1 1.1-2.1 1.4-3.2 1.4.4-1.2 2.1-3 2.1-3h-5.4s1.7 1.9 2.1 3c-1.1 0-2.1-.2-3.2-1.4l.4 4.3c1-1.4 2.2-2 2.9-1.9-.1 1.5-.2 3.4-2.9 3.6-1.9.2-3.4-.8-3.5-1.9-.2-1.3 1-2.2 1.9-.8.7-2.3-1.2-3-2.5-1.6.9-2.2.9-3.9-1.2-5.5-1.5 2-1.3 3.7.6 5.6-1.2-.7-3.1 0-2 2.3.6-1.4 1.8-1.1 2.1.1.2.9-.3 1.9-1.5 2.1-.9.2-2.4-.5-3.5-3 .6 0 1.2.3 2 .9l-1.2-4c-.3 1.1-.7 1.9-1.1 2.3-.3-.8-.2-1.4 0-2.7l-2.9.9C1.3 23 2.6 25.5 3.7 30c3.7-.5 7.9-.8 12.3-.8m28.3-11.6c0 .9.1 1.7.3 2.5.2.8.6 1.5 1 2.2.5.6 1 1.1 1.7 1.5.7.4 1.5.6 2.5.6.9 0 1.7-.1 2.3-.4s1.1-.7 1.5-1.1c.4-.4.6-.9.8-1.5.1-.5.2-1 .2-1.5v-.2h-5.3v-3.2h9.4V28H55v-2.5c-.3.4-.6.8-1 1.1-.4.3-.8.6-1.3.9-.5.2-1 .4-1.6.6s-1.2.2-1.8.2c-1.5 0-2.9-.3-4-.8-1.2-.6-2.2-1.3-3-2.3-.8-1-1.4-2.1-1.8-3.4-.3-1.4-.5-2.8-.5-4.3s.2-2.9.7-4.2c.5-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.6 2.6-.8 4.1-.8 1 0 1.9.1 2.8.3.9.2 1.7.6 2.4 1s1.4.9 1.9 1.5c.6.6 1 1.3 1.4 2l-3.7 2.1c-.2-.4-.5-.9-.8-1.2-.3-.4-.6-.7-1-1-.4-.3-.8-.5-1.3-.7-.5-.2-1.1-.2-1.7-.2-1 0-1.8.2-2.5.6-.7.4-1.3.9-1.7 1.5-.5.6-.8 1.4-1 2.2-.3.8-.4 1.9-.4 2.7zM71.5 6.8c1.5 0 2.9.3 4.2.8 1.2.6 2.3 1.3 3.1 2.3.9 1 1.5 2.1 2 3.4s.7 2.7.7 4.2-.2 2.9-.7 4.2c-.4 1.3-1.1 2.4-2 3.4-.9 1-1.9 1.7-3.1 2.3-1.2.6-2.6.8-4.2.8s-2.9-.3-4.2-.8c-1.2-.6-2.3-1.3-3.1-2.3-.9-1-1.5-2.1-2-3.4-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2c.4-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.5 2.6-.8 4.2-.8zm0 17.6c.9 0 1.7-.2 2.4-.5s1.3-.8 1.7-1.4c.5-.6.8-1.3 1.1-2.2.2-.8.4-1.7.4-2.7v-.1c0-1-.1-1.9-.4-2.7-.2-.8-.6-1.6-1.1-2.2-.5-.6-1.1-1.1-1.7-1.4-.7-.3-1.5-.5-2.4-.5s-1.7.2-2.4.5-1.3.8-1.7 1.4c-.5.6-.8 1.3-1.1 2.2-.2.8-.4 1.7-.4 2.7v.1c0 1 .1 1.9.4 2.7.2.8.6 1.6 1.1 2.2.5.6 1.1 1.1 1.7 1.4.6.3 1.4.5 2.4.5zM88.9 28 83 7h4.7l4 15.7h.1l4-15.7h4.7l-5.9 21h-5.7zm28.8-3.6c.6 0 1.2-.1 1.7-.3.5-.2 1-.4 1.4-.8.4-.4.7-.8.9-1.4.2-.6.3-1.2.3-2v-13h4.1v13.6c0 1.2-.2 2.2-.6 3.1s-1 1.7-1.8 2.4c-.7.7-1.6 1.2-2.7 1.5-1 .4-2.2.5-3.4.5-1.2 0-2.4-.2-3.4-.5-1-.4-1.9-.9-2.7-1.5-.8-.7-1.3-1.5-1.8-2.4-.4-.9-.6-2-.6-3.1V6.9h4.2v13c0 .8.1 1.4.3 2 .2.6.5 1 .9 1.4.4.4.8.6 1.4.8.6.2 1.1.3 1.8.3zm13-17.4h4.2v9.1l7.4-9.1h5.2l-7.2 8.4L148 28h-4.9l-5.5-9.4-2.7 3V28h-4.2V7zm-27.6 16.1c-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.7-1.2 2.7-2.7-1.2-2.7-2.7-2.7z"></path>
-</svg>
-
+        <svg
+          focusable="false"
+          role="img"
+          class="govuk-header__logotype"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 148 30"
+          height="30"
+          width="148"
+          aria-label="GOV.UK"
+        >
+          <title>GOV.UK</title>
+          <path d="M22.6 10.4c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m-5.9 6.7c-.9.4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m10.8-3.7c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s0 2-1 2.4m3.3 4.8c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4M17 4.7l2.3 1.2V2.5l-2.3.7-.2-.2.9-3h-3.4l.9 3-.2.2c-.1.1-2.3-.7-2.3-.7v3.4L15 4.7c.1.1.1.2.2.2l-1.3 4c-.1.2-.1.4-.1.6 0 1.1.8 2 1.9 2.2h.7c1-.2 1.9-1.1 1.9-2.1 0-.2 0-.4-.1-.6l-1.3-4c-.1-.2 0-.2.1-.3m-7.6 5.7c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m-5 3c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s.1 2 1 2.4m-3.2 4.8c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m14.8 11c4.4 0 8.6.3 12.3.8 1.1-4.5 2.4-7 3.7-8.8l-2.5-.9c.2 1.3.3 1.9 0 2.7-.4-.4-.8-1.1-1.1-2.3l-1.2 4c.7-.5 1.3-.8 2-.9-1.1 2.5-2.6 3.1-3.5 3-1.1-.2-1.7-1.2-1.5-2.1.3-1.2 1.5-1.5 2.1-.1 1.1-2.3-.8-3-2-2.3 1.9-1.9 2.1-3.5.6-5.6-2.1 1.6-2.1 3.2-1.2 5.5-1.2-1.4-3.2-.6-2.5 1.6.9-1.4 2.1-.5 1.9.8-.2 1.1-1.7 2.1-3.5 1.9-2.7-.2-2.9-2.1-2.9-3.6.7-.1 1.9.5 2.9 1.9l.4-4.3c-1.1 1.1-2.1 1.4-3.2 1.4.4-1.2 2.1-3 2.1-3h-5.4s1.7 1.9 2.1 3c-1.1 0-2.1-.2-3.2-1.4l.4 4.3c1-1.4 2.2-2 2.9-1.9-.1 1.5-.2 3.4-2.9 3.6-1.9.2-3.4-.8-3.5-1.9-.2-1.3 1-2.2 1.9-.8.7-2.3-1.2-3-2.5-1.6.9-2.2.9-3.9-1.2-5.5-1.5 2-1.3 3.7.6 5.6-1.2-.7-3.1 0-2 2.3.6-1.4 1.8-1.1 2.1.1.2.9-.3 1.9-1.5 2.1-.9.2-2.4-.5-3.5-3 .6 0 1.2.3 2 .9l-1.2-4c-.3 1.1-.7 1.9-1.1 2.3-.3-.8-.2-1.4 0-2.7l-2.9.9C1.3 23 2.6 25.5 3.7 30c3.7-.5 7.9-.8 12.3-.8m28.3-11.6c0 .9.1 1.7.3 2.5.2.8.6 1.5 1 2.2.5.6 1 1.1 1.7 1.5.7.4 1.5.6 2.5.6.9 0 1.7-.1 2.3-.4s1.1-.7 1.5-1.1c.4-.4.6-.9.8-1.5.1-.5.2-1 .2-1.5v-.2h-5.3v-3.2h9.4V28H55v-2.5c-.3.4-.6.8-1 1.1-.4.3-.8.6-1.3.9-.5.2-1 .4-1.6.6s-1.2.2-1.8.2c-1.5 0-2.9-.3-4-.8-1.2-.6-2.2-1.3-3-2.3-.8-1-1.4-2.1-1.8-3.4-.3-1.4-.5-2.8-.5-4.3s.2-2.9.7-4.2c.5-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.6 2.6-.8 4.1-.8 1 0 1.9.1 2.8.3.9.2 1.7.6 2.4 1s1.4.9 1.9 1.5c.6.6 1 1.3 1.4 2l-3.7 2.1c-.2-.4-.5-.9-.8-1.2-.3-.4-.6-.7-1-1-.4-.3-.8-.5-1.3-.7-.5-.2-1.1-.2-1.7-.2-1 0-1.8.2-2.5.6-.7.4-1.3.9-1.7 1.5-.5.6-.8 1.4-1 2.2-.3.8-.4 1.9-.4 2.7zM71.5 6.8c1.5 0 2.9.3 4.2.8 1.2.6 2.3 1.3 3.1 2.3.9 1 1.5 2.1 2 3.4s.7 2.7.7 4.2-.2 2.9-.7 4.2c-.4 1.3-1.1 2.4-2 3.4-.9 1-1.9 1.7-3.1 2.3-1.2.6-2.6.8-4.2.8s-2.9-.3-4.2-.8c-1.2-.6-2.3-1.3-3.1-2.3-.9-1-1.5-2.1-2-3.4-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2c.4-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.5 2.6-.8 4.2-.8zm0 17.6c.9 0 1.7-.2 2.4-.5s1.3-.8 1.7-1.4c.5-.6.8-1.3 1.1-2.2.2-.8.4-1.7.4-2.7v-.1c0-1-.1-1.9-.4-2.7-.2-.8-.6-1.6-1.1-2.2-.5-.6-1.1-1.1-1.7-1.4-.7-.3-1.5-.5-2.4-.5s-1.7.2-2.4.5-1.3.8-1.7 1.4c-.5.6-.8 1.3-1.1 2.2-.2.8-.4 1.7-.4 2.7v.1c0 1 .1 1.9.4 2.7.2.8.6 1.6 1.1 2.2.5.6 1.1 1.1 1.7 1.4.6.3 1.4.5 2.4.5zM88.9 28 83 7h4.7l4 15.7h.1l4-15.7h4.7l-5.9 21h-5.7zm28.8-3.6c.6 0 1.2-.1 1.7-.3.5-.2 1-.4 1.4-.8.4-.4.7-.8.9-1.4.2-.6.3-1.2.3-2v-13h4.1v13.6c0 1.2-.2 2.2-.6 3.1s-1 1.7-1.8 2.4c-.7.7-1.6 1.2-2.7 1.5-1 .4-2.2.5-3.4.5-1.2 0-2.4-.2-3.4-.5-1-.4-1.9-.9-2.7-1.5-.8-.7-1.3-1.5-1.8-2.4-.4-.9-.6-2-.6-3.1V6.9h4.2v13c0 .8.1 1.4.3 2 .2.6.5 1 .9 1.4.4.4.8.6 1.4.8.6.2 1.1.3 1.8.3zm13-17.4h4.2v9.1l7.4-9.1h5.2l-7.2 8.4L148 28h-4.9l-5.5-9.4-2.7 3V28h-4.2V7zm-27.6 16.1c-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.7-1.2 2.7-2.7-1.2-2.7-2.7-2.7z"></path>
+        </svg>
         
       </a>
     </div>
-    
+  
     <div class="govuk-header__content">
     
-    
+      
       <a href="/natural-capital-ecosystem-assessment" class="govuk-header__link govuk-header__service-name">
         Find natural capital data
       </a>
-    
+      
     
     
     </div>
-    
+  
   </div>
 </header>
 
+
+    <div class="govuk-grid-col login">
+      
+        <p class="govuk-body-m">Welcome, Guest</p>
+        <a href="" class="govuk-link govuk-body-m">Login</a>
+      
+    </div>
   </header>
 
 
@@ -1535,7 +1593,8 @@ exports[`Details route template Document details with partial data Check status 
       <div class="govuk-width-container">
         
   
-  <div class="govuk-phase-banner">
+  
+<div class="govuk-phase-banner">
   <p class="govuk-phase-banner__content">
     <strong class="govuk-tag govuk-phase-banner__content__tag">
       Beta
@@ -1554,12 +1613,17 @@ exports[`Details route template Document details with partial data Check status 
     
   
 
-  <div class="govuk-breadcrumbs">
+  <nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
   <ol class="govuk-breadcrumbs__list">
 
   
     <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="/natural-capital-ecosystem-assessment" data-do-storage-reset="">Home</a>
+      <a class="govuk-breadcrumbs__link" href="/natural-capital-ecosystem-assessment"
+    
+        
+      
+    
+   data-do-storage-reset="">Home</a>
     </li>
   
 
@@ -1574,10 +1638,10 @@ exports[`Details route template Document details with partial data Check status 
   
 
   </ol>
-</div>
+</nav>
 
 
-        <main class="govuk-main-wrapper app-main-class" id="main-content" role="main">
+        <main class="govuk-main-wrapper app-main-class" id="main-content">
           
     
       
@@ -1611,7 +1675,12 @@ exports[`Details route template Document details with partial data Check status 
     
   
 
-<button type="submit" class="govuk-button govuk-!-margin-bottom-4 go-to-resource govuk-button--start" data-module="govuk-button" disabled="true">
+<button type="submit" class="govuk-button govuk-!-margin-bottom-4 go-to-resource govuk-button--start" data-module="govuk-button"
+    
+        
+      
+    
+   disabled="true">
   Go to resource
   <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
     <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"/>
@@ -1627,688 +1696,650 @@ exports[`Details route template Document details with partial data Check status 
   <h2 class="govuk-tabs__title">
     Contents
   </h2>
-  
+
   <ul class="govuk-tabs__list">
     
-      
+          <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#general"
         
-        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-          <a class="govuk-tabs__tab" href="#general" onclick="changeTitle(&quot;NCEA Catalogue Detail - General&quot;)">
-            General
-          </a>
-        </li>
+            
+          
+        
+       onclick="changeTitle(&quot;NCEA Catalogue Detail - General&quot;)">
+        General
+      </a>
+    </li>
       
     
-      
+          <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#access"
         
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#access" onclick="changeTitle(&quot;NCEA Catalogue Detail - Access&quot;)">
-            Access
-          </a>
-        </li>
+            
+          
+        
+       onclick="changeTitle(&quot;NCEA Catalogue Detail - Access&quot;)">
+        Access
+      </a>
+    </li>
       
     
-      
+          <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#natural"
         
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#natural" onclick="changeTitle(&quot;NCEA Catalogue Detail - Natural Capital&quot;)">
-            Natural capital
-          </a>
-        </li>
+            
+          
+        
+       onclick="changeTitle(&quot;NCEA Catalogue Detail - Natural Capital&quot;)">
+        Natural capital
+      </a>
+    </li>
       
     
-      
+          <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#quality"
         
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#quality" onclick="changeTitle(&quot;NCEA Catalogue Detail - Quality&quot;)">
-            Quality
-          </a>
-        </li>
+            
+          
+        
+       onclick="changeTitle(&quot;NCEA Catalogue Detail - Quality&quot;)">
+        Quality
+      </a>
+    </li>
       
     
-      
+          <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#geography"
         
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#geography" onclick="changeTitle(&quot;NCEA Catalogue Detail - Geography&quot;)">
-            Geography
-          </a>
-        </li>
+            
+          
+        
+       onclick="changeTitle(&quot;NCEA Catalogue Detail - Geography&quot;)">
+        Geography
+      </a>
+    </li>
       
     
-      
+          <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#license"
         
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#license" onclick="changeTitle(&quot;NCEA Catalogue Detail - License&quot;)">
-            License
-          </a>
-        </li>
+            
+          
+        
+       onclick="changeTitle(&quot;NCEA Catalogue Detail - License&quot;)">
+        License
+      </a>
+    </li>
       
     
-      
+          <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#governance"
         
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#governance" onclick="changeTitle(&quot;NCEA Catalogue Detail - Governance&quot;)">
-            Governance
-          </a>
-        </li>
+            
+          
+        
+       onclick="changeTitle(&quot;NCEA Catalogue Detail - Governance&quot;)">
+        Governance
+      </a>
+    </li>
       
     
   </ul>
   
-  
-    
-      
       <div class="govuk-tabs__panel" id="general">
+  
+    <div class='tab-content-container'>
         
           
-  <div class='tab-content-container'>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Abstract</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Abstract</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Study periods</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Study periods</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Topic categories</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Topic categories</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Keywords</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Keywords</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Resource languages</h2>
+        
           
-            <span class='tab-content-value'>
-              ENG
-            </span>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Resource languages</h2>
+              
+                <span class='tab-content-value'>
+                  ENG
+                </span>
+              
+            </div>
           
-        </div>
-      
-      
-    
-  </div>
-
+          
         
       </div>
+  
+  </div>
     
   
-    
-      
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="access">
+  
+    <div class='tab-content-container'>
         
           
-  <div class='tab-content-container'>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>File Identifier</h2>
+              
+                <span class='tab-content-value'>
+                  3c080cb6-2ed9-43e7-9323-9ce42b05b9a2
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Resource Identifier</h2>
+              
+                <span class='tab-content-value'>
+                  3c080cb6-2ed9-43e7-9323-9ce42b05b9a2
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Coupled resources</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>File Identifier</h2>
+              
+            </div>
           
-            <span class='tab-content-value'>
-              3c080cb6-2ed9-43e7-9323-9ce42b05b9a2
-            </span>
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Resource type</h2>
+              
+                <span class='tab-content-value'>
+                  Dataset
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Resource locators</h2>
+              
+                <span class='tab-content-value'>
+                  <p>Download from Seabed Mapping Service (<a class="govuk-link" href="https://seabed.admiralty.co.uk" target="_blank">https://seabed.admiralty.co.uk</a>)</p>
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Contact information</h2>
+              
+                <span class='tab-content-value'>
+                  , <br />
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Catalouge entry</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Resource Identifier</h2>
+              
+            </div>
           
-            <span class='tab-content-value'>
-              3c080cb6-2ed9-43e7-9323-9ce42b05b9a2
-            </span>
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>NCEA catalogue number</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Coupled resources</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Parent identifier</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Resource type</h2>
+              
+            </div>
           
-            <span class='tab-content-value'>
-              Dataset
-            </span>
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Metadata standard</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Resource locators</h2>
+              
+            </div>
           
-            <span class='tab-content-value'>
-              <p>Download from Seabed Mapping Service (<a class="govuk-link" href="https://seabed.admiralty.co.uk" target="_blank">https://seabed.admiralty.co.uk</a>)</p>
-            </span>
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Project number</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Contact information</h2>
+              
+            </div>
           
-            <span class='tab-content-value'>
-              , <br />
-            </span>
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Catalouge entry</h2>
+        
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Metadata language</h2>
+              
+                <span class='tab-content-value'>
+                  ENG
+                </span>
+              
+            </div>
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>NCEA catalogue number</h2>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
-          
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Parent identifier</h2>
-          
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
-          
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Metadata standard</h2>
-          
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
-          
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Project number</h2>
-          
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
-          
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Metadata language</h2>
-          
-            <span class='tab-content-value'>
-              ENG
-            </span>
-          
-        </div>
-      
-      
-    
-  </div>
-
         
       </div>
+  
+  </div>
     
   
-    
-      
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="natural">
-        
-          
-
-
-
-
-
   
+    <h1 class="quick_search-container__heading-m">Natural capital classification</h1>
+    
+    
+      <p class="ncea-static-page__content-item govuk-!-margin-top-4"">Natural capital records are classified by themes and categories which indicate whether the record relates to natural capital assets (such as habitats and species), the ecosystem services they deliver, the pressures that act on them and/or their value.</p>
+    
+     
+      <p class="search-result__heading govuk-!-margin-top-4">This record is not classifiable within the current natural capital vocabulary.</p>
   
-    
-      
-    
-  
-    
-      
+  </div>
     
   
-    
-      
-    
-  
-    
-  
-    
-      
-    
-  
-
-
-
-  <h1 class="quick_search-container__heading-m">Natural capital classification</h1>
-
-
-  <p class="ncea-static-page__content-item govuk-!-margin-top-4"">Natural capital records are classified by themes and categories which indicate whether the record relates to natural capital assets (such as habitats and species), the ecosystem services they deliver, the pressures that act on them and/or their value.</p>
-
- 
-  <p class="search-result__heading govuk-!-margin-top-4">This record is not classifiable within the current natural capital vocabulary.</p>
-
-
-
-
-        
-      </div>
-    
-  
-    
-      
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="quality">
+  
+    <div class='tab-content-container'>
         
           
-  <div class='tab-content-container'>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Date of publication</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Date of publication</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Date of creation</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Date of creation</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Date of last revision</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Date of last revision</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Metadata date</h2>
+              
+                <span class='tab-content-value'>
+                  26 January 2010
+                </span>
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Lineage</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Metadata date</h2>
+              
+            </div>
           
-            <span class='tab-content-value'>
-              26 January 2010
-            </span>
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Conformity</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Lineage</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Additional information</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Conformity</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Additional information</h2>
-          
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
-          
-        </div>
-      
-      
-    
-  </div>
-
         
       </div>
+  
+  </div>
     
   
-    
-      
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="geography">
+  
+    <div class='tab-content-container'>
         
           
-  <div class='tab-content-container'>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Spatial data service</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Spatial data service</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Spatial representation service</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Spatial representation service</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Spatial referencing system</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Spatial referencing system</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Geographic locations</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Geographic locations</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Geographic boundary</h2>
+              
+                <span class='tab-content-value'>
+                  <p>West bounding longitude: <span id="west"></span></p><p>East bounding longitude: <span id="east"></span></p><p>North bounding latitude: <span id="north"></span></p><p>South bounding latitude: <span id="south"></span></p>
+                </span>
+              
+            </div>
+          
+          
+        
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Vertical extent<br /><span>(Meters above sea level)</span></h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Geographic boundary</h2>
+              
+            </div>
           
-            <span class='tab-content-value'>
-              <p>West bounding longitude: <span id="west"></span></p><p>East bounding longitude: <span id="east"></span></p><p>North bounding latitude: <span id="north"></span></p><p>South bounding latitude: <span id="south"></span></p>
-            </span>
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Spatial resolution</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Vertical extent<br /><span>(Meters above sea level)</span></h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Spatial resolution</h2>
-          
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
-          
-        </div>
-      
-      
-    
-  </div>
-
         
       </div>
+  
+  </div>
     
   
-    
-      
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="license">
+  
+    <div class='tab-content-container'>
         
           
-  <div class='tab-content-container'>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Limitations on public access -<br /> Access constraints</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Limitations on public access -<br /> Access constraints</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Limitations on public access -<br /> Other constraints</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Limitations on public access -<br /> Other constraints</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Conditions for access and use -<br /> Use constraints</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Conditions for access and use -<br /> Use constraints</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Conditions for access and use -<br /> Other constraints</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Conditions for access and use -<br /> Other constraints</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Distribution formats</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Distribution formats</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
+        
+          
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Frequency of update</h2>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
     
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Frequency of update</h2>
+              
+            </div>
           
-            <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
           
-        </div>
-      
-      
-    
-      
-        <div class='tab-content-row'>
-          <h2 class='tab-content-label'>Character encoding</h2>
+        
           
-            <span class='tab-content-value'>
-              utf8
-            </span>
+            <div class='tab-content-row'>
+              <h2 class='tab-content-label'>Character encoding</h2>
+              
+                <span class='tab-content-value'>
+                  utf8
+                </span>
+              
+            </div>
           
-        </div>
-      
-      
-    
-  </div>
-
+          
         
       </div>
+  
+  </div>
     
   
-    
-      
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="governance">
-        
-          
-  <div class='tab-content-container'>
-    
-  </div>
-
+  
+    <div class='tab-content-container'>
         
       </div>
+  
+  </div>
     
   
+
 </div>
 
 
@@ -2322,55 +2353,53 @@ exports[`Details route template Document details with partial data Check status 
 
 
     
-  <footer class="govuk-footer" role="contentinfo">
+  <footer class="govuk-footer">
   <div class="govuk-width-container">
     
     <div class="govuk-footer__meta">
       <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
         
-          <h2 class="govuk-visually-hidden">Support links</h2>
-          
-            <ul class="govuk-footer__inline-list">
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
-                    Help
-                  </a>
-                </li>
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
-                    Privacy
-                  </a>
-                </li>
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
-                    Cookies
-                  </a>
-                </li>
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
-                    Accessibility statement
-                  </a>
-                </li>
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
-                    Terms and conditions
-                  </a>
-                </li>
-              
-            </ul>
-          
-          
-            <div class="govuk-footer__meta-custom">
-              
-<p>Version: v1.2.0</p>
-
-            </div>
-          
+        <h2 class="govuk-visually-hidden">Support links</h2>
+        
+        <ul class="govuk-footer__inline-list">
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
+              Help
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
+              Privacy
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
+              Cookies
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
+              Accessibility statement
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
+              Terms and conditions
+            </a>
+          </li>
+        
+        </ul>
+        
+        
+        <div class="govuk-footer__meta-custom">
+          <p>Version: v1.3.0</p>
+        </div>
+        
         
         <svg
           aria-hidden="true"
@@ -2387,21 +2416,25 @@ exports[`Details route template Document details with partial data Check status 
           />
         </svg>
         <span class="govuk-footer__licence-description">
-          
-            All content is available under the
-            <a
-              class="govuk-footer__link"
-              href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
-              rel="license"
-            >Open Government Licence v3.0</a>, except where otherwise stated
-          
+        
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        
         </span>
       </div>
       <div class="govuk-footer__meta-item">
         <a
           class="govuk-footer__link govuk-footer__copyright-logo"
           href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
-        >© Crown copyright</a>
+        >
+        
+          © Crown copyright
+        
+        </a>
       </div>
     </div>
   </div>
