@@ -1,3 +1,43 @@
+# [1.4.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.3.0...v1.4.0) (2025-01-15)
+
+
+### Bug Fixes
+
+* **auth:** Add govuk styling to login/logout text ([0bb9630](https://github.com/DSP3-apps/ncea-frontend/commit/0bb96302b14f91d705de2b1d3852e41e698c1d24)), closes [#NCEA-135](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-135)
+* **auth:** Alter auth implemenation to use credentials directly ([4be928b](https://github.com/DSP3-apps/ncea-frontend/commit/4be928b97e3eb76216830a3451011a22d17a1595)), closes [#NCEA-135](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-135)
+* **auth:** Remove custom logout handler, add user data as context to views ([5ed4c35](https://github.com/DSP3-apps/ncea-frontend/commit/5ed4c35ebd240bbd753585b4bafcf3318f996e28)), closes [#NCEA-135](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-135)
+* **tests:** Add login url to tests ([48983d7](https://github.com/DSP3-apps/ncea-frontend/commit/48983d7728139f44b169fd26144075ae8bc4cc72)), closes [#NCEA-135](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-135)
+* **tests:** Correct broken auth and server tests ([8ae9fd5](https://github.com/DSP3-apps/ncea-frontend/commit/8ae9fd502c55c94fe4e0e82e8e58c654ec1a2961)), closes [#NCEA-135](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-135)
+
+
+### Features
+
+* **auth:** Add login url ([ecd5e09](https://github.com/DSP3-apps/ncea-frontend/commit/ecd5e0933a6af365da7dc53a84738f575764b6fd)), closes [#NCEA-135](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-135)
+* **backend:** Classifier API integration ([f6fd19b](https://github.com/DSP3-apps/ncea-frontend/commit/f6fd19bcaab52d7b096a0721b2867d61bc48e382))
+* **backend:** fix lint issues ([4ce53bc](https://github.com/DSP3-apps/ncea-frontend/commit/4ce53bcd15f407dd9793c2ecac0a56b6e617b3b1))
+* **backend:** fix lint issues ([72df32d](https://github.com/DSP3-apps/ncea-frontend/commit/72df32dd57f7a6029c4b85d2f5b710172828c856))
+* **backend:** fix test cases ([aa28b92](https://github.com/DSP3-apps/ncea-frontend/commit/aa28b92f5a1ed9279e87b37f07ddf01fa00f55c6))
+* **frontdend:** display user email id when user is logged in ([a8dafff](https://github.com/DSP3-apps/ncea-frontend/commit/a8dafff385648516484487e4019e06d697517e56))
+* **frontdend:** fix the unit test suites ([5cbef72](https://github.com/DSP3-apps/ncea-frontend/commit/5cbef7208f892e7018f8bb12ef072150cb1d3cb7))
+* **frontdend:** fix the unit test suites ([1c9063e](https://github.com/DSP3-apps/ncea-frontend/commit/1c9063e703af1342850571d94dc07ff460c96a58))
+* **frontend:** Add login/logout functionality ([6cb2ef3](https://github.com/DSP3-apps/ncea-frontend/commit/6cb2ef37e4037eea1ec85bda31f4cb95cb76a3f5))
+* **frontend:** Created keyword filer component ([f319308](https://github.com/DSP3-apps/ncea-frontend/commit/f319308ea8c5cb22efccc17e534fdd4207a4a71f))
+* **frontend:** fix the lint issues ([92f2388](https://github.com/DSP3-apps/ncea-frontend/commit/92f23889d2df115981bd78bfc4c66e689be77894))
+* **frontend:** implementing code review comments ([7327a00](https://github.com/DSP3-apps/ncea-frontend/commit/7327a000df84d5adbaea7eaeb24e1a8735c6a4ff))
+* **frontend:** implementing code review comments ([d2c267f](https://github.com/DSP3-apps/ncea-frontend/commit/d2c267f1103b2e212c8cffe6fa3a9a91f244e729))
+* **frontend:** implementing code review comments ([0c35de3](https://github.com/DSP3-apps/ncea-frontend/commit/0c35de34aca2dc5bcaa11d1005eaf3128c3a4761))
+* **frontend:** implementing code review comments ([0342ec0](https://github.com/DSP3-apps/ncea-frontend/commit/0342ec02d2da05b8bc65f6e0a64f9b4ada6af954))
+* **frontend:** implementing code review comments ([34410d6](https://github.com/DSP3-apps/ncea-frontend/commit/34410d62b55edfdd5afeb3bfb84e58847a513f3d))
+* **frontend:** implementing code review comments ([ee4e1a7](https://github.com/DSP3-apps/ncea-frontend/commit/ee4e1a75be47053e8c4c542f4665a8cef5ed4818))
+* **frontend:** remove the axios package ([7d81fee](https://github.com/DSP3-apps/ncea-frontend/commit/7d81fee7d35714ee88f2769573bde30a5bcf6f26))
+* **frontend:** remove the axios package ([a0fe972](https://github.com/DSP3-apps/ncea-frontend/commit/a0fe97209d38f1d666220622686c77ada679f95f))
+* **frontend:** remove unused file ([9b04271](https://github.com/DSP3-apps/ncea-frontend/commit/9b0427101089d0d7d4bbd17d1df2bc79f87053a0))
+* **frontend:** updated the code as per review comments ([c5b0955](https://github.com/DSP3-apps/ncea-frontend/commit/c5b0955d28021ed0cf995a6454a7171acb11467a))
+* **frontend:** updated the code as per review comments ([3d1bef8](https://github.com/DSP3-apps/ncea-frontend/commit/3d1bef83b47dc919d38bbe8ed8eb3026da852403))
+* **frontend:** updated the code as per review comments ([368c1d8](https://github.com/DSP3-apps/ncea-frontend/commit/368c1d8bb0ce7af8ee2e444bba54b61618b995da))
+* **frontend:** updated the code as per review comments ([622bcda](https://github.com/DSP3-apps/ncea-frontend/commit/622bcdab8be1c11627f6238bfa6151672b063c9d))
+* **mocks:** Mock out document details network request ([a5e9d07](https://github.com/DSP3-apps/ncea-frontend/commit/a5e9d07189e19c795c4ff78c2921deb2141f5181)), closes [#NCEA-42](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-42)
+
 # [1.3.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.2.0...v1.3.0) (2025-01-09)
 
 
