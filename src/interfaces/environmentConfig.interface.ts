@@ -5,6 +5,7 @@ export interface EnvironmentConfig {
   azureKeyVaultURL: string | undefined;
   appInsightsSecretName?: string;
   elasticSearchAPI: string | undefined;
+  quickSearchAPI: string | undefined;
   isLocal?: boolean;
   gtmId?: string;
   classifierApiUrl: string | undefined;

@@ -19,6 +19,7 @@ const config: EnvironmentConfig = {
   azureKeyVaultURL: process.env.AZURE_KEYVAULT_URL,
   appInsightsSecretName: process.env.APPINSIGHTS_SECRET_NAME,
   elasticSearchAPI: process.env.ELASTICSEARCH_API,
+  quickSearchAPI: process.env.QUICK_SEARCH_API,
   isLocal: process.env.NODE_ENV === 'local',
   gtmId: process.env.GTM_ID,
   classifierApiUrl: process.env.CLASSIFIER_API_URL,

@@ -1,9 +1,10 @@
 import { estypes } from '@elastic/elasticsearch';
 
+import { environmentConfig } from '@/config/environmentConfig';
+
 import { CLASSIFIER_SEARCH_RESPONSE } from './mocks/classifier-search';
 import { CLASSIFIER_COUNT_LEVEL_2 } from './mocks/classifier-themes-level-2';
 import { CLASSIFIER_COUNT_LEVEL_3 } from './mocks/classifier-themes-level-3';
-import { QUICK_SEARCH_RESPONSE } from './mocks/quick-search';
 import { QUICK_SEARCH_RESOURCE_TYPE_FILTERS, QUICK_SEARCH_STUDY_PERIOD_FILTERS } from './mocks/quick-search-filters';
 import { performQuery } from '../../config/elasticSearchClient';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
@@ -13,6 +14,51 @@ import { defaultFilterOptions } from '../../utils/constants';
 import { formatSearchResponse } from '../../utils/formatSearchResponse';
 import { generateSearchQuery } from '../../utils/queryBuilder';
 import { ISearchFiltersProcessed, applyMockFilters } from '../../utils/searchFilters';
+
+const testBody = {
+  SearchTerms: ['peat'],
+  shouldMatchAll: false,
+  Filters: {
+    Keywords: [],
+    FileIdentifier: null,
+    Title: null,
+    AlternativeTitle: null,
+    Abstract: null,
+    ResourceType: null,
+    TopicCategory: null,
+    Lineage: null,
+    AdditionalInformationSource: null,
+    TemporalExtent: {
+      BeginPosition: null,
+      EndPosition: null,
+    },
+  },
+};
+
+const invokeQuickSearchApi = async () => {
+  const url = `${environmentConfig.quickSearchAPI}api/Search`;
+  fetch(url, {
+    method: 'post',
+    // headers: {
+    //   'Content-Type': 'application/json',
+    //   // Authorization: 'Bearer <YOUR_BEARER_TOKEN>',
+    // },
+    body: JSON.stringify(testBody) as BodyInit,
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      // Write the JSON data to a file
+      // fs.writeFile('./data.json', JSON.stringify(res, null, 2), (err) => {
+      //   if (err) {
+      //     console.error('Error writing to file:', err);
+      //   } else {
+      //     console.log('File successfully written:', './');
+      //   }
+      // });
+      return res;
+    })
+    .catch((error) => console.log('error', error.message));
+};
 
 const getSearchResults = async (
   searchFieldsObject: ISearchPayload,
@@ -30,13 +76,13 @@ const getSearchResults = async (
       // };
       // const payload = generateSearchQuery(searchBuilderPayload);
       // const response = await performQuery<estypes.SearchResponse>(payload);
-      const response = isQuickSearchJourney ? QUICK_SEARCH_RESPONSE : CLASSIFIER_SEARCH_RESPONSE;
+      const data = await invokeQuickSearchApi();
+      const response = isQuickSearchJourney ? data : CLASSIFIER_SEARCH_RESPONSE;
       const finalResponse: ISearchResults = await formatSearchResponse(
         applyMockFilters(response as never, filters, searchFieldsObject.fields.keyword?.q ?? ''),
         false,
         isMapResults,
       );
-
       return finalResponse;
     } else {
       return Promise.resolve({ total: 0, items: [] });
