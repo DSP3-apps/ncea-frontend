@@ -171,6 +171,7 @@ exports[`Details route template Document details with data Check status code and
     
   <script>
     var gtmIdValue = "";
+    var keyboardFiltersBaseUrlValue = ""
   </script>
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
@@ -1281,12 +1282,10 @@ exports[`Details route template Document details with data Check status code and
         </ul>
         
         
-            <div class="govuk-footer__meta-custom">
-              
-<p>Version: v1.2.0</p>
-
-            </div>
-          
+        <div class="govuk-footer__meta-custom">
+          <p>Version: v1.3.0</p>
+        </div>
+        
         
         <svg
           aria-hidden="true"
@@ -1534,6 +1533,7 @@ exports[`Details route template Document details with partial data Check status 
     
   <script>
     var gtmIdValue = "";
+    var keyboardFiltersBaseUrlValue = ""
   </script>
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
@@ -2359,43 +2359,47 @@ exports[`Details route template Document details with partial data Check status 
     <div class="govuk-footer__meta">
       <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
         
-          <h2 class="govuk-visually-hidden">Support links</h2>
-          
-            <ul class="govuk-footer__inline-list">
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
-                    Help
-                  </a>
-                </li>
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
-                    Privacy
-                  </a>
-                </li>
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
-                    Cookies
-                  </a>
-                </li>
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
-                    Accessibility statement
-                  </a>
-                </li>
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
-                    Terms and conditions
-                  </a>
-                </li>
-              
-            </ul>
-          
-          
+        <h2 class="govuk-visually-hidden">Support links</h2>
+        
+        <ul class="govuk-footer__inline-list">
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
+              Help
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
+              Privacy
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
+              Cookies
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
+              Accessibility statement
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
+              Terms and conditions
+            </a>
+          </li>
+        
+        </ul>
+        
+        
+        <div class="govuk-footer__meta-custom">
+          <p>Version: v1.3.0</p>
+        </div>
+        
         
         <svg
           aria-hidden="true"

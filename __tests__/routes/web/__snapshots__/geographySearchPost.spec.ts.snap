@@ -171,6 +171,7 @@ exports[`Guided Search - Geography Questionnaire Screen POST Request HTML elemen
     
   <script>
     var gtmIdValue = "";
+    var keyboardFiltersBaseUrlValue = ""
   </script>
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
@@ -598,12 +599,10 @@ exports[`Guided Search - Geography Questionnaire Screen POST Request HTML elemen
         </ul>
         
         
-            <div class="govuk-footer__meta-custom">
-              
-<p>Version: v1.2.0</p>
-
-            </div>
-          
+        <div class="govuk-footer__meta-custom">
+          <p>Version: v1.3.0</p>
+        </div>
+        
         
         <svg
           aria-hidden="true"

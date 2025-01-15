@@ -168,6 +168,7 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
     
   <script>
     var gtmIdValue = "";
+    var keyboardFiltersBaseUrlValue = ""
   </script>
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
@@ -309,6 +310,10 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
         
         </ul>
         
+        
+        <div class="govuk-footer__meta-custom">
+          <p>Version: v1.3.0</p>
+        </div>
         
         
         <svg

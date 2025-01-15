@@ -168,6 +168,7 @@ exports[`Guided Search - Date Questionnaire Screen Guided Search > Date Question
     
   <script>
     var gtmIdValue = "";
+    var keyboardFiltersBaseUrlValue = ""
   </script>
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
@@ -753,12 +754,10 @@ exports[`Guided Search - Date Questionnaire Screen Guided Search > Date Question
         </ul>
         
         
-            <div class="govuk-footer__meta-custom">
-              
-<p>Version: v1.2.0</p>
-
-            </div>
-          
+        <div class="govuk-footer__meta-custom">
+          <p>Version: v1.3.0</p>
+        </div>
+        
         
         <svg
           aria-hidden="true"

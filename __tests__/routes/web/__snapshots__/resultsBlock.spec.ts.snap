@@ -171,6 +171,7 @@ exports[`Results block template Guided search journey Search results with empty 
     
   <script>
     var gtmIdValue = "";
+    var keyboardFiltersBaseUrlValue = ""
   </script>
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
@@ -1717,7 +1718,7 @@ exports[`Results block template Guided search journey Search results with empty 
 
       </div>
     </div>
-    <div class="filter-options__container">
+    <div class="filter-options__container filter-options__keyword-filter">
       <label for="filters-keywords-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="keywords">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters-keywords-accordion-toggle-search_results" class="filter-options__accordion-toggle">
           <svg id="filters-keywords-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
@@ -1762,6 +1763,10 @@ exports[`Results block template Guided search journey Search results with empty 
 
 </div>
 
+      </div>
+      <div class="filter-options__keyboard-filter-content">
+          <ul class="filter-options__keyboard-filter-list" id="keyboard-filter-list">
+          </ul>
       </div>
     </div>
 
@@ -1882,12 +1887,10 @@ exports[`Results block template Guided search journey Search results with empty 
         </ul>
         
         
-            <div class="govuk-footer__meta-custom">
-              
-<p>Version: v1.2.0</p>
-
-            </div>
-          
+        <div class="govuk-footer__meta-custom">
+          <p>Version: v1.3.0</p>
+        </div>
+        
         
         <svg
           aria-hidden="true"
@@ -1953,6 +1956,9 @@ exports[`Results block template Guided search journey Search results with empty 
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/location.js"></script>
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/filters.js"></script>
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/details.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/keywordsFilter.js"></script>
+    <script src="/natural-capital-ecosystem-assessment/assets/scripts/jquery.js"></script>
+    <script src="/natural-capital-ecosystem-assessment/assets/scripts/jquery-debounce.js"></script>
   
   </body>
 </html>
@@ -2130,6 +2136,7 @@ exports[`Results block template Guided search journey Search results with error 
     
   <script>
     var gtmIdValue = "";
+    var keyboardFiltersBaseUrlValue = ""
   </script>
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
@@ -2770,7 +2777,7 @@ exports[`Results block template Guided search journey Search results with error 
 
       </div>
     </div>
-    <div class="filter-options__container">
+    <div class="filter-options__container filter-options__keyword-filter">
       <label for="filters-keywords-accordion-toggle-" class="filter-options__accordion" data-category-="keywords">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters-keywords-accordion-toggle-" class="filter-options__accordion-toggle">
           <svg id="filters-keywords-accordion-icon-" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
@@ -2813,6 +2820,10 @@ exports[`Results block template Guided search journey Search results with error 
 
 </div>
 
+      </div>
+      <div class="filter-options__keyboard-filter-content">
+          <ul class="filter-options__keyboard-filter-list" id="keyboard-filter-list">
+          </ul>
       </div>
     </div>
 
@@ -2897,12 +2908,10 @@ exports[`Results block template Guided search journey Search results with error 
         </ul>
         
         
-            <div class="govuk-footer__meta-custom">
-              
-<p>Version: v1.2.0</p>
-
-            </div>
-          
+        <div class="govuk-footer__meta-custom">
+          <p>Version: v1.3.0</p>
+        </div>
+        
         
         <svg
           aria-hidden="true"
@@ -2968,6 +2977,9 @@ exports[`Results block template Guided search journey Search results with error 
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/location.js"></script>
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/filters.js"></script>
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/details.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/keywordsFilter.js"></script>
+    <script src="/natural-capital-ecosystem-assessment/assets/scripts/jquery.js"></script>
+    <script src="/natural-capital-ecosystem-assessment/assets/scripts/jquery-debounce.js"></script>
   
   </body>
 </html>
@@ -3145,6 +3157,7 @@ exports[`Results block template Quick search journey Search results with data sh
     
   <script>
     var gtmIdValue = "";
+    var keyboardFiltersBaseUrlValue = ""
   </script>
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
@@ -4691,7 +4704,7 @@ exports[`Results block template Quick search journey Search results with data sh
 
       </div>
     </div>
-    <div class="filter-options__container">
+    <div class="filter-options__container filter-options__keyword-filter">
       <label for="filters-keywords-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="keywords">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters-keywords-accordion-toggle-search_results" class="filter-options__accordion-toggle">
           <svg id="filters-keywords-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
@@ -4736,6 +4749,10 @@ exports[`Results block template Quick search journey Search results with data sh
 
 </div>
 
+      </div>
+      <div class="filter-options__keyboard-filter-content">
+          <ul class="filter-options__keyboard-filter-list" id="keyboard-filter-list">
+          </ul>
       </div>
     </div>
 
@@ -5116,12 +5133,10 @@ exports[`Results block template Quick search journey Search results with data sh
         </ul>
         
         
-            <div class="govuk-footer__meta-custom">
-              
-<p>Version: v1.2.0</p>
-
-            </div>
-          
+        <div class="govuk-footer__meta-custom">
+          <p>Version: v1.3.0</p>
+        </div>
+        
         
         <svg
           aria-hidden="true"
@@ -5187,6 +5202,9 @@ exports[`Results block template Quick search journey Search results with data sh
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/location.js"></script>
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/filters.js"></script>
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/details.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/keywordsFilter.js"></script>
+    <script src="/natural-capital-ecosystem-assessment/assets/scripts/jquery.js"></script>
+    <script src="/natural-capital-ecosystem-assessment/assets/scripts/jquery-debounce.js"></script>
   
   </body>
 </html>
@@ -5364,6 +5382,7 @@ exports[`Results block template Quick search journey Search results with empty d
     
   <script>
     var gtmIdValue = "";
+    var keyboardFiltersBaseUrlValue = ""
   </script>
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
@@ -6910,7 +6929,7 @@ exports[`Results block template Quick search journey Search results with empty d
 
       </div>
     </div>
-    <div class="filter-options__container">
+    <div class="filter-options__container filter-options__keyword-filter">
       <label for="filters-keywords-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="keywords">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters-keywords-accordion-toggle-search_results" class="filter-options__accordion-toggle">
           <svg id="filters-keywords-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
@@ -6955,6 +6974,10 @@ exports[`Results block template Quick search journey Search results with empty d
 
 </div>
 
+      </div>
+      <div class="filter-options__keyboard-filter-content">
+          <ul class="filter-options__keyboard-filter-list" id="keyboard-filter-list">
+          </ul>
       </div>
     </div>
 
@@ -7075,12 +7098,10 @@ exports[`Results block template Quick search journey Search results with empty d
         </ul>
         
         
-            <div class="govuk-footer__meta-custom">
-              
-<p>Version: v1.2.0</p>
-
-            </div>
-          
+        <div class="govuk-footer__meta-custom">
+          <p>Version: v1.3.0</p>
+        </div>
+        
         
         <svg
           aria-hidden="true"
@@ -7146,6 +7167,9 @@ exports[`Results block template Quick search journey Search results with empty d
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/location.js"></script>
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/filters.js"></script>
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/details.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/keywordsFilter.js"></script>
+    <script src="/natural-capital-ecosystem-assessment/assets/scripts/jquery.js"></script>
+    <script src="/natural-capital-ecosystem-assessment/assets/scripts/jquery-debounce.js"></script>
   
   </body>
 </html>
@@ -7323,6 +7347,7 @@ exports[`Results block template Quick search journey Search results with error s
     
   <script>
     var gtmIdValue = "";
+    var keyboardFiltersBaseUrlValue = ""
   </script>
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
@@ -7963,7 +7988,7 @@ exports[`Results block template Quick search journey Search results with error s
 
       </div>
     </div>
-    <div class="filter-options__container">
+    <div class="filter-options__container filter-options__keyword-filter">
       <label for="filters-keywords-accordion-toggle-" class="filter-options__accordion" data-category-="keywords">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters-keywords-accordion-toggle-" class="filter-options__accordion-toggle">
           <svg id="filters-keywords-accordion-icon-" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
@@ -8006,6 +8031,10 @@ exports[`Results block template Quick search journey Search results with error s
 
 </div>
 
+      </div>
+      <div class="filter-options__keyboard-filter-content">
+          <ul class="filter-options__keyboard-filter-list" id="keyboard-filter-list">
+          </ul>
       </div>
     </div>
 
@@ -8053,43 +8082,47 @@ exports[`Results block template Quick search journey Search results with error s
     <div class="govuk-footer__meta">
       <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
         
-          <h2 class="govuk-visually-hidden">Support links</h2>
-          
-            <ul class="govuk-footer__inline-list">
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
-                    Help
-                  </a>
-                </li>
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
-                    Privacy
-                  </a>
-                </li>
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
-                    Cookies
-                  </a>
-                </li>
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
-                    Accessibility statement
-                  </a>
-                </li>
-              
-                <li class="govuk-footer__inline-list-item">
-                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
-                    Terms and conditions
-                  </a>
-                </li>
-              
-            </ul>
-          
-          
+        <h2 class="govuk-visually-hidden">Support links</h2>
+        
+        <ul class="govuk-footer__inline-list">
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
+              Help
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
+              Privacy
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
+              Cookies
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
+              Accessibility statement
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
+              Terms and conditions
+            </a>
+          </li>
+        
+        </ul>
+        
+        
+        <div class="govuk-footer__meta-custom">
+          <p>Version: v1.3.0</p>
+        </div>
+        
         
         <svg
           aria-hidden="true"
@@ -8155,6 +8188,9 @@ exports[`Results block template Quick search journey Search results with error s
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/location.js"></script>
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/filters.js"></script>
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/details.js"></script>
+    <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/keywordsFilter.js"></script>
+    <script src="/natural-capital-ecosystem-assessment/assets/scripts/jquery.js"></script>
+    <script src="/natural-capital-ecosystem-assessment/assets/scripts/jquery-debounce.js"></script>
   
   </body>
 </html>
