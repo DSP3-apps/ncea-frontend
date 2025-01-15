@@ -38,27 +38,28 @@ const testBody = {
 
 const invokeQuickSearchApi = async () => {
   const url = `${environmentConfig.quickSearchAPI}api/Search`;
-  fetch(url, {
-    method: 'post',
-    // headers: {
-    //   'Content-Type': 'application/json',
-    //   // Authorization: 'Bearer <YOUR_BEARER_TOKEN>',
-    // },
-    body: JSON.stringify(testBody) as BodyInit,
-  })
-    .then((res) => res.json())
-    .then((res) => {
-      // Write the JSON data to a file
-      // fs.writeFile('./data.json', JSON.stringify(res, null, 2), (err) => {
-      //   if (err) {
-      //     console.error('Error writing to file:', err);
-      //   } else {
-      //     console.log('File successfully written:', './');
-      //   }
-      // });
-      return res;
-    })
-    .catch((error) => console.log('error', error.message));
+  // fetch(url, {
+  //   method: 'post',
+  //   // headers: {
+  //   //   'Content-Type': 'application/json',
+  //   //   // Authorization: 'Bearer <YOUR_BEARER_TOKEN>',
+  //   // },
+  //   body: JSON.stringify(testBody) as BodyInit,
+  // })
+  //   .then((res) => res.json())
+  //   .then((res) => {
+  //     // Write the JSON data to a file
+  //     // fs.writeFile('./data.json', JSON.stringify(res, null, 2), (err) => {
+  //     //   if (err) {
+  //     //     console.error('Error writing to file:', err);
+  //     //   } else {
+  //     //     console.log('File successfully written:', './');
+  //     //   }
+  //     // });
+  //     return res;
+  //   })
+  //   .catch((error) => console.log('error', error.message));
+  console.log(url, testBody);
 };
 
 const getSearchResults = async (

@@ -45,12 +45,10 @@ describe('Environment environmentConfig', () => {
 
   describe('Check environment configuration', () => {
     it('should be accessible and usable', () => {
-      const {
-        environmentConfig,
-      } = require('../../src/config/environmentConfig');
+      const { environmentConfig } = require('../../src/config/environmentConfig');
       expect(environmentConfig).toBeDefined();
       expect(typeof environmentConfig).toBe('object');
-      expect(Object.keys(environmentConfig).length).toBe(14);
+      expect(Object.keys(environmentConfig).length).toBe(15);
     });
 
     it('should validate and export the configuration object', () => {
@@ -62,7 +60,7 @@ describe('Environment environmentConfig', () => {
         APPINSIGHTS_SECRET_NAME: 'appinsights--connections string',
         ELASTICSEARCH_API: 'https://elasticsearch-api.com',
         WEBDOMAIN: '',
-        KEYBOARD_FILTER_LOCAL_BASE_URL: ''
+        KEYBOARD_FILTER_LOCAL_BASE_URL: '',
       };
       process.env = { ...mockConfig };
 
@@ -75,6 +73,7 @@ describe('Environment environmentConfig', () => {
         appInsightsSecretName: Joi.string().allow('').default(''),
         azureKeyVaultURL: Joi.string().allow('').default(''),
         elasticSearchAPI: Joi.string().allow('').default(''),
+        quickSearchAPI: Joi.string().allow('').default(''),
         isLocal: Joi.boolean().valid(true, false).default(false),
         gtmId: Joi.string().allow('').default(''),
         elasticSearchUsername: Joi.string().allow('').default(''),
@@ -85,9 +84,7 @@ describe('Environment environmentConfig', () => {
         keyboardFiltersBaseUrl: Joi.string().allow('').default(''),
       });
 
-      const {
-        environmentConfig,
-      } = require('../../src/config/environmentConfig');
+      const { environmentConfig } = require('../../src/config/environmentConfig');
 
       const { error, value } = schema.validate(environmentConfig);
 

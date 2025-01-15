@@ -51,6 +51,7 @@ describe('Environment Configuration Schema', () => {
         azureKeyVaultURL: 'https://example-vault.vault.azure.net',
         appInsightsSecretName: 'secret-name',
         elasticSearchAPI: 'https://example.com/api',
+        quickSearchAPI: 'https://example.com/api',
         isLocal: false,
         gtmId: 'your-key',
         elasticSearchUsername: 'es-username',
@@ -85,9 +86,7 @@ describe('Environment Configuration Schema', () => {
 
       const { error } = environmentSchema.validate(invalidConfig);
       expect(error).toBeDefined();
-      expect(error?.details[0]?.message).toContain(
-        'Provided Environment is not valid',
-      );
+      expect(error?.details[0]?.message).toContain('Provided Environment is not valid');
     });
 
     it('should invalidate a configuration with key vault url as string instead of URL', () => {
@@ -99,9 +98,7 @@ describe('Environment Configuration Schema', () => {
 
       const { error } = environmentSchema.validate(invalidConfig);
       expect(error).toBeDefined();
-      expect(error?.details[0]?.message).toContain(
-        'Azure Key Vault URI must be a valid URL or an empty string',
-      );
+      expect(error?.details[0]?.message).toContain('Azure Key Vault URI must be a valid URL or an empty string');
     });
 
     it('should invalidate a configuration with elasticsearch api as string instead of URL', () => {
@@ -113,9 +110,7 @@ describe('Environment Configuration Schema', () => {
 
       const { error } = environmentSchema.validate(invalidConfig);
       expect(error).toBeDefined();
-      expect(error?.details[0]?.message).toContain(
-        'Elasticsearch API must be a valid URL or an empty string',
-      );
+      expect(error?.details[0]?.message).toContain('Elasticsearch API must be a valid URL or an empty string');
     });
 
     it('should invalidate a configuration with isLocal as string instead of boolea', () => {
