@@ -220,7 +220,7 @@ exports[`Results block template Guided search journey Search results with empty 
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http://127.0.0.1:37633/natural-capital-ecosystem-assessment/search?fdy=2000&amp;tdy=2023&amp;jry=gs&amp;pg=1&amp;rpp=20&amp;srt=most_relevant&amp;rty=all" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -2185,7 +2185,7 @@ exports[`Results block template Guided search journey Search results with error 
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http://127.0.0.1:35587/natural-capital-ecosystem-assessment/search?fdy=2000&amp;tdy=2023&amp;jry=gs&amp;pg=1&amp;rpp=20&amp;srt=most_relevant&amp;rty=all" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -3206,7 +3206,7 @@ exports[`Results block template Quick search journey Search results with data sh
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http://127.0.0.1:37277/natural-capital-ecosystem-assessment/search?q=marine&amp;jry=qs&amp;pg=1&amp;rpp=20&amp;srt=most_relevant&amp;rty=all" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -5431,7 +5431,7 @@ exports[`Results block template Quick search journey Search results with empty d
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http://127.0.0.1:35339/natural-capital-ecosystem-assessment/search?q=marine&amp;jry=qs&amp;pg=1&amp;rpp=20&amp;srt=most_relevant&amp;rty=all" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -7396,7 +7396,7 @@ exports[`Results block template Quick search journey Search results with error s
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http://127.0.0.1:39797/natural-capital-ecosystem-assessment/search?q=marine&amp;jry=qs&amp;pg=1&amp;rpp=20&amp;srt=most_relevant&amp;rty=all" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>

@@ -217,7 +217,7 @@ exports[`Accessibility Screen Accessibility > Sanpshot verification should match
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http://127.0.0.1:46463/natural-capital-ecosystem-assessment/accessibility-statement" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>

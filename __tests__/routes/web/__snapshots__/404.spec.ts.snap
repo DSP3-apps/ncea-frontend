@@ -217,7 +217,7 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>

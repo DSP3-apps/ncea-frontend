@@ -217,7 +217,7 @@ exports[`Guided Search - Date Questionnaire Screen Guided Search > Date Question
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http://0.0.0.0:4000/natural-capital-ecosystem-assessment/date-search" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
