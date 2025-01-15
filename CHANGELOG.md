@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.4.0...v1.5.0) (2025-01-15)
+
+
+### Features
+
+* **auth:** Implement logout system ([70990ea](https://github.com/DSP3-apps/ncea-frontend/commit/70990eab0e4fb2549edf60eda121e24e2e1c213c)), closes [#NCEA-135](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-135)
+
 # [1.4.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.3.0...v1.4.0) (2025-01-15)
 
 
