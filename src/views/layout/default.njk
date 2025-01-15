@@ -79,7 +79,7 @@
         <a href="{{routes.logOut}}" class="govuk-link govuk-body-m">Logout</a>
       {% else %}
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="" class="govuk-link govuk-body-m">Login</a>
+        <a href="{{routes.logIn}}{% if not routes.logIn == "" %}?redirect_uri={{redirectUri}}{% endif %}" class="govuk-link govuk-body-m">Login</a>
       {% endif %}
     </div>
   </header>

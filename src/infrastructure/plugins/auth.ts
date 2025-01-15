@@ -70,6 +70,9 @@ export const injectAuthIntoContext = (request: Request, h: ResponseToolkit) => {
 
       // finally we assign the user data if there is any
       context.user = request.auth.credentials?.user || null;
+
+      // insert url that will be used as login redirect URL
+      context.redirectUri = request.url.toString() ?? '';
     }
   }
 
