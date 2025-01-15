@@ -5,6 +5,7 @@ import { environmentConfig } from '@/config/environmentConfig';
 import { CLASSIFIER_SEARCH_RESPONSE } from './mocks/classifier-search';
 import { CLASSIFIER_COUNT_LEVEL_2 } from './mocks/classifier-themes-level-2';
 import { CLASSIFIER_COUNT_LEVEL_3 } from './mocks/classifier-themes-level-3';
+import { QUICK_SEARCH_RESPONSE } from './mocks/quick-search';
 import { QUICK_SEARCH_RESOURCE_TYPE_FILTERS, QUICK_SEARCH_STUDY_PERIOD_FILTERS } from './mocks/quick-search-filters';
 import { performQuery } from '../../config/elasticSearchClient';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
@@ -77,7 +78,8 @@ const getSearchResults = async (
       // const payload = generateSearchQuery(searchBuilderPayload);
       // const response = await performQuery<estypes.SearchResponse>(payload);
       const data = await invokeQuickSearchApi();
-      const response = isQuickSearchJourney ? data : CLASSIFIER_SEARCH_RESPONSE;
+      console.log(data);
+      const response = isQuickSearchJourney ? QUICK_SEARCH_RESPONSE : CLASSIFIER_SEARCH_RESPONSE;
       const finalResponse: ISearchResults = await formatSearchResponse(
         applyMockFilters(response as never, filters, searchFieldsObject.fields.keyword?.q ?? ''),
         false,
