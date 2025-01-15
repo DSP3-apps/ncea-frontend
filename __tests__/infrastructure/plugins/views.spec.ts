@@ -1,6 +1,6 @@
 import { environmentConfig } from '../../../src/config/environmentConfig';
 import path from 'path';
-import { BASE_PATH, logoutApi, webRoutePaths } from '../../../src/utils/constants';
+import { BASE_PATH, loginUrl, logoutApiUrl, webRoutePaths } from '../../../src/utils/constants';
 import nunjucks, { Environment } from 'nunjucks';
 import { customHapiViews } from '../../../src/infrastructure/plugins/views';
 
@@ -70,7 +70,8 @@ describe('Vision Plugin Configuration', () => {
         termsAndConditions: `${BASE_PATH}${termsAndConditions}`,
         privacyPolicy: `${BASE_PATH}${privacyPolicy}`,
         cookiePolicy: `${BASE_PATH}${cookiePolicy}`,
-        logOut: environmentConfig.isLocal ? '' : `${logoutApi}`,
+        logOut: environmentConfig.isLocal ? '' : `${logoutApiUrl}`,
+        logIn: environmentConfig.isLocal ? '' : `${loginUrl}`,
       },
       appInsightsConnectionString: environmentConfig.appInsightsConnectionString,
       gtmId: environmentConfig.gtmId,
