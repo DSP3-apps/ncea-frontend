@@ -220,7 +220,7 @@ exports[`Guided Search - Geography Questionnaire Screen GET Request Geography Qu
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http://0.0.0.0:4000/natural-capital-ecosystem-assessment/coordinate-search" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F0.0.0.0%3A4000%2Fnatural-capital-ecosystem-assessment%2Fcoordinate-search" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -580,7 +580,7 @@ exports[`Guided Search - Geography Questionnaire Screen GET Request Geography Qu
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.3.0</p>
+          <p>Version: v1.4.0</p>
         </div>
         
         

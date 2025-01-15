@@ -217,7 +217,7 @@ exports[`Home Screen Home > Sanpshot verification should match the home screen s
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http://0.0.0.0:4000/natural-capital-ecosystem-assessment" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F0.0.0.0%3A4000%2Fnatural-capital-ecosystem-assessment" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -469,7 +469,7 @@ exports[`Home Screen Home > Sanpshot verification should match the home screen s
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.3.0</p>
+          <p>Version: v1.4.0</p>
         </div>
         
         
