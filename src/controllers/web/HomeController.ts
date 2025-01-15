@@ -2,6 +2,7 @@
 
 import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 
+import { allowedRedirectHosts, jwtCookieName, jwtCookieOptions } from '../../infrastructure/plugins/auth';
 import { IGuidedSearchStepsMatrix, IStepRouteMatrix } from '../../interfaces/guidedSearch.interface';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { getSearchResultsCount } from '../../services/handlers/searchApi';
@@ -94,6 +95,21 @@ const HomeController = {
     return response.view('screens/home/cookie_policy', {
       pageTitle: pageTitles.cookiePolicy,
     });
+  },
+  logoutHander: (request: Request, response: ResponseToolkit) => {
+    response.unstate(jwtCookieName, jwtCookieOptions);
+
+    let redirectUri = request.query?.redirect_uri;
+    try {
+      // make sure the url is valid and has a hostname that is allowed
+      if (!redirectUri || !allowedRedirectHosts.includes(new URL(redirectUri).hostname)) {
+        redirectUri = BASE_PATH;
+      }
+    } catch {
+      redirectUri = BASE_PATH;
+    }
+
+    return response.redirect(redirectUri);
   },
 };
 

@@ -1,20 +1,27 @@
-import { Request, ResponseToolkit, ServerAuthScheme } from '@hapi/hapi';
+import { Request, ResponseToolkit, ServerAuthScheme, ServerStateCookieOptions } from '@hapi/hapi';
 import { decode } from 'jsonwebtoken';
 
 import { environmentConfig } from '../../config/environmentConfig';
 import { DecodedJWT } from '../../interfaces/cookies';
-import { jwtCookieName } from '../../utils/constants';
+import { jwtCookiePrefix } from '../../utils/constants';
+
+export const jwtCookieName = `${jwtCookiePrefix}${environmentConfig.auth0JwtEnv}`;
+
+export const allowedRedirectHosts = ['.data.gov.uk', environmentConfig.isLocal ? 'localhost' : ''];
+
+export const jwtCookieOptions: ServerStateCookieOptions = {
+  ttl: null, // Cookie expiration managed by DSP Core.
+  isSecure: !environmentConfig.isLocal, // Only allow HTTPS cookies.
+  isHttpOnly: true, // Prevents client side JS from reading the cookie.
+  clearInvalid: false, // Do not clear invalid cookies.
+  strictHeader: true, // Don't allow violations of RFC 6265.
+  // the condition makes the type `boolean | string` which is not the type specified in `SameSitePolicy`
+  isSameSite: 'Lax', // Mitigates CSRF attacks.
+  path: '/',
+};
 
 export const authSchema: ServerAuthScheme = (server) => {
-  server.state(jwtCookieName, {
-    ttl: null, // Cookie expiration managed by DSP Core.
-    isSecure: !environmentConfig.isLocal, // Only allow HTTPS cookies.
-    isHttpOnly: true, // Prevents client side JS from reading the cookie.
-    clearInvalid: false, // Do not clear invalid cookies.
-    strictHeader: true, // Don't allow violations of RFC 6265.
-    // isSameSite: 'Lax', // Mitigates CSRF attacks.
-    isSameSite: false,
-  });
+  server.state(jwtCookieName, jwtCookieOptions);
 
   return {
     authenticate: async (request, h) => {
@@ -72,7 +79,9 @@ export const injectAuthIntoContext = (request: Request, h: ResponseToolkit) => {
       context.user = request.auth.credentials?.user || null;
 
       // insert url that will be used as login redirect URL
-      context.redirectUri = request.url.toString() ?? '';
+      // it must be encoded so the server interprets the query params (of the redirect uri) correctly,
+      // if there are any
+      context.redirectUri = encodeURIComponent(request.url.toString() ?? '');
     }
   }
 

@@ -76,7 +76,7 @@
     <div class="govuk-grid-col login">
       {% if user %}
         <p class="govuk-body-m">Welcome, {{ user.email }}</p>
-        <a href="{{routes.logOut}}" class="govuk-link govuk-body-m">Logout</a>
+        <a href="{{routes.logOut}}?redirect_uri={{redirectUri}}" class="govuk-link govuk-body-m">Logout</a>
       {% else %}
         <p class="govuk-body-m">Welcome, Guest</p>
         <a href="{{routes.logIn}}{% if not routes.logIn == "" %}?redirect_uri={{redirectUri}}{% endif %}" class="govuk-link govuk-body-m">Login</a>

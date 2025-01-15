@@ -55,4 +55,7 @@ export const environmentSchema: Joi.ObjectSchema = Joi.object({
   keyboardFiltersBaseUrl: Joi.string().allow('').default('').messages({
     'string.base': 'The keyboard filters base url must be a string.',
   }),
+  auth0JwtEnv: Joi.string().allow('').default('').messages({
+    'string.base': 'The auth0 JWT environment must be a string.',
+  }),
 });
