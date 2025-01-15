@@ -24,6 +24,8 @@ export const webRoutePaths = {
   mdc: `/mdc/mdc.xsd`,
   mdcClassifiers: `/mdc/classifiers.xsd`,
   mdcIdentifiers: `/mdc/identifiers.xsd`,
+  logout: `/logout`,
+  login: `/login`,
 };
 
 export const elasticSearchAPIPaths = {
@@ -264,7 +266,4 @@ export const defaultFilters: ISearchFiltersProcessed = {
   retiredAndArchived: false,
 };
 
-export const logoutApiUrl = `/api/logout`;
-export const loginUrl = `/login`;
-
-export const jwtCookieName = 'auth0-jwt-live';
+export const jwtCookiePrefix = 'auth0-jwt-';

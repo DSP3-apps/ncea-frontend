@@ -45,12 +45,10 @@ describe('Environment environmentConfig', () => {
 
   describe('Check environment configuration', () => {
     it('should be accessible and usable', () => {
-      const {
-        environmentConfig,
-      } = require('../../src/config/environmentConfig');
+      const { environmentConfig } = require('../../src/config/environmentConfig');
       expect(environmentConfig).toBeDefined();
       expect(typeof environmentConfig).toBe('object');
-      expect(Object.keys(environmentConfig).length).toBe(14);
+      expect(Object.keys(environmentConfig).length).toBe(15);
     });
 
     it('should validate and export the configuration object', () => {
@@ -62,7 +60,8 @@ describe('Environment environmentConfig', () => {
         APPINSIGHTS_SECRET_NAME: 'appinsights--connections string',
         ELASTICSEARCH_API: 'https://elasticsearch-api.com',
         WEBDOMAIN: '',
-        KEYBOARD_FILTER_LOCAL_BASE_URL: ''
+        KEYBOARD_FILTER_LOCAL_BASE_URL: '',
+        AUTH0_JWT_ENV: 'test',
       };
       process.env = { ...mockConfig };
 
@@ -83,11 +82,10 @@ describe('Environment environmentConfig', () => {
         classifierApiUrl: Joi.string().allow('').default(''),
         classifierApiKey: Joi.string().allow('').default(''),
         keyboardFiltersBaseUrl: Joi.string().allow('').default(''),
+        auth0JwtEnv: Joi.string().allow('').default(''),
       });
 
-      const {
-        environmentConfig,
-      } = require('../../src/config/environmentConfig');
+      const { environmentConfig } = require('../../src/config/environmentConfig');
 
       const { error, value } = schema.validate(environmentConfig);
 

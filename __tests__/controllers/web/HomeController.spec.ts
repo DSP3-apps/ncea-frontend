@@ -4,7 +4,6 @@ import { Request, ResponseToolkit } from '@hapi/hapi';
 import { decode } from 'jsonwebtoken';
 import {
   BASE_PATH,
-  jwtCookieName,
   formIds,
   guidedSearchSteps,
   pageTitles,
@@ -14,7 +13,7 @@ import {
 import { HomeController } from '../../../src/controllers/web/HomeController';
 import { getSearchResultsCount } from '../../../src/services/handlers/searchApi';
 import { readQueryParams, upsertQueryParams } from '../../../src/utils/queryStringHelper';
-import { authSchema } from '../../../src/infrastructure/plugins/auth';
+import { authSchema, jwtCookieName } from '../../../src/infrastructure/plugins/auth';
 
 jest.mock('../../../src/infrastructure/plugins/appinsights-logger', () => ({
   info: jest.fn(),

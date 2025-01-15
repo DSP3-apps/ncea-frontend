@@ -17,6 +17,7 @@ describe('Environment Configuration Schema', () => {
       expect(value.classifierApiUrl).toEqual('');
       expect(value.classifierApiKey).toEqual('');
       expect(value.webDomain).toEqual('');
+      expect(value.auth0JwtEnv).toEqual('');
     });
 
     it('should keep provided values for fields if available', () => {
@@ -39,6 +40,7 @@ describe('Environment Configuration Schema', () => {
       expect(value.classifierApiUrl).toEqual('');
       expect(value.classifierApiKey).toEqual('');
       expect(value.webDomain).toEqual('');
+      expect(value.auth0JwtEnv).toEqual('');
     });
   });
 
@@ -59,6 +61,7 @@ describe('Environment Configuration Schema', () => {
         classifierApiKey: 'your-key',
         webDomain: '',
         keyboardFiltersBaseUrl: '',
+        auth0JwtEnv: 'test',
       };
 
       const { error, value } = environmentSchema.validate(validConfig);
@@ -85,9 +88,7 @@ describe('Environment Configuration Schema', () => {
 
       const { error } = environmentSchema.validate(invalidConfig);
       expect(error).toBeDefined();
-      expect(error?.details[0]?.message).toContain(
-        'Provided Environment is not valid',
-      );
+      expect(error?.details[0]?.message).toContain('Provided Environment is not valid');
     });
 
     it('should invalidate a configuration with key vault url as string instead of URL', () => {
@@ -99,9 +100,7 @@ describe('Environment Configuration Schema', () => {
 
       const { error } = environmentSchema.validate(invalidConfig);
       expect(error).toBeDefined();
-      expect(error?.details[0]?.message).toContain(
-        'Azure Key Vault URI must be a valid URL or an empty string',
-      );
+      expect(error?.details[0]?.message).toContain('Azure Key Vault URI must be a valid URL or an empty string');
     });
 
     it('should invalidate a configuration with elasticsearch api as string instead of URL', () => {
@@ -113,9 +112,7 @@ describe('Environment Configuration Schema', () => {
 
       const { error } = environmentSchema.validate(invalidConfig);
       expect(error).toBeDefined();
-      expect(error?.details[0]?.message).toContain(
-        'Elasticsearch API must be a valid URL or an empty string',
-      );
+      expect(error?.details[0]?.message).toContain('Elasticsearch API must be a valid URL or an empty string');
     });
 
     it('should invalidate a configuration with isLocal as string instead of boolea', () => {

@@ -13,4 +13,5 @@ export interface EnvironmentConfig {
   elasticSearchPassword?: string;
   webDomain?: string;
   keyboardFiltersBaseUrl?: string | undefined;
+  auth0JwtEnv?: string;
 }

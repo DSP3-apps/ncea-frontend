@@ -6,7 +6,7 @@ import nunjucks from 'nunjucks';
 import dateFilter from 'nunjucks-date-filter';
 
 import { environmentConfig } from '../../config/environmentConfig';
-import { BASE_PATH, loginUrl, logoutApiUrl, webRoutePaths } from '../../utils/constants';
+import { BASE_PATH, webRoutePaths } from '../../utils/constants';
 
 const packageJsonPath = path.join(process.cwd(), 'package.json');
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
@@ -24,6 +24,8 @@ const {
   termsAndConditions,
   privacyPolicy,
   cookiePolicy,
+  login,
+  logout,
 } = webRoutePaths;
 
 const customHapiViews = {
@@ -85,10 +87,8 @@ const customHapiViews = {
         termsAndConditions: `${BASE_PATH}${termsAndConditions}`,
         privacyPolicy: `${BASE_PATH}${privacyPolicy}`,
         cookiePolicy: `${BASE_PATH}${cookiePolicy}`,
-        // Logging in/out in development won't work due to the cookie being added manually
-        // so leave the URL blank
-        logIn: environmentConfig.isLocal ? '' : `${loginUrl}`,
-        logOut: environmentConfig.isLocal ? '' : `${logoutApiUrl}`,
+        logOut: `${BASE_PATH}${logout}`,
+        logIn: environmentConfig.isLocal ? '' : login, // dont want the base path on this URL as it should navigate to the core platform instead
       },
       appInsightsConnectionString: environmentConfig.appInsightsConnectionString,
       gtmId: environmentConfig.gtmId,
