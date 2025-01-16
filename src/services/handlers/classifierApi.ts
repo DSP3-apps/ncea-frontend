@@ -1,5 +1,5 @@
-import { environmentConfig } from '@/config/environmentConfig';
-import { Classifiers, Classify } from '@/interfaces/classifierSearch.interface';
+import { environmentConfig } from '../../config/environmentConfig';
+import { Classifiers, Classify } from '../../interfaces/classifierSearch.interface';
 
 const transformClassifierDetails = (classifiers: Classify[]): Classify[] => {
   return classifiers?.map((classifier) => ({
