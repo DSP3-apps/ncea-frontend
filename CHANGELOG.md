@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/DSP3-apps/ncea-frontend/compare/v1.5.0...v1.5.1) (2025-01-16)
+
+
+### Bug Fixes
+
+* **project:** Update import to use relative imports ([cb094cc](https://github.com/DSP3-apps/ncea-frontend/commit/cb094cc2effac30c6b3664e405acdc3e9bcdf7c5))
+
 # [1.5.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.4.0...v1.5.0) (2025-01-15)
 
 
