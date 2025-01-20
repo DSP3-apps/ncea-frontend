@@ -72,7 +72,7 @@
         <button type="button" aria-expanded="false" data-expanded="false" id="filters-date-accordion-toggle-{{filterInstance}}" class="filter-options__accordion-toggle">
           <svg id="filters-date-accordion-icon-{{filterInstance}}" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
           <h3 class="filter-options__category-heading govuk-body-m">
-            Date Last Updated
+            Date
           </h3>
         </button>
       </label>
@@ -87,23 +87,13 @@
             }
           },
           hint: {
-            text: "For example, 27 3 2007"
+            text: "For example, 2007"
           },
           items: [
             {
-              classes: "govuk-input--width-2",
-              name: "day",
-              value: dspFilterOptions.lastUpdated.before.day
-            },
-            {
-              classes: "govuk-input--width-2",
-              name: "month",
-              value: dspFilterOptions.lastUpdated.before.month
-            },
-            {
               classes: "govuk-input--width-4",
               name: "year",
-              value: dspFilterOptions.lastUpdated.before.year
+              value: dspFilterOptions.lastUpdated.beforeYear
             }
           ]
         }) }}
@@ -118,23 +108,13 @@
             }
           },
           hint: {
-            text: "For example, 27 3 2007"
+            text: "For example, 2007"
           },
           items: [
             {
-              classes: "govuk-input--width-2",
-              name: "day",
-              value: dspFilterOptions.lastUpdated.after.day
-            },
-            {
-              classes: "govuk-input--width-2",
-              name: "month",
-              value: dspFilterOptions.lastUpdated.after.month
-            },
-            {
               classes: "govuk-input--width-4",
               name: "year",
-              value: dspFilterOptions.lastUpdated.after.year
+              value: dspFilterOptions.lastUpdated.afterYear
             }
           ]
         }) }}

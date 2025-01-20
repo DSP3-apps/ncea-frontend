@@ -481,11 +481,8 @@ function exitMap() {
     window.closeMapModal();
 
     resetMap();
-    // resetFilterData();
     if (resetData) {
       appliedFilterOptions = null;
-      // invokeMapResults(true, true);
-      // invokeMapFilters(true);
       resetData = false;
     }
   }

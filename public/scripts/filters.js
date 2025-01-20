@@ -72,6 +72,7 @@ const filterFormToFormData = (form) => {
   // this is also defined in `utils/searchFilters.ts`
   const isNCEAOnly = data.get('scope') === 'ncea';
 
+  // remove any applied filters not in the selected scope
   if (isNCEAOnly) {
     const allNCEA = document.querySelectorAll("[data-ncea-only='false']");
 
