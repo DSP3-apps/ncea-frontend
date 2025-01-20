@@ -40,9 +40,12 @@ const SearchResultsController = {
     const isQuickSearchJourney = journey === 'qs';
     try {
       const processedDspFilterOptions = processDSPFilterOptions(request.query);
+      // console.log('REQUEST QUERY: ', request.query);
+      // console.log('PROCESSED OPTIONS: ', processedDspFilterOptions);
 
       const searchResults: ISearchResults = await getSearchResults(
         payload,
+        request.auth.credentials,
         processedDspFilterOptions,
         false,
         isQuickSearchJourney,
@@ -132,10 +135,12 @@ const SearchResultsController = {
 
       const searchMapResults: ISearchResults = await getSearchResults(
         mapPayload,
+        request.auth.credentials,
         processedDspFilterOptions,
         true,
         isQuickSearchJourney,
       );
+
       return response.response(searchMapResults).header('Content-Type', 'application/json');
     } catch (error) {
       return response.response({ error: 'An error occurred while processing your request' }).code(500);

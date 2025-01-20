@@ -4,35 +4,65 @@ import { CLASSIFIER_COUNT_LEVEL_3 } from './mocks/classifier-themes-level-3';
 import { MORE_INFO_RESPOSE } from './mocks/more-info-response';
 import { QUICK_SEARCH_RESPONSE } from './mocks/quick-search';
 import { QUICK_SEARCH_RESOURCE_TYPE_FILTERS, QUICK_SEARCH_STUDY_PERIOD_FILTERS } from './mocks/quick-search-filters';
-import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
+import { Credentials } from '../..//interfaces/auth';
+import { environmentConfig } from '../../config/environmentConfig';
+import { ISearchBuilderPayload, ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { IFilterFlags } from '../../interfaces/searchPayload.interface';
-import { IAggregationOptions, ISearchItem, ISearchResults } from '../../interfaces/searchResponse.interface';
+import {
+  IAggregationOptions,
+  ISearchItem,
+  ISearchResponse,
+  ISearchResult,
+  ISearchResults,
+} from '../../interfaces/searchResponse.interface';
 import { defaultFilterOptions } from '../../utils/constants';
-import { formatSearchResponse } from '../../utils/formatSearchResponse';
+import { formatSearchResponse, transformSearchResponse } from '../../utils/formatSearchResponse';
+import { generateFilterQuery, generateSearchQuery2 } from '../../utils/queryBuilder';
 import { ISearchFiltersProcessed, applyMockFilters } from '../../utils/searchFilters';
 
 const getSearchResults = async (
   searchFieldsObject: ISearchPayload,
+  credentials: Credentials,
   filters: ISearchFiltersProcessed,
   isMapResults: boolean = false,
   isQuickSearchJourney: boolean = false,
 ): Promise<ISearchResults> => {
   try {
     if (Object.keys(searchFieldsObject.fields).length) {
+      // console.log('SEARCH FIELDS: ', searchFieldsObject);
+      // console.log('Creds: ', credentials);
+      // console.log('SEARCH FIELDS: ', { searchFieldsObject, credentials, filters });
       // const searchBuilderPayload: ISearchBuilderPayload = {
       //   searchFieldsObject,
       //   ...(isQuickSearchJourney && {
       //     fieldsToSearch: quickSearchTargetFields,
       //   }),
       // };
-      // const payload = generateSearchQuery(searchBuilderPayload);
-      // const response = await performQuery<estypes.SearchResponse>(payload);
-      const response = isQuickSearchJourney ? QUICK_SEARCH_RESPONSE : CLASSIFIER_SEARCH_RESPONSE;
-      const finalResponse: ISearchResults = await formatSearchResponse(
-        applyMockFilters(response as never, filters, searchFieldsObject.fields.keyword?.q ?? ''),
-        false,
-        isMapResults,
-      );
+      const payload = generateSearchQuery2(searchFieldsObject, filters);
+      // console.log('SEARCH PAYLOAD: ', JSON.stringify(payload));
+      // console.log('CREDENTIALS: ', JSON.stringify(credentials));
+      // const agmApiResponse = await performQuery<estypes.SearchResponse>(payload, credentials);
+      const agmApiResponse = await fetch(environmentConfig.searchApiUrl, {
+        method: 'POST',
+        body: JSON.stringify(payload),
+      });
+
+      if (!agmApiResponse.ok) {
+        throw new Error(`Error fetching results: ${agmApiResponse.statusText}`);
+      }
+
+      const searchData: ISearchResponse = await agmApiResponse.json();
+
+      // const response = isQuickSearchJourney ? QUICK_SEARCH_RESPONSE : CLASSIFIER_SEARCH_RESPONSE;
+      // const filteredResponse = applyMockFilters(response as never, filters, searchFieldsObject.fields.keyword?.q ?? '');
+      // const formattedFinalResponse: ISearchResults = await formatSearchResponse(filteredResponse, false, isMapResults);
+      // console.log('ORIGINAL FORMATTED: ', JSON.stringify(formattedFinalResponse, null, 2));
+
+      // const transformedResults: ISearchResults = transformSearchResponse(searchData, false, isMapResults);
+      const transformedResults: ISearchResults = transformSearchResponse(searchData, isMapResults);
+      // const finalResponse = formattedFinalResponse;
+      const finalResponse = transformedResults;
+      // console.log('TRANSFORMED RESULTS: ', JSON.stringify(transformedResults, null, 2));
 
       return finalResponse;
     } else {

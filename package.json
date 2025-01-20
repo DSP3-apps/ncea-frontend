@@ -83,6 +83,7 @@
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^10.0.5",
+    "@turf/turf": "^7.2.0",
     "applicationinsights": "2.9.2",
     "date-fns": "^4.1.0",
     "govuk-frontend": "5.7.1",

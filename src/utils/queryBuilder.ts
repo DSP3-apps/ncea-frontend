@@ -2,12 +2,14 @@ import { estypes } from '@elastic/elasticsearch';
 
 import { levelMap, mapResultMaxCount, resourceTypeFilterField, studyPeriodFilterField } from './constants';
 import { generateDateString } from './generateDateString';
+import { ISearchFiltersProcessed } from './searchFilters';
 import {
   IDateValues,
   IGeoCoordinates,
   IGeoShapeBlock,
   ISearchBuilderPayload,
   ISearchPayload,
+  ISearchRequest,
   IShapeCoordinates,
 } from '../interfaces/queryBuilder.interface';
 
@@ -242,6 +244,34 @@ const generateSearchQuery = (searchBuilderPayload: ISearchBuilderPayload): estyp
   return queryPayload;
 };
 
+const generateSearchQuery2 = (searchFieldsObject: ISearchPayload, filters: ISearchFiltersProcessed): ISearchRequest => {
+  // console.log('SEARCH OBJECT TO API QUERY BODY: ', searchFieldsObject);
+  // console.log('FILTERS TO API QUERY BODY: ', filters);
+
+  const request: ISearchRequest = {
+    Query: {
+      SearchTerms: [searchFieldsObject?.fields?.keyword?.q ?? ''],
+    },
+    Filters: {
+      Keywords: [],
+      FileIdentifier: null,
+      Title: null,
+      AlternativeTitle: null,
+      Abstract: null,
+      ResourceType: null,
+      TopicCategory: null,
+      Lineage: null,
+      AdditionalInformationSource: null,
+      TemporalExtent: {
+        BeginPosition: null,
+        EndPosition: null,
+      },
+    },
+  };
+
+  return request;
+};
+
 const _generateStudyPeriodFilterQuery = (searchBuilderPayload: ISearchBuilderPayload): estypes.SearchRequest => {
   const queryPayload: estypes.SearchRequest = _generateQuery(searchBuilderPayload);
   const { searchFieldsObject, docId = '' } = searchBuilderPayload;
@@ -318,4 +348,4 @@ const generateFilterQuery = (
     : _generateResourceTypeFilterQuery(searchBuilderPayload);
 };
 
-export { generateSearchQuery, generateFilterQuery, buildCustomSortScriptForStudyPeriod };
+export { generateSearchQuery, generateSearchQuery2, generateFilterQuery, buildCustomSortScriptForStudyPeriod };

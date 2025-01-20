@@ -1,4 +1,7 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
+import { center } from '@turf/turf';
+import { format } from 'date-fns';
+
 import { formatDate, getYear } from './dates';
 import { getAccessTabData } from './getAccessTabData';
 import { getAccumulatedCoordinatesNCenter } from './getBoundingBoxData';
@@ -15,6 +18,8 @@ import {
   IDateRange,
   IOtherSearchItem,
   ISearchItem,
+  ISearchResponse,
+  ISearchResult,
   ISearchResults,
 } from '../interfaces/searchResponse.interface';
 
@@ -55,6 +60,97 @@ export const getStudyPeriodDetails = (isDetails: boolean, dateRanges: IDateRange
   }
 
   return resultString.join('<br>');
+};
+
+const DATE_FORMAT = 'd MMMM yyyy';
+
+// const getRandomLatLonForEngland = () => {
+//   const latMin = 49.9; // Southernmost point of England
+//   const latMax = 55.8; // Northernmost point of England
+//   const lonMin = -6.4; // Westernmost point of England
+//   const lonMax = 1.8; // Easternmost point of England
+
+//   const randomLat = Math.random() * (latMax - latMin) + latMin;
+//   const randomLon = Math.random() * (lonMax - lonMin) + lonMin;
+
+//   return { latitude: randomLat, longitude: randomLon };
+// };
+const getRandomLatLonForEngland = () => {
+  return {
+    westBoundLongitude: Math.random() * (1.78 - -8.45) + -8.45,
+    eastBoundLongitude: Math.random() * (1.78 - -8.45) + -8.45,
+    southBoundLatitude: Math.random() * (60.86 - 49.86) + 49.86,
+    northBoundLatitude: Math.random() * (60.86 - 49.86) + 49.86,
+  };
+};
+
+const transformSearchResponse = (
+  response: ISearchResponse,
+  // isDetails: boolean = false,
+  isMapResults: boolean = false,
+): ISearchResults => {
+  const items = response.results.map((result: ISearchResult) => {
+    const startDate = new Date(result.searchFields.temporalExtent.beginPosition);
+    const endDate = new Date(result.searchFields.temporalExtent.endPosition);
+
+    if (isMapResults) {
+      // FIXME: This is a mock envelope, but it came from AGM, it is the shape we expect.
+      const envelope = getRandomLatLonForEngland();
+      console.log('RANDOM COORDINATES: ', envelope);
+
+      // Calculate center point for envelope received.
+      const coordinates = [
+        [
+          [envelope.westBoundLongitude, envelope.southBoundLatitude],
+          [envelope.eastBoundLongitude, envelope.southBoundLatitude],
+          [envelope.eastBoundLongitude, envelope.northBoundLatitude],
+          [envelope.westBoundLongitude, envelope.northBoundLatitude],
+          [envelope.westBoundLongitude, envelope.southBoundLatitude], // Close the polygon
+        ],
+      ];
+      const centerPoint = center({ type: 'Polygon', coordinates });
+
+      const geographicBoundary = {
+        north: envelope.northBoundLatitude,
+        south: envelope.southBoundLatitude,
+        east: envelope.eastBoundLongitude,
+        west: envelope.westBoundLongitude,
+      };
+
+      return {
+        id: result.searchFields.fileIdentifier,
+        title: result.searchFields.title,
+        publishedBy: '',
+        content: toggleContent(result.searchFields.abstract, `abstract_content-${result.searchFields.fileIdentifier}`),
+        studyPeriod: `${format(startDate, DATE_FORMAT)} to ${format(endDate, DATE_FORMAT)}`,
+        startYear: startDate.getFullYear().toString(),
+        toYear: endDate.getFullYear().toString(),
+        resourceLocator: '',
+        organisationName: '',
+        geographicBoundary,
+        geographicCenter: centerPoint.geometry.coordinates.join(),
+        resourceType: ['dataset'],
+      };
+    }
+
+    return {
+      id: result.searchFields.fileIdentifier,
+      title: result.searchFields.title,
+      publishedBy: '',
+      content: toggleContent(result.searchFields.abstract, `abstract_content-${result.searchFields.fileIdentifier}`),
+      studyPeriod: `${format(startDate, DATE_FORMAT)} to ${format(endDate, DATE_FORMAT)}`,
+      startYear: startDate.getFullYear().toString(),
+      toYear: endDate.getFullYear().toString(),
+      resourceLocator: '',
+      organisationName: '',
+      resourceType: ['dataset'],
+    };
+  });
+
+  return {
+    total: items.length,
+    items,
+  };
 };
 
 const formatSearchResponse = async (
@@ -147,4 +243,4 @@ const getOtherDetails = async (searchItem: Record<string, any>): Promise<IOtherS
   };
 };
 
-export { formatSearchResponse };
+export { formatSearchResponse, transformSearchResponse };

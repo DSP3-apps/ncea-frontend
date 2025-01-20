@@ -100,6 +100,7 @@ export const applyMockFilters = (
   filters: ISearchFiltersProcessed,
   query: string,
 ): estypes.SearchResponse<ESFilterKeys> => {
+  console.log('FILTERING DATA: ', filters, query);
   const queryRegex = new RegExp(escapeRegExp(query), 'i');
 
   // since the mock data is just an object in a TS file,

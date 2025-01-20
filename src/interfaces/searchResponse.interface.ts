@@ -147,6 +147,38 @@ export interface ISearchResults {
   items: ISearchItem[];
 }
 
+export interface ITemporalExtent {
+  beginPosition: string;
+  endPosition: string;
+}
+
+export interface ISearchFields {
+  fileIdentifier: string;
+  title: string;
+  alternativeTitle: string;
+  abstract: string;
+  resourceType: string;
+  topicCategory: string;
+  keywords: string[];
+  lineage: string;
+  additionalInformationSource: string;
+  temporalExtent: ITemporalExtent;
+}
+
+export interface ISearchResult {
+  searchScore: number;
+  id: string;
+  dataset: string;
+  datasetType: string;
+  ingestedDateTime: string;
+  content: string;
+  searchFields: ISearchFields;
+}
+
+export interface ISearchResponse {
+  results: ISearchResult[];
+}
+
 export interface IAggregationOption {
   value: string;
   text: string;

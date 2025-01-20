@@ -344,6 +344,7 @@ function calculatePolygonFromCoordinates() {
 }
 
 function addPolygon(coordinates, style, addToVector = true) {
+  console.log('COORDS: ', coordinates);
   const { north, south, east, west } = coordinates;
   if (north && south && east && west) {
     const extent = ol.proj.transformExtent([west, south, east, north], extentTransformProjection, defaultMapProjection);
@@ -404,7 +405,7 @@ const getHighlighterMarkerStyle = (iconPath) => {
 
 function placeMarkers(markers, iconPath, recordId = '1', boundingBoxData = '') {
   const markerStyle = getMarkerStyle(iconPath);
-  const markersArray = markers.split('_');
+  const markersArray = markers.split('_'); // expecting string
   markersArray.forEach((markerString) => {
     if (markerString) {
       const markerParts = markerString.split(',');

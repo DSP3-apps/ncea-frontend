@@ -142,6 +142,30 @@ interface ISearchBuilderPayload {
   docId?: string;
 }
 
+interface ITemporalExtent {
+  BeginPosition: string | null;
+  EndPosition: string | null;
+}
+interface IFilter {
+  Keywords: string[] | [null];
+  FileIdentifier: string | null;
+  Title: string | null;
+  AlternativeTitle: string | null;
+  Abstract: string | null;
+  ResourceType: string | null;
+  TopicCategory: string | null;
+  Lineage: string | null;
+  AdditionalInformationSource: string | null;
+  TemporalExtent: ITemporalExtent | null;
+}
+
+interface ISearchRequest {
+  Query: {
+    SearchTerms: string[];
+  };
+  Filters: IFilter;
+}
+
 export {
   IAggregationBlock,
   ICustomSortScript,
@@ -158,6 +182,9 @@ export {
   ISearchFields,
   ISearchFilter,
   ISearchPayload,
+  ITemporalExtent,
+  IFilter,
+  ISearchRequest,
   IShapeCoordinates,
   ISortBlock,
   ITermsBlock,
