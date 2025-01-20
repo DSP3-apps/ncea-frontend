@@ -262,32 +262,32 @@ export const searchFilters: ISearchFilters = [
       {
         name: 'Agriculture & Horticulture Development Board',
         value: 'ahdb',
-        hasNCEAData: true,
+        hasNCEAData: false,
       },
       {
         name: 'Animal & Plant Health Agency',
         value: 'apha',
-        hasNCEAData: true,
+        hasNCEAData: false,
       },
       {
         name: 'Centre for Environment, Fisheries & Aquaculture Science',
         value: 'cefas',
-        hasNCEAData: true,
+        hasNCEAData: false,
       },
       {
         name: 'Department for Environment, Food & Rural Affairs',
         value: 'defra',
-        hasNCEAData: true,
+        hasNCEAData: false,
       },
       {
         name: 'Environment Agency',
         value: 'ea',
-        hasNCEAData: false,
+        hasNCEAData: true,
       },
       {
         name: 'Forestry Commission',
         value: 'fc',
-        hasNCEAData: false,
+        hasNCEAData: true,
       },
       {
         name: 'Joint Nature Conservation Committee',
@@ -307,7 +307,7 @@ export const searchFilters: ISearchFilters = [
       {
         name: 'Natural England',
         value: 'ne',
-        hasNCEAData: false,
+        hasNCEAData: true,
       },
       {
         name: 'Rural Payments Agency',
@@ -419,11 +419,11 @@ export const searchFilters: ISearchFilters = [
         value: 'txt',
       },
       {
-        name: 'MS Excel',
+        name: 'MS Excel (XLS)',
         value: 'xls',
       },
       {
-        name: 'MS Excel',
+        name: 'MS Excel (XLSX)',
         value: 'xlsx',
       },
       {

@@ -1,10 +1,6 @@
 import { fireEventAfterStorage, getStorageData, updateSubmitButtonState } from './customScripts.js';
 import { invokeAjaxCall } from './fetchResults.js';
-import {
-  addFilterHeadingClickListeners,
-  attachStudyPeriodChangeListener,
-  addCategoryAccordionToggleListeners,
-} from './filters.js';
+import { addCategoryAccordionToggleListeners, filterFormToFormData, appendMetaSearchParams } from './filters.js';
 
 const index3 = 3;
 const precision = 6;
@@ -32,12 +28,7 @@ const mapInfoBlock = document.getElementById('map-info');
 const contentMaxChar = 500;
 let selectedRecord = '';
 let mapResults;
-const defaultFilterOptions = {
-  startYear: '',
-  toYear: '',
-  resourceType: [],
-};
-let appliedFilterOptions = { ...defaultFilterOptions };
+let appliedFilterOptions = null;
 const markerOverlays = [];
 const defaultMapProjection = 'EPSG:3857';
 const extentTransformProjection = 'EPSG:4326';
@@ -450,15 +441,6 @@ function boundingBoxCheckboxChange(isChecked) {
   }
 }
 
-function resetFilterData() {
-  const studyPeriodForm = document.getElementById('study_period_filter-map_results');
-  const resourceTypeForm = document.getElementById('resource_type_filter-map_results');
-  if (studyPeriodForm && resourceTypeForm) {
-    studyPeriodForm.reset();
-    resourceTypeForm.reset();
-  }
-}
-
 function resetMap() {
   map.getView().setZoom(initialZoom);
   map.getView().animate({ center: initialCenter, duration: 1000 });
@@ -472,14 +454,40 @@ function resetMap() {
   fitMapToExtent();
 }
 
+/**
+ * Take the applied filters in the map and insert them into the url so as to make
+ * any filters applied in the map also apply in the search results view.
+ */
+function saveFilters() {
+  if (!appliedFilterOptions) {
+    return false;
+  }
+
+  const searchUrl = document.querySelector('[data-search-results-url]');
+  if (!searchUrl) {
+    return false;
+  }
+
+  const url = getPathWithQueryParams(searchUrl.getAttribute('data-search-results-url'));
+  window.location = url;
+
+  return true;
+}
+
 function exitMap() {
-  resetMap();
-  // resetFilterData();
-  if (resetData) {
-    appliedFilterOptions = { ...defaultFilterOptions };
-    invokeMapResults(true, true);
-    invokeMapFilters(true);
-    resetData = false;
+  // this case should only happen if the user does not change any filters in the modal
+  if (!saveFilters()) {
+    // call the function that would normally be added as an event listener to the close button
+    window.closeMapModal();
+
+    resetMap();
+    // resetFilterData();
+    if (resetData) {
+      appliedFilterOptions = null;
+      // invokeMapResults(true, true);
+      // invokeMapFilters(true);
+      resetData = false;
+    }
   }
 }
 
@@ -547,34 +555,45 @@ const attachBoundingBoxToggleListener = () => {
   }
 };
 
-const attachMapResultsFilterCheckboxChangeListener = () => {
-  const mapResultsFilterCheckboxes = document.querySelectorAll('[data-instance="map_results"]');
-  if (mapResultsFilterCheckboxes.length) {
-    mapResultsFilterCheckboxes.forEach((checkbox) => {
-      checkbox.addEventListener('change', function (event) {
-        const { value, checked } = event.target;
-        const index = appliedFilterOptions.resourceType.indexOf(value);
-        if (checked && index === -1) {
-          appliedFilterOptions.resourceType.push(value);
-        } else {
-          appliedFilterOptions.resourceType.splice(index, 1);
-        }
-        resetData = true;
-        invokeMapResults(true);
-        invokeMapFilters();
-      });
-    });
-  }
+/**
+ * Attaches event listener to the form containing the filters in the map view.
+ * This is different to the other event listener as it does not refresh the page.
+ */
+const attachMapResultsFilterChangeListeners = () => {
+  const form = document.getElementById(`filters-map_results`);
+
+  form.addEventListener('change', (e) => {
+    resetData = true;
+
+    appliedFilterOptions = filterFormToFormData(form);
+
+    // move the call outside the condition if the search query
+    // can affect more of the filters in the future
+    if (e.target.name === 'scope') {
+      invokeMapFilters();
+    }
+
+    invokeMapResults(true);
+  });
 };
 
-const updateStudyPeriodFilter = () => {
-  setTimeout(() => {
-    appliedFilterOptions.startYear = document.getElementById('map_results-start_year').value;
-    appliedFilterOptions.toYear = document.getElementById('map_results-to_year').value;
-    resetData = true;
-    invokeMapResults(true);
+/**
+ * Attaches click event listener to the `Reset Filters` link
+ */
+const attachResetFiltersClickListener = () => {
+  const link = document.getElementById(`filter-options-reset-map_results`);
+  const form = document.getElementById(`filters-map_results`);
+
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    resetData = false;
+
+    form.reset();
+
     invokeMapFilters();
-  }, 100);
+    invokeMapResults(true);
+  });
 };
 
 const getMapResults = async (path, fitToMapExtentFlag) => {
@@ -614,29 +633,18 @@ const getMapFilters = async (path) => {
   if (response && response?.status === responseSuccessStatusCode) {
     const mapFiltersHtml = await response.text();
     document.getElementById(filterBlockId).innerHTML = mapFiltersHtml;
+
     addCategoryAccordionToggleListeners('map_results');
-    addFilterHeadingClickListeners('map_results');
-    attachStudyPeriodChangeListener('map_results');
-    attachMapResultsFilterCheckboxChangeListener();
-    const mapFilterStartYear = document.getElementById('map_results-start_year');
-    const mapFilterToYear = document.getElementById('map_results-to_year');
-    if (mapFilterStartYear && mapFilterToYear) {
-      mapFilterStartYear.addEventListener('change', updateStudyPeriodFilter);
-      mapFilterToYear.addEventListener('change', updateStudyPeriodFilter);
-    }
+    attachMapResultsFilterChangeListeners();
+    attachResetFiltersClickListener();
   }
 };
 
 const getPathWithQueryParams = (basePath, needOriginalQueryParams) => {
-  const queryParams = new URLSearchParams(window.location.search);
-  const { startYear, toYear, resourceType } = appliedFilterOptions;
-  if (startYear && toYear && !needOriginalQueryParams) {
-    queryParams.set('sy', startYear);
-    queryParams.set('ty', toYear);
-  }
-  if (resourceType.length > 0 && !needOriginalQueryParams) {
-    queryParams.set('rty', resourceType.join(','));
-  }
+  const queryParams = new URLSearchParams(appliedFilterOptions != null ? appliedFilterOptions : window.location.search);
+
+  appendMetaSearchParams(queryParams);
+
   const queryString = queryParams.size > 0 ? `?${queryParams.toString()}` : '';
   return `${basePath}${queryString}`;
 };
@@ -673,34 +681,12 @@ const invokeMapResults = (fitToMapExtentFlag = false, needOriginalQueryParams = 
   }
 };
 
-const toggleResetStudyPeriodLink = () => {
-  const { startYear, toYear } = appliedFilterOptions;
-  const mapResetFilter = document.getElementById('reset-map-study-period-filter');
-  if (mapResetFilter) {
-    mapResetFilter.addEventListener('click', () => {
-      appliedFilterOptions = {
-        ...appliedFilterOptions,
-        startYear: '',
-        toYear: '',
-      };
-      invokeMapFilters(true);
-      invokeMapResults(true, true);
-    });
-    if (startYear && toYear) {
-      mapResetFilter.style.display = 'block';
-    } else {
-      mapResetFilter.style.display = 'none';
-    }
-  }
-};
-
 const invokeMapFilters = async (needOriginalQueryParams = false) => {
   if (checkLatestBrowser()) {
     const fetchFilters = document.querySelector('[data-fetch-map-filters]');
     if (fetchFilters) {
       const action = fetchFilters.getAttribute(actionDataAttribute);
       await getMapFilters(getPathWithQueryParams(action, needOriginalQueryParams));
-      toggleResetStudyPeriodLink();
     }
   }
 };
