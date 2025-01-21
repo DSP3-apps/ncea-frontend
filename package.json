@@ -84,6 +84,7 @@
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^10.0.5",
     "applicationinsights": "2.9.2",
+    "date-fns": "^4.1.0",
     "govuk-frontend": "5.7.1",
     "hapi-pino": "12.1.0",
     "joi": "17.12.1",
