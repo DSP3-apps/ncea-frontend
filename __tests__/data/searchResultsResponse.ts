@@ -30,11 +30,13 @@ const searchResultsWithData: ISearchResults = {
       resource_locators : 'Download from Seabed Mapping Service (https://seabed.admiralty.co.uk)'
     },
   ],
+  hasSpatialData: false,
 };
 
 const searchResultsWithEmptyData = {
   total: 0,
   items: [],
+  hasSpatialData: false,
 };
 
 export { searchResultsWithData, searchResultsWithEmptyData };

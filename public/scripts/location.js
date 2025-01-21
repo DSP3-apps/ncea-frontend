@@ -16,6 +16,9 @@ const mapInitialLon = 3.436;
 const mapInitialLat = 55.3781;
 const mapResultsButtonId = 'map-result-button';
 const mapResultsCountId = 'map-result-count';
+const noSpatialDataId = 'no-spatial-data';
+const viewResultsId = 'view-results';
+const mapContainerId = 'map-container';
 const actionDataAttribute = 'data-action';
 const filterBlockId = 'map-filter-block';
 const boundingBoxCheckbox = document.getElementById('bounding-box');
@@ -596,14 +599,22 @@ const attachResetFiltersClickListener = () => {
 const getMapResults = async (path, fitToMapExtentFlag) => {
   const mapResultsButton = document.getElementById(mapResultsButtonId);
   const mapResultsCount = document.getElementById(mapResultsCountId);
+  const noSpatialDataSpan = document.getElementById(noSpatialDataId);
+  const viewResultsSpan = document.getElementById(viewResultsId);
+  const mapContainerDiv = document.getElementById(mapContainerId);
+
   const response = await invokeAjaxCall(path, {}, false, 'GET');
   if (response) {
     if (response.status === responseSuccessStatusCode) {
       const mapResultsJson = await response.json();
-      mapResultsCount.textContent = mapResultsJson.total;
-      if (mapResultsJson.total > 0) {
+
+      if (mapResultsJson.hasSpatialData) {
+        mapResultsCount.textContent = mapResultsJson.total;
         mapResultsButton.removeAttribute('disabled');
-        document.querySelector('.map-container').style.display = 'block';
+        mapContainerDiv.classList.remove('disabled');
+        noSpatialDataSpan.classList.add('display-none');
+        viewResultsSpan.classList.remove('display-none');
+
         const boundingBoxInfo = document.getElementById('defra-bounding-box-info');
         if (boundingBoxInfo && mapResultsJson.total > maxCountForBoundingBoxInfo) {
           boundingBoxInfo.style.display = 'block';
@@ -615,12 +626,8 @@ const getMapResults = async (path, fitToMapExtentFlag) => {
           drawBoundingBoxWithMarker(fitToMapExtentFlag, true);
         }, 100);
         attachBoundingBoxToggleListener();
-      } else {
-        document.querySelector('.map-container').style.display = 'none';
-        mapResultsButton.setAttribute('disabled', true);
       }
-    } else {
-      mapResultsButton.setAttribute('disabled', true);
+      // don't need to handle the `else` cases anymore as it start disabled by default
     }
   }
 };
