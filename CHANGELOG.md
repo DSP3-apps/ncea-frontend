@@ -1,3 +1,11 @@
+# [1.6.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.5.1...v1.6.0) (2025-01-21)
+
+
+### Features
+
+* **filters:** Implement map filters ([f14b61b](https://github.com/DSP3-apps/ncea-frontend/commit/f14b61bea85b2ba9488c47b6ce1f248acc60b02d)), closes [#NCEA-5](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-5)
+* **filters:** Make date filter only take year ([63ee24b](https://github.com/DSP3-apps/ncea-frontend/commit/63ee24b33233fb91dc0071ed41addd8a9fd68817)), closes [#NCEA-165](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-165)
+
 ## [1.5.1](https://github.com/DSP3-apps/ncea-frontend/compare/v1.5.0...v1.5.1) (2025-01-16)
 
 
