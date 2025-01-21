@@ -5,8 +5,8 @@ import Joi from 'joi';
 
 import { FormattedTabOptions } from '../../interfaces/detailsTab.interface';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
-import { IAggregationOptions, ISearchItem, ISearchResults } from '../../interfaces/searchResponse.interface';
-import { getDocumentDetails, getFilterOptions, getSearchResults } from '../../services/handlers/searchApi';
+import { ISearchItem, ISearchResults } from '../../interfaces/searchResponse.interface';
+import { getDocumentDetails, getSearchResults } from '../../services/handlers/searchApi';
 import {
   BASE_PATH,
   formIds,
@@ -14,18 +14,11 @@ import {
   pageTitles,
   queryParamKeys,
   requiredFieldsForMap,
-  startYearRangeKey,
-  toYearRangeKey,
-  uniqueResourceTypesKey,
   webRoutePaths,
 } from '../../utils/constants';
 import { getPaginationItems } from '../../utils/paginationBuilder';
 import { processDetailsTabData } from '../../utils/processDetailsTabData';
-import {
-  processDSPFilterOptions,
-  processFilterOptions,
-  processSortOptions,
-} from '../../utils/processFilterRSortOptions';
+import { processDSPFilterOptions, processSortOptions } from '../../utils/processFilterRSortOptions';
 import {
   appendPublication,
   deleteQueryParams,
@@ -33,7 +26,7 @@ import {
   readQueryParams,
   upsertQueryParams,
 } from '../../utils/queryStringHelper';
-import { DataScopeValues, buildFilterResetUrl, filterNames, searchFilters } from '../../utils/searchFilters';
+import { DataScopeValues, buildFilterResetUrl, filterNames } from '../../utils/searchFilters';
 
 const SearchResultsController = {
   renderSearchResultsHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
@@ -149,40 +142,17 @@ const SearchResultsController = {
     }
   },
   getMapFiltersHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
-    const filterPayload: ISearchPayload = generateQueryBuilderPayload(request.query);
-    const journey: string = readQueryParams(request.query, queryParamKeys.journey);
-    const isQuickSearchJourney = journey === 'qs';
     try {
-      const mapPayload: ISearchPayload = {
-        ...filterPayload,
-        rowsPerPage: mapResultMaxCount,
-        fieldsExist: ['geom'],
-        requiredFields: requiredFieldsForMap,
-      };
-      const studyPeriodFilterOptions: IAggregationOptions = await getFilterOptions(
-        mapPayload,
-        { isStudyPeriod: true },
-        isQuickSearchJourney,
-      );
-      const resourceTypeFilterOptions: IAggregationOptions = await getFilterOptions(
-        mapPayload,
-        {
-          isStudyPeriod: false,
-        },
-        isQuickSearchJourney,
-      );
-      const filterOptions: IAggregationOptions = {
-        [uniqueResourceTypesKey]: resourceTypeFilterOptions[uniqueResourceTypesKey] ?? [],
-        [startYearRangeKey]: studyPeriodFilterOptions[startYearRangeKey] ?? [],
-        [toYearRangeKey]: studyPeriodFilterOptions[toYearRangeKey] ?? [],
-      };
-      const processedFilterOptions = await processFilterOptions(filterOptions, request.query);
+      const processedDspFilterOptions = processDSPFilterOptions(request.query);
+
       return response.view('partials/results/filters', {
-        filterOptions: processedFilterOptions,
         filterInstance: 'map_results',
         filterResourceTypePath: '',
         filterStudyPeriodPath: '',
-        dspFilterOptions: searchFilters,
+        dspFilterOptions: processedDspFilterOptions,
+        dspFilterReset: '',
+        dspFilterNames: filterNames,
+        dataScopeValues: { ncea: DataScopeValues.NCEA, all: DataScopeValues.ALL },
       });
     } catch (error) {
       return response.view('partials/results/filters', {

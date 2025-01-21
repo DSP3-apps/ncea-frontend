@@ -10,13 +10,13 @@
     <div class='govuk-grid-column-three-quarters govuk-!-margin-0 govuk-!-padding-0 map-view-block'>
       <div id='coordinate-map' style='height: 100%; width: 100%;'></div>
       <div class='defra-map-controls'>
-        <a href="javascript:;" onclick="closeMapModal()" class='defra-map__exit' id="defra-map-exit">
+        <button class='defra-map__exit' id="defra-map-exit">
           <svg xmlns="http://www.w3.org/2000/svg" width="26" height="25" viewBox="0 0 26 25" fill="none">
             <path d="M24.4846 12.25L4.49219 12.25" stroke="#0B0C0C" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
             <path d="M14.4889 2.25L3.24316 12.25L14.4889 22.25" stroke="#0B0C0C" stroke-width="2" stroke-linecap="square"/>
           </svg>
           <span>Exit map</span>
-        </a>
+        </button>
         <div class='defra-map-controls__bottom'>
           <button class='defra-map-reset' id='defra-map-reset' aria-controls="viewport">
             <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
@@ -51,34 +51,37 @@
         </div>
       </div>
     </div>
-    <div class="govuk-grid-column-one-quarter filter-view-block govuk-!-padding-4">
-      <h2 class='govuk-heading-m'>
-        Key and filters
-      </h2>
-      <div class="govuk-section-break--visible"></div>
-      <div class="defra-bounding-box-block">
-        {{ govukCheckboxes({
-          name: 'bounding-box',
-          formGroup: {
-            classes: 'govuk-!-margin-top-3 govuk-!-margin-bottom-3'
-          },
-          items: [
-            {
-              value: 'on',
-              html: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="25" viewBox="0 0 32 25" fill="none">
-                      <rect x="0.923077" y="1.17308" width="20.3077" height="14.7692" stroke="#0B0C0C" stroke-width="1.84615"/>
-                      <rect x="10.1535" y="8.55784" width="20.3077" height="14.7692" stroke="#0B0C0C" stroke-width="1.84615"/>
-                    </svg>
-                    &nbsp;Show all bounding boxes',
-              attributes: {'class': 'defra-checkboxes__input'},
-              label: {classes: 'defra-checkboxes__label'}
-            }
-          ]
-        }) }}
+    <div class="filter-view-block-container">
+      <div class="filter-view-block govuk-!-padding-4">
+        <h2 class='govuk-heading-m'>
+          Key and filters
+        </h2>
+        <div class="govuk-section-break--visible"></div>
+        <div class="defra-bounding-box-block">
+          {{ govukCheckboxes({
+            name: 'bounding-box',
+            formGroup: {
+              classes: 'govuk-!-margin-top-3 govuk-!-margin-bottom-3'
+            },
+            items: [
+              {
+                value: 'on',
+                html: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="25" viewBox="0 0 32 25" fill="none">
+                        <rect x="0.923077" y="1.17308" width="20.3077" height="14.7692" stroke="#0B0C0C" stroke-width="1.84615"/>
+                        <rect x="10.1535" y="8.55784" width="20.3077" height="14.7692" stroke="#0B0C0C" stroke-width="1.84615"/>
+                      </svg>
+                      &nbsp;Show all bounding boxes',
+                attributes: {'class': 'defra-checkboxes__input'},
+                label: {classes: 'defra-checkboxes__label'}
+              }
+            ]
+          }) }}
+        </div>
+        <div id="defra-bounding-box-info" class="govuk-!-margin-bottom-2">Filter your results to reduce the number of bounding boxes</div>
+        <div class="govuk-section-break--visible"></div>
+        <div data-search-results-url="{{routes.searchResults}}"></div>
+        <div id="map-filter-block" data-action="{{routes.getMapFilters}}" data-fetch-map-filters></div>
       </div>
-      <div id="defra-bounding-box-info" class="govuk-!-margin-bottom-2">Filter your results to reduce the number of bounding boxes</div>
-      <div class="govuk-section-break--visible"></div>
-      <div id="map-filter-block" data-action="{{routes.getMapFilters}}" data-fetch-map-filters></div>
     </div>
     <div class="defra-map-info" id="map-info" role="dialog" open="true" aria-modal="true" tabindex="-1">
       <div class="defra-map-info__container">

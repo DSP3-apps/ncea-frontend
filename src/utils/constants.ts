@@ -252,16 +252,8 @@ export const defaultFilters: ISearchFiltersProcessed = {
   license: '',
   categories: [],
   lastUpdated: {
-    before: {
-      day: '',
-      month: '',
-      year: '',
-    },
-    after: {
-      day: '',
-      month: '',
-      year: '',
-    },
+    beforeYear: '',
+    afterYear: '',
   },
   retiredAndArchived: false,
 };

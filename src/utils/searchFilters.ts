@@ -10,16 +10,8 @@ export const filterNames = {
   retiredAndArchived: 'retired-archived',
   keywords: 'keywords',
   licence: 'licence',
-  updatedBefore: {
-    day: 'before-day',
-    month: 'before-month',
-    year: 'before-year',
-  },
-  updatedAfter: {
-    day: 'after-day',
-    month: 'after-month',
-    year: 'after-year',
-  },
+  updatedBeforeYear: 'before-year',
+  updatedAfterYear: 'after-year',
 };
 
 export enum DataScopeValues {
@@ -53,16 +45,8 @@ export interface ISearchFiltersProcessed {
   keywords: string;
   license: string;
   lastUpdated: {
-    before: {
-      day: string;
-      month: string;
-      year: string;
-    };
-    after: {
-      day: string;
-      month: string;
-      year: string;
-    };
+    beforeYear: string;
+    afterYear: string;
   };
   retiredAndArchived: boolean;
 }
@@ -162,36 +146,41 @@ export const applyMockFilters = (
     });
   }
 
-  const filterBefore = filters.lastUpdated.before;
-  const filterAfter = filters.lastUpdated.after;
+  const filterBeforeYear = filters.lastUpdated.beforeYear;
+  const filterAfterYear = filters.lastUpdated.afterYear;
   // if any one of day/month/year contains a value, do the filtering
-  if (Object.values(filterBefore).some((v) => v.length > 0) || Object.values(filterAfter).some((v) => v.length > 0)) {
+  if (filterBeforeYear.length > 0 || filterAfterYear.length > 0) {
     results.hits = results.hits.filter((hit) => {
-      const lastUpdatedString = [...(hit._source?.revisionDateForResource ?? [])].pop(); // get last item (most recent update)
-      const lastUpdated = new Date(lastUpdatedString ?? '');
+      const temporalExtent = [...(hit._source?.resourceTemporalDateRange ?? [])].pop(); // get last item (most recent update)
+      if (!temporalExtent) {
+        return false;
+      }
 
-      if (isNaN(lastUpdated.getTime())) {
+      const extentStart = new Date(temporalExtent.gte);
+      const extentEnd = new Date(temporalExtent.lte);
+
+      if (isNaN(extentStart.getTime()) || isNaN(extentEnd.getTime())) {
         return false;
       }
 
       // default to `true` so no results are excluded if either date is invalid
       let isWithinDate = true;
 
-      const filterBeforeDate = convertToDate(filterBefore.day, filterBefore.month, filterBefore.year);
+      const filterBeforeDate = convertToDate('31', '12', filterBeforeYear);
       if (!filterBeforeDate) {
         // if the date is invalid, dont exclude any results
         return isWithinDate;
       }
 
-      isWithinDate = isWithinDate && lastUpdated < filterBeforeDate;
+      isWithinDate = isWithinDate && extentStart <= filterBeforeDate;
 
-      const filterAfterDate = convertToDate(filterAfter.day, filterAfter.month, filterAfter.year);
+      const filterAfterDate = convertToDate('1', '1', filterAfterYear);
       if (!filterAfterDate) {
         // if the date is invalid, dont exclude any results
         return isWithinDate;
       }
 
-      return isWithinDate && lastUpdated > filterAfterDate;
+      return isWithinDate && extentEnd >= filterAfterDate;
     });
   }
 
@@ -262,32 +251,32 @@ export const searchFilters: ISearchFilters = [
       {
         name: 'Agriculture & Horticulture Development Board',
         value: 'ahdb',
-        hasNCEAData: true,
+        hasNCEAData: false,
       },
       {
         name: 'Animal & Plant Health Agency',
         value: 'apha',
-        hasNCEAData: true,
+        hasNCEAData: false,
       },
       {
         name: 'Centre for Environment, Fisheries & Aquaculture Science',
         value: 'cefas',
-        hasNCEAData: true,
+        hasNCEAData: false,
       },
       {
         name: 'Department for Environment, Food & Rural Affairs',
         value: 'defra',
-        hasNCEAData: true,
+        hasNCEAData: false,
       },
       {
         name: 'Environment Agency',
         value: 'ea',
-        hasNCEAData: false,
+        hasNCEAData: true,
       },
       {
         name: 'Forestry Commission',
         value: 'fc',
-        hasNCEAData: false,
+        hasNCEAData: true,
       },
       {
         name: 'Joint Nature Conservation Committee',
@@ -307,7 +296,7 @@ export const searchFilters: ISearchFilters = [
       {
         name: 'Natural England',
         value: 'ne',
-        hasNCEAData: false,
+        hasNCEAData: true,
       },
       {
         name: 'Rural Payments Agency',
@@ -419,11 +408,11 @@ export const searchFilters: ISearchFilters = [
         value: 'txt',
       },
       {
-        name: 'MS Excel',
+        name: 'MS Excel (XLS)',
         value: 'xls',
       },
       {
-        name: 'MS Excel',
+        name: 'MS Excel (XLSX)',
         value: 'xlsx',
       },
       {

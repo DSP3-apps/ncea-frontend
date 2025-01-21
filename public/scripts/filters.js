@@ -59,6 +59,39 @@ const appendMetaSearchParams = (filterParams) => {
 };
 
 /**
+ * Takes a filters form element and converts it to a `FormData` object.
+ * It makes sure the filters that are applied are within the selected scope.
+ * If they are not, it removes them from the `FormData`.
+ *
+ * @param {HTMLFormElement} form
+ * @returns {FormData}
+ */
+const filterFormToFormData = (form) => {
+  const data = new FormData(form);
+
+  // this is also defined in `utils/searchFilters.ts`
+  const isNCEAOnly = data.get('scope') === 'ncea';
+
+  // remove any applied filters not in the selected scope
+  if (isNCEAOnly) {
+    const allNCEA = document.querySelectorAll("[data-ncea-only='false']");
+
+    for (const nceaCb of allNCEA) {
+      for (const key of data.keys()) {
+        const values = data.getAll(key);
+
+        data.set(
+          key,
+          values.filter((v) => v != nceaCb.value),
+        );
+      }
+    }
+  }
+
+  return data;
+};
+
+/**
  * Attatch event listener to the form containing the filters
  * so the page responds when filter is changed.
  *
@@ -68,55 +101,12 @@ const addFilterFormChangeListener = (instance) => {
   const form = document.getElementById(`filters-${instance}`);
 
   form.addEventListener('change', () => {
-    const data = new FormData(form);
-
-    // this is also defined in `utils/searchFilters.ts`
-    const isNCEAOnly = data.get('scope') === 'ncea';
-
-    if (isNCEAOnly) {
-      const allNCEA = document.querySelectorAll("[data-ncea-only='false']");
-
-      for (const nceaCb of allNCEA) {
-        for (const key of data.keys()) {
-          const values = data.getAll(key);
-
-          data.set(
-            key,
-            values.filter((v) => v != nceaCb.value),
-          );
-        }
-      }
-    }
-
+    const data = filterFormToFormData(form);
     const url = new URLSearchParams(data);
     appendMetaSearchParams(url);
 
     window.location.search = url.toString();
   });
-};
-
-const addFilterHeadingClickListeners = (instance) => {
-  const filterHeadingElement = document.getElementById(`toggle_resource_type-${instance}`);
-  if (filterHeadingElement) {
-    filterHeadingElement.addEventListener('click', function () {
-      const parentNode = filterHeadingElement.parentNode;
-      const openClass = 'defra-filter-options__heading--open';
-      const closedClass = 'defra-filter-options__heading--closed';
-      const parentOpenClass = 'defra-filter-options--open';
-      const parentClosedClass = 'defra-filter-options--closed';
-      if (filterHeadingElement.classList.contains(openClass)) {
-        filterHeadingElement.classList.remove(openClass);
-        filterHeadingElement.classList.add(closedClass);
-        parentNode.classList.remove(parentOpenClass);
-        parentNode.classList.add(parentClosedClass);
-      } else if (filterHeadingElement.classList.contains(closedClass)) {
-        filterHeadingElement.classList.remove(closedClass);
-        filterHeadingElement.classList.add(openClass);
-        parentNode.classList.add(parentOpenClass);
-        parentNode.classList.remove(parentClosedClass);
-      }
-    });
-  }
 };
 
 const submitSearchResultsFilter = (formId) => {
@@ -170,30 +160,6 @@ const updateToYear = (startYearElement, doSubmit) => {
   }
 };
 
-const attachStudyPeriodChangeListener = (instance, doSubmit = false) => {
-  const fromYearElement = document.getElementById(`${instance}-${fromYearId}`);
-  const toYearElement = document.getElementById(`${instance}-${toYearId}`);
-  if (fromYearElement && toYearElement) {
-    fromYearElement.addEventListener('change', function () {
-      updateToYear(this, doSubmit);
-    });
-    toYearElement.addEventListener('change', function () {
-      updateFromYear(this, doSubmit);
-    });
-  }
-};
-
-const attachSearchResultsFilterCheckboxChangeListener = () => {
-  const searchResultsFilterCheckboxes = document.querySelectorAll('[data-instance="search_results"]');
-  if (searchResultsFilterCheckboxes.length) {
-    searchResultsFilterCheckboxes.forEach((checkbox) => {
-      checkbox.addEventListener('change', function () {
-        submitSearchResultsFilter(`${filterRTFormId}-${'search_results'}`);
-      });
-    });
-  }
-};
-
 const attachSearchResultsSortChangeListener = () => {
   const sortElement = document.getElementById('sort');
   if (sortElement) {
@@ -210,13 +176,10 @@ const attachSearchResultsSortChangeListener = () => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  addFilterHeadingClickListeners('search_results');
-  // attachStudyPeriodChangeListener('search_results', true);
-  attachSearchResultsFilterCheckboxChangeListener();
   attachSearchResultsSortChangeListener();
 
   addCategoryAccordionToggleListeners('search_results');
   addFilterFormChangeListener('search_results');
 });
 
-export { addFilterHeadingClickListeners, attachStudyPeriodChangeListener, addCategoryAccordionToggleListeners };
+export { addCategoryAccordionToggleListeners, filterFormToFormData, appendMetaSearchParams };

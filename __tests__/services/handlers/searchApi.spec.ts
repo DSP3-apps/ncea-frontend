@@ -234,16 +234,8 @@ describe('Search API', () => {
           {
             ...defaultFilters,
             lastUpdated: {
-              before: {
-                day: '01',
-                month: '07',
-                year: '2023',
-              },
-              after: {
-                day: '01',
-                month: '02',
-                year: '2015',
-              },
+              beforeYear: '2023',
+              afterYear: '2015',
             },
           },
           false,
@@ -260,16 +252,8 @@ describe('Search API', () => {
             ...defaultFilters,
             retiredAndArchived: true, // include retired and archived as the filter below does not exclude them
             lastUpdated: {
-              before: {
-                day: '01',
-                month: '',
-                year: '',
-              },
-              after: {
-                day: '01',
-                month: '',
-                year: '',
-              },
+              beforeYear: '',
+              afterYear: '',
             },
           },
           false,
@@ -277,7 +261,7 @@ describe('Search API', () => {
         );
 
         const expectedCount = QUICK_SEARCH_RESPONSE.hits.hits.filter(
-          (hit) => !!hit._source?.revisionDateForResource,
+          (hit) => !!hit._source?.resourceTemporalDateRange,
         ).length;
 
         expect(results.total).toEqual(expectedCount);

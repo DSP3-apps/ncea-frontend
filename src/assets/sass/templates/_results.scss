@@ -167,8 +167,15 @@
   height: 100vh;
 }
 
+.filter-view-block-container {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .filter-view-block {
-  width: 25%;
+  overflow: scroll;
+  height: 100%;
+  // width: 25%;
 }
 
 .defra-map {
@@ -625,17 +632,17 @@
 }
 
 .filter-options__keyboard-filter-content {
-  & ul {  
+  & ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
     & li {
       padding: 10px;
-      cursor: pointer;    
+      cursor: pointer;
     }
     & li:hover {
       background-color: #f1f1f1;
-    } 
+    }
   }
 }
 
@@ -650,5 +657,5 @@
 }
 
 .govuk-font-family {
-  font-family: "GDS Transport", arial, sans-serif;
+  font-family: 'GDS Transport', arial, sans-serif;
 }
