@@ -1,5 +1,4 @@
 {% from "govuk/components/select/macro.njk" import govukSelect %}
-{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
 
 <form autocomplete="off" id="filters-{{filterInstance}}">
@@ -77,47 +76,53 @@
         </button>
       </label>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-date-filters-{{filterInstance}}">
-        {{ govukDateInput({
-          id: "date-before-"+filterInstance,
-          namePrefix: "before",
-          fieldset: {
-            legend: {
-              text: "Updated before",
-              classes: "govuk-fieldset__legend--s"
-            }
-          },
-          hint: {
-            text: "For example, 2007"
-          },
-          items: [
-            {
-              classes: "govuk-input--width-4",
-              name: "year",
-              value: dspFilterOptions.lastUpdated.beforeYear
-            }
-          ]
-        }) }}
+        <div class="govuk-form-group" id="date-before-group-{{filterInstance}}">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-before-hint-{{filterInstance}} date-before-error-{{filterInstance}}">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              Updated Before
+            </legend>
+            <div id="date-before-hint-{{filterInstance}}" class="govuk-hint">
+              For example, 2004
+            </div>
+            <p id="date-before-error-{{filterInstance}}" class="govuk-error-message display-none">
+              <span class="govuk-visually-hidden">Error:</span><span id="date-before-error-message-{{filterInstance}}"></span>
+            </p>
+            <div class="govuk-date-input" id="date-before-{{filterInstance}}">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="date-before-{{filterInstance}}-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-before-{{filterInstance}}-year" name="before-year" type="text" value="{{dspFilterOptions.lastUpdated.beforeYear}}" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
 
-        {{ govukDateInput({
-          id: "date-after-"+filterInstance,
-          namePrefix: "after",
-          fieldset: {
-            legend: {
-              text: "Updated after",
-              classes: "govuk-fieldset__legend--s"
-            }
-          },
-          hint: {
-            text: "For example, 2007"
-          },
-          items: [
-            {
-              classes: "govuk-input--width-4",
-              name: "year",
-              value: dspFilterOptions.lastUpdated.afterYear
-            }
-          ]
-        }) }}
+        <div class="govuk-form-group" id="date-after-group-{{filterInstance}}">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-after-hint-{{filterInstance}} date-after-error-{{filterInstance}}">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              Updated After
+            </legend>
+            <div id="date-after-hint-{{filterInstance}}" class="govuk-hint">
+              For example, 2015
+            </div>
+            <p id="date-after-error-{{filterInstance}}" class="govuk-error-message display-none">
+              <span class="govuk-visually-hidden">Error:</span><span id="date-after-error-message-{{filterInstance}}"></span>
+            </p>
+            <div class="govuk-date-input" id="date-after-{{filterInstance}}">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="date-after-{{filterInstance}}-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-after-{{filterInstance}}-year" name="after-year" type="text" value="{{dspFilterOptions.lastUpdated.afterYear}}" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
       </div>
     </div>
     <div class="filter-options__container">
