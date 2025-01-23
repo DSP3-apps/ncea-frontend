@@ -1,3 +1,5 @@
+const filtersInstance = 'search_results';
+
 const searchResultSortFormId = 'sort_results';
 const dateBeforePrefix = 'date-before';
 const dateAfterPrefix = 'date-after';
@@ -95,15 +97,36 @@ const filterFormToFormData = (form) => {
 };
 
 /**
- * Attatch event listener to the form containing the filters
- * so the page responds when filter is changed.
+ * Attatch event listener to the form reset
+ * so it resets the filters correctly, instead of relying on default
+ * reset behaviour.
  *
  * @param {string} instance
  */
-const addFilterFormChangeListener = (instance) => {
+const addFilterFormResetListener = (instance) => {
+  const formSubmit = document.getElementById(`filters-${instance}`);
+  const resetButton = document.getElementById(`filters-reset-${instance}`);
+
+  formSubmit.addEventListener('reset', (e) => {
+    e.preventDefault();
+
+    window.location.href = resetButton.getAttribute('data-reset-url');
+  });
+};
+
+/**
+ * Attatch event listener to the form submission
+ * so the validation can take place before submission.
+ *
+ * @param {string} instance
+ */
+const addFilterFormSubmitListener = (instance) => {
   const form = document.getElementById(`filters-${instance}`);
 
-  form.addEventListener('change', () => {
+  form.addEventListener('submit', (e) => {
+    // prevent form from submitting
+    e.preventDefault();
+
     const data = filterFormToFormData(form);
     const url = new URLSearchParams(data);
     appendMetaSearchParams(url);
@@ -134,7 +157,7 @@ const showDateFilterError = (instance, input, message) => {
   // set the contents of the error message
   $(`#${prefix}-error-message-${instance}`).html(message);
   // apply the error class to the accordion so it is clear where the error is if it is closed
-  $(`[data-category-${instance}='date']`).addClass(formGroupErrorClass);
+  $(`[data-category-${instance}='date']`).addClass('box-shadow-error');
 };
 
 /**
@@ -216,8 +239,9 @@ const attachSearchResultsSortChangeListener = () => {
 document.addEventListener('DOMContentLoaded', () => {
   attachSearchResultsSortChangeListener();
 
-  addCategoryAccordionToggleListeners('search_results');
-  addFilterFormChangeListener('search_results');
+  addCategoryAccordionToggleListeners(filtersInstance);
+  addFilterFormSubmitListener(filtersInstance);
+  addFilterFormResetListener(filtersInstance);
 });
 
 export { addCategoryAccordionToggleListeners, filterFormToFormData, appendMetaSearchParams };

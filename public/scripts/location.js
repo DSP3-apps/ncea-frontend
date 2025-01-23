@@ -2,6 +2,7 @@ import { fireEventAfterStorage, getStorageData, updateSubmitButtonState } from '
 import { invokeAjaxCall } from './fetchResults.js';
 import { addCategoryAccordionToggleListeners, filterFormToFormData, appendMetaSearchParams } from './filters.js';
 
+const mapResultsInstance = 'map_results';
 const index3 = 3;
 const precision = 6;
 const timeout = 200;
@@ -559,8 +560,8 @@ const attachBoundingBoxToggleListener = () => {
  * Attaches event listener to the form containing the filters in the map view.
  * This is different to the other event listener as it does not refresh the page.
  */
-const attachMapResultsFilterChangeListeners = () => {
-  const form = document.getElementById(`filters-map_results`);
+const attachMapResultsFilterChangeListeners = (instance) => {
+  const form = document.getElementById(`filters-${instance}`);
 
   form.addEventListener('change', (e) => {
     resetData = true;
@@ -573,25 +574,6 @@ const attachMapResultsFilterChangeListeners = () => {
       invokeMapFilters();
     }
 
-    invokeMapResults(true);
-  });
-};
-
-/**
- * Attaches click event listener to the `Reset Filters` link
- */
-const attachResetFiltersClickListener = () => {
-  const link = document.getElementById(`filter-options-reset-map_results`);
-  const form = document.getElementById(`filters-map_results`);
-
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    resetData = false;
-
-    form.reset();
-
-    invokeMapFilters();
     invokeMapResults(true);
   });
 };
@@ -638,9 +620,8 @@ const getMapFilters = async (path) => {
     const mapFiltersHtml = await response.text();
     document.getElementById(filterBlockId).innerHTML = mapFiltersHtml;
 
-    addCategoryAccordionToggleListeners('map_results');
-    attachMapResultsFilterChangeListeners();
-    attachResetFiltersClickListener();
+    addCategoryAccordionToggleListeners(mapResultsInstance);
+    attachMapResultsFilterChangeListeners(mapResultsInstance);
   }
 };
 

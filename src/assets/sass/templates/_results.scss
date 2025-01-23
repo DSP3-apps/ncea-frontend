@@ -595,18 +595,6 @@
   color: #0b0c0c;
 }
 
-.filter-options__reset-link {
-  font-family: 'GDS Transport', arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #1d70b8;
-  text-decoration: underline;
-
-  &:hover {
-    color: #194578;
-  }
-}
-
 .filter-options__retired-label {
   color: #194578;
 }
@@ -662,4 +650,25 @@
 
 .display-none {
   display: none;
+}
+
+.filters-heading {
+  display: flex;
+  flex-direction: column;
+
+  .filters-buttons {
+    display: flex;
+    gap: 0.5rem;
+
+    button {
+      width: min-content;
+      height: min-content;
+      text-wrap: nowrap;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.box-shadow-error {
+  box-shadow: -5px 0px 0px 0px #d4351c;
 }
