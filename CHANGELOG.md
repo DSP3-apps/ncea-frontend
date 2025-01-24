@@ -1,3 +1,16 @@
+# [1.7.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.6.0...v1.7.0) (2025-01-24)
+
+
+### Bug Fixes
+
+* **filters:** Fix edge case where map disappears with lack of spatial data ([badefdb](https://github.com/DSP3-apps/ncea-frontend/commit/badefdb45a2deeb3937aa951be1d94aeb765fff5)), closes [#NCEA-5](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-5)
+
+
+### Features
+
+* **filters:** Add clear/apply filter buttons to results view ([d08435f](https://github.com/DSP3-apps/ncea-frontend/commit/d08435f92f19c2eca9cee0e8aa1af231855c1957)), closes [#NCEA-172](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-172)
+* **filters:** Add date input validation ([00d5f9f](https://github.com/DSP3-apps/ncea-frontend/commit/00d5f9fed5fdba62ed5cde441368c9d8c332aaa7)), closes [#NCEA-165](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-165)
+
 # [1.6.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.5.1...v1.6.0) (2025-01-21)
 
 
