@@ -1,0 +1,10 @@
+{# based on https://www.trysmudford.com/blog/encapsulated-11ty-components/ #}
+{% macro icon(name, params) %}
+  {% set keys = "" %}
+  {# create a list of attributes from the object that is passed in #}
+  {% for key, value in params %}
+    {% set keys = keys + " " + key + "=" + value %}
+  {% endfor %}
+  {# the icon just needs to use `{{keys}}` in the attributes to insert the generated attributes #}
+  {% include "macros/icons/" + name + ".njk" %}
+{% endmacro %}
