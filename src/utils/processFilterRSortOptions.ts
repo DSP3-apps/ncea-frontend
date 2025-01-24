@@ -65,8 +65,8 @@ const processDSPFilterOptions = (requestQuery: RequestQuery): ISearchFiltersProc
       .filter((k) => k),
     license: readQueryParams(requestQuery, filterNames.licence),
     lastUpdated: {
-      beforeYear: readQueryParams(requestQuery, filterNames.updatedBeforeYear),
-      afterYear: readQueryParams(requestQuery, filterNames.updatedAfterYear),
+      beforeYear: readQueryParams(requestQuery, filterNames.updatedBefore),
+      afterYear: readQueryParams(requestQuery, filterNames.updatedAfter),
     },
     retiredAndArchived: readQueryParams(requestQuery, filterNames.retiredAndArchived) === 'true',
   };

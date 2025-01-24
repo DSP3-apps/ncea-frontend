@@ -10,8 +10,8 @@ export const filterNames = {
   retiredAndArchived: 'retired-archived',
   keywords: 'keywords',
   licence: 'licence',
-  updatedBeforeYear: 'before-year',
-  updatedAfterYear: 'after-year',
+  updatedBefore: 'date-before',
+  updatedAfter: 'date-after',
 };
 
 export enum DataScopeValues {
