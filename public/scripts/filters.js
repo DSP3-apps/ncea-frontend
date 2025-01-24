@@ -1,8 +1,13 @@
-const fromYearId = 'start_year';
-const toYearId = 'to_year';
-const filterSPFormId = 'study_period_filter';
-const filterRTFormId = 'resource_type_filter';
+const filtersInstance = 'search_results';
+
 const searchResultSortFormId = 'sort_results';
+const dateBeforePrefix = 'date-before';
+const dateAfterPrefix = 'date-after';
+
+const formGroupErrorClass = 'govuk-form-group--error';
+const displayNoneClass = 'display-none';
+
+const validYearRegex = /^$|^[0-9]{4}$/; // matches empty string OR 4 digit number
 
 /**
  * Attatch event listeners to the filters accordions so
@@ -92,71 +97,127 @@ const filterFormToFormData = (form) => {
 };
 
 /**
- * Attatch event listener to the form containing the filters
- * so the page responds when filter is changed.
+ * Attatch event listener to the form reset
+ * so it resets the filters correctly, instead of relying on default
+ * reset behaviour.
  *
  * @param {string} instance
  */
-const addFilterFormChangeListener = (instance) => {
+const addFilterFormResetListener = (instance) => {
+  const formSubmit = document.getElementById(`filters-${instance}`);
+  const resetButton = document.getElementById(`filters-reset-${instance}`);
+
+  formSubmit.addEventListener('reset', (e) => {
+    e.preventDefault();
+
+    window.location.href = resetButton.getAttribute('data-reset-url');
+  });
+};
+
+/**
+ * Attatch event listener to the form submission
+ * so the validation can take place before submission.
+ *
+ * @param {string} instance
+ */
+const addFilterFormSubmitListener = (instance) => {
   const form = document.getElementById(`filters-${instance}`);
 
-  form.addEventListener('change', () => {
+  form.addEventListener('submit', (e) => {
+    // prevent form from submitting
+    e.preventDefault();
+
     const data = filterFormToFormData(form);
     const url = new URLSearchParams(data);
     appendMetaSearchParams(url);
 
+    // if the date filters fail to validate, don't submit
+    if (!validateDateFilters(instance)) {
+      return;
+    }
+
     window.location.search = url.toString();
   });
+};
+
+/**
+ * Shows an error messasge for either of the date inputs.
+ *
+ * @param {string} instance
+ * @param {'before' | 'after'} input
+ * @param {string} message
+ */
+const showDateFilterError = (instance, input, message) => {
+  const prefix = input === 'before' ? dateBeforePrefix : dateAfterPrefix;
+
+  // add the govuk error class to the group containing the date field
+  $(`#${prefix}-group-${instance}`).addClass(formGroupErrorClass);
+  // remove the `display: none` from the error message so it appears
+  $(`#${prefix}-error-${instance}`).removeClass(displayNoneClass);
+  // set the contents of the error message
+  $(`#${prefix}-error-message-${instance}`).html(message);
+  // apply the error class to the accordion so it is clear where the error is if it is closed
+  $(`[data-category-${instance}='date']`).addClass('box-shadow-error');
+};
+
+/**
+ * Hides any error messasge for either of the date inputs.
+ *
+ * @param {string} instance
+ * @param {'before' | 'after'} input
+ */
+const hideDateFilterError = (instance, input) => {
+  const prefix = input === 'before' ? dateBeforePrefix : dateAfterPrefix;
+
+  $(`#${prefix}-group-${instance}`).remove(formGroupErrorClass);
+  $(`#${prefix}-error-${instance}`).add(displayNoneClass);
+};
+
+/**
+ * Validates the date filters. If they fail to validate it will display an error and the function will return `false`.
+ * Otherwise, it will return `true`/
+ *
+ * @param {string} instance
+ * @returns {boolean}
+ */
+const validateDateFilters = (instance) => {
+  const beforeYear = $(`#${dateBeforePrefix}-${instance}-year`).val();
+  const afterYear = $(`#${dateAfterPrefix}-${instance}-year`).val();
+
+  if (!validYearRegex.test(beforeYear)) {
+    showDateFilterError(instance, 'before', 'Before year must be a valid year.');
+
+    return false;
+  } else {
+    hideDateFilterError(instance, 'before');
+  }
+
+  if (!validYearRegex.test(afterYear)) {
+    showDateFilterError(instance, 'after', 'After year must be a valid year.');
+
+    return false;
+  } else {
+    hideDateFilterError(instance, 'after');
+  }
+
+  // use `Number` instead of `parseInt` as it has stricter rules on what is a valid number
+  // they should be valid here anyway due the the regex validation
+  const nBeforeYear = Number(beforeYear);
+  const nAfterYear = Number(afterYear);
+
+  if (nAfterYear > 0 && nAfterYear < nBeforeYear) {
+    showDateFilterError(instance, 'after', 'After year must be greater than the before year.');
+
+    return false;
+  }
+
+  return true;
 };
 
 const submitSearchResultsFilter = (formId) => {
   const formElement = document.getElementById(formId);
   if (formElement) {
     formElement.submit();
-  }
-};
-
-const updateFromYear = (toYearElement, doSubmit) => {
-  const value = toYearElement.value;
-  const id = toYearElement.getAttribute('id');
-  const instance = id.split('-')[0].trim();
-  const fromYearElement = document.getElementById(`${instance}-${fromYearId}`);
-  if (parseInt(value) < parseInt(fromYearElement.value)) {
-    for (let i = fromYearElement.options.length - 1; i >= 0; i--) {
-      if (parseInt(fromYearElement.options[i].value) <= parseInt(value)) {
-        fromYearElement.value = fromYearElement.options[i].value;
-        if (doSubmit) {
-          setTimeout(() => {
-            submitSearchResultsFilter(`${filterSPFormId}-${instance}`);
-          }, 100);
-        }
-        break;
-      }
-    }
-  } else {
-    doSubmit && submitSearchResultsFilter(`${filterSPFormId}-${instance}`);
-  }
-};
-
-const updateToYear = (startYearElement, doSubmit) => {
-  const value = startYearElement.value;
-  const id = startYearElement.getAttribute('id');
-  const instance = id.split('-')[0].trim();
-  const toYearElement = document.getElementById(`${instance}-${toYearId}`);
-  if (parseInt(value) > parseInt(toYearElement.value)) {
-    for (let i = 0; i < toYearElement.options.length; i++) {
-      if (parseInt(toYearElement.options[i].value) >= parseInt(value)) {
-        toYearElement.value = toYearElement.options[i].value;
-        if (doSubmit) {
-          setTimeout(() => {
-            submitSearchResultsFilter(`${filterSPFormId}-${instance}`);
-          }, 100);
-        }
-        break;
-      }
-    }
-  } else {
-    doSubmit && submitSearchResultsFilter(`${filterSPFormId}-${instance}`);
   }
 };
 
@@ -178,8 +239,9 @@ const attachSearchResultsSortChangeListener = () => {
 document.addEventListener('DOMContentLoaded', () => {
   attachSearchResultsSortChangeListener();
 
-  addCategoryAccordionToggleListeners('search_results');
-  addFilterFormChangeListener('search_results');
+  addCategoryAccordionToggleListeners(filtersInstance);
+  addFilterFormSubmitListener(filtersInstance);
+  addFilterFormResetListener(filtersInstance);
 });
 
 export { addCategoryAccordionToggleListeners, filterFormToFormData, appendMetaSearchParams };

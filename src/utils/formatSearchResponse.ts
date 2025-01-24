@@ -65,6 +65,7 @@ const formatSearchResponse = async (
   const finalResponse: ISearchResults = {
     total: apiResponse?.hits?.total?.value,
     items: [],
+    hasSpatialData: false,
   };
   let minStartYear: string = '';
   let maxToYear: string = '';
@@ -101,6 +102,8 @@ const formatSearchResponse = async (
     };
 
     if (isMapResults && searchItem._source?.geom != null) {
+      finalResponse.hasSpatialData = true;
+
       const coordinatesData: IAccumulatedCoordinatesWithCenter = getAccumulatedCoordinatesNCenter(
         searchItem._source.geom,
       ) as IAccumulatedCoordinatesWithCenter;
@@ -126,6 +129,7 @@ const formatSearchResponse = async (
   if (isMapResults) {
     finalResponse.total = finalResponse.items.length;
   }
+
   return finalResponse;
 };
 

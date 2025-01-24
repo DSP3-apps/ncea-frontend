@@ -36,7 +36,7 @@ const getSearchResults = async (
 
       return finalResponse;
     } else {
-      return Promise.resolve({ total: 0, items: [] });
+      return Promise.resolve({ total: 0, items: [], hasSpatialData: false });
     }
     /* eslint-disable  @typescript-eslint/no-explicit-any */
   } catch (error: any) {

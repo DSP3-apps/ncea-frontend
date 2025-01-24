@@ -35,129 +35,96 @@ exports[`Results block template Guided search journey Search results with empty 
   <body class="govuk-template__body app-body-class">
     <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
     
-  
-<div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on the find natural capital data service"
-    
-        
-      
-    
-   id="cookie_banner">
-  
-  <div class="govuk-cookie-banner__message govuk-width-container"
-    
-        
-      
-    
-   id="cookie_block" hidden>
+  <div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on the find natural capital data service" id="cookie_banner">
+    <div class="govuk-cookie-banner__message govuk-width-container" id="cookie_block" hidden>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         
-        <h2 class="govuk-cookie-banner__heading govuk-heading-m">
-          Cookies on the find natural capital data service
-        </h2>
+        <h2 class="govuk-cookie-banner__heading govuk-heading-m">Cookies on the find natural capital data service</h2>
         
+
         <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">We use some essential cookies to make this service work.</p>
-          <p class="govuk-body">We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements</p>
-          
-        </div>
+<p class="govuk-body">We use some essential cookies to make this service work.</p>
+<p class="govuk-body">We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements</p>
+</div>
       </div>
     </div>
 
-    
-    <div class="govuk-button-group">
-    
       
-      <button type="button" class="govuk-button" data-module="govuk-button"
+      <div class="govuk-button-group">
+        
           
-              
+            <button type="button" class="govuk-button" data-module="govuk-button" id="accept_button">
+              Accept analytics cookies
+            </button>
+          
+        
+          
+            <button type="button" class="govuk-button" data-module="govuk-button" id="reject_button">
+              Reject analytics cookies
+            </button>
+          
+        
+          
+            
+              <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
             
           
-         id="accept_button">
-        Accept analytics cookies
-      </button>
-    
-      
-      <button type="button" class="govuk-button" data-module="govuk-button"
-          
-              
-            
-          
-         id="reject_button">
-        Reject analytics cookies
-      </button>
-    
-      
-      <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
-    
-    </div>
-    
-
-  </div>
-  
-  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
-    
         
+      </div>
       
-    
-   id="accept_block" hidden>
+    </div>
+  
+    <div class="govuk-cookie-banner__message govuk-width-container" role="alert" id="accept_block" hidden>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         
+
         <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
-          
-        </div>
+<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+</div>
       </div>
     </div>
 
-    
-    <div class="govuk-button-group">
-    
       
-      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-        Hide cookie message
-      </button>
-    
-    </div>
-    
-
-  </div>
-  
-  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
-    
+      <div class="govuk-button-group">
         
+          
+            <button type="button" class="govuk-button hide_button" data-module="govuk-button">
+              Hide cookie message
+            </button>
+          
+        
+      </div>
       
-    
-   id="reject_block" hidden>
+    </div>
+  
+    <div class="govuk-cookie-banner__message govuk-width-container" role="alert" id="reject_block" hidden>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         
+
         <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
-          
-        </div>
+<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+</div>
       </div>
     </div>
 
-    
-    <div class="govuk-button-group">
-    
       
-      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-        Hide cookie message
-      </button>
-    
+      <div class="govuk-button-group">
+        
+          
+            <button type="button" class="govuk-button hide_button" data-module="govuk-button">
+              Hide cookie message
+            </button>
+          
+        
+      </div>
+      
     </div>
-    
-
-  </div>
   
 </div>
 
@@ -181,38 +148,44 @@ exports[`Results block template Guided search journey Search results with empty 
     <!-- Google tag (gtag.js) -->
     
 
-    <header class="govuk-header" data-module="govuk-header">
+    
+
+
+
+<header class="govuk-header" role="banner" data-module="govuk-header">
   <div class="govuk-header__container govuk-width-container">
     <div class="govuk-header__logo">
       <a href="https://www.gov.uk/" class="govuk-header__link govuk-header__link--homepage">
-        <svg
-          focusable="false"
-          role="img"
-          class="govuk-header__logotype"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 148 30"
-          height="30"
-          width="148"
-          aria-label="GOV.UK"
-        >
-          <title>GOV.UK</title>
-          <path d="M22.6 10.4c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m-5.9 6.7c-.9.4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m10.8-3.7c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s0 2-1 2.4m3.3 4.8c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4M17 4.7l2.3 1.2V2.5l-2.3.7-.2-.2.9-3h-3.4l.9 3-.2.2c-.1.1-2.3-.7-2.3-.7v3.4L15 4.7c.1.1.1.2.2.2l-1.3 4c-.1.2-.1.4-.1.6 0 1.1.8 2 1.9 2.2h.7c1-.2 1.9-1.1 1.9-2.1 0-.2 0-.4-.1-.6l-1.3-4c-.1-.2 0-.2.1-.3m-7.6 5.7c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m-5 3c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s.1 2 1 2.4m-3.2 4.8c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m14.8 11c4.4 0 8.6.3 12.3.8 1.1-4.5 2.4-7 3.7-8.8l-2.5-.9c.2 1.3.3 1.9 0 2.7-.4-.4-.8-1.1-1.1-2.3l-1.2 4c.7-.5 1.3-.8 2-.9-1.1 2.5-2.6 3.1-3.5 3-1.1-.2-1.7-1.2-1.5-2.1.3-1.2 1.5-1.5 2.1-.1 1.1-2.3-.8-3-2-2.3 1.9-1.9 2.1-3.5.6-5.6-2.1 1.6-2.1 3.2-1.2 5.5-1.2-1.4-3.2-.6-2.5 1.6.9-1.4 2.1-.5 1.9.8-.2 1.1-1.7 2.1-3.5 1.9-2.7-.2-2.9-2.1-2.9-3.6.7-.1 1.9.5 2.9 1.9l.4-4.3c-1.1 1.1-2.1 1.4-3.2 1.4.4-1.2 2.1-3 2.1-3h-5.4s1.7 1.9 2.1 3c-1.1 0-2.1-.2-3.2-1.4l.4 4.3c1-1.4 2.2-2 2.9-1.9-.1 1.5-.2 3.4-2.9 3.6-1.9.2-3.4-.8-3.5-1.9-.2-1.3 1-2.2 1.9-.8.7-2.3-1.2-3-2.5-1.6.9-2.2.9-3.9-1.2-5.5-1.5 2-1.3 3.7.6 5.6-1.2-.7-3.1 0-2 2.3.6-1.4 1.8-1.1 2.1.1.2.9-.3 1.9-1.5 2.1-.9.2-2.4-.5-3.5-3 .6 0 1.2.3 2 .9l-1.2-4c-.3 1.1-.7 1.9-1.1 2.3-.3-.8-.2-1.4 0-2.7l-2.9.9C1.3 23 2.6 25.5 3.7 30c3.7-.5 7.9-.8 12.3-.8m28.3-11.6c0 .9.1 1.7.3 2.5.2.8.6 1.5 1 2.2.5.6 1 1.1 1.7 1.5.7.4 1.5.6 2.5.6.9 0 1.7-.1 2.3-.4s1.1-.7 1.5-1.1c.4-.4.6-.9.8-1.5.1-.5.2-1 .2-1.5v-.2h-5.3v-3.2h9.4V28H55v-2.5c-.3.4-.6.8-1 1.1-.4.3-.8.6-1.3.9-.5.2-1 .4-1.6.6s-1.2.2-1.8.2c-1.5 0-2.9-.3-4-.8-1.2-.6-2.2-1.3-3-2.3-.8-1-1.4-2.1-1.8-3.4-.3-1.4-.5-2.8-.5-4.3s.2-2.9.7-4.2c.5-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.6 2.6-.8 4.1-.8 1 0 1.9.1 2.8.3.9.2 1.7.6 2.4 1s1.4.9 1.9 1.5c.6.6 1 1.3 1.4 2l-3.7 2.1c-.2-.4-.5-.9-.8-1.2-.3-.4-.6-.7-1-1-.4-.3-.8-.5-1.3-.7-.5-.2-1.1-.2-1.7-.2-1 0-1.8.2-2.5.6-.7.4-1.3.9-1.7 1.5-.5.6-.8 1.4-1 2.2-.3.8-.4 1.9-.4 2.7zM71.5 6.8c1.5 0 2.9.3 4.2.8 1.2.6 2.3 1.3 3.1 2.3.9 1 1.5 2.1 2 3.4s.7 2.7.7 4.2-.2 2.9-.7 4.2c-.4 1.3-1.1 2.4-2 3.4-.9 1-1.9 1.7-3.1 2.3-1.2.6-2.6.8-4.2.8s-2.9-.3-4.2-.8c-1.2-.6-2.3-1.3-3.1-2.3-.9-1-1.5-2.1-2-3.4-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2c.4-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.5 2.6-.8 4.2-.8zm0 17.6c.9 0 1.7-.2 2.4-.5s1.3-.8 1.7-1.4c.5-.6.8-1.3 1.1-2.2.2-.8.4-1.7.4-2.7v-.1c0-1-.1-1.9-.4-2.7-.2-.8-.6-1.6-1.1-2.2-.5-.6-1.1-1.1-1.7-1.4-.7-.3-1.5-.5-2.4-.5s-1.7.2-2.4.5-1.3.8-1.7 1.4c-.5.6-.8 1.3-1.1 2.2-.2.8-.4 1.7-.4 2.7v.1c0 1 .1 1.9.4 2.7.2.8.6 1.6 1.1 2.2.5.6 1.1 1.1 1.7 1.4.6.3 1.4.5 2.4.5zM88.9 28 83 7h4.7l4 15.7h.1l4-15.7h4.7l-5.9 21h-5.7zm28.8-3.6c.6 0 1.2-.1 1.7-.3.5-.2 1-.4 1.4-.8.4-.4.7-.8.9-1.4.2-.6.3-1.2.3-2v-13h4.1v13.6c0 1.2-.2 2.2-.6 3.1s-1 1.7-1.8 2.4c-.7.7-1.6 1.2-2.7 1.5-1 .4-2.2.5-3.4.5-1.2 0-2.4-.2-3.4-.5-1-.4-1.9-.9-2.7-1.5-.8-.7-1.3-1.5-1.8-2.4-.4-.9-.6-2-.6-3.1V6.9h4.2v13c0 .8.1 1.4.3 2 .2.6.5 1 .9 1.4.4.4.8.6 1.4.8.6.2 1.1.3 1.8.3zm13-17.4h4.2v9.1l7.4-9.1h5.2l-7.2 8.4L148 28h-4.9l-5.5-9.4-2.7 3V28h-4.2V7zm-27.6 16.1c-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.7-1.2 2.7-2.7-1.2-2.7-2.7-2.7z"></path>
-        </svg>
+        
+<svg
+  focusable="false"
+  role="img"
+  class="govuk-header__logotype"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 148 30"
+  height="30"
+  width="148"
+  aria-label="GOV.UK"
+>
+  <title>GOV.UK</title>
+  <path d="M22.6 10.4c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m-5.9 6.7c-.9.4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m10.8-3.7c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s0 2-1 2.4m3.3 4.8c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4M17 4.7l2.3 1.2V2.5l-2.3.7-.2-.2.9-3h-3.4l.9 3-.2.2c-.1.1-2.3-.7-2.3-.7v3.4L15 4.7c.1.1.1.2.2.2l-1.3 4c-.1.2-.1.4-.1.6 0 1.1.8 2 1.9 2.2h.7c1-.2 1.9-1.1 1.9-2.1 0-.2 0-.4-.1-.6l-1.3-4c-.1-.2 0-.2.1-.3m-7.6 5.7c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m-5 3c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s.1 2 1 2.4m-3.2 4.8c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m14.8 11c4.4 0 8.6.3 12.3.8 1.1-4.5 2.4-7 3.7-8.8l-2.5-.9c.2 1.3.3 1.9 0 2.7-.4-.4-.8-1.1-1.1-2.3l-1.2 4c.7-.5 1.3-.8 2-.9-1.1 2.5-2.6 3.1-3.5 3-1.1-.2-1.7-1.2-1.5-2.1.3-1.2 1.5-1.5 2.1-.1 1.1-2.3-.8-3-2-2.3 1.9-1.9 2.1-3.5.6-5.6-2.1 1.6-2.1 3.2-1.2 5.5-1.2-1.4-3.2-.6-2.5 1.6.9-1.4 2.1-.5 1.9.8-.2 1.1-1.7 2.1-3.5 1.9-2.7-.2-2.9-2.1-2.9-3.6.7-.1 1.9.5 2.9 1.9l.4-4.3c-1.1 1.1-2.1 1.4-3.2 1.4.4-1.2 2.1-3 2.1-3h-5.4s1.7 1.9 2.1 3c-1.1 0-2.1-.2-3.2-1.4l.4 4.3c1-1.4 2.2-2 2.9-1.9-.1 1.5-.2 3.4-2.9 3.6-1.9.2-3.4-.8-3.5-1.9-.2-1.3 1-2.2 1.9-.8.7-2.3-1.2-3-2.5-1.6.9-2.2.9-3.9-1.2-5.5-1.5 2-1.3 3.7.6 5.6-1.2-.7-3.1 0-2 2.3.6-1.4 1.8-1.1 2.1.1.2.9-.3 1.9-1.5 2.1-.9.2-2.4-.5-3.5-3 .6 0 1.2.3 2 .9l-1.2-4c-.3 1.1-.7 1.9-1.1 2.3-.3-.8-.2-1.4 0-2.7l-2.9.9C1.3 23 2.6 25.5 3.7 30c3.7-.5 7.9-.8 12.3-.8m28.3-11.6c0 .9.1 1.7.3 2.5.2.8.6 1.5 1 2.2.5.6 1 1.1 1.7 1.5.7.4 1.5.6 2.5.6.9 0 1.7-.1 2.3-.4s1.1-.7 1.5-1.1c.4-.4.6-.9.8-1.5.1-.5.2-1 .2-1.5v-.2h-5.3v-3.2h9.4V28H55v-2.5c-.3.4-.6.8-1 1.1-.4.3-.8.6-1.3.9-.5.2-1 .4-1.6.6s-1.2.2-1.8.2c-1.5 0-2.9-.3-4-.8-1.2-.6-2.2-1.3-3-2.3-.8-1-1.4-2.1-1.8-3.4-.3-1.4-.5-2.8-.5-4.3s.2-2.9.7-4.2c.5-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.6 2.6-.8 4.1-.8 1 0 1.9.1 2.8.3.9.2 1.7.6 2.4 1s1.4.9 1.9 1.5c.6.6 1 1.3 1.4 2l-3.7 2.1c-.2-.4-.5-.9-.8-1.2-.3-.4-.6-.7-1-1-.4-.3-.8-.5-1.3-.7-.5-.2-1.1-.2-1.7-.2-1 0-1.8.2-2.5.6-.7.4-1.3.9-1.7 1.5-.5.6-.8 1.4-1 2.2-.3.8-.4 1.9-.4 2.7zM71.5 6.8c1.5 0 2.9.3 4.2.8 1.2.6 2.3 1.3 3.1 2.3.9 1 1.5 2.1 2 3.4s.7 2.7.7 4.2-.2 2.9-.7 4.2c-.4 1.3-1.1 2.4-2 3.4-.9 1-1.9 1.7-3.1 2.3-1.2.6-2.6.8-4.2.8s-2.9-.3-4.2-.8c-1.2-.6-2.3-1.3-3.1-2.3-.9-1-1.5-2.1-2-3.4-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2c.4-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.5 2.6-.8 4.2-.8zm0 17.6c.9 0 1.7-.2 2.4-.5s1.3-.8 1.7-1.4c.5-.6.8-1.3 1.1-2.2.2-.8.4-1.7.4-2.7v-.1c0-1-.1-1.9-.4-2.7-.2-.8-.6-1.6-1.1-2.2-.5-.6-1.1-1.1-1.7-1.4-.7-.3-1.5-.5-2.4-.5s-1.7.2-2.4.5-1.3.8-1.7 1.4c-.5.6-.8 1.3-1.1 2.2-.2.8-.4 1.7-.4 2.7v.1c0 1 .1 1.9.4 2.7.2.8.6 1.6 1.1 2.2.5.6 1.1 1.1 1.7 1.4.6.3 1.4.5 2.4.5zM88.9 28 83 7h4.7l4 15.7h.1l4-15.7h4.7l-5.9 21h-5.7zm28.8-3.6c.6 0 1.2-.1 1.7-.3.5-.2 1-.4 1.4-.8.4-.4.7-.8.9-1.4.2-.6.3-1.2.3-2v-13h4.1v13.6c0 1.2-.2 2.2-.6 3.1s-1 1.7-1.8 2.4c-.7.7-1.6 1.2-2.7 1.5-1 .4-2.2.5-3.4.5-1.2 0-2.4-.2-3.4-.5-1-.4-1.9-.9-2.7-1.5-.8-.7-1.3-1.5-1.8-2.4-.4-.9-.6-2-.6-3.1V6.9h4.2v13c0 .8.1 1.4.3 2 .2.6.5 1 .9 1.4.4.4.8.6 1.4.8.6.2 1.1.3 1.8.3zm13-17.4h4.2v9.1l7.4-9.1h5.2l-7.2 8.4L148 28h-4.9l-5.5-9.4-2.7 3V28h-4.2V7zm-27.6 16.1c-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.7-1.2 2.7-2.7-1.2-2.7-2.7-2.7z"></path>
+</svg>
+
         
       </a>
     </div>
-  
+    
     <div class="govuk-header__content">
     
-      
+    
       <a href="/natural-capital-ecosystem-assessment" class="govuk-header__link govuk-header__service-name">
         Find natural capital data
       </a>
-      
+    
     
     
     </div>
-  
+    
   </div>
 </header>
 
@@ -220,7 +193,7 @@ exports[`Results block template Guided search journey Search results with empty 
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A46639%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A46881%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -231,8 +204,7 @@ exports[`Results block template Guided search journey Search results with empty 
       <div class="govuk-width-container">
         
     
-  
-<div class="govuk-phase-banner">
+  <div class="govuk-phase-banner">
   <p class="govuk-phase-banner__content">
     <strong class="govuk-tag govuk-phase-banner__content__tag">
       Beta
@@ -249,7 +221,7 @@ exports[`Results block template Guided search journey Search results with empty 
 <a href="#" class="govuk-back-link back-link-search-result">Back</a>
 
   
-        <main class="govuk-main-wrapper app-main-class" id="main-content">
+        <main class="govuk-main-wrapper app-main-class" id="main-content" role="main">
           
     <h1 class="govuk-heading-l ">Search results</h1>
     <div class="govuk-grid-row govuk-!-text-align-right">
@@ -260,12 +232,7 @@ exports[`Results block template Guided search journey Search results with empty 
     
   
 
-<a href="/natural-capital-ecosystem-assessment" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button"
-    
-        
-      
-    
-   data-do-storage-reset="">
+<a href="/natural-capital-ecosystem-assessment" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button" data-do-storage-reset="">
   New search
 </a>
 
@@ -279,13 +246,13 @@ exports[`Results block template Guided search journey Search results with empty 
     <div class='govuk-grid-column-three-quarters govuk-!-margin-0 govuk-!-padding-0 map-view-block'>
       <div id='coordinate-map' style='height: 100%; width: 100%;'></div>
       <div class='defra-map-controls'>
-        <a href="javascript:;" class='defra-map__exit' id="defra-map-exit">
+        <button class='defra-map__exit' id="defra-map-exit">
           <svg xmlns="http://www.w3.org/2000/svg" width="26" height="25" viewBox="0 0 26 25" fill="none">
             <path d="M24.4846 12.25L4.49219 12.25" stroke="#0B0C0C" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
             <path d="M14.4889 2.25L3.24316 12.25L14.4889 22.25" stroke="#0B0C0C" stroke-width="2" stroke-linecap="square"/>
           </svg>
           <span>Exit map</span>
-        </a>
+        </button>
         <div class='defra-map-controls__bottom'>
           <button class='defra-map-reset' id='defra-map-reset' aria-controls="viewport">
             <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
@@ -331,40 +298,32 @@ exports[`Results block template Guided search journey Search results with empty 
 
 
 
-
 <div class="govuk-form-group govuk-!-margin-top-3 govuk-!-margin-bottom-3">
 
   <div class="govuk-checkboxes" data-module="govuk-checkboxes">
     
-    
       
-  
-  
-    
-    
-    
-    
-    
-    <div class="govuk-checkboxes__item">
-      <input class="govuk-checkboxes__input" id="bounding-box" name="bounding-box" type="checkbox" value="on"
-    
+          
         
-      
-    
-   class="defra-checkboxes__input">
-      <label class="govuk-label govuk-checkboxes__label defra-checkboxes__label" for="bounding-box">
+          
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="bounding-box" name="bounding-box" type="checkbox" value="on" class="defra-checkboxes__input">
+            <label class="govuk-label govuk-checkboxes__label defra-checkboxes__label" for="bounding-box">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="25" viewBox="0 0 32 25" fill="none">
                                 <rect x="0.923077" y="1.17308" width="20.3077" height="14.7692" stroke="#0B0C0C" stroke-width="1.84615"/>
                                 <rect x="10.1535" y="8.55784" width="20.3077" height="14.7692" stroke="#0B0C0C" stroke-width="1.84615"/>
                               </svg>
                               &nbsp;Show all bounding boxes
       </label>
+            
+          </div>
+          
+        
       
-    </div>
-    
-  
-
-    
     
   </div>
 
@@ -407,12 +366,7 @@ exports[`Results block template Guided search journey Search results with empty 
     
   
 
-<button type="submit" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-1" data-module="govuk-button"
-    
-        
-      
-    
-   id="go-to-resource">
+<button type="submit" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-1" data-module="govuk-button" id="go-to-resource">
   Go to resource
 </button>
 
@@ -423,12 +377,7 @@ exports[`Results block template Guided search journey Search results with empty 
     
   
 
-<button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button"
-    
-        
-      
-    
-   id="more-info">
+<button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button" id="more-info">
   More info
 </button>
 
@@ -441,12 +390,21 @@ exports[`Results block template Guided search journey Search results with empty 
 </div></div>
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-third">
-          <h2 class='govuk-heading-m filter-heading govuk-!-margin-bottom-2'>
-            Filters
-          </h2>
+          <div class="filters-heading">
+            <h2 class='govuk-heading-m filter-heading govuk-!-margin-bottom-2'>
+              Filters
+            </h2>
+            <div class="filters-buttons">
+              <button type="reset" class="govuk-button govuk-button--warning" data-module="govuk-button" form="filters-search_results" id="filters-reset-search_results" data-reset-url="/natural-capital-ecosystem-assessment/search?q=&amp;rpp=20&amp;srt=most_relevant&amp;jry=gs&amp;pg=1&amp;scope=all">
+                Clear Filters
+              </button>
+              <button type="submit" class="govuk-button" data-module="govuk-button" form="filters-search_results">
+                Apply Filters
+              </button>
+            </div>
+          </div>
           <div class="govuk-section-break--visible"></div>
           
-
 
 
 <form autocomplete="off" id="filters-search_results">
@@ -1379,147 +1337,53 @@ exports[`Results block template Guided search journey Search results with empty 
         </button>
       </label>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-date-filters-search_results">
-        
-
-
-
-
-  
-<div class="govuk-form-group">
-
-  <fieldset class="govuk-fieldset" role="group" aria-describedby="date-before-search_results-hint">
-    
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-    
-      Updated before
-    
-    </legend>
-    
-  
-    <div id="date-before-search_results-hint" class="govuk-hint">
-      For example, 2007
-    </div>
-  
-  
-    <div class="govuk-date-input" id="date-before-search_results">
-      
-      
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="date-before-search_results-year">
-            Year
-          </label>
-        
-        
-          <input
-            
-                
-              
-            
-                
-              
-            
-                
-              
-            
-                
-              
-            
-            
-                
-              
-            
-            
-            
-            
-            
-            
-                
-              
-            
-           class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-before-search_results-year" name="before-year" type="text" value="" inputmode="numeric">
-        
+        <div class="govuk-form-group" id="date-before-group-search_results">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-before-hint-search_results date-before-error-search_results">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              Updated Before
+            </legend>
+            <div id="date-before-hint-search_results" class="govuk-hint">
+              For example, 2004
+            </div>
+            <p id="date-before-error-search_results" class="govuk-error-message display-none">
+              <span class="govuk-visually-hidden">Error:</span><span id="date-before-error-message-search_results"></span>
+            </p>
+            <div class="govuk-date-input" id="date-before-search_results">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="date-before-search_results-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-before-search_results-year" name="before-year" type="text" value="" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
         </div>
-      </div>
-      
-      
-    </div>
-  
-  </fieldset>
 
-</div>
-
-
-        
-
-
-
-
-  
-<div class="govuk-form-group">
-
-  <fieldset class="govuk-fieldset" role="group" aria-describedby="date-after-search_results-hint">
-    
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-    
-      Updated after
-    
-    </legend>
-    
-  
-    <div id="date-after-search_results-hint" class="govuk-hint">
-      For example, 2007
-    </div>
-  
-  
-    <div class="govuk-date-input" id="date-after-search_results">
-      
-      
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="date-after-search_results-year">
-            Year
-          </label>
-        
-        
-          <input
-            
-                
-              
-            
-                
-              
-            
-                
-              
-            
-                
-              
-            
-            
-                
-              
-            
-            
-            
-            
-            
-            
-                
-              
-            
-           class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-after-search_results-year" name="after-year" type="text" value="" inputmode="numeric">
-        
+        <div class="govuk-form-group" id="date-after-group-search_results">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-after-hint-search_results date-after-error-search_results">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              Updated After
+            </legend>
+            <div id="date-after-hint-search_results" class="govuk-hint">
+              For example, 2015
+            </div>
+            <p id="date-after-error-search_results" class="govuk-error-message display-none">
+              <span class="govuk-visually-hidden">Error:</span><span id="date-after-error-message-search_results"></span>
+            </p>
+            <div class="govuk-date-input" id="date-after-search_results">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="date-after-search_results-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-after-search_results-year" name="after-year" type="text" value="" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
         </div>
-      </div>
-      
-      
-    </div>
-  
-  </fieldset>
-
-</div>
-
       </div>
     </div>
     <div class="filter-options__container">
@@ -1534,36 +1398,11 @@ exports[`Results block template Guided search journey Search results with empty 
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-licence-filters-search_results">
         
 
-
 <div class="govuk-form-group">
   
 
 
-  <input
-    
-        
-      
-    
-        
-      
-    
-        
-      
-    
-        
-      
-    
-    
-        
-      
-    
-    
-    
-    
-    
-    
-    
-   class="govuk-input" id="licence-search_results" name="licence" type="text" value="">
+  <input class="govuk-input" id="licence-search_results" name="licence" type="text">
 
 </div>
 
@@ -1581,36 +1420,11 @@ exports[`Results block template Guided search journey Search results with empty 
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-keywords-filters-search_results">
         
 
-
 <div class="govuk-form-group">
   
 
 
-  <input
-    
-        
-      
-    
-        
-      
-    
-        
-      
-    
-        
-      
-    
-    
-        
-      
-    
-    
-    
-    
-    
-    
-    
-   class="govuk-input" id="keywords-search_results" name="keywords" type="text" value="">
+  <input class="govuk-input" id="keywords-search_results" name="keywords" type="text">
 
 </div>
 
@@ -1629,10 +1443,6 @@ exports[`Results block template Guided search journey Search results with empty 
         </label>
       </div>
     </div>
-
-    <div class="govuk-!-margin-top-4 govuk-section-break--visible"></div>
-
-    <a href="/natural-capital-ecosystem-assessment/search?q=&amp;rpp=20&amp;srt=most_relevant&amp;jry=gs&amp;pg=1&amp;scope=all" id="filter-options-reset-search_results" class="filter-options__reset-link govuk-body-m">Reset Filters</a>
   </section>
 </form>
         </div>
@@ -1649,7 +1459,7 @@ exports[`Results block template Guided search journey Search results with empty 
   </h2>
   <div class="govuk-section-break--visible"></div>
   
-    <div class='map-container disabled'>
+    <div class='map-container disabled' id="map-container">
       <div id="map-results-block">
         <button
           id='map-result-button'
@@ -1658,9 +1468,22 @@ exports[`Results block template Guided search journey Search results with empty 
           class='govuk-button govuk-button--map govuk-!-margin-bottom-0 spatial-data-button no-data'
           data-module='govuk-button'
           >
-          
-            No spatial data to display.
-          
+            <span id="no-spatial-data">No spatial data to display.</span>
+            <span id="view-results" class="display-none">
+              View&nbsp;<span id="map-result-count"></span>&nbsp;results on a map
+              <svg
+                class='govuk-button__start-icon'
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="20"
+                viewBox="0 0 16 20"
+                fill="none">
+                <path
+                  d="M14 6C14 2.69 11.31 0 8 0C4.69 0 2 2.69 2 6C2 10.5 8 17 8 17C8 17 14 10.5 14 6ZM6 6C6 4.9 6.9 4 8 4C9.1 4 10 4.9 10
+                    6C10 7.1 9.11 8 8 8C6.9 8 6 7.1 6 6ZM1 18V20H15V18H1Z"
+                  fill="white"/>
+              </svg>
+            </span>
         </button>
       </div>
     </div>
@@ -1695,53 +1518,55 @@ exports[`Results block template Guided search journey Search results with empty 
 
 
     
-  <footer class="govuk-footer">
+  <footer class="govuk-footer" role="contentinfo">
   <div class="govuk-width-container">
     
     <div class="govuk-footer__meta">
       <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
         
-        <h2 class="govuk-visually-hidden">Support links</h2>
-        
-        <ul class="govuk-footer__inline-list">
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
-              Help
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
-              Privacy
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
-              Cookies
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
-              Accessibility statement
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
-              Terms and conditions
-            </a>
-          </li>
-        
-        </ul>
-        
-        
-        <div class="govuk-footer__meta-custom">
-          <p>Version: v1.5.1</p>
-        </div>
-        
+          <h2 class="govuk-visually-hidden">Support links</h2>
+          
+            <ul class="govuk-footer__inline-list">
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
+                    Help
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
+                    Privacy
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
+                    Cookies
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
+                    Accessibility statement
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
+                    Terms and conditions
+                  </a>
+                </li>
+              
+            </ul>
+          
+          
+            <div class="govuk-footer__meta-custom">
+              
+<p>Version: v1.6.0</p>
+
+            </div>
+          
         
         <svg
           aria-hidden="true"
@@ -1758,25 +1583,21 @@ exports[`Results block template Guided search journey Search results with empty 
           />
         </svg>
         <span class="govuk-footer__licence-description">
-        
-          All content is available under the
-          <a
-            class="govuk-footer__link"
-            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
-            rel="license"
-          >Open Government Licence v3.0</a>, except where otherwise stated
-        
+          
+            All content is available under the
+            <a
+              class="govuk-footer__link"
+              href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+              rel="license"
+            >Open Government Licence v3.0</a>, except where otherwise stated
+          
         </span>
       </div>
       <div class="govuk-footer__meta-item">
         <a
           class="govuk-footer__link govuk-footer__copyright-logo"
           href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
-        >
-        
-          © Crown copyright
-        
-        </a>
+        >© Crown copyright</a>
       </div>
     </div>
   </div>
@@ -1851,129 +1672,96 @@ exports[`Results block template Guided search journey Search results with error 
   <body class="govuk-template__body app-body-class">
     <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
     
-  
-<div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on the find natural capital data service"
-    
-        
-      
-    
-   id="cookie_banner">
-  
-  <div class="govuk-cookie-banner__message govuk-width-container"
-    
-        
-      
-    
-   id="cookie_block" hidden>
+  <div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on the find natural capital data service" id="cookie_banner">
+    <div class="govuk-cookie-banner__message govuk-width-container" id="cookie_block" hidden>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         
-        <h2 class="govuk-cookie-banner__heading govuk-heading-m">
-          Cookies on the find natural capital data service
-        </h2>
+        <h2 class="govuk-cookie-banner__heading govuk-heading-m">Cookies on the find natural capital data service</h2>
         
+
         <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">We use some essential cookies to make this service work.</p>
-          <p class="govuk-body">We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements</p>
-          
-        </div>
+<p class="govuk-body">We use some essential cookies to make this service work.</p>
+<p class="govuk-body">We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements</p>
+</div>
       </div>
     </div>
 
-    
-    <div class="govuk-button-group">
-    
       
-      <button type="button" class="govuk-button" data-module="govuk-button"
+      <div class="govuk-button-group">
+        
           
-              
+            <button type="button" class="govuk-button" data-module="govuk-button" id="accept_button">
+              Accept analytics cookies
+            </button>
+          
+        
+          
+            <button type="button" class="govuk-button" data-module="govuk-button" id="reject_button">
+              Reject analytics cookies
+            </button>
+          
+        
+          
+            
+              <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
             
           
-         id="accept_button">
-        Accept analytics cookies
-      </button>
-    
-      
-      <button type="button" class="govuk-button" data-module="govuk-button"
-          
-              
-            
-          
-         id="reject_button">
-        Reject analytics cookies
-      </button>
-    
-      
-      <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
-    
-    </div>
-    
-
-  </div>
-  
-  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
-    
         
+      </div>
       
-    
-   id="accept_block" hidden>
+    </div>
+  
+    <div class="govuk-cookie-banner__message govuk-width-container" role="alert" id="accept_block" hidden>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         
+
         <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
-          
-        </div>
+<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+</div>
       </div>
     </div>
 
-    
-    <div class="govuk-button-group">
-    
       
-      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-        Hide cookie message
-      </button>
-    
-    </div>
-    
-
-  </div>
-  
-  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
-    
+      <div class="govuk-button-group">
         
+          
+            <button type="button" class="govuk-button hide_button" data-module="govuk-button">
+              Hide cookie message
+            </button>
+          
+        
+      </div>
       
-    
-   id="reject_block" hidden>
+    </div>
+  
+    <div class="govuk-cookie-banner__message govuk-width-container" role="alert" id="reject_block" hidden>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         
+
         <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
-          
-        </div>
+<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+</div>
       </div>
     </div>
 
-    
-    <div class="govuk-button-group">
-    
       
-      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-        Hide cookie message
-      </button>
-    
+      <div class="govuk-button-group">
+        
+          
+            <button type="button" class="govuk-button hide_button" data-module="govuk-button">
+              Hide cookie message
+            </button>
+          
+        
+      </div>
+      
     </div>
-    
-
-  </div>
   
 </div>
 
@@ -1997,38 +1785,44 @@ exports[`Results block template Guided search journey Search results with error 
     <!-- Google tag (gtag.js) -->
     
 
-    <header class="govuk-header" data-module="govuk-header">
+    
+
+
+
+<header class="govuk-header" role="banner" data-module="govuk-header">
   <div class="govuk-header__container govuk-width-container">
     <div class="govuk-header__logo">
       <a href="https://www.gov.uk/" class="govuk-header__link govuk-header__link--homepage">
-        <svg
-          focusable="false"
-          role="img"
-          class="govuk-header__logotype"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 148 30"
-          height="30"
-          width="148"
-          aria-label="GOV.UK"
-        >
-          <title>GOV.UK</title>
-          <path d="M22.6 10.4c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m-5.9 6.7c-.9.4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m10.8-3.7c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s0 2-1 2.4m3.3 4.8c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4M17 4.7l2.3 1.2V2.5l-2.3.7-.2-.2.9-3h-3.4l.9 3-.2.2c-.1.1-2.3-.7-2.3-.7v3.4L15 4.7c.1.1.1.2.2.2l-1.3 4c-.1.2-.1.4-.1.6 0 1.1.8 2 1.9 2.2h.7c1-.2 1.9-1.1 1.9-2.1 0-.2 0-.4-.1-.6l-1.3-4c-.1-.2 0-.2.1-.3m-7.6 5.7c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m-5 3c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s.1 2 1 2.4m-3.2 4.8c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m14.8 11c4.4 0 8.6.3 12.3.8 1.1-4.5 2.4-7 3.7-8.8l-2.5-.9c.2 1.3.3 1.9 0 2.7-.4-.4-.8-1.1-1.1-2.3l-1.2 4c.7-.5 1.3-.8 2-.9-1.1 2.5-2.6 3.1-3.5 3-1.1-.2-1.7-1.2-1.5-2.1.3-1.2 1.5-1.5 2.1-.1 1.1-2.3-.8-3-2-2.3 1.9-1.9 2.1-3.5.6-5.6-2.1 1.6-2.1 3.2-1.2 5.5-1.2-1.4-3.2-.6-2.5 1.6.9-1.4 2.1-.5 1.9.8-.2 1.1-1.7 2.1-3.5 1.9-2.7-.2-2.9-2.1-2.9-3.6.7-.1 1.9.5 2.9 1.9l.4-4.3c-1.1 1.1-2.1 1.4-3.2 1.4.4-1.2 2.1-3 2.1-3h-5.4s1.7 1.9 2.1 3c-1.1 0-2.1-.2-3.2-1.4l.4 4.3c1-1.4 2.2-2 2.9-1.9-.1 1.5-.2 3.4-2.9 3.6-1.9.2-3.4-.8-3.5-1.9-.2-1.3 1-2.2 1.9-.8.7-2.3-1.2-3-2.5-1.6.9-2.2.9-3.9-1.2-5.5-1.5 2-1.3 3.7.6 5.6-1.2-.7-3.1 0-2 2.3.6-1.4 1.8-1.1 2.1.1.2.9-.3 1.9-1.5 2.1-.9.2-2.4-.5-3.5-3 .6 0 1.2.3 2 .9l-1.2-4c-.3 1.1-.7 1.9-1.1 2.3-.3-.8-.2-1.4 0-2.7l-2.9.9C1.3 23 2.6 25.5 3.7 30c3.7-.5 7.9-.8 12.3-.8m28.3-11.6c0 .9.1 1.7.3 2.5.2.8.6 1.5 1 2.2.5.6 1 1.1 1.7 1.5.7.4 1.5.6 2.5.6.9 0 1.7-.1 2.3-.4s1.1-.7 1.5-1.1c.4-.4.6-.9.8-1.5.1-.5.2-1 .2-1.5v-.2h-5.3v-3.2h9.4V28H55v-2.5c-.3.4-.6.8-1 1.1-.4.3-.8.6-1.3.9-.5.2-1 .4-1.6.6s-1.2.2-1.8.2c-1.5 0-2.9-.3-4-.8-1.2-.6-2.2-1.3-3-2.3-.8-1-1.4-2.1-1.8-3.4-.3-1.4-.5-2.8-.5-4.3s.2-2.9.7-4.2c.5-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.6 2.6-.8 4.1-.8 1 0 1.9.1 2.8.3.9.2 1.7.6 2.4 1s1.4.9 1.9 1.5c.6.6 1 1.3 1.4 2l-3.7 2.1c-.2-.4-.5-.9-.8-1.2-.3-.4-.6-.7-1-1-.4-.3-.8-.5-1.3-.7-.5-.2-1.1-.2-1.7-.2-1 0-1.8.2-2.5.6-.7.4-1.3.9-1.7 1.5-.5.6-.8 1.4-1 2.2-.3.8-.4 1.9-.4 2.7zM71.5 6.8c1.5 0 2.9.3 4.2.8 1.2.6 2.3 1.3 3.1 2.3.9 1 1.5 2.1 2 3.4s.7 2.7.7 4.2-.2 2.9-.7 4.2c-.4 1.3-1.1 2.4-2 3.4-.9 1-1.9 1.7-3.1 2.3-1.2.6-2.6.8-4.2.8s-2.9-.3-4.2-.8c-1.2-.6-2.3-1.3-3.1-2.3-.9-1-1.5-2.1-2-3.4-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2c.4-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.5 2.6-.8 4.2-.8zm0 17.6c.9 0 1.7-.2 2.4-.5s1.3-.8 1.7-1.4c.5-.6.8-1.3 1.1-2.2.2-.8.4-1.7.4-2.7v-.1c0-1-.1-1.9-.4-2.7-.2-.8-.6-1.6-1.1-2.2-.5-.6-1.1-1.1-1.7-1.4-.7-.3-1.5-.5-2.4-.5s-1.7.2-2.4.5-1.3.8-1.7 1.4c-.5.6-.8 1.3-1.1 2.2-.2.8-.4 1.7-.4 2.7v.1c0 1 .1 1.9.4 2.7.2.8.6 1.6 1.1 2.2.5.6 1.1 1.1 1.7 1.4.6.3 1.4.5 2.4.5zM88.9 28 83 7h4.7l4 15.7h.1l4-15.7h4.7l-5.9 21h-5.7zm28.8-3.6c.6 0 1.2-.1 1.7-.3.5-.2 1-.4 1.4-.8.4-.4.7-.8.9-1.4.2-.6.3-1.2.3-2v-13h4.1v13.6c0 1.2-.2 2.2-.6 3.1s-1 1.7-1.8 2.4c-.7.7-1.6 1.2-2.7 1.5-1 .4-2.2.5-3.4.5-1.2 0-2.4-.2-3.4-.5-1-.4-1.9-.9-2.7-1.5-.8-.7-1.3-1.5-1.8-2.4-.4-.9-.6-2-.6-3.1V6.9h4.2v13c0 .8.1 1.4.3 2 .2.6.5 1 .9 1.4.4.4.8.6 1.4.8.6.2 1.1.3 1.8.3zm13-17.4h4.2v9.1l7.4-9.1h5.2l-7.2 8.4L148 28h-4.9l-5.5-9.4-2.7 3V28h-4.2V7zm-27.6 16.1c-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.7-1.2 2.7-2.7-1.2-2.7-2.7-2.7z"></path>
-        </svg>
+        
+<svg
+  focusable="false"
+  role="img"
+  class="govuk-header__logotype"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 148 30"
+  height="30"
+  width="148"
+  aria-label="GOV.UK"
+>
+  <title>GOV.UK</title>
+  <path d="M22.6 10.4c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m-5.9 6.7c-.9.4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m10.8-3.7c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s0 2-1 2.4m3.3 4.8c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4M17 4.7l2.3 1.2V2.5l-2.3.7-.2-.2.9-3h-3.4l.9 3-.2.2c-.1.1-2.3-.7-2.3-.7v3.4L15 4.7c.1.1.1.2.2.2l-1.3 4c-.1.2-.1.4-.1.6 0 1.1.8 2 1.9 2.2h.7c1-.2 1.9-1.1 1.9-2.1 0-.2 0-.4-.1-.6l-1.3-4c-.1-.2 0-.2.1-.3m-7.6 5.7c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m-5 3c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s.1 2 1 2.4m-3.2 4.8c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m14.8 11c4.4 0 8.6.3 12.3.8 1.1-4.5 2.4-7 3.7-8.8l-2.5-.9c.2 1.3.3 1.9 0 2.7-.4-.4-.8-1.1-1.1-2.3l-1.2 4c.7-.5 1.3-.8 2-.9-1.1 2.5-2.6 3.1-3.5 3-1.1-.2-1.7-1.2-1.5-2.1.3-1.2 1.5-1.5 2.1-.1 1.1-2.3-.8-3-2-2.3 1.9-1.9 2.1-3.5.6-5.6-2.1 1.6-2.1 3.2-1.2 5.5-1.2-1.4-3.2-.6-2.5 1.6.9-1.4 2.1-.5 1.9.8-.2 1.1-1.7 2.1-3.5 1.9-2.7-.2-2.9-2.1-2.9-3.6.7-.1 1.9.5 2.9 1.9l.4-4.3c-1.1 1.1-2.1 1.4-3.2 1.4.4-1.2 2.1-3 2.1-3h-5.4s1.7 1.9 2.1 3c-1.1 0-2.1-.2-3.2-1.4l.4 4.3c1-1.4 2.2-2 2.9-1.9-.1 1.5-.2 3.4-2.9 3.6-1.9.2-3.4-.8-3.5-1.9-.2-1.3 1-2.2 1.9-.8.7-2.3-1.2-3-2.5-1.6.9-2.2.9-3.9-1.2-5.5-1.5 2-1.3 3.7.6 5.6-1.2-.7-3.1 0-2 2.3.6-1.4 1.8-1.1 2.1.1.2.9-.3 1.9-1.5 2.1-.9.2-2.4-.5-3.5-3 .6 0 1.2.3 2 .9l-1.2-4c-.3 1.1-.7 1.9-1.1 2.3-.3-.8-.2-1.4 0-2.7l-2.9.9C1.3 23 2.6 25.5 3.7 30c3.7-.5 7.9-.8 12.3-.8m28.3-11.6c0 .9.1 1.7.3 2.5.2.8.6 1.5 1 2.2.5.6 1 1.1 1.7 1.5.7.4 1.5.6 2.5.6.9 0 1.7-.1 2.3-.4s1.1-.7 1.5-1.1c.4-.4.6-.9.8-1.5.1-.5.2-1 .2-1.5v-.2h-5.3v-3.2h9.4V28H55v-2.5c-.3.4-.6.8-1 1.1-.4.3-.8.6-1.3.9-.5.2-1 .4-1.6.6s-1.2.2-1.8.2c-1.5 0-2.9-.3-4-.8-1.2-.6-2.2-1.3-3-2.3-.8-1-1.4-2.1-1.8-3.4-.3-1.4-.5-2.8-.5-4.3s.2-2.9.7-4.2c.5-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.6 2.6-.8 4.1-.8 1 0 1.9.1 2.8.3.9.2 1.7.6 2.4 1s1.4.9 1.9 1.5c.6.6 1 1.3 1.4 2l-3.7 2.1c-.2-.4-.5-.9-.8-1.2-.3-.4-.6-.7-1-1-.4-.3-.8-.5-1.3-.7-.5-.2-1.1-.2-1.7-.2-1 0-1.8.2-2.5.6-.7.4-1.3.9-1.7 1.5-.5.6-.8 1.4-1 2.2-.3.8-.4 1.9-.4 2.7zM71.5 6.8c1.5 0 2.9.3 4.2.8 1.2.6 2.3 1.3 3.1 2.3.9 1 1.5 2.1 2 3.4s.7 2.7.7 4.2-.2 2.9-.7 4.2c-.4 1.3-1.1 2.4-2 3.4-.9 1-1.9 1.7-3.1 2.3-1.2.6-2.6.8-4.2.8s-2.9-.3-4.2-.8c-1.2-.6-2.3-1.3-3.1-2.3-.9-1-1.5-2.1-2-3.4-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2c.4-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.5 2.6-.8 4.2-.8zm0 17.6c.9 0 1.7-.2 2.4-.5s1.3-.8 1.7-1.4c.5-.6.8-1.3 1.1-2.2.2-.8.4-1.7.4-2.7v-.1c0-1-.1-1.9-.4-2.7-.2-.8-.6-1.6-1.1-2.2-.5-.6-1.1-1.1-1.7-1.4-.7-.3-1.5-.5-2.4-.5s-1.7.2-2.4.5-1.3.8-1.7 1.4c-.5.6-.8 1.3-1.1 2.2-.2.8-.4 1.7-.4 2.7v.1c0 1 .1 1.9.4 2.7.2.8.6 1.6 1.1 2.2.5.6 1.1 1.1 1.7 1.4.6.3 1.4.5 2.4.5zM88.9 28 83 7h4.7l4 15.7h.1l4-15.7h4.7l-5.9 21h-5.7zm28.8-3.6c.6 0 1.2-.1 1.7-.3.5-.2 1-.4 1.4-.8.4-.4.7-.8.9-1.4.2-.6.3-1.2.3-2v-13h4.1v13.6c0 1.2-.2 2.2-.6 3.1s-1 1.7-1.8 2.4c-.7.7-1.6 1.2-2.7 1.5-1 .4-2.2.5-3.4.5-1.2 0-2.4-.2-3.4-.5-1-.4-1.9-.9-2.7-1.5-.8-.7-1.3-1.5-1.8-2.4-.4-.9-.6-2-.6-3.1V6.9h4.2v13c0 .8.1 1.4.3 2 .2.6.5 1 .9 1.4.4.4.8.6 1.4.8.6.2 1.1.3 1.8.3zm13-17.4h4.2v9.1l7.4-9.1h5.2l-7.2 8.4L148 28h-4.9l-5.5-9.4-2.7 3V28h-4.2V7zm-27.6 16.1c-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.7-1.2 2.7-2.7-1.2-2.7-2.7-2.7z"></path>
+</svg>
+
         
       </a>
     </div>
-  
+    
     <div class="govuk-header__content">
     
-      
+    
       <a href="/natural-capital-ecosystem-assessment" class="govuk-header__link govuk-header__service-name">
         Find natural capital data
       </a>
-      
+    
     
     
     </div>
-  
+    
   </div>
 </header>
 
@@ -2036,7 +1830,7 @@ exports[`Results block template Guided search journey Search results with error 
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A38023%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A43325%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -2047,8 +1841,7 @@ exports[`Results block template Guided search journey Search results with error 
       <div class="govuk-width-container">
         
     
-  
-<div class="govuk-phase-banner">
+  <div class="govuk-phase-banner">
   <p class="govuk-phase-banner__content">
     <strong class="govuk-tag govuk-phase-banner__content__tag">
       Beta
@@ -2065,7 +1858,7 @@ exports[`Results block template Guided search journey Search results with error 
 <a href="#" class="govuk-back-link">Back</a>
 
   
-        <main class="govuk-main-wrapper app-main-class" id="main-content">
+        <main class="govuk-main-wrapper app-main-class" id="main-content" role="main">
           
     <h1 class="govuk-heading-l ">Search results</h1>
     <div class="govuk-grid-row govuk-!-text-align-right">
@@ -2076,12 +1869,7 @@ exports[`Results block template Guided search journey Search results with error 
     
   
 
-<a href="/natural-capital-ecosystem-assessment" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button"
-    
-        
-      
-    
-   data-do-storage-reset="">
+<a href="/natural-capital-ecosystem-assessment" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button" data-do-storage-reset="">
   New search
 </a>
 
@@ -2095,13 +1883,13 @@ exports[`Results block template Guided search journey Search results with error 
     <div class='govuk-grid-column-three-quarters govuk-!-margin-0 govuk-!-padding-0 map-view-block'>
       <div id='coordinate-map' style='height: 100%; width: 100%;'></div>
       <div class='defra-map-controls'>
-        <a href="javascript:;" class='defra-map__exit' id="defra-map-exit">
+        <button class='defra-map__exit' id="defra-map-exit">
           <svg xmlns="http://www.w3.org/2000/svg" width="26" height="25" viewBox="0 0 26 25" fill="none">
             <path d="M24.4846 12.25L4.49219 12.25" stroke="#0B0C0C" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
             <path d="M14.4889 2.25L3.24316 12.25L14.4889 22.25" stroke="#0B0C0C" stroke-width="2" stroke-linecap="square"/>
           </svg>
           <span>Exit map</span>
-        </a>
+        </button>
         <div class='defra-map-controls__bottom'>
           <button class='defra-map-reset' id='defra-map-reset' aria-controls="viewport">
             <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
@@ -2147,40 +1935,32 @@ exports[`Results block template Guided search journey Search results with error 
 
 
 
-
 <div class="govuk-form-group govuk-!-margin-top-3 govuk-!-margin-bottom-3">
 
   <div class="govuk-checkboxes" data-module="govuk-checkboxes">
     
-    
       
-  
-  
-    
-    
-    
-    
-    
-    <div class="govuk-checkboxes__item">
-      <input class="govuk-checkboxes__input" id="bounding-box" name="bounding-box" type="checkbox" value="on"
-    
+          
         
-      
-    
-   class="defra-checkboxes__input">
-      <label class="govuk-label govuk-checkboxes__label defra-checkboxes__label" for="bounding-box">
+          
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="bounding-box" name="bounding-box" type="checkbox" value="on" class="defra-checkboxes__input">
+            <label class="govuk-label govuk-checkboxes__label defra-checkboxes__label" for="bounding-box">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="25" viewBox="0 0 32 25" fill="none">
                                 <rect x="0.923077" y="1.17308" width="20.3077" height="14.7692" stroke="#0B0C0C" stroke-width="1.84615"/>
                                 <rect x="10.1535" y="8.55784" width="20.3077" height="14.7692" stroke="#0B0C0C" stroke-width="1.84615"/>
                               </svg>
                               &nbsp;Show all bounding boxes
       </label>
+            
+          </div>
+          
+        
       
-    </div>
-    
-  
-
-    
     
   </div>
 
@@ -2223,12 +2003,7 @@ exports[`Results block template Guided search journey Search results with error 
     
   
 
-<button type="submit" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-1" data-module="govuk-button"
-    
-        
-      
-    
-   id="go-to-resource">
+<button type="submit" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-1" data-module="govuk-button" id="go-to-resource">
   Go to resource
 </button>
 
@@ -2239,12 +2014,7 @@ exports[`Results block template Guided search journey Search results with error 
     
   
 
-<button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button"
-    
-        
-      
-    
-   id="more-info">
+<button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button" id="more-info">
   More info
 </button>
 
@@ -2257,12 +2027,21 @@ exports[`Results block template Guided search journey Search results with error 
 </div></div>
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-third">
-          <h2 class='govuk-heading-m filter-heading govuk-!-margin-bottom-2'>
-            Filters
-          </h2>
+          <div class="filters-heading">
+            <h2 class='govuk-heading-m filter-heading govuk-!-margin-bottom-2'>
+              Filters
+            </h2>
+            <div class="filters-buttons">
+              <button type="reset" class="govuk-button govuk-button--warning" data-module="govuk-button" form="filters-" id="filters-reset-" data-reset-url="">
+                Clear Filters
+              </button>
+              <button type="submit" class="govuk-button" data-module="govuk-button" form="filters-">
+                Apply Filters
+              </button>
+            </div>
+          </div>
           <div class="govuk-section-break--visible"></div>
           
-
 
 
 <form autocomplete="off" id="filters-">
@@ -2303,143 +2082,53 @@ exports[`Results block template Guided search journey Search results with error 
         </button>
       </label>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-date-filters-">
-        
-
-
-
-
-  
-<div class="govuk-form-group">
-
-  <fieldset class="govuk-fieldset" role="group" aria-describedby="date-before-undefined-hint">
-    
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-    
-      Updated before
-    
-    </legend>
-    
-  
-    <div id="date-before-undefined-hint" class="govuk-hint">
-      For example, 2007
-    </div>
-  
-  
-    <div class="govuk-date-input" id="date-before-undefined">
-      
-      
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="date-before-undefined-year">
-            Year
-          </label>
-        
-        
-          <input
-            
-                
-              
-            
-                
-              
-            
-                
-              
-            
-                
-              
-            
-            
-            
-            
-            
-            
-            
-            
-                
-              
-            
-           class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-before-undefined-year" name="before-year" type="text" inputmode="numeric">
-        
+        <div class="govuk-form-group" id="date-before-group-">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-before-hint- date-before-error-">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              Updated Before
+            </legend>
+            <div id="date-before-hint-" class="govuk-hint">
+              For example, 2004
+            </div>
+            <p id="date-before-error-" class="govuk-error-message display-none">
+              <span class="govuk-visually-hidden">Error:</span><span id="date-before-error-message-"></span>
+            </p>
+            <div class="govuk-date-input" id="date-before-">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="date-before--year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-before--year" name="before-year" type="text" value="" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
         </div>
-      </div>
-      
-      
-    </div>
-  
-  </fieldset>
 
-</div>
-
-
-        
-
-
-
-
-  
-<div class="govuk-form-group">
-
-  <fieldset class="govuk-fieldset" role="group" aria-describedby="date-after-undefined-hint">
-    
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-    
-      Updated after
-    
-    </legend>
-    
-  
-    <div id="date-after-undefined-hint" class="govuk-hint">
-      For example, 2007
-    </div>
-  
-  
-    <div class="govuk-date-input" id="date-after-undefined">
-      
-      
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="date-after-undefined-year">
-            Year
-          </label>
-        
-        
-          <input
-            
-                
-              
-            
-                
-              
-            
-                
-              
-            
-                
-              
-            
-            
-            
-            
-            
-            
-            
-            
-                
-              
-            
-           class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-after-undefined-year" name="after-year" type="text" inputmode="numeric">
-        
+        <div class="govuk-form-group" id="date-after-group-">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-after-hint- date-after-error-">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              Updated After
+            </legend>
+            <div id="date-after-hint-" class="govuk-hint">
+              For example, 2015
+            </div>
+            <p id="date-after-error-" class="govuk-error-message display-none">
+              <span class="govuk-visually-hidden">Error:</span><span id="date-after-error-message-"></span>
+            </p>
+            <div class="govuk-date-input" id="date-after-">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="date-after--year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-after--year" name="after-year" type="text" value="" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
         </div>
-      </div>
-      
-      
-    </div>
-  
-  </fieldset>
-
-</div>
-
       </div>
     </div>
     <div class="filter-options__container">
@@ -2454,34 +2143,11 @@ exports[`Results block template Guided search journey Search results with error 
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-licence-filters-">
         
 
-
 <div class="govuk-form-group">
   
 
 
-  <input
-    
-        
-      
-    
-        
-      
-    
-        
-      
-    
-        
-      
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   class="govuk-input" id="licence-undefined" name="" type="text">
+  <input class="govuk-input" id="licence-undefined" name="" type="text">
 
 </div>
 
@@ -2499,34 +2165,11 @@ exports[`Results block template Guided search journey Search results with error 
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-keywords-filters-">
         
 
-
 <div class="govuk-form-group">
   
 
 
-  <input
-    
-        
-      
-    
-        
-      
-    
-        
-      
-    
-        
-      
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   class="govuk-input" id="keywords-undefined" name="" type="text">
+  <input class="govuk-input" id="keywords-undefined" name="" type="text">
 
 </div>
 
@@ -2545,10 +2188,6 @@ exports[`Results block template Guided search journey Search results with error 
         </label>
       </div>
     </div>
-
-    <div class="govuk-!-margin-top-4 govuk-section-break--visible"></div>
-
-    <a href="" id="filter-options-reset-" class="filter-options__reset-link govuk-body-m">Reset Filters</a>
   </section>
 </form>
         </div>
@@ -2575,53 +2214,55 @@ exports[`Results block template Guided search journey Search results with error 
 
 
     
-  <footer class="govuk-footer">
+  <footer class="govuk-footer" role="contentinfo">
   <div class="govuk-width-container">
     
     <div class="govuk-footer__meta">
       <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
         
-        <h2 class="govuk-visually-hidden">Support links</h2>
-        
-        <ul class="govuk-footer__inline-list">
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
-              Help
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
-              Privacy
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
-              Cookies
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
-              Accessibility statement
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
-              Terms and conditions
-            </a>
-          </li>
-        
-        </ul>
-        
-        
-        <div class="govuk-footer__meta-custom">
-          <p>Version: v1.5.1</p>
-        </div>
-        
+          <h2 class="govuk-visually-hidden">Support links</h2>
+          
+            <ul class="govuk-footer__inline-list">
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
+                    Help
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
+                    Privacy
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
+                    Cookies
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
+                    Accessibility statement
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
+                    Terms and conditions
+                  </a>
+                </li>
+              
+            </ul>
+          
+          
+            <div class="govuk-footer__meta-custom">
+              
+<p>Version: v1.6.0</p>
+
+            </div>
+          
         
         <svg
           aria-hidden="true"
@@ -2638,25 +2279,21 @@ exports[`Results block template Guided search journey Search results with error 
           />
         </svg>
         <span class="govuk-footer__licence-description">
-        
-          All content is available under the
-          <a
-            class="govuk-footer__link"
-            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
-            rel="license"
-          >Open Government Licence v3.0</a>, except where otherwise stated
-        
+          
+            All content is available under the
+            <a
+              class="govuk-footer__link"
+              href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+              rel="license"
+            >Open Government Licence v3.0</a>, except where otherwise stated
+          
         </span>
       </div>
       <div class="govuk-footer__meta-item">
         <a
           class="govuk-footer__link govuk-footer__copyright-logo"
           href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
-        >
-        
-          © Crown copyright
-        
-        </a>
+        >© Crown copyright</a>
       </div>
     </div>
   </div>
@@ -2731,129 +2368,96 @@ exports[`Results block template Quick search journey Search results with data sh
   <body class="govuk-template__body app-body-class">
     <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
     
-  
-<div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on the find natural capital data service"
-    
-        
-      
-    
-   id="cookie_banner">
-  
-  <div class="govuk-cookie-banner__message govuk-width-container"
-    
-        
-      
-    
-   id="cookie_block" hidden>
+  <div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on the find natural capital data service" id="cookie_banner">
+    <div class="govuk-cookie-banner__message govuk-width-container" id="cookie_block" hidden>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         
-        <h2 class="govuk-cookie-banner__heading govuk-heading-m">
-          Cookies on the find natural capital data service
-        </h2>
+        <h2 class="govuk-cookie-banner__heading govuk-heading-m">Cookies on the find natural capital data service</h2>
         
+
         <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">We use some essential cookies to make this service work.</p>
-          <p class="govuk-body">We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements</p>
-          
-        </div>
+<p class="govuk-body">We use some essential cookies to make this service work.</p>
+<p class="govuk-body">We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements</p>
+</div>
       </div>
     </div>
 
-    
-    <div class="govuk-button-group">
-    
       
-      <button type="button" class="govuk-button" data-module="govuk-button"
+      <div class="govuk-button-group">
+        
           
-              
+            <button type="button" class="govuk-button" data-module="govuk-button" id="accept_button">
+              Accept analytics cookies
+            </button>
+          
+        
+          
+            <button type="button" class="govuk-button" data-module="govuk-button" id="reject_button">
+              Reject analytics cookies
+            </button>
+          
+        
+          
+            
+              <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
             
           
-         id="accept_button">
-        Accept analytics cookies
-      </button>
-    
-      
-      <button type="button" class="govuk-button" data-module="govuk-button"
-          
-              
-            
-          
-         id="reject_button">
-        Reject analytics cookies
-      </button>
-    
-      
-      <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
-    
-    </div>
-    
-
-  </div>
-  
-  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
-    
         
+      </div>
       
-    
-   id="accept_block" hidden>
+    </div>
+  
+    <div class="govuk-cookie-banner__message govuk-width-container" role="alert" id="accept_block" hidden>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         
+
         <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
-          
-        </div>
+<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+</div>
       </div>
     </div>
 
-    
-    <div class="govuk-button-group">
-    
       
-      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-        Hide cookie message
-      </button>
-    
-    </div>
-    
-
-  </div>
-  
-  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
-    
+      <div class="govuk-button-group">
         
+          
+            <button type="button" class="govuk-button hide_button" data-module="govuk-button">
+              Hide cookie message
+            </button>
+          
+        
+      </div>
       
-    
-   id="reject_block" hidden>
+    </div>
+  
+    <div class="govuk-cookie-banner__message govuk-width-container" role="alert" id="reject_block" hidden>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         
+
         <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
-          
-        </div>
+<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+</div>
       </div>
     </div>
 
-    
-    <div class="govuk-button-group">
-    
       
-      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-        Hide cookie message
-      </button>
-    
+      <div class="govuk-button-group">
+        
+          
+            <button type="button" class="govuk-button hide_button" data-module="govuk-button">
+              Hide cookie message
+            </button>
+          
+        
+      </div>
+      
     </div>
-    
-
-  </div>
   
 </div>
 
@@ -2877,38 +2481,44 @@ exports[`Results block template Quick search journey Search results with data sh
     <!-- Google tag (gtag.js) -->
     
 
-    <header class="govuk-header" data-module="govuk-header">
+    
+
+
+
+<header class="govuk-header" role="banner" data-module="govuk-header">
   <div class="govuk-header__container govuk-width-container">
     <div class="govuk-header__logo">
       <a href="https://www.gov.uk/" class="govuk-header__link govuk-header__link--homepage">
-        <svg
-          focusable="false"
-          role="img"
-          class="govuk-header__logotype"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 148 30"
-          height="30"
-          width="148"
-          aria-label="GOV.UK"
-        >
-          <title>GOV.UK</title>
-          <path d="M22.6 10.4c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m-5.9 6.7c-.9.4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m10.8-3.7c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s0 2-1 2.4m3.3 4.8c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4M17 4.7l2.3 1.2V2.5l-2.3.7-.2-.2.9-3h-3.4l.9 3-.2.2c-.1.1-2.3-.7-2.3-.7v3.4L15 4.7c.1.1.1.2.2.2l-1.3 4c-.1.2-.1.4-.1.6 0 1.1.8 2 1.9 2.2h.7c1-.2 1.9-1.1 1.9-2.1 0-.2 0-.4-.1-.6l-1.3-4c-.1-.2 0-.2.1-.3m-7.6 5.7c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m-5 3c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s.1 2 1 2.4m-3.2 4.8c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m14.8 11c4.4 0 8.6.3 12.3.8 1.1-4.5 2.4-7 3.7-8.8l-2.5-.9c.2 1.3.3 1.9 0 2.7-.4-.4-.8-1.1-1.1-2.3l-1.2 4c.7-.5 1.3-.8 2-.9-1.1 2.5-2.6 3.1-3.5 3-1.1-.2-1.7-1.2-1.5-2.1.3-1.2 1.5-1.5 2.1-.1 1.1-2.3-.8-3-2-2.3 1.9-1.9 2.1-3.5.6-5.6-2.1 1.6-2.1 3.2-1.2 5.5-1.2-1.4-3.2-.6-2.5 1.6.9-1.4 2.1-.5 1.9.8-.2 1.1-1.7 2.1-3.5 1.9-2.7-.2-2.9-2.1-2.9-3.6.7-.1 1.9.5 2.9 1.9l.4-4.3c-1.1 1.1-2.1 1.4-3.2 1.4.4-1.2 2.1-3 2.1-3h-5.4s1.7 1.9 2.1 3c-1.1 0-2.1-.2-3.2-1.4l.4 4.3c1-1.4 2.2-2 2.9-1.9-.1 1.5-.2 3.4-2.9 3.6-1.9.2-3.4-.8-3.5-1.9-.2-1.3 1-2.2 1.9-.8.7-2.3-1.2-3-2.5-1.6.9-2.2.9-3.9-1.2-5.5-1.5 2-1.3 3.7.6 5.6-1.2-.7-3.1 0-2 2.3.6-1.4 1.8-1.1 2.1.1.2.9-.3 1.9-1.5 2.1-.9.2-2.4-.5-3.5-3 .6 0 1.2.3 2 .9l-1.2-4c-.3 1.1-.7 1.9-1.1 2.3-.3-.8-.2-1.4 0-2.7l-2.9.9C1.3 23 2.6 25.5 3.7 30c3.7-.5 7.9-.8 12.3-.8m28.3-11.6c0 .9.1 1.7.3 2.5.2.8.6 1.5 1 2.2.5.6 1 1.1 1.7 1.5.7.4 1.5.6 2.5.6.9 0 1.7-.1 2.3-.4s1.1-.7 1.5-1.1c.4-.4.6-.9.8-1.5.1-.5.2-1 .2-1.5v-.2h-5.3v-3.2h9.4V28H55v-2.5c-.3.4-.6.8-1 1.1-.4.3-.8.6-1.3.9-.5.2-1 .4-1.6.6s-1.2.2-1.8.2c-1.5 0-2.9-.3-4-.8-1.2-.6-2.2-1.3-3-2.3-.8-1-1.4-2.1-1.8-3.4-.3-1.4-.5-2.8-.5-4.3s.2-2.9.7-4.2c.5-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.6 2.6-.8 4.1-.8 1 0 1.9.1 2.8.3.9.2 1.7.6 2.4 1s1.4.9 1.9 1.5c.6.6 1 1.3 1.4 2l-3.7 2.1c-.2-.4-.5-.9-.8-1.2-.3-.4-.6-.7-1-1-.4-.3-.8-.5-1.3-.7-.5-.2-1.1-.2-1.7-.2-1 0-1.8.2-2.5.6-.7.4-1.3.9-1.7 1.5-.5.6-.8 1.4-1 2.2-.3.8-.4 1.9-.4 2.7zM71.5 6.8c1.5 0 2.9.3 4.2.8 1.2.6 2.3 1.3 3.1 2.3.9 1 1.5 2.1 2 3.4s.7 2.7.7 4.2-.2 2.9-.7 4.2c-.4 1.3-1.1 2.4-2 3.4-.9 1-1.9 1.7-3.1 2.3-1.2.6-2.6.8-4.2.8s-2.9-.3-4.2-.8c-1.2-.6-2.3-1.3-3.1-2.3-.9-1-1.5-2.1-2-3.4-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2c.4-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.5 2.6-.8 4.2-.8zm0 17.6c.9 0 1.7-.2 2.4-.5s1.3-.8 1.7-1.4c.5-.6.8-1.3 1.1-2.2.2-.8.4-1.7.4-2.7v-.1c0-1-.1-1.9-.4-2.7-.2-.8-.6-1.6-1.1-2.2-.5-.6-1.1-1.1-1.7-1.4-.7-.3-1.5-.5-2.4-.5s-1.7.2-2.4.5-1.3.8-1.7 1.4c-.5.6-.8 1.3-1.1 2.2-.2.8-.4 1.7-.4 2.7v.1c0 1 .1 1.9.4 2.7.2.8.6 1.6 1.1 2.2.5.6 1.1 1.1 1.7 1.4.6.3 1.4.5 2.4.5zM88.9 28 83 7h4.7l4 15.7h.1l4-15.7h4.7l-5.9 21h-5.7zm28.8-3.6c.6 0 1.2-.1 1.7-.3.5-.2 1-.4 1.4-.8.4-.4.7-.8.9-1.4.2-.6.3-1.2.3-2v-13h4.1v13.6c0 1.2-.2 2.2-.6 3.1s-1 1.7-1.8 2.4c-.7.7-1.6 1.2-2.7 1.5-1 .4-2.2.5-3.4.5-1.2 0-2.4-.2-3.4-.5-1-.4-1.9-.9-2.7-1.5-.8-.7-1.3-1.5-1.8-2.4-.4-.9-.6-2-.6-3.1V6.9h4.2v13c0 .8.1 1.4.3 2 .2.6.5 1 .9 1.4.4.4.8.6 1.4.8.6.2 1.1.3 1.8.3zm13-17.4h4.2v9.1l7.4-9.1h5.2l-7.2 8.4L148 28h-4.9l-5.5-9.4-2.7 3V28h-4.2V7zm-27.6 16.1c-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.7-1.2 2.7-2.7-1.2-2.7-2.7-2.7z"></path>
-        </svg>
+        
+<svg
+  focusable="false"
+  role="img"
+  class="govuk-header__logotype"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 148 30"
+  height="30"
+  width="148"
+  aria-label="GOV.UK"
+>
+  <title>GOV.UK</title>
+  <path d="M22.6 10.4c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m-5.9 6.7c-.9.4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m10.8-3.7c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s0 2-1 2.4m3.3 4.8c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4M17 4.7l2.3 1.2V2.5l-2.3.7-.2-.2.9-3h-3.4l.9 3-.2.2c-.1.1-2.3-.7-2.3-.7v3.4L15 4.7c.1.1.1.2.2.2l-1.3 4c-.1.2-.1.4-.1.6 0 1.1.8 2 1.9 2.2h.7c1-.2 1.9-1.1 1.9-2.1 0-.2 0-.4-.1-.6l-1.3-4c-.1-.2 0-.2.1-.3m-7.6 5.7c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m-5 3c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s.1 2 1 2.4m-3.2 4.8c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m14.8 11c4.4 0 8.6.3 12.3.8 1.1-4.5 2.4-7 3.7-8.8l-2.5-.9c.2 1.3.3 1.9 0 2.7-.4-.4-.8-1.1-1.1-2.3l-1.2 4c.7-.5 1.3-.8 2-.9-1.1 2.5-2.6 3.1-3.5 3-1.1-.2-1.7-1.2-1.5-2.1.3-1.2 1.5-1.5 2.1-.1 1.1-2.3-.8-3-2-2.3 1.9-1.9 2.1-3.5.6-5.6-2.1 1.6-2.1 3.2-1.2 5.5-1.2-1.4-3.2-.6-2.5 1.6.9-1.4 2.1-.5 1.9.8-.2 1.1-1.7 2.1-3.5 1.9-2.7-.2-2.9-2.1-2.9-3.6.7-.1 1.9.5 2.9 1.9l.4-4.3c-1.1 1.1-2.1 1.4-3.2 1.4.4-1.2 2.1-3 2.1-3h-5.4s1.7 1.9 2.1 3c-1.1 0-2.1-.2-3.2-1.4l.4 4.3c1-1.4 2.2-2 2.9-1.9-.1 1.5-.2 3.4-2.9 3.6-1.9.2-3.4-.8-3.5-1.9-.2-1.3 1-2.2 1.9-.8.7-2.3-1.2-3-2.5-1.6.9-2.2.9-3.9-1.2-5.5-1.5 2-1.3 3.7.6 5.6-1.2-.7-3.1 0-2 2.3.6-1.4 1.8-1.1 2.1.1.2.9-.3 1.9-1.5 2.1-.9.2-2.4-.5-3.5-3 .6 0 1.2.3 2 .9l-1.2-4c-.3 1.1-.7 1.9-1.1 2.3-.3-.8-.2-1.4 0-2.7l-2.9.9C1.3 23 2.6 25.5 3.7 30c3.7-.5 7.9-.8 12.3-.8m28.3-11.6c0 .9.1 1.7.3 2.5.2.8.6 1.5 1 2.2.5.6 1 1.1 1.7 1.5.7.4 1.5.6 2.5.6.9 0 1.7-.1 2.3-.4s1.1-.7 1.5-1.1c.4-.4.6-.9.8-1.5.1-.5.2-1 .2-1.5v-.2h-5.3v-3.2h9.4V28H55v-2.5c-.3.4-.6.8-1 1.1-.4.3-.8.6-1.3.9-.5.2-1 .4-1.6.6s-1.2.2-1.8.2c-1.5 0-2.9-.3-4-.8-1.2-.6-2.2-1.3-3-2.3-.8-1-1.4-2.1-1.8-3.4-.3-1.4-.5-2.8-.5-4.3s.2-2.9.7-4.2c.5-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.6 2.6-.8 4.1-.8 1 0 1.9.1 2.8.3.9.2 1.7.6 2.4 1s1.4.9 1.9 1.5c.6.6 1 1.3 1.4 2l-3.7 2.1c-.2-.4-.5-.9-.8-1.2-.3-.4-.6-.7-1-1-.4-.3-.8-.5-1.3-.7-.5-.2-1.1-.2-1.7-.2-1 0-1.8.2-2.5.6-.7.4-1.3.9-1.7 1.5-.5.6-.8 1.4-1 2.2-.3.8-.4 1.9-.4 2.7zM71.5 6.8c1.5 0 2.9.3 4.2.8 1.2.6 2.3 1.3 3.1 2.3.9 1 1.5 2.1 2 3.4s.7 2.7.7 4.2-.2 2.9-.7 4.2c-.4 1.3-1.1 2.4-2 3.4-.9 1-1.9 1.7-3.1 2.3-1.2.6-2.6.8-4.2.8s-2.9-.3-4.2-.8c-1.2-.6-2.3-1.3-3.1-2.3-.9-1-1.5-2.1-2-3.4-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2c.4-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.5 2.6-.8 4.2-.8zm0 17.6c.9 0 1.7-.2 2.4-.5s1.3-.8 1.7-1.4c.5-.6.8-1.3 1.1-2.2.2-.8.4-1.7.4-2.7v-.1c0-1-.1-1.9-.4-2.7-.2-.8-.6-1.6-1.1-2.2-.5-.6-1.1-1.1-1.7-1.4-.7-.3-1.5-.5-2.4-.5s-1.7.2-2.4.5-1.3.8-1.7 1.4c-.5.6-.8 1.3-1.1 2.2-.2.8-.4 1.7-.4 2.7v.1c0 1 .1 1.9.4 2.7.2.8.6 1.6 1.1 2.2.5.6 1.1 1.1 1.7 1.4.6.3 1.4.5 2.4.5zM88.9 28 83 7h4.7l4 15.7h.1l4-15.7h4.7l-5.9 21h-5.7zm28.8-3.6c.6 0 1.2-.1 1.7-.3.5-.2 1-.4 1.4-.8.4-.4.7-.8.9-1.4.2-.6.3-1.2.3-2v-13h4.1v13.6c0 1.2-.2 2.2-.6 3.1s-1 1.7-1.8 2.4c-.7.7-1.6 1.2-2.7 1.5-1 .4-2.2.5-3.4.5-1.2 0-2.4-.2-3.4-.5-1-.4-1.9-.9-2.7-1.5-.8-.7-1.3-1.5-1.8-2.4-.4-.9-.6-2-.6-3.1V6.9h4.2v13c0 .8.1 1.4.3 2 .2.6.5 1 .9 1.4.4.4.8.6 1.4.8.6.2 1.1.3 1.8.3zm13-17.4h4.2v9.1l7.4-9.1h5.2l-7.2 8.4L148 28h-4.9l-5.5-9.4-2.7 3V28h-4.2V7zm-27.6 16.1c-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.7-1.2 2.7-2.7-1.2-2.7-2.7-2.7z"></path>
+</svg>
+
         
       </a>
     </div>
-  
+    
     <div class="govuk-header__content">
     
-      
+    
       <a href="/natural-capital-ecosystem-assessment" class="govuk-header__link govuk-header__service-name">
         Find natural capital data
       </a>
-      
+    
     
     
     </div>
-  
+    
   </div>
 </header>
 
@@ -2916,7 +2526,7 @@ exports[`Results block template Quick search journey Search results with data sh
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A38131%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A37869%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -2927,8 +2537,7 @@ exports[`Results block template Quick search journey Search results with data sh
       <div class="govuk-width-container">
         
     
-  
-<div class="govuk-phase-banner">
+  <div class="govuk-phase-banner">
   <p class="govuk-phase-banner__content">
     <strong class="govuk-tag govuk-phase-banner__content__tag">
       Beta
@@ -2945,7 +2554,7 @@ exports[`Results block template Quick search journey Search results with data sh
 <a href="#" class="govuk-back-link back-link-search-result">Back</a>
 
   
-        <main class="govuk-main-wrapper app-main-class" id="main-content">
+        <main class="govuk-main-wrapper app-main-class" id="main-content" role="main">
           
     <h1 class="govuk-heading-l ">Search results</h1>
     <div class="govuk-grid-row govuk-!-text-align-right">
@@ -2956,12 +2565,7 @@ exports[`Results block template Quick search journey Search results with data sh
     
   
 
-<a href="/natural-capital-ecosystem-assessment" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button"
-    
-        
-      
-    
-   data-do-storage-reset="">
+<a href="/natural-capital-ecosystem-assessment" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button" data-do-storage-reset="">
   New search
 </a>
 
@@ -2975,13 +2579,13 @@ exports[`Results block template Quick search journey Search results with data sh
     <div class='govuk-grid-column-three-quarters govuk-!-margin-0 govuk-!-padding-0 map-view-block'>
       <div id='coordinate-map' style='height: 100%; width: 100%;'></div>
       <div class='defra-map-controls'>
-        <a href="javascript:;" class='defra-map__exit' id="defra-map-exit">
+        <button class='defra-map__exit' id="defra-map-exit">
           <svg xmlns="http://www.w3.org/2000/svg" width="26" height="25" viewBox="0 0 26 25" fill="none">
             <path d="M24.4846 12.25L4.49219 12.25" stroke="#0B0C0C" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
             <path d="M14.4889 2.25L3.24316 12.25L14.4889 22.25" stroke="#0B0C0C" stroke-width="2" stroke-linecap="square"/>
           </svg>
           <span>Exit map</span>
-        </a>
+        </button>
         <div class='defra-map-controls__bottom'>
           <button class='defra-map-reset' id='defra-map-reset' aria-controls="viewport">
             <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
@@ -3027,40 +2631,32 @@ exports[`Results block template Quick search journey Search results with data sh
 
 
 
-
 <div class="govuk-form-group govuk-!-margin-top-3 govuk-!-margin-bottom-3">
 
   <div class="govuk-checkboxes" data-module="govuk-checkboxes">
     
-    
       
-  
-  
-    
-    
-    
-    
-    
-    <div class="govuk-checkboxes__item">
-      <input class="govuk-checkboxes__input" id="bounding-box" name="bounding-box" type="checkbox" value="on"
-    
+          
         
-      
-    
-   class="defra-checkboxes__input">
-      <label class="govuk-label govuk-checkboxes__label defra-checkboxes__label" for="bounding-box">
+          
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="bounding-box" name="bounding-box" type="checkbox" value="on" class="defra-checkboxes__input">
+            <label class="govuk-label govuk-checkboxes__label defra-checkboxes__label" for="bounding-box">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="25" viewBox="0 0 32 25" fill="none">
                                 <rect x="0.923077" y="1.17308" width="20.3077" height="14.7692" stroke="#0B0C0C" stroke-width="1.84615"/>
                                 <rect x="10.1535" y="8.55784" width="20.3077" height="14.7692" stroke="#0B0C0C" stroke-width="1.84615"/>
                               </svg>
                               &nbsp;Show all bounding boxes
       </label>
+            
+          </div>
+          
+        
       
-    </div>
-    
-  
-
-    
     
   </div>
 
@@ -3103,12 +2699,7 @@ exports[`Results block template Quick search journey Search results with data sh
     
   
 
-<button type="submit" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-1" data-module="govuk-button"
-    
-        
-      
-    
-   id="go-to-resource">
+<button type="submit" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-1" data-module="govuk-button" id="go-to-resource">
   Go to resource
 </button>
 
@@ -3119,12 +2710,7 @@ exports[`Results block template Quick search journey Search results with data sh
     
   
 
-<button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button"
-    
-        
-      
-    
-   id="more-info">
+<button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button" id="more-info">
   More info
 </button>
 
@@ -3137,12 +2723,21 @@ exports[`Results block template Quick search journey Search results with data sh
 </div></div>
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-third">
-          <h2 class='govuk-heading-m filter-heading govuk-!-margin-bottom-2'>
-            Filters
-          </h2>
+          <div class="filters-heading">
+            <h2 class='govuk-heading-m filter-heading govuk-!-margin-bottom-2'>
+              Filters
+            </h2>
+            <div class="filters-buttons">
+              <button type="reset" class="govuk-button govuk-button--warning" data-module="govuk-button" form="filters-search_results" id="filters-reset-search_results" data-reset-url="/natural-capital-ecosystem-assessment/search?q=marine&amp;rpp=20&amp;srt=most_relevant&amp;jry=qs&amp;pg=1&amp;scope=all">
+                Clear Filters
+              </button>
+              <button type="submit" class="govuk-button" data-module="govuk-button" form="filters-search_results">
+                Apply Filters
+              </button>
+            </div>
+          </div>
           <div class="govuk-section-break--visible"></div>
           
-
 
 
 <form autocomplete="off" id="filters-search_results">
@@ -4075,147 +3670,53 @@ exports[`Results block template Quick search journey Search results with data sh
         </button>
       </label>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-date-filters-search_results">
-        
-
-
-
-
-  
-<div class="govuk-form-group">
-
-  <fieldset class="govuk-fieldset" role="group" aria-describedby="date-before-search_results-hint">
-    
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-    
-      Updated before
-    
-    </legend>
-    
-  
-    <div id="date-before-search_results-hint" class="govuk-hint">
-      For example, 2007
-    </div>
-  
-  
-    <div class="govuk-date-input" id="date-before-search_results">
-      
-      
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="date-before-search_results-year">
-            Year
-          </label>
-        
-        
-          <input
-            
-                
-              
-            
-                
-              
-            
-                
-              
-            
-                
-              
-            
-            
-                
-              
-            
-            
-            
-            
-            
-            
-                
-              
-            
-           class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-before-search_results-year" name="before-year" type="text" value="" inputmode="numeric">
-        
+        <div class="govuk-form-group" id="date-before-group-search_results">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-before-hint-search_results date-before-error-search_results">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              Updated Before
+            </legend>
+            <div id="date-before-hint-search_results" class="govuk-hint">
+              For example, 2004
+            </div>
+            <p id="date-before-error-search_results" class="govuk-error-message display-none">
+              <span class="govuk-visually-hidden">Error:</span><span id="date-before-error-message-search_results"></span>
+            </p>
+            <div class="govuk-date-input" id="date-before-search_results">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="date-before-search_results-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-before-search_results-year" name="before-year" type="text" value="" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
         </div>
-      </div>
-      
-      
-    </div>
-  
-  </fieldset>
 
-</div>
-
-
-        
-
-
-
-
-  
-<div class="govuk-form-group">
-
-  <fieldset class="govuk-fieldset" role="group" aria-describedby="date-after-search_results-hint">
-    
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-    
-      Updated after
-    
-    </legend>
-    
-  
-    <div id="date-after-search_results-hint" class="govuk-hint">
-      For example, 2007
-    </div>
-  
-  
-    <div class="govuk-date-input" id="date-after-search_results">
-      
-      
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="date-after-search_results-year">
-            Year
-          </label>
-        
-        
-          <input
-            
-                
-              
-            
-                
-              
-            
-                
-              
-            
-                
-              
-            
-            
-                
-              
-            
-            
-            
-            
-            
-            
-                
-              
-            
-           class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-after-search_results-year" name="after-year" type="text" value="" inputmode="numeric">
-        
+        <div class="govuk-form-group" id="date-after-group-search_results">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-after-hint-search_results date-after-error-search_results">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              Updated After
+            </legend>
+            <div id="date-after-hint-search_results" class="govuk-hint">
+              For example, 2015
+            </div>
+            <p id="date-after-error-search_results" class="govuk-error-message display-none">
+              <span class="govuk-visually-hidden">Error:</span><span id="date-after-error-message-search_results"></span>
+            </p>
+            <div class="govuk-date-input" id="date-after-search_results">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="date-after-search_results-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-after-search_results-year" name="after-year" type="text" value="" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
         </div>
-      </div>
-      
-      
-    </div>
-  
-  </fieldset>
-
-</div>
-
       </div>
     </div>
     <div class="filter-options__container">
@@ -4230,36 +3731,11 @@ exports[`Results block template Quick search journey Search results with data sh
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-licence-filters-search_results">
         
 
-
 <div class="govuk-form-group">
   
 
 
-  <input
-    
-        
-      
-    
-        
-      
-    
-        
-      
-    
-        
-      
-    
-    
-        
-      
-    
-    
-    
-    
-    
-    
-    
-   class="govuk-input" id="licence-search_results" name="licence" type="text" value="">
+  <input class="govuk-input" id="licence-search_results" name="licence" type="text">
 
 </div>
 
@@ -4277,36 +3753,11 @@ exports[`Results block template Quick search journey Search results with data sh
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-keywords-filters-search_results">
         
 
-
 <div class="govuk-form-group">
   
 
 
-  <input
-    
-        
-      
-    
-        
-      
-    
-        
-      
-    
-        
-      
-    
-    
-        
-      
-    
-    
-    
-    
-    
-    
-    
-   class="govuk-input" id="keywords-search_results" name="keywords" type="text" value="">
+  <input class="govuk-input" id="keywords-search_results" name="keywords" type="text">
 
 </div>
 
@@ -4325,10 +3776,6 @@ exports[`Results block template Quick search journey Search results with data sh
         </label>
       </div>
     </div>
-
-    <div class="govuk-!-margin-top-4 govuk-section-break--visible"></div>
-
-    <a href="/natural-capital-ecosystem-assessment/search?q=marine&amp;rpp=20&amp;srt=most_relevant&amp;jry=qs&amp;pg=1&amp;scope=all" id="filter-options-reset-search_results" class="filter-options__reset-link govuk-body-m">Reset Filters</a>
   </section>
 </form>
         </div>
@@ -4344,30 +3791,31 @@ exports[`Results block template Quick search journey Search results with data sh
   </h2>
   <div class="govuk-section-break--visible"></div>
   
-    <div class='map-container '>
+    <div class='map-container disabled' id="map-container">
       <div id="map-results-block">
         <button
           id='map-result-button'
           disabled="true"
           onclick="openMapModal()"
-          class='govuk-button govuk-button--map govuk-!-margin-bottom-0 spatial-data-button '
+          class='govuk-button govuk-button--map govuk-!-margin-bottom-0 spatial-data-button no-data'
           data-module='govuk-button'
           >
-          
-            View&nbsp;<span id="map-result-count"></span>&nbsp;results on a map
-            <svg
-              class='govuk-button__start-icon'
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="20"
-              viewBox="0 0 16 20"
-              fill="none">
-              <path
-                d="M14 6C14 2.69 11.31 0 8 0C4.69 0 2 2.69 2 6C2 10.5 8 17 8 17C8 17 14 10.5 14 6ZM6 6C6 4.9 6.9 4 8 4C9.1 4 10 4.9 10
-                  6C10 7.1 9.11 8 8 8C6.9 8 6 7.1 6 6ZM1 18V20H15V18H1Z"
-                fill="white"/>
-            </svg>
-          
+            <span id="no-spatial-data">No spatial data to display.</span>
+            <span id="view-results" class="display-none">
+              View&nbsp;<span id="map-result-count"></span>&nbsp;results on a map
+              <svg
+                class='govuk-button__start-icon'
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="20"
+                viewBox="0 0 16 20"
+                fill="none">
+                <path
+                  d="M14 6C14 2.69 11.31 0 8 0C4.69 0 2 2.69 2 6C2 10.5 8 17 8 17C8 17 14 10.5 14 6ZM6 6C6 4.9 6.9 4 8 4C9.1 4 10 4.9 10
+                    6C10 7.1 9.11 8 8 8C6.9 8 6 7.1 6 6ZM1 18V20H15V18H1Z"
+                  fill="white"/>
+              </svg>
+            </span>
         </button>
       </div>
     </div>
@@ -4384,34 +3832,36 @@ exports[`Results block template Quick search journey Search results with data sh
       
 
 
-
 <div class="govuk-form-group option-group">
   <label class="govuk-label option-label" for="sort">
     Sort by
   </label>
 
 
-
   <select class="govuk-select option-block" id="sort" name="sort">
   
     
-    <option value="most_relevant" selected>Most relevant</option>
+      
+      
+      <option value="most_relevant" selected>Most relevant</option>
     
   
     
-    <option value="oldest_study_period">Oldest study period</option>
+      
+      
+      <option value="oldest_study_period">Oldest study period</option>
     
   
     
-    <option value="newest_study_period">Newest study period</option>
+      
+      
+      <option value="newest_study_period">Newest study period</option>
     
   
   </select>
-
 </div>
 
       
-
 
 
 <div class="govuk-form-group option-group">
@@ -4420,23 +3870,27 @@ exports[`Results block template Quick search journey Search results with data sh
   </label>
 
 
-
   <select class="govuk-select option-items" id="page-results" name="page-results">
   
     
-    <option value="20" selected>20</option>
+      
+      
+      <option value="20" selected>20</option>
     
   
     
-    <option value="50">50</option>
+      
+      
+      <option value="50">50</option>
     
   
     
-    <option value="100">100</option>
+      
+      
+      <option value="100">100</option>
     
   
   </select>
-
 </div>
 
     </form>
@@ -4483,12 +3937,7 @@ exports[`Results block template Quick search journey Search results with data sh
     
   
 
-<button type="submit" class="govuk-button govuk-!-margin-bottom-0 go-to-resource" data-module="govuk-button"
-    
-        
-      
-    
-   disabled="true">
+<button type="submit" class="govuk-button govuk-!-margin-bottom-0 go-to-resource" data-module="govuk-button" disabled="true">
   Go to resource
 </button>
 
@@ -4544,12 +3993,7 @@ exports[`Results block template Quick search journey Search results with data sh
     
   
 
-<button type="submit" class="govuk-button govuk-!-margin-bottom-0 go-to-resource" data-module="govuk-button"
-    
-        
-      
-    
-   disabled="true">
+<button type="submit" class="govuk-button govuk-!-margin-bottom-0 go-to-resource" data-module="govuk-button" disabled="true">
   Go to resource
 </button>
 
@@ -4568,27 +4012,11 @@ exports[`Results block template Quick search journey Search results with data sh
       </div>
     
   </div>
-  <nav class="govuk-pagination" aria-label="Pagination">
-  
-  
-  <ul class="govuk-pagination__list">
-  
-    <li class="govuk-pagination__item govuk-pagination__item--current">
-    
-      <a class="govuk-link govuk-pagination__link" href="/natural-capital-ecosystem-assessment/search?q=marine&amp;jry=qs&amp;pg=1&amp;rpp=20&amp;srt=most_relevant&amp;rty=all" aria-label="Page 1" aria-current="page"
-      
-          
-        
-      
-     data-page-id="1">
-        1
-      </a>
-    
-    </li>
-  
-  </ul>
-  
-</nav>
+  <nav class="govuk-pagination" role="navigation" aria-label="Pagination"><ul class="govuk-pagination__list"><li class="govuk-pagination__item govuk-pagination__item--current">
+            <a class="govuk-link govuk-pagination__link" href="/natural-capital-ecosystem-assessment/search?q=marine&amp;jry=qs&amp;pg=1&amp;rpp=20&amp;srt=most_relevant&amp;rty=all" aria-label="Page 1" aria-current="page" data-page-id="1">
+              1
+            </a>
+          </li></ul></nav>
 
 
 
@@ -4607,12 +4035,7 @@ exports[`Results block template Quick search journey Search results with data sh
     
   
 
-<button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button"
-    
-        
-      
-    
-   onclick="closeDataModal()">
+<button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button" onclick="closeDataModal()">
   Cancel
 </button>
 
@@ -4623,15 +4046,7 @@ exports[`Results block template Quick search journey Search results with data sh
     
   
 
-<a href="#" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button"
-    
-        
-      
-    
-        
-      
-    
-   onclick="closeDataModal()" target="_blank" id="resource-locator-link">
+<a href="#" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" onclick="closeDataModal()" target="_blank" id="resource-locator-link">
   Open site
 </a>
 
@@ -4651,53 +4066,55 @@ exports[`Results block template Quick search journey Search results with data sh
 
 
     
-  <footer class="govuk-footer">
+  <footer class="govuk-footer" role="contentinfo">
   <div class="govuk-width-container">
     
     <div class="govuk-footer__meta">
       <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
         
-        <h2 class="govuk-visually-hidden">Support links</h2>
-        
-        <ul class="govuk-footer__inline-list">
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
-              Help
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
-              Privacy
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
-              Cookies
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
-              Accessibility statement
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
-              Terms and conditions
-            </a>
-          </li>
-        
-        </ul>
-        
-        
-        <div class="govuk-footer__meta-custom">
-          <p>Version: v1.5.1</p>
-        </div>
-        
+          <h2 class="govuk-visually-hidden">Support links</h2>
+          
+            <ul class="govuk-footer__inline-list">
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
+                    Help
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
+                    Privacy
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
+                    Cookies
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
+                    Accessibility statement
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
+                    Terms and conditions
+                  </a>
+                </li>
+              
+            </ul>
+          
+          
+            <div class="govuk-footer__meta-custom">
+              
+<p>Version: v1.6.0</p>
+
+            </div>
+          
         
         <svg
           aria-hidden="true"
@@ -4714,25 +4131,21 @@ exports[`Results block template Quick search journey Search results with data sh
           />
         </svg>
         <span class="govuk-footer__licence-description">
-        
-          All content is available under the
-          <a
-            class="govuk-footer__link"
-            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
-            rel="license"
-          >Open Government Licence v3.0</a>, except where otherwise stated
-        
+          
+            All content is available under the
+            <a
+              class="govuk-footer__link"
+              href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+              rel="license"
+            >Open Government Licence v3.0</a>, except where otherwise stated
+          
         </span>
       </div>
       <div class="govuk-footer__meta-item">
         <a
           class="govuk-footer__link govuk-footer__copyright-logo"
           href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
-        >
-        
-          © Crown copyright
-        
-        </a>
+        >© Crown copyright</a>
       </div>
     </div>
   </div>
@@ -4807,129 +4220,96 @@ exports[`Results block template Quick search journey Search results with empty d
   <body class="govuk-template__body app-body-class">
     <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
     
-  
-<div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on the find natural capital data service"
-    
-        
-      
-    
-   id="cookie_banner">
-  
-  <div class="govuk-cookie-banner__message govuk-width-container"
-    
-        
-      
-    
-   id="cookie_block" hidden>
+  <div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on the find natural capital data service" id="cookie_banner">
+    <div class="govuk-cookie-banner__message govuk-width-container" id="cookie_block" hidden>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         
-        <h2 class="govuk-cookie-banner__heading govuk-heading-m">
-          Cookies on the find natural capital data service
-        </h2>
+        <h2 class="govuk-cookie-banner__heading govuk-heading-m">Cookies on the find natural capital data service</h2>
         
+
         <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">We use some essential cookies to make this service work.</p>
-          <p class="govuk-body">We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements</p>
-          
-        </div>
+<p class="govuk-body">We use some essential cookies to make this service work.</p>
+<p class="govuk-body">We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements</p>
+</div>
       </div>
     </div>
 
-    
-    <div class="govuk-button-group">
-    
       
-      <button type="button" class="govuk-button" data-module="govuk-button"
+      <div class="govuk-button-group">
+        
           
-              
+            <button type="button" class="govuk-button" data-module="govuk-button" id="accept_button">
+              Accept analytics cookies
+            </button>
+          
+        
+          
+            <button type="button" class="govuk-button" data-module="govuk-button" id="reject_button">
+              Reject analytics cookies
+            </button>
+          
+        
+          
+            
+              <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
             
           
-         id="accept_button">
-        Accept analytics cookies
-      </button>
-    
-      
-      <button type="button" class="govuk-button" data-module="govuk-button"
-          
-              
-            
-          
-         id="reject_button">
-        Reject analytics cookies
-      </button>
-    
-      
-      <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
-    
-    </div>
-    
-
-  </div>
-  
-  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
-    
         
+      </div>
       
-    
-   id="accept_block" hidden>
+    </div>
+  
+    <div class="govuk-cookie-banner__message govuk-width-container" role="alert" id="accept_block" hidden>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         
+
         <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
-          
-        </div>
+<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+</div>
       </div>
     </div>
 
-    
-    <div class="govuk-button-group">
-    
       
-      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-        Hide cookie message
-      </button>
-    
-    </div>
-    
-
-  </div>
-  
-  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
-    
+      <div class="govuk-button-group">
         
+          
+            <button type="button" class="govuk-button hide_button" data-module="govuk-button">
+              Hide cookie message
+            </button>
+          
+        
+      </div>
       
-    
-   id="reject_block" hidden>
+    </div>
+  
+    <div class="govuk-cookie-banner__message govuk-width-container" role="alert" id="reject_block" hidden>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         
+
         <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
-          
-        </div>
+<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+</div>
       </div>
     </div>
 
-    
-    <div class="govuk-button-group">
-    
       
-      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-        Hide cookie message
-      </button>
-    
+      <div class="govuk-button-group">
+        
+          
+            <button type="button" class="govuk-button hide_button" data-module="govuk-button">
+              Hide cookie message
+            </button>
+          
+        
+      </div>
+      
     </div>
-    
-
-  </div>
   
 </div>
 
@@ -4953,38 +4333,44 @@ exports[`Results block template Quick search journey Search results with empty d
     <!-- Google tag (gtag.js) -->
     
 
-    <header class="govuk-header" data-module="govuk-header">
+    
+
+
+
+<header class="govuk-header" role="banner" data-module="govuk-header">
   <div class="govuk-header__container govuk-width-container">
     <div class="govuk-header__logo">
       <a href="https://www.gov.uk/" class="govuk-header__link govuk-header__link--homepage">
-        <svg
-          focusable="false"
-          role="img"
-          class="govuk-header__logotype"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 148 30"
-          height="30"
-          width="148"
-          aria-label="GOV.UK"
-        >
-          <title>GOV.UK</title>
-          <path d="M22.6 10.4c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m-5.9 6.7c-.9.4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m10.8-3.7c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s0 2-1 2.4m3.3 4.8c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4M17 4.7l2.3 1.2V2.5l-2.3.7-.2-.2.9-3h-3.4l.9 3-.2.2c-.1.1-2.3-.7-2.3-.7v3.4L15 4.7c.1.1.1.2.2.2l-1.3 4c-.1.2-.1.4-.1.6 0 1.1.8 2 1.9 2.2h.7c1-.2 1.9-1.1 1.9-2.1 0-.2 0-.4-.1-.6l-1.3-4c-.1-.2 0-.2.1-.3m-7.6 5.7c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m-5 3c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s.1 2 1 2.4m-3.2 4.8c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m14.8 11c4.4 0 8.6.3 12.3.8 1.1-4.5 2.4-7 3.7-8.8l-2.5-.9c.2 1.3.3 1.9 0 2.7-.4-.4-.8-1.1-1.1-2.3l-1.2 4c.7-.5 1.3-.8 2-.9-1.1 2.5-2.6 3.1-3.5 3-1.1-.2-1.7-1.2-1.5-2.1.3-1.2 1.5-1.5 2.1-.1 1.1-2.3-.8-3-2-2.3 1.9-1.9 2.1-3.5.6-5.6-2.1 1.6-2.1 3.2-1.2 5.5-1.2-1.4-3.2-.6-2.5 1.6.9-1.4 2.1-.5 1.9.8-.2 1.1-1.7 2.1-3.5 1.9-2.7-.2-2.9-2.1-2.9-3.6.7-.1 1.9.5 2.9 1.9l.4-4.3c-1.1 1.1-2.1 1.4-3.2 1.4.4-1.2 2.1-3 2.1-3h-5.4s1.7 1.9 2.1 3c-1.1 0-2.1-.2-3.2-1.4l.4 4.3c1-1.4 2.2-2 2.9-1.9-.1 1.5-.2 3.4-2.9 3.6-1.9.2-3.4-.8-3.5-1.9-.2-1.3 1-2.2 1.9-.8.7-2.3-1.2-3-2.5-1.6.9-2.2.9-3.9-1.2-5.5-1.5 2-1.3 3.7.6 5.6-1.2-.7-3.1 0-2 2.3.6-1.4 1.8-1.1 2.1.1.2.9-.3 1.9-1.5 2.1-.9.2-2.4-.5-3.5-3 .6 0 1.2.3 2 .9l-1.2-4c-.3 1.1-.7 1.9-1.1 2.3-.3-.8-.2-1.4 0-2.7l-2.9.9C1.3 23 2.6 25.5 3.7 30c3.7-.5 7.9-.8 12.3-.8m28.3-11.6c0 .9.1 1.7.3 2.5.2.8.6 1.5 1 2.2.5.6 1 1.1 1.7 1.5.7.4 1.5.6 2.5.6.9 0 1.7-.1 2.3-.4s1.1-.7 1.5-1.1c.4-.4.6-.9.8-1.5.1-.5.2-1 .2-1.5v-.2h-5.3v-3.2h9.4V28H55v-2.5c-.3.4-.6.8-1 1.1-.4.3-.8.6-1.3.9-.5.2-1 .4-1.6.6s-1.2.2-1.8.2c-1.5 0-2.9-.3-4-.8-1.2-.6-2.2-1.3-3-2.3-.8-1-1.4-2.1-1.8-3.4-.3-1.4-.5-2.8-.5-4.3s.2-2.9.7-4.2c.5-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.6 2.6-.8 4.1-.8 1 0 1.9.1 2.8.3.9.2 1.7.6 2.4 1s1.4.9 1.9 1.5c.6.6 1 1.3 1.4 2l-3.7 2.1c-.2-.4-.5-.9-.8-1.2-.3-.4-.6-.7-1-1-.4-.3-.8-.5-1.3-.7-.5-.2-1.1-.2-1.7-.2-1 0-1.8.2-2.5.6-.7.4-1.3.9-1.7 1.5-.5.6-.8 1.4-1 2.2-.3.8-.4 1.9-.4 2.7zM71.5 6.8c1.5 0 2.9.3 4.2.8 1.2.6 2.3 1.3 3.1 2.3.9 1 1.5 2.1 2 3.4s.7 2.7.7 4.2-.2 2.9-.7 4.2c-.4 1.3-1.1 2.4-2 3.4-.9 1-1.9 1.7-3.1 2.3-1.2.6-2.6.8-4.2.8s-2.9-.3-4.2-.8c-1.2-.6-2.3-1.3-3.1-2.3-.9-1-1.5-2.1-2-3.4-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2c.4-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.5 2.6-.8 4.2-.8zm0 17.6c.9 0 1.7-.2 2.4-.5s1.3-.8 1.7-1.4c.5-.6.8-1.3 1.1-2.2.2-.8.4-1.7.4-2.7v-.1c0-1-.1-1.9-.4-2.7-.2-.8-.6-1.6-1.1-2.2-.5-.6-1.1-1.1-1.7-1.4-.7-.3-1.5-.5-2.4-.5s-1.7.2-2.4.5-1.3.8-1.7 1.4c-.5.6-.8 1.3-1.1 2.2-.2.8-.4 1.7-.4 2.7v.1c0 1 .1 1.9.4 2.7.2.8.6 1.6 1.1 2.2.5.6 1.1 1.1 1.7 1.4.6.3 1.4.5 2.4.5zM88.9 28 83 7h4.7l4 15.7h.1l4-15.7h4.7l-5.9 21h-5.7zm28.8-3.6c.6 0 1.2-.1 1.7-.3.5-.2 1-.4 1.4-.8.4-.4.7-.8.9-1.4.2-.6.3-1.2.3-2v-13h4.1v13.6c0 1.2-.2 2.2-.6 3.1s-1 1.7-1.8 2.4c-.7.7-1.6 1.2-2.7 1.5-1 .4-2.2.5-3.4.5-1.2 0-2.4-.2-3.4-.5-1-.4-1.9-.9-2.7-1.5-.8-.7-1.3-1.5-1.8-2.4-.4-.9-.6-2-.6-3.1V6.9h4.2v13c0 .8.1 1.4.3 2 .2.6.5 1 .9 1.4.4.4.8.6 1.4.8.6.2 1.1.3 1.8.3zm13-17.4h4.2v9.1l7.4-9.1h5.2l-7.2 8.4L148 28h-4.9l-5.5-9.4-2.7 3V28h-4.2V7zm-27.6 16.1c-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.7-1.2 2.7-2.7-1.2-2.7-2.7-2.7z"></path>
-        </svg>
+        
+<svg
+  focusable="false"
+  role="img"
+  class="govuk-header__logotype"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 148 30"
+  height="30"
+  width="148"
+  aria-label="GOV.UK"
+>
+  <title>GOV.UK</title>
+  <path d="M22.6 10.4c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m-5.9 6.7c-.9.4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m10.8-3.7c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s0 2-1 2.4m3.3 4.8c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4M17 4.7l2.3 1.2V2.5l-2.3.7-.2-.2.9-3h-3.4l.9 3-.2.2c-.1.1-2.3-.7-2.3-.7v3.4L15 4.7c.1.1.1.2.2.2l-1.3 4c-.1.2-.1.4-.1.6 0 1.1.8 2 1.9 2.2h.7c1-.2 1.9-1.1 1.9-2.1 0-.2 0-.4-.1-.6l-1.3-4c-.1-.2 0-.2.1-.3m-7.6 5.7c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m-5 3c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s.1 2 1 2.4m-3.2 4.8c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m14.8 11c4.4 0 8.6.3 12.3.8 1.1-4.5 2.4-7 3.7-8.8l-2.5-.9c.2 1.3.3 1.9 0 2.7-.4-.4-.8-1.1-1.1-2.3l-1.2 4c.7-.5 1.3-.8 2-.9-1.1 2.5-2.6 3.1-3.5 3-1.1-.2-1.7-1.2-1.5-2.1.3-1.2 1.5-1.5 2.1-.1 1.1-2.3-.8-3-2-2.3 1.9-1.9 2.1-3.5.6-5.6-2.1 1.6-2.1 3.2-1.2 5.5-1.2-1.4-3.2-.6-2.5 1.6.9-1.4 2.1-.5 1.9.8-.2 1.1-1.7 2.1-3.5 1.9-2.7-.2-2.9-2.1-2.9-3.6.7-.1 1.9.5 2.9 1.9l.4-4.3c-1.1 1.1-2.1 1.4-3.2 1.4.4-1.2 2.1-3 2.1-3h-5.4s1.7 1.9 2.1 3c-1.1 0-2.1-.2-3.2-1.4l.4 4.3c1-1.4 2.2-2 2.9-1.9-.1 1.5-.2 3.4-2.9 3.6-1.9.2-3.4-.8-3.5-1.9-.2-1.3 1-2.2 1.9-.8.7-2.3-1.2-3-2.5-1.6.9-2.2.9-3.9-1.2-5.5-1.5 2-1.3 3.7.6 5.6-1.2-.7-3.1 0-2 2.3.6-1.4 1.8-1.1 2.1.1.2.9-.3 1.9-1.5 2.1-.9.2-2.4-.5-3.5-3 .6 0 1.2.3 2 .9l-1.2-4c-.3 1.1-.7 1.9-1.1 2.3-.3-.8-.2-1.4 0-2.7l-2.9.9C1.3 23 2.6 25.5 3.7 30c3.7-.5 7.9-.8 12.3-.8m28.3-11.6c0 .9.1 1.7.3 2.5.2.8.6 1.5 1 2.2.5.6 1 1.1 1.7 1.5.7.4 1.5.6 2.5.6.9 0 1.7-.1 2.3-.4s1.1-.7 1.5-1.1c.4-.4.6-.9.8-1.5.1-.5.2-1 .2-1.5v-.2h-5.3v-3.2h9.4V28H55v-2.5c-.3.4-.6.8-1 1.1-.4.3-.8.6-1.3.9-.5.2-1 .4-1.6.6s-1.2.2-1.8.2c-1.5 0-2.9-.3-4-.8-1.2-.6-2.2-1.3-3-2.3-.8-1-1.4-2.1-1.8-3.4-.3-1.4-.5-2.8-.5-4.3s.2-2.9.7-4.2c.5-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.6 2.6-.8 4.1-.8 1 0 1.9.1 2.8.3.9.2 1.7.6 2.4 1s1.4.9 1.9 1.5c.6.6 1 1.3 1.4 2l-3.7 2.1c-.2-.4-.5-.9-.8-1.2-.3-.4-.6-.7-1-1-.4-.3-.8-.5-1.3-.7-.5-.2-1.1-.2-1.7-.2-1 0-1.8.2-2.5.6-.7.4-1.3.9-1.7 1.5-.5.6-.8 1.4-1 2.2-.3.8-.4 1.9-.4 2.7zM71.5 6.8c1.5 0 2.9.3 4.2.8 1.2.6 2.3 1.3 3.1 2.3.9 1 1.5 2.1 2 3.4s.7 2.7.7 4.2-.2 2.9-.7 4.2c-.4 1.3-1.1 2.4-2 3.4-.9 1-1.9 1.7-3.1 2.3-1.2.6-2.6.8-4.2.8s-2.9-.3-4.2-.8c-1.2-.6-2.3-1.3-3.1-2.3-.9-1-1.5-2.1-2-3.4-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2c.4-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.5 2.6-.8 4.2-.8zm0 17.6c.9 0 1.7-.2 2.4-.5s1.3-.8 1.7-1.4c.5-.6.8-1.3 1.1-2.2.2-.8.4-1.7.4-2.7v-.1c0-1-.1-1.9-.4-2.7-.2-.8-.6-1.6-1.1-2.2-.5-.6-1.1-1.1-1.7-1.4-.7-.3-1.5-.5-2.4-.5s-1.7.2-2.4.5-1.3.8-1.7 1.4c-.5.6-.8 1.3-1.1 2.2-.2.8-.4 1.7-.4 2.7v.1c0 1 .1 1.9.4 2.7.2.8.6 1.6 1.1 2.2.5.6 1.1 1.1 1.7 1.4.6.3 1.4.5 2.4.5zM88.9 28 83 7h4.7l4 15.7h.1l4-15.7h4.7l-5.9 21h-5.7zm28.8-3.6c.6 0 1.2-.1 1.7-.3.5-.2 1-.4 1.4-.8.4-.4.7-.8.9-1.4.2-.6.3-1.2.3-2v-13h4.1v13.6c0 1.2-.2 2.2-.6 3.1s-1 1.7-1.8 2.4c-.7.7-1.6 1.2-2.7 1.5-1 .4-2.2.5-3.4.5-1.2 0-2.4-.2-3.4-.5-1-.4-1.9-.9-2.7-1.5-.8-.7-1.3-1.5-1.8-2.4-.4-.9-.6-2-.6-3.1V6.9h4.2v13c0 .8.1 1.4.3 2 .2.6.5 1 .9 1.4.4.4.8.6 1.4.8.6.2 1.1.3 1.8.3zm13-17.4h4.2v9.1l7.4-9.1h5.2l-7.2 8.4L148 28h-4.9l-5.5-9.4-2.7 3V28h-4.2V7zm-27.6 16.1c-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.7-1.2 2.7-2.7-1.2-2.7-2.7-2.7z"></path>
+</svg>
+
         
       </a>
     </div>
-  
+    
     <div class="govuk-header__content">
     
-      
+    
       <a href="/natural-capital-ecosystem-assessment" class="govuk-header__link govuk-header__service-name">
         Find natural capital data
       </a>
-      
+    
     
     
     </div>
-  
+    
   </div>
 </header>
 
@@ -4992,7 +4378,7 @@ exports[`Results block template Quick search journey Search results with empty d
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A46399%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33035%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -5003,8 +4389,7 @@ exports[`Results block template Quick search journey Search results with empty d
       <div class="govuk-width-container">
         
     
-  
-<div class="govuk-phase-banner">
+  <div class="govuk-phase-banner">
   <p class="govuk-phase-banner__content">
     <strong class="govuk-tag govuk-phase-banner__content__tag">
       Beta
@@ -5021,7 +4406,7 @@ exports[`Results block template Quick search journey Search results with empty d
 <a href="#" class="govuk-back-link back-link-search-result">Back</a>
 
   
-        <main class="govuk-main-wrapper app-main-class" id="main-content">
+        <main class="govuk-main-wrapper app-main-class" id="main-content" role="main">
           
     <h1 class="govuk-heading-l ">Search results</h1>
     <div class="govuk-grid-row govuk-!-text-align-right">
@@ -5032,12 +4417,7 @@ exports[`Results block template Quick search journey Search results with empty d
     
   
 
-<a href="/natural-capital-ecosystem-assessment" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button"
-    
-        
-      
-    
-   data-do-storage-reset="">
+<a href="/natural-capital-ecosystem-assessment" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button" data-do-storage-reset="">
   New search
 </a>
 
@@ -5051,13 +4431,13 @@ exports[`Results block template Quick search journey Search results with empty d
     <div class='govuk-grid-column-three-quarters govuk-!-margin-0 govuk-!-padding-0 map-view-block'>
       <div id='coordinate-map' style='height: 100%; width: 100%;'></div>
       <div class='defra-map-controls'>
-        <a href="javascript:;" class='defra-map__exit' id="defra-map-exit">
+        <button class='defra-map__exit' id="defra-map-exit">
           <svg xmlns="http://www.w3.org/2000/svg" width="26" height="25" viewBox="0 0 26 25" fill="none">
             <path d="M24.4846 12.25L4.49219 12.25" stroke="#0B0C0C" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
             <path d="M14.4889 2.25L3.24316 12.25L14.4889 22.25" stroke="#0B0C0C" stroke-width="2" stroke-linecap="square"/>
           </svg>
           <span>Exit map</span>
-        </a>
+        </button>
         <div class='defra-map-controls__bottom'>
           <button class='defra-map-reset' id='defra-map-reset' aria-controls="viewport">
             <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
@@ -5103,40 +4483,32 @@ exports[`Results block template Quick search journey Search results with empty d
 
 
 
-
 <div class="govuk-form-group govuk-!-margin-top-3 govuk-!-margin-bottom-3">
 
   <div class="govuk-checkboxes" data-module="govuk-checkboxes">
     
-    
       
-  
-  
-    
-    
-    
-    
-    
-    <div class="govuk-checkboxes__item">
-      <input class="govuk-checkboxes__input" id="bounding-box" name="bounding-box" type="checkbox" value="on"
-    
+          
         
-      
-    
-   class="defra-checkboxes__input">
-      <label class="govuk-label govuk-checkboxes__label defra-checkboxes__label" for="bounding-box">
+          
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="bounding-box" name="bounding-box" type="checkbox" value="on" class="defra-checkboxes__input">
+            <label class="govuk-label govuk-checkboxes__label defra-checkboxes__label" for="bounding-box">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="25" viewBox="0 0 32 25" fill="none">
                                 <rect x="0.923077" y="1.17308" width="20.3077" height="14.7692" stroke="#0B0C0C" stroke-width="1.84615"/>
                                 <rect x="10.1535" y="8.55784" width="20.3077" height="14.7692" stroke="#0B0C0C" stroke-width="1.84615"/>
                               </svg>
                               &nbsp;Show all bounding boxes
       </label>
+            
+          </div>
+          
+        
       
-    </div>
-    
-  
-
-    
     
   </div>
 
@@ -5179,12 +4551,7 @@ exports[`Results block template Quick search journey Search results with empty d
     
   
 
-<button type="submit" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-1" data-module="govuk-button"
-    
-        
-      
-    
-   id="go-to-resource">
+<button type="submit" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-1" data-module="govuk-button" id="go-to-resource">
   Go to resource
 </button>
 
@@ -5195,12 +4562,7 @@ exports[`Results block template Quick search journey Search results with empty d
     
   
 
-<button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button"
-    
-        
-      
-    
-   id="more-info">
+<button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button" id="more-info">
   More info
 </button>
 
@@ -5213,12 +4575,21 @@ exports[`Results block template Quick search journey Search results with empty d
 </div></div>
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-third">
-          <h2 class='govuk-heading-m filter-heading govuk-!-margin-bottom-2'>
-            Filters
-          </h2>
+          <div class="filters-heading">
+            <h2 class='govuk-heading-m filter-heading govuk-!-margin-bottom-2'>
+              Filters
+            </h2>
+            <div class="filters-buttons">
+              <button type="reset" class="govuk-button govuk-button--warning" data-module="govuk-button" form="filters-search_results" id="filters-reset-search_results" data-reset-url="/natural-capital-ecosystem-assessment/search?q=marine&amp;rpp=20&amp;srt=most_relevant&amp;jry=qs&amp;pg=1&amp;scope=all">
+                Clear Filters
+              </button>
+              <button type="submit" class="govuk-button" data-module="govuk-button" form="filters-search_results">
+                Apply Filters
+              </button>
+            </div>
+          </div>
           <div class="govuk-section-break--visible"></div>
           
-
 
 
 <form autocomplete="off" id="filters-search_results">
@@ -6151,147 +5522,53 @@ exports[`Results block template Quick search journey Search results with empty d
         </button>
       </label>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-date-filters-search_results">
-        
-
-
-
-
-  
-<div class="govuk-form-group">
-
-  <fieldset class="govuk-fieldset" role="group" aria-describedby="date-before-search_results-hint">
-    
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-    
-      Updated before
-    
-    </legend>
-    
-  
-    <div id="date-before-search_results-hint" class="govuk-hint">
-      For example, 2007
-    </div>
-  
-  
-    <div class="govuk-date-input" id="date-before-search_results">
-      
-      
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="date-before-search_results-year">
-            Year
-          </label>
-        
-        
-          <input
-            
-                
-              
-            
-                
-              
-            
-                
-              
-            
-                
-              
-            
-            
-                
-              
-            
-            
-            
-            
-            
-            
-                
-              
-            
-           class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-before-search_results-year" name="before-year" type="text" value="" inputmode="numeric">
-        
+        <div class="govuk-form-group" id="date-before-group-search_results">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-before-hint-search_results date-before-error-search_results">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              Updated Before
+            </legend>
+            <div id="date-before-hint-search_results" class="govuk-hint">
+              For example, 2004
+            </div>
+            <p id="date-before-error-search_results" class="govuk-error-message display-none">
+              <span class="govuk-visually-hidden">Error:</span><span id="date-before-error-message-search_results"></span>
+            </p>
+            <div class="govuk-date-input" id="date-before-search_results">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="date-before-search_results-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-before-search_results-year" name="before-year" type="text" value="" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
         </div>
-      </div>
-      
-      
-    </div>
-  
-  </fieldset>
 
-</div>
-
-
-        
-
-
-
-
-  
-<div class="govuk-form-group">
-
-  <fieldset class="govuk-fieldset" role="group" aria-describedby="date-after-search_results-hint">
-    
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-    
-      Updated after
-    
-    </legend>
-    
-  
-    <div id="date-after-search_results-hint" class="govuk-hint">
-      For example, 2007
-    </div>
-  
-  
-    <div class="govuk-date-input" id="date-after-search_results">
-      
-      
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="date-after-search_results-year">
-            Year
-          </label>
-        
-        
-          <input
-            
-                
-              
-            
-                
-              
-            
-                
-              
-            
-                
-              
-            
-            
-                
-              
-            
-            
-            
-            
-            
-            
-                
-              
-            
-           class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-after-search_results-year" name="after-year" type="text" value="" inputmode="numeric">
-        
+        <div class="govuk-form-group" id="date-after-group-search_results">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-after-hint-search_results date-after-error-search_results">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              Updated After
+            </legend>
+            <div id="date-after-hint-search_results" class="govuk-hint">
+              For example, 2015
+            </div>
+            <p id="date-after-error-search_results" class="govuk-error-message display-none">
+              <span class="govuk-visually-hidden">Error:</span><span id="date-after-error-message-search_results"></span>
+            </p>
+            <div class="govuk-date-input" id="date-after-search_results">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="date-after-search_results-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-after-search_results-year" name="after-year" type="text" value="" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
         </div>
-      </div>
-      
-      
-    </div>
-  
-  </fieldset>
-
-</div>
-
       </div>
     </div>
     <div class="filter-options__container">
@@ -6306,36 +5583,11 @@ exports[`Results block template Quick search journey Search results with empty d
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-licence-filters-search_results">
         
 
-
 <div class="govuk-form-group">
   
 
 
-  <input
-    
-        
-      
-    
-        
-      
-    
-        
-      
-    
-        
-      
-    
-    
-        
-      
-    
-    
-    
-    
-    
-    
-    
-   class="govuk-input" id="licence-search_results" name="licence" type="text" value="">
+  <input class="govuk-input" id="licence-search_results" name="licence" type="text">
 
 </div>
 
@@ -6353,36 +5605,11 @@ exports[`Results block template Quick search journey Search results with empty d
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-keywords-filters-search_results">
         
 
-
 <div class="govuk-form-group">
   
 
 
-  <input
-    
-        
-      
-    
-        
-      
-    
-        
-      
-    
-        
-      
-    
-    
-        
-      
-    
-    
-    
-    
-    
-    
-    
-   class="govuk-input" id="keywords-search_results" name="keywords" type="text" value="">
+  <input class="govuk-input" id="keywords-search_results" name="keywords" type="text">
 
 </div>
 
@@ -6401,10 +5628,6 @@ exports[`Results block template Quick search journey Search results with empty d
         </label>
       </div>
     </div>
-
-    <div class="govuk-!-margin-top-4 govuk-section-break--visible"></div>
-
-    <a href="/natural-capital-ecosystem-assessment/search?q=marine&amp;rpp=20&amp;srt=most_relevant&amp;jry=qs&amp;pg=1&amp;scope=all" id="filter-options-reset-search_results" class="filter-options__reset-link govuk-body-m">Reset Filters</a>
   </section>
 </form>
         </div>
@@ -6421,7 +5644,7 @@ exports[`Results block template Quick search journey Search results with empty d
   </h2>
   <div class="govuk-section-break--visible"></div>
   
-    <div class='map-container disabled'>
+    <div class='map-container disabled' id="map-container">
       <div id="map-results-block">
         <button
           id='map-result-button'
@@ -6430,9 +5653,22 @@ exports[`Results block template Quick search journey Search results with empty d
           class='govuk-button govuk-button--map govuk-!-margin-bottom-0 spatial-data-button no-data'
           data-module='govuk-button'
           >
-          
-            No spatial data to display.
-          
+            <span id="no-spatial-data">No spatial data to display.</span>
+            <span id="view-results" class="display-none">
+              View&nbsp;<span id="map-result-count"></span>&nbsp;results on a map
+              <svg
+                class='govuk-button__start-icon'
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="20"
+                viewBox="0 0 16 20"
+                fill="none">
+                <path
+                  d="M14 6C14 2.69 11.31 0 8 0C4.69 0 2 2.69 2 6C2 10.5 8 17 8 17C8 17 14 10.5 14 6ZM6 6C6 4.9 6.9 4 8 4C9.1 4 10 4.9 10
+                    6C10 7.1 9.11 8 8 8C6.9 8 6 7.1 6 6ZM1 18V20H15V18H1Z"
+                  fill="white"/>
+              </svg>
+            </span>
         </button>
       </div>
     </div>
@@ -6467,53 +5703,55 @@ exports[`Results block template Quick search journey Search results with empty d
 
 
     
-  <footer class="govuk-footer">
+  <footer class="govuk-footer" role="contentinfo">
   <div class="govuk-width-container">
     
     <div class="govuk-footer__meta">
       <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
         
-        <h2 class="govuk-visually-hidden">Support links</h2>
-        
-        <ul class="govuk-footer__inline-list">
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
-              Help
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
-              Privacy
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
-              Cookies
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
-              Accessibility statement
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
-              Terms and conditions
-            </a>
-          </li>
-        
-        </ul>
-        
-        
-        <div class="govuk-footer__meta-custom">
-          <p>Version: v1.5.1</p>
-        </div>
-        
+          <h2 class="govuk-visually-hidden">Support links</h2>
+          
+            <ul class="govuk-footer__inline-list">
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
+                    Help
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
+                    Privacy
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
+                    Cookies
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
+                    Accessibility statement
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
+                    Terms and conditions
+                  </a>
+                </li>
+              
+            </ul>
+          
+          
+            <div class="govuk-footer__meta-custom">
+              
+<p>Version: v1.6.0</p>
+
+            </div>
+          
         
         <svg
           aria-hidden="true"
@@ -6530,25 +5768,21 @@ exports[`Results block template Quick search journey Search results with empty d
           />
         </svg>
         <span class="govuk-footer__licence-description">
-        
-          All content is available under the
-          <a
-            class="govuk-footer__link"
-            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
-            rel="license"
-          >Open Government Licence v3.0</a>, except where otherwise stated
-        
+          
+            All content is available under the
+            <a
+              class="govuk-footer__link"
+              href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+              rel="license"
+            >Open Government Licence v3.0</a>, except where otherwise stated
+          
         </span>
       </div>
       <div class="govuk-footer__meta-item">
         <a
           class="govuk-footer__link govuk-footer__copyright-logo"
           href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
-        >
-        
-          © Crown copyright
-        
-        </a>
+        >© Crown copyright</a>
       </div>
     </div>
   </div>
@@ -6623,129 +5857,96 @@ exports[`Results block template Quick search journey Search results with error s
   <body class="govuk-template__body app-body-class">
     <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
     
-  
-<div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on the find natural capital data service"
-    
-        
-      
-    
-   id="cookie_banner">
-  
-  <div class="govuk-cookie-banner__message govuk-width-container"
-    
-        
-      
-    
-   id="cookie_block" hidden>
+  <div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on the find natural capital data service" id="cookie_banner">
+    <div class="govuk-cookie-banner__message govuk-width-container" id="cookie_block" hidden>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         
-        <h2 class="govuk-cookie-banner__heading govuk-heading-m">
-          Cookies on the find natural capital data service
-        </h2>
+        <h2 class="govuk-cookie-banner__heading govuk-heading-m">Cookies on the find natural capital data service</h2>
         
+
         <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">We use some essential cookies to make this service work.</p>
-          <p class="govuk-body">We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements</p>
-          
-        </div>
+<p class="govuk-body">We use some essential cookies to make this service work.</p>
+<p class="govuk-body">We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements</p>
+</div>
       </div>
     </div>
 
-    
-    <div class="govuk-button-group">
-    
       
-      <button type="button" class="govuk-button" data-module="govuk-button"
+      <div class="govuk-button-group">
+        
           
-              
+            <button type="button" class="govuk-button" data-module="govuk-button" id="accept_button">
+              Accept analytics cookies
+            </button>
+          
+        
+          
+            <button type="button" class="govuk-button" data-module="govuk-button" id="reject_button">
+              Reject analytics cookies
+            </button>
+          
+        
+          
+            
+              <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
             
           
-         id="accept_button">
-        Accept analytics cookies
-      </button>
-    
-      
-      <button type="button" class="govuk-button" data-module="govuk-button"
-          
-              
-            
-          
-         id="reject_button">
-        Reject analytics cookies
-      </button>
-    
-      
-      <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
-    
-    </div>
-    
-
-  </div>
-  
-  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
-    
         
+      </div>
       
-    
-   id="accept_block" hidden>
+    </div>
+  
+    <div class="govuk-cookie-banner__message govuk-width-container" role="alert" id="accept_block" hidden>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         
+
         <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
-          
-        </div>
+<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+</div>
       </div>
     </div>
 
-    
-    <div class="govuk-button-group">
-    
       
-      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-        Hide cookie message
-      </button>
-    
-    </div>
-    
-
-  </div>
-  
-  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
-    
+      <div class="govuk-button-group">
         
+          
+            <button type="button" class="govuk-button hide_button" data-module="govuk-button">
+              Hide cookie message
+            </button>
+          
+        
+      </div>
       
-    
-   id="reject_block" hidden>
+    </div>
+  
+    <div class="govuk-cookie-banner__message govuk-width-container" role="alert" id="reject_block" hidden>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         
+
         <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
-          
-        </div>
+<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+</div>
       </div>
     </div>
 
-    
-    <div class="govuk-button-group">
-    
       
-      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-        Hide cookie message
-      </button>
-    
+      <div class="govuk-button-group">
+        
+          
+            <button type="button" class="govuk-button hide_button" data-module="govuk-button">
+              Hide cookie message
+            </button>
+          
+        
+      </div>
+      
     </div>
-    
-
-  </div>
   
 </div>
 
@@ -6769,38 +5970,44 @@ exports[`Results block template Quick search journey Search results with error s
     <!-- Google tag (gtag.js) -->
     
 
-    <header class="govuk-header" data-module="govuk-header">
+    
+
+
+
+<header class="govuk-header" role="banner" data-module="govuk-header">
   <div class="govuk-header__container govuk-width-container">
     <div class="govuk-header__logo">
       <a href="https://www.gov.uk/" class="govuk-header__link govuk-header__link--homepage">
-        <svg
-          focusable="false"
-          role="img"
-          class="govuk-header__logotype"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 148 30"
-          height="30"
-          width="148"
-          aria-label="GOV.UK"
-        >
-          <title>GOV.UK</title>
-          <path d="M22.6 10.4c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m-5.9 6.7c-.9.4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m10.8-3.7c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s0 2-1 2.4m3.3 4.8c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4M17 4.7l2.3 1.2V2.5l-2.3.7-.2-.2.9-3h-3.4l.9 3-.2.2c-.1.1-2.3-.7-2.3-.7v3.4L15 4.7c.1.1.1.2.2.2l-1.3 4c-.1.2-.1.4-.1.6 0 1.1.8 2 1.9 2.2h.7c1-.2 1.9-1.1 1.9-2.1 0-.2 0-.4-.1-.6l-1.3-4c-.1-.2 0-.2.1-.3m-7.6 5.7c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m-5 3c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s.1 2 1 2.4m-3.2 4.8c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m14.8 11c4.4 0 8.6.3 12.3.8 1.1-4.5 2.4-7 3.7-8.8l-2.5-.9c.2 1.3.3 1.9 0 2.7-.4-.4-.8-1.1-1.1-2.3l-1.2 4c.7-.5 1.3-.8 2-.9-1.1 2.5-2.6 3.1-3.5 3-1.1-.2-1.7-1.2-1.5-2.1.3-1.2 1.5-1.5 2.1-.1 1.1-2.3-.8-3-2-2.3 1.9-1.9 2.1-3.5.6-5.6-2.1 1.6-2.1 3.2-1.2 5.5-1.2-1.4-3.2-.6-2.5 1.6.9-1.4 2.1-.5 1.9.8-.2 1.1-1.7 2.1-3.5 1.9-2.7-.2-2.9-2.1-2.9-3.6.7-.1 1.9.5 2.9 1.9l.4-4.3c-1.1 1.1-2.1 1.4-3.2 1.4.4-1.2 2.1-3 2.1-3h-5.4s1.7 1.9 2.1 3c-1.1 0-2.1-.2-3.2-1.4l.4 4.3c1-1.4 2.2-2 2.9-1.9-.1 1.5-.2 3.4-2.9 3.6-1.9.2-3.4-.8-3.5-1.9-.2-1.3 1-2.2 1.9-.8.7-2.3-1.2-3-2.5-1.6.9-2.2.9-3.9-1.2-5.5-1.5 2-1.3 3.7.6 5.6-1.2-.7-3.1 0-2 2.3.6-1.4 1.8-1.1 2.1.1.2.9-.3 1.9-1.5 2.1-.9.2-2.4-.5-3.5-3 .6 0 1.2.3 2 .9l-1.2-4c-.3 1.1-.7 1.9-1.1 2.3-.3-.8-.2-1.4 0-2.7l-2.9.9C1.3 23 2.6 25.5 3.7 30c3.7-.5 7.9-.8 12.3-.8m28.3-11.6c0 .9.1 1.7.3 2.5.2.8.6 1.5 1 2.2.5.6 1 1.1 1.7 1.5.7.4 1.5.6 2.5.6.9 0 1.7-.1 2.3-.4s1.1-.7 1.5-1.1c.4-.4.6-.9.8-1.5.1-.5.2-1 .2-1.5v-.2h-5.3v-3.2h9.4V28H55v-2.5c-.3.4-.6.8-1 1.1-.4.3-.8.6-1.3.9-.5.2-1 .4-1.6.6s-1.2.2-1.8.2c-1.5 0-2.9-.3-4-.8-1.2-.6-2.2-1.3-3-2.3-.8-1-1.4-2.1-1.8-3.4-.3-1.4-.5-2.8-.5-4.3s.2-2.9.7-4.2c.5-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.6 2.6-.8 4.1-.8 1 0 1.9.1 2.8.3.9.2 1.7.6 2.4 1s1.4.9 1.9 1.5c.6.6 1 1.3 1.4 2l-3.7 2.1c-.2-.4-.5-.9-.8-1.2-.3-.4-.6-.7-1-1-.4-.3-.8-.5-1.3-.7-.5-.2-1.1-.2-1.7-.2-1 0-1.8.2-2.5.6-.7.4-1.3.9-1.7 1.5-.5.6-.8 1.4-1 2.2-.3.8-.4 1.9-.4 2.7zM71.5 6.8c1.5 0 2.9.3 4.2.8 1.2.6 2.3 1.3 3.1 2.3.9 1 1.5 2.1 2 3.4s.7 2.7.7 4.2-.2 2.9-.7 4.2c-.4 1.3-1.1 2.4-2 3.4-.9 1-1.9 1.7-3.1 2.3-1.2.6-2.6.8-4.2.8s-2.9-.3-4.2-.8c-1.2-.6-2.3-1.3-3.1-2.3-.9-1-1.5-2.1-2-3.4-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2c.4-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.5 2.6-.8 4.2-.8zm0 17.6c.9 0 1.7-.2 2.4-.5s1.3-.8 1.7-1.4c.5-.6.8-1.3 1.1-2.2.2-.8.4-1.7.4-2.7v-.1c0-1-.1-1.9-.4-2.7-.2-.8-.6-1.6-1.1-2.2-.5-.6-1.1-1.1-1.7-1.4-.7-.3-1.5-.5-2.4-.5s-1.7.2-2.4.5-1.3.8-1.7 1.4c-.5.6-.8 1.3-1.1 2.2-.2.8-.4 1.7-.4 2.7v.1c0 1 .1 1.9.4 2.7.2.8.6 1.6 1.1 2.2.5.6 1.1 1.1 1.7 1.4.6.3 1.4.5 2.4.5zM88.9 28 83 7h4.7l4 15.7h.1l4-15.7h4.7l-5.9 21h-5.7zm28.8-3.6c.6 0 1.2-.1 1.7-.3.5-.2 1-.4 1.4-.8.4-.4.7-.8.9-1.4.2-.6.3-1.2.3-2v-13h4.1v13.6c0 1.2-.2 2.2-.6 3.1s-1 1.7-1.8 2.4c-.7.7-1.6 1.2-2.7 1.5-1 .4-2.2.5-3.4.5-1.2 0-2.4-.2-3.4-.5-1-.4-1.9-.9-2.7-1.5-.8-.7-1.3-1.5-1.8-2.4-.4-.9-.6-2-.6-3.1V6.9h4.2v13c0 .8.1 1.4.3 2 .2.6.5 1 .9 1.4.4.4.8.6 1.4.8.6.2 1.1.3 1.8.3zm13-17.4h4.2v9.1l7.4-9.1h5.2l-7.2 8.4L148 28h-4.9l-5.5-9.4-2.7 3V28h-4.2V7zm-27.6 16.1c-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.7-1.2 2.7-2.7-1.2-2.7-2.7-2.7z"></path>
-        </svg>
+        
+<svg
+  focusable="false"
+  role="img"
+  class="govuk-header__logotype"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 148 30"
+  height="30"
+  width="148"
+  aria-label="GOV.UK"
+>
+  <title>GOV.UK</title>
+  <path d="M22.6 10.4c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m-5.9 6.7c-.9.4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m10.8-3.7c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s0 2-1 2.4m3.3 4.8c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4M17 4.7l2.3 1.2V2.5l-2.3.7-.2-.2.9-3h-3.4l.9 3-.2.2c-.1.1-2.3-.7-2.3-.7v3.4L15 4.7c.1.1.1.2.2.2l-1.3 4c-.1.2-.1.4-.1.6 0 1.1.8 2 1.9 2.2h.7c1-.2 1.9-1.1 1.9-2.1 0-.2 0-.4-.1-.6l-1.3-4c-.1-.2 0-.2.1-.3m-7.6 5.7c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m-5 3c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s.1 2 1 2.4m-3.2 4.8c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m14.8 11c4.4 0 8.6.3 12.3.8 1.1-4.5 2.4-7 3.7-8.8l-2.5-.9c.2 1.3.3 1.9 0 2.7-.4-.4-.8-1.1-1.1-2.3l-1.2 4c.7-.5 1.3-.8 2-.9-1.1 2.5-2.6 3.1-3.5 3-1.1-.2-1.7-1.2-1.5-2.1.3-1.2 1.5-1.5 2.1-.1 1.1-2.3-.8-3-2-2.3 1.9-1.9 2.1-3.5.6-5.6-2.1 1.6-2.1 3.2-1.2 5.5-1.2-1.4-3.2-.6-2.5 1.6.9-1.4 2.1-.5 1.9.8-.2 1.1-1.7 2.1-3.5 1.9-2.7-.2-2.9-2.1-2.9-3.6.7-.1 1.9.5 2.9 1.9l.4-4.3c-1.1 1.1-2.1 1.4-3.2 1.4.4-1.2 2.1-3 2.1-3h-5.4s1.7 1.9 2.1 3c-1.1 0-2.1-.2-3.2-1.4l.4 4.3c1-1.4 2.2-2 2.9-1.9-.1 1.5-.2 3.4-2.9 3.6-1.9.2-3.4-.8-3.5-1.9-.2-1.3 1-2.2 1.9-.8.7-2.3-1.2-3-2.5-1.6.9-2.2.9-3.9-1.2-5.5-1.5 2-1.3 3.7.6 5.6-1.2-.7-3.1 0-2 2.3.6-1.4 1.8-1.1 2.1.1.2.9-.3 1.9-1.5 2.1-.9.2-2.4-.5-3.5-3 .6 0 1.2.3 2 .9l-1.2-4c-.3 1.1-.7 1.9-1.1 2.3-.3-.8-.2-1.4 0-2.7l-2.9.9C1.3 23 2.6 25.5 3.7 30c3.7-.5 7.9-.8 12.3-.8m28.3-11.6c0 .9.1 1.7.3 2.5.2.8.6 1.5 1 2.2.5.6 1 1.1 1.7 1.5.7.4 1.5.6 2.5.6.9 0 1.7-.1 2.3-.4s1.1-.7 1.5-1.1c.4-.4.6-.9.8-1.5.1-.5.2-1 .2-1.5v-.2h-5.3v-3.2h9.4V28H55v-2.5c-.3.4-.6.8-1 1.1-.4.3-.8.6-1.3.9-.5.2-1 .4-1.6.6s-1.2.2-1.8.2c-1.5 0-2.9-.3-4-.8-1.2-.6-2.2-1.3-3-2.3-.8-1-1.4-2.1-1.8-3.4-.3-1.4-.5-2.8-.5-4.3s.2-2.9.7-4.2c.5-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.6 2.6-.8 4.1-.8 1 0 1.9.1 2.8.3.9.2 1.7.6 2.4 1s1.4.9 1.9 1.5c.6.6 1 1.3 1.4 2l-3.7 2.1c-.2-.4-.5-.9-.8-1.2-.3-.4-.6-.7-1-1-.4-.3-.8-.5-1.3-.7-.5-.2-1.1-.2-1.7-.2-1 0-1.8.2-2.5.6-.7.4-1.3.9-1.7 1.5-.5.6-.8 1.4-1 2.2-.3.8-.4 1.9-.4 2.7zM71.5 6.8c1.5 0 2.9.3 4.2.8 1.2.6 2.3 1.3 3.1 2.3.9 1 1.5 2.1 2 3.4s.7 2.7.7 4.2-.2 2.9-.7 4.2c-.4 1.3-1.1 2.4-2 3.4-.9 1-1.9 1.7-3.1 2.3-1.2.6-2.6.8-4.2.8s-2.9-.3-4.2-.8c-1.2-.6-2.3-1.3-3.1-2.3-.9-1-1.5-2.1-2-3.4-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2c.4-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.5 2.6-.8 4.2-.8zm0 17.6c.9 0 1.7-.2 2.4-.5s1.3-.8 1.7-1.4c.5-.6.8-1.3 1.1-2.2.2-.8.4-1.7.4-2.7v-.1c0-1-.1-1.9-.4-2.7-.2-.8-.6-1.6-1.1-2.2-.5-.6-1.1-1.1-1.7-1.4-.7-.3-1.5-.5-2.4-.5s-1.7.2-2.4.5-1.3.8-1.7 1.4c-.5.6-.8 1.3-1.1 2.2-.2.8-.4 1.7-.4 2.7v.1c0 1 .1 1.9.4 2.7.2.8.6 1.6 1.1 2.2.5.6 1.1 1.1 1.7 1.4.6.3 1.4.5 2.4.5zM88.9 28 83 7h4.7l4 15.7h.1l4-15.7h4.7l-5.9 21h-5.7zm28.8-3.6c.6 0 1.2-.1 1.7-.3.5-.2 1-.4 1.4-.8.4-.4.7-.8.9-1.4.2-.6.3-1.2.3-2v-13h4.1v13.6c0 1.2-.2 2.2-.6 3.1s-1 1.7-1.8 2.4c-.7.7-1.6 1.2-2.7 1.5-1 .4-2.2.5-3.4.5-1.2 0-2.4-.2-3.4-.5-1-.4-1.9-.9-2.7-1.5-.8-.7-1.3-1.5-1.8-2.4-.4-.9-.6-2-.6-3.1V6.9h4.2v13c0 .8.1 1.4.3 2 .2.6.5 1 .9 1.4.4.4.8.6 1.4.8.6.2 1.1.3 1.8.3zm13-17.4h4.2v9.1l7.4-9.1h5.2l-7.2 8.4L148 28h-4.9l-5.5-9.4-2.7 3V28h-4.2V7zm-27.6 16.1c-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.7-1.2 2.7-2.7-1.2-2.7-2.7-2.7z"></path>
+</svg>
+
         
       </a>
     </div>
-  
+    
     <div class="govuk-header__content">
     
-      
+    
       <a href="/natural-capital-ecosystem-assessment" class="govuk-header__link govuk-header__service-name">
         Find natural capital data
       </a>
-      
+    
     
     
     </div>
-  
+    
   </div>
 </header>
 
@@ -6808,7 +6015,7 @@ exports[`Results block template Quick search journey Search results with error s
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A43697%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A38527%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -6819,8 +6026,7 @@ exports[`Results block template Quick search journey Search results with error s
       <div class="govuk-width-container">
         
     
-  
-<div class="govuk-phase-banner">
+  <div class="govuk-phase-banner">
   <p class="govuk-phase-banner__content">
     <strong class="govuk-tag govuk-phase-banner__content__tag">
       Beta
@@ -6837,7 +6043,7 @@ exports[`Results block template Quick search journey Search results with error s
 <a href="#" class="govuk-back-link">Back</a>
 
   
-        <main class="govuk-main-wrapper app-main-class" id="main-content">
+        <main class="govuk-main-wrapper app-main-class" id="main-content" role="main">
           
     <h1 class="govuk-heading-l ">Search results</h1>
     <div class="govuk-grid-row govuk-!-text-align-right">
@@ -6848,12 +6054,7 @@ exports[`Results block template Quick search journey Search results with error s
     
   
 
-<a href="/natural-capital-ecosystem-assessment" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button"
-    
-        
-      
-    
-   data-do-storage-reset="">
+<a href="/natural-capital-ecosystem-assessment" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button" data-do-storage-reset="">
   New search
 </a>
 
@@ -6867,13 +6068,13 @@ exports[`Results block template Quick search journey Search results with error s
     <div class='govuk-grid-column-three-quarters govuk-!-margin-0 govuk-!-padding-0 map-view-block'>
       <div id='coordinate-map' style='height: 100%; width: 100%;'></div>
       <div class='defra-map-controls'>
-        <a href="javascript:;" class='defra-map__exit' id="defra-map-exit">
+        <button class='defra-map__exit' id="defra-map-exit">
           <svg xmlns="http://www.w3.org/2000/svg" width="26" height="25" viewBox="0 0 26 25" fill="none">
             <path d="M24.4846 12.25L4.49219 12.25" stroke="#0B0C0C" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
             <path d="M14.4889 2.25L3.24316 12.25L14.4889 22.25" stroke="#0B0C0C" stroke-width="2" stroke-linecap="square"/>
           </svg>
           <span>Exit map</span>
-        </a>
+        </button>
         <div class='defra-map-controls__bottom'>
           <button class='defra-map-reset' id='defra-map-reset' aria-controls="viewport">
             <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
@@ -6919,40 +6120,32 @@ exports[`Results block template Quick search journey Search results with error s
 
 
 
-
 <div class="govuk-form-group govuk-!-margin-top-3 govuk-!-margin-bottom-3">
 
   <div class="govuk-checkboxes" data-module="govuk-checkboxes">
     
-    
       
-  
-  
-    
-    
-    
-    
-    
-    <div class="govuk-checkboxes__item">
-      <input class="govuk-checkboxes__input" id="bounding-box" name="bounding-box" type="checkbox" value="on"
-    
+          
         
-      
-    
-   class="defra-checkboxes__input">
-      <label class="govuk-label govuk-checkboxes__label defra-checkboxes__label" for="bounding-box">
+          
+          
+          
+          
+          
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="bounding-box" name="bounding-box" type="checkbox" value="on" class="defra-checkboxes__input">
+            <label class="govuk-label govuk-checkboxes__label defra-checkboxes__label" for="bounding-box">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="25" viewBox="0 0 32 25" fill="none">
                                 <rect x="0.923077" y="1.17308" width="20.3077" height="14.7692" stroke="#0B0C0C" stroke-width="1.84615"/>
                                 <rect x="10.1535" y="8.55784" width="20.3077" height="14.7692" stroke="#0B0C0C" stroke-width="1.84615"/>
                               </svg>
                               &nbsp;Show all bounding boxes
       </label>
+            
+          </div>
+          
+        
       
-    </div>
-    
-  
-
-    
     
   </div>
 
@@ -6995,12 +6188,7 @@ exports[`Results block template Quick search journey Search results with error s
     
   
 
-<button type="submit" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-1" data-module="govuk-button"
-    
-        
-      
-    
-   id="go-to-resource">
+<button type="submit" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-1" data-module="govuk-button" id="go-to-resource">
   Go to resource
 </button>
 
@@ -7011,12 +6199,7 @@ exports[`Results block template Quick search journey Search results with error s
     
   
 
-<button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button"
-    
-        
-      
-    
-   id="more-info">
+<button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button" id="more-info">
   More info
 </button>
 
@@ -7029,12 +6212,21 @@ exports[`Results block template Quick search journey Search results with error s
 </div></div>
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-third">
-          <h2 class='govuk-heading-m filter-heading govuk-!-margin-bottom-2'>
-            Filters
-          </h2>
+          <div class="filters-heading">
+            <h2 class='govuk-heading-m filter-heading govuk-!-margin-bottom-2'>
+              Filters
+            </h2>
+            <div class="filters-buttons">
+              <button type="reset" class="govuk-button govuk-button--warning" data-module="govuk-button" form="filters-" id="filters-reset-" data-reset-url="">
+                Clear Filters
+              </button>
+              <button type="submit" class="govuk-button" data-module="govuk-button" form="filters-">
+                Apply Filters
+              </button>
+            </div>
+          </div>
           <div class="govuk-section-break--visible"></div>
           
-
 
 
 <form autocomplete="off" id="filters-">
@@ -7075,143 +6267,53 @@ exports[`Results block template Quick search journey Search results with error s
         </button>
       </label>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-date-filters-">
-        
-
-
-
-
-  
-<div class="govuk-form-group">
-
-  <fieldset class="govuk-fieldset" role="group" aria-describedby="date-before-undefined-hint">
-    
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-    
-      Updated before
-    
-    </legend>
-    
-  
-    <div id="date-before-undefined-hint" class="govuk-hint">
-      For example, 2007
-    </div>
-  
-  
-    <div class="govuk-date-input" id="date-before-undefined">
-      
-      
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="date-before-undefined-year">
-            Year
-          </label>
-        
-        
-          <input
-            
-                
-              
-            
-                
-              
-            
-                
-              
-            
-                
-              
-            
-            
-            
-            
-            
-            
-            
-            
-                
-              
-            
-           class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-before-undefined-year" name="before-year" type="text" inputmode="numeric">
-        
+        <div class="govuk-form-group" id="date-before-group-">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-before-hint- date-before-error-">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              Updated Before
+            </legend>
+            <div id="date-before-hint-" class="govuk-hint">
+              For example, 2004
+            </div>
+            <p id="date-before-error-" class="govuk-error-message display-none">
+              <span class="govuk-visually-hidden">Error:</span><span id="date-before-error-message-"></span>
+            </p>
+            <div class="govuk-date-input" id="date-before-">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="date-before--year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-before--year" name="before-year" type="text" value="" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
         </div>
-      </div>
-      
-      
-    </div>
-  
-  </fieldset>
 
-</div>
-
-
-        
-
-
-
-
-  
-<div class="govuk-form-group">
-
-  <fieldset class="govuk-fieldset" role="group" aria-describedby="date-after-undefined-hint">
-    
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-    
-      Updated after
-    
-    </legend>
-    
-  
-    <div id="date-after-undefined-hint" class="govuk-hint">
-      For example, 2007
-    </div>
-  
-  
-    <div class="govuk-date-input" id="date-after-undefined">
-      
-      
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="date-after-undefined-year">
-            Year
-          </label>
-        
-        
-          <input
-            
-                
-              
-            
-                
-              
-            
-                
-              
-            
-                
-              
-            
-            
-            
-            
-            
-            
-            
-            
-                
-              
-            
-           class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-after-undefined-year" name="after-year" type="text" inputmode="numeric">
-        
+        <div class="govuk-form-group" id="date-after-group-">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-after-hint- date-after-error-">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              Updated After
+            </legend>
+            <div id="date-after-hint-" class="govuk-hint">
+              For example, 2015
+            </div>
+            <p id="date-after-error-" class="govuk-error-message display-none">
+              <span class="govuk-visually-hidden">Error:</span><span id="date-after-error-message-"></span>
+            </p>
+            <div class="govuk-date-input" id="date-after-">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="date-after--year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-after--year" name="after-year" type="text" value="" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
         </div>
-      </div>
-      
-      
-    </div>
-  
-  </fieldset>
-
-</div>
-
       </div>
     </div>
     <div class="filter-options__container">
@@ -7226,34 +6328,11 @@ exports[`Results block template Quick search journey Search results with error s
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-licence-filters-">
         
 
-
 <div class="govuk-form-group">
   
 
 
-  <input
-    
-        
-      
-    
-        
-      
-    
-        
-      
-    
-        
-      
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   class="govuk-input" id="licence-undefined" name="" type="text">
+  <input class="govuk-input" id="licence-undefined" name="" type="text">
 
 </div>
 
@@ -7271,34 +6350,11 @@ exports[`Results block template Quick search journey Search results with error s
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-keywords-filters-">
         
 
-
 <div class="govuk-form-group">
   
 
 
-  <input
-    
-        
-      
-    
-        
-      
-    
-        
-      
-    
-        
-      
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   class="govuk-input" id="keywords-undefined" name="" type="text">
+  <input class="govuk-input" id="keywords-undefined" name="" type="text">
 
 </div>
 
@@ -7317,10 +6373,6 @@ exports[`Results block template Quick search journey Search results with error s
         </label>
       </div>
     </div>
-
-    <div class="govuk-!-margin-top-4 govuk-section-break--visible"></div>
-
-    <a href="" id="filter-options-reset-" class="filter-options__reset-link govuk-body-m">Reset Filters</a>
   </section>
 </form>
         </div>
@@ -7347,53 +6399,55 @@ exports[`Results block template Quick search journey Search results with error s
 
 
     
-  <footer class="govuk-footer">
+  <footer class="govuk-footer" role="contentinfo">
   <div class="govuk-width-container">
     
     <div class="govuk-footer__meta">
       <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
         
-        <h2 class="govuk-visually-hidden">Support links</h2>
-        
-        <ul class="govuk-footer__inline-list">
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
-              Help
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
-              Privacy
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
-              Cookies
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
-              Accessibility statement
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
-              Terms and conditions
-            </a>
-          </li>
-        
-        </ul>
-        
-        
-        <div class="govuk-footer__meta-custom">
-          <p>Version: v1.5.1</p>
-        </div>
-        
+          <h2 class="govuk-visually-hidden">Support links</h2>
+          
+            <ul class="govuk-footer__inline-list">
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
+                    Help
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
+                    Privacy
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
+                    Cookies
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
+                    Accessibility statement
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
+                    Terms and conditions
+                  </a>
+                </li>
+              
+            </ul>
+          
+          
+            <div class="govuk-footer__meta-custom">
+              
+<p>Version: v1.6.0</p>
+
+            </div>
+          
         
         <svg
           aria-hidden="true"
@@ -7410,25 +6464,21 @@ exports[`Results block template Quick search journey Search results with error s
           />
         </svg>
         <span class="govuk-footer__licence-description">
-        
-          All content is available under the
-          <a
-            class="govuk-footer__link"
-            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
-            rel="license"
-          >Open Government Licence v3.0</a>, except where otherwise stated
-        
+          
+            All content is available under the
+            <a
+              class="govuk-footer__link"
+              href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+              rel="license"
+            >Open Government Licence v3.0</a>, except where otherwise stated
+          
         </span>
       </div>
       <div class="govuk-footer__meta-item">
         <a
           class="govuk-footer__link govuk-footer__copyright-logo"
           href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
-        >
-        
-          © Crown copyright
-        
-        </a>
+        >© Crown copyright</a>
       </div>
     </div>
   </div>

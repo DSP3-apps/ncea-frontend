@@ -32,6 +32,10 @@ $(document).ready(function () {
         } else {
             params.set('keywords', selectedValue)
         }
-        window.location.search = params.toString();        
+
+        const url = new URL(window.location.href);
+        url.search = params.toString();
+
+        window.history.pushState({}, '', url);
     });
 })

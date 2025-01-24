@@ -145,6 +145,7 @@ export interface TabbedItem {
 export interface ISearchResults {
   total: number;
   items: ISearchItem[];
+  hasSpatialData: boolean;
 }
 
 export interface IAggregationOption {

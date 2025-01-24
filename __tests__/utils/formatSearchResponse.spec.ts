@@ -127,6 +127,7 @@ describe('Format the search response', () => {
           toYear: '2009',
         },
       ],
+      hasSpatialData: false,
     };
     const result = await formatSearchResponse(apiResponse);
     expect(result).toEqual(expectedResponse);
@@ -582,6 +583,7 @@ describe('Format the search response', () => {
           },
         },
       ],
+      hasSpatialData: false,
     };
 
     const result = await formatSearchResponse(apiResponse, true);

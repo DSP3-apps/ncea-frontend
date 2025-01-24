@@ -283,6 +283,7 @@ const formattedDetailsResponse: ISearchResults = {
      },
     },
   ],
+  hasSpatialData: false,
 };
 
 const detailsSuccessAPIFullData = {
@@ -955,6 +956,7 @@ const formattedDetailsFullResponse: ISearchResults = {
         },
      },
   ],
+  hasSpatialData: false,
 };
 
 export {

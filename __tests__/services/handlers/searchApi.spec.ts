@@ -122,7 +122,7 @@ describe('Search API', () => {
         },
         defaultFilters,
       );
-      expect(result).toEqual({ total: 0, items: [] });
+      expect(result).toEqual({ total: 0, items: [], hasSpatialData: false });
     });
   });
 

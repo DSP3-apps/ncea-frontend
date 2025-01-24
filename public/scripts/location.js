@@ -2,6 +2,7 @@ import { fireEventAfterStorage, getStorageData, updateSubmitButtonState } from '
 import { invokeAjaxCall } from './fetchResults.js';
 import { addCategoryAccordionToggleListeners, filterFormToFormData, appendMetaSearchParams } from './filters.js';
 
+const mapResultsInstance = 'map_results';
 const index3 = 3;
 const precision = 6;
 const timeout = 200;
@@ -16,6 +17,9 @@ const mapInitialLon = 3.436;
 const mapInitialLat = 55.3781;
 const mapResultsButtonId = 'map-result-button';
 const mapResultsCountId = 'map-result-count';
+const noSpatialDataId = 'no-spatial-data';
+const viewResultsId = 'view-results';
+const mapContainerId = 'map-container';
 const actionDataAttribute = 'data-action';
 const filterBlockId = 'map-filter-block';
 const boundingBoxCheckbox = document.getElementById('bounding-box');
@@ -556,8 +560,8 @@ const attachBoundingBoxToggleListener = () => {
  * Attaches event listener to the form containing the filters in the map view.
  * This is different to the other event listener as it does not refresh the page.
  */
-const attachMapResultsFilterChangeListeners = () => {
-  const form = document.getElementById(`filters-map_results`);
+const attachMapResultsFilterChangeListeners = (instance) => {
+  const form = document.getElementById(`filters-${instance}`);
 
   form.addEventListener('change', (e) => {
     resetData = true;
@@ -574,36 +578,25 @@ const attachMapResultsFilterChangeListeners = () => {
   });
 };
 
-/**
- * Attaches click event listener to the `Reset Filters` link
- */
-const attachResetFiltersClickListener = () => {
-  const link = document.getElementById(`filter-options-reset-map_results`);
-  const form = document.getElementById(`filters-map_results`);
-
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    resetData = false;
-
-    form.reset();
-
-    invokeMapFilters();
-    invokeMapResults(true);
-  });
-};
-
 const getMapResults = async (path, fitToMapExtentFlag) => {
   const mapResultsButton = document.getElementById(mapResultsButtonId);
   const mapResultsCount = document.getElementById(mapResultsCountId);
+  const noSpatialDataSpan = document.getElementById(noSpatialDataId);
+  const viewResultsSpan = document.getElementById(viewResultsId);
+  const mapContainerDiv = document.getElementById(mapContainerId);
+
   const response = await invokeAjaxCall(path, {}, false, 'GET');
   if (response) {
     if (response.status === responseSuccessStatusCode) {
       const mapResultsJson = await response.json();
-      mapResultsCount.textContent = mapResultsJson.total;
-      if (mapResultsJson.total > 0) {
+
+      if (mapResultsJson.hasSpatialData) {
+        mapResultsCount.textContent = mapResultsJson.total;
         mapResultsButton.removeAttribute('disabled');
-        document.querySelector('.map-container').style.display = 'block';
+        mapContainerDiv.classList.remove('disabled');
+        noSpatialDataSpan.classList.add('display-none');
+        viewResultsSpan.classList.remove('display-none');
+
         const boundingBoxInfo = document.getElementById('defra-bounding-box-info');
         if (boundingBoxInfo && mapResultsJson.total > maxCountForBoundingBoxInfo) {
           boundingBoxInfo.style.display = 'block';
@@ -615,12 +608,8 @@ const getMapResults = async (path, fitToMapExtentFlag) => {
           drawBoundingBoxWithMarker(fitToMapExtentFlag, true);
         }, 100);
         attachBoundingBoxToggleListener();
-      } else {
-        document.querySelector('.map-container').style.display = 'none';
-        mapResultsButton.setAttribute('disabled', true);
       }
-    } else {
-      mapResultsButton.setAttribute('disabled', true);
+      // don't need to handle the `else` cases anymore as it start disabled by default
     }
   }
 };
@@ -631,9 +620,8 @@ const getMapFilters = async (path) => {
     const mapFiltersHtml = await response.text();
     document.getElementById(filterBlockId).innerHTML = mapFiltersHtml;
 
-    addCategoryAccordionToggleListeners('map_results');
-    attachMapResultsFilterChangeListeners();
-    attachResetFiltersClickListener();
+    addCategoryAccordionToggleListeners(mapResultsInstance);
+    attachMapResultsFilterChangeListeners(mapResultsInstance);
   }
 };
 
