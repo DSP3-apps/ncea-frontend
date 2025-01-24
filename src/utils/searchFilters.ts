@@ -42,7 +42,7 @@ export type ISearchFilters = ISearchFilter[];
 export interface ISearchFiltersProcessed {
   nceaOnly: boolean;
   categories: ISearchFilterProcessed[];
-  keywords: string;
+  keywords: string[];
   license: string;
   lastUpdated: {
     beforeYear: string;
@@ -116,7 +116,7 @@ export const applyMockFilters = (
 
   if (filters.keywords.length > 0) {
     // split keywords by a few different delimiters
-    const keywords = filters.keywords.split(/, |,| /).map((k) => k.trim());
+    const keywords = filters.keywords.map((k) => k.trim());
 
     results.hits = results.hits.filter((hit) => {
       return keywords.some((keyword) => {
