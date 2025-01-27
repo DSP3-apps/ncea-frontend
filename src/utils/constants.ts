@@ -248,7 +248,7 @@ export const naturalTabStaticData = {
 
 export const defaultFilters: ISearchFiltersProcessed = {
   nceaOnly: false,
-  keywords: '',
+  keywords: [''],
   license: '',
   categories: [],
   lastUpdated: {
