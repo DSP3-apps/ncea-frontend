@@ -1,7 +1,7 @@
 {% from "macros/icons/icon.njk" import icon %}
 
 {% macro badge(badgeName, badgeValue, inputId) %}
-<button class="badge-button" data-input="filters-{{inputId}}-{{filterInstance}}">
+<button class="badge-button" data-input="filters-{{inputId}}-{{filterInstance}}" data-badge-button>
   {# `inputId` holds the id to the filter input that the badge is for #}
   <span class="govuk-font-family">{{ badgeName }}: {{badgeValue}}</span>
   {{ icon("cross", {
