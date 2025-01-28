@@ -46,16 +46,16 @@
             <div class="govuk-form-group">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                  <input class="govuk-checkboxes__input" {% if category.selectedAll %}checked{% endif %} id="filters-{{category.value}}-all-{{filterInstance}}" name="{{category.value}}" type="checkbox" value="all">
-                  <label class="govuk-label govuk-checkboxes__label" for="filters-{{category.value}}-all-{{filterInstance}}">
+                  <input class="govuk-checkboxes__input" {% if category.selectedAll %}checked{% endif %} id="filters-{{category.value}}-{{filterInstance}}" name="{{category.value}}" type="checkbox" value="all">
+                  <label class="govuk-label govuk-checkboxes__label" for="filters-{{category.value}}-{{filterInstance}}">
                     All
                   </label>
                 </div>
 
                 {% for filter in category.filters %}
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input" {% if filter.checked %}checked{% endif %} id="filters-{{filter.value}}-filter-{{filterInstance}}" name="{{category.value}}" type="checkbox" value="{{filter.value}}" data-multiple="true" data-ncea-only="{{ filter.hasNCEAData }}">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-{{filter.value}}-filter-{{filterInstance}}">
+                    <input class="govuk-checkboxes__input" {% if filter.checked %}checked{% endif %} id="filters-{{filter.value}}-{{filterInstance}}" name="{{category.value}}" type="checkbox" value="{{filter.value}}" data-multiple="true" data-ncea-only="{{ filter.hasNCEAData }}">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-{{filter.value}}-{{filterInstance}}">
                       {{filter.name}}
                     </label>
                   </div>
@@ -76,48 +76,48 @@
         </button>
       </label>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-date-filters-{{filterInstance}}">
-        <div class="govuk-form-group" id="date-before-group-{{filterInstance}}">
-          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-before-hint-{{filterInstance}} date-before-error-{{filterInstance}}">
+        <div class="govuk-form-group" id="{{dspFilterNames.updatedBefore}}-group-{{filterInstance}}">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="{{dspFilterNames.updatedBefore}}-hint-{{filterInstance}} {{dspFilterNames.updatedBefore}}-error-{{filterInstance}}">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
               Updated Before
             </legend>
-            <div id="date-before-hint-{{filterInstance}}" class="govuk-hint">
+            <div id="{{dspFilterNames.updatedBefore}}-hint-{{filterInstance}}" class="govuk-hint">
               For example, 2004
             </div>
-            <p id="date-before-error-{{filterInstance}}" class="govuk-error-message display-none">
-              <span class="govuk-visually-hidden">Error:</span><span id="date-before-error-message-{{filterInstance}}"></span>
+            <p id="{{dspFilterNames.updatedBefore}}-error-{{filterInstance}}" class="govuk-error-message display-none">
+              <span class="govuk-visually-hidden">Error:</span><span id="{{dspFilterNames.updatedBefore}}-error-message-{{filterInstance}}"></span>
             </p>
-            <div class="govuk-date-input" id="date-before-{{filterInstance}}">
+            <div class="govuk-date-input" id="{{dspFilterNames.updatedBefore}}-{{filterInstance}}">
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label" for="date-before-{{filterInstance}}-year">
+                  <label class="govuk-label govuk-date-input__label" for="filters-{{dspFilterNames.updatedBefore}}-{{filterInstance}}">
                     Year
                   </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-before-{{filterInstance}}-year" name="before-year" type="text" value="{{dspFilterOptions.lastUpdated.beforeYear}}" inputmode="numeric">
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="filters-{{dspFilterNames.updatedBefore}}-{{filterInstance}}" name="{{dspFilterNames.updatedBefore}}" type="text" value="{{dspFilterOptions.lastUpdated.beforeYear}}" inputmode="numeric">
                 </div>
               </div>
             </div>
           </fieldset>
         </div>
 
-        <div class="govuk-form-group" id="date-after-group-{{filterInstance}}">
-          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-after-hint-{{filterInstance}} date-after-error-{{filterInstance}}">
+        <div class="govuk-form-group" id="{{dspFilterNames.updatedAfter}}-group-{{filterInstance}}">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="{{dspFilterNames.updatedAfter}}-hint-{{filterInstance}} {{dspFilterNames.updatedAfter}}-error-{{filterInstance}}">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
               Updated After
             </legend>
-            <div id="date-after-hint-{{filterInstance}}" class="govuk-hint">
+            <div id="{{dspFilterNames.updatedAfter}}-hint-{{filterInstance}}" class="govuk-hint">
               For example, 2015
             </div>
-            <p id="date-after-error-{{filterInstance}}" class="govuk-error-message display-none">
-              <span class="govuk-visually-hidden">Error:</span><span id="date-after-error-message-{{filterInstance}}"></span>
+            <p id="{{dspFilterNames.updatedAfter}}-error-{{filterInstance}}" class="govuk-error-message display-none">
+              <span class="govuk-visually-hidden">Error:</span><span id="{{dspFilterNames.updatedAfter}}-error-message-{{filterInstance}}"></span>
             </p>
-            <div class="govuk-date-input" id="date-after-{{filterInstance}}">
+            <div class="govuk-date-input" id="{{dspFilterNames.updatedAfter}}-{{filterInstance}}">
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label" for="date-after-{{filterInstance}}-year">
+                  <label class="govuk-label govuk-date-input__label" for="filters-{{dspFilterNames.updatedAfter}}-{{filterInstance}}">
                     Year
                   </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-after-{{filterInstance}}-year" name="after-year" type="text" value="{{dspFilterOptions.lastUpdated.afterYear}}" inputmode="numeric">
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="filters-{{dspFilterNames.updatedAfter}}-{{filterInstance}}" name="{{dspFilterNames.updatedAfter}}" type="text" value="{{dspFilterOptions.lastUpdated.afterYear}}" inputmode="numeric">
                 </div>
               </div>
             </div>
@@ -126,36 +126,35 @@
       </div>
     </div>
     <div class="filter-options__container">
-      <label for="filters-licence-accordion-toggle-{{filterInstance}}" class="filter-options__accordion" data-category-{{filterInstance}}="licence">
-        <button type="button" aria-expanded="false" data-expanded="false" id="filters-licence-accordion-toggle-{{filterInstance}}" class="filter-options__accordion-toggle">
-          <svg id="filters-licence-accordion-icon-{{filterInstance}}" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
+      <label for="filters-{{dspFilterNames.licence}}-accordion-toggle-{{filterInstance}}" class="filter-options__accordion" data-category-{{filterInstance}}="licence">
+        <button type="button" aria-expanded="false" data-expanded="false" id="filters-{{dspFilterNames.licence}}-accordion-toggle-{{filterInstance}}" class="filter-options__accordion-toggle">
+          <svg id="filters-{{dspFilterNames.licence}}-accordion-icon-{{filterInstance}}" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
           <h3 class="filter-options__category-heading govuk-body-m">
             Licence
           </h3>
         </button>
       </label>
-      <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-licence-filters-{{filterInstance}}">
+      <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-{{dspFilterNames.licence}}-filters-{{filterInstance}}">
         {{ govukInput({
-          id: "licence-"+filterInstance,
+          id: "filters-"+dspFilterNames.licence+"-"+filterInstance,
           name: dspFilterNames.licence,
           value: dspFilterOptions.license
         }) }}
       </div>
     </div>
     <div class="filter-options__container filter-options__keyword-filter">
-      <label for="filters-keywords-accordion-toggle-{{filterInstance}}" class="filter-options__accordion" data-category-{{filterInstance}}="keywords">
-        <button type="button" aria-expanded="false" data-expanded="false" id="filters-keywords-accordion-toggle-{{filterInstance}}" class="filter-options__accordion-toggle">
-          <svg id="filters-keywords-accordion-icon-{{filterInstance}}" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
+      <label for="filters-{{dspFilterNames.keywords}}-accordion-toggle-{{filterInstance}}" class="filter-options__accordion" data-category-{{filterInstance}}="keywords">
+        <button type="button" aria-expanded="false" data-expanded="false" id="filters-{{dspFilterNames.keywords}}-accordion-toggle-{{filterInstance}}" class="filter-options__accordion-toggle">
+          <svg id="filters-{{dspFilterNames.keywords}}-accordion-icon-{{filterInstance}}" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
           <h3 class="filter-options__category-heading govuk-body-m">
             Keywords
           </h3>
         </button>
       </label>
-      <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-keywords-filters-{{filterInstance}}">
+      <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-{{dspFilterNames.keywords}}-filters-{{filterInstance}}">
         {{ govukInput({
-          id: "keywords-"+filterInstance,
-          name: dspFilterNames.keywords,
-          value: dspFilterOptions.keywords
+          id: "filters-"+dspFilterNames.keywords+"-"+filterInstance,
+          name: dspFilterNames.keywords
         }) }}
       </div>
       <div class="filter-options__keyboard-filter-content">
@@ -166,8 +165,8 @@
 
     <div class="govuk-checkboxes govuk-checkboxes--small">
       <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-        <input class="govuk-checkboxes__input" id="retired-archived-{{filterInstance}}" {% if dspFilterOptions.retiredAndArchived %}checked{% endif %} name="{{dspFilterNames.retiredAndArchived}}" type="checkbox" value="true">
-        <label class="govuk-label govuk-checkboxes__label" for="retired-archived-{{filterInstance}}">
+        <input class="govuk-checkboxes__input" id="filters-{{dspFilterNames.retiredAndArchived}}-{{filterInstance}}" {% if dspFilterOptions.retiredAndArchived %}checked{% endif %} name="{{dspFilterNames.retiredAndArchived}}" type="checkbox" value="true">
+        <label class="govuk-label govuk-checkboxes__label" for="filters-{{dspFilterNames.retiredAndArchived}}-{{filterInstance}}">
           <span class="filter-options__retired-label">Include Retired & Archived records</span>
         </label>
       </div>

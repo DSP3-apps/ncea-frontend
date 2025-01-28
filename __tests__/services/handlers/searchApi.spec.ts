@@ -147,7 +147,7 @@ describe('Search API', () => {
         searchFieldsObject,
         {
           ...defaultFilters,
-          keywords: 'april',
+          keywords: ['april'],
         },
         false,
         true,

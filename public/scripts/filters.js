@@ -181,8 +181,8 @@ const hideDateFilterError = (instance, input) => {
  * @returns {boolean}
  */
 const validateDateFilters = (instance) => {
-  const beforeYear = $(`#${dateBeforePrefix}-${instance}-year`).val();
-  const afterYear = $(`#${dateAfterPrefix}-${instance}-year`).val();
+  const beforeYear = $(`#filters-${dateBeforePrefix}-${instance}`).val();
+  const afterYear = $(`#filters-${dateAfterPrefix}-${instance}`).val();
 
   if (!validYearRegex.test(beforeYear)) {
     showDateFilterError(instance, 'before', 'Before year must be a valid year.');
@@ -244,4 +244,4 @@ document.addEventListener('DOMContentLoaded', () => {
   addFilterFormResetListener(filtersInstance);
 });
 
-export { addCategoryAccordionToggleListeners, filterFormToFormData, appendMetaSearchParams };
+export { addCategoryAccordionToggleListeners, filterFormToFormData, appendMetaSearchParams, filtersInstance };

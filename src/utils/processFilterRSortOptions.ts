@@ -58,11 +58,15 @@ const processDSPFilterOptions = (requestQuery: RequestQuery): ISearchFiltersProc
   return {
     nceaOnly,
     categories: categories,
-    keywords: readQueryParams(requestQuery, filterNames.keywords),
+    // without the filter if they keywords are empty it will return a 1 element array
+    // where the element is just an emprty string
+    keywords: readQueryParams(requestQuery, filterNames.keywords)
+      .split(',')
+      .filter((k) => k),
     license: readQueryParams(requestQuery, filterNames.licence),
     lastUpdated: {
-      beforeYear: readQueryParams(requestQuery, filterNames.updatedBeforeYear),
-      afterYear: readQueryParams(requestQuery, filterNames.updatedAfterYear),
+      beforeYear: readQueryParams(requestQuery, filterNames.updatedBefore),
+      afterYear: readQueryParams(requestQuery, filterNames.updatedAfter),
     },
     retiredAndArchived: readQueryParams(requestQuery, filterNames.retiredAndArchived) === 'true',
   };
