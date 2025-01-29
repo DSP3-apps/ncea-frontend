@@ -1,3 +1,18 @@
+# [1.8.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.7.0...v1.8.0) (2025-01-29)
+
+
+### Bug Fixes
+
+* **filters:** Updated filter interface to store array of keywords instead of string ([7ab2f13](https://github.com/DSP3-apps/ncea-frontend/commit/7ab2f13e8347b61c7697196bbb1d1eec86069179)), closes [#NCEA-173](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-173)
+* **tests:** Fix tests due to type changes ([f2b51aa](https://github.com/DSP3-apps/ncea-frontend/commit/f2b51aaabf2e828f307efe6759991bc3e74bc5f2)), closes [#NCEA-173](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-173)
+
+
+### Features
+
+* **badges:** Add badge interactivity ([b273ad9](https://github.com/DSP3-apps/ncea-frontend/commit/b273ad9bb28e494b1e767dde6dd836ac556334f5)), closes [#NCEA-173](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-173)
+* **badges:** Implement badges and badge styling ([1e8e0f1](https://github.com/DSP3-apps/ncea-frontend/commit/1e8e0f12ef6a495a3841ad131fa86aba4d71f3d5)), closes [#NCEA-173](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-173)
+* **frontend:** Add sytem for including svg icons ([1b77aa2](https://github.com/DSP3-apps/ncea-frontend/commit/1b77aa241c8b08a4d482564e107a103ee44ac52c))
+
 # [1.7.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.6.0...v1.7.0) (2025-01-24)
 
 
