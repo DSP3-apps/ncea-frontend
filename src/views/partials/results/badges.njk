@@ -1,9 +1,9 @@
 {% from "macros/icons/icon.njk" import icon %}
 
 {% macro badge(badgeName, badgeValue) %}
-<div class="badge">
+<li class="badge">
   <span class="govuk-font-family">{{ badgeName }}: {{badgeValue}}</span>
-</div>
+</li>
 {% endmacro %}
 
 {% for category in dspFilterOptions.categories %}

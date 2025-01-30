@@ -683,6 +683,7 @@
 }
 
 .badge-container {
+  all: unset;
   background-color: #f3f2f1;
   display: flex;
   flex-wrap: wrap;
@@ -697,6 +698,7 @@
 
   // mostly copied from the core platform `.ag-tag-group button` styles
   .badge {
+    all: unset;
     border: 1px solid #000;
     border-radius: 0.25rem;
     box-shadow: #929191 0px 0px 0px;
