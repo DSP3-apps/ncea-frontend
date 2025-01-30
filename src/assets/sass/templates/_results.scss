@@ -606,9 +606,8 @@
 
 .filter-options__keyboard-filter-content {
   position: absolute;
-  top: 75%;
-  left: 3%;
-  right: 0;
+  top: 100%;
+  width: 100%;
   border: 1px solid #ddd;
   border-radius: 4px;
   background-color: #fff;
@@ -642,6 +641,14 @@
 
 .filter-options__keyword-filter {
   position: relative;
+}
+
+.keyword-input {
+  position: relative; // this element has an `absolute` child
+
+  .govuk-form-group {
+    margin-bottom: 1rem;
+  }
 }
 
 .govuk-font-family {
@@ -682,6 +689,7 @@
   }
 }
 
+.keyword-badge-container,
 .badge-container {
   all: unset;
   background-color: #f3f2f1;
@@ -691,22 +699,48 @@
   border-radius: 0.5rem;
 
   // only apply padding and margin if there are badges as children
-  &:has(> .badge) {
+  &:has(> *) {
     padding: 0.5rem;
     margin-bottom: 1rem;
   }
 
-  // mostly copied from the core platform `.ag-tag-group button` styles
   .badge {
     all: unset;
     border: 1px solid #000;
     border-radius: 0.25rem;
     box-shadow: #929191 0px 0px 0px;
-    font-size: 1rem;
-    padding: 0.25rem;
-    display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.25rem;
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    padding: 0.25rem;
+
+    .badge-text {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 100%;
+      text-wrap: nowrap;
+    }
+  }
+
+  &.badge-container {
+    .badge {
+      font-size: 1rem;
+    }
+  }
+
+  &.keyword-badge-container {
+    .badge {
+      cursor: pointer;
+
+      &:hover {
+        background-color: #dbdad9;
+      }
+
+      &:active {
+        transform: translateY(2px);
+      }
+    }
   }
 }
