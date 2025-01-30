@@ -673,6 +673,15 @@
   box-shadow: -5px 0px 0px 0px #d4351c;
 }
 
+// hide the heading and container if there are no badges
+.badge-section {
+  display: none;
+
+  &:has(.badge-container > *) {
+    display: block;
+  }
+}
+
 .badge-container {
   background-color: #f3f2f1;
   display: flex;
@@ -681,31 +690,21 @@
   border-radius: 0.5rem;
 
   // only apply padding and margin if there are badges as children
-  &:has(> .badge-button) {
+  &:has(> .badge) {
     padding: 0.5rem;
     margin-bottom: 1rem;
   }
 
   // mostly copied from the core platform `.ag-tag-group button` styles
-  .badge-button {
-    all: unset;
+  .badge {
     border: 1px solid #000;
     border-radius: 0.25rem;
     box-shadow: #929191 0px 0px 0px;
     font-size: 1rem;
     padding: 0.25rem;
-    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.25rem;
-
-    &:hover {
-      background-color: #dbdad9;
-    }
-
-    &:active {
-      transform: translateY(2px);
-    }
   }
 }

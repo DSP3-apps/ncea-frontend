@@ -10,9 +10,12 @@
     {{ searchResults.total }} results{% if not searchResults.total %} found
     {% endif %}
   </h2>
-  <div class="badge-container">
-    {% include 'partials/results/badges.njk' %}
-  </div>
+  <section class="badge-section">
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Applied Filters</h3>
+    <div class="badge-container">
+      {% include 'partials/results/badges.njk' %}
+    </div>
+  </section>
   <div class="govuk-section-break--visible"></div>
   {% if not hasError %}
     <div class='map-container disabled' id="map-container">
