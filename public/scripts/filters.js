@@ -61,6 +61,9 @@ const appendMetaSearchParams = (filterParams) => {
   filterParams.set('srt', params.get('srt')); // sort
   filterParams.set('jry', params.get('jry')); // journey (quick / classifier)
   filterParams.set('pg', params.get('pg')); // current page
+  if (!!params.get('keywords')) {
+    filterParams.set('keywords', params.get('keywords')); // set the keywords
+  }
 };
 
 /**
@@ -93,6 +96,16 @@ const filterFormToFormData = (form) => {
     }
   }
 
+  // validate selected keywords
+  if (!!data.get('keywords')) {
+    const keywordInput = document.getElementById('filters-keywords-search_results').value;
+    const keywordListItems = Array.from(document.querySelectorAll('#keyboard-filter-list li'));
+    const keywordsListItemTexts = keywordListItems.filter((item) => item.textContent === keywordInput);
+    if (keywordsListItemTexts.length === 0) {
+      // will set the current keyword to empty if it doesn't match with the list
+      data.set('keywords', '');
+    }
+  }
   return data;
 };
 
