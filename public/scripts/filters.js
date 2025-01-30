@@ -76,6 +76,7 @@ const appendMetaSearchParams = (filterParams) => {
  */
 const filterFormToFormData = (form) => {
   const data = new FormData(form);
+
   // this is also defined in `utils/searchFilters.ts`
   const isNCEAOnly = data.get('scope') === 'ncea';
 
@@ -94,6 +95,7 @@ const filterFormToFormData = (form) => {
       }
     }
   }
+
   // validate selected keywords
   if (!!data.get('keywords')) {
     const keywordInput = document.getElementById('filters-keywords-search_results').value;
