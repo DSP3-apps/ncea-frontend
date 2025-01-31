@@ -1,6 +1,11 @@
 import { fireEventAfterStorage, getStorageData, updateSubmitButtonState } from './customScripts.js';
 import { invokeAjaxCall } from './fetchResults.js';
-import { addCategoryAccordionToggleListeners, filterFormToFormData, appendMetaSearchParams } from './filters.js';
+import {
+  addCategoryAccordionToggleListeners,
+  filterFormToFormData,
+  appendMetaSearchParams,
+  addAllCheckboxListeners,
+} from './filters.js';
 
 const mapResultsInstance = 'map_results';
 const index3 = 3;
@@ -622,6 +627,7 @@ const getMapFilters = async (path) => {
 
     addCategoryAccordionToggleListeners(mapResultsInstance);
     attachMapResultsFilterChangeListeners(mapResultsInstance);
+    addAllCheckboxListeners(mapResultsInstance);
   }
 };
 

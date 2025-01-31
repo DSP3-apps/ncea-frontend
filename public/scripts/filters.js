@@ -281,4 +281,10 @@ document.addEventListener('DOMContentLoaded', () => {
   addAllCheckboxListeners(filtersInstance);
 });
 
-export { addCategoryAccordionToggleListeners, filterFormToFormData, appendMetaSearchParams, filtersInstance };
+export {
+  addCategoryAccordionToggleListeners,
+  filterFormToFormData,
+  appendMetaSearchParams,
+  filtersInstance,
+  addAllCheckboxListeners,
+};
