@@ -43,6 +43,7 @@ const SearchResultsController = {
 
       const searchResults: ISearchResults = await getSearchResults(
         payload,
+        request.auth.credentials,
         processedDspFilterOptions,
         false,
         isQuickSearchJourney,
@@ -132,6 +133,7 @@ const SearchResultsController = {
 
       const searchMapResults: ISearchResults = await getSearchResults(
         mapPayload,
+        request.auth.credentials,
         processedDspFilterOptions,
         true,
         isQuickSearchJourney,

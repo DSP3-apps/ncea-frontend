@@ -5,3 +5,9 @@ export interface DecodedJWT {
   exp?: number; // Optional: JWT expiration timestamp
   [key: string]: unknown; // Additional claims
 }
+
+export interface Credentials {
+  jwt: string;
+  user: DecodedJWT;
+  [key: string]: unknown;
+}
