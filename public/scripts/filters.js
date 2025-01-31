@@ -45,6 +45,29 @@ const addCategoryAccordionToggleListeners = (instance) => {
   }
 };
 
+const addAllCheckboxListeners = (instance) => {
+  const categories = $(`[data-category-${instance}]`);
+
+  categories.each(function () {
+    const categoryName = $(this).attr(`data-category-${instance}`);
+
+    const allInput = $(`[name='${categoryName}'][value='all']`); // get the input of this category that has the `all` value
+    const otherInputs = $(`[name='${categoryName}']:not([value='all'])`); // get every other input that does not have the `all` value
+
+    // listen for the `All` checkbox to change and set every other checkbox to its value
+    allInput.on('change', function () {
+      otherInputs.prop('checked', this.checked);
+    });
+
+    // if the `All` checkbox is selected, but someone manually deselects another checkbox
+    // the `All` checkbox should be unchecked, and if they reselect that checkbox, `All`
+    // should be checked again therfore we also need listeners on each input
+    otherInputs.on('change', function () {
+      allInput.prop('checked', otherInputs.length === otherInputs.filter(':checked').length);
+    });
+  });
+};
+
 /**
  * Appends meta filter paramters to a new set of params.
  *
@@ -255,6 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
   addCategoryAccordionToggleListeners(filtersInstance);
   addFilterFormSubmitListener(filtersInstance);
   addFilterFormResetListener(filtersInstance);
+  addAllCheckboxListeners(filtersInstance);
 });
 
 export { addCategoryAccordionToggleListeners, filterFormToFormData, appendMetaSearchParams, filtersInstance };

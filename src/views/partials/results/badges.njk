@@ -1,14 +1,7 @@
-{% from "macros/icons/icon.njk" import icon %}
-
-{% macro badge(badgeName, badgeValue, inputId) %}
-<button class="badge-button" data-input="filters-{{inputId}}-{{filterInstance}}" data-badge-button>
-  {# `inputId` holds the id to the filter input that the badge is for #}
+{% macro badge(badgeName, badgeValue) %}
+<li class="badge">
   <span class="govuk-font-family">{{ badgeName }}: {{badgeValue}}</span>
-  {{ icon("cross", {
-    width: "1rem",
-    height: "1rem"
-  }) }}
-</button>
+</li>
 {% endmacro %}
 
 {% for category in dspFilterOptions.categories %}
@@ -17,27 +10,27 @@
   {% else %}
     {% for filter in category.filters %}
       {% if filter.checked %}
-        {{ badge(category.name, filter.name, filter.value) }}
+        {{ badge(category.name, filter.name) }}
       {% endif %}
     {% endfor %}
   {% endif %}
 {% endfor %}
 
 {% if (dspFilterOptions.lastUpdated.beforeYear | length) > 0 %}
-  {{ badge("Date Before", dspFilterOptions.lastUpdated.beforeYear, dspFilterNames.updatedBefore) }}
+  {{ badge("Date Before", dspFilterOptions.lastUpdated.beforeYear) }}
 {% endif %}
 {% if (dspFilterOptions.lastUpdated.afterYear | length) > 0 %}
-  {{ badge("Date After", dspFilterOptions.lastUpdated.afterYear,  dspFilterNames.updatedAfter) }}
+  {{ badge("Date After", dspFilterOptions.lastUpdated.afterYear) }}
 {% endif %}
 
 {% if (dspFilterOptions.license | length) > 0 %}
-  {{ badge("License", dspFilterOptions.license,  dspFilterNames.licence) }}
+  {{ badge("License", dspFilterOptions.license) }}
 {% endif %}
 
 {% for keyword in dspFilterOptions.keywords %}
-  {{ badge("Keyword", keyword,  dspFilterNames.keywords) }}
+  {{ badge("Keyword", keyword) }}
 {% endfor %}
 
 {% if dspFilterOptions.retiredAndArchived %}
-  {{ badge("Retired and Archived records", "Yes", dspFilterNames.retiredAndArchived) }}
+  {{ badge("Retired and Archived records", "Yes") }}
 {% endif %}

@@ -1,6 +1,9 @@
 {% from "govuk/components/select/macro.njk" import govukSelect %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
 
+{# include the template so it is in the DOM ready for client-side javascript #}
+{% include "partials/results/keyword_badge.njk" %}
+
 <form autocomplete="off" id="filters-{{filterInstance}}">
   <section>
     <div class="govuk-form-group filter-options__ncea-only">
@@ -152,14 +155,21 @@
         </button>
       </label>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-{{dspFilterNames.keywords}}-filters-{{filterInstance}}">
-        {{ govukInput({
-          id: "filters-"+dspFilterNames.keywords+"-"+filterInstance,
-          name: dspFilterNames.keywords
-        }) }}
-      </div>
-      <div class="filter-options__keyboard-filter-content">
-          <ul class="filter-options__keyboard-filter-list" id="keyboard-filter-list">
-          </ul>
+        <div class="keyword-input">
+          {{ govukInput({
+            id: "filters-"+dspFilterNames.keywords+"-"+filterInstance,
+            name: dspFilterNames.keywords
+          }) }}
+            
+          <div class="filter-options__keyboard-filter-content">
+              <ul class="filter-options__keyboard-filter-list" id="keyboard-filter-list">
+              </ul>
+          </div>
+        </div>
+
+        <ul class="keyword-badge-container" id="keyword-badge-container-{{filterInstance}}">
+
+        </ul>
       </div>
     </div>
 
