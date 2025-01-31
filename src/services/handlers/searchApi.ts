@@ -4,6 +4,7 @@ import { CLASSIFIER_COUNT_LEVEL_3 } from './mocks/classifier-themes-level-3';
 import { MORE_INFO_RESPOSE } from './mocks/more-info-response';
 import { QUICK_SEARCH_RESPONSE } from './mocks/quick-search';
 import { QUICK_SEARCH_RESOURCE_TYPE_FILTERS, QUICK_SEARCH_STUDY_PERIOD_FILTERS } from './mocks/quick-search-filters';
+import { Credentials } from '../..//interfaces/auth';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { IFilterFlags } from '../../interfaces/searchPayload.interface';
 import { IAggregationOptions, ISearchItem, ISearchResults } from '../../interfaces/searchResponse.interface';
@@ -13,6 +14,7 @@ import { ISearchFiltersProcessed, applyMockFilters } from '../../utils/searchFil
 
 const getSearchResults = async (
   searchFieldsObject: ISearchPayload,
+  credentials: Credentials,
   filters: ISearchFiltersProcessed,
   isMapResults: boolean = false,
   isQuickSearchJourney: boolean = false,
