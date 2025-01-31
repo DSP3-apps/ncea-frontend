@@ -46,7 +46,7 @@ const SearchResultsController = {
         request.auth.credentials,
         processedDspFilterOptions,
         false,
-        isQuickSearchJourney,
+        // isQuickSearchJourney, // TODO: We may need to add this back in, which is why I've left it.
       );
 
       const paginationItems = getPaginationItems(page, searchResults?.total ?? 0, rowsPerPage, request.query);
@@ -120,7 +120,7 @@ const SearchResultsController = {
   getMapResultsHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
     const journey: string = readQueryParams(request.query, queryParamKeys.journey);
     const payload: ISearchPayload = generateQueryBuilderPayload(request.query);
-    const isQuickSearchJourney = journey === 'qs';
+    // const isQuickSearchJourney = journey === 'qs';
     try {
       const mapPayload: ISearchPayload = {
         ...payload,
@@ -136,8 +136,9 @@ const SearchResultsController = {
         request.auth.credentials,
         processedDspFilterOptions,
         true,
-        isQuickSearchJourney,
+        // isQuickSearchJourney,
       );
+
       return response.response(searchMapResults).header('Content-Type', 'application/json');
     } catch (error) {
       return response.response({ error: 'An error occurred while processing your request' }).code(500);
