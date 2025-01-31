@@ -52,7 +52,27 @@ const createBadge = (keyword) => {
   $(`#keyword-badge-container-${filtersInstance}`).append(template);
 };
 
+/**
+ * Creates badges for every keyword active when the page loads
+ */
+const createBadgesFromExistingKeywords = () => {
+  const params = new URLSearchParams(window.location.search);
+
+  const keywords = params.get('keywords');
+  if (!keywords) {
+    return;
+  }
+
+  //split, remove any empty strings and create badges
+  keywords
+    .split(',')
+    .filter((k) => k)
+    .forEach((k) => createBadge(k));
+};
+
 $(document).ready(function () {
+  createBadgesFromExistingKeywords();
+
   const keywordInput = $(`#filters-keywords-${filtersInstance}`);
 
   const getTagsApiUrl = Boolean(keyboardFiltersBaseUrlValue)
