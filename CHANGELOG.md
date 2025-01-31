@@ -1,3 +1,22 @@
+# [1.9.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.8.0...v1.9.0) (2025-01-31)
+
+
+### Bug Fixes
+
+* **badges:** Remove interactivity from badges ([e6db5f1](https://github.com/DSP3-apps/ncea-frontend/commit/e6db5f1653013ee6d13b36aedcfb2b4ed0edc05e)), closes [#NCEA-173](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-173)
+* **badges:** Use unordered list instead of divs ([707a84b](https://github.com/DSP3-apps/ncea-frontend/commit/707a84b25da9e0c2a875f48034079c2dc7e8afaf)), closes [#NCEA-173](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-173)
+* **filters:** Make `Clear Filters` button secondary ([37274b6](https://github.com/DSP3-apps/ncea-frontend/commit/37274b624025e5339d654b02d8de0b237bc1b163)), closes [#NCEA-172](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-172)
+* **tests:** Fix tests for new buttons ([c807148](https://github.com/DSP3-apps/ncea-frontend/commit/c807148f0451c189ef24be367c9ced0fdb0a70b6)), closes [#NCEA-172](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-172)
+
+
+### Features
+
+* **badges:** Add badges below keyword filter to show selected keywords ([781b83a](https://github.com/DSP3-apps/ncea-frontend/commit/781b83a2822ec06e62993030585116774d197658)), closes [#NCEA-173](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-173)
+* **badges:** Display keyword badges on page load ([03f9646](https://github.com/DSP3-apps/ncea-frontend/commit/03f9646819b9667a737993e05a1dfd0e18b6aae2)), closes [#NCEA-173](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-173)
+* **filters:** Make `All` checkbox visually select/deselect all ([2f42d59](https://github.com/DSP3-apps/ncea-frontend/commit/2f42d5971de429a1eb8dbf363b643e7f7e995f89)), closes [#NCEA-183](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-183)
+* **frontend:** fix the keyword input issue ([a2e6cd0](https://github.com/DSP3-apps/ncea-frontend/commit/a2e6cd093acd009be40014c67fb8958d6a70a7be))
+* **frontend:** fix the keyword input issue ([3657720](https://github.com/DSP3-apps/ncea-frontend/commit/3657720946721ef849ddee6f27b4a0d187b32dd2))
+
 # [1.8.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.7.0...v1.8.0) (2025-01-29)
 
 
