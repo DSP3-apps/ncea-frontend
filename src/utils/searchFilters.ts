@@ -1,7 +1,7 @@
 import { estypes } from '@elastic/elasticsearch';
 import { RequestQuery } from '@hapi/hapi';
 
-import { BASE_PATH, webRoutePaths } from './constants';
+import { BASE_PATH, FILTER_VALUES, webRoutePaths } from './constants';
 import { convertToDate } from './dates';
 import { getMetaQueryParams, readQueryParams } from './queryStringHelper';
 
@@ -44,7 +44,7 @@ export interface ISearchFiltersProcessed {
   hasDSPFiltersRemoved: boolean;
   categories: ISearchFilterProcessed[];
   keywords: string[];
-  license: string;
+  licence: string;
   lastUpdated: {
     beforeYear: string;
     afterYear: string;
@@ -247,7 +247,7 @@ export const applyMockFilters = (
 export const searchFilters: ISearchFilters = [
   {
     name: 'Organisation',
-    value: 'org',
+    value: FILTER_VALUES.organisation,
     filters: [
       {
         name: 'Agriculture & Horticulture Development Board',
@@ -308,7 +308,7 @@ export const searchFilters: ISearchFilters = [
   },
   {
     name: 'Search Type',
-    value: 'st',
+    value: FILTER_VALUES.searchType,
     filters: [
       {
         name: 'Title',
@@ -319,7 +319,7 @@ export const searchFilters: ISearchFilters = [
   },
   {
     name: 'Data Type',
-    value: 'dt',
+    value: FILTER_VALUES.dataType,
     filters: [
       {
         name: 'Spatial',
@@ -335,7 +335,7 @@ export const searchFilters: ISearchFilters = [
   },
   {
     name: 'Service Type',
-    value: 'svt',
+    value: FILTER_VALUES.serviceType,
     filters: [
       {
         name: 'HTTP File Download',
@@ -396,7 +396,7 @@ export const searchFilters: ISearchFilters = [
   },
   {
     name: 'Data Format',
-    value: 'fmt',
+    value: FILTER_VALUES.dataFormat,
     filters: [
       {
         name: 'Comma Separated Values file (CSV)',
