@@ -228,6 +228,9 @@ const _generateDateRangeQuery = (
 };
 
 const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearchFiltersProcessed): ISearchRequest => {
+  // console.log('GENERATE SEARCH QUERY PARAMS: ', JSON.stringify(searchFieldsObject));
+  // console.log('GENERATE SEARCH QUERY PARAMS: ', JSON.stringify(filters));
+  console.log('generateSearchQuery 1');
   // Get Organisation filter values.
   const organisations = getFiltersForCategory(filters.categories, FILTER_VALUES.organisation); // FIXME: make 'org' etc a constant and update `searchFilters.ts` to use them also, look at bottom of page.
 
@@ -243,6 +246,7 @@ const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearc
 
   // Get Data Format filter values
   const dataFormats = getFiltersForCategory(filters.categories, 'fmt');
+  console.log('generateSearchQuery 2');
 
   // Get date filter values
   const mapping = {
@@ -256,6 +260,7 @@ const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearc
 
     return acc;
   }, {} as ITemporalExtent);
+  console.log('generateSearchQuery 3');
 
   // Get licence filter value
   // const licence = filters.licence;
@@ -266,6 +271,7 @@ const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearc
   // Get Retired and Archived filter value
   const retiredAndArchived = filters.retiredAndArchived;
 
+  console.log('generateSearchQuery 4');
   const request: ISearchRequest = {
     Query: {
       SearchTerms: [searchFieldsObject?.fields?.keyword?.q ?? ''],
@@ -290,7 +296,10 @@ const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearc
       Lineage: null,
       AdditionalInformationSource: null,
     },
+    resultsPerPage: searchFieldsObject.rowsPerPage,
+    skip: ((searchFieldsObject?.page ?? 1) - 1) * searchFieldsObject.rowsPerPage,
   };
+  console.log('generateSearchQuery 5');
 
   return request;
 };

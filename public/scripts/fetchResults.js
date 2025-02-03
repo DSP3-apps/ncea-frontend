@@ -6,6 +6,8 @@ const toggleOverlay = (showOverlay) => {
 };
 
 const invokeAjaxCall = async (path, payload, showOverlay = false, method = 'POST') => {
+  // console.log(`Fetching results from ${path}`);
+  // console.log(`Fetching results from ${JSON.stringify(payload, null, 2)}`);
   try {
     const isPostWithPayload = method === 'POST' && Object.keys(payload).length;
     toggleOverlay(showOverlay);

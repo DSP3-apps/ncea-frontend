@@ -76,9 +76,12 @@ export const getStudyPeriodDetails = (isDetails: boolean, dateRanges: IDateRange
  */
 export const transformSearchResponse = (response: ISearchResponse, isMapResults: boolean = false): ISearchResults => {
   let hasSpatialData = false;
+  // console.log('TRANSFORMING DATA: ', JSON.stringify(response.results));
   const items = response.results.map((result: ISearchResult) => {
     const startDate = new Date(result.searchFields.temporalExtent.beginPosition);
     const endDate = new Date(result.searchFields.temporalExtent.endPosition);
+
+    // console.log('TRANSFORM DATA: ', isMapResults);
 
     if (isMapResults && result?.searchFields?.mapping) {
       const envelope = result?.searchFields?.mapping;

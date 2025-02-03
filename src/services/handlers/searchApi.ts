@@ -29,19 +29,27 @@ const getSearchResults = async (
       const payload = generateSearchQuery(searchFieldsObject, filters);
 
       const headers = credentials ? { Authorization: `Bearer ${credentials?.jwt}` } : null;
+      console.log('MAKING NETWORK REQUEST');
       const agmApiResponse = await fetch(environmentConfig.searchApiUrl, {
         method: 'POST',
         ...(headers && { headers }),
         body: JSON.stringify(payload),
       });
 
+      console.log('NETWORK REQUEST MADE');
       if (!agmApiResponse.ok) {
+        console.log('GOT PAYLOAD: ', payload);
+        const data = await agmApiResponse.json();
+        console.log('MY RESPONSE: ', agmApiResponse.statusText);
+        console.log('MY RESPONSE 2: ', data);
         throw new Error(`Error fetching results: ${agmApiResponse.statusText}`);
       }
 
       const searchData: ISearchResponse = await agmApiResponse.json();
+      console.log('NETWORK REQUEST RECEIVED');
 
       const transformedResults: ISearchResults = transformSearchResponse(searchData, isMapResults);
+      console.log('TRANSFORMED DATA RECEIVED: ', JSON.stringify(transformedResults, null, 2));
 
       return transformedResults;
     } else {

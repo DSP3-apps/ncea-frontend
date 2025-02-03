@@ -13,7 +13,6 @@ import {
   mapResultMaxCount,
   pageTitles,
   queryParamKeys,
-  requiredFieldsForMap,
   webRoutePaths,
 } from '../../utils/constants';
 import { getPaginationItems } from '../../utils/paginationBuilder';
@@ -36,10 +35,11 @@ const SearchResultsController = {
     const studyPeriodToYear: string = readQueryParams(request.query, queryParamKeys.toYear);
     const hasStudyPeriodFilterApplied: boolean = !!studyPeriodFromYear.length && !!studyPeriodToYear.length;
     const payload: ISearchPayload = generateQueryBuilderPayload(request.query);
-    const { rowsPerPage, page } = payload;
     const isQuickSearchJourney = journey === 'qs';
     try {
       const processedDspFilterOptions = processDSPFilterOptions(request.query);
+
+      // console.log('SEARH PAYLOAD: ', JSON.stringify(payload, null, 2));
 
       const searchResults: ISearchResults = await getSearchResults(
         payload,
@@ -49,7 +49,7 @@ const SearchResultsController = {
         // isQuickSearchJourney, // TODO: We may need to add this back in, which is why I've left it.
       );
 
-      const paginationItems = getPaginationItems(page, searchResults?.total ?? 0, rowsPerPage, request.query);
+      const paginationItems = getPaginationItems(searchResults?.total ?? 0, request.query);
       const queryString = readQueryParams(request.query);
       const sortSubmitPath = `${BASE_PATH}${webRoutePaths.sortResults}?${queryString}`;
       const processedSortOptions = await processSortOptions(request.query);
@@ -118,19 +118,22 @@ const SearchResultsController = {
     return response.view(view, context).code(400).takeover();
   },
   getMapResultsHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
-    const journey: string = readQueryParams(request.query, queryParamKeys.journey);
+    // const journey: string = readQueryParams(request.query, queryParamKeys.journey);
     const payload: ISearchPayload = generateQueryBuilderPayload(request.query);
+    console.log('Request: ', request);
     // const isQuickSearchJourney = journey === 'qs';
     try {
       const mapPayload: ISearchPayload = {
         ...payload,
         rowsPerPage: mapResultMaxCount,
-        fieldsExist: ['geom'],
-        requiredFields: requiredFieldsForMap,
+        // fieldsExist: ['geom'],
+        // requiredFields: requiredFieldsForMap,
       };
+      console.log('MAP PAYLOAD: ', JSON.stringify(payload, null, 2));
 
       const processedDspFilterOptions = processDSPFilterOptions(request.query);
 
+      // console.log('GETTING MAP RESULTS');
       const searchMapResults: ISearchResults = await getSearchResults(
         mapPayload,
         request.auth.credentials,
@@ -138,9 +141,11 @@ const SearchResultsController = {
         true,
         // isQuickSearchJourney,
       );
+      // console.log('MAP RESULTS: ', searchMapResults);
 
       return response.response(searchMapResults).header('Content-Type', 'application/json');
     } catch (error) {
+      console.log('MY ERROR: ', error);
       return response.response({ error: 'An error occurred while processing your request' }).code(500);
     }
   },

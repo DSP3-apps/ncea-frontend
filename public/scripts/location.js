@@ -409,6 +409,8 @@ const getHighlighterMarkerStyle = (iconPath) => {
 function placeMarkers(markers, iconPath, recordId = '1', boundingBoxData = '') {
   const markerStyle = getMarkerStyle(iconPath);
   const markersArray = markers.split('_');
+  console.log('MARKERS ARRAY: ', markersArray);
+
   markersArray.forEach((markerString) => {
     if (markerString) {
       const markerParts = markerString.split(',');
@@ -529,6 +531,7 @@ function drawBoundingBoxWithMarker(fitToMapExtentFlag, doRecenter = true) {
 }
 
 const boundingBoxListener = (boundingBoxCheckboxState) => {
+  // console.log('VECTOR FEATURES: ', vectorSource.getFeatures());
   polygonFeatureData.forEach((feature) => {
     const isFeatureExists = vectorSource
       .getFeatures()
@@ -579,6 +582,7 @@ const attachMapResultsFilterChangeListeners = (instance) => {
 };
 
 const getMapResults = async (path, fitToMapExtentFlag) => {
+  console.log('NETWORK URL: ', path);
   const mapResultsButton = document.getElementById(mapResultsButtonId);
   const mapResultsCount = document.getElementById(mapResultsCountId);
   const noSpatialDataSpan = document.getElementById(noSpatialDataId);
@@ -589,6 +593,7 @@ const getMapResults = async (path, fitToMapExtentFlag) => {
   if (response) {
     if (response.status === responseSuccessStatusCode) {
       const mapResultsJson = await response.json();
+      console.log('MAP RESULTS JSON: ', mapResultsJson);
 
       if (mapResultsJson.hasSpatialData) {
         mapResultsCount.textContent = mapResultsJson.total;
@@ -604,6 +609,7 @@ const getMapResults = async (path, fitToMapExtentFlag) => {
           boundingBoxInfo.style.display = 'none';
         }
         mapResults = mapResultsJson.items;
+        console.log('MAP FEATURES: ', mapResults);
         setTimeout(() => {
           drawBoundingBoxWithMarker(fitToMapExtentFlag, true);
         }, 100);
@@ -627,6 +633,7 @@ const getMapFilters = async (path) => {
 
 const getPathWithQueryParams = (basePath, needOriginalQueryParams) => {
   const queryParams = new URLSearchParams(appliedFilterOptions != null ? appliedFilterOptions : window.location.search);
+  console.log('MAP FEATURES QUERY STRING: ', queryParams);
 
   appendMetaSearchParams(queryParams);
 
@@ -659,6 +666,7 @@ const checkLatestBrowser = () => {
 const invokeMapResults = (fitToMapExtentFlag = false, needOriginalQueryParams = false) => {
   if (checkLatestBrowser()) {
     const fetchResults = document.querySelector('[data-fetch-map-results]');
+    console.log('ALL RESULTS: ', fetchResults);
     if (fetchResults) {
       const action = fetchResults.getAttribute(actionDataAttribute);
       getMapResults(getPathWithQueryParams(action, needOriginalQueryParams), fitToMapExtentFlag);
@@ -774,6 +782,7 @@ function checkNUpdateMarkerTooltip() {
 function fitMapToExtent() {
   const padding = 50;
   const visibleMarkers = markerLayer.getSource().getFeatures();
+  console.log('VISIBLE MARKERS: ', visibleMarkers);
   const extent = ol.extent.createEmpty();
   if (visibleMarkers.length > 0) {
     visibleMarkers.forEach((marker) => {
