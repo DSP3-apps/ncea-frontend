@@ -1,0 +1,27 @@
+<section>
+  <h2 class='govuk-heading-m filter-heading govuk-!-margin-bottom-2'>
+    Data Scope
+  </h2>
+  <div class="govuk-section-break--visible"></div>
+  {% include 'partials/results/scope.njk' %}
+</section>
+
+<section>  
+  <div class="filters-heading">
+    <h2 class='govuk-heading-m filter-heading govuk-!-margin-bottom-2'>
+      Filters
+    </h2>
+    {% if filterInstance == 'search_results' %}
+      <div class="filters-buttons">
+        <button type="reset" class="govuk-button govuk-button--secondary" data-module="govuk-button" form="filters-{{filterInstance}}" id="filters-reset-{{filterInstance}}" data-reset-url="{{dspFilterReset}}">
+          Clear Filters
+        </button>
+        <button type="submit" class="govuk-button" data-module="govuk-button" form="filters-{{filterInstance}}">
+          Apply Filters
+        </button>
+      </div>
+    {% endif %}
+  </div>
+  <div class="govuk-section-break--visible"></div>
+  {% include 'partials/results/filters.njk' %}
+</section>

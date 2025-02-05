@@ -59,7 +59,7 @@ const processDSPFilterOptions = (requestQuery: RequestQuery): ISearchFiltersProc
     nceaOnly,
     categories: categories,
     // without the filter if they keywords are empty it will return a 1 element array
-    // where the element is just an emprty string
+    // where the element is just an empty string
     keywords: readQueryParams(requestQuery, filterNames.keywords)
       .split(',')
       .filter((k) => k),

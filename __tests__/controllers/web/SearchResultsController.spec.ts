@@ -505,7 +505,7 @@ describe('Deals with search results controller', () => {
       const processedDspFilterOptions = processDSPFilterOptions(request.query);
 
       await SearchResultsController.getMapFiltersHandler(request, response);
-      expect(response.view).toHaveBeenCalledWith('partials/results/filters', {
+      expect(response.view).toHaveBeenCalledWith('partials/results/sidebar', {
         filterInstance: 'map_results',
         filterResourceTypePath: '',
         filterStudyPeriodPath: '',

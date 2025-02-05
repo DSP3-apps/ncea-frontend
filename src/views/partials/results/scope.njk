@@ -1,0 +1,21 @@
+<form class="govuk-form-group filter-options__ncea-only" id="scope-form-{{filterInstance}}">
+  <fieldset class="govuk-fieldset">
+    <legend class="filter-options__legend">
+      <h3>Data Scope Filter </h3>
+    </legend>
+    <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="scope-{{filterInstance}}" {% if dspFilterOptions.nceaOnly %}checked{% endif %} name="{{dspFilterNames.scope}}" type="radio" value="{{dataScopeValues.ncea}}">
+        <label class="govuk-label govuk-radios__label" for="scope-{{filterInstance}}">
+          NCEA Metadata Only
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="scope-all-{{filterInstance}}" {% if not dspFilterOptions.nceaOnly %}checked{% endif %} name="{{dspFilterNames.scope}}" type="radio" value="{{dataScopeValues.all}}">
+        <label class="govuk-label govuk-radios__label" for="scope-all-{{filterInstance}}">
+          DSP and NCEA Metadata
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</form>
