@@ -4,7 +4,7 @@ import {
   addCategoryAccordionToggleListeners,
   filterFormToFormData,
   appendMetaSearchParams,
-  addAllCheckboxListeners,
+  addScopeChangeListener,
 } from './filters.js';
 
 const mapResultsInstance = 'map_results';
@@ -573,14 +573,15 @@ const attachMapResultsFilterChangeListeners = (instance) => {
 
     appliedFilterOptions = filterFormToFormData(form);
 
-    // move the call outside the condition if the search query
-    // can affect more of the filters in the future
-    if (e.target.name === 'scope') {
-      invokeMapFilters();
-    }
-
     invokeMapResults(true);
   });
+};
+
+const mapResultsScopeCallback = (data) => {
+  appliedFilterOptions = data;
+
+  invokeMapFilters();
+  invokeMapResults(true);
 };
 
 const getMapResults = async (path, fitToMapExtentFlag) => {
@@ -627,7 +628,7 @@ const getMapFilters = async (path) => {
 
     addCategoryAccordionToggleListeners(mapResultsInstance);
     attachMapResultsFilterChangeListeners(mapResultsInstance);
-    addAllCheckboxListeners(mapResultsInstance);
+    addScopeChangeListener(mapResultsInstance, mapResultsScopeCallback);
   }
 };
 
