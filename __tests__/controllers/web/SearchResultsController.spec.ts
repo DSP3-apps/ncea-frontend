@@ -18,7 +18,7 @@ import {
   processFilterOptions,
   processSortOptions,
 } from '../../../src/utils/processFilterRSortOptions';
-import { buildFilterResetUrl, DataScopeValues, filterNames, searchFilters } from '../../../src/utils/searchFilters';
+import { buildFilterResetUrl, DataScope, filterNames, searchFilters } from '../../../src/utils/searchFilters';
 
 jest.mock('../../../src/services/handlers/searchApi', () => ({
   getSearchResults: jest.fn(),
@@ -76,7 +76,7 @@ describe('Deals with search results controller', () => {
         dspFilterOptions: processedDspFilterOptions,
         dspFilterReset: dspFilterResetUrl,
         dspFilterNames: filterNames,
-        dataScopeValues: { ncea: DataScopeValues.NCEA, all: DataScopeValues.ALL },
+        dataScopeValues: { ncea: DataScope.NCEA, all: DataScope.ALL },
         sortOptions: processedSortOptions,
         sortSubmitPath,
         dateSearchPath: `${BASE_PATH}${webRoutePaths.guidedDateSearch}`,
@@ -138,7 +138,7 @@ describe('Deals with search results controller', () => {
         dspFilterOptions: processedDspFilterOptions,
         dspFilterReset: dspFilterResetUrl,
         dspFilterNames: filterNames,
-        dataScopeValues: { ncea: DataScopeValues.NCEA, all: DataScopeValues.ALL },
+        dataScopeValues: { ncea: DataScope.NCEA, all: DataScope.ALL },
         sortSubmitPath,
         dateSearchPath: `${BASE_PATH}${webRoutePaths.guidedDateSearch}`,
         filterInstance: 'search_results',
@@ -512,7 +512,7 @@ describe('Deals with search results controller', () => {
         dspFilterOptions: processedDspFilterOptions,
         dspFilterReset: '',
         dspFilterNames: filterNames,
-        dataScopeValues: { ncea: DataScopeValues.NCEA, all: DataScopeValues.ALL },
+        dataScopeValues: { ncea: DataScope.NCEA, all: DataScope.ALL },
       });
     });
   });
