@@ -45,6 +45,13 @@ const addCategoryAccordionToggleListeners = (instance) => {
   }
 };
 
+/**
+ * Attaches event listeners to every `All` checkbox of every
+ * category. When the checkbox is toggled it will toggle
+ * all other checkboxes in the category.
+ *
+ * @param {string} instance
+ */
 const addAllCheckboxListeners = (instance) => {
   const categories = $(`[data-category-${instance}]`);
 
@@ -151,6 +158,43 @@ const addFilterFormResetListener = (instance) => {
 };
 
 /**
+ * Takes the form surrounding the filters, validates it,
+ * and converts it to a `FormData` object
+ *
+ * @param {HTMLFormElement} form
+ * @param {string} instance
+ * @returns {FormData | null}
+ */
+const getValidatedFormData = (form, instance) => {
+  const scopeForm = $(`#scope-form-${instance}`);
+
+  const data = filterFormToFormData(form);
+
+  // if the date filters fail to validate, don't submit
+  if (!validateDateFilters(instance)) {
+    return null;
+  }
+
+  const scopeData = new FormData(scopeForm.get(0));
+  data.set('scope', scopeData.get('scope'));
+
+  return data;
+};
+
+/**
+ * Takes a `FormData`, converts it to a URL, appends the
+ * search parameters, and redirects user to new URL.
+ *
+ * @param {FormData} data
+ */
+const applyFormDataAndSubmit = (data) => {
+  const url = new URLSearchParams(data);
+  appendMetaSearchParams(url);
+
+  window.location.search = url.toString();
+};
+
+/**
  * Attatch event listener to the form submission
  * so the validation can take place before submission.
  *
@@ -163,18 +207,47 @@ const addFilterFormSubmitListener = (instance) => {
     // prevent form from submitting
     e.preventDefault();
 
-    const data = filterFormToFormData(form);
-    const url = new URLSearchParams(data);
-    appendMetaSearchParams(url);
-
-    // if the date filters fail to validate, don't submit
-    if (!validateDateFilters(instance)) {
+    const data = getValidatedFormData(form, instance);
+    if (!data) {
       return;
     }
 
-    window.location.search = url.toString();
+    applyFormDataAndSubmit(data);
   });
 };
+
+/**
+ * Attaches the event listeners to the form
+ * surrounding the scope buttons and calls a callback with
+ * the validated form data when they change.
+ * The need for a callback is due to the fact that the search
+ * and map view have slightly different behaviour, but the
+ * rest of the validation is the same.
+ *
+ * @param {string} instance
+ * @param {(data: FormData) => void} cb
+ */
+const addScopeChangeListener = (instance, cb) => {
+  const scopeForm = $(`#scope-form-${instance}`);
+  // we also need the form around the filters as when you
+  // change the scope it should apply the pending filters
+  // otherwise changing the scope would reset any unapplied
+  // filters
+  const filterForm = $(`#filters-${instance}`);
+
+  scopeForm.on('change', () => {
+    // `.get(0)` returns the HTML element as the function only accepts that
+    // not the jQuery wrapper
+    const data = getValidatedFormData(filterForm.get(0), instance);
+    if (!data) {
+      return;
+    }
+
+    cb(data);
+  });
+};
+
+const searchResultsScopeCallback = (data) => applyFormDataAndSubmit(data);
 
 /**
  * Shows an error messasge for either of the date inputs.
@@ -279,6 +352,7 @@ document.addEventListener('DOMContentLoaded', () => {
   addFilterFormSubmitListener(filtersInstance);
   addFilterFormResetListener(filtersInstance);
   addAllCheckboxListeners(filtersInstance);
+  addScopeChangeListener(filtersInstance, searchResultsScopeCallback);
 });
 
 export {
@@ -286,5 +360,5 @@ export {
   filterFormToFormData,
   appendMetaSearchParams,
   filtersInstance,
-  addAllCheckboxListeners,
+  addScopeChangeListener,
 };

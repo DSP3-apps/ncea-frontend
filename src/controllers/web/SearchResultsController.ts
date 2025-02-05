@@ -145,7 +145,7 @@ const SearchResultsController = {
     try {
       const processedDspFilterOptions = processDSPFilterOptions(request.query);
 
-      return response.view('partials/results/filters', {
+      return response.view('partials/results/sidebar', {
         filterInstance: 'map_results',
         filterResourceTypePath: '',
         filterStudyPeriodPath: '',
