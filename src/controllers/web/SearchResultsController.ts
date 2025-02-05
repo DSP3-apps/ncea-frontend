@@ -26,7 +26,7 @@ import {
   readQueryParams,
   upsertQueryParams,
 } from '../../utils/queryStringHelper';
-import { DataScopeValues, buildFilterResetUrl, filterNames } from '../../utils/searchFilters';
+import { DataScope, buildFilterResetUrl, filterNames } from '../../utils/searchFilters';
 
 const SearchResultsController = {
   renderSearchResultsHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
@@ -70,7 +70,7 @@ const SearchResultsController = {
         dspFilterOptions: processedDspFilterOptions,
         dspFilterReset: dspFilterResetUrl,
         dspFilterNames: filterNames,
-        dataScopeValues: { ncea: DataScopeValues.NCEA, all: DataScopeValues.ALL },
+        dataScopeValues: { ncea: DataScope.NCEA, all: DataScope.ALL },
         sortOptions: processedSortOptions,
         sortSubmitPath,
         dateSearchPath: `${BASE_PATH}${webRoutePaths.guidedDateSearch}`,
@@ -152,7 +152,7 @@ const SearchResultsController = {
         dspFilterOptions: processedDspFilterOptions,
         dspFilterReset: '',
         dspFilterNames: filterNames,
-        dataScopeValues: { ncea: DataScopeValues.NCEA, all: DataScopeValues.ALL },
+        dataScopeValues: { ncea: DataScope.NCEA, all: DataScope.ALL },
       });
     } catch (error) {
       return response.view('partials/results/filters', {

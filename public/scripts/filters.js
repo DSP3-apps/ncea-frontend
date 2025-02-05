@@ -107,25 +107,6 @@ const appendMetaSearchParams = (filterParams) => {
 const filterFormToFormData = (form) => {
   const data = new FormData(form);
 
-  // this is also defined in `utils/searchFilters.ts`
-  const isNCEAOnly = data.get('scope') === 'ncea';
-
-  // remove any applied filters not in the selected scope
-  if (isNCEAOnly) {
-    const allNCEA = document.querySelectorAll("[data-ncea-only='false']");
-
-    for (const nceaCb of allNCEA) {
-      for (const key of data.keys()) {
-        const values = data.getAll(key);
-
-        data.set(
-          key,
-          values.filter((v) => v != nceaCb.value),
-        );
-      }
-    }
-  }
-
   // validate selected keywords
   if (!!data.get('keywords')) {
     const keywordInput = document.getElementById('filters-keywords-search_results').value;
