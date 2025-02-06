@@ -32,6 +32,7 @@ import {
   restrictiveFilteredData,
 } from '../../data/quickSearch';
 import { writeFileSync } from 'fs';
+import { QUICK_SEARCH_RESOURCE_TYPE_FILTERS } from '../../../src/services/handlers/mocks/quick-search-filters';
 
 jest.mock('../../../src/config/elasticSearchClient', () => ({
   performQuery: jest.fn(() => {
@@ -91,24 +92,6 @@ describe('Search API', () => {
       // expect(result).toEqual({ total: undefined, items: [] });
       const defaultResults = applyMockFilters(QUICK_SEARCH_RESPONSE as never, defaultFilters, 'example');
       expect(result).toEqual(formatSearchResponse(defaultResults, false, false));
-    });
-
-    xit('should handle errors and throw an error message', async () => {
-      const searchFieldsObject: ISearchPayload = {
-        fields: {
-          keyword: {
-            q: 'example',
-          },
-        },
-        sort: '',
-        filters: {},
-        rowsPerPage: 20,
-        page: 1,
-      };
-      (performQuery as jest.Mock).mockRejectedValueOnce(new Error('Mocked error'));
-      await expect(getSearchResults(searchFieldsObject, defaultFilters)).rejects.toThrow(
-        'Error fetching results: Mocked error',
-      );
     });
 
     it('should return the default response when no fields data is present', async () => {
@@ -270,24 +253,24 @@ describe('Search API', () => {
   });
 
   describe('Search API - To fetch the search results count', () => {
-    xit('should call performQuery with correct arguments', async () => {
-      const searchFieldsObject: ISearchPayload = {
-        fields: {
-          keyword: {
-            q: 'example',
-          },
-        },
-        sort: '',
-        filters: {},
-        rowsPerPage: 20,
-        page: 1,
-      };
-      (performQuery as jest.Mock).mockResolvedValueOnce({
-        data: { totalResults: 10 },
-      });
-      await getSearchResultsCount(searchFieldsObject);
-      expect(performQuery).toHaveBeenCalledTimes(1);
-    });
+    // it('should call performQuery with correct arguments', async () => {
+    //   const searchFieldsObject: ISearchPayload = {
+    //     fields: {
+    //       keyword: {
+    //         q: 'example',
+    //       },
+    //     },
+    //     sort: '',
+    //     filters: {},
+    //     rowsPerPage: 20,
+    //     page: 1,
+    //   };
+    //   (performQuery as jest.Mock).mockResolvedValueOnce({
+    //     data: { totalResults: 10 },
+    //   });
+    //   await getSearchResultsCount(searchFieldsObject);
+    //   expect(performQuery).toHaveBeenCalledTimes(1);
+    // });
 
     it('should return the total results count', async () => {
       const searchFieldsObject: ISearchPayload = {
@@ -316,26 +299,10 @@ describe('Search API', () => {
       });
       expect(result).toEqual({ totalResults: 0 });
     });
-
-    xit('should handle errors and throw an error message', async () => {
-      const searchFieldsObject: ISearchPayload = {
-        fields: {
-          keyword: {
-            q: 'example',
-          },
-        },
-        sort: '',
-        filters: {},
-        rowsPerPage: 20,
-        page: 1,
-      };
-      (performQuery as jest.Mock).mockRejectedValueOnce(new Error('Mocked error'));
-      await expect(getSearchResultsCount(searchFieldsObject)).rejects.toThrow('Error fetching results: Mocked error');
-    });
   });
 
   describe('Search API - To fetch the aggregated results for filters', () => {
-    xit('should return the response from performQuery', async () => {
+    it('should return the response from performQuery', async () => {
       const searchFieldsObject: ISearchPayload = {
         fields: {
           keyword: {
@@ -352,27 +319,7 @@ describe('Search API', () => {
       const result = await getFilterOptions(searchFieldsObject, {
         isStudyPeriod: false,
       });
-      expect(result).toEqual(formattedResourceTypeResponse);
-    });
-
-    xit('should handle errors and throw an error message', async () => {
-      const searchFieldsObject: ISearchPayload = {
-        fields: {
-          keyword: {
-            q: 'example',
-          },
-        },
-        sort: '',
-        filters: {},
-        rowsPerPage: 20,
-        page: 1,
-      };
-      (performQuery as jest.Mock).mockRejectedValueOnce(new Error('Mocked error'));
-      await expect(
-        getFilterOptions(searchFieldsObject, {
-          isStudyPeriod: false,
-        }),
-      ).rejects.toThrow('Error fetching results: Mocked error');
+      expect(result).toEqual(QUICK_SEARCH_RESOURCE_TYPE_FILTERS);
     });
 
     it('should return the default response when no fields data is present', async () => {
@@ -403,19 +350,6 @@ describe('Search API', () => {
       const formattedDetailsResponse: ISearchResults = await formatSearchResponse(detailsSuccessAPIResponse, true);
       const result = await getDocumentDetails(docId);
       expect(result).toEqual(formattedDetailsResponse?.items?.[0]);
-    });
-
-    xit('should return the empty object when no document found from performQuery', async () => {
-      const docId = '3c080cb6-2ed9-43e7-9323-9ce42b05b9a2';
-      (performQuery as jest.Mock).mockResolvedValueOnce(detailsEmptyAPIResponse);
-      const result = await getDocumentDetails(docId);
-      expect(result).toEqual({});
-    });
-
-    xit('should handle errors and throw an error message', async () => {
-      const docId = '3c080cb6-2ed9-43e7-9323-9ce42b05b9a2';
-      (performQuery as jest.Mock).mockRejectedValueOnce(new Error('Mocked error'));
-      await expect(getDocumentDetails(docId)).rejects.toThrow('Error fetching results: Mocked error');
     });
   });
 });

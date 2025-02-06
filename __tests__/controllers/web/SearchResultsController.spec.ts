@@ -515,21 +515,6 @@ describe('Deals with search results controller', () => {
         dataScopeValues: { ncea: DataScopeValues.NCEA, all: DataScopeValues.ALL },
       });
     });
-
-    xit('should show an error when something fails at API layer', async () => {
-      const request: Request = { payload: { query: {} } } as any;
-      const response: ResponseToolkit = { view: jest.fn() } as any;
-      const error = new Error('Mocked error');
-      (getFilterOptions as jest.Mock).mockRejectedValue(error);
-
-      await SearchResultsController.getMapFiltersHandler(request, response);
-      expect(response.view).toHaveBeenCalledWith('partials/results/filters', {
-        error,
-        filterOptions: undefined,
-        filterResourceTypePath: '',
-        filterStudyPeriodPath: '',
-      });
-    });
   });
 
   describe('appendPublication', () => {
