@@ -1,4 +1,5 @@
 'use strict';
+import { createBadge, keywordsDropdownListAction, checkDuplicateKeywords } from './keywordsFilter.js';
 
 let scrollPositionY = 0;
 const overlayContainer = document.getElementById('overlay');
@@ -53,9 +54,26 @@ document.addEventListener('DOMContentLoaded', () => {
     overlayContainer.style.zIndex = 999;
   }
 
+  function invokeKeyboardFilters() {
+    const keywordInput = $(`#filters-keywords-map_results`);
+    keywordsDropdownListAction(keywordInput);
+
+    $('#keyboard-filter-list').on('click', 'li', function () {
+      const selectedValue = $(this).text();
+      keywordInput.val('');
+      keywordInput.focus();
+      $('.filter-options__keyboard-filter-content').hide();
+
+      if (!checkDuplicateKeywords('#keyword-badge-container-map_results', selectedValue)) {
+        createBadge(selectedValue, '#keyword-badge-container-map_results');
+      }
+    });
+  }
+
   function openMapModal() {
     toggleModalContainer('map-modal');
     freezeScroll();
+    invokeKeyboardFilters();
   }
 
   function closeMapModal() {
