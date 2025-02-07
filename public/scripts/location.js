@@ -636,6 +636,12 @@ const getPathWithQueryParams = (basePath, needOriginalQueryParams) => {
 
   appendMetaSearchParams(queryParams);
 
+  // add keywords query params
+  const keywordBadgesList = Array.from(document.querySelectorAll('#keyword-badge-container-map_results li'));
+  if (keywordBadgesList.length > 0) {
+    const badgeText = keywordBadgesList.map((item) => item.innerText).join(',');
+    queryParams.set('keywords', badgeText);
+  }
   const queryString = queryParams.size > 0 ? `?${queryParams.toString()}` : '';
   return `${basePath}${queryString}`;
 };
@@ -914,3 +920,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+export { invokeMapResults };

@@ -1,5 +1,10 @@
 'use strict';
-import { createBadge, keywordsDropdownListAction, checkDuplicateKeywords } from './keywordsFilter.js';
+import {
+  createBadge,
+  keywordsDropdownListAction,
+  checkDuplicateKeywords,
+  createBadgesFromExistingKeywords,
+} from './keywordsFilter.js';
 
 let scrollPositionY = 0;
 const overlayContainer = document.getElementById('overlay');
@@ -55,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function invokeKeyboardFilters() {
+    createBadgesFromExistingKeywords('#keyword-badge-container-map_results');
     const keywordInput = $(`#filters-keywords-map_results`);
     keywordsDropdownListAction(keywordInput);
 
@@ -66,6 +72,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!checkDuplicateKeywords('#keyword-badge-container-map_results', selectedValue)) {
         createBadge(selectedValue, '#keyword-badge-container-map_results');
+      }
+    });
+    $(document).click(function (event) {
+      if (
+        !$(event.target).closest('#filters-keywords-map_results').length &&
+        !$(event.target).closest('.filter-options__keyboard-filter-content').length
+      ) {
+        $('.filter-options__keyboard-filter-content').hide();
       }
     });
   }

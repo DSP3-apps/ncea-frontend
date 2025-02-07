@@ -1,4 +1,5 @@
 import { filtersInstance } from './filters.js';
+import { invokeMapResults } from './location.js';
 
 /**
  * @param {string} toRemove
@@ -37,6 +38,9 @@ const createBadge = (keyword, filtersInstanceId) => {
   template.on('click', () => {
     template.remove();
     removeKeywordFromUrl(keyword);
+    if (filtersInstanceId === '#keyword-badge-container-map_results') {
+      invokeMapResults();
+    }
   });
 
   // use `createTextNode` for safety as these keywords are user controlled
@@ -57,7 +61,7 @@ const createBadge = (keyword, filtersInstanceId) => {
 /**
  * Creates badges for every keyword active when the page loads
  */
-const createBadgesFromExistingKeywords = () => {
+const createBadgesFromExistingKeywords = (filtersInstanceId) => {
   const params = new URLSearchParams(window.location.search);
 
   const keywords = params.get('keywords');
@@ -69,7 +73,7 @@ const createBadgesFromExistingKeywords = () => {
   keywords
     .split(',')
     .filter((k) => k)
-    .forEach((k) => createBadge(k));
+    .forEach((k) => createBadge(k, filtersInstanceId));
 };
 
 /**
@@ -102,7 +106,7 @@ const checkDuplicateKeywords = (filtersInstanceId, keyword) => {
 };
 
 $(document).ready(function () {
-  createBadgesFromExistingKeywords();
+  createBadgesFromExistingKeywords('#keyword-badge-container-search_results');
 
   const keywordInput = $(`#filters-keywords-${filtersInstance}`);
 
@@ -120,6 +124,14 @@ $(document).ready(function () {
       });
       $('.filter-options__keyboard-filter-list').append(liElement);
     },
+  });
+  $(document).click(function (event) {
+    if (
+      !$(event.target).closest('#filters-keywords-search_results').length &&
+      !$(event.target).closest('.filter-options__keyboard-filter-content').length
+    ) {
+      $('.filter-options__keyboard-filter-content').hide();
+    }
   });
   keywordsDropdownListAction(keywordInput);
   $('#keyboard-filter-list').on('click', 'li', function () {
@@ -147,4 +159,4 @@ $(document).ready(function () {
   });
 });
 
-export { createBadge, keywordsDropdownListAction, checkDuplicateKeywords };
+export { createBadge, keywordsDropdownListAction, checkDuplicateKeywords, createBadgesFromExistingKeywords };
