@@ -1,5 +1,5 @@
 import { filtersInstance } from './filters.js';
-import { invokeMapResults } from './location.js';
+import { invokeMapResults, setBadgeValue } from './location.js';
 
 /**
  * @param {string} toRemove
@@ -39,7 +39,8 @@ const createBadge = (keyword, filtersInstanceId) => {
     template.remove();
     removeKeywordFromUrl(keyword);
     if (filtersInstanceId === '#keyword-badge-container-map_results') {
-      invokeMapResults();
+      setBadgeValue();
+      invokeMapResults(true);
     }
   });
 
@@ -79,7 +80,7 @@ const createBadgesFromExistingKeywords = (filtersInstanceId) => {
 /**
  * Select a keyword from the dropdown list
  */
-const keywordsDropdownListAction = (keywordInput) => {
+const keywordsDropdownListAction = (keywordInput, filterInstanceId) => {
   keywordInput.val('');
   keywordInput.on(
     'input',
@@ -87,7 +88,7 @@ const keywordsDropdownListAction = (keywordInput) => {
       const value = $(this).val().toLowerCase();
       $('.filter-options__keyboard-filter-list li').filter(function () {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-        $('.filter-options__keyboard-filter-content').css('display', 'block');
+        $('.filter-options__keyboard-filter-content-' + filterInstanceId).css('display', 'block');
       });
     }),
   );
@@ -107,7 +108,7 @@ const checkDuplicateKeywords = (filtersInstanceId, keyword) => {
 
 $(document).ready(function () {
   createBadgesFromExistingKeywords('#keyword-badge-container-search_results');
-
+  const filterType = 'search_results';
   const keywordInput = $(`#filters-keywords-${filtersInstance}`);
 
   const getTagsApiUrl = Boolean(keyboardFiltersBaseUrlValue)
@@ -128,17 +129,17 @@ $(document).ready(function () {
   $(document).click(function (event) {
     if (
       !$(event.target).closest('#filters-keywords-search_results').length &&
-      !$(event.target).closest('.filter-options__keyboard-filter-content').length
+      !$(event.target).closest('filter-options__keyboard-filter-content-' + filterType).length
     ) {
-      $('.filter-options__keyboard-filter-content').hide();
+      $('.filter-options__keyboard-filter-content-' + filterType).hide();
     }
   });
-  keywordsDropdownListAction(keywordInput);
+  keywordsDropdownListAction(keywordInput, filterType);
   $('#keyboard-filter-list').on('click', 'li', function () {
     const selectedValue = $(this).text();
     keywordInput.val('');
     keywordInput.focus();
-    $('.filter-options__keyboard-filter-content').hide();
+    $('.filter-options__keyboard-filter-content-' + filterType).hide();
 
     if (!checkDuplicateKeywords('#keyword-badge-container-search_results', selectedValue)) {
       createBadge(selectedValue, '#keyword-badge-container-search_results');
