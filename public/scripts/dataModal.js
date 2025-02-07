@@ -60,15 +60,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function invokeKeyboardFilters() {
+    const filterType = 'map_results';
     createBadgesFromExistingKeywords('#keyword-badge-container-map_results');
     const keywordInput = $(`#filters-keywords-map_results`);
-    keywordsDropdownListAction(keywordInput);
+    keywordsDropdownListAction(keywordInput, filterType);
 
     $('#keyboard-filter-list').on('click', 'li', function () {
       const selectedValue = $(this).text();
       keywordInput.val('');
       keywordInput.focus();
-      $('.filter-options__keyboard-filter-content').hide();
+      $('.filter-options__keyboard-filter-content-' + filterType).hide();
 
       if (!checkDuplicateKeywords('#keyword-badge-container-map_results', selectedValue)) {
         createBadge(selectedValue, '#keyword-badge-container-map_results');
@@ -77,9 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
     $(document).click(function (event) {
       if (
         !$(event.target).closest('#filters-keywords-map_results').length &&
-        !$(event.target).closest('.filter-options__keyboard-filter-content').length
+        !$(event.target).closest('.filter-options__keyboard-filter-content-' + filterType).length
       ) {
-        $('.filter-options__keyboard-filter-content').hide();
+        $('.filter-options__keyboard-filter-content-' + filterType).hide();
       }
     });
   }

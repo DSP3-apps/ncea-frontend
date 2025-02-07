@@ -56,6 +56,7 @@ let selectedBoundingBox = '';
 let hasResourceListener = false;
 const maxCountForBoundingBoxInfo = 50;
 const polygonFeatureData = [];
+let isBadgeChanged = false;
 
 const drawStyle = new ol.style.Style({
   stroke: new ol.style.Stroke({
@@ -463,12 +464,21 @@ function resetMap() {
   fitMapToExtent();
 }
 
+function setBadgeValue() {
+  isBadgeChanged = true;
+  return;
+}
+
+function getBadgeValue() {
+  return isBadgeChanged;
+}
+
 /**
  * Take the applied filters in the map and insert them into the url so as to make
  * any filters applied in the map also apply in the search results view.
  */
 function saveFilters() {
-  if (!appliedFilterOptions) {
+  if (!appliedFilterOptions && !getBadgeValue()) {
     return false;
   }
 
@@ -920,4 +930,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
-export { invokeMapResults };
+export { invokeMapResults, setBadgeValue };
