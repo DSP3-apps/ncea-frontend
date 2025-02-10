@@ -3,7 +3,7 @@ import { RequestQuery } from '@hapi/hapi';
 import { queryParamKeys, startYearRangeKey, toYearRangeKey, uniqueResourceTypesKey } from './constants';
 import { readQueryParams } from './queryStringHelper';
 import {
-  DataScopeValues,
+  DataScope,
   ISearchFilterProcessed,
   ISearchFiltersProcessed,
   filterNames,
@@ -24,10 +24,13 @@ import { IAggregationOption, IAggregationOptions } from '../interfaces/searchRes
 const processDSPFilterOptions = (requestQuery: RequestQuery): ISearchFiltersProcessed => {
   const categories: ISearchFiltersProcessed['categories'] = [];
 
-  const nceaOnly = readQueryParams(requestQuery, filterNames.scope) === DataScopeValues.NCEA;
+  const nceaOnly = readQueryParams(requestQuery, filterNames.scope) === DataScope.NCEA;
 
   for (const category of searchFilters) {
-    const catQueryValue = readQueryParams(requestQuery, category.value).split(',');
+    // filter to remove any empty strings
+    const catQueryValue = readQueryParams(requestQuery, category.value)
+      .split(',')
+      .filter((v) => v);
 
     const newCategory: ISearchFilterProcessed = {
       name: category.name,
@@ -37,14 +40,14 @@ const processDSPFilterOptions = (requestQuery: RequestQuery): ISearchFiltersProc
     };
 
     for (const filter of category.filters) {
-      // the list of filter options (each individual filter under the category heading)
-      // can optionally have the `hasNCEAData` key.
-      // if the key does not exist (null), we act like it is explicitely set to `true`,
-      // if it exists (not null), then only if it's set to `false` do we skip that iteration
-      if (nceaOnly && filter.hasNCEAData != null && !filter.hasNCEAData) continue;
+      // if we are in `ncea only` scope and the filter is not in that scope
+      // then we ignore it
+      if (nceaOnly && filter.scope != DataScope.NCEA) {
+        continue;
+      }
 
-      const checked =
-        catQueryValue.includes(filter.value) && (!nceaOnly || filter.hasNCEAData == null || filter.hasNCEAData);
+      // the filter is checked if the filter is in the array of user selected filters
+      const checked = catQueryValue.includes(filter.value);
 
       newCategory.filters.push({
         ...filter,
@@ -59,7 +62,7 @@ const processDSPFilterOptions = (requestQuery: RequestQuery): ISearchFiltersProc
     nceaOnly,
     categories: categories,
     // without the filter if they keywords are empty it will return a 1 element array
-    // where the element is just an emprty string
+    // where the element is just an empty string
     keywords: readQueryParams(requestQuery, filterNames.keywords)
       .split(',')
       .filter((k) => k),

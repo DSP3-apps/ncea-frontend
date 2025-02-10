@@ -21,7 +21,7 @@ import { IAggregationOptions, ISearchResults } from '../../../src/interfaces/sea
 import { estypes } from '@elastic/elasticsearch';
 import { QUICK_SEARCH_RESPONSE } from '../../../src/services/handlers/mocks/quick-search';
 import { CLASSIFIER_COUNT_LEVEL_2 } from '../../../src/services/handlers/mocks/classifier-themes-level-2';
-import { applyMockFilters } from '../../../src/utils/searchFilters';
+import { applyMockFilters, DataScope } from '../../../src/utils/searchFilters';
 
 import {
   categoryFilteredData,
@@ -166,13 +166,13 @@ describe('Search API', () => {
               name: 'Organisation',
               value: 'org',
               selectedAll: false,
-              filters: [{ name: 'Environment Agency', value: 'ea', checked: true }],
+              filters: [{ name: 'Environment Agency', value: 'ea', checked: true, scope: DataScope.NCEA }],
             },
             {
               name: 'Service Type',
               value: 'svt',
               selectedAll: false,
-              filters: [{ name: 'HTTP Web Resource', value: 'http-wr', checked: true }],
+              filters: [{ name: 'HTTP Web Resource', value: 'http-wr', checked: true, scope: DataScope.ALL }],
             },
           ],
         },
@@ -193,13 +193,13 @@ describe('Search API', () => {
               name: 'Organisation',
               value: 'org',
               selectedAll: false,
-              filters: [{ name: 'Environment Agency', value: 'ea', checked: true }],
+              filters: [{ name: 'Environment Agency', value: 'ea', checked: true, scope: DataScope.NCEA }],
             },
             {
               name: 'Data Type',
               value: 'dt',
               selectedAll: false,
-              filters: [{ name: 'Non-spatial', value: 'non-spatial', checked: true }],
+              filters: [{ name: 'Non-spatial', value: 'non-spatial', checked: true, scope: DataScope.ALL }],
             },
           ],
         },

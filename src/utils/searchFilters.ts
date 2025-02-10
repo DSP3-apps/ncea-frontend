@@ -14,7 +14,7 @@ export const filterNames = {
   updatedAfter: 'date-after',
 };
 
-export enum DataScopeValues {
+export enum DataScope {
   ALL = 'all',
   NCEA = 'ncea',
 }
@@ -22,7 +22,7 @@ export enum DataScopeValues {
 interface ISearchFilterOption {
   name: string;
   value: string;
-  hasNCEAData?: boolean;
+  scope: DataScope.NCEA | DataScope.ALL;
 }
 
 type ISearchFilter = {
@@ -52,14 +52,14 @@ export interface ISearchFiltersProcessed {
 }
 
 export const buildFilterResetUrl = (requestQuery: RequestQuery): string => {
-  const nceaOnly = readQueryParams(requestQuery, filterNames.scope) === DataScopeValues.NCEA;
+  const nceaOnly = readQueryParams(requestQuery, filterNames.scope) === DataScope.NCEA;
 
   // this will only return the meta params important to the query
   // this is required otherwise the reset url would reflect all the filters enabled, which
   // would mean nothing gets reset.
   const params = getMetaQueryParams(requestQuery);
 
-  params.set(filterNames.scope, nceaOnly ? DataScopeValues.NCEA : DataScopeValues.ALL);
+  params.set(filterNames.scope, nceaOnly ? DataScope.NCEA : DataScope.ALL);
 
   return `${BASE_PATH}${webRoutePaths.results}?${params.toString()}`;
 };
@@ -251,57 +251,57 @@ export const searchFilters: ISearchFilters = [
       {
         name: 'Agriculture & Horticulture Development Board',
         value: 'ahdb',
-        hasNCEAData: false,
+        scope: DataScope.ALL,
       },
       {
         name: 'Animal & Plant Health Agency',
         value: 'apha',
-        hasNCEAData: false,
+        scope: DataScope.ALL,
       },
       {
         name: 'Centre for Environment, Fisheries & Aquaculture Science',
         value: 'cefas',
-        hasNCEAData: false,
+        scope: DataScope.ALL,
       },
       {
         name: 'Department for Environment, Food & Rural Affairs',
         value: 'defra',
-        hasNCEAData: false,
+        scope: DataScope.ALL,
       },
       {
         name: 'Environment Agency',
         value: 'ea',
-        hasNCEAData: true,
+        scope: DataScope.NCEA,
       },
       {
         name: 'Forestry Commission',
         value: 'fc',
-        hasNCEAData: true,
+        scope: DataScope.NCEA,
       },
       {
         name: 'Joint Nature Conservation Committee',
         value: 'jncc',
-        hasNCEAData: false,
+        scope: DataScope.ALL,
       },
       {
         name: 'KEW',
         value: 'kew',
-        hasNCEAData: false,
+        scope: DataScope.ALL,
       },
       {
         name: 'Marine Management Organisation',
         value: 'mmo',
-        hasNCEAData: false,
+        scope: DataScope.ALL,
       },
       {
         name: 'Natural England',
         value: 'ne',
-        hasNCEAData: true,
+        scope: DataScope.NCEA,
       },
       {
         name: 'Rural Payments Agency',
         value: 'rpa',
-        hasNCEAData: false,
+        scope: DataScope.ALL,
       },
     ],
   },
@@ -312,6 +312,7 @@ export const searchFilters: ISearchFilters = [
       {
         name: 'Title',
         value: 'title',
+        scope: DataScope.ALL,
       },
     ],
   },
@@ -322,10 +323,12 @@ export const searchFilters: ISearchFilters = [
       {
         name: 'Spatial',
         value: 'spatial',
+        scope: DataScope.ALL,
       },
       {
         name: 'Non-Spatial',
         value: 'non-spatial',
+        scope: DataScope.ALL,
       },
     ],
   },
@@ -336,46 +339,57 @@ export const searchFilters: ISearchFilters = [
       {
         name: 'HTTP File Download',
         value: 'http-fd',
+        scope: DataScope.ALL,
       },
       {
         name: 'HTTP Web Resource',
         value: 'http-wr',
+        scope: DataScope.ALL,
       },
       {
         name: 'HTTP Application',
         value: 'http-app',
+        scope: DataScope.ALL,
       },
       {
         name: 'FTP File Download',
         value: 'ftp-fd',
+        scope: DataScope.ALL,
       },
       {
         name: 'WMS',
         value: 'wms',
+        scope: DataScope.ALL,
       },
       {
         name: 'WFS',
         value: 'wfs',
+        scope: DataScope.ALL,
       },
       {
         name: 'WCS',
         value: 'wcs',
+        scope: DataScope.ALL,
       },
       {
         name: 'ESRI REST API',
         value: 'esri',
+        scope: DataScope.ALL,
       },
       {
         name: 'OGC API Features',
         value: 'ogc',
+        scope: DataScope.ALL,
       },
       {
         name: 'REST API',
         value: 'rest',
+        scope: DataScope.ALL,
       },
       {
         name: 'SOAP API',
         value: 'soap',
+        scope: DataScope.ALL,
       },
     ],
   },
@@ -384,328 +398,293 @@ export const searchFilters: ISearchFilters = [
     value: 'fmt',
     filters: [
       {
-        name: 'Comma Separate Values file (CSV)',
-        value: 'csv',
+        name: 'Comma Separated Values file (CSV)',
+        value: 'Open format | Comma Separated Values file (CSV)',
+        scope: DataScope.ALL,
       },
       {
         name: 'MS Word 2010 onwards document (DOC)',
-        value: 'doc',
+        value: 'Proprietary format | MS Word 2010 onwards document (DOC)',
+        scope: DataScope.ALL,
       },
       {
         name: 'MS Word 2010 onwards document (DOCX)',
-        value: 'docx',
+        value: 'Proprietary format | MS Word 2010 onwards document (DOCX)',
+        scope: DataScope.ALL,
       },
       {
         name: 'ESRI, Intergraph, MS Access (MDB)',
-        value: 'mdb',
+        value: 'Proprietary format | ESRI, Intergraph, MS Access (MDB)',
+        scope: DataScope.ALL,
       },
-      {
-        name: 'Shapefile',
-        value: 'shp',
-      },
-      {
-        name: 'Plain Text File',
-        value: 'txt',
-      },
-      {
-        name: 'MS Excel (XLS)',
-        value: 'xls',
-      },
-      {
-        name: 'MS Excel (XLSX)',
-        value: 'xlsx',
-      },
+      { name: 'Shapefile (SHP)', value: 'Open format | Shapefile (SHP)', scope: DataScope.ALL },
+      { name: 'Plain Text File (TXT)', value: 'Open Format | Plain Text File (TXT)', scope: DataScope.ALL },
+      { name: 'MS Excel (XLSX)', value: 'Open format | MS Excel (XLSX)', scope: DataScope.ALL },
       {
         name: 'Access 2007 onwards database (ACCDB)',
-        value: 'accdb',
+        value: 'Proprietary format | Access 2007 onwards database (ACCDB)',
+        scope: DataScope.ALL,
       },
       {
         name: 'Arc/Info Binary Grid (AIG)',
-        value: 'aig',
+        value: 'Proprietary Format | Arc/Info Binary Grid (AIG)',
+        scope: DataScope.ALL,
       },
       {
         name: 'Arc/Info ASCII Grid (AAIGrid)',
-        value: 'aaig',
+        value: 'Open format | Arc/Info ASCII Grid (AAIGrid)',
+        scope: DataScope.ALL,
       },
-      {
-        name: 'ASCII Gridded XYZ (XYZ)',
-        value: 'xyz',
-      },
+      { name: 'ASCII Gridded XYZ (XYZ)', value: 'Open Format | ASCII Gridded XYZ (XYZ)', scope: DataScope.ALL },
       {
         name: 'ASCII Text Files (non-csv, non-xyz gridded, non-tab separated format)',
-        value: 'asciitxt',
+        value: 'Open Format | ASCII Text Files (non-csv, non-xyz gridded, non-tab separated format)',
+        scope: DataScope.ALL,
       },
       {
         name: 'Bathymetric Attributed Grid (BAG)',
-        value: 'bag',
+        value: 'Open Format | Bathymetric Attributed Grid (BAG)',
+        scope: DataScope.ALL,
       },
       {
         name: 'CAD Data eXchange Format (DXF)',
-        value: 'dxf',
+        value: 'Open format | CAD Data eXchange Format (DXF)',
+        scope: DataScope.ALL,
       },
-      {
-        name: 'CAD Drawing file (DWG)',
-        value: 'dwg',
-      },
+      { name: 'CAD Drawing file (DWG)', value: 'Proprietary format | CAD Drawing file (DWG)', scope: DataScope.ALL },
       {
         name: 'Catalogue Service for the Web (CSW)',
-        value: 'csw',
+        value: 'OGC Web Services | Catalogue Service for the Web (CSW)',
+        scope: DataScope.ALL,
       },
-      {
-        name: 'City GML (Citygml)',
-        value: 'citygml',
-      },
-      {
-        name: 'dBASE (DBF)',
-        value: 'dbf',
-      },
-      {
-        name: 'ER Mapper (ECW)',
-        value: 'ecw',
-      },
-      {
-        name: 'ERDAS IMAGINE (IMG)',
-        value: 'img',
-      },
-      {
-        name: 'ERDASRaw (RAW)',
-        value: 'raw',
-      },
+      { name: 'City GML (Citygml)', value: 'Open format | City GML (Citygml)', scope: DataScope.ALL },
+      { name: 'dBASE (DBF)', value: 'Open format | dBASE (DBF)', scope: DataScope.ALL },
+      { name: 'ER Mapper (ECW)', value: 'Proprietary format | ER Mapper (ECW)', scope: DataScope.ALL },
+      { name: 'ERDAS IMAGINE (IMG)', value: 'Proprietary format | ERDAS IMAGINE (IMG)', scope: DataScope.ALL },
+      { name: 'ERDASRaw (RAW)', value: 'Proprietary format | ERDASRaw (RAW)', scope: DataScope.ALL },
       {
         name: 'Generic Sensor Format (ALL)',
-        value: 'gsf-all',
+        value: 'Proprietary format | Generic Sensor Format (ALL)',
+        scope: DataScope.ALL,
       },
       {
         name: 'Graphical Interchange Format (GIF)',
-        value: 'gif',
+        value: 'Proprietary format | Graphical Interchange Format (GIF)',
+        scope: DataScope.ALL,
       },
       {
         name: 'Geo Tagged Image File Format (GeoTIFF)',
-        value: 'geotiff',
+        value: 'Open format | Geo Tagged Image File Format (GeoTIFF)',
+        scope: DataScope.ALL,
       },
       {
         name: 'Geography Markup Language (GML)',
-        value: 'gml',
+        value: 'Open format | Geography Markup Language (GML)',
+        scope: DataScope.ALL,
       },
-      {
-        name: 'GeoPackage (GPKG)',
-        value: 'gpkg',
-      },
-      {
-        name: 'GeoRSS (Geo)',
-        value: 'geo',
-      },
-      {
-        name: 'GPS Exchange Format (GPX)',
-        value: 'gpx',
-      },
+      { name: 'GeoPackage (GPKG)', value: 'Open format | GeoPackage (GPKG)', scope: DataScope.ALL },
+      { name: 'GeoRSS (Geo)', value: 'Open format | GeoRSS (Geo)', scope: DataScope.ALL },
+      { name: 'GPS Exchange Format (GPX)', value: 'Open format | GPS Exchange Format (GPX)', scope: DataScope.ALL },
       {
         name: 'Fledermaus scientific data (SD)',
-        value: 'sd',
+        value: 'Proprietary format | Fledermaus scientific data (SD)',
+        scope: DataScope.ALL,
       },
       {
         name: 'Fledermaus scientific data scene (SCENE)',
-        value: 'scene',
+        value: 'Proprietary format | Fledermaus scientific data scene (SCENE)',
+        scope: DataScope.ALL,
       },
       {
         name: 'JavaScript Object Notation (GeoJSON)',
-        value: 'geojson',
+        value: 'Open format | JavaScript Object Notation (GeoJSON)',
+        scope: DataScope.ALL,
       },
       {
         name: 'JavaScript Object Notation (JSON)',
-        value: 'json',
+        value: 'OGC Web Services | JavaScript Object Notation (JSON)',
+        scope: DataScope.ALL,
       },
       {
         name: 'Joint Photographic Experts Group (JPEG)',
-        value: 'jpeg',
+        value: 'Open format | Joint Photographic Experts Group (JPEG)',
+        scope: DataScope.ALL,
       },
       {
         name: 'Joint Photographic Experts Group 2000 (JPEG2000)',
-        value: 'jpeg2000',
+        value: 'Open format | Joint Photographic Experts Group 2000 (JPEG2000)',
+        scope: DataScope.ALL,
       },
       {
         name: 'Keyhole Markup Language (KML)',
-        value: 'kml',
+        value: 'Open format | Keyhole Markup Language (KML)',
+        scope: DataScope.ALL,
       },
       {
         name: 'Keyhole Markup Language Zipped (KMZ)',
-        value: 'kmz',
+        value: 'Open format | Keyhole Markup Language Zipped (KMZ)',
+        scope: DataScope.ALL,
       },
       {
         name: 'Lidar Data Exchange Format (LAS)',
-        value: 'las',
+        value: 'Open format | Lidar Data Exchange Format (LAS)',
+        scope: DataScope.ALL,
       },
       {
         name: 'Lidar Data Exchange Format (LAZ)',
-        value: 'laz',
-      },
-      {
-        name: 'Lemuel-Ziv and Welch (TIFF)',
-        value: 'tiff',
-      },
-      {
-        name: 'Many DAT formats (DAT)',
-        value: 'dat',
-      },
-      {
-        name: 'Many XML formats (XML)',
-        value: 'xml',
-      },
-      {
-        name: 'MapInfo (TAB)',
-        value: 'tab',
-      },
-      {
-        name: 'MapInfo MIF/MID (MIF)',
-        value: 'mif',
-      },
-      {
-        name: 'Microsoft Office Pipe Separated Values file format (PSV)',
-        value: 'psv',
-      },
-      {
-        name: 'Multi-resolution Seamless Image Database (MrSID)',
-        value: 'mrsid',
-      },
-      {
-        name: 'National Transfer Format - OS (NTF)',
-        value: 'ntf',
-      },
-      {
-        name: 'Open Document Presentation (ODP)',
-        value: 'odp',
-      },
-      {
-        name: 'Open Document Spreadsheet (ODS)',
-        value: 'ods',
-      },
-      {
-        name: 'Open Document Text (ODT)',
-        value: 'odt',
-      },
-      {
-        name: 'Outlook File Template (OFT)',
-        value: 'oft',
-      },
-      {
-        name: 'Packbit (TIFF)',
-        value: 'tiff',
-      },
-      {
-        name: 'Portable Document Format - 3D (PDF)',
-        value: 'pdf',
-      },
-      {
-        name: 'Portable Document Format - GeoReferenced (PDF)',
-        value: 'pdf',
-      },
-      {
-        name: 'Portable Document Format - Standardized (PDF)',
-        value: 'pdf',
-      },
-      {
-        name: 'Portable Document Format - Unreferenced (PDF)',
-        value: 'pdf',
-      },
-      {
-        name: 'Portable Network Graphic (PNG)',
-        value: 'png',
-      },
-      {
-        name: 'Resource Description Framework (RDF)',
-        value: 'rdf',
-      },
-      {
-        name: 'Resource Description Framework (XML)',
-        value: 'xml',
-      },
-      {
-        name: 'Rich Text Format (RTF)',
-        value: 'rtf',
-      },
-      {
-        name: 'Tab Separated Values (TSV)',
-        value: 'tsv',
-      },
-      {
-        name: 'Tagged Image File Format (TIFF)',
-        value: 'tiff',
+        value: 'Open format | Lidar Data Exchange Format (LAZ)',
+        scope: DataScope.ALL,
       },
       {
         name: 'Lempel-Ziv and Welch (TIFF)',
-        value: 'tiff',
+        value: 'Compressed format | Lempel-Ziv and Welch (TIFF)',
+        scope: DataScope.ALL,
+      },
+      { name: 'Many DAT formats (DAT)', value: 'Open format | Many DAT formats (DAT)', scope: DataScope.ALL },
+      { name: 'Many XML formats (XML)', value: 'Open format | Many XML formats (XML)', scope: DataScope.ALL },
+      { name: 'MapInfo (TAB)', value: 'Proprietary format | MapInfo (TAB)', scope: DataScope.ALL },
+      { name: 'MapInfo MIF/MID (MIF)', value: 'Proprietary format | MapInfo MIF/MID (MIF)', scope: DataScope.ALL },
+      {
+        name: 'Microsoft Office Pipe Separated Values file format (PSV)',
+        value: 'Open format | Microsoft Office Pipe Separated Values file format (PSV)',
+        scope: DataScope.ALL,
       },
       {
-        name: 'Apache Parquet (PARQUET)',
-        value: 'parquet',
+        name: 'Multi-resolution Seamless Image Database (MrSID)',
+        value: 'Compressed format | Multi-resolution Seamless Image Database (MrSID)',
+        scope: DataScope.ALL,
       },
       {
-        name: 'City GML (CiCompressedtygml)',
-        value: 'cicmptygml',
+        name: 'National Transfer Format - OS (NTF)',
+        value: 'Open format | National Transfer Format - OS (NTF)',
+        scope: DataScope.ALL,
       },
+      {
+        name: 'Open Document Presentation (ODP)',
+        value: 'Open format | Open Document Presentation (ODP)',
+        scope: DataScope.ALL,
+      },
+      {
+        name: 'Open Document Spreadsheet (ODS)',
+        value: 'Open format | Open Document Spreadsheet (ODS)',
+        scope: DataScope.ALL,
+      },
+      { name: 'Open Document Text (ODT)', value: 'Open format | Open Document Text (ODT)', scope: DataScope.ALL },
+      {
+        name: 'Outlook File Template (OFT)',
+        value: 'Proprietary format | Outlook File Template (OFT)',
+        scope: DataScope.ALL,
+      },
+      { name: 'Packbit (TIFF)', value: 'Compressed format | Packbit (TIFF)', scope: DataScope.ALL },
+      {
+        name: 'Portable Document Format - 3D (PDF)',
+        value: 'Open format | Portable Document Format - 3D (PDF)',
+        scope: DataScope.ALL,
+      },
+      {
+        name: 'Portable Document Format - GeoReferenced (PDF)',
+        value: 'Open format | Portable Document Format - GeoReferenced (PDF)',
+        scope: DataScope.ALL,
+      },
+      {
+        name: 'Portable Document Format - Standardized (PDF)',
+        value: 'Open format | Portable Document Format - Standardized (PDF)',
+        scope: DataScope.ALL,
+      },
+      {
+        name: 'Portable Document Format - Unreferenced (PDF)',
+        value: 'Open format | Portable Document Format - Unreferenced (PDF)',
+        scope: DataScope.ALL,
+      },
+      {
+        name: 'Portable Network Graphic (PNG)',
+        value: 'Open format | Portable Network Graphic (PNG)',
+        scope: DataScope.ALL,
+      },
+      {
+        name: 'Resource Description Framework (RDF)',
+        value: 'Open format | Resource Description Framework (RDF)',
+        scope: DataScope.ALL,
+      },
+      {
+        name: 'Resource Description Framework (XML)',
+        value: 'Open format | Resource Description Framework (XML)',
+        scope: DataScope.ALL,
+      },
+      { name: 'Rich Text Format (RTF)', value: 'Open format | Rich Text Format (RTF)', scope: DataScope.ALL },
+      {
+        name: 'Tab Separated Values (TSV)',
+        value: 'Proprietary format | Tab Separated Values (TSV)',
+        scope: DataScope.ALL,
+      },
+      {
+        name: 'Tagged Image File Format (TIFF)',
+        value: 'Open format | Tagged Image File Format (TIFF)',
+        scope: DataScope.ALL,
+      },
+      { name: 'Apache Parquet (PARQUET)', value: 'Open format | Apache Parquet (PARQUET)', scope: DataScope.ALL },
       {
         name: 'FASTQ Biological Sequence File (FASTQ)',
-        value: 'fastq',
+        value: 'Open format | FASTQ Biological Sequence File (FASTQ)',
+        scope: DataScope.ALL,
       },
       {
         name: 'FASTA Biological Sequence File (FASTA)',
-        value: 'fasta',
+        value: 'Open format | FASTA Biological Sequence File (FASTA)',
+        scope: DataScope.ALL,
       },
       {
         name: 'Free Lossless Audio Codec (FLAC)',
-        value: 'flac',
+        value: 'Open format | Free Lossless Audio Codec (FLAC)',
+        scope: DataScope.ALL,
       },
-      {
-        name: 'MPEG Audio Layer 3 (MP3)',
-        value: 'mp3',
-      },
-      {
-        name: 'R Script File (R)',
-        value: 'r',
-      },
+      { name: 'MPEG Audio Layer 3 (MP3)', value: 'Open format | MPEG Audio Layer 3 (MP3)', scope: DataScope.ALL },
+      { name: 'R Script File (R)', value: 'Open format | R Script File (R)', scope: DataScope.ALL },
       {
         name: 'Audio Video Interleave (AVI)',
-        value: 'avi',
+        value: 'Proprietary format | Audio Video Interleave (AVI)',
+        scope: DataScope.ALL,
       },
       {
         name: 'Enhanced Compression Wavelet (ECW)',
-        value: 'ecw',
+        value: 'Proprietary format | Enhanced Compression Wavelet (ECW)',
+        scope: DataScope.ALL,
       },
-      {
-        name: 'ESRI Layer (LYR)',
-        value: 'lyr',
-      },
-      {
-        name: 'ESRI Layer (LYRX)',
-        value: 'lyrx',
-      },
-      {
-        name: 'MPEG-4 Video file (MP4)',
-        value: 'mp4',
-      },
+      { name: 'ESRI Layer (LYR)', value: 'Proprietary format | ESRI Layer (LYR)', scope: DataScope.ALL },
+      { name: 'ESRI Layer (LYRX)', value: 'Proprietary format | ESRI Layer (LYRX)', scope: DataScope.ALL },
+      { name: 'MPEG-4 Video file (MP4)', value: 'Proprietary format | MPEG-4 Video file (MP4)', scope: DataScope.ALL },
       {
         name: 'QuickTime File Format (MOV)',
-        value: 'mov',
+        value: 'Proprietary format | QuickTime File Format (MOV)',
+        scope: DataScope.ALL,
       },
       {
         name: 'Waveform Audio File Format (WAV)',
-        value: 'wav',
+        value: 'Proprietary format | Waveform Audio File Format (WAV)',
+        scope: DataScope.ALL,
       },
-      {
-        name: 'QIIME Zipped Artifact (QZA)',
-        value: 'qza',
-      },
+      { name: 'QIIME Zipped Artifact (QZA)', value: 'Open format | QIIME Zipped Artifact (QZA)', scope: DataScope.ALL },
       {
         name: 'Biological Observation Matrix (BIOM)',
-        value: 'biom',
+        value: 'Open format | Biological Observation Matrix (BIOM)',
+        scope: DataScope.ALL,
       },
-      {
-        name: 'GNU zip archive (GZIP)',
-        value: 'gzip',
-      },
+      { name: 'GNU zip archive (GZIP)', value: 'Open format | GNU zip archive (GZIP)', scope: DataScope.ALL },
       {
         name: 'Compressed tape archive (TAR.GZ)',
-        value: 'targz',
+        value: 'Open format | Compressed tape archive (TAR.GZ)',
+        scope: DataScope.ALL,
+      },
+      {
+        name: 'ESRI File based Geodatabase (GDB)',
+        value: 'Proprietary format | ESRI File based Geodatabase (GDB)',
+        scope: DataScope.ALL,
+      },
+      { name: 'MS Excel (XLS)', value: 'Proprietary format | MS Excel (XLS)', scope: DataScope.ALL },
+      {
+        name: 'City GML (CiCompressedtygml)',
+        value: 'Open format | City GML (CiCompressedtygml)',
+        scope: DataScope.ALL,
       },
     ],
   },
