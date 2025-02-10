@@ -253,25 +253,6 @@ describe('Search API', () => {
   });
 
   describe('Search API - To fetch the search results count', () => {
-    // it('should call performQuery with correct arguments', async () => {
-    //   const searchFieldsObject: ISearchPayload = {
-    //     fields: {
-    //       keyword: {
-    //         q: 'example',
-    //       },
-    //     },
-    //     sort: '',
-    //     filters: {},
-    //     rowsPerPage: 20,
-    //     page: 1,
-    //   };
-    //   (performQuery as jest.Mock).mockResolvedValueOnce({
-    //     data: { totalResults: 10 },
-    //   });
-    //   await getSearchResultsCount(searchFieldsObject);
-    //   expect(performQuery).toHaveBeenCalledTimes(1);
-    // });
-
     it('should return the total results count', async () => {
       const searchFieldsObject: ISearchPayload = {
         fields: {
