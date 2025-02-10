@@ -1,4 +1,5 @@
 import { filtersInstance } from './filters.js';
+import { invokeMapResults, setBadgeValue } from './location.js';
 
 /**
  * @param {string} toRemove
@@ -26,8 +27,10 @@ const removeKeywordFromUrl = (toRemove) => {
  * Adds a badge below the input for a given keyword.
  *
  * @param {string} keyword
+ * @param {string} filtersInstanceId
+ *
  */
-const createBadge = (keyword) => {
+const createBadge = (keyword, filtersInstanceId) => {
   // get and duplicate the template so we can modify it
   const template = $('#keyword-badge-template').clone();
 
@@ -35,6 +38,10 @@ const createBadge = (keyword) => {
   template.on('click', () => {
     template.remove();
     removeKeywordFromUrl(keyword);
+    if (filtersInstanceId === '#keyword-badge-container-map_results') {
+      setBadgeValue();
+      invokeMapResults(true);
+    }
   });
 
   // use `createTextNode` for safety as these keywords are user controlled
@@ -49,13 +56,13 @@ const createBadge = (keyword) => {
   template.removeClass('display-none');
 
   // add the keyword to the container
-  $(`#keyword-badge-container-${filtersInstance}`).append(template);
+  $(`${filtersInstanceId}`).append(template);
 };
 
 /**
  * Creates badges for every keyword active when the page loads
  */
-const createBadgesFromExistingKeywords = () => {
+const createBadgesFromExistingKeywords = (filtersInstanceId) => {
   const params = new URLSearchParams(window.location.search);
 
   const keywords = params.get('keywords');
@@ -67,12 +74,41 @@ const createBadgesFromExistingKeywords = () => {
   keywords
     .split(',')
     .filter((k) => k)
-    .forEach((k) => createBadge(k));
+    .forEach((k) => createBadge(k, filtersInstanceId));
+};
+
+/**
+ * Select a keyword from the dropdown list
+ */
+const keywordsDropdownListAction = (keywordInput, filterInstanceId) => {
+  keywordInput.val('');
+  keywordInput.on(
+    'input',
+    $.debounce(300, function () {
+      const value = $(this).val().toLowerCase();
+      $('.filter-options__keyboard-filter-list li').filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+        $('.filter-options__keyboard-filter-content-' + filterInstanceId).css('display', 'block');
+      });
+    }),
+  );
+};
+
+/**
+ * Check the duplicate value exist in the seleced the badges
+ */
+const checkDuplicateKeywords = (filtersInstanceId, keyword) => {
+  const keywordBadgesList = Array.from(document.querySelectorAll(`${filtersInstanceId} li`));
+  const badgeText = keywordBadgesList.map((item) => item.innerText);
+  if (badgeText.includes(keyword)) {
+    return true;
+  }
+  return false;
 };
 
 $(document).ready(function () {
-  createBadgesFromExistingKeywords();
-
+  createBadgesFromExistingKeywords('#keyword-badge-container-search_results');
+  const filterType = 'search_results';
   const keywordInput = $(`#filters-keywords-${filtersInstance}`);
 
   const getTagsApiUrl = Boolean(keyboardFiltersBaseUrlValue)
@@ -90,36 +126,38 @@ $(document).ready(function () {
       $('.filter-options__keyboard-filter-list').append(liElement);
     },
   });
-  keywordInput.val('');
-  keywordInput.on(
-    'input',
-    $.debounce(300, function () {
-      const value = $(this).val().toLowerCase();
-      $('.filter-options__keyboard-filter-list li').filter(function () {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-        $('.filter-options__keyboard-filter-content').css('display', 'block');
-      });
-    }),
-  );
+  $(document).click(function (event) {
+    if (
+      !$(event.target).closest('#filters-keywords-search_results').length &&
+      !$(event.target).closest('filter-options__keyboard-filter-content-' + filterType).length
+    ) {
+      $('.filter-options__keyboard-filter-content-' + filterType).hide();
+    }
+  });
+  keywordsDropdownListAction(keywordInput, filterType);
   $('#keyboard-filter-list').on('click', 'li', function () {
     const selectedValue = $(this).text();
     keywordInput.val('');
     keywordInput.focus();
-    $('.filter-options__keyboard-filter-content').hide();
+    $('.filter-options__keyboard-filter-content-' + filterType).hide();
 
-    createBadge(selectedValue);
+    if (!checkDuplicateKeywords('#keyword-badge-container-search_results', selectedValue)) {
+      createBadge(selectedValue, '#keyword-badge-container-search_results');
 
-    const params = new URLSearchParams(window.location.search);
-    if (!!params.get('keywords')) {
-      const updatedValue = `${params.get('keywords')},${selectedValue}`;
-      params.set('keywords', updatedValue);
-    } else {
-      params.set('keywords', selectedValue);
+      const params = new URLSearchParams(window.location.search);
+      if (!!params.get('keywords')) {
+        const updatedValue = `${params.get('keywords')},${selectedValue}`;
+        params.set('keywords', updatedValue);
+      } else {
+        params.set('keywords', selectedValue);
+      }
+
+      const url = new URL(window.location.href);
+      url.search = params.toString();
+
+      window.history.pushState({}, '', url);
     }
-
-    const url = new URL(window.location.href);
-    url.search = params.toString();
-
-    window.history.pushState({}, '', url);
   });
 });
+
+export { createBadge, keywordsDropdownListAction, checkDuplicateKeywords, createBadgesFromExistingKeywords };

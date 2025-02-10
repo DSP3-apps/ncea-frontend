@@ -604,7 +604,7 @@
   margin-bottom: 12px;
 }
 
-.filter-options__keyboard-filter-content {
+@mixin keyword-filter-dropdown {
   position: absolute;
   top: 100%;
   width: 100%;
@@ -618,7 +618,14 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.filter-options__keyboard-filter-content {
+.filter-options__keyboard-filter-content-search_results {
+  @include keyword-filter-dropdown
+}
+.filter-options__keyboard-filter-content-map_results {
+  @include keyword-filter-dropdown
+}
+
+@mixin keyword-filter-list-items {
   & ul {
     list-style-type: none;
     padding: 0;
@@ -631,6 +638,14 @@
       background-color: #f1f1f1;
     }
   }
+}
+
+.filter-options__keyboard-filter-content-search_results {
+  @include keyword-filter-list-items
+}
+
+.filter-options__keyboard-filter-content-map_results {
+  @include keyword-filter-list-items
 }
 
 .keywords-filter-dropdown {

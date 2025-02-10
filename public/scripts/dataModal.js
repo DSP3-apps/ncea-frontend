@@ -1,4 +1,10 @@
 'use strict';
+import {
+  createBadge,
+  keywordsDropdownListAction,
+  checkDuplicateKeywords,
+  createBadgesFromExistingKeywords,
+} from './keywordsFilter.js';
 
 let scrollPositionY = 0;
 const overlayContainer = document.getElementById('overlay');
@@ -53,9 +59,36 @@ document.addEventListener('DOMContentLoaded', () => {
     overlayContainer.style.zIndex = 999;
   }
 
+  function invokeKeyboardFilters() {
+    const filterType = 'map_results';
+    createBadgesFromExistingKeywords('#keyword-badge-container-map_results');
+    const keywordInput = $(`#filters-keywords-map_results`);
+    keywordsDropdownListAction(keywordInput, filterType);
+
+    $('#keyboard-filter-list').on('click', 'li', function () {
+      const selectedValue = $(this).text();
+      keywordInput.val('');
+      keywordInput.focus();
+      $('.filter-options__keyboard-filter-content-' + filterType).hide();
+
+      if (!checkDuplicateKeywords('#keyword-badge-container-map_results', selectedValue)) {
+        createBadge(selectedValue, '#keyword-badge-container-map_results');
+      }
+    });
+    $(document).click(function (event) {
+      if (
+        !$(event.target).closest('#filters-keywords-map_results').length &&
+        !$(event.target).closest('.filter-options__keyboard-filter-content-' + filterType).length
+      ) {
+        $('.filter-options__keyboard-filter-content-' + filterType).hide();
+      }
+    });
+  }
+
   function openMapModal() {
     toggleModalContainer('map-modal');
     freezeScroll();
+    invokeKeyboardFilters();
   }
 
   function closeMapModal() {
