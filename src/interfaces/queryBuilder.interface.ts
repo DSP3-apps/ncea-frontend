@@ -169,6 +169,7 @@ interface ISearchRequest {
     SearchTerms: string[];
   };
   Filters: IFilter;
+  resultsPerPage: number;
 }
 
 export {

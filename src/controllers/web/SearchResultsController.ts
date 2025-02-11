@@ -13,7 +13,6 @@ import {
   mapResultMaxCount,
   pageTitles,
   queryParamKeys,
-  requiredFieldsForMap,
   webRoutePaths,
 } from '../../utils/constants';
 import { getPaginationItems } from '../../utils/paginationBuilder';
@@ -36,7 +35,6 @@ const SearchResultsController = {
     const studyPeriodToYear: string = readQueryParams(request.query, queryParamKeys.toYear);
     const hasStudyPeriodFilterApplied: boolean = !!studyPeriodFromYear.length && !!studyPeriodToYear.length;
     const payload: ISearchPayload = generateQueryBuilderPayload(request.query);
-    const { rowsPerPage, page } = payload;
     const isQuickSearchJourney = journey === 'qs';
     try {
       const processedDspFilterOptions = processDSPFilterOptions(request.query);
@@ -49,7 +47,18 @@ const SearchResultsController = {
         // isQuickSearchJourney, // TODO: We may need to add this back in, which is why I've left it.
       );
 
-      const paginationItems = getPaginationItems(page, searchResults?.total ?? 0, rowsPerPage, request.query);
+      // Paginate search results client-side.
+      // Slice total result into just what is required for this page.
+      const startItem = payload.page ? (payload.page - 1) * payload.rowsPerPage : 0;
+      const endItem = startItem + (payload.rowsPerPage - 1);
+
+      const pagedSearchResults = {
+        ...searchResults,
+        items: searchResults?.items.slice(startItem, endItem),
+      };
+
+      // Pass total results to build pagination buttons at bottom of page.
+      const paginationItems = getPaginationItems(searchResults?.total ?? 0, request.query);
       const queryString = readQueryParams(request.query);
       const sortSubmitPath = `${BASE_PATH}${webRoutePaths.sortResults}?${queryString}`;
       const processedSortOptions = await processSortOptions(request.query);
@@ -64,7 +73,7 @@ const SearchResultsController = {
       return response.view('screens/results/template', {
         pageTitle: pageTitles.results,
         quickSearchFID,
-        searchResults,
+        searchResults: pagedSearchResults,
         hasError: false,
         isQuickSearchJourney,
         paginationItems,
@@ -118,15 +127,12 @@ const SearchResultsController = {
     return response.view(view, context).code(400).takeover();
   },
   getMapResultsHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
-    const journey: string = readQueryParams(request.query, queryParamKeys.journey);
     const payload: ISearchPayload = generateQueryBuilderPayload(request.query);
-    // const isQuickSearchJourney = journey === 'qs';
+
     try {
       const mapPayload: ISearchPayload = {
         ...payload,
         rowsPerPage: mapResultMaxCount,
-        fieldsExist: ['geom'],
-        requiredFields: requiredFieldsForMap,
       };
 
       const processedDspFilterOptions = processDSPFilterOptions(request.query);

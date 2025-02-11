@@ -290,6 +290,7 @@ const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearc
       Lineage: null,
       AdditionalInformationSource: null,
     },
+    resultsPerPage: searchFieldsObject.rowsPerPage,
   };
 
   return request;
