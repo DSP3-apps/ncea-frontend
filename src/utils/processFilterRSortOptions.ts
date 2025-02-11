@@ -26,6 +26,8 @@ const processDSPFilterOptions = (requestQuery: RequestQuery): ISearchFiltersProc
 
   const nceaOnly = readQueryParams(requestQuery, filterNames.scope) === DataScope.NCEA;
 
+  let hasDSPFiltersRemoved = false;
+
   for (const category of searchFilters) {
     // filter to remove any empty strings
     const catQueryValue = readQueryParams(requestQuery, category.value)
@@ -55,12 +57,16 @@ const processDSPFilterOptions = (requestQuery: RequestQuery): ISearchFiltersProc
       });
     }
 
+    if (nceaOnly && newCategory.filters.filter((filter) => filter.checked).length !== catQueryValue.length) {
+      hasDSPFiltersRemoved = true;
+    }
     categories.push(newCategory);
   }
 
   return {
     nceaOnly,
     categories: categories,
+    hasDSPFiltersRemoved: hasDSPFiltersRemoved,
     // without the filter if they keywords are empty it will return a 1 element array
     // where the element is just an empty string
     keywords: readQueryParams(requestQuery, filterNames.keywords)

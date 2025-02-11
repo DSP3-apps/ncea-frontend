@@ -41,6 +41,7 @@ export interface ISearchFilterProcessed {
 export type ISearchFilters = ISearchFilter[];
 export interface ISearchFiltersProcessed {
   nceaOnly: boolean;
+  hasDSPFiltersRemoved: boolean;
   categories: ISearchFilterProcessed[];
   keywords: string[];
   license: string;
