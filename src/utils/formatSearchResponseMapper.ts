@@ -1,4 +1,4 @@
-import { formatDate } from './dates';
+import { formatDate, getYear } from './dates';
 import { Contact, IGeographyItem, IGovernance } from '../interfaces/searchResponse.interface';
 import { getResourceLanguages } from '../utils/getGeneralTabData';
 import { generateConformityData } from '../utils/getQualityTabData';
@@ -125,12 +125,12 @@ const formatSearchResponseMapper = (payload) => ({
   id: payload?.id,
   title: payload?.title ?? '',
   publishedBy: '', // TO
-  startYear: '', // TO
-  toYear: '', // TO DO
+  startYear: getYear(payload?.temporalExtent?.beginPosition ?? ''),
+  toYear: getYear(payload?.temporalExtent?.endPosition ?? ''),
   resourceLocator: getResourceLocatorURL(payload?.resource?.locators ?? ''),
   organisationName: '', // TO DO
   ncea_group_reference: '', // TO DO
-  metadata_standard: '', // TO DO
+  metadata_standard: payload?.metadata?.standard ?? '',
   project_number: payload?.projectNumber ?? '',
   ...getGeneralTabData(payload),
   ...getAccessTabData(payload),
