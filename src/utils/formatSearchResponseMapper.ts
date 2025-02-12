@@ -36,63 +36,53 @@ const getRecordsDates = (data: string): string => {
   return '';
 };
 
-const getGeneralTabData = (payload) => {
-  return {
-    content: payload?.abstract ?? '',
-    studyPeriod: '', // TO DO
-    topicCategories: payload?.topicCategories.join(', ') ?? '',
-    keywords: payload?.keywords.join(', ') ?? '',
-    language: getResourceLanguages(payload?.resource),
-  };
-};
+const getGeneralTabData = (payload) => ({
+  content: payload?.abstract ?? '',
+  studyPeriod: '', // TO DO
+  topicCategories: payload?.topicCategories.join(', ') ?? '',
+  keywords: payload?.keywords.join(', ') ?? '',
+  language: getResourceLanguages(payload?.resource),
+});
 
-const getAccessTabData = (payload) => {
-  return {
-    ncea_catalogue_entry: payload?.identifiers?.catalogue?.entry ?? '',
-    host_catalogue_number: '', // TO DO
-    host_catalogue_entry: '', // TO DO
-    resource_type_and_hierarchy: '', // TO DO
-    resource_locators: '', // TO DO
-    contact_information: getContactInformation(payload.contacts),
-    catalogue_number: payload?.identifiers?.catalogue?.number ?? '',
-    metadata_language: payload?.metadata?.language ?? '',
-  };
-};
+const getAccessTabData = (payload) => ({
+  ncea_catalogue_entry: payload?.identifiers?.catalogue?.entry ?? '',
+  host_catalogue_number: '', // TO DO
+  host_catalogue_entry: '', // TO DO
+  resource_type_and_hierarchy: '', // TO DO
+  resource_locators: '', // TO DO
+  contact_information: getContactInformation(payload.contacts),
+  catalogue_number: payload?.identifiers?.catalogue?.number ?? '',
+  metadata_language: payload?.metadata?.language ?? '',
+});
 
-const getQualityTabData = (payload) => {
-  return {
-    publicationInformation: getRecordsDates(payload?.recordDates?.publification),
-    creationInformation: getRecordsDates(payload?.recordDates?.creation),
-    revisionInformation: getRecordsDates(payload?.recordDates?.revision),
-    metadataDate: getRecordsDates(payload?.recordDates?.metadata),
-    lineage: payload?.lineage ?? '',
-    conformity: generateConformityData(payload?.conformity ?? []),
-    additionalInformation: payload?.additionalInformation ?? '',
-  };
-};
+const getQualityTabData = (payload) => ({
+  publicationInformation: getRecordsDates(payload?.recordDates?.publification),
+  creationInformation: getRecordsDates(payload?.recordDates?.creation),
+  revisionInformation: getRecordsDates(payload?.recordDates?.revision),
+  metadataDate: getRecordsDates(payload?.recordDates?.metadata),
+  lineage: payload?.lineage ?? '',
+  conformity: generateConformityData(payload?.conformity ?? []),
+  additionalInformation: payload?.additionalInformation ?? '',
+});
 
-const getLicenseTabData = (payload) => {
-  return {
-    limitation_on_public_access: payload?.license?.publicAccessAccessContraints ?? '',
-    limitation_on_public_access_otherconstraint: payload?.license?.publicAccessOtherConstraints ?? '',
-    conditions_for_access_and_use_useConstraints: payload?.license?.publicUseUseConstraints ?? '',
-    conditions_for_access_and_useOtherConstraints: payload?.license?.publicUseOtherContraints ?? '',
-    other_constraint: '', // TO DO
-    available_formats: '', // TO DO,
-    frequency_of_update: payload?.license?.frequencyOfUpdate ?? '',
-    character_encoding: 'utf8',
-  };
-};
+const getLicenseTabData = (payload) => ({
+  limitation_on_public_access: payload?.license?.publicAccessAccessContraints ?? '',
+  limitation_on_public_access_otherconstraint: payload?.license?.publicAccessOtherConstraints ?? '',
+  conditions_for_access_and_use_useConstraints: payload?.license?.publicUseUseConstraints ?? '',
+  conditions_for_access_and_useOtherConstraints: payload?.license?.publicUseOtherContraints ?? '',
+  other_constraint: '', // TO DO
+  available_formats: '', // TO DO,
+  frequency_of_update: payload?.license?.frequencyOfUpdate ?? '',
+  character_encoding: 'utf8',
+});
 
-const getNaturalTab = (payload) => {
-  return {
-    Natural_capital_title: payload?.title ?? '', // To Do data is coming from the cinstant file naturalTabStaticData
-    Natural_capital_description: '', // To Do data is coming from the cinstant file naturalTabStaticData
-    Natural_capital_displayData: [], // Need to discuss as per the current implementations need to check its payload
-    Natural_capital_no_data: '', // To Do data is coming from the cinstant file naturalTabStaticData
-    Natural_capital_glossary_link: '', // To Do data is coming from the cinstant file naturalTabStaticData
-  };
-};
+const getNaturalTab = (payload) => ({
+  Natural_capital_title: payload?.title ?? '', // To Do data is coming from the cinstant file naturalTabStaticData
+  Natural_capital_description: '', // To Do data is coming from the cinstant file naturalTabStaticData
+  Natural_capital_displayData: [], // Need to discuss as per the current implementations need to check its payload
+  Natural_capital_no_data: '', // To Do data is coming from the cinstant file naturalTabStaticData
+  Natural_capital_glossary_link: '', // To Do data is coming from the cinstant file naturalTabStaticData
+});
 
 const getGovernanceTabData = (payload) => {
   const contacts = payload?.contacts;
@@ -131,30 +121,24 @@ const getGeographyTabData = (payload): IGeographyItem => {
     samplingResolution: '', // TO DO no data exists in the mock data
   };
 };
-const formatSearchResponseMapper = (payload) => {
-  const resourceLocator = getResourceLocatorURL(payload?.resource?.locators ?? '');
-  const generalTabData = getGeneralTabData(payload);
-  const accessTabData = getAccessTabData(payload);
-  const qualityTabData = getQualityTabData(payload);
-  return {
-    id: payload?.id,
-    title: payload?.title ?? '',
-    publishedBy: '', // TO
-    startYear: '', // TO
-    toYear: '', // TO DO
-    resourceLocator,
-    organisationName: '', // TO DO
-    ncea_group_reference: '', // TO DO
-    metadata_standard: '', // TO DO
-    project_number: payload?.projectNumber ?? '',
-    ...generalTabData,
-    ...accessTabData,
-    ...qualityTabData,
-    ...getLicenseTabData(payload),
-    ...getNaturalTab(payload),
-    ...getGovernanceTabData(payload),
-    ...getGeographyTabData(payload),
-  };
-};
+const formatSearchResponseMapper = (payload) => ({
+  id: payload?.id,
+  title: payload?.title ?? '',
+  publishedBy: '', // TO
+  startYear: '', // TO
+  toYear: '', // TO DO
+  resourceLocator: getResourceLocatorURL(payload?.resource?.locators ?? ''),
+  organisationName: '', // TO DO
+  ncea_group_reference: '', // TO DO
+  metadata_standard: '', // TO DO
+  project_number: payload?.projectNumber ?? '',
+  ...getGeneralTabData(payload),
+  ...getAccessTabData(payload),
+  ...getQualityTabData(payload),
+  ...getLicenseTabData(payload),
+  ...getNaturalTab(payload),
+  ...getGovernanceTabData(payload),
+  ...getGeographyTabData(payload),
+});
 
 export { formatSearchResponseMapper };
