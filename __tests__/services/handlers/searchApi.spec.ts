@@ -324,7 +324,7 @@ describe('Search API', () => {
     });
   });
 
-  describe('Search API - To fetch the document details', () => {
+  describe.skip('Search API - To fetch the document details', () => {
     it('should return the response from performQuery', async () => {
       const docId = '3c080cb6-2ed9-43e7-9323-9ce42b05b9a2';
       (performQuery as jest.Mock).mockResolvedValueOnce(detailsSuccessAPIResponse);

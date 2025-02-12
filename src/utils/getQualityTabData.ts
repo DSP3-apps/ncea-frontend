@@ -65,4 +65,4 @@ const getQualityTabData = (searchItem: Record<string, any>): IQualityItem => ({
   additionalInformation: searchItem?._source?.supplementalInformationObject?.default ?? '',
 });
 
-export { getQualityTabData };
+export { getQualityTabData, generateConformityData };

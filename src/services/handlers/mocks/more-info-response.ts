@@ -268,3 +268,105 @@ export const MORE_INFO_RESPOSE = {
     ],
   },
 };
+
+export const MORE_INFO_NEW_DATA = {
+  id: 'CEFAS128c23ed-c973-42b4-a784-8078ccae6563',
+  title: '2007-2008 North Sea Nutrient Analysis',
+  alternativeTitle: 'Pore-water nurtrients',
+  abstract:
+    ' This data gives the concentration of nutrients in sea water samples from the water column and from sediments (pore-water)...', // cut short on purpose for easier viewing
+  temporalExtent: {
+    beginPosition: '20070101T000000Z',
+    endPosition: '20081231T000000Z',
+  },
+  resource: {
+    locators: [
+      'Cefas Data Portal (https://data.cefas.co.uk/view/911): The Cefas Data Portal contains metadata records...',
+    ], // cut short on purpose for easier viewing
+    name: null, // OPTIONAL
+    languages: ['ENG'],
+    type: 'Dataset',
+    distrubutionFormats: ['Unknown'],
+  },
+  geographicBoundary: [2, 5, 55.75, 53], // OPTIONAL (west, east, north, south)
+  geographicLocations: [],
+  topicCategories: ['Oceans'],
+  keywords: ['Biochemistry', 'Fluxes', 'Nutrients'],
+  projectNumber: null, // OPTIONAL
+  identifiers: {
+    file: 'CEFAS128c23ed-c973-42b4-a784-8078ccae6563', // OPTIONAL
+    resource: 'https://data.cefas.co.ukCEFAS911', // OPTIONAL
+    parent: null, // OPTIONAL
+    catalogue: {
+      entry: 'Medin_CEFAS128c23ed-c973-42b4-a784-8078ccae6563', // OPTIONAL
+      number: 'Medin_CEFAS128c23ed-c973-42b4-a784-8078ccae6563', // OPTIONAL
+    },
+  },
+  coupledResources: null, // OPTIONAL
+  metadata: {
+    standard: 'MEDIN', // OPTIONAL
+    language: 'ENG', // OPTIONAL
+  },
+  contacts: [
+    {
+      name: 'Centre for Environment, Fisheries and Aquaculture Science, Lowestoft Laboratory (CEFAS)',
+      email: 'data.manager@cefas.co.uk',
+      phone: null, // OPTIONAL
+      address: [],
+      url: null, // OPTIONAL
+      delivery: 'Cefas Lowestoft Laboratory, Pakefield Road, Lowestoft, Suffolk, NR33 0HT, UK', // OPTIONAL
+      country: 'UK', // OPTIONAL
+      city: 'Lowestoft', // OPTIONAL
+      postCode: 'NR33 0HT', // OPTIONAL
+      aministrativeArea: 'Suffolk', // OPTIONAL
+      role: 'pointOfContact',
+    },
+  ],
+  capitalClassifications: [
+    {
+      theme: 'Natural asset',
+      category: 'Terrestrial and freshwater habitats',
+      subCategory: null, // TODO
+    },
+    {
+      theme: 'Natural capital valuation',
+      category: 'Monetary',
+      subCategory: null, // TODO
+    },
+  ],
+  recordDates: {
+    metadata: '20230131T000000Z', // OPTIONAL (ISO-8601)
+    publification: '20131121T000000Z', // OPTIONAL (ISO-8601)
+    revision: '20230131T000000Z', // OPTIONAL (ISO-8601)
+    creation: '20130306T000000Z', // OPTIONAL (ISO-8601)
+  },
+  lineage: 'Samples from the water column were collected by Niskin bottles deployed...', // OPTIONAL (cut short on purpose)
+  additionalInformation: null, // OPTIONAL
+  conformity: [
+    {
+      specification: 'INSPIRE Data Specification on Oceanographic geographical features – Technical Guidelines',
+      degree: false,
+      explanation: 'See the referenced specification',
+    },
+    {
+      specification:
+        'Commission Regulation (EU) No 1089/2010 of 23 November 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of spatial data sets and services',
+      degree: true,
+      explanation: 'See the referenced specification',
+    },
+  ],
+  spatial: {
+    dataService: null, // OPTIONAL
+    representationService: 'Vector', // OPTIONAL
+    referencingSystem: 'WGS 84', // OPTIONAL
+    resolution: null, // OPTIONAL
+  },
+  verticalExtent: null, // OPTIONAL
+  license: {
+    publicAccessAccessContraints: 'otherRestrictions', // OPTIONAL
+    publicAccessOtherConstraints: 'noLimitations', // OPTIONAL
+    publicUseUseConstraints: 'otherRestrictions', // OPTIONAL
+    publicUseOtherContraints: 'Public data - no limitations to reuse', // OPTIONAL
+    frequencyOfUpdate: ' Not planned', // OPTIONAL
+  },
+};
