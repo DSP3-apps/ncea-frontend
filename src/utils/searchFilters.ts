@@ -132,10 +132,10 @@ export const applyMockFilters = (
     });
   }
 
-  if (filters.license.length > 0) {
+  if (filters.licence.length > 0) {
     results.hits = results.hits.filter((hit) => {
       // turn into a regex for case-insensitive match
-      const rg = new RegExp(escapeRegExp(filters.license), 'i');
+      const rg = new RegExp(escapeRegExp(filters.licence), 'i');
 
       // may have more than once license so flatten them into a single array
       return [

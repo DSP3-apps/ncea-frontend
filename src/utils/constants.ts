@@ -250,7 +250,7 @@ export const defaultFilters: ISearchFiltersProcessed = {
   nceaOnly: false,
   hasDSPFiltersRemoved: false,
   keywords: [''],
-  license: '',
+  licence: '',
   categories: [],
   lastUpdated: {
     beforeYear: '',

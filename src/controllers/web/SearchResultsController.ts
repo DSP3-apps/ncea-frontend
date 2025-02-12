@@ -3,6 +3,7 @@
 import { Lifecycle, Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 import Joi from 'joi';
 
+import { Credentials } from '../../interfaces/auth';
 import { FormattedTabOptions } from '../../interfaces/detailsTab.interface';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { ISearchItem, ISearchResults } from '../../interfaces/searchResponse.interface';
@@ -41,7 +42,7 @@ const SearchResultsController = {
 
       const searchResults: ISearchResults = await getSearchResults(
         payload,
-        request.auth.credentials,
+        request.auth.credentials as Credentials,
         processedDspFilterOptions,
         false,
         // isQuickSearchJourney, // TODO: We may need to add this back in, which is why I've left it.
@@ -139,7 +140,7 @@ const SearchResultsController = {
 
       const searchMapResults: ISearchResults = await getSearchResults(
         mapPayload,
-        request.auth.credentials,
+        request.auth.credentials as Credentials,
         processedDspFilterOptions,
         true,
         // isQuickSearchJourney,

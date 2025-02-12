@@ -228,6 +228,7 @@ const _generateDateRangeQuery = (
 };
 
 const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearchFiltersProcessed): ISearchRequest => {
+  console.log('QUERY FILTERS: ', JSON.stringify(filters));
   // Get Organisation filter values.
   const organisations = getFiltersForCategory(filters.categories, FILTER_VALUES.organisation); // FIXME: make 'org' etc a constant and update `searchFilters.ts` to use them also, look at bottom of page.
 

@@ -9,15 +9,13 @@ describe('Environment Configuration Schema', () => {
       expect(value.appInsightsConnectionString).toEqual('');
       expect(value.azureKeyVaultURL).toEqual('');
       expect(value.appInsightsSecretName).toEqual('');
-      expect(value.elasticSearchAPI).toEqual('');
       expect(value.isLocal).toEqual(false);
       expect(value.gtmId).toEqual('');
-      expect(value.elasticSearchUsername).toEqual('');
-      expect(value.elasticSearchPassword).toEqual('');
       expect(value.classifierApiUrl).toEqual('');
       expect(value.classifierApiKey).toEqual('');
       expect(value.webDomain).toEqual('');
       expect(value.auth0JwtEnv).toEqual('');
+      expect(value.searchApiUrl).toEqual('');
     });
 
     it('should keep provided values for fields if available', () => {
@@ -32,15 +30,13 @@ describe('Environment Configuration Schema', () => {
       expect(value.appInsightsConnectionString).toEqual('');
       expect(value.azureKeyVaultURL).toEqual('');
       expect(value.appInsightsSecretName).toEqual('');
-      expect(value.elasticSearchAPI).toEqual('');
       expect(value.isLocal).toEqual(false);
       expect(value.gtmId).toEqual('');
-      expect(value.elasticSearchUsername).toEqual('');
-      expect(value.elasticSearchPassword).toEqual('');
       expect(value.classifierApiUrl).toEqual('');
       expect(value.classifierApiKey).toEqual('');
       expect(value.webDomain).toEqual('');
       expect(value.auth0JwtEnv).toEqual('');
+      expect(value.searchApiUrl).toEqual('');
     });
   });
 
@@ -52,16 +48,14 @@ describe('Environment Configuration Schema', () => {
         appInsightsConnectionString: 'your-key',
         azureKeyVaultURL: 'https://example-vault.vault.azure.net',
         appInsightsSecretName: 'secret-name',
-        elasticSearchAPI: 'https://example.com/api',
         isLocal: false,
         gtmId: 'your-key',
-        elasticSearchUsername: 'es-username',
-        elasticSearchPassword: 'es-password',
         classifierApiUrl: 'https://example.com/api',
         classifierApiKey: 'your-key',
         webDomain: '',
         keyboardFiltersBaseUrl: '',
         auth0JwtEnv: 'test',
+        searchApiUrl: 'https://example.com/api',
       };
 
       const { error, value } = environmentSchema.validate(validConfig);
@@ -103,16 +97,16 @@ describe('Environment Configuration Schema', () => {
       expect(error?.details[0]?.message).toContain('Azure Key Vault URI must be a valid URL or an empty string');
     });
 
-    it('should invalidate a configuration with elasticsearch api as string instead of URL', () => {
+    it('should invalidate a configuration with search api as string instead of URL', () => {
       const invalidConfig = {
         port: '3000',
         env: 'local',
-        elasticSearchAPI: 'url',
+        searchApiUrl: 'url',
       };
 
       const { error } = environmentSchema.validate(invalidConfig);
       expect(error).toBeDefined();
-      expect(error?.details[0]?.message).toContain('Elasticsearch API must be a valid URL or an empty string');
+      expect(error?.details[0]?.message).toContain('Search API must be a valid URL');
     });
 
     it('should invalidate a configuration with isLocal as string instead of boolea', () => {
