@@ -51,7 +51,7 @@ const SearchResultsController = {
       // Paginate search results client-side.
       // Slice total result into just what is required for this page.
       const startItem = payload.page ? (payload.page - 1) * payload.rowsPerPage : 0;
-      const endItem = startItem + (payload.rowsPerPage - 1);
+      const endItem = startItem + payload.rowsPerPage;
 
       const pagedSearchResults = {
         ...searchResults,
