@@ -80,6 +80,19 @@ export const transformSearchResponse = (response: ISearchResponse, isMapResults:
     const startDate = new Date(result.searchFields.temporalExtent.beginPosition);
     const endDate = new Date(result.searchFields.temporalExtent.endPosition);
 
+    const searchResponse = {
+      id: result.searchFields.fileIdentifier,
+      title: result.searchFields.title,
+      content: toggleContent(result.searchFields.abstract, `abstract_content-${result.searchFields.fileIdentifier}`),
+      studyPeriod: `${format(startDate, DATE_FORMAT)} to ${format(endDate, DATE_FORMAT)}`,
+      startYear: startDate.getFullYear().toString(),
+      toYear: endDate.getFullYear().toString(),
+      resourceLocator: result?.searchFields?.resource?.url ?? '',
+      organisationName: '',
+      publishedBy: '',
+      resourceType: ['dataset'],
+    };
+
     if (isMapResults && result?.searchFields?.mapping) {
       const envelope = result?.searchFields?.mapping;
 
@@ -105,33 +118,13 @@ export const transformSearchResponse = (response: ISearchResponse, isMapResults:
       hasSpatialData = true;
 
       return {
-        id: result.searchFields.fileIdentifier,
-        title: result.searchFields.title,
-        content: toggleContent(result.searchFields.abstract, `abstract_content-${result.searchFields.fileIdentifier}`),
-        studyPeriod: `${format(startDate, DATE_FORMAT)} to ${format(endDate, DATE_FORMAT)}`,
-        startYear: startDate.getFullYear().toString(),
-        toYear: endDate.getFullYear().toString(),
-        resourceLocator: result?.searchFields?.resource?.url ?? '',
+        ...searchResponse,
         geographicBoundary,
         geographicCenter: centerPoint.geometry.coordinates.join(),
-        organisationName: '',
-        publishedBy: '',
-        resourceType: ['dataset'],
       };
     }
 
-    return {
-      id: result.searchFields.fileIdentifier,
-      title: result.searchFields.title,
-      publishedBy: '',
-      content: toggleContent(result.searchFields.abstract, `abstract_content-${result.searchFields.fileIdentifier}`),
-      studyPeriod: `${format(startDate, DATE_FORMAT)} to ${format(endDate, DATE_FORMAT)}`,
-      startYear: startDate.getFullYear().toString(),
-      toYear: endDate.getFullYear().toString(),
-      resourceLocator: '',
-      organisationName: '',
-      resourceType: ['dataset'],
-    };
+    return searchResponse;
   });
 
   return {

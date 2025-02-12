@@ -148,11 +148,13 @@ interface ITemporalExtent {
 }
 interface IFilter {
   Keywords: string[] | [null];
+  Licence: string | null;
   FileIdentifier: string | null;
   Title: string | null;
   AlternativeTitle: string | null;
   Abstract: string | null;
   ResourceType: string | null;
+  ServiceType: string[] | null;
   TopicCategory: string | null;
   Lineage: string | null;
   AdditionalInformationSource: string | null;
@@ -161,7 +163,7 @@ interface IFilter {
   DataTypes: string[] | null;
   Formats: string[] | null;
   SearchTitleOnly: boolean;
-  retiredAndArchived: boolean;
+  RetiredAndArchived: boolean;
 }
 
 interface ISearchRequest {
@@ -169,7 +171,7 @@ interface ISearchRequest {
     SearchTerms: string[];
   };
   Filters: IFilter;
-  resultsPerPage: number;
+  ResultsPerPage: number;
 }
 
 export {

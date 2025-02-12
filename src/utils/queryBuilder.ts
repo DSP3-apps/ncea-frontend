@@ -228,7 +228,6 @@ const _generateDateRangeQuery = (
 };
 
 const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearchFiltersProcessed): ISearchRequest => {
-  console.log('QUERY FILTERS: ', JSON.stringify(filters));
   // Get Organisation filter values.
   const organisations = getFiltersForCategory(filters.categories, FILTER_VALUES.organisation); // FIXME: make 'org' etc a constant and update `searchFilters.ts` to use them also, look at bottom of page.
 
@@ -240,10 +239,10 @@ const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearc
   const dataTypes = getFiltersForCategory(filters.categories, FILTER_VALUES.dataType);
 
   // Get Service Type filter values
-  // const serviceTypes = getFiltersForCategory(filters.categories, FILTER_VALUES.serviceType);
+  const serviceTypes = getFiltersForCategory(filters.categories, FILTER_VALUES.serviceType);
 
   // Get Data Format filter values
-  const dataFormats = getFiltersForCategory(filters.categories, 'fmt');
+  const dataFormats = getFiltersForCategory(filters.categories, FILTER_VALUES.dataFormat);
 
   // Get date filter values
   const mapping = {
@@ -259,7 +258,7 @@ const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearc
   }, {} as ITemporalExtent);
 
   // Get licence filter value
-  // const licence = filters.licence;
+  const licence = filters.licence;
 
   // Get keyword filter values
   const keywords = filters.keywords;
@@ -275,12 +274,12 @@ const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearc
       Organisations: organisations ?? [],
       SearchTitleOnly: !!title,
       DataTypes: dataTypes ?? [],
-      // ServiceTypes: null, // FIXME: Missing from the API request
+      ServiceType: serviceTypes ?? [],
       Formats: dataFormats ?? [],
       TemporalExtent: dateFilters,
-      // Licence: null, // FIXME: Missing from the API request
+      Licence: licence ?? null,
       Keywords: keywords ?? [],
-      retiredAndArchived,
+      RetiredAndArchived: retiredAndArchived ?? false,
       // !: None of the below are used in the UI.
       FileIdentifier: null,
       Title: null,
@@ -291,7 +290,7 @@ const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearc
       Lineage: null,
       AdditionalInformationSource: null,
     },
-    resultsPerPage: searchFieldsObject.rowsPerPage,
+    ResultsPerPage: searchFieldsObject.rowsPerPage,
   };
 
   return request;
