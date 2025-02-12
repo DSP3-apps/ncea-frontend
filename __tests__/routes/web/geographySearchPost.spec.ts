@@ -18,12 +18,6 @@ jest.mock('../../../src/utils/keyvault', () => ({
   getSecret: jest.fn(),
 }));
 
-jest.mock('../../../src/config/elasticSearchClient', () => ({
-  performQuery: jest.fn(() => {
-    return Promise.resolve({ data: 'mocked response' });
-  }),
-}));
-
 let serverRequest;
 
 const getHTMLDocument = (rawHTML) => {
@@ -110,9 +104,7 @@ describe('Guided Search - Geography Questionnaire Screen POST Request', () => {
 
       describe('Back link items', () => {
         it('should render 1 item', async () => {
-          expect(document.querySelectorAll('.govuk-back-link').length).toEqual(
-            1,
-          );
+          expect(document.querySelectorAll('.govuk-back-link').length).toEqual(1);
         });
       });
 
@@ -120,9 +112,7 @@ describe('Guided Search - Geography Questionnaire Screen POST Request', () => {
         it('should render back link to date search page', async () => {
           const anchor = document.querySelector('.govuk-back-link');
           expect(anchor?.tagName.toLowerCase()).toBe('a');
-          expect(anchor?.getAttribute('href')).toEqual(
-            webRoutePaths.guidedDateSearch,
-          );
+          expect(anchor?.getAttribute('href')).toEqual(webRoutePaths.guidedDateSearch);
           expect(anchor?.textContent?.trim()).toEqual('Back');
         });
       });
@@ -132,79 +122,52 @@ describe('Guided Search - Geography Questionnaire Screen POST Request', () => {
       describe('Coordinate questionnaire block classes', () => {
         it('renders 9 govuk-grid-row class', async () => {
           expect(document.querySelector('.govuk-grid-row')).toBeTruthy();
-          expect(document.querySelectorAll('.govuk-grid-row').length).toEqual(
-            9,
-          );
+          expect(document.querySelectorAll('.govuk-grid-row').length).toEqual(9);
         });
 
         it('renders 2 govuk-grid-column-full class', async () => {
-          expect(
-            document.querySelector('.govuk-grid-column-full'),
-          ).toBeTruthy();
-          expect(
-            document.querySelectorAll('.govuk-grid-column-full').length,
-          ).toEqual(3);
+          expect(document.querySelector('.govuk-grid-column-full')).toBeTruthy();
+          expect(document.querySelectorAll('.govuk-grid-column-full').length).toEqual(3);
         });
 
         it('renders 3 govuk-grid-column-one-half class', async () => {
-          expect(
-            document.querySelector('.govuk-grid-column-one-half'),
-          ).toBeTruthy();
-          expect(
-            document.querySelectorAll('.govuk-grid-column-one-half').length,
-          ).toEqual(2);
+          expect(document.querySelector('.govuk-grid-column-one-half')).toBeTruthy();
+          expect(document.querySelectorAll('.govuk-grid-column-one-half').length).toEqual(2);
         });
 
         it('should render 1 geography-buttons class', async () => {
           expect(document.querySelector('.geography-buttons')).toBeTruthy();
-          expect(
-            document.querySelectorAll('.geography-buttons').length,
-          ).toEqual(1);
+          expect(document.querySelectorAll('.geography-buttons').length).toEqual(1);
         });
 
         it('should render 1 geography-fields__container class and should contain 5 child elements', async () => {
-          const geographyContainer = document?.querySelectorAll(
-            '.geography-fields__container',
-          );
-          expect(
-            document?.querySelector('.geography-fields__container')
-              ?.childElementCount,
-          ).toEqual(5);
+          const geographyContainer = document?.querySelectorAll('.geography-fields__container');
+          expect(document?.querySelector('.geography-fields__container')?.childElementCount).toEqual(5);
           expect(geographyContainer).toBeTruthy();
           expect(geographyContainer.length).toEqual(1);
         });
 
         it('should render 4 geography-fields__field class', async () => {
-          expect(
-            document.querySelector('.geography-fields__field'),
-          ).toBeTruthy();
-          expect(
-            document.querySelectorAll('.geography-fields__field').length,
-          ).toEqual(4);
+          expect(document.querySelector('.geography-fields__field')).toBeTruthy();
+          expect(document.querySelectorAll('.geography-fields__field').length).toEqual(4);
         });
       });
 
       describe('Coordinate questionnaire block heading', () => {
         it('should render the block container heading', async () => {
-          expect(
-            document?.querySelector('.govuk-heading-l')?.textContent?.trim(),
-          ).toBe('What geography does it cover?');
+          expect(document?.querySelector('.govuk-heading-l')?.textContent?.trim()).toBe(
+            'What geography does it cover?',
+          );
         });
 
         it('should render the block medium heading', async () => {
-          expect(
-            document
-              ?.querySelector('.coordinate-sub-heading')
-              ?.textContent?.trim(),
-          ).toBe('Draw area on map');
+          expect(document?.querySelector('.coordinate-sub-heading')?.textContent?.trim()).toBe('Draw area on map');
         });
       });
 
       describe('Coordinate questionnaire form', () => {
         it('should render the form', async () => {
-          const formElement = document?.querySelector(
-            '[data-do-browser-storage]',
-          );
+          const formElement = document?.querySelector('[data-do-browser-storage]');
           expect(formElement).toBeTruthy();
           expect(formElement?.tagName.toLowerCase()).toBe('form');
           expect(formElement?.getAttribute('action')).toBe(`${webRoutePaths.geographySearch}?`);
@@ -241,9 +204,7 @@ describe('Guided Search - Geography Questionnaire Screen POST Request', () => {
         });
 
         it('should renders 2 secondary buttons', () => {
-          const buttons = document?.querySelectorAll(
-            '.govuk-button--secondary',
-          );
+          const buttons = document?.querySelectorAll('.govuk-button--secondary');
           expect(buttons).toBeTruthy();
           expect(buttons.length).toBe(1);
         });
@@ -253,7 +214,6 @@ describe('Guided Search - Geography Questionnaire Screen POST Request', () => {
           expect(buttons).toBeTruthy();
           expect(buttons.length).toBe(1);
         });
-
       });
     });
   });

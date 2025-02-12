@@ -220,7 +220,7 @@ exports[`Results block template Guided search journey Search results with empty 
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A36297%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A41999%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -2251,7 +2251,7 @@ exports[`Results block template Guided search journey Search results with error 
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A36681%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A42879%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -3083,7 +3083,7 @@ exports[`Results block template Quick search journey Search results with data sh
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A44855%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A41065%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -5362,7 +5362,7 @@ exports[`Results block template Quick search journey Search results with empty d
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A41089%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A46479%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -7393,7 +7393,7 @@ exports[`Results block template Quick search journey Search results with error s
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A42815%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A40817%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>

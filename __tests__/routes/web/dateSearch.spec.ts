@@ -10,19 +10,12 @@ import { BASE_PATH, webRoutePaths } from '../../../src/utils/constants';
 import { DateSearchController } from '../../../src/controllers/web/DateSearchController';
 import { dateSearchRoutes } from '../../../src/routes/web/dateSearch';
 
-
 jest.mock('../../../src/infrastructure/plugins/appinsights-logger', () => ({
   logger: jest.fn(),
 }));
 
 jest.mock('../../../src/utils/keyvault', () => ({
   getSecret: jest.fn(),
-}));
-
-jest.mock('../../../src/config/elasticSearchClient', () => ({
-  performQuery: jest.fn(() => {
-    return Promise.resolve({ data: 'mocked response' });
-  }),
 }));
 
 jest.mock('../../../src/services/handlers/searchApi', () => ({
@@ -99,12 +92,11 @@ describe('Guided Search - Date Questionnaire Screen', () => {
 
     describe('Date Questionnaire block heading', () => {
       it('should render the search container heading', async () => {
-        expect(document?.querySelectorAll('.govuk-heading-m')?.[1]?.textContent?.trim())
-          .toBe('When was the data or information collected?');
-        expect(document?.querySelectorAll('.govuk-heading-m')?.[2]?.textContent?.trim())
-          .toBe('From');
-        expect(document?.querySelectorAll('.govuk-heading-m')?.[3]?.textContent?.trim())
-          .toBe('To');
+        expect(document?.querySelectorAll('.govuk-heading-m')?.[1]?.textContent?.trim()).toBe(
+          'When was the data or information collected?',
+        );
+        expect(document?.querySelectorAll('.govuk-heading-m')?.[2]?.textContent?.trim()).toBe('From');
+        expect(document?.querySelectorAll('.govuk-heading-m')?.[3]?.textContent?.trim()).toBe('To');
       });
     });
 
