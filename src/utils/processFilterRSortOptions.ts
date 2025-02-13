@@ -72,7 +72,7 @@ const processDSPFilterOptions = (requestQuery: RequestQuery): ISearchFiltersProc
     keywords: readQueryParams(requestQuery, filterNames.keywords)
       .split(',')
       .filter((k) => k),
-    license: readQueryParams(requestQuery, filterNames.licence),
+    licence: readQueryParams(requestQuery, filterNames.licence),
     lastUpdated: {
       beforeYear: readQueryParams(requestQuery, filterNames.updatedBefore),
       afterYear: readQueryParams(requestQuery, filterNames.updatedAfter),

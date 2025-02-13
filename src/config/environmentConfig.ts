@@ -18,18 +18,15 @@ const config: EnvironmentConfig = {
   appInsightsConnectionString: '',
   azureKeyVaultURL: process.env.AZURE_KEYVAULT_URL,
   appInsightsSecretName: process.env.APPINSIGHTS_SECRET_NAME,
-  elasticSearchAPI: process.env.ELASTICSEARCH_API,
   isLocal: process.env.NODE_ENV === 'local',
   gtmId: process.env.GTM_ID,
   classifierApiUrl: process.env.CLASSIFIER_API_URL,
   classifierApiKey: process.env.CLASSIFIER_API_KEY,
-  elasticSearchUsername: process.env.ES_USERNAME,
-  elasticSearchPassword: process.env.ES_PASSWORD,
   webDomain: process.env.WEBDOMAIN,
   keyboardFiltersBaseUrl: process.env.KEYBOARD_FILTER_LOCAL_BASE_URL || '',
   auth0JwtEnv: process.env.AUTH0_JWT_ENV,
+  searchApiUrl: process.env.SEARCH_API ?? '',
 };
-console.log('ENV CONFIG: ', config);
 
 const { error, value } = environmentSchema.validate(config);
 

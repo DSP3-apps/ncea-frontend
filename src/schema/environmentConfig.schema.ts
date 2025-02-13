@@ -27,9 +27,6 @@ export const environmentSchema: Joi.ObjectSchema = Joi.object({
   azureKeyVaultURL: Joi.string().uri().allow('').default('').messages({
     'string.uri': 'Azure Key Vault URI must be a valid URL or an empty string',
   }),
-  elasticSearchAPI: Joi.string().uri().allow('').default('').messages({
-    'string.uri': 'Elasticsearch API must be a valid URL or an empty string',
-  }),
   isLocal: Joi.boolean().valid(true, false).default(false).messages({
     'boolean.base': 'Is Local must be a boolean value',
     'any.only': 'Is Local is not valid',
@@ -43,12 +40,6 @@ export const environmentSchema: Joi.ObjectSchema = Joi.object({
   classifierApiKey: Joi.string().allow('').default('').messages({
     'string.base': 'Classifier search api key must be a string',
   }),
-  elasticSearchUsername: Joi.string().allow('').default('').messages({
-    'string.base': 'The Elasticsearch username must be a string.',
-  }),
-  elasticSearchPassword: Joi.string().allow('').default('').messages({
-    'string.base': 'The Elasticsearch password must be a string.',
-  }),
   webDomain: Joi.string().allow('').default('').messages({
     'string.base': 'The web domain must be a string.',
   }),
@@ -57,5 +48,8 @@ export const environmentSchema: Joi.ObjectSchema = Joi.object({
   }),
   auth0JwtEnv: Joi.string().allow('').default('').messages({
     'string.base': 'The auth0 JWT environment must be a string.',
+  }),
+  searchApiUrl: Joi.string().uri().allow('').default('').messages({
+    'string.uri': 'Search API must be a valid URL',
   }),
 });
