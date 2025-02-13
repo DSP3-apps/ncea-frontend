@@ -10,10 +10,7 @@ import { getDocumentDetails } from '../../../src/services/handlers/searchApi';
 import { initializeServer } from '../../../src/infrastructure/server';
 import supertest from 'supertest';
 import { BASE_PATH, webRoutePaths } from '../../../src/utils/constants';
-import {
-  formattedDetailsFullResponse,
-  formattedDetailsResponse,
-} from '../../data/documentDetailsResponse';
+import { formattedDetailsFullResponse, formattedDetailsResponse } from '../../data/documentDetailsResponse';
 
 jest.mock('../../../src/services/handlers/searchApi', () => ({
   getDocumentDetails: jest.fn(),
@@ -25,12 +22,6 @@ jest.mock('../../../src/infrastructure/plugins/appinsights-logger', () => ({
 
 jest.mock('../../../src/utils/keyvault', () => ({
   getSecret: jest.fn(),
-}));
-
-jest.mock('../../../src/config/elasticSearchClient', () => ({
-  performQuery: jest.fn(() => {
-    return Promise.resolve({ data: 'mocked response' });
-  }),
 }));
 
 let serverRequest;
@@ -92,78 +83,55 @@ describe('Details route template', () => {
 
     describe('Breadcrumb list items', () => {
       it('should render 3 list items', async () => {
-        const breadcrumbList = document?.querySelector(
-          '.govuk-breadcrumbs__list',
-        );
+        const breadcrumbList = document?.querySelector('.govuk-breadcrumbs__list');
         expect(breadcrumbList?.childElementCount).toEqual(3);
       });
     });
 
     describe('Breadcrumb list item options', () => {
       it('should render home list item first child as an anchor tag', async () => {
-        const breadcrumbItems = document.querySelector(
-          '.govuk-breadcrumbs__list',
-        )?.children;
+        const breadcrumbItems = document.querySelector('.govuk-breadcrumbs__list')?.children;
         const anchor = breadcrumbItems[0]?.firstElementChild;
         expect(anchor?.tagName.toLowerCase()).toBe('a');
-        expect(anchor?.getAttribute('class')).toEqual(
-          'govuk-breadcrumbs__link',
-        );
+        expect(anchor?.getAttribute('class')).toEqual('govuk-breadcrumbs__link');
         expect(anchor?.getAttribute('href')).toEqual(`${BASE_PATH}`);
         expect(anchor?.textContent?.trim()).toEqual('Home');
       });
 
       it('should render search results list item second child as an anchor tag', async () => {
-        const breadcrumbItems = document.querySelector(
-          '.govuk-breadcrumbs__list',
-        )?.children;
+        const breadcrumbItems = document.querySelector('.govuk-breadcrumbs__list')?.children;
         const anchor = breadcrumbItems[1]?.firstElementChild;
         expect(anchor?.tagName.toLowerCase()).toBe('a');
-        expect(anchor?.getAttribute('class')).toEqual(
-          'govuk-breadcrumbs__link',
-        );
+        expect(anchor?.getAttribute('class')).toEqual('govuk-breadcrumbs__link');
         expect(anchor?.getAttribute('href')).toEqual(`${BASE_PATH}${webRoutePaths.results}?`);
         expect(anchor?.textContent?.trim()).toEqual('Search results');
       });
 
       it('should not render search results list item third child as an anchor tag', async () => {
-        const breadcrumbItems = document.querySelector(
-          '.govuk-breadcrumbs__list',
-        )?.children;
+        const breadcrumbItems = document.querySelector('.govuk-breadcrumbs__list')?.children;
         const breadcrumbItem = breadcrumbItems[2];
         expect(breadcrumbItem.querySelector('a')).toBeNull();
-        expect(breadcrumbItem?.textContent?.trim()).toEqual(
-          detailsFullResponse?.title,
-        );
+        expect(breadcrumbItem?.textContent?.trim()).toEqual(detailsFullResponse?.title);
       });
     });
 
     describe('Hero block content', () => {
       it('should render the title', async () => {
         const titleElement = document.querySelector('.details-title');
-        expect(titleElement?.textContent?.trim()).toBe(
-          detailsFullResponse?.title,
-        );
+        expect(titleElement?.textContent?.trim()).toBe(detailsFullResponse?.title);
         expect(titleElement?.tagName.toLowerCase()).toBe('h1');
       });
 
       it('should render the alternate title', async () => {
-        const altTitleBlockElement =
-          document.querySelector('.details-alt_title');
+        const altTitleBlockElement = document.querySelector('.details-alt_title');
         expect(altTitleBlockElement).toBeDefined();
-        const altTitleBlockHeadingElement = document.querySelector(
-          '.govuk-details__summary-text',
-        );
-        const altTitleBlockValueElement = document.querySelector(
-          '.govuk-details__text',
-        );
+        const altTitleBlockHeadingElement = document.querySelector('.govuk-details__summary-text');
+        const altTitleBlockValueElement = document.querySelector('.govuk-details__text');
         expect(altTitleBlockHeadingElement?.textContent?.trim()).toBe(
           'Alternate title (additional business name or alternative language)',
         );
         expect(altTitleBlockHeadingElement?.tagName.toLowerCase()).toBe('span');
-        expect(altTitleBlockValueElement?.textContent?.trim()).toBe(
-          detailsFullResponse?.alternateTitle,
-        );
+        expect(altTitleBlockValueElement?.textContent?.trim()).toBe(detailsFullResponse?.alternateTitle);
         expect(altTitleBlockValueElement?.tagName.toLowerCase()).toBe('div');
       });
 
@@ -175,13 +143,10 @@ describe('Details route template', () => {
       });
 
       it('should not render the Go to resource button parent div with a class', async () => {
-        const parentElement =
-          document.querySelector('.govuk-button')?.parentElement;
+        const parentElement = document.querySelector('.govuk-button')?.parentElement;
         expect(parentElement).toBeTruthy();
         expect(parentElement?.tagName?.toLowerCase()).toBe('div');
-        expect(
-          parentElement?.classList?.contains('open-data-block--disabled'),
-        ).toBeFalsy();
+        expect(parentElement?.classList?.contains('open-data-block--disabled')).toBeFalsy();
       });
 
       it('should not render the Go to resource text', async () => {
@@ -222,9 +187,7 @@ describe('Details route template', () => {
         expect(labelElement?.tagName.toLowerCase()).toBe('h2');
         expect(labelElement?.textContent?.trim()).toBe('Abstract');
         expect(valueElement?.tagName.toLowerCase()).toBe('span');
-        expect(valueElement?.textContent?.trim()).toBe(
-          detailsFullResponse?.content,
-        );
+        expect(valueElement?.textContent?.trim()).toBe(detailsFullResponse?.content);
       });
 
       it('should render the study periods details', async () => {
@@ -236,9 +199,7 @@ describe('Details route template', () => {
         expect(labelElement?.tagName.toLowerCase()).toBe('h2');
         expect(labelElement?.textContent?.trim()).toBe('Study periods');
         expect(valueElement?.tagName.toLowerCase()).toBe('span');
-        expect(valueElement?.textContent?.trim()).toBe(
-          detailsFullResponse?.studyPeriod,
-        );
+        expect(valueElement?.textContent?.trim()).toBe(detailsFullResponse?.studyPeriod);
       });
 
       it('should render the topic categories details', async () => {
@@ -250,9 +211,7 @@ describe('Details route template', () => {
         expect(labelElement?.tagName.toLowerCase()).toBe('h2');
         expect(labelElement?.textContent?.trim()).toBe('Topic categories');
         expect(valueElement?.tagName.toLowerCase()).toBe('span');
-        expect(valueElement?.textContent?.trim()).toBe(
-          detailsFullResponse?.topicCategories,
-        );
+        expect(valueElement?.textContent?.trim()).toBe(detailsFullResponse?.topicCategories);
       });
 
       it('should render the keywords details', async () => {
@@ -264,9 +223,7 @@ describe('Details route template', () => {
         expect(labelElement?.tagName.toLowerCase()).toBe('h2');
         expect(labelElement?.textContent?.trim()).toBe('Keywords');
         expect(valueElement?.tagName.toLowerCase()).toBe('span');
-        expect(valueElement?.textContent?.trim()).toBe(
-          detailsFullResponse?.keywords,
-        );
+        expect(valueElement?.textContent?.trim()).toBe(detailsFullResponse?.keywords);
       });
 
       it('should render the language details', async () => {
@@ -278,9 +235,7 @@ describe('Details route template', () => {
         expect(labelElement?.tagName.toLowerCase()).toBe('h2');
         expect(labelElement?.textContent?.trim()).toBe('Resource languages');
         expect(valueElement?.tagName.toLowerCase()).toBe('span');
-        expect(valueElement?.textContent?.trim()).toBe(
-          detailsFullResponse?.language,
-        );
+        expect(valueElement?.textContent?.trim()).toBe(detailsFullResponse?.language);
       });
     });
   });
@@ -290,9 +245,7 @@ describe('Details route template', () => {
     let document;
 
     beforeAll(async () => {
-      (getDocumentDetails as jest.Mock).mockResolvedValue(
-        detailsPartialResponse,
-      );
+      (getDocumentDetails as jest.Mock).mockResolvedValue(detailsPartialResponse);
       const responseObject = await invokeRoute(`${BASE_PATH}${webRoutePaths.results}/{1234-56789213123-1233-1234}`);
       response = responseObject.response;
       document = responseObject.document;
@@ -320,64 +273,47 @@ describe('Details route template', () => {
 
     describe('Breadcrumb list items', () => {
       it('should render 3 list items', async () => {
-        const breadcrumbList = document?.querySelector(
-          '.govuk-breadcrumbs__list',
-        );
+        const breadcrumbList = document?.querySelector('.govuk-breadcrumbs__list');
         expect(breadcrumbList?.childElementCount).toEqual(3);
       });
     });
 
     describe('Breadcrumb list item options', () => {
       it('should render home list item first child as an anchor tag', async () => {
-        const breadcrumbItems = document.querySelector(
-          '.govuk-breadcrumbs__list',
-        )?.children;
+        const breadcrumbItems = document.querySelector('.govuk-breadcrumbs__list')?.children;
         const anchor = breadcrumbItems[0]?.firstElementChild;
         expect(anchor?.tagName.toLowerCase()).toBe('a');
-        expect(anchor?.getAttribute('class')).toEqual(
-          'govuk-breadcrumbs__link',
-        );
+        expect(anchor?.getAttribute('class')).toEqual('govuk-breadcrumbs__link');
         expect(anchor?.getAttribute('href')).toEqual(`${BASE_PATH}`);
         expect(anchor?.textContent?.trim()).toEqual('Home');
       });
 
       it('should render search results list item second child as an anchor tag', async () => {
-        const breadcrumbItems = document.querySelector(
-          '.govuk-breadcrumbs__list',
-        )?.children;
+        const breadcrumbItems = document.querySelector('.govuk-breadcrumbs__list')?.children;
         const anchor = breadcrumbItems[1]?.firstElementChild;
         expect(anchor?.tagName.toLowerCase()).toBe('a');
-        expect(anchor?.getAttribute('class')).toEqual(
-          'govuk-breadcrumbs__link',
-        );
+        expect(anchor?.getAttribute('class')).toEqual('govuk-breadcrumbs__link');
         expect(anchor?.getAttribute('href')).toEqual(`${BASE_PATH}${webRoutePaths.results}?`);
         expect(anchor?.textContent?.trim()).toEqual('Search results');
       });
 
       it('should not render search results list item third child as an anchor tag', async () => {
-        const breadcrumbItems = document.querySelector(
-          '.govuk-breadcrumbs__list',
-        )?.children;
+        const breadcrumbItems = document.querySelector('.govuk-breadcrumbs__list')?.children;
         const breadcrumbItem = breadcrumbItems[2];
         expect(breadcrumbItem?.querySelector('a')).toBeNull();
-        expect(breadcrumbItem?.textContent?.trim()).toEqual(
-          detailsPartialResponse?.title,
-        );
+        expect(breadcrumbItem?.textContent?.trim()).toEqual(detailsPartialResponse?.title);
       });
     });
 
     describe('Hero block content', () => {
       it('should render the title', async () => {
         const titleElement = document.querySelector('.details-title');
-        expect(titleElement?.textContent?.trim()).toBe(
-          detailsPartialResponse?.title,
-        );
+        expect(titleElement?.textContent?.trim()).toBe(detailsPartialResponse?.title);
         expect(titleElement?.tagName.toLowerCase()).toBe('h1');
       });
 
       it('should not render the alternate title', async () => {
-        const altTitleBlockElement =
-          document.querySelector('.details-alt_title');
+        const altTitleBlockElement = document.querySelector('.details-alt_title');
         expect(altTitleBlockElement).toBeNull();
       });
 
@@ -389,13 +325,10 @@ describe('Details route template', () => {
       });
 
       it('should not render the Go to resource button parent div with a class', async () => {
-        const parentElement =
-          document.querySelector('.go-to-resource')?.parentElement;
+        const parentElement = document.querySelector('.go-to-resource')?.parentElement;
         expect(parentElement).toBeTruthy();
         expect(parentElement?.tagName?.toLowerCase()).toBe('div');
-        expect(
-          parentElement?.classList?.contains('open-data-block--disabled'),
-        ).toBeTruthy();
+        expect(parentElement?.classList?.contains('open-data-block--disabled')).toBeTruthy();
       });
 
       it('should render the Go to resource text', async () => {
@@ -405,7 +338,8 @@ describe('Details route template', () => {
         expect(openDataTagElement?.tagName?.toLowerCase()).toBe('span');
 
         const normalizedText = openDataTagElement?.textContent?.replace(/\s+/g, ' ').trim();
-        const expectedText = 'Access to this data resource is by application to the owner - please refer to access tab for further details';
+        const expectedText =
+          'Access to this data resource is by application to the owner - please refer to access tab for further details';
 
         expect(normalizedText).toBe(expectedText);
       });
@@ -492,9 +426,7 @@ describe('Details route template', () => {
         expect(labelElement?.tagName.toLowerCase()).toBe('h2');
         expect(labelElement?.textContent?.trim()).toBe('Resource languages');
         expect(valueElement?.tagName.toLowerCase()).toBe('span');
-        expect(valueElement?.textContent?.trim()).toBe(
-          detailsFullResponse?.language,
-        );
+        expect(valueElement?.textContent?.trim()).toBe(detailsFullResponse?.language);
       });
     });
   });

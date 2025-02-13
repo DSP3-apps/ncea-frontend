@@ -2,7 +2,7 @@ import { Request, ResponseToolkit, ServerAuthScheme, ServerStateCookieOptions } 
 import { decode } from 'jsonwebtoken';
 
 import { environmentConfig } from '../../config/environmentConfig';
-import { DecodedJWT } from '../../interfaces/cookies';
+import { Credentials, DecodedJWT } from '../../interfaces/auth';
 import { jwtCookiePrefix } from '../../utils/constants';
 
 export const jwtCookieName = `${jwtCookiePrefix}${environmentConfig.auth0JwtEnv}`;
@@ -43,11 +43,13 @@ export const authSchema: ServerAuthScheme = (server) => {
         }
 
         // If valid, return an object representing the authenticated user
+        const credentials: Credentials = {
+          jwt, // raw jwt token to be used in future api requests
+          user: decodedJwt,
+        };
+
         return h.authenticated({
-          credentials: {
-            jwt, // raw jwt token to be used in future api requests
-            user: decodedJwt,
-          },
+          credentials,
         });
       } catch (error) {
         return h.continue;

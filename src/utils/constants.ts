@@ -250,7 +250,7 @@ export const defaultFilters: ISearchFiltersProcessed = {
   nceaOnly: false,
   hasDSPFiltersRemoved: false,
   keywords: [''],
-  license: '',
+  licence: '',
   categories: [],
   lastUpdated: {
     beforeYear: '',
@@ -260,3 +260,11 @@ export const defaultFilters: ISearchFiltersProcessed = {
 };
 
 export const jwtCookiePrefix = 'auth0-jwt-';
+
+export const FILTER_VALUES = {
+  organisation: 'org',
+  searchType: 'st',
+  dataType: 'dt',
+  serviceType: 'svt',
+  dataFormat: 'fmt',
+};

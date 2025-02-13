@@ -1,4 +1,7 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
+import { center } from '@turf/turf';
+import { format } from 'date-fns';
+
 import { formatDate, getYear } from './dates';
 import { getAccessTabData } from './getAccessTabData';
 import { getAccumulatedCoordinatesNCenter } from './getBoundingBoxData';
@@ -15,8 +18,12 @@ import {
   IDateRange,
   IOtherSearchItem,
   ISearchItem,
+  ISearchResponse,
+  ISearchResult,
   ISearchResults,
 } from '../interfaces/searchResponse.interface';
+
+const DATE_FORMAT = 'd MMMM yyyy';
 
 const getAbstractContent = (data: Record<string, any>, id: string): string => {
   if (Object.keys(data).length && data?.default) {
@@ -57,7 +64,77 @@ export const getStudyPeriodDetails = (isDetails: boolean, dateRanges: IDateRange
   return resultString.join('<br>');
 };
 
-const formatSearchResponse = async (
+/**
+ * Transforms the API search response to a format that can be used by the
+ * front end. The return from this function will differ slightly depending
+ * on whether there is geospatial data in the response or not.
+ *
+ * @param {ISearchResponse} response
+ * @param {boolean} [isMapResults=false]
+ *
+ * @return {*}  {ISearchResults}
+ */
+export const transformSearchResponse = (response: ISearchResponse, isMapResults: boolean = false): ISearchResults => {
+  let hasSpatialData = false;
+  const items = response.results.map((result: ISearchResult) => {
+    const startDate = new Date(result.searchFields.temporalExtent.beginPosition);
+    const endDate = new Date(result.searchFields.temporalExtent.endPosition);
+
+    const searchResponse = {
+      id: result.searchFields.fileIdentifier,
+      title: result.searchFields.title,
+      content: toggleContent(result.searchFields.abstract, `abstract_content-${result.searchFields.fileIdentifier}`),
+      studyPeriod: `${format(startDate, DATE_FORMAT)} to ${format(endDate, DATE_FORMAT)}`,
+      startYear: startDate.getFullYear().toString(),
+      toYear: endDate.getFullYear().toString(),
+      resourceLocator: result?.searchFields?.resource?.url ?? '',
+      organisationName: '',
+      publishedBy: '',
+      resourceType: ['dataset'],
+    };
+
+    if (isMapResults && result?.searchFields?.mapping) {
+      const envelope = result?.searchFields?.mapping;
+
+      // Calculate center point for envelope received.
+      const coordinates = [
+        [
+          [envelope.westBoundLongitude, envelope.southBoundLatitude],
+          [envelope.eastBoundLongitude, envelope.southBoundLatitude],
+          [envelope.eastBoundLongitude, envelope.northBoundLatitude],
+          [envelope.westBoundLongitude, envelope.northBoundLatitude],
+          [envelope.westBoundLongitude, envelope.southBoundLatitude], // Close the polygon
+        ],
+      ];
+      const centerPoint = center({ type: 'Polygon', coordinates });
+
+      const geographicBoundary = {
+        north: envelope.northBoundLatitude,
+        south: envelope.southBoundLatitude,
+        east: envelope.eastBoundLongitude,
+        west: envelope.westBoundLongitude,
+      };
+
+      hasSpatialData = true;
+
+      return {
+        ...searchResponse,
+        geographicBoundary,
+        geographicCenter: centerPoint.geometry.coordinates.join(),
+      };
+    }
+
+    return searchResponse;
+  });
+
+  return {
+    total: response.totalDocumentCount,
+    items,
+    hasSpatialData,
+  };
+};
+
+export const formatSearchResponse = async (
   apiResponse: Record<string, any>,
   isDetails: boolean = false,
   isMapResults: boolean = false,
@@ -150,5 +227,3 @@ const getOtherDetails = async (searchItem: Record<string, any>): Promise<IOtherS
     ...getGeographyTabData(searchItem),
   };
 };
-
-export { formatSearchResponse };

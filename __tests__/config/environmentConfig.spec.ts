@@ -48,7 +48,7 @@ describe('Environment environmentConfig', () => {
       const { environmentConfig } = require('../../src/config/environmentConfig');
       expect(environmentConfig).toBeDefined();
       expect(typeof environmentConfig).toBe('object');
-      expect(Object.keys(environmentConfig).length).toBe(15);
+      expect(Object.keys(environmentConfig).length).toBe(13);
     });
 
     it('should validate and export the configuration object', () => {
@@ -58,7 +58,7 @@ describe('Environment environmentConfig', () => {
         APPLICATIONINSIGHTS_CONNECTION_STRING: 'abc123',
         AZURE_KEYVAULT_URL: 'https://azure-keyvault.com',
         APPINSIGHTS_SECRET_NAME: 'appinsights--connections string',
-        ELASTICSEARCH_API: 'https://elasticsearch-api.com',
+        SEARCH_API: 'https://search-api.com',
         WEBDOMAIN: '',
         KEYBOARD_FILTER_LOCAL_BASE_URL: '',
         AUTH0_JWT_ENV: 'test',
@@ -73,16 +73,14 @@ describe('Environment environmentConfig', () => {
         appInsightsConnectionString: Joi.string().allow('').default(''),
         appInsightsSecretName: Joi.string().allow('').default(''),
         azureKeyVaultURL: Joi.string().allow('').default(''),
-        elasticSearchAPI: Joi.string().allow('').default(''),
         isLocal: Joi.boolean().valid(true, false).default(false),
         gtmId: Joi.string().allow('').default(''),
-        elasticSearchUsername: Joi.string().allow('').default(''),
-        elasticSearchPassword: Joi.string().allow('').default(''),
         webDomain: Joi.string().allow('').default(''),
         classifierApiUrl: Joi.string().allow('').default(''),
         classifierApiKey: Joi.string().allow('').default(''),
         keyboardFiltersBaseUrl: Joi.string().allow('').default(''),
         auth0JwtEnv: Joi.string().allow('').default(''),
+        searchApiUrl: Joi.string().allow('').default(''),
       });
 
       const { environmentConfig } = require('../../src/config/environmentConfig');
