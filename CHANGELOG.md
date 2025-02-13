@@ -1,3 +1,36 @@
+# [1.10.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.9.0...v1.10.0) (2025-02-13)
+
+
+### Bug Fixes
+
+* **constants:** Replace strings with values from constants ([75f427e](https://github.com/DSP3-apps/ncea-frontend/commit/75f427ebe299dbbff46d5c9dda5cf6effd69b525))
+* **filters:** Add checkbox listeners in map view ([76e91b5](https://github.com/DSP3-apps/ncea-frontend/commit/76e91b53d757c720f888bb4db999a19a6ff05415)), closes [#NCEA-183](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-183)
+* **filters:** Update data format filter values ([ce81781](https://github.com/DSP3-apps/ncea-frontend/commit/ce817815234153d2585878528ec4c1c454c0d214)), closes [#NCEA-184](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-184)
+* **filters:** Update filter interfaces to use union for scope instead of boolean ([3ec3f14](https://github.com/DSP3-apps/ncea-frontend/commit/3ec3f14330fdd31cd7249066bcea62c7ab0ef08a)), closes [#NCEA-174](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-174)
+* **pagination:** Ensure number of records per page is correct ([b122599](https://github.com/DSP3-apps/ncea-frontend/commit/b12259913c6c63503539a04c72181f6278daf50e))
+* **search:** Add client-side pagination ([18e501d](https://github.com/DSP3-apps/ncea-frontend/commit/18e501d9ae033d4de244278bedd0ca862d81e55f))
+* **search:** Improve code quality ([ec9b981](https://github.com/DSP3-apps/ncea-frontend/commit/ec9b9810a3227051a5f063c42dd1802c26abec7d))
+* **search:** Integrate search with AGM API ([4737b1b](https://github.com/DSP3-apps/ncea-frontend/commit/4737b1b5c1cdae9b90b0e4b0e851354d1e58fdc2))
+* **search:** Replace Elastic Search config with AGM API ([9139f32](https://github.com/DSP3-apps/ncea-frontend/commit/9139f3253f6e497c32bc65b9708a8950cfbde36d))
+* **search:** Update how search query is generated ([3093901](https://github.com/DSP3-apps/ncea-frontend/commit/3093901453b9327022fd70072c1d998753326c0d))
+* **search:** Update mapping between API response and UI data shape ([cd6166d](https://github.com/DSP3-apps/ncea-frontend/commit/cd6166dd7e6588552d6b0b516276aa4ba4d13d08))
+* **tests:** Completely remove elastic search ([583f0f8](https://github.com/DSP3-apps/ncea-frontend/commit/583f0f882599c1a4c91199a21303232519388c7d))
+* **tests:** Fix tests broken by integrating search API ([2d2bd0a](https://github.com/DSP3-apps/ncea-frontend/commit/2d2bd0a84ef01bbc0b6e7f68314f132af31a8928))
+* **tests:** Update snapshots ([425f38a](https://github.com/DSP3-apps/ncea-frontend/commit/425f38a2eaec816d1937112e3a207c0b2ad31f3a))
+
+
+### Features
+
+* **auth:** Use auth credentials where available ([767d110](https://github.com/DSP3-apps/ncea-frontend/commit/767d1106eb99d7408bb957ff972b0fe52013987f))
+* **filters:** Make scope buttons refresh automatically ([08f19f5](https://github.com/DSP3-apps/ncea-frontend/commit/08f19f520e14812ed2d68e568bec0f86ab1960c6)), closes [#NCEA-182](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-182)
+* **frontend:** added the keywords selection filters under map section ([6d2ed68](https://github.com/DSP3-apps/ncea-frontend/commit/6d2ed68de0e49ea93b8c345b09391380a54b5dbf))
+* **frontend:** Display message when filters have been removed due to scope change. ([d57f880](https://github.com/DSP3-apps/ncea-frontend/commit/d57f88069a44c9472fa807bb8cd0b25fac78b1d5))
+* **frontend:** fix the other usecase scenerios related to keywords functionality ([d8dc4d2](https://github.com/DSP3-apps/ncea-frontend/commit/d8dc4d2fc7e69a0e79ab8ae98c4cbfa6e334c6ac))
+* **frontend:** fix the other usecase scenerios related to keywords functionality ([f33d908](https://github.com/DSP3-apps/ncea-frontend/commit/f33d90820869b36aef4078e7ac0f215f9c734e66))
+* **frontend:** fix the other usecase scenerios related to keywords functionality ([9804a18](https://github.com/DSP3-apps/ncea-frontend/commit/9804a189fae1f344cd61fcda4057ca7b387a389d))
+* **frontend:** remove the commented code ([4ed4e59](https://github.com/DSP3-apps/ncea-frontend/commit/4ed4e59d961fcbaf890c93ea05ea8e060101d990))
+* **frontend:** Tidy up testcase which are skipped. ([9b5f30c](https://github.com/DSP3-apps/ncea-frontend/commit/9b5f30cd5639ce2bb1e36dbce7465cfd127a7650))
+
 # [1.9.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.8.0...v1.9.0) (2025-01-31)
 
 
