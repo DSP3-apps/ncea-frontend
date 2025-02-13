@@ -1256,6 +1256,12 @@ exports[`Details route template Document details with data Check status code and
           </li>
         
           <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
+              Feeds
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
             <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
               Privacy
             </a>
@@ -2366,6 +2372,12 @@ exports[`Details route template Document details with partial data Check status 
           <li class="govuk-footer__inline-list-item">
             <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
               Help
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
+              Feeds
             </a>
           </li>
         

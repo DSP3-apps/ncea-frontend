@@ -1927,6 +1927,12 @@ exports[`Results block template Guided search journey Search results with empty 
           </li>
         
           <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
+              Feeds
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
             <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
               Privacy
             </a>
@@ -2755,6 +2761,12 @@ exports[`Results block template Guided search journey Search results with error 
           <li class="govuk-footer__inline-list-item">
             <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
               Help
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
+              Feeds
             </a>
           </li>
         
@@ -5038,6 +5050,12 @@ exports[`Results block template Quick search journey Search results with data sh
           </li>
         
           <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
+              Feeds
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
             <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
               Privacy
             </a>
@@ -7069,6 +7087,12 @@ exports[`Results block template Quick search journey Search results with empty d
           </li>
         
           <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
+              Feeds
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
             <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
               Privacy
             </a>
@@ -7897,6 +7921,12 @@ exports[`Results block template Quick search journey Search results with error s
           <li class="govuk-footer__inline-list-item">
             <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
               Help
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
+              Feeds
             </a>
           </li>
         

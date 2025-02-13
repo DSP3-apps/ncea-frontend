@@ -92,6 +92,7 @@
     "jsonwebtoken": "^9.0.2",
     "nunjucks": "3.2.4",
     "nunjucks-date-filter": "0.1.1",
+    "rss-parser": "^3.13.0",
     "semantic-release": "^22.0.12",
     "ts-node": "10.9.2",
     "tsconfig-paths": "^4.2.0",
