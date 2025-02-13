@@ -26,6 +26,7 @@ export const webRoutePaths = {
   mdcIdentifiers: `/mdc/identifiers.xsd`,
   logout: `/logout`,
   login: `/login`,
+  atom: '/feeds',
 };
 
 export const elasticSearchAPIPaths = {
@@ -260,3 +261,5 @@ export const defaultFilters: ISearchFiltersProcessed = {
 };
 
 export const jwtCookiePrefix = 'auth0-jwt-';
+
+export const atomFeeds = ['https://defraenvironment.blog.gov.uk/feed/', 'https://naturalengland.blog.gov.uk/feed/'];

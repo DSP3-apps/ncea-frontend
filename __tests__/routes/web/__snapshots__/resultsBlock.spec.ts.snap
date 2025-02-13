@@ -220,7 +220,7 @@ exports[`Results block template Guided search journey Search results with empty 
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A41549%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A43885%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -1929,6 +1929,12 @@ exports[`Results block template Guided search journey Search results with empty 
           </li>
         
           <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
+              Feeds
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
             <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
               Privacy
             </a>
@@ -2253,7 +2259,7 @@ exports[`Results block template Guided search journey Search results with error 
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33801%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A45555%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -2761,6 +2767,12 @@ exports[`Results block template Guided search journey Search results with error 
           </li>
         
           <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
+              Feeds
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
             <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
               Privacy
             </a>
@@ -3085,7 +3097,7 @@ exports[`Results block template Quick search journey Search results with data sh
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A40031%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A46647%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -5042,6 +5054,12 @@ exports[`Results block template Quick search journey Search results with data sh
           </li>
         
           <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
+              Feeds
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
             <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
               Privacy
             </a>
@@ -5366,7 +5384,7 @@ exports[`Results block template Quick search journey Search results with empty d
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A36643%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A39017%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -7075,6 +7093,12 @@ exports[`Results block template Quick search journey Search results with empty d
           </li>
         
           <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
+              Feeds
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
             <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
               Privacy
             </a>
@@ -7399,7 +7423,7 @@ exports[`Results block template Quick search journey Search results with error s
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A43763%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A46261%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -7903,6 +7927,12 @@ exports[`Results block template Quick search journey Search results with error s
           <li class="govuk-footer__inline-list-item">
             <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
               Help
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
+              Feeds
             </a>
           </li>
         

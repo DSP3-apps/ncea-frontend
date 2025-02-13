@@ -1,0 +1,26 @@
+{% extends "layout/default.njk" %}
+{% block content %}
+  <h1 class="govuk-heading-l">Latest Articles</h1>
+  {% for feed in feeds %}
+    <div>
+      <h2 class="govuk-heading-m">{{feed.title}}</h2>
+      <ul class="govuk-list">
+        {% for article in feed.articles %}
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">{{ article.title }}</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>{{ article.author }}</small>
+              <small><b>Published on : </b>{{ article.pubDate }}</small>
+            </div>
+            <p class="govuk-body">{{ article.summary }}</p>
+            <a href="{{ article.link }}" target="_blank">{{ article.title }}</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    
+
+  {% endfor %}
+  
+{% endblock %}
