@@ -12,7 +12,7 @@ const isValidArticle = (item): item is FeedArticle =>
   typeof item.pubDate === 'string' &&
   typeof item.summary === 'string';
 
-function formatTimestamp(timestamp: string): string {
+export function formatTimestamp(timestamp: string): string {
   const date = parseISO(timestamp);
   return format(date, 'dd MMMM yyyy HH:mm:ss'); // Example: 05 February 2025 10:32:20
 }

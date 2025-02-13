@@ -24,7 +24,6 @@ const FeedsController = {
         feeds: resolvedFeeds,
       });
     } catch (error) {
-      console.error('Error fetching Atom feed:', error);
       return response.response('Failed to fetch feed').code(500);
     }
   },
