@@ -18,13 +18,39 @@ const FeedsController = {
   renderAtomFeedHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
     try {
       // Render a view with the articles
-      const feeds = atomFeeds.map(async (feedURL) => getFeedsData(feedURL));
-      const resolvedFeeds = await Promise.all(feeds);
+      const feeds = await Promise.all(
+        atomFeeds.map(async (feedURL) => {
+          try {
+            return await getFeedsData(feedURL);
+          } catch (error) {
+            if (error instanceof Error) {
+              const errorObj = {
+                errorTitle: `Failed to get feeds from "${feedURL}"`,
+                errorMessage: error.message,
+              };
+              return errorObj;
+            }
+          }
+        }),
+      );
+      // throw new Error('something error');
       return response.view('screens/feeds/template', {
-        feeds: resolvedFeeds,
+        feeds: feeds,
       });
     } catch (error) {
-      return response.response('An error is occured while getting the Feeds').code(500);
+      const errorObj = {
+        errorTitle: 'An error is occurred while getting the Feeds',
+        errorMessage: 'Something is happened, Please try after sometime',
+      };
+      if (error instanceof Error) {
+        errorObj.errorMessage = error.message;
+        return response.view('screens/feeds/template', {
+          error: errorObj,
+        });
+      }
+      return response.view('screens/feeds/template', {
+        error: errorObj,
+      });
     }
   },
 };

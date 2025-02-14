@@ -220,7 +220,7 @@ exports[`Results block template Guided search journey Search results with empty 
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A46283%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33405%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -1960,7 +1960,7 @@ exports[`Results block template Guided search journey Search results with empty 
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.9.0</p>
+          <p>Version: v1.10.0</p>
         </div>
         
         
@@ -2257,7 +2257,7 @@ exports[`Results block template Guided search journey Search results with error 
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A36103%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A44587%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -2798,7 +2798,7 @@ exports[`Results block template Guided search journey Search results with error 
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.9.0</p>
+          <p>Version: v1.10.0</p>
         </div>
         
         
@@ -3095,7 +3095,7 @@ exports[`Results block template Quick search journey Search results with data sh
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A42615%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A41295%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -5083,7 +5083,7 @@ exports[`Results block template Quick search journey Search results with data sh
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.9.0</p>
+          <p>Version: v1.10.0</p>
         </div>
         
         
@@ -5380,7 +5380,7 @@ exports[`Results block template Quick search journey Search results with empty d
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A36039%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A43433%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -7120,7 +7120,7 @@ exports[`Results block template Quick search journey Search results with empty d
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.9.0</p>
+          <p>Version: v1.10.0</p>
         </div>
         
         
@@ -7417,7 +7417,7 @@ exports[`Results block template Quick search journey Search results with error s
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A35959%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A40871%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -7958,7 +7958,7 @@ exports[`Results block template Quick search journey Search results with error s
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.9.0</p>
+          <p>Version: v1.10.0</p>
         </div>
         
         

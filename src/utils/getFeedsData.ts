@@ -18,35 +18,18 @@ export function formatTimestamp(timestamp: string): string {
 }
 
 export const getFeedsData = async (feedURL: string): Promise<Feed> => {
-  try {
-    const feed = await parser.parseURL(feedURL);
+  const feed = await parser.parseURL(feedURL);
 
-    const articles: FeedArticle[] = feed.items.filter(isValidArticle).map((item) => ({
-      title: item.title,
-      author: item.author,
-      link: item.link,
-      pubDate: formatTimestamp(item.pubDate),
-      summary: item.summary,
-    }));
+  const articles: FeedArticle[] = feed.items.filter(isValidArticle).map((item) => ({
+    title: item.title,
+    author: item.author,
+    link: item.link,
+    pubDate: formatTimestamp(item.pubDate),
+    summary: item.summary,
+  }));
 
-    if (feed?.title) {
-      return {
-        title: feed.title,
-        articles,
-      };
-    }
-    throw new Error(
-      `There is no title for this feed (${feedURL}). 
-      Articles will be displayed based on the requested attributes, but if no matching attributes are found, no articles will be shown.`,
-    );
-  } catch (error) {
-    if (error instanceof Error) {
-      return {
-        title: error.message,
-        articles: [],
-      };
-    } else {
-      throw error;
-    }
-  }
+  return {
+    title: feed.title ?? 'Untitled Feed',
+    articles,
+  };
 };

@@ -55,7 +55,11 @@ describe('FeedsController.renderAtomFeedHandler', () => {
 
     await FeedsController.renderAtomFeedHandler(request as Request, response as ResponseToolkit);
 
-    expect(response.response).toHaveBeenCalledWith('An error is occured while getting the Feeds');
-    expect(codeMock).toHaveBeenCalledWith(500);
+    expect(response.view).toHaveBeenCalledWith('screens/feeds/template', {
+      feeds: [
+        { errorMessage: 'Test error', errorTitle: 'Failed to get feeds from "http://example.com/feed1"' },
+        { errorMessage: 'Test error', errorTitle: 'Failed to get feeds from "http://example.com/feed2"' },
+      ],
+    });
   });
 });

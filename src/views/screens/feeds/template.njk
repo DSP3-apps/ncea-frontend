@@ -1,8 +1,18 @@
 {% extends "layout/default.njk" %}
 {% block content %}
   <h1 class="govuk-heading-l">Latest Articles</h1>
+  {% if error %}
+    {% set title = error.errorTitle %}
+    {% set message = error.errorMessage %}
+    {% include 'partials/feeds/errorSummary.njk' %}
+  {% endif %}
   {% for feed in feeds %}
     <div>
+    {% if feed.errorTitle %}
+      {% set title = feed.errorTitle %}
+      {% set message = feed.errorMessage %}
+      {% include 'partials/feeds/errorSummary.njk' %}
+    {% endif %}
       <h2 class="govuk-heading-m">{{feed.title}}</h2>
       <ul class="govuk-list">
         {% for article in feed.articles %}

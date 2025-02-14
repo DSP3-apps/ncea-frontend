@@ -244,7 +244,9 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
           
   <h1 class="govuk-heading-l">Latest Articles</h1>
   
+  
     <div>
+    
       <h2 class="govuk-heading-m">Environment</h2>
       <ul class="govuk-list">
         
@@ -368,6 +370,7 @@ The environmental impact of our consumption habits is becoming more widely under
 
   
     <div>
+    
       <h2 class="govuk-heading-m">Natural England</h2>
       <ul class="govuk-list">
         
@@ -544,7 +547,7 @@ The environmental impact of our consumption habits is becoming more widely under
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.9.0</p>
+          <p>Version: v1.10.0</p>
         </div>
         
         

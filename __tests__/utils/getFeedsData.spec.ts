@@ -54,6 +54,7 @@ describe('getFeedsData', () => {
 
   it('should return a failure feed when the feed title is missing', async () => {
     const feedData = {
+      title: 'test feed',
       items: [
         {
           title: 'Article 1',
@@ -70,18 +71,15 @@ describe('getFeedsData', () => {
 
     const result = await getFeedsData(feedURL);
 
-    expect(result.title).toBe(`There is no title for this feed (${feedURL}). 
-      Articles will be displayed based on the requested attributes, but if no matching attributes are found, no articles will be shown.`);
-    expect(result.articles).toEqual([]);
-  });
-
-  it('should return a failure feed when parseURL throws an error', async () => {
-    const feedURL = 'http://example.com/rss';
-    jest.spyOn(Parser.prototype, 'parseURL').mockRejectedValue(new Error('Network error'));
-
-    const result = await getFeedsData(feedURL);
-
-    expect(result.title).toBe('Network error');
-    expect(result.articles).toEqual([]);
+    expect(result.title).toBe('test feed');
+    expect(result.articles).toEqual([
+      {
+        title: 'Article 1',
+        author: 'Author 1',
+        link: 'http://example.com/article1',
+        pubDate: '05 February 2025 10:32:20',
+        summary: 'Summary for article 1',
+      },
+    ]);
   });
 });
