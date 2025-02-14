@@ -2,9 +2,9 @@ import { fireEventAfterStorage, getStorageData, updateSubmitButtonState } from '
 import { invokeAjaxCall } from './fetchResults.js';
 import {
   addCategoryAccordionToggleListeners,
-  filterFormToFormData,
   appendMetaSearchParams,
   addScopeChangeListener,
+  getValidatedFormData,
 } from './filters.js';
 
 const mapResultsInstance = 'map_results';
@@ -478,16 +478,13 @@ function getBadgeValue() {
  * any filters applied in the map also apply in the search results view.
  */
 function saveFilters() {
-  if (!appliedFilterOptions && !getBadgeValue()) {
-    return false;
-  }
-
   const searchUrl = document.querySelector('[data-search-results-url]');
   if (!searchUrl) {
     return false;
   }
-
-  const url = getPathWithQueryParams(searchUrl.getAttribute('data-search-results-url'));
+  const form = document.getElementById(`filters-map_results`);
+  const data = getValidatedFormData(form, 'map_results');
+  const url = getPathWithFormFilters(searchUrl.getAttribute('data-search-results-url'), data);
   window.location = url;
 
   return true;
@@ -571,22 +568,6 @@ const attachBoundingBoxToggleListener = () => {
   }
 };
 
-/**
- * Attaches event listener to the form containing the filters in the map view.
- * This is different to the other event listener as it does not refresh the page.
- */
-const attachMapResultsFilterChangeListeners = (instance) => {
-  const form = document.getElementById(`filters-${instance}`);
-
-  form.addEventListener('change', (e) => {
-    resetData = true;
-
-    appliedFilterOptions = filterFormToFormData(form);
-
-    invokeMapResults(true);
-  });
-};
-
 const mapResultsScopeCallback = (data) => {
   appliedFilterOptions = data;
 
@@ -637,7 +618,7 @@ const getMapFilters = async (path) => {
     document.getElementById(filterBlockId).innerHTML = mapFiltersHtml;
 
     addCategoryAccordionToggleListeners(mapResultsInstance);
-    attachMapResultsFilterChangeListeners(mapResultsInstance);
+
     addScopeChangeListener(mapResultsInstance, mapResultsScopeCallback);
   }
 };
@@ -654,6 +635,22 @@ const getPathWithQueryParams = (basePath, needOriginalQueryParams) => {
     queryParams.set('keywords', badgeText);
   }
   const queryString = queryParams.size > 0 ? `?${queryParams.toString()}` : '';
+  return `${basePath}${queryString}`;
+};
+
+const getPathWithFormFilters = (basePath, formData) => {
+  const queryParams = new URLSearchParams(formData);
+
+  appendMetaSearchParams(queryParams);
+
+  // add keywords query params
+  const keywordBadgesList = Array.from(document.querySelectorAll('#keyword-badge-container-map_results li'));
+  if (keywordBadgesList.length > 0) {
+    const badgeText = keywordBadgesList.map((item) => item.innerText).join(',');
+    queryParams.set('keywords', badgeText);
+  }
+  const queryString = queryParams.size > 0 ? `?${queryParams.toString()}` : '';
+  console.log('getPathWithFormFilters', queryString);
   return `${basePath}${queryString}`;
 };
 
@@ -685,6 +682,16 @@ const invokeMapResults = (fitToMapExtentFlag = false, needOriginalQueryParams = 
     if (fetchResults) {
       const action = fetchResults.getAttribute(actionDataAttribute);
       getMapResults(getPathWithQueryParams(action, needOriginalQueryParams), fitToMapExtentFlag);
+    }
+  }
+};
+
+const invokeMapResultsFormFilters = (fitToMapExtentFlag = false, data) => {
+  if (checkLatestBrowser()) {
+    const fetchResults = document.querySelector('[data-fetch-map-results]');
+    if (fetchResults) {
+      const action = fetchResults.getAttribute(actionDataAttribute);
+      getMapResults(getPathWithFormFilters(action, data), fitToMapExtentFlag);
     }
   }
 };
@@ -918,7 +925,6 @@ document.addEventListener('DOMContentLoaded', () => {
       invokeMapResults();
       invokeMapFilters();
       exitMapEventListener();
-
       disableInteractions();
       customControls();
       checkNUpdateMarkerTooltip();
@@ -931,4 +937,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
-export { invokeMapResults, setBadgeValue };
+export { invokeMapResults, setBadgeValue, invokeMapResultsFormFilters };

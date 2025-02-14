@@ -5,6 +5,8 @@ import {
   checkDuplicateKeywords,
   createBadgesFromExistingKeywords,
 } from './keywordsFilter.js';
+import { getValidatedFormData } from './filters.js';
+import { invokeMapResultsFormFilters } from './location.js';
 
 let scrollPositionY = 0;
 const overlayContainer = document.getElementById('overlay');
@@ -88,6 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function openMapModal() {
     toggleModalContainer('map-modal');
     freezeScroll();
+    addMapFilterFormSubmitListener('map_results');
+    addMapFilterFormResetListener('map_results');
     invokeKeyboardFilters();
   }
 
@@ -111,6 +115,33 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleOverlayContainer();
     unfreezeScroll();
   }
+
+  const addMapFilterFormSubmitListener = (instance) => {
+    const form = document.getElementById(`filters-${instance}`);
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = getValidatedFormData(form, instance);
+      invokeMapResultsFormFilters(true, data);
+    });
+  };
+
+  const addMapFilterFormResetListener = (instance) => {
+    const formSubmit = document.getElementById(`filters-${instance}`);
+
+    formSubmit.addEventListener('reset', (e) => {
+      e.preventDefault();
+      // reset all the map form fields
+      formSubmit.reset();
+      const checkboxes = document.querySelectorAll('.govuk-checkboxes__input');
+      checkboxes.forEach((checkbox) => {
+        checkbox.checked = false;
+      });
+      document.getElementById('filters-licence-map_results').val = '';
+      document.getElementById('filters-keywords-map_results').val = '';
+      invokeMapResultsFormFilters(true);
+    });
+  };
 
   window.openDataModal = openDataModal;
   window.closeDataModal = closeDataModal;
