@@ -35,11 +35,18 @@ export const getFeedsData = async (feedURL: string): Promise<Feed> => {
         articles,
       };
     }
-    throw new Error('Someting went wrong');
+    throw new Error(
+      `There is no title for this feed (${feedURL}). 
+      Articles will be displayed based on the requested attributes, but if no matching attributes are found, no articles will be shown.`,
+    );
   } catch (error) {
-    return {
-      title: `Failed to fetch feeds from "${feedURL}"`,
-      articles: [],
-    };
+    if (error instanceof Error) {
+      return {
+        title: error.message,
+        articles: [],
+      };
+    } else {
+      throw error;
+    }
   }
 };

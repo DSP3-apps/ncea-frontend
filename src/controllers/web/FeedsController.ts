@@ -24,7 +24,7 @@ const FeedsController = {
         feeds: resolvedFeeds,
       });
     } catch (error) {
-      return response.response('Failed to fetch feed').code(500);
+      return response.response('An error is occured while getting the Feeds').code(500);
     }
   },
 };

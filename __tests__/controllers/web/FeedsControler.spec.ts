@@ -34,10 +34,7 @@ describe('FeedsController.renderAtomFeedHandler', () => {
 
     (getFeedsData as jest.Mock).mockResolvedValueOnce(feedData1).mockResolvedValueOnce(feedData2);
 
-
-    const dummyResponse: ResponseObject = {
-
-    } as ResponseObject;
+    const dummyResponse: ResponseObject = {} as ResponseObject;
     (response.view as jest.Mock).mockReturnValue(dummyResponse);
 
     const result = await FeedsController.renderAtomFeedHandler(request as Request, response as ResponseToolkit);
@@ -58,7 +55,7 @@ describe('FeedsController.renderAtomFeedHandler', () => {
 
     await FeedsController.renderAtomFeedHandler(request as Request, response as ResponseToolkit);
 
-    expect(response.response).toHaveBeenCalledWith('Failed to fetch feed');
+    expect(response.response).toHaveBeenCalledWith('An error is occured while getting the Feeds');
     expect(codeMock).toHaveBeenCalledWith(500);
   });
 });

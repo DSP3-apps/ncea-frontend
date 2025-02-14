@@ -70,7 +70,8 @@ describe('getFeedsData', () => {
 
     const result = await getFeedsData(feedURL);
 
-    expect(result.title).toBe(`Failed to fetch feeds from "${feedURL}"`);
+    expect(result.title).toBe(`There is no title for this feed (${feedURL}). 
+      Articles will be displayed based on the requested attributes, but if no matching attributes are found, no articles will be shown.`);
     expect(result.articles).toEqual([]);
   });
 
@@ -80,7 +81,7 @@ describe('getFeedsData', () => {
 
     const result = await getFeedsData(feedURL);
 
-    expect(result.title).toBe(`Failed to fetch feeds from "${feedURL}"`);
+    expect(result.title).toBe('Network error');
     expect(result.articles).toEqual([]);
   });
 });
