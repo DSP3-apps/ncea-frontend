@@ -285,6 +285,12 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
           </li>
         
           <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
+              Feeds
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
             <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
               Privacy
             </a>
@@ -312,7 +318,7 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.9.0</p>
+          <p>Version: v1.10.0</p>
         </div>
         
         

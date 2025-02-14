@@ -22,6 +22,7 @@ const {
   cookiePolicy,
   login,
   logout,
+  atom,
 } = webRoutePaths;
 
 describe('Vision Plugin Configuration', () => {
@@ -74,6 +75,7 @@ describe('Vision Plugin Configuration', () => {
         cookiePolicy: `${BASE_PATH}${cookiePolicy}`,
         logOut: `${BASE_PATH}${logout}`,
         logIn: environmentConfig.isLocal ? '' : login,
+        feeds: `${BASE_PATH}${atom}`,
       },
       appInsightsConnectionString: environmentConfig.appInsightsConnectionString,
       gtmId: environmentConfig.gtmId,

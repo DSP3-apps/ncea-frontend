@@ -553,6 +553,12 @@ exports[`Guided Search - Geography Questionnaire Screen GET Request Geography Qu
           </li>
         
           <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
+              Feeds
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
             <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
               Privacy
             </a>
@@ -580,7 +586,7 @@ exports[`Guided Search - Geography Questionnaire Screen GET Request Geography Qu
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.9.0</p>
+          <p>Version: v1.10.0</p>
         </div>
         
         
