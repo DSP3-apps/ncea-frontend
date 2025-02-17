@@ -342,4 +342,5 @@ export {
   appendMetaSearchParams,
   filtersInstance,
   addScopeChangeListener,
+  getValidatedFormData,
 };

@@ -5,6 +5,8 @@ import {
   checkDuplicateKeywords,
   createBadgesFromExistingKeywords,
 } from './keywordsFilter.js';
+import { getValidatedFormData } from './filters.js';
+import { invokeMapResultsFormFilters } from './location.js';
 
 let scrollPositionY = 0;
 const overlayContainer = document.getElementById('overlay');
@@ -88,6 +90,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function openMapModal() {
     toggleModalContainer('map-modal');
     freezeScroll();
+    setMapFilterFormValues('map_results', 'search_results');
+    addMapFilterFormSubmitListener('map_results');
+    addMapFilterFormResetListener('map_results');
     invokeKeyboardFilters();
   }
 
@@ -111,6 +116,73 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleOverlayContainer();
     unfreezeScroll();
   }
+
+  /**
+   * Set the values for map result form compared with its value with search result form.
+   * @param {string} mapResultInstance
+   * @param {string} searchResultInstance
+   */
+  const setMapFilterFormValues = (mapResultInstance, searchResultInstance) => {
+    const searchResutlForm = document.getElementById(`filters-${searchResultInstance}`);
+    const mapResultForm = document.getElementById(`filters-${mapResultInstance}`);
+
+    Array.from(searchResutlForm).forEach((element) => {
+      const elementName = element.name;
+      const elementValue = element.value;
+      const mapResultFormElements = mapResultForm.querySelector('[name="' + elementName + '"]');
+      const checkboxValue = elementValue === 'all' ? elementName : elementValue;
+      const mapResultCheckedElements = document.getElementById(`filters-${checkboxValue}-map_results`);
+
+      if (element.type === 'checkbox' && mapResultCheckedElements) {
+        mapResultCheckedElements.checked = element.checked;
+      }
+
+      if (element.type === 'text' && mapResultFormElements) {
+        mapResultFormElements.value = elementValue;
+      }
+    });
+    // manually checked the checkbox value for retired archived from search results form to map results form
+    document.getElementById(`filters-retired-archived-${mapResultInstance}`).checked = document.getElementById(
+      `filters-retired-archived-${searchResultInstance}`,
+    ).checked;
+  };
+
+  /**
+   * Add the subnit form event listner for map results page
+   * @param {string} instance
+   */
+  const addMapFilterFormSubmitListener = (instance) => {
+    const form = document.getElementById(`filters-${instance}`);
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = getValidatedFormData(form, instance);
+      invokeMapResultsFormFilters(true, data);
+    });
+  };
+
+  /**
+   * Add the reset form event listner for map results page
+   * @param {string} instance
+   */
+  const addMapFilterFormResetListener = (instance) => {
+    const formSubmit = document.getElementById(`filters-${instance}`);
+
+    formSubmit.addEventListener('reset', (e) => {
+      e.preventDefault();
+      // reset all the map form fields
+      formSubmit.reset();
+      const checkboxes = document.querySelectorAll('.govuk-checkboxes__input');
+      checkboxes.forEach((checkbox) => {
+        checkbox.checked = false;
+      });
+      document.getElementById('filters-date-before-map_results').value = '';
+      document.getElementById('filters-date-after-map_results').value = '';
+      document.getElementById('filters-licence-map_results').value = '';
+      document.getElementById('filters-keywords-map_results').value = '';
+      invokeMapResultsFormFilters(true);
+    });
+  };
 
   window.openDataModal = openDataModal;
   window.closeDataModal = closeDataModal;
