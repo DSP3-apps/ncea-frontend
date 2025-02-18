@@ -1,0 +1,46 @@
+{% extends "layout/default.njk" %}
+{% block content %}
+<div class="categories">
+  <header class="categories__header full-width-banner" role="banner">
+    <div class="categories__header__heading">
+      <h1 class="govuk-heading-xl banner-container__heading-xl">{{ heading }}</h1>
+      <img alt="Department for Environment Food &amp; Rural Affairs Logo" src="{{ assetPath }}/images/NCEA-logo-landscape.png" class="banner-container__ncea-logo">
+    </div>
+  </header>
+  {% if overView %} 
+    <section class="categories__overview ">
+      {% if overView.content %}
+        <div class="categories__overview_content"> 
+          {% for content in overView.content %}
+            <p class="govuk-body govuk-!-margin-bottom-6">
+            {{ content }}
+            </p>
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% if overView.imageUrl %}
+        <img class="categories__overview__img" src={{ overView.imageUrl }} alt="">
+      {% endif %}  
+    </section>
+  {% endif %}
+
+  <section>
+  
+  {% if products %}
+    <ul>
+      {% for product in products %}
+        {% if product.title and product.link %}
+          <li class="govuk-body-m ncea-static-page-line-item">
+            <a href={{ product.link }} target="_blank" class="help-link">{{ product.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    
+  {% endif %}
+  </section>
+  
+  
+</div>  
+  
+{% endblock %}

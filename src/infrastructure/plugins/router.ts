@@ -4,6 +4,7 @@ import { Server } from '@hapi/hapi';
 
 import {
   atomFeedRoutes,
+  categoriesRoutes,
   classifierSearchRoutes,
   dateSearchRoutes,
   errorRoutes,
@@ -24,6 +25,7 @@ const routes = [
   ...searchResultsRoutes,
   ...mdcRoutes,
   ...atomFeedRoutes,
+  ...categoriesRoutes,
 ];
 
 const customHapiRoutes = {

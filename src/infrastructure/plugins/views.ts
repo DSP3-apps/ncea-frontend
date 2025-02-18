@@ -27,6 +27,10 @@ const {
   login,
   logout,
   atom,
+  soilsAndVeg,
+  water,
+  trees,
+  citizenScience,
 } = webRoutePaths;
 
 const customHapiViews = {
@@ -91,6 +95,10 @@ const customHapiViews = {
         logOut: `${BASE_PATH}${logout}`,
         logIn: environmentConfig.isLocal ? '' : login, // dont want the base path on this URL as it should navigate to the core platform instead
         feeds: `${BASE_PATH}${atom}`,
+        soilsAndVeg: `${BASE_PATH}${soilsAndVeg}`,
+        water: `${BASE_PATH}${water}`,
+        trees: `${BASE_PATH}${trees}`,
+        categoryCitizenScience: `${BASE_PATH}${citizenScience}`,
       },
       appInsightsConnectionString: environmentConfig.appInsightsConnectionString,
       gtmId: environmentConfig.gtmId,

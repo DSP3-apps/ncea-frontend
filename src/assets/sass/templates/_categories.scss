@@ -1,0 +1,34 @@
+.categories {
+  &__header {
+    padding: 1rem 0rem;
+    &__heading {
+      align-items: flex-start;
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+  &__overview {
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: column-reverse;
+  }
+  @media only screen and (min-width: 769px) {
+    padding: 1rem 0rem;
+    &__header {
+      &__heading {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+    &__overview {
+      gap: 2rem;
+      flex-direction: row;
+      &__img {
+        width: 45%;
+        max-height: max-content;
+      }
+    }
+  }
+}

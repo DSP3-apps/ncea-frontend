@@ -27,6 +27,10 @@ export const webRoutePaths = {
   logout: `/logout`,
   login: `/login`,
   atom: '/feeds',
+  soilsAndVeg: '/soils-vegetation',
+  water: '/water',
+  trees: '/trees',
+  citizenScience: '/citizen-science',
 };
 
 export const elasticSearchAPIPaths = {
@@ -231,6 +235,10 @@ export const pageTitles = {
     'NCEA Guided Search- Categories',
     'NCEA questionnaire  Search- subcategories',
   ],
+  categorySoilAndVeg: 'Category - Soils & Vegetation',
+  categoryWater: 'Category - Water',
+  categoryTrees: 'Category - Trees',
+  categoryCitizenScience: 'Category - Citizen Science',
 };
 
 export const levelMap = {
