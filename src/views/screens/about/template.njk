@@ -4,20 +4,20 @@
 {% block content %}
   <div class="landingPage">
   <header class="landingPage__header full-width-banner" role="banner">
-    <div class="landingPage__header__heading">
+    <div class="landingPage__header-heading">
       <h1 class="govuk-heading-xl banner-container__heading-xl">{{ pageHeading }}</h1>
       <img alt="Department for Environment Food &amp; Rural Affairs Logo" src="{{ assetPath }}/images/NCEA-logo-landscape.png" class="banner-container__ncea-logo">
     </div>
   </header>
    <section class="landingPage__intro">
-        <div class="categories__intro_content">
+        <div class="categories__intro-content">
           {% for content in introText.content %}
             <p class="govuk-body govuk-!-margin-bottom-6">
             {{ content }}
             </p>
           {% endfor %}
         </div>
-        <img class="landingPage__intro__img" src={{ introText.imageUrl }} alt="">
+        <img class="landingPage__intro-img" src={{ introText.imageUrl }} alt="">
     </section>
     <section class="landingPage__categories">
       <div class="landingPage__categories_cardLayout">
