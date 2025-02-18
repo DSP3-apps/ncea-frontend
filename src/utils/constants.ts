@@ -27,6 +27,7 @@ export const webRoutePaths = {
   logout: `/logout`,
   login: `/login`,
   atom: '/feeds',
+  about: '/about',
 };
 
 export const elasticSearchAPIPaths = {

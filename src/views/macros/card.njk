@@ -1,0 +1,6 @@
+{% macro card(text, imgUrl) %}
+  <div class="landingPage__categories_cardLayout-card">
+    <div class="landingPage__categories_cardLayout-img"><img src="{{ imgUrl }}" alt="Image" /></div>
+        <div class="landingPage__categories_cardLayout-content">{{text}}</div>
+    </div>
+{% endmacro %}

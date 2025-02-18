@@ -1,0 +1,73 @@
+.landingPage {
+    &__header {
+      padding: 1rem 0rem;
+      &__heading {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column-reverse;
+      }
+    }
+    &__intro {
+      display: flex;
+      gap: 1.5rem;
+      flex-direction: column-reverse;
+    }
+    &__categories {
+      max-width: 1200px;
+      margin: auto;
+      border-radius: 10px;
+      &_cardLayout {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        &-card {
+          background-color: #2d665a;
+          color: black;
+          overflow: hidden;
+          flex: 1 1 calc(25% - 15px);
+          min-width: 200px;
+          box-shadow: 0 0 0 1px #fff;
+          display: flex;
+          flex-direction: column;
+          img {
+            width: 100%;
+            height: 150px;
+          }
+        }
+        &-content {
+          color: #fff;
+          line-height: 1.25;
+          font-size: 20px;
+          font-weight: 700;
+          flex-grow: 1;
+          color: #fff;
+          line-height: 1.25;
+          margin-bottom: 8px;
+          margin-left: 20px;
+          margin-right: 20px;
+          padding-bottom: 5px;
+          padding-top: 10px;
+        }
+      }
+    }
+    @media only screen and (min-width: 769px) {
+      padding: 1rem 0rem;
+      &__header {
+        &__heading {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+      &__intro {
+        gap: 2rem;
+        flex-direction: row;
+        &__img {
+          width: 45%;
+          max-height: max-content;
+        }
+      }
+    }
+  }
