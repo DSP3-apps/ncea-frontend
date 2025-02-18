@@ -23,6 +23,10 @@ const {
   login,
   logout,
   atom,
+  soilsAndVeg,
+  water,
+  trees,
+  citizenScience,
 } = webRoutePaths;
 
 describe('Vision Plugin Configuration', () => {
@@ -76,6 +80,10 @@ describe('Vision Plugin Configuration', () => {
         logOut: `${BASE_PATH}${logout}`,
         logIn: environmentConfig.isLocal ? '' : login,
         feeds: `${BASE_PATH}${atom}`,
+        soilsAndVeg: `${BASE_PATH}${soilsAndVeg}`,
+        water: `${BASE_PATH}${water}`,
+        trees: `${BASE_PATH}${trees}`,
+        categoryCitizenScience: `${BASE_PATH}${citizenScience}`,
       },
       appInsightsConnectionString: environmentConfig.appInsightsConnectionString,
       gtmId: environmentConfig.gtmId,
