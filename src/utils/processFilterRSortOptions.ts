@@ -44,7 +44,7 @@ const processDSPFilterOptions = (requestQuery: RequestQuery): ISearchFiltersProc
     for (const filter of category.filters) {
       // if we are in `ncea only` scope and the filter is not in that scope
       // then we ignore it
-      if (nceaOnly && filter.scope != DataScope.NCEA) {
+      if (nceaOnly && filter.scope != DataScope.NCEA && filter.scope != DataScope.IGNORE) {
         continue;
       }
 
