@@ -5,9 +5,9 @@ import { FeedsController } from '../../../src/controllers/web/FeedsController';
 import { getFeedsData } from '../../../src/utils/getFeedsData';
 
 // Mock getFeedsData
-jest.mock('@/utils/getFeedsData');
+jest.mock('../../../src/utils/getFeedsData');
 
-jest.mock('@/utils/constants', () => ({
+jest.mock('../../../src/utils/constants', () => ({
   atomFeeds: ['http://example.com/feed1', 'http://example.com/feed2'],
 }));
 

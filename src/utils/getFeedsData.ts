@@ -1,7 +1,7 @@
 import { format, parseISO } from 'date-fns';
 import Parser from 'rss-parser';
 
-import { Feed, FeedArticle } from '@/interfaces/feeds.interface';
+import { Feed, FeedArticle } from '../interfaces/feeds.interface';
 
 const parser = new Parser();
 

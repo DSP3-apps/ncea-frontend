@@ -2,8 +2,8 @@
 
 import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 
-import { atomFeeds } from '@/utils/constants';
-import { getFeedsData } from '@/utils/getFeedsData';
+import { atomFeeds } from '../../utils/constants';
+import { getFeedsData } from '../../utils/getFeedsData';
 
 /**
  * This code snippet exports a module named FeedsController.

@@ -1,7 +1,6 @@
 'use strict';
 
-import { AboutController } from '@/controllers/web/AboutController';
-
+import { AboutController } from '../../controllers/web/AboutController';
 import { webRoutePaths } from '../../utils/constants';
 
 const aboutRoutes = [

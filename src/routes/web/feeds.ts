@@ -1,7 +1,6 @@
 'use strict';
 
-import { FeedsController } from '@/controllers/web/FeedsController';
-
+import { FeedsController } from '../../controllers/web/FeedsController';
 import { webRoutePaths } from '../../utils/constants';
 
 const atomFeedRoutes = [
