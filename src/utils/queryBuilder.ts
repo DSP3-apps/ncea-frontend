@@ -1,4 +1,5 @@
 import { estypes } from '@elastic/elasticsearch';
+import { endOfYear, format, startOfYear } from 'date-fns';
 
 import {
   FILTER_VALUES,
@@ -246,13 +247,21 @@ const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearc
 
   // Get date filter values
   const mapping = {
-    beforeYear: 'BeginPosition',
-    afterYear: 'EndPosition',
+    beforeYear: 'StartDate',
+    afterYear: 'EndDate',
+  };
+
+  const dateGenerator = (key: string, value: string) => {
+    const DATE_FORMAT = 'yyyy-MM-dd';
+    if (key === 'beforeYear') {
+      return format(startOfYear(new Date(value)), DATE_FORMAT);
+    }
+    return format(endOfYear(new Date(value)), DATE_FORMAT);
   };
   const dateFilters: ITemporalExtent = Object.entries(filters.lastUpdated).reduce((acc, [key, value]) => {
     const newKey = mapping[key] ?? key;
 
-    acc[newKey] = value;
+    acc[newKey] = value ? dateGenerator(key, value) : '';
 
     return acc;
   }, {} as ITemporalExtent);
@@ -276,7 +285,11 @@ const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearc
       DataTypes: dataTypes ?? [],
       ServiceType: serviceTypes ?? [],
       Formats: dataFormats ?? [],
-      TemporalExtent: dateFilters,
+      DateRange: dateFilters,
+      // DateRange: {
+      //   StartDate: '2001-01-01',
+      //   EndDate: '2002-12-31',
+      // },
       Licence: licence ?? null,
       Keywords: keywords ?? [],
       RetiredAndArchived: retiredAndArchived ?? false,

@@ -143,8 +143,8 @@ interface ISearchBuilderPayload {
 }
 
 interface ITemporalExtent {
-  BeginPosition: string | null;
-  EndPosition: string | null;
+  StartDate: string | null;
+  EndDate: string | null;
 }
 interface IFilter {
   Keywords: string[] | [null];
@@ -158,7 +158,7 @@ interface IFilter {
   TopicCategory: string | null;
   Lineage: string | null;
   AdditionalInformationSource: string | null;
-  TemporalExtent: ITemporalExtent | null;
+  DateRange: ITemporalExtent | null;
   Organisations: string[] | null;
   DataTypes: string[] | null;
   Formats: string[] | null;
