@@ -251,57 +251,57 @@ export const searchFilters: ISearchFilters = [
     filters: [
       {
         name: 'Agriculture & Horticulture Development Board',
-        value: 'ahdb',
+        value: 'Agriculture & Horticulture Development Board',
         scope: DataScope.ALL,
       },
       {
         name: 'Animal & Plant Health Agency',
-        value: 'apha',
+        value: 'Animal & Plant Health Agency',
         scope: DataScope.ALL,
       },
       {
         name: 'Centre for Environment, Fisheries & Aquaculture Science',
-        value: 'cefas',
+        value: 'Centre for Environment, Fisheries & Aquaculture Science',
         scope: DataScope.ALL,
       },
       {
         name: 'Department for Environment, Food & Rural Affairs',
-        value: 'defra',
+        value: 'Department for Environment, Food & Rural Affairs',
         scope: DataScope.ALL,
       },
       {
         name: 'Environment Agency',
-        value: 'ea',
+        value: 'Environment Agency',
         scope: DataScope.NCEA,
       },
       {
         name: 'Forestry Commission',
-        value: 'fc',
+        value: 'Forestry Commission',
         scope: DataScope.NCEA,
       },
       {
         name: 'Joint Nature Conservation Committee',
-        value: 'jncc',
+        value: 'Joint Nature Conservation Committee',
         scope: DataScope.ALL,
       },
       {
         name: 'KEW',
-        value: 'kew',
+        value: 'KEW',
         scope: DataScope.ALL,
       },
       {
         name: 'Marine Management Organisation',
-        value: 'mmo',
+        value: 'Marine Management Organisation',
         scope: DataScope.ALL,
       },
       {
         name: 'Natural England',
-        value: 'ne',
+        value: 'Natural England',
         scope: DataScope.NCEA,
       },
       {
         name: 'Rural Payments Agency',
-        value: 'rpa',
+        value: 'Rural Payments Agency',
         scope: DataScope.ALL,
       },
     ],
