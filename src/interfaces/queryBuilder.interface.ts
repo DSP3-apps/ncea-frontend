@@ -142,9 +142,9 @@ interface ISearchBuilderPayload {
   docId?: string;
 }
 
-interface ITemporalExtent {
-  BeginPosition: string | null;
-  EndPosition: string | null;
+interface IDateRange {
+  StartDate: string | null;
+  EndDate: string | null;
 }
 interface IFilter {
   Keywords: string[] | [null];
@@ -158,7 +158,7 @@ interface IFilter {
   TopicCategory: string | null;
   Lineage: string | null;
   AdditionalInformationSource: string | null;
-  TemporalExtent: ITemporalExtent | null;
+  DateRange: IDateRange | null;
   Organisations: string[] | null;
   DataTypes: string[] | null;
   Formats: string[] | null;
@@ -190,7 +190,7 @@ export {
   ISearchFields,
   ISearchFilter,
   ISearchPayload,
-  ITemporalExtent,
+  IDateRange,
   IFilter,
   ISearchRequest,
   IShapeCoordinates,
