@@ -27,6 +27,7 @@ export const webRoutePaths = {
   logout: `/logout`,
   login: `/login`,
   atom: '/feeds',
+  about: '/about',
 };
 
 export const elasticSearchAPIPaths = {
@@ -269,4 +270,37 @@ export const FILTER_VALUES = {
   dataType: 'dt',
   serviceType: 'svt',
   dataFormat: 'fmt',
+};
+
+export const landingPageData = {
+  pageHeading: 'NCEA Programme',
+  introText: {
+    content: [
+      'Natural capital is the parts of our natural environment that hold value for people, giving environmental, economic, societal and cultural benefits. It is nature’s stock of living and non-living resources – including ecosystems, species, freshwater, land, soils, minerals, air, and ocean – that provide flows of environmental (ecosystem) services.',
+      'Natural capital is the parts of our natural environment that hold value for people, giving environmental, economic, societal and cultural benefits. It is nature’s stock of living and non-living resources – including ecosystems, species, freshwater, land, soils, minerals, air, and ocean – that provide flows of environmental (ecosystem) services.',
+    ],
+    imageUrl: `${BASE_PATH}/assets/images/introText.jpg`,
+  },
+  categories: [
+    {
+      text: 'NRW’s 10 week public consultation on a new National Park',
+      imgUrl: `${BASE_PATH}/assets/images/newsfp.jpg`,
+      title: 'Photo of Lake Vyrnwy',
+    },
+    {
+      text: 'Newborough National Nature Reserve and Forest, Anglesey',
+      imgUrl: `${BASE_PATH}/assets/images/llanddwyn.jpg`,
+      title: 'Family on Llanddwyn Island',
+    },
+    {
+      text: 'Bwlch Nant yr Arian Visitor Centre, near Aberystwyth',
+      imgUrl: `${BASE_PATH}/assets/images/bnya2.jpg`,
+      title: 'View of the lake at Bwlch Nant yr Arian Forest',
+    },
+    {
+      text: 'Coed y Brenin Visitor Centre, near Dolgellau',
+      imgUrl: `${BASE_PATH}/assets/images/dronecoe.jpg`,
+      title: 'Coed y Brenin Visitor Centre',
+    },
+  ],
 };
