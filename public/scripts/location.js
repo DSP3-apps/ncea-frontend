@@ -5,6 +5,8 @@ import {
   appendMetaSearchParams,
   addScopeChangeListener,
   getValidatedFormData,
+  addMapFilterFormSubmitListener,
+  addMapFilterFormResetListener,
 } from './filters.js';
 
 const mapResultsInstance = 'map_results';
@@ -619,6 +621,8 @@ const getMapFilters = async (path) => {
 
     addCategoryAccordionToggleListeners(mapResultsInstance);
     addScopeChangeListener(mapResultsInstance, mapResultsScopeCallback);
+    addMapFilterFormSubmitListener(mapResultsInstance);
+    addMapFilterFormResetListener(mapResultsInstance);
   }
 };
 
