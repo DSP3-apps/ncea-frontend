@@ -1,3 +1,21 @@
+# [1.11.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.10.0...v1.11.0) (2025-02-19)
+
+
+### Features
+
+* **frontend:** added the about route with logo text and cards macro component ([199bff4](https://github.com/DSP3-apps/ncea-frontend/commit/199bff4012087c131e9133b5ec82b423d94940bd))
+* **frontend:** added the test suite for about controller ([246dfb6](https://github.com/DSP3-apps/ncea-frontend/commit/246dfb6b78df5114cc6eb420897ce7641503f015))
+* **frontend:** Change organization filter to use full names. ([562e5a0](https://github.com/DSP3-apps/ncea-frontend/commit/562e5a00d18609b7bd78eee0341c3e9eaedb2acc))
+* **frontend:** Create Atom feed page. ([870215e](https://github.com/DSP3-apps/ncea-frontend/commit/870215e932d34dd98a1b11c8274808991056322d))
+* **frontend:** Filters missing when data scope is changed. ([9bb6d03](https://github.com/DSP3-apps/ncea-frontend/commit/9bb6d0322e48954636792e2d0eaea5a928553c58))
+* **frontend:** fix the reset issue as per review comment ([97dfb07](https://github.com/DSP3-apps/ncea-frontend/commit/97dfb07a90579ac4f8b9a7405db19e3ba8c3f57f))
+* **frontend:** Update Date Search Filter to use new API params. ([47837bd](https://github.com/DSP3-apps/ncea-frontend/commit/47837bdf495802768e84608e8c75b19e7cc16a20))
+* **frontend:** updated changes as per review comments ([3e764f9](https://github.com/DSP3-apps/ncea-frontend/commit/3e764f91027d31ac85cc2a296e538d95de51b64d))
+* **frontend:** updated css class names ([24cde4c](https://github.com/DSP3-apps/ncea-frontend/commit/24cde4c381733ae51f3ff55404bd42e61704787c))
+* **frontend:** updated test suites ([f0d4bdf](https://github.com/DSP3-apps/ncea-frontend/commit/f0d4bdf2ad038d4bc256dd6e0a7df7a95b12c706))
+* **frontend:** updated the bg color for cards ([795ae71](https://github.com/DSP3-apps/ncea-frontend/commit/795ae71b040f504b104669aca0dbc8db8ed11e6f))
+* **map:** Add clustering to map and viewable list of clustered records ([fc6179c](https://github.com/DSP3-apps/ncea-frontend/commit/fc6179c1323b8d63a544f6c5718e242fad61bb91)), closes [#NCEA-185](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-185)
+
 # [1.10.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.9.0...v1.10.0) (2025-02-13)
 
 
