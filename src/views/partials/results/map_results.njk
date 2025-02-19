@@ -2,12 +2,31 @@
 
 {% from 'govuk/components/button/macro.njk' import govukButton %}
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "macros/icons/icon.njk" import icon %}
 
 {% set extraClass = ' map-modal'%}
 
 {% block modalContent %}
   <div class='govuk-grid-row govuk-!-margin-0 govuk-!-text-align-left'>
     <div class='govuk-grid-column-three-quarters govuk-!-margin-0 govuk-!-padding-0 map-view-block'>
+      <div class="cluster-list display-none" id="cluster-list">
+        <div class="container">
+          <div class="heading">
+            <span class="title">
+              <h2 class="govuk-heading-m filter-heading govuk-!-margin-0" id="cluster-list-heading"></h2>
+              <button id="cluster-list-close" class="close">
+                {{icon("cross", {
+                  width: "1.5rem",
+                  height: "1.5rem"
+                })}}
+              </button>
+            </span>
+            <span class="govuk-hint">Click on a record to view more info.</span>
+          </div>
+          <div class="govuk-section-break--visible"></div>
+          <ul class="records" id="cluster-list-records"></ul>
+        </div>
+      </div>
       <div id='coordinate-map' style='height: 100%; width: 100%;'></div>
       <div class='defra-map-controls'>
         <button class='defra-map__exit' id="defra-map-exit">

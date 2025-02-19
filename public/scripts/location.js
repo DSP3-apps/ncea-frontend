@@ -47,29 +47,26 @@ let firstMove = true;
 const resetControl = document.getElementById('defra-map-reset');
 const markerOverlayOffsetX = -15;
 const markerOverlayOffsetY = -50;
-const maxMarkerAllowed = 9;
 const leftArrowKey = 37;
 const upArrowKey = 38;
 const rightArrowKey = 39;
 const downArrowKey = 40;
 let resetData = false;
-let selectedFeatureId = '';
+let hoveredCluster = null;
+let selectedCluster = null;
 let selectedBoundingBox = '';
 let hasResourceListener = false;
 const maxCountForBoundingBoxInfo = 50;
 const polygonFeatureData = [];
 let isBadgeChanged = false;
 
-const drawStyle = new ol.style.Style({
-  stroke: new ol.style.Stroke({
-    color: 'blue',
-    width: 2,
-  }),
-  fill: new ol.style.Fill({
-    color: 'rgb(0, 0, 255, 0.1)',
-  }),
-});
-const completedStyle = new ol.style.Style({
+const CLUSTER_STATE = {
+  inactive: 'inative',
+  hover: 'hover',
+  active: 'active',
+};
+
+const geographyTabBboxStyle = new ol.style.Style({
   stroke: new ol.style.Stroke({
     color: '#F47738',
     width: 2,
@@ -79,7 +76,7 @@ const completedStyle = new ol.style.Style({
   }),
 });
 
-const mapResultsStyle = new ol.style.Style({
+const bboxStyle = new ol.style.Style({
   stroke: new ol.style.Stroke({
     color: '#004618',
     width: 2,
@@ -89,7 +86,7 @@ const mapResultsStyle = new ol.style.Style({
   }),
 });
 
-const mapResultsHighlightStyle = new ol.style.Style({
+const bboxSelectedStyle = new ol.style.Style({
   stroke: new ol.style.Stroke({
     color: '#FFDD00',
     width: 2,
@@ -99,32 +96,163 @@ const mapResultsHighlightStyle = new ol.style.Style({
   }),
 });
 
-const vectorSource = new ol.source.Vector();
-const vectorLayer = new ol.layer.Vector({
-  source: vectorSource,
-});
-const markerSource = new ol.source.Vector();
-const markerLayer = new ol.layer.Vector({
-  source: markerSource,
+const bboxSource = new ol.source.Vector();
+const bboxLayer = new ol.layer.Vector({
+  source: bboxSource,
 });
 
-const draw = new ol.interaction.Draw({
-  source: vectorSource,
-  type: 'Circle',
-  geometryFunction: ol.interaction.Draw.createBox(),
-  style: drawStyle,
+// style definitions for the cluster layers
+const [
+  clusterOuterCircleFill,
+  clusterOuterCircleFillHover,
+  clusterOuterCircleFillActive,
+  clusterInnerCircleFill,
+  clusterInnerCircleFillHover,
+  clusterInnerCircleFillActive,
+] = [
+  new ol.style.Fill({
+    color: 'rgba(255, 153, 102, 0.3)',
+  }),
+  new ol.style.Fill({
+    color: 'rgba(209, 135, 92, 0.3)',
+  }),
+  new ol.style.Fill({
+    color: 'rgba(171, 102, 255, 0.3)',
+  }),
+  new ol.style.Fill({
+    color: 'rgba(255, 165, 0, 0.7)',
+  }),
+  new ol.style.Fill({
+    color: 'rgba(214, 152, 19, 0.7)',
+  }),
+  new ol.style.Fill({
+    color: 'rgba(106, 0, 255, 0.7)',
+  }),
+];
+const [
+  clusterOuterCircle,
+  clusterOuterCircleHover,
+  clusterOuterCircleActive,
+  clusterInnerCircle,
+  clusterInnerCircleHover,
+  clusterInnerCircleActive,
+] = [
+  new ol.style.Circle({
+    radius: 20,
+    fill: clusterOuterCircleFill,
+  }),
+  new ol.style.Circle({
+    radius: 20,
+    fill: clusterOuterCircleFillHover,
+  }),
+  new ol.style.Circle({
+    radius: 20,
+    fill: clusterOuterCircleFillActive,
+  }),
+  new ol.style.Circle({
+    radius: 14,
+    fill: clusterInnerCircleFill,
+  }),
+  new ol.style.Circle({
+    radius: 14,
+    fill: clusterInnerCircleFillHover,
+  }),
+  new ol.style.Circle({
+    radius: 14,
+    fill: clusterInnerCircleFillActive,
+  }),
+];
+
+const clusterTextFill = new ol.style.Fill({
+  color: '#fff',
 });
-draw.on('drawstart', () => {
-  vectorSource.clear();
-});
-draw.on('drawend', (event) => {
-  const feature = event.feature;
-  feature.setStyle(completedStyle);
+const clusterTextStroke = new ol.style.Stroke({
+  color: 'rgba(0, 0, 0, 0.6)',
+  width: 3,
 });
 
-const isMarkerFeature = (feature) => feature?.getGeometry()?.getType() === 'Point';
+const [clusterSingleIcon, clusterSingleHoverIcon, clusterSingleActiveIcon] = [
+  new ol.style.Icon({
+    src: markerIcon,
+  }),
+  new ol.style.Icon({
+    src: hoverMarkerIcon,
+  }),
+  new ol.style.Icon({
+    src: highlightedMarkerIcon,
+  }),
+];
 
-const isPolygonFeature = (feature) => feature?.getGeometry()?.getType() === 'Polygon';
+const getSingleClusterIcon = (feature, state) => {
+  let style = new ol.style.Style({
+    geometry: feature.getGeometry(),
+  });
+
+  switch (state) {
+    case CLUSTER_STATE.active:
+      style.setImage(clusterSingleActiveIcon);
+      break;
+    case CLUSTER_STATE.hover:
+      style.setImage(clusterSingleHoverIcon);
+      break;
+    default: // CLUSTER_STATE.inactive or undefined (in case of bugs markers shouldnt be invisible)
+      style.setImage(clusterSingleIcon);
+      break;
+  }
+
+  return style;
+};
+
+const getClusterStyle = (feature) => {
+  const size = feature.get('features').length;
+  const clusterState = feature.get('state');
+
+  // if there is more than 1 marker we display the cluster style
+  if (size > 1) {
+    let outerCircleStyle = new ol.style.Style({
+      image: clusterOuterCircleFill,
+    });
+    let innerCircleStyle = new ol.style.Style({
+      image: clusterInnerCircleFill,
+      text: new ol.style.Text({
+        text: size.toString(),
+        fill: clusterTextFill,
+        stroke: clusterTextStroke,
+      }),
+    });
+
+    switch (clusterState) {
+      case CLUSTER_STATE.hover:
+        outerCircleStyle.setImage(clusterOuterCircleHover);
+        innerCircleStyle.setImage(clusterInnerCircleHover);
+        break;
+      case CLUSTER_STATE.active:
+        outerCircleStyle.setImage(clusterOuterCircleActive);
+        innerCircleStyle.setImage(clusterInnerCircleActive);
+        break;
+      default: // CLUSTER_STATE.inactive or undefined (in case of bugs markers shouldnt be invisible)
+        outerCircleStyle.setImage(clusterOuterCircle);
+        innerCircleStyle.setImage(clusterInnerCircle);
+        break;
+    }
+
+    return [outerCircleStyle, innerCircleStyle];
+  }
+
+  // otherwise we return a single icon
+  const originalFeature = feature.get('features')[0];
+  return getSingleClusterIcon(originalFeature, clusterState);
+};
+
+const clusterVectorSource = new ol.source.Vector();
+const clusterSource = new ol.source.Cluster({
+  distance: 35,
+  source: clusterVectorSource,
+});
+const clusterLayer = new ol.layer.Vector({
+  source: clusterSource,
+  style: getClusterStyle,
+});
 
 const map = new ol.Map({
   target: mapTarget,
@@ -142,9 +270,8 @@ const map = new ol.Map({
   controls: [],
   ...(isDetailsScreen && { interactions: [] }),
 });
-map.addLayer(vectorLayer);
-map.addLayer(markerLayer);
-map.addInteraction(draw);
+map.addLayer(bboxLayer);
+map.addLayer(clusterLayer);
 
 if (isMapResultsScreen) {
   mapEventListener();
@@ -152,49 +279,69 @@ if (isMapResultsScreen) {
 
 function mapEventListener() {
   map.on('pointermove', (event) => {
-    const pixel = event.pixel;
-    const feature = map.forEachFeatureAtPixel(pixel, (featureItem) => featureItem);
-    map.getTargetElement().style.cursor = isMarkerFeature(feature) ? 'pointer' : '';
-    markerSource.getFeatures().forEach(function (feature) {
-      if (
-        isMarkerFeature(feature) &&
-        map.getFeaturesAtPixel(pixel).includes(feature) &&
-        selectedFeatureId !== feature.get('id')
-      ) {
-        feature.setStyle(getMarkerStyle(hoverMarkerIcon));
-      } else if (selectedFeatureId === feature.get('id')) {
-        feature.setStyle(getHighlighterMarkerStyle(highlightedMarkerIcon));
-      } else {
-        feature.setStyle(getMarkerStyle(markerIcon));
+    // the cluster layer contains each cluster as its own feature
+    clusterLayer.getFeatures(event.pixel).then((clusters) => {
+      map.getTargetElement().style.cursor = clusters.length > 0 ? 'pointer' : '';
+
+      // only reset the hover state if a) we aren't hovering anything and b) the cluster is not currently active
+      if (clusters.length === 0 && hoveredCluster && hoveredCluster.get('state') != CLUSTER_STATE.active) {
+        hoveredCluster.set('state', CLUSTER_STATE.inactive);
+        hoveredCluster = null;
+      }
+
+      if (clusters.length > 0) {
+        // logically it shouldnt be possible to hover over more than 1 cluster
+        // at the same time, since if they were close enough they would group together
+        // anyway. this is also how it is done in the example
+        const cluster = clusters[0];
+
+        // `ol_uid` is a guaranteed unique id for each cluster (it is incremented for every feature)
+        // so there is no collisions
+        // https://gis.stackexchange.com/a/266665
+        const clusterId = ol.util.getUid(cluster);
+        const oldClusterId = (hoveredCluster && ol.util.getUid(hoveredCluster)) ?? '';
+
+        if (clusterId !== oldClusterId) {
+          const selectedClusterState = selectedCluster?.get('state') ?? CLUSTER_STATE.inactive;
+          // set the old marker to be inactive
+          // the `true` means silent, so it will not emit and event when the state is changed
+          // the reason we want this is because if it were to emit an event it would reset the state for the
+          // `selectedCluster`. instead, we set the state silently and re-apply the selected state non-silently
+          // to trigger a rerender
+          hoveredCluster?.set('state', CLUSTER_STATE.inactive, true);
+          selectedCluster?.set('state', selectedClusterState);
+          cluster.set('state', CLUSTER_STATE.hover);
+
+          // setting the state will cause the layer to redraw
+          // which will mean it will call `getSingleClusterIcon` automatically
+          // which will return the new icon with the new state
+          hoveredCluster = cluster;
+        }
       }
     });
   });
+
   map.on('click', (event) => {
-    const pixel = event.pixel;
-    const feature = map.forEachFeatureAtPixel(pixel, (featureItem) => featureItem);
-    resetFeatureStyle();
-    closeInfoPopup();
-    if (feature && isMarkerFeature(feature)) {
-      const recordId = feature.get('id');
-      const boundingBox = feature.get('boundingBox');
-      feature.setStyle(getHighlighterMarkerStyle(highlightedMarkerIcon));
-      selectedFeatureId = recordId;
-      selectedBoundingBox = boundingBox;
-      showInformationPopup(recordId, boundingBox);
-    }
+    clusterLayer.getFeatures(event.pixel).then((clusters) => {
+      if (clusters.length > 0) {
+        const cluster = clusters[0];
+
+        selectedCluster?.set('state', CLUSTER_STATE.inactive);
+        cluster.set('state', CLUSTER_STATE.active);
+
+        selectedCluster = cluster;
+
+        showClusterDetails(selectedCluster);
+      } else {
+        closePopupsAndDeselectCluster();
+      }
+    });
   });
 }
 
 const resetFeatureStyle = () => {
-  vectorSource.getFeatures().forEach((feature) => {
-    if (isPolygonFeature(feature)) {
-      feature.setStyle(mapResultsStyle);
-    }
-  });
-  markerSource.getFeatures().forEach((marker) => {
-    if (isMarkerFeature(marker)) {
-      marker.setStyle(getMarkerStyle(markerIcon));
-    }
+  bboxSource.getFeatures().forEach((feature) => {
+    feature.setStyle(bboxStyle);
   });
 };
 
@@ -205,8 +352,91 @@ function truncateString(inputString, maxLength) {
   return inputString;
 }
 
-function showInformationPopup(recordId, boundingBox) {
-  selectedRecord = mapResults.find((item) => item?.id === recordId);
+/**
+ * Returns a record from the map results by a given id.
+ *
+ * @param {string} recordId
+ */
+const getMapResultByRecordId = (recordId) => {
+  return mapResults.find((item) => item?.id === recordId);
+};
+
+const showClusterDetails = (cluster) => {
+  const features = cluster.get('features');
+  if (features.length === 1) {
+    const recordId = features[0].get('id');
+    const boundingBox = features[0].get('boundingBox');
+
+    // if you click on a cluster of 1 element the record list should close as there is nothing to list
+    closeClusterPopup();
+    showSingleInformationPopup(recordId, boundingBox);
+  } else {
+    // likewise if you click on a cluster the info popup no longer matches so we close it
+    // we dont want to use `closePopupsAndDeselectCluster` as we dont want to deslect the new
+    // cluster
+    closeInfoPopup();
+    showClusterRecordPopup(features);
+  }
+};
+
+/**
+ * Attaches the event listener to the close button on the cluster list
+ * popup.
+ */
+const attachCluserListCloseListener = () => {
+  const button = $('#cluster-list-close');
+
+  button.on('click', closePopupsAndDeselectCluster);
+};
+
+/**
+ * Shows the cluster list popup for a given list of features
+ * from a cluster.
+ */
+const showClusterRecordPopup = (clusterFeatures) => {
+  const clusterList = $('#cluster-list');
+  const clusterListHeading = $('#cluster-list-heading');
+  const clusterListRecords = $('#cluster-list-records');
+
+  // remove all previous children
+  clusterListHeading.empty();
+  clusterListRecords.empty();
+
+  clusterList.removeClass('display-none');
+  clusterListHeading.append(document.createTextNode(`Listing ${clusterFeatures.length} records`));
+
+  clusterFeatures.forEach((feature) => {
+    const recordId = feature.get('id');
+    const record = getMapResultByRecordId(recordId);
+
+    const li = $('<li>', {});
+    const recordLink = $('<a>', { class: 'govuk-link', href: '#' });
+    recordLink.append(document.createTextNode(record.title));
+    li.append(recordLink);
+
+    recordLink.on('click', () => {
+      const boundingBox = feature.get('boundingBox');
+      showSingleInformationPopup(recordId, boundingBox);
+    });
+
+    clusterListRecords.append(li);
+  });
+};
+
+/**
+ * Closes the cluster list popup.
+ */
+const closeClusterPopup = () => {
+  const clusterList = $('#cluster-list');
+
+  clusterList.addClass('display-none');
+};
+
+/**
+ * Shows the popup for an individual record, given the ID and bounding box.
+ */
+function showSingleInformationPopup(recordId, boundingBox) {
+  selectedRecord = getMapResultByRecordId(recordId);
   infoListener();
   boundingBoxListener(boundingBoxCheckbox.checked);
   const titleElement = document.getElementById('info-title');
@@ -215,7 +445,7 @@ function showInformationPopup(recordId, boundingBox) {
   const contentElement = document.getElementById('info-content');
   if (selectedRecord && Object.keys(selectedRecord).length) {
     if (boundingBox) {
-      boundingBox.setStyle(mapResultsHighlightStyle);
+      boundingBox.setStyle(bboxSelectedStyle);
     }
     if (mapInfoBlock) {
       mapInfoBlock.style.display = 'block';
@@ -237,6 +467,23 @@ function moreInfoNavigation() {
     window.open(moreInfoUrl, '_blank');
   }
 }
+
+/**
+ * Deselectes the cluster the user has selected.
+ */
+const deslectActiveCluster = () => {
+  selectedCluster?.set('state', CLUSTER_STATE.inactive);
+};
+
+/**
+ * Closes both popups and deselects the user selected cluster.
+ */
+const closePopupsAndDeselectCluster = () => {
+  closeClusterPopup();
+  closeInfoPopup();
+  deslectActiveCluster();
+};
+
 function closeInfoPopup() {
   if (mapInfoBlock) {
     const titleElement = document.getElementById('info-title');
@@ -249,14 +496,13 @@ function closeInfoPopup() {
     publishedByElement.textContent = '';
     contentElement.textContent = '';
   }
-  selectedFeatureId = '';
   selectedBoundingBox = '';
   resetFeatureStyle();
   boundingBoxListener(boundingBoxCheckbox.checked);
 }
 
 function calculateCoordinates() {
-  const extent = vectorSource.getExtent();
+  const extent = bboxSource.getExtent();
   if (extent[0] !== Infinity && extent[1] !== Infinity && extent[2] !== -Infinity && extent[index3] !== -Infinity) {
     const [west, south, east, north] = ol.proj.transformExtent(extent, defaultMapProjection, extentTransformProjection);
 
@@ -279,7 +525,7 @@ function calculateCoordinates() {
   }
 }
 
-vectorSource.on('change', () => {
+bboxSource.on('change', () => {
   if (!isDetailsScreen) {
     calculateCoordinates();
   }
@@ -304,7 +550,7 @@ const attachClearSelectionListener = () => {
   const clearSelection = document.getElementById('clear-map-selection');
   if (clearSelection) {
     clearSelection.addEventListener('click', function () {
-      vectorSource.clear();
+      bboxSource.clear();
       const form = document.querySelector('[data-do-browser-storage]');
       if (form) {
         const sessionData = getStorageData();
@@ -350,9 +596,9 @@ function calculatePolygonFromCoordinates() {
   const south = parseFloat(document.getElementById('south')[targetKey]);
   const east = parseFloat(document.getElementById('east')[targetKey]);
   const west = parseFloat(document.getElementById('west')[targetKey]);
-  vectorSource.clear();
+  bboxSource.clear();
   !isDetailsScreen && toggleClearSelectionBlock();
-  addPolygon({ north, south, east, west }, completedStyle);
+  addPolygon({ north, south, east, west }, geographyTabBboxStyle);
 }
 
 function addPolygon(coordinates, style, addToVector = true) {
@@ -371,7 +617,7 @@ function addPolygon(coordinates, style, addToVector = true) {
       ]),
     });
     polygonFeature.setStyle(style);
-    addToVector && vectorSource.addFeature(polygonFeature);
+    addToVector && bboxSource.addFeature(polygonFeature);
     if (!addToVector) {
       polygonFeatureData.push(polygonFeature);
     }
@@ -394,40 +640,19 @@ function disableInteractions() {
   });
 }
 
-const getMarkerStyle = (iconPath) => {
-  return new ol.style.Style({
-    image: new ol.style.Icon({
-      src: iconPath,
-      scale: 1.0,
-    }),
-  });
-};
+function placeMarker(coords, iconPath, recordId = '1', boundingBoxData = '') {
+  coords.forEach((coord) => {
+    const lonLat = coord.split(',');
 
-const getHighlighterMarkerStyle = (iconPath) => {
-  return new ol.style.Style({
-    image: new ol.style.Icon({
-      src: iconPath,
-      anchor: [0.5, 1],
-      scale: 1.0,
-    }),
-    zIndex: 10,
-  });
-};
+    const markerFeature = new ol.Feature({
+      geometry: new ol.geom.Point(ol.proj.fromLonLat(lonLat)),
+      id: recordId,
+      boundingBox: boundingBoxData,
+    });
 
-function placeMarkers(markers, iconPath, recordId = '1', boundingBoxData = '') {
-  const markerStyle = getMarkerStyle(iconPath);
-  const markersArray = markers.split('_');
-  markersArray.forEach((markerString) => {
-    if (markerString) {
-      const markerParts = markerString.split(',');
-      const markerFeature = new ol.Feature({
-        geometry: new ol.geom.Point(ol.proj.fromLonLat(markerParts)),
-        id: recordId,
-        boundingBox: boundingBoxData,
-      });
-      markerFeature.setStyle(markerStyle);
-      markerSource.addFeature(markerFeature);
-    }
+    markerFeature.set('state', CLUSTER_STATE.inactive);
+
+    clusterVectorSource.addFeature(markerFeature);
   });
 }
 
@@ -435,11 +660,11 @@ function geographyTabListener() {
   map.updateSize();
   calculatePolygonFromCoordinates();
   if (typeof markers !== 'undefined' && markers) {
-    placeMarkers(markers, `/natural-capital-ecosystem-assessment/assets/images/marker.png`);
+    placeMarker(markers.split('_'), `/natural-capital-ecosystem-assessment/assets/images/marker.png`);
   }
   const locationParts = center.split(',');
   map.getView().setCenter(ol.proj.fromLonLat(locationParts));
-  map.getView().fit(vectorSource.getExtent(), {
+  map.getView().fit(bboxSource.getExtent(), {
     padding: [100, 100, 100, 100],
     duration: 1000,
   });
@@ -462,7 +687,7 @@ function resetMap() {
     resetControl.style.display = 'none';
   }
   resetFeatureStyle();
-  closeInfoPopup();
+  closePopupsAndDeselectCluster();
   fitMapToExtent();
 }
 
@@ -514,22 +739,26 @@ function exitMapEventListener() {
 }
 
 function drawBoundingBoxWithMarker(fitToMapExtentFlag, doRecenter = true) {
-  vectorSource.clear();
-  markerSource.clear();
+  clusterVectorSource.clear();
+  bboxSource.clear();
+
   map.updateSize();
+
   const centerArray = [];
   mapResults.forEach((record) => {
-    const boundingBox = addPolygon(record.geographicBoundary, mapResultsStyle, false);
-    placeMarkers(record.geographicCenter, markerIcon, record.id, boundingBox);
+    const markerCoords = record.geographicCenter.split('_');
 
-    const markersArray = record.geographicCenter.split('_');
-    markersArray.forEach((markerString) => {
+    const boundingBox = addPolygon(record.geographicBoundary, bboxStyle, false);
+    placeMarker(markerCoords, markerIcon, record.id, boundingBox);
+
+    markerCoords.forEach((markerString) => {
       if (markerString) {
         const [lon, lat] = markerString.split(',').map(parseFloat);
         centerArray.push([lon, lat]);
       }
     });
   });
+
   if (doRecenter) {
     const totalCenters = centerArray.length;
     if (totalCenters) {
@@ -539,24 +768,25 @@ function drawBoundingBoxWithMarker(fitToMapExtentFlag, doRecenter = true) {
       map.getView().setZoom(initialZoom);
     }
   }
+
   fitToMapExtentFlag && fitMapToExtent();
 }
 
 const boundingBoxListener = (boundingBoxCheckboxState) => {
   polygonFeatureData.forEach((feature) => {
-    const isFeatureExists = vectorSource
+    const isFeatureExists = bboxSource
       .getFeatures()
       .some((f) => f.getGeometry().getCoordinates().toString() === feature.getGeometry().getCoordinates().toString());
     if (feature !== selectedBoundingBox) {
       if (boundingBoxCheckboxState) {
-        !isFeatureExists && vectorSource.addFeature(feature);
-        feature.setStyle(mapResultsStyle);
+        !isFeatureExists && bboxSource.addFeature(feature);
+        feature.setStyle(bboxStyle);
       } else {
-        isFeatureExists && vectorSource.removeFeature(feature);
+        isFeatureExists && bboxSource.removeFeature(feature);
       }
     } else {
-      !isFeatureExists && vectorSource.addFeature(feature);
-      feature.setStyle(mapResultsHighlightStyle);
+      !isFeatureExists && bboxSource.addFeature(feature);
+      feature.setStyle(bboxSelectedStyle);
     }
   });
 };
@@ -747,71 +977,17 @@ function createTooltipOverlay(index) {
   markerOverlays.push(markerOverlay);
 }
 
-function keydownHandler(event) {
-  const key = event.key;
-  if (key >= 1 && key <= maxMarkerAllowed) {
-    const markerIndex = parseInt(key) - 1;
-    const visibleMarkers = markerLayer.getSource().getFeaturesInExtent(map.getView().calculateExtent(map.getSize()));
-    if (markerIndex < visibleMarkers.length) {
-      const markerOverlay = markerOverlays[markerIndex];
-      if (markerOverlay) {
-        const marker = visibleMarkers[markerIndex];
-        const coord = marker.getGeometry().getCoordinates();
-        const pixel = map.getPixelFromCoordinate(coord);
-        resetFeatureStyle();
-        closeInfoPopup();
-        map.forEachFeatureAtPixel(pixel, function (feature) {
-          if (feature === marker && isMarkerFeature(feature)) {
-            const recordId = feature.get('id');
-            const boundingBox = feature.get('boundingBox');
-            selectedFeatureId = recordId;
-            selectedBoundingBox = boundingBox;
-            feature.setStyle(getMarkerStyle(highlightedMarkerIcon));
-            showInformationPopup(recordId, boundingBox);
-          }
-        });
-      }
-    }
-  }
-}
-
-function keyupHandler(event) {
-  const key = event.key;
-  //Will be required if Tab press
-  // if (key === 'Tab') {
-  const visibleMarkers = markerLayer.getSource().getFeaturesInExtent(map.getView().calculateExtent(map.getSize()));
-  visibleMarkers.forEach((marker, index) => {
-    createTooltipOverlay(index);
-    const coord = marker.getGeometry().getCoordinates();
-    markerOverlays[index].setPosition(coord);
-  });
-  // }
-}
-
-function checkNUpdateMarkerTooltip() {
-  const visibleMarkers = markerLayer.getSource().getFeaturesInExtent(map.getView().calculateExtent(map.getSize()));
-  markerOverlays.forEach((overlay) => map.removeOverlay(overlay));
-  markerOverlays.length = 0;
-  document.removeEventListener('keydown', keydownHandler);
-  document.removeEventListener('keyup', keyupHandler);
-  resetFeatureStyle();
-  closeInfoPopup();
-
-  if (visibleMarkers.length <= maxMarkerAllowed) {
-    document.addEventListener('keydown', keydownHandler);
-    document.addEventListener('keyup', keyupHandler);
-  }
-}
-
 function fitMapToExtent() {
   const padding = 50;
-  const visibleMarkers = markerLayer.getSource().getFeatures();
+
+  const visibleMarkers = clusterVectorSource.getFeatures();
   const extent = ol.extent.createEmpty();
   if (visibleMarkers.length > 0) {
     visibleMarkers.forEach((marker) => {
       ol.extent.extend(extent, marker.getGeometry().getExtent());
     });
   }
+
   if (!ol.extent.isEmpty(extent)) {
     map.getView().fit(extent, {
       padding: [padding, padding, padding, padding],
@@ -851,7 +1027,6 @@ function customControls() {
           resetControl.style.display = 'block';
         }
       }
-      checkNUpdateMarkerTooltip();
     });
   }
 }
@@ -859,7 +1034,10 @@ function customControls() {
 function infoListener() {
   const closeInfoElement = document.getElementById('map-info-close');
   if (closeInfoElement) {
-    closeInfoElement.addEventListener('click', closeInfoPopup);
+    closeInfoElement.addEventListener('click', () => {
+      closeInfoPopup();
+      deslectActiveCluster();
+    });
   }
   const moreInfoElement = document.getElementById('more-info');
   if (moreInfoElement) {
@@ -924,13 +1102,13 @@ document.addEventListener('DOMContentLoaded', () => {
         geographyTabListener();
       }, timeout);
     } else if (isMapResultsScreen) {
-      invokeMapResults();
+      invokeMapResults(true);
       invokeMapFilters();
       exitMapEventListener();
+      attachCluserListCloseListener();
 
       disableInteractions();
       customControls();
-      checkNUpdateMarkerTooltip();
       document.addEventListener('keydown', handleKeyboardArrowEvent);
     } else {
       setTimeout(() => {
