@@ -2,7 +2,7 @@
 
 import { Request, ResponseToolkit, ResponseObject } from '@hapi/hapi';
 import { AboutController } from '../../../src/controllers/web/AboutController';
-import { LandingPageData } from '../../../src/utils/constants';
+import { landingPageData } from '../../../src/utils/constants';
 
 describe('AboutController.AboutController', () => {
   let request: Partial<Request>;
@@ -22,6 +22,6 @@ describe('AboutController.AboutController', () => {
 
   it('should render the landing page view', async () => {
     const result = await AboutController.renderAboutHandler(request as Request, response as ResponseToolkit);
-    expect(response.view).toHaveBeenCalledWith('screens/about/template', LandingPageData);
+    expect(response.view).toHaveBeenCalledWith('screens/about/template', landingPageData);
   });
 });
