@@ -1,3 +1,10 @@
+## [1.11.1](https://github.com/DSP3-apps/ncea-frontend/compare/v1.11.0...v1.11.1) (2025-02-19)
+
+
+### Bug Fixes
+
+* **devops:** Update absolute paths to relative paths ([f87a0c3](https://github.com/DSP3-apps/ncea-frontend/commit/f87a0c3ed2b0092219720c9535d0c956e996e555))
+
 # [1.11.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.10.0...v1.11.0) (2025-02-19)
 
 
