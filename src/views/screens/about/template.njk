@@ -22,7 +22,7 @@
     <section class="landingPage__categories">
       <div class="landingPage__categories_cardLayout">
       {% for item in categories %}
-        {{card(item.text, item.imgUrl)}}
+        {{card(item.text, item.imgUrl, item.title)}}
       {% endfor %}
       </div>
     </section>

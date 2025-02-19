@@ -272,7 +272,7 @@ export const FILTER_VALUES = {
   dataFormat: 'fmt',
 };
 
-export const LandingPageData = {
+export const landingPageData = {
   pageHeading: 'NCEA Programme',
   introText: {
     content: [
@@ -285,18 +285,22 @@ export const LandingPageData = {
     {
       text: 'NRW’s 10 week public consultation on a new National Park',
       imgUrl: `${BASE_PATH}/assets/images/newsfp.jpg`,
+      title: 'Photo of Lake Vyrnwy',
     },
     {
       text: 'Newborough National Nature Reserve and Forest, Anglesey',
       imgUrl: `${BASE_PATH}/assets/images/llanddwyn.jpg`,
+      title: 'Family on Llanddwyn Island',
     },
     {
       text: 'Bwlch Nant yr Arian Visitor Centre, near Aberystwyth',
       imgUrl: `${BASE_PATH}/assets/images/bnya2.jpg`,
+      title: 'View of the lake at Bwlch Nant yr Arian Forest',
     },
     {
       text: 'Coed y Brenin Visitor Centre, near Dolgellau',
       imgUrl: `${BASE_PATH}/assets/images/dronecoe.jpg`,
+      title: 'Coed y Brenin Visitor Centre',
     },
   ],
 };
