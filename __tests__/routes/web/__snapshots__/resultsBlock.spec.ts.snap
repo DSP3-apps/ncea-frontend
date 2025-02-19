@@ -220,7 +220,7 @@ exports[`Results block template Guided search journey Search results with empty 
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A44609%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A42439%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -470,12 +470,11 @@ exports[`Results block template Guided search journey Search results with empty 
 </form>
 </section>
 
-<section>  
+<section>
   <div class="filters-heading">
     <h2 class='govuk-heading-m filter-heading govuk-!-margin-bottom-2'>
       Filters
     </h2>
-    
       <div class="filters-buttons">
         <button type="reset" class="govuk-button govuk-button--secondary" data-module="govuk-button" form="filters-search_results" id="filters-reset-search_results" data-reset-url="/natural-capital-ecosystem-assessment/search?q=&amp;rpp=20&amp;srt=most_relevant&amp;jry=gs&amp;pg=1&amp;scope=all">
           Clear Filters
@@ -484,7 +483,6 @@ exports[`Results block template Guided search journey Search results with empty 
           Apply Filters
         </button>
       </div>
-    
   </div>
   <div class="govuk-section-break--visible"></div>
   
@@ -2257,7 +2255,7 @@ exports[`Results block template Guided search journey Search results with error 
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A45207%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A40633%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -2507,12 +2505,19 @@ exports[`Results block template Guided search journey Search results with error 
 </form>
 </section>
 
-<section>  
+<section>
   <div class="filters-heading">
     <h2 class='govuk-heading-m filter-heading govuk-!-margin-bottom-2'>
       Filters
     </h2>
-    
+      <div class="filters-buttons">
+        <button type="reset" class="govuk-button govuk-button--secondary" data-module="govuk-button" form="filters-" id="filters-reset-" data-reset-url="">
+          Clear Filters
+        </button>
+        <button type="submit" class="govuk-button" data-module="govuk-button" form="filters-">
+          Apply Filters
+        </button>
+      </div>
   </div>
   <div class="govuk-section-break--visible"></div>
   
@@ -3095,7 +3100,7 @@ exports[`Results block template Quick search journey Search results with data sh
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A40215%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33401%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -3345,12 +3350,11 @@ exports[`Results block template Quick search journey Search results with data sh
 </form>
 </section>
 
-<section>  
+<section>
   <div class="filters-heading">
     <h2 class='govuk-heading-m filter-heading govuk-!-margin-bottom-2'>
       Filters
     </h2>
-    
       <div class="filters-buttons">
         <button type="reset" class="govuk-button govuk-button--secondary" data-module="govuk-button" form="filters-search_results" id="filters-reset-search_results" data-reset-url="/natural-capital-ecosystem-assessment/search?q=marine&amp;rpp=20&amp;srt=most_relevant&amp;jry=qs&amp;pg=1&amp;scope=all">
           Clear Filters
@@ -3359,7 +3363,6 @@ exports[`Results block template Quick search journey Search results with data sh
           Apply Filters
         </button>
       </div>
-    
   </div>
   <div class="govuk-section-break--visible"></div>
   
@@ -5380,7 +5383,7 @@ exports[`Results block template Quick search journey Search results with empty d
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A38427%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A35201%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -5630,12 +5633,11 @@ exports[`Results block template Quick search journey Search results with empty d
 </form>
 </section>
 
-<section>  
+<section>
   <div class="filters-heading">
     <h2 class='govuk-heading-m filter-heading govuk-!-margin-bottom-2'>
       Filters
     </h2>
-    
       <div class="filters-buttons">
         <button type="reset" class="govuk-button govuk-button--secondary" data-module="govuk-button" form="filters-search_results" id="filters-reset-search_results" data-reset-url="/natural-capital-ecosystem-assessment/search?q=marine&amp;rpp=20&amp;srt=most_relevant&amp;jry=qs&amp;pg=1&amp;scope=all">
           Clear Filters
@@ -5644,7 +5646,6 @@ exports[`Results block template Quick search journey Search results with empty d
           Apply Filters
         </button>
       </div>
-    
   </div>
   <div class="govuk-section-break--visible"></div>
   
@@ -7417,7 +7418,7 @@ exports[`Results block template Quick search journey Search results with error s
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A38935%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A46665%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -7667,12 +7668,19 @@ exports[`Results block template Quick search journey Search results with error s
 </form>
 </section>
 
-<section>  
+<section>
   <div class="filters-heading">
     <h2 class='govuk-heading-m filter-heading govuk-!-margin-bottom-2'>
       Filters
     </h2>
-    
+      <div class="filters-buttons">
+        <button type="reset" class="govuk-button govuk-button--secondary" data-module="govuk-button" form="filters-" id="filters-reset-" data-reset-url="">
+          Clear Filters
+        </button>
+        <button type="submit" class="govuk-button" data-module="govuk-button" form="filters-">
+          Apply Filters
+        </button>
+      </div>
   </div>
   <div class="govuk-section-break--visible"></div>
   
