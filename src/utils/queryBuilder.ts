@@ -11,6 +11,7 @@ import {
 import { generateDateString } from './generateDateString';
 import { ISearchFilterProcessed, ISearchFiltersProcessed } from './searchFilters';
 import {
+  IDateRange,
   IDateValues,
   IGeoCoordinates,
   IGeoShapeBlock,
@@ -18,7 +19,6 @@ import {
   ISearchPayload,
   ISearchRequest,
   IShapeCoordinates,
-  ITemporalExtent,
 } from '../interfaces/queryBuilder.interface';
 
 const _generateQueryStringBlock = (
@@ -258,13 +258,13 @@ const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearc
     }
     return format(endOfYear(new Date(value)), DATE_FORMAT);
   };
-  const dateFilters: ITemporalExtent = Object.entries(filters.lastUpdated).reduce((acc, [key, value]) => {
+  const dateFilters: IDateRange = Object.entries(filters.lastUpdated).reduce((acc, [key, value]) => {
     const newKey = mapping[key] ?? key;
 
     acc[newKey] = value ? dateGenerator(key, value) : '';
 
     return acc;
-  }, {} as ITemporalExtent);
+  }, {} as IDateRange);
 
   // Get licence filter value
   const licence = filters.licence;
@@ -286,10 +286,6 @@ const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearc
       ServiceType: serviceTypes ?? [],
       Formats: dataFormats ?? [],
       DateRange: dateFilters,
-      // DateRange: {
-      //   StartDate: '2001-01-01',
-      //   EndDate: '2002-12-31',
-      // },
       Licence: licence ?? null,
       Keywords: keywords ?? [],
       RetiredAndArchived: retiredAndArchived ?? false,
