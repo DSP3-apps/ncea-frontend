@@ -220,7 +220,7 @@ exports[`Results block template Guided search journey Search results with empty 
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A42439%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A46763%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -278,6 +278,40 @@ exports[`Results block template Guided search journey Search results with empty 
     
   <div class='govuk-grid-row govuk-!-margin-0 govuk-!-text-align-left'>
     <div class='govuk-grid-column-three-quarters govuk-!-margin-0 govuk-!-padding-0 map-view-block'>
+      <div class="cluster-list display-none" id="cluster-list">
+        <div class="container">
+          <div class="heading">
+            <span class="title">
+              <h2 class="govuk-heading-m filter-heading govuk-!-margin-0" id="cluster-list-heading"></h2>
+              <button id="cluster-list-close" class="close">
+                
+  
+  
+  
+    
+  
+    
+  
+  
+  <svg 
+  stroke="currentColor" 
+  fill="currentColor" 
+  stroke-width="0" 
+  viewBox="0 0 512 512" 
+  xmlns="http://www.w3.org/2000/svg"
+   width=1.5rem height=1.5rem
+>
+  <path d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"></path>
+</svg>
+
+              </button>
+            </span>
+            <span class="govuk-hint">Click on a record to view more info.</span>
+          </div>
+          <div class="govuk-section-break--visible"></div>
+          <ul class="records" id="cluster-list-records"></ul>
+        </div>
+      </div>
       <div id='coordinate-map' style='height: 100%; width: 100%;'></div>
       <div class='defra-map-controls'>
         <button class='defra-map__exit' id="defra-map-exit">
@@ -1505,6 +1539,8 @@ exports[`Results block template Guided search journey Search results with empty 
       
     
     
+        
+      
     
     
     
@@ -1512,7 +1548,7 @@ exports[`Results block template Guided search journey Search results with empty 
     
     
     
-   class="govuk-input" id="filters-licence-search_results" name="licence" type="text">
+   class="govuk-input" id="filters-licence-search_results" name="licence" type="text" value="">
 
 </div>
 
@@ -1958,7 +1994,7 @@ exports[`Results block template Guided search journey Search results with empty 
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.10.0</p>
+          <p>Version: v1.11.1</p>
         </div>
         
         
@@ -2255,7 +2291,7 @@ exports[`Results block template Guided search journey Search results with error 
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A40633%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A46015%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -2313,6 +2349,40 @@ exports[`Results block template Guided search journey Search results with error 
     
   <div class='govuk-grid-row govuk-!-margin-0 govuk-!-text-align-left'>
     <div class='govuk-grid-column-three-quarters govuk-!-margin-0 govuk-!-padding-0 map-view-block'>
+      <div class="cluster-list display-none" id="cluster-list">
+        <div class="container">
+          <div class="heading">
+            <span class="title">
+              <h2 class="govuk-heading-m filter-heading govuk-!-margin-0" id="cluster-list-heading"></h2>
+              <button id="cluster-list-close" class="close">
+                
+  
+  
+  
+    
+  
+    
+  
+  
+  <svg 
+  stroke="currentColor" 
+  fill="currentColor" 
+  stroke-width="0" 
+  viewBox="0 0 512 512" 
+  xmlns="http://www.w3.org/2000/svg"
+   width=1.5rem height=1.5rem
+>
+  <path d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"></path>
+</svg>
+
+              </button>
+            </span>
+            <span class="govuk-hint">Click on a record to view more info.</span>
+          </div>
+          <div class="govuk-section-break--visible"></div>
+          <ul class="records" id="cluster-list-records"></ul>
+        </div>
+      </div>
       <div id='coordinate-map' style='height: 100%; width: 100%;'></div>
       <div class='defra-map-controls'>
         <button class='defra-map__exit' id="defra-map-exit">
@@ -2803,7 +2873,7 @@ exports[`Results block template Guided search journey Search results with error 
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.10.0</p>
+          <p>Version: v1.11.1</p>
         </div>
         
         
@@ -3100,7 +3170,7 @@ exports[`Results block template Quick search journey Search results with data sh
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33401%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A37397%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -3158,6 +3228,40 @@ exports[`Results block template Quick search journey Search results with data sh
     
   <div class='govuk-grid-row govuk-!-margin-0 govuk-!-text-align-left'>
     <div class='govuk-grid-column-three-quarters govuk-!-margin-0 govuk-!-padding-0 map-view-block'>
+      <div class="cluster-list display-none" id="cluster-list">
+        <div class="container">
+          <div class="heading">
+            <span class="title">
+              <h2 class="govuk-heading-m filter-heading govuk-!-margin-0" id="cluster-list-heading"></h2>
+              <button id="cluster-list-close" class="close">
+                
+  
+  
+  
+    
+  
+    
+  
+  
+  <svg 
+  stroke="currentColor" 
+  fill="currentColor" 
+  stroke-width="0" 
+  viewBox="0 0 512 512" 
+  xmlns="http://www.w3.org/2000/svg"
+   width=1.5rem height=1.5rem
+>
+  <path d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"></path>
+</svg>
+
+              </button>
+            </span>
+            <span class="govuk-hint">Click on a record to view more info.</span>
+          </div>
+          <div class="govuk-section-break--visible"></div>
+          <ul class="records" id="cluster-list-records"></ul>
+        </div>
+      </div>
       <div id='coordinate-map' style='height: 100%; width: 100%;'></div>
       <div class='defra-map-controls'>
         <button class='defra-map__exit' id="defra-map-exit">
@@ -4385,6 +4489,8 @@ exports[`Results block template Quick search journey Search results with data sh
       
     
     
+        
+      
     
     
     
@@ -4392,7 +4498,7 @@ exports[`Results block template Quick search journey Search results with data sh
     
     
     
-   class="govuk-input" id="filters-licence-search_results" name="licence" type="text">
+   class="govuk-input" id="filters-licence-search_results" name="licence" type="text" value="">
 
 </div>
 
@@ -5086,7 +5192,7 @@ exports[`Results block template Quick search journey Search results with data sh
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.10.0</p>
+          <p>Version: v1.11.1</p>
         </div>
         
         
@@ -5383,7 +5489,7 @@ exports[`Results block template Quick search journey Search results with empty d
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A35201%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A40925%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -5441,6 +5547,40 @@ exports[`Results block template Quick search journey Search results with empty d
     
   <div class='govuk-grid-row govuk-!-margin-0 govuk-!-text-align-left'>
     <div class='govuk-grid-column-three-quarters govuk-!-margin-0 govuk-!-padding-0 map-view-block'>
+      <div class="cluster-list display-none" id="cluster-list">
+        <div class="container">
+          <div class="heading">
+            <span class="title">
+              <h2 class="govuk-heading-m filter-heading govuk-!-margin-0" id="cluster-list-heading"></h2>
+              <button id="cluster-list-close" class="close">
+                
+  
+  
+  
+    
+  
+    
+  
+  
+  <svg 
+  stroke="currentColor" 
+  fill="currentColor" 
+  stroke-width="0" 
+  viewBox="0 0 512 512" 
+  xmlns="http://www.w3.org/2000/svg"
+   width=1.5rem height=1.5rem
+>
+  <path d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"></path>
+</svg>
+
+              </button>
+            </span>
+            <span class="govuk-hint">Click on a record to view more info.</span>
+          </div>
+          <div class="govuk-section-break--visible"></div>
+          <ul class="records" id="cluster-list-records"></ul>
+        </div>
+      </div>
       <div id='coordinate-map' style='height: 100%; width: 100%;'></div>
       <div class='defra-map-controls'>
         <button class='defra-map__exit' id="defra-map-exit">
@@ -6668,6 +6808,8 @@ exports[`Results block template Quick search journey Search results with empty d
       
     
     
+        
+      
     
     
     
@@ -6675,7 +6817,7 @@ exports[`Results block template Quick search journey Search results with empty d
     
     
     
-   class="govuk-input" id="filters-licence-search_results" name="licence" type="text">
+   class="govuk-input" id="filters-licence-search_results" name="licence" type="text" value="">
 
 </div>
 
@@ -7121,7 +7263,7 @@ exports[`Results block template Quick search journey Search results with empty d
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.10.0</p>
+          <p>Version: v1.11.1</p>
         </div>
         
         
@@ -7418,7 +7560,7 @@ exports[`Results block template Quick search journey Search results with error s
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A46665%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A42859%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -7476,6 +7618,40 @@ exports[`Results block template Quick search journey Search results with error s
     
   <div class='govuk-grid-row govuk-!-margin-0 govuk-!-text-align-left'>
     <div class='govuk-grid-column-three-quarters govuk-!-margin-0 govuk-!-padding-0 map-view-block'>
+      <div class="cluster-list display-none" id="cluster-list">
+        <div class="container">
+          <div class="heading">
+            <span class="title">
+              <h2 class="govuk-heading-m filter-heading govuk-!-margin-0" id="cluster-list-heading"></h2>
+              <button id="cluster-list-close" class="close">
+                
+  
+  
+  
+    
+  
+    
+  
+  
+  <svg 
+  stroke="currentColor" 
+  fill="currentColor" 
+  stroke-width="0" 
+  viewBox="0 0 512 512" 
+  xmlns="http://www.w3.org/2000/svg"
+   width=1.5rem height=1.5rem
+>
+  <path d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"></path>
+</svg>
+
+              </button>
+            </span>
+            <span class="govuk-hint">Click on a record to view more info.</span>
+          </div>
+          <div class="govuk-section-break--visible"></div>
+          <ul class="records" id="cluster-list-records"></ul>
+        </div>
+      </div>
       <div id='coordinate-map' style='height: 100%; width: 100%;'></div>
       <div class='defra-map-controls'>
         <button class='defra-map__exit' id="defra-map-exit">
@@ -7966,7 +8142,7 @@ exports[`Results block template Quick search journey Search results with error s
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.10.0</p>
+          <p>Version: v1.11.1</p>
         </div>
         
         
