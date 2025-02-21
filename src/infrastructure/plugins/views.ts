@@ -76,7 +76,6 @@ const customHapiViews = {
       serviceName: 'Find natural capital data',
       pageTitle: 'Find natural capital data - GOV.UK',
       routes: {
-        homePage: `${BASE_PATH}`,
         searchResults: `${BASE_PATH}${searchResults}`,
         guidedSearch: `${BASE_PATH}${guidedSearch}`,
         guidedDateSearch: `${BASE_PATH}${guidedDateSearch}`,
