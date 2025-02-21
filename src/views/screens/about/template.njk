@@ -17,7 +17,7 @@
             </p>
           {% endfor %}
         </div>
-        <img class="landingPage__intro-img" src={{ introText.imageUrl }} alt="">
+        <img class="landingPage__intro-img" src={{ introText.imageUrl }} title="Landing Page Introduction Image">
     </section>
     {% if displayCategoryPages %}
       <section class="landingPage__categories">
@@ -33,7 +33,7 @@
         <h2>Our Partners</h2>
           <div class="landingPage__partnersLogo-leftsection--logos">
            {% for item in partnerLogos %}
-              <img src="{{ item.imgUrl }}" title={{ item.title }}>
+              <img src="{{ item.imgUrl }}" title="{{ item.title }}">
            {% endfor %}
           </div>
       </div>
@@ -41,7 +41,7 @@
           <h2>Product Brochure</h2>
             <p>Explore our latest products with detailed specifications and benefits.</p>
           <div class="landingPage__partnersLogo-rightsection--brochure">
-              <img src="{{ assetPath }}/images/template.jpg" alt="Product Brochure">
+              <img src="{{ assetPath }}/images/template.jpg" title="Product Brochure">
           </div>
         </div>
       </div>
@@ -55,7 +55,7 @@
           <div class="landingPage__links_container-heading"><h2>Quick Links</h2></div>
            <div class="landingPage__links_container-quicklinks">
             <div class="landingPage__links_container-quicklinks-list">
-                  <img width="30px" height="30px" src="{{ assetPath }}/images/favicon.svg" title="youtube">
+                  <img width="30px" height="30px" src="{{ assetPath }}/images/favicon.svg" title="govuk">
                     <a href="https://www.gov.uk/government/publications/natural-capital-and-ecosystem-assessment-programme/natural-capital-and-ecosystem-assessment-programme" target="_blank" rel="noreferrer noopener" class="govuk-link govuk-link--no-underline">GOV.UK</a>
               </div>
               <div class="landingPage__links_container-quicklinks-list">
