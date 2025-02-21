@@ -71,6 +71,7 @@ const customHapiViews = {
     relativeTo: __dirname,
     isCached: process.env.NODE_ENV !== 'production',
     context: {
+      basePath: `${BASE_PATH}`,
       assetPath: `${BASE_PATH}/assets`,
       serviceName: 'Find natural capital data',
       pageTitle: 'Find natural capital data - GOV.UK',

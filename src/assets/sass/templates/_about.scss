@@ -51,6 +51,97 @@
         }
       }
     }
+    &__partnersLogo {
+      display: flex;
+      max-width: 1200px;
+      background-color: white;
+      overflow: hidden;
+      margin-top: 20px;
+      &-leftsection {
+        width: 50%;
+        background-color: #008938;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        h2 {
+          margin-bottom: 15px;
+        }
+        &--logos {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 15px;
+          img {
+            background: #fff;
+            margin-top: 20px;
+          }
+          img:nth-child(1) {
+            padding-left: 10px;
+          }
+          img:nth-child(2), img:nth-child(3), img:nth-child(4){
+            padding: 6px;
+          }
+        }
+      }
+      &-rightsection {
+        width: 50%;
+        padding: 20px;
+        text-align: center;
+        &--brochure {
+          img {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+          }
+        }
+        h2 {
+          color: #2c3e50;
+          margin-bottom: 15px;
+        }
+      }
+    }
+    &__feedlinks {
+      margin-top: 20px;
+    }
+    &__feeds_container {
+      display: flex;
+      justify-content: center;
+      &--feeds {
+        width: 50%;
+        margin: auto;
+        text-align: center;
+          button {
+            width: 200px
+          }
+      }
+    }
+    &__links_container {
+      width: 50%;
+      height: 140px;
+      &-quicklinks-list {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      &-quicklinks-text {
+        color: #1D70B8;
+        font-size: 1.18rem;
+        line-height: 1.25;
+      }
+    }
+    &__newsletter {
+      text-align: center;
+      margin-top: 20px;
+      &--text {
+        font-size: 25px;
+        font-weight: 700;
+      }
+    }
+
     @media only screen and (min-width: 769px) {
       padding: 1rem 0rem;
       &__header {

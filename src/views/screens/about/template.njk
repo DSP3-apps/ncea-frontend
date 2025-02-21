@@ -19,12 +19,55 @@
         </div>
         <img class="landingPage__intro-img" src={{ introText.imageUrl }} alt="">
     </section>
-    <section class="landingPage__categories">
-      <div class="landingPage__categories_cardLayout">
-      {% for item in categories %}
-        {{card(item.text, item.imgUrl, item.title)}}
-      {% endfor %}
+    {% if displayCategoryPages %}
+      <section class="landingPage__categories">
+        <div class="landingPage__categories_cardLayout">
+        {% for item in categories %}
+          {{card(item.text, item.imgUrl, item.title)}}
+        {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+    <section class="landingPage__partnersLogo">
+      <div class="landingPage__partnersLogo-leftsection">
+        <h2>Our Partners</h2>
+          <div class="landingPage__partnersLogo-leftsection--logos">
+           {% for item in partnerLogos %}
+              <img src="{{ item.imgUrl }}" title={{ item.title }}>
+           {% endfor %}
+          </div>
+      </div>
+        <div class="landingPage__partnersLogo-rightsection">
+          <h2>Product Brochure</h2>
+            <p>Explore our latest products with detailed specifications and benefits.</p>
+          <div class="landingPage__partnersLogo-rightsection--brochure">
+              <img src="{{ assetPath }}/images/template.jpg" alt="Product Brochure">
+          </div>
+        </div>
       </div>
     </section>
+    <section class="landingPage__feedlinks">
+     <div class="landingPage__feeds_container">
+      <div class="landingPage__feeds_container--feeds">
+         <a href="{{ basePath }}/feeds" class="govuk-link govuk-link--no-underline landingPage__newsletter--text" >Feeds</a>
+      </div>
+        <div class="landingPage__links_container">
+          <div class="landingPage__links_container-heading"><h2>Quick Links</h2></div>
+           <div class="landingPage__links_container-quicklinks">
+            <div class="landingPage__links_container-quicklinks-list">
+                  <img width="30px" height="30px" src="{{ assetPath }}/images/favicon.svg" title="youtube">
+                    <a href="https://www.gov.uk/government/publications/natural-capital-and-ecosystem-assessment-programme/natural-capital-and-ecosystem-assessment-programme" target="_blank" rel="noreferrer noopener" class="govuk-link govuk-link--no-underline">GOV.UK</a>
+              </div>
+              <div class="landingPage__links_container-quicklinks-list">
+                  <img width="30px" height="30px" src="{{ assetPath }}/images/youtube-icon.svg" title="youtube">
+                    <a href="https://www.youtube.com/@NCEAprogramme/videos" target="_blank" rel="noreferrer noopener" class="govuk-link govuk-link--no-underline">YouTube</a>
+              </div>
+            </div>
+        </div>
+     </div>
+    <section>
+    <section class="landingPage__newsletter">
+       <a href="#" class="govuk-link govuk-link--no-underline landingPage__newsletter--text">Join our mailing list</a>
+    <section>
   </div>
 {% endblock %}
