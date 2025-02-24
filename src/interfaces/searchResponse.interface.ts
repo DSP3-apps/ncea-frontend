@@ -186,7 +186,18 @@ export interface ISearchResult {
   datasetType: string;
   ingestedDateTime: string;
   content: string;
-  searchFields: ISearchFields;
+  fileIdentifier: string;
+  title: string;
+  alternativeTitle: string;
+  abstract: string;
+  resourceType: string;
+  topicCategory: string;
+  keywords: string[];
+  lineage: string;
+  additionalInformationSource: string;
+  temporalExtent: ITemporalExtent;
+  mapping?: IGeometry;
+  resource?: IResource;
 }
 
 export interface ISearchResponse {

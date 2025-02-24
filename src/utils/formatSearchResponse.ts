@@ -77,24 +77,24 @@ export const getStudyPeriodDetails = (isDetails: boolean, dateRanges: IDateRange
 export const transformSearchResponse = (response: ISearchResponse, isMapResults: boolean = false): ISearchResults => {
   let hasSpatialData = false;
   const items = response.results.map((result: ISearchResult) => {
-    const startDate = new Date(result.searchFields.temporalExtent.beginPosition);
-    const endDate = new Date(result.searchFields.temporalExtent.endPosition);
+    const startDate = new Date(result.temporalExtent.beginPosition);
+    const endDate = new Date(result.temporalExtent.endPosition);
 
     const searchResponse = {
-      id: result.searchFields.fileIdentifier,
-      title: result.searchFields.title,
-      content: toggleContent(result.searchFields.abstract, `abstract_content-${result.searchFields.fileIdentifier}`),
+      id: result.fileIdentifier,
+      title: result.title,
+      content: toggleContent(result.abstract, `abstract_content-${result.fileIdentifier}`),
       studyPeriod: `${format(startDate, DATE_FORMAT)} to ${format(endDate, DATE_FORMAT)}`,
       startYear: startDate.getFullYear().toString(),
       toYear: endDate.getFullYear().toString(),
-      resourceLocator: result?.searchFields?.resource?.url ?? '',
+      resourceLocator: result?.resource?.url ?? '',
       organisationName: '',
       publishedBy: '',
       resourceType: ['dataset'],
     };
 
-    if (isMapResults && result?.searchFields?.mapping) {
-      const envelope = result?.searchFields?.mapping;
+    if (isMapResults && result?.mapping) {
+      const envelope = result?.mapping;
 
       // Calculate center point for envelope received.
       const coordinates = [
