@@ -39,19 +39,16 @@ const generatePaginationNumbers = (currentPage, totalPages, maxPagesDisplayed) =
   return pages;
 };
 
-export const getPaginationItems = (
-  currentPage: number | null,
-  totalItems: number,
-  itemsPerPage: number,
-  requestQuery: RequestQuery,
-) => {
+export const getPaginationItems = (totalItems: number, requestQuery: RequestQuery) => {
   const maxPagesDisplayed = 5;
   const paginationItems = {};
   if (totalItems === 0) {
     return paginationItems;
   }
-  const totalPaginationPages = Math.ceil(totalItems / itemsPerPage);
+  const totalPaginationPages = Math.ceil(totalItems / requestQuery.rpp);
+  const currentPage = parseInt(requestQuery.pg, 10);
   const paginationNumbers = generatePaginationNumbers(currentPage, totalPaginationPages, maxPagesDisplayed);
+
   // Previous page button
   if (currentPage && currentPage > 1) {
     const queryParamsObject: Record<string, string> = {

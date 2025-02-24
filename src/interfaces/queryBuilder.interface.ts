@@ -142,6 +142,38 @@ interface ISearchBuilderPayload {
   docId?: string;
 }
 
+interface IDateRange {
+  StartDate: string | null;
+  EndDate: string | null;
+}
+interface IFilter {
+  Keywords: string[] | [null];
+  Licence: string | null;
+  FileIdentifier: string | null;
+  Title: string | null;
+  AlternativeTitle: string | null;
+  Abstract: string | null;
+  ResourceType: string | null;
+  ServiceType: string[] | null;
+  TopicCategory: string | null;
+  Lineage: string | null;
+  AdditionalInformationSource: string | null;
+  DateRange: IDateRange | null;
+  Organisations: string[] | null;
+  DataTypes: string[] | null;
+  Formats: string[] | null;
+  SearchTitleOnly: boolean;
+  RetiredAndArchived: boolean;
+}
+
+interface ISearchRequest {
+  Query: {
+    SearchTerms: string[];
+  };
+  Filters: IFilter;
+  ResultsPerPage: number;
+}
+
 export {
   IAggregationBlock,
   ICustomSortScript,
@@ -158,6 +190,9 @@ export {
   ISearchFields,
   ISearchFilter,
   ISearchPayload,
+  IDateRange,
+  IFilter,
+  ISearchRequest,
   IShapeCoordinates,
   ISortBlock,
   ITermsBlock,

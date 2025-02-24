@@ -220,7 +220,7 @@ exports[`Results block template Guided search journey Search results with empty 
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A41549%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A39303%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -278,6 +278,40 @@ exports[`Results block template Guided search journey Search results with empty 
     
   <div class='govuk-grid-row govuk-!-margin-0 govuk-!-text-align-left'>
     <div class='govuk-grid-column-three-quarters govuk-!-margin-0 govuk-!-padding-0 map-view-block'>
+      <div class="cluster-list display-none" id="cluster-list">
+        <div class="container">
+          <div class="heading">
+            <span class="title">
+              <h2 class="govuk-heading-m filter-heading govuk-!-margin-0" id="cluster-list-heading"></h2>
+              <button id="cluster-list-close" class="close">
+                
+  
+  
+  
+    
+  
+    
+  
+  
+  <svg 
+  stroke="currentColor" 
+  fill="currentColor" 
+  stroke-width="0" 
+  viewBox="0 0 512 512" 
+  xmlns="http://www.w3.org/2000/svg"
+   width=1.5rem height=1.5rem
+>
+  <path d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"></path>
+</svg>
+
+              </button>
+            </span>
+            <span class="govuk-hint">Click on a record to view more info.</span>
+          </div>
+          <div class="govuk-section-break--visible"></div>
+          <ul class="records" id="cluster-list-records"></ul>
+        </div>
+      </div>
       <div id='coordinate-map' style='height: 100%; width: 100%;'></div>
       <div class='defra-map-controls'>
         <button class='defra-map__exit' id="defra-map-exit">
@@ -470,12 +504,11 @@ exports[`Results block template Guided search journey Search results with empty 
 </form>
 </section>
 
-<section>  
+<section>
   <div class="filters-heading">
     <h2 class='govuk-heading-m filter-heading govuk-!-margin-bottom-2'>
       Filters
     </h2>
-    
       <div class="filters-buttons">
         <button type="reset" class="govuk-button govuk-button--secondary" data-module="govuk-button" form="filters-search_results" id="filters-reset-search_results" data-reset-url="/natural-capital-ecosystem-assessment/search?q=&amp;rpp=20&amp;srt=most_relevant&amp;jry=gs&amp;pg=1&amp;scope=all">
           Clear Filters
@@ -484,7 +517,6 @@ exports[`Results block template Guided search journey Search results with empty 
           Apply Filters
         </button>
       </div>
-    
   </div>
   <div class="govuk-section-break--visible"></div>
   
@@ -549,78 +581,78 @@ exports[`Results block template Guided search journey Search results with empty 
 
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-ahdb-search_results" name="org" type="checkbox" value="ahdb" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-ahdb-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Agriculture &amp; Horticulture Development Board-search_results" name="org" type="checkbox" value="Agriculture &amp; Horticulture Development Board" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Agriculture &amp; Horticulture Development Board-search_results">
                       Agriculture &amp; Horticulture Development Board
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-apha-search_results" name="org" type="checkbox" value="apha" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-apha-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Animal &amp; Plant Health Agency-search_results" name="org" type="checkbox" value="Animal &amp; Plant Health Agency" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Animal &amp; Plant Health Agency-search_results">
                       Animal &amp; Plant Health Agency
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-cefas-search_results" name="org" type="checkbox" value="cefas" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-cefas-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Centre for Environment, Fisheries &amp; Aquaculture Science-search_results" name="org" type="checkbox" value="Centre for Environment, Fisheries &amp; Aquaculture Science" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Centre for Environment, Fisheries &amp; Aquaculture Science-search_results">
                       Centre for Environment, Fisheries &amp; Aquaculture Science
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-defra-search_results" name="org" type="checkbox" value="defra" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-defra-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Department for Environment, Food &amp; Rural Affairs-search_results" name="org" type="checkbox" value="Department for Environment, Food &amp; Rural Affairs" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Department for Environment, Food &amp; Rural Affairs-search_results">
                       Department for Environment, Food &amp; Rural Affairs
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-ea-search_results" name="org" type="checkbox" value="ea" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-ea-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Environment Agency-search_results" name="org" type="checkbox" value="Environment Agency" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Environment Agency-search_results">
                       Environment Agency
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-fc-search_results" name="org" type="checkbox" value="fc" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-fc-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Forestry Commission-search_results" name="org" type="checkbox" value="Forestry Commission" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Forestry Commission-search_results">
                       Forestry Commission
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-jncc-search_results" name="org" type="checkbox" value="jncc" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-jncc-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Joint Nature Conservation Committee-search_results" name="org" type="checkbox" value="Joint Nature Conservation Committee" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Joint Nature Conservation Committee-search_results">
                       Joint Nature Conservation Committee
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-kew-search_results" name="org" type="checkbox" value="kew" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-kew-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-KEW-search_results" name="org" type="checkbox" value="KEW" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-KEW-search_results">
                       KEW
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-mmo-search_results" name="org" type="checkbox" value="mmo" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-mmo-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Marine Management Organisation-search_results" name="org" type="checkbox" value="Marine Management Organisation" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Marine Management Organisation-search_results">
                       Marine Management Organisation
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-ne-search_results" name="org" type="checkbox" value="ne" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-ne-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Natural England-search_results" name="org" type="checkbox" value="Natural England" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Natural England-search_results">
                       Natural England
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-rpa-search_results" name="org" type="checkbox" value="rpa" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-rpa-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Rural Payments Agency-search_results" name="org" type="checkbox" value="Rural Payments Agency" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Rural Payments Agency-search_results">
                       Rural Payments Agency
                     </label>
                   </div>
@@ -1929,6 +1961,12 @@ exports[`Results block template Guided search journey Search results with empty 
           </li>
         
           <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
+              Feeds
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
             <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
               Privacy
             </a>
@@ -1956,7 +1994,7 @@ exports[`Results block template Guided search journey Search results with empty 
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.9.0</p>
+          <p>Version: v1.11.1</p>
         </div>
         
         
@@ -2253,7 +2291,7 @@ exports[`Results block template Guided search journey Search results with error 
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33801%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A40885%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -2311,6 +2349,40 @@ exports[`Results block template Guided search journey Search results with error 
     
   <div class='govuk-grid-row govuk-!-margin-0 govuk-!-text-align-left'>
     <div class='govuk-grid-column-three-quarters govuk-!-margin-0 govuk-!-padding-0 map-view-block'>
+      <div class="cluster-list display-none" id="cluster-list">
+        <div class="container">
+          <div class="heading">
+            <span class="title">
+              <h2 class="govuk-heading-m filter-heading govuk-!-margin-0" id="cluster-list-heading"></h2>
+              <button id="cluster-list-close" class="close">
+                
+  
+  
+  
+    
+  
+    
+  
+  
+  <svg 
+  stroke="currentColor" 
+  fill="currentColor" 
+  stroke-width="0" 
+  viewBox="0 0 512 512" 
+  xmlns="http://www.w3.org/2000/svg"
+   width=1.5rem height=1.5rem
+>
+  <path d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"></path>
+</svg>
+
+              </button>
+            </span>
+            <span class="govuk-hint">Click on a record to view more info.</span>
+          </div>
+          <div class="govuk-section-break--visible"></div>
+          <ul class="records" id="cluster-list-records"></ul>
+        </div>
+      </div>
       <div id='coordinate-map' style='height: 100%; width: 100%;'></div>
       <div class='defra-map-controls'>
         <button class='defra-map__exit' id="defra-map-exit">
@@ -2503,12 +2575,19 @@ exports[`Results block template Guided search journey Search results with error 
 </form>
 </section>
 
-<section>  
+<section>
   <div class="filters-heading">
     <h2 class='govuk-heading-m filter-heading govuk-!-margin-bottom-2'>
       Filters
     </h2>
-    
+      <div class="filters-buttons">
+        <button type="reset" class="govuk-button govuk-button--secondary" data-module="govuk-button" form="filters-" id="filters-reset-" data-reset-url="">
+          Clear Filters
+        </button>
+        <button type="submit" class="govuk-button" data-module="govuk-button" form="filters-">
+          Apply Filters
+        </button>
+      </div>
   </div>
   <div class="govuk-section-break--visible"></div>
   
@@ -2761,6 +2840,12 @@ exports[`Results block template Guided search journey Search results with error 
           </li>
         
           <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
+              Feeds
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
             <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
               Privacy
             </a>
@@ -2788,7 +2873,7 @@ exports[`Results block template Guided search journey Search results with error 
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.9.0</p>
+          <p>Version: v1.11.1</p>
         </div>
         
         
@@ -3085,7 +3170,7 @@ exports[`Results block template Quick search journey Search results with data sh
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A40031%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A39083%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -3143,6 +3228,40 @@ exports[`Results block template Quick search journey Search results with data sh
     
   <div class='govuk-grid-row govuk-!-margin-0 govuk-!-text-align-left'>
     <div class='govuk-grid-column-three-quarters govuk-!-margin-0 govuk-!-padding-0 map-view-block'>
+      <div class="cluster-list display-none" id="cluster-list">
+        <div class="container">
+          <div class="heading">
+            <span class="title">
+              <h2 class="govuk-heading-m filter-heading govuk-!-margin-0" id="cluster-list-heading"></h2>
+              <button id="cluster-list-close" class="close">
+                
+  
+  
+  
+    
+  
+    
+  
+  
+  <svg 
+  stroke="currentColor" 
+  fill="currentColor" 
+  stroke-width="0" 
+  viewBox="0 0 512 512" 
+  xmlns="http://www.w3.org/2000/svg"
+   width=1.5rem height=1.5rem
+>
+  <path d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"></path>
+</svg>
+
+              </button>
+            </span>
+            <span class="govuk-hint">Click on a record to view more info.</span>
+          </div>
+          <div class="govuk-section-break--visible"></div>
+          <ul class="records" id="cluster-list-records"></ul>
+        </div>
+      </div>
       <div id='coordinate-map' style='height: 100%; width: 100%;'></div>
       <div class='defra-map-controls'>
         <button class='defra-map__exit' id="defra-map-exit">
@@ -3335,12 +3454,11 @@ exports[`Results block template Quick search journey Search results with data sh
 </form>
 </section>
 
-<section>  
+<section>
   <div class="filters-heading">
     <h2 class='govuk-heading-m filter-heading govuk-!-margin-bottom-2'>
       Filters
     </h2>
-    
       <div class="filters-buttons">
         <button type="reset" class="govuk-button govuk-button--secondary" data-module="govuk-button" form="filters-search_results" id="filters-reset-search_results" data-reset-url="/natural-capital-ecosystem-assessment/search?q=marine&amp;rpp=20&amp;srt=most_relevant&amp;jry=qs&amp;pg=1&amp;scope=all">
           Clear Filters
@@ -3349,7 +3467,6 @@ exports[`Results block template Quick search journey Search results with data sh
           Apply Filters
         </button>
       </div>
-    
   </div>
   <div class="govuk-section-break--visible"></div>
   
@@ -3414,78 +3531,78 @@ exports[`Results block template Quick search journey Search results with data sh
 
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-ahdb-search_results" name="org" type="checkbox" value="ahdb" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-ahdb-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Agriculture &amp; Horticulture Development Board-search_results" name="org" type="checkbox" value="Agriculture &amp; Horticulture Development Board" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Agriculture &amp; Horticulture Development Board-search_results">
                       Agriculture &amp; Horticulture Development Board
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-apha-search_results" name="org" type="checkbox" value="apha" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-apha-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Animal &amp; Plant Health Agency-search_results" name="org" type="checkbox" value="Animal &amp; Plant Health Agency" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Animal &amp; Plant Health Agency-search_results">
                       Animal &amp; Plant Health Agency
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-cefas-search_results" name="org" type="checkbox" value="cefas" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-cefas-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Centre for Environment, Fisheries &amp; Aquaculture Science-search_results" name="org" type="checkbox" value="Centre for Environment, Fisheries &amp; Aquaculture Science" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Centre for Environment, Fisheries &amp; Aquaculture Science-search_results">
                       Centre for Environment, Fisheries &amp; Aquaculture Science
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-defra-search_results" name="org" type="checkbox" value="defra" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-defra-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Department for Environment, Food &amp; Rural Affairs-search_results" name="org" type="checkbox" value="Department for Environment, Food &amp; Rural Affairs" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Department for Environment, Food &amp; Rural Affairs-search_results">
                       Department for Environment, Food &amp; Rural Affairs
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-ea-search_results" name="org" type="checkbox" value="ea" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-ea-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Environment Agency-search_results" name="org" type="checkbox" value="Environment Agency" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Environment Agency-search_results">
                       Environment Agency
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-fc-search_results" name="org" type="checkbox" value="fc" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-fc-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Forestry Commission-search_results" name="org" type="checkbox" value="Forestry Commission" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Forestry Commission-search_results">
                       Forestry Commission
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-jncc-search_results" name="org" type="checkbox" value="jncc" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-jncc-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Joint Nature Conservation Committee-search_results" name="org" type="checkbox" value="Joint Nature Conservation Committee" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Joint Nature Conservation Committee-search_results">
                       Joint Nature Conservation Committee
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-kew-search_results" name="org" type="checkbox" value="kew" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-kew-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-KEW-search_results" name="org" type="checkbox" value="KEW" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-KEW-search_results">
                       KEW
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-mmo-search_results" name="org" type="checkbox" value="mmo" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-mmo-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Marine Management Organisation-search_results" name="org" type="checkbox" value="Marine Management Organisation" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Marine Management Organisation-search_results">
                       Marine Management Organisation
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-ne-search_results" name="org" type="checkbox" value="ne" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-ne-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Natural England-search_results" name="org" type="checkbox" value="Natural England" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Natural England-search_results">
                       Natural England
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-rpa-search_results" name="org" type="checkbox" value="rpa" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-rpa-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Rural Payments Agency-search_results" name="org" type="checkbox" value="Rural Payments Agency" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Rural Payments Agency-search_results">
                       Rural Payments Agency
                     </label>
                   </div>
@@ -5042,6 +5159,12 @@ exports[`Results block template Quick search journey Search results with data sh
           </li>
         
           <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
+              Feeds
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
             <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
               Privacy
             </a>
@@ -5069,7 +5192,7 @@ exports[`Results block template Quick search journey Search results with data sh
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.9.0</p>
+          <p>Version: v1.11.1</p>
         </div>
         
         
@@ -5366,7 +5489,7 @@ exports[`Results block template Quick search journey Search results with empty d
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A36643%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A41651%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -5424,6 +5547,40 @@ exports[`Results block template Quick search journey Search results with empty d
     
   <div class='govuk-grid-row govuk-!-margin-0 govuk-!-text-align-left'>
     <div class='govuk-grid-column-three-quarters govuk-!-margin-0 govuk-!-padding-0 map-view-block'>
+      <div class="cluster-list display-none" id="cluster-list">
+        <div class="container">
+          <div class="heading">
+            <span class="title">
+              <h2 class="govuk-heading-m filter-heading govuk-!-margin-0" id="cluster-list-heading"></h2>
+              <button id="cluster-list-close" class="close">
+                
+  
+  
+  
+    
+  
+    
+  
+  
+  <svg 
+  stroke="currentColor" 
+  fill="currentColor" 
+  stroke-width="0" 
+  viewBox="0 0 512 512" 
+  xmlns="http://www.w3.org/2000/svg"
+   width=1.5rem height=1.5rem
+>
+  <path d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"></path>
+</svg>
+
+              </button>
+            </span>
+            <span class="govuk-hint">Click on a record to view more info.</span>
+          </div>
+          <div class="govuk-section-break--visible"></div>
+          <ul class="records" id="cluster-list-records"></ul>
+        </div>
+      </div>
       <div id='coordinate-map' style='height: 100%; width: 100%;'></div>
       <div class='defra-map-controls'>
         <button class='defra-map__exit' id="defra-map-exit">
@@ -5616,12 +5773,11 @@ exports[`Results block template Quick search journey Search results with empty d
 </form>
 </section>
 
-<section>  
+<section>
   <div class="filters-heading">
     <h2 class='govuk-heading-m filter-heading govuk-!-margin-bottom-2'>
       Filters
     </h2>
-    
       <div class="filters-buttons">
         <button type="reset" class="govuk-button govuk-button--secondary" data-module="govuk-button" form="filters-search_results" id="filters-reset-search_results" data-reset-url="/natural-capital-ecosystem-assessment/search?q=marine&amp;rpp=20&amp;srt=most_relevant&amp;jry=qs&amp;pg=1&amp;scope=all">
           Clear Filters
@@ -5630,7 +5786,6 @@ exports[`Results block template Quick search journey Search results with empty d
           Apply Filters
         </button>
       </div>
-    
   </div>
   <div class="govuk-section-break--visible"></div>
   
@@ -5695,78 +5850,78 @@ exports[`Results block template Quick search journey Search results with empty d
 
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-ahdb-search_results" name="org" type="checkbox" value="ahdb" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-ahdb-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Agriculture &amp; Horticulture Development Board-search_results" name="org" type="checkbox" value="Agriculture &amp; Horticulture Development Board" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Agriculture &amp; Horticulture Development Board-search_results">
                       Agriculture &amp; Horticulture Development Board
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-apha-search_results" name="org" type="checkbox" value="apha" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-apha-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Animal &amp; Plant Health Agency-search_results" name="org" type="checkbox" value="Animal &amp; Plant Health Agency" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Animal &amp; Plant Health Agency-search_results">
                       Animal &amp; Plant Health Agency
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-cefas-search_results" name="org" type="checkbox" value="cefas" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-cefas-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Centre for Environment, Fisheries &amp; Aquaculture Science-search_results" name="org" type="checkbox" value="Centre for Environment, Fisheries &amp; Aquaculture Science" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Centre for Environment, Fisheries &amp; Aquaculture Science-search_results">
                       Centre for Environment, Fisheries &amp; Aquaculture Science
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-defra-search_results" name="org" type="checkbox" value="defra" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-defra-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Department for Environment, Food &amp; Rural Affairs-search_results" name="org" type="checkbox" value="Department for Environment, Food &amp; Rural Affairs" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Department for Environment, Food &amp; Rural Affairs-search_results">
                       Department for Environment, Food &amp; Rural Affairs
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-ea-search_results" name="org" type="checkbox" value="ea" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-ea-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Environment Agency-search_results" name="org" type="checkbox" value="Environment Agency" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Environment Agency-search_results">
                       Environment Agency
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-fc-search_results" name="org" type="checkbox" value="fc" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-fc-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Forestry Commission-search_results" name="org" type="checkbox" value="Forestry Commission" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Forestry Commission-search_results">
                       Forestry Commission
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-jncc-search_results" name="org" type="checkbox" value="jncc" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-jncc-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Joint Nature Conservation Committee-search_results" name="org" type="checkbox" value="Joint Nature Conservation Committee" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Joint Nature Conservation Committee-search_results">
                       Joint Nature Conservation Committee
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-kew-search_results" name="org" type="checkbox" value="kew" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-kew-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-KEW-search_results" name="org" type="checkbox" value="KEW" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-KEW-search_results">
                       KEW
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-mmo-search_results" name="org" type="checkbox" value="mmo" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-mmo-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Marine Management Organisation-search_results" name="org" type="checkbox" value="Marine Management Organisation" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Marine Management Organisation-search_results">
                       Marine Management Organisation
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-ne-search_results" name="org" type="checkbox" value="ne" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-ne-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Natural England-search_results" name="org" type="checkbox" value="Natural England" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Natural England-search_results">
                       Natural England
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-rpa-search_results" name="org" type="checkbox" value="rpa" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-rpa-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-Rural Payments Agency-search_results" name="org" type="checkbox" value="Rural Payments Agency" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-Rural Payments Agency-search_results">
                       Rural Payments Agency
                     </label>
                   </div>
@@ -7075,6 +7230,12 @@ exports[`Results block template Quick search journey Search results with empty d
           </li>
         
           <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
+              Feeds
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
             <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
               Privacy
             </a>
@@ -7102,7 +7263,7 @@ exports[`Results block template Quick search journey Search results with empty d
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.9.0</p>
+          <p>Version: v1.11.1</p>
         </div>
         
         
@@ -7399,7 +7560,7 @@ exports[`Results block template Quick search journey Search results with error s
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A43763%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A43777%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -7457,6 +7618,40 @@ exports[`Results block template Quick search journey Search results with error s
     
   <div class='govuk-grid-row govuk-!-margin-0 govuk-!-text-align-left'>
     <div class='govuk-grid-column-three-quarters govuk-!-margin-0 govuk-!-padding-0 map-view-block'>
+      <div class="cluster-list display-none" id="cluster-list">
+        <div class="container">
+          <div class="heading">
+            <span class="title">
+              <h2 class="govuk-heading-m filter-heading govuk-!-margin-0" id="cluster-list-heading"></h2>
+              <button id="cluster-list-close" class="close">
+                
+  
+  
+  
+    
+  
+    
+  
+  
+  <svg 
+  stroke="currentColor" 
+  fill="currentColor" 
+  stroke-width="0" 
+  viewBox="0 0 512 512" 
+  xmlns="http://www.w3.org/2000/svg"
+   width=1.5rem height=1.5rem
+>
+  <path d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"></path>
+</svg>
+
+              </button>
+            </span>
+            <span class="govuk-hint">Click on a record to view more info.</span>
+          </div>
+          <div class="govuk-section-break--visible"></div>
+          <ul class="records" id="cluster-list-records"></ul>
+        </div>
+      </div>
       <div id='coordinate-map' style='height: 100%; width: 100%;'></div>
       <div class='defra-map-controls'>
         <button class='defra-map__exit' id="defra-map-exit">
@@ -7649,12 +7844,19 @@ exports[`Results block template Quick search journey Search results with error s
 </form>
 </section>
 
-<section>  
+<section>
   <div class="filters-heading">
     <h2 class='govuk-heading-m filter-heading govuk-!-margin-bottom-2'>
       Filters
     </h2>
-    
+      <div class="filters-buttons">
+        <button type="reset" class="govuk-button govuk-button--secondary" data-module="govuk-button" form="filters-" id="filters-reset-" data-reset-url="">
+          Clear Filters
+        </button>
+        <button type="submit" class="govuk-button" data-module="govuk-button" form="filters-">
+          Apply Filters
+        </button>
+      </div>
   </div>
   <div class="govuk-section-break--visible"></div>
   
@@ -7907,6 +8109,12 @@ exports[`Results block template Quick search journey Search results with error s
           </li>
         
           <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
+              Feeds
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
             <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
               Privacy
             </a>
@@ -7934,7 +8142,7 @@ exports[`Results block template Quick search journey Search results with error s
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.9.0</p>
+          <p>Version: v1.11.1</p>
         </div>
         
         

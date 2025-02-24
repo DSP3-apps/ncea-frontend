@@ -1,0 +1,531 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds screen snapshot 1`] = `
+"<!DOCTYPE html>
+<html lang="en" class="govuk-template app-html-class">
+  <head>
+    <meta charset="utf-8">
+    <title>
+  Find natural capital data - GOV.UK
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c">
+
+    
+  
+      <link rel="icon" sizes="48x48" href="/natural-capital-ecosystem-assessment/assets/images/favicon.ico">
+      <link rel="icon" sizes="any" href="/natural-capital-ecosystem-assessment/assets/images/favicon.svg" type="image/svg+xml">
+      <link rel="mask-icon" href="/natural-capital-ecosystem-assessment/assets/images/govuk-icon-mask.svg" color="#0b0c0c">
+      <link rel="apple-touch-icon" href="/natural-capital-ecosystem-assessment/assets/images/govuk-icon-180.png">
+      <link rel="manifest" href="/natural-capital-ecosystem-assessment/assets/manifest.json">
+    
+
+
+    
+  <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/application.css">
+  <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+    
+  </head>
+  <body class="govuk-template__body app-body-class">
+    <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
+    
+  
+<div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on the find natural capital data service"
+    
+        
+      
+    
+   id="cookie_banner">
+  
+  <div class="govuk-cookie-banner__message govuk-width-container"
+    
+        
+      
+    
+   id="cookie_block" hidden>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        
+        <h2 class="govuk-cookie-banner__heading govuk-heading-m">
+          Cookies on the find natural capital data service
+        </h2>
+        
+        <div class="govuk-cookie-banner__content">
+          
+          <p class="govuk-body">We use some essential cookies to make this service work.</p>
+          <p class="govuk-body">We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements</p>
+          
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="govuk-button-group">
+    
+      
+      <button type="button" class="govuk-button" data-module="govuk-button"
+          
+              
+            
+          
+         id="accept_button">
+        Accept analytics cookies
+      </button>
+    
+      
+      <button type="button" class="govuk-button" data-module="govuk-button"
+          
+              
+            
+          
+         id="reject_button">
+        Reject analytics cookies
+      </button>
+    
+      
+      <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
+    
+    </div>
+    
+
+  </div>
+  
+  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
+    
+        
+      
+    
+   id="accept_block" hidden>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        
+        <div class="govuk-cookie-banner__content">
+          
+          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+          
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="govuk-button-group">
+    
+      
+      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
+        Hide cookie message
+      </button>
+    
+    </div>
+    
+
+  </div>
+  
+  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
+    
+        
+      
+    
+   id="reject_block" hidden>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        
+        <div class="govuk-cookie-banner__content">
+          
+          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+          
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="govuk-button-group">
+    
+      
+      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
+        Hide cookie message
+      </button>
+    
+    </div>
+    
+
+  </div>
+  
+</div>
+
+
+
+    
+      <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+    
+
+    
+  <script>
+    var gtmIdValue = "";
+    var keyboardFiltersBaseUrlValue = ""
+  </script>
+  <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/cookieScript.js"></script>
+  <header class="header-container">
+
+    <!--Will be removed once Defra GA accounts been created -->
+
+    <!-- Google tag (gtag.js) -->
+    
+
+    <header class="govuk-header" data-module="govuk-header">
+  <div class="govuk-header__container govuk-width-container">
+    <div class="govuk-header__logo">
+      <a href="https://www.gov.uk/" class="govuk-header__link govuk-header__link--homepage">
+        <svg
+          focusable="false"
+          role="img"
+          class="govuk-header__logotype"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 148 30"
+          height="30"
+          width="148"
+          aria-label="GOV.UK"
+        >
+          <title>GOV.UK</title>
+          <path d="M22.6 10.4c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m-5.9 6.7c-.9.4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4m10.8-3.7c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s0 2-1 2.4m3.3 4.8c-1 .4-2-.1-2.4-1-.4-.9.1-2 1-2.4.9-.4 2 .1 2.4 1s-.1 2-1 2.4M17 4.7l2.3 1.2V2.5l-2.3.7-.2-.2.9-3h-3.4l.9 3-.2.2c-.1.1-2.3-.7-2.3-.7v3.4L15 4.7c.1.1.1.2.2.2l-1.3 4c-.1.2-.1.4-.1.6 0 1.1.8 2 1.9 2.2h.7c1-.2 1.9-1.1 1.9-2.1 0-.2 0-.4-.1-.6l-1.3-4c-.1-.2 0-.2.1-.3m-7.6 5.7c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m-5 3c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s.1 2 1 2.4m-3.2 4.8c.9.4 2-.1 2.4-1 .4-.9-.1-2-1-2.4-.9-.4-2 .1-2.4 1s0 2 1 2.4m14.8 11c4.4 0 8.6.3 12.3.8 1.1-4.5 2.4-7 3.7-8.8l-2.5-.9c.2 1.3.3 1.9 0 2.7-.4-.4-.8-1.1-1.1-2.3l-1.2 4c.7-.5 1.3-.8 2-.9-1.1 2.5-2.6 3.1-3.5 3-1.1-.2-1.7-1.2-1.5-2.1.3-1.2 1.5-1.5 2.1-.1 1.1-2.3-.8-3-2-2.3 1.9-1.9 2.1-3.5.6-5.6-2.1 1.6-2.1 3.2-1.2 5.5-1.2-1.4-3.2-.6-2.5 1.6.9-1.4 2.1-.5 1.9.8-.2 1.1-1.7 2.1-3.5 1.9-2.7-.2-2.9-2.1-2.9-3.6.7-.1 1.9.5 2.9 1.9l.4-4.3c-1.1 1.1-2.1 1.4-3.2 1.4.4-1.2 2.1-3 2.1-3h-5.4s1.7 1.9 2.1 3c-1.1 0-2.1-.2-3.2-1.4l.4 4.3c1-1.4 2.2-2 2.9-1.9-.1 1.5-.2 3.4-2.9 3.6-1.9.2-3.4-.8-3.5-1.9-.2-1.3 1-2.2 1.9-.8.7-2.3-1.2-3-2.5-1.6.9-2.2.9-3.9-1.2-5.5-1.5 2-1.3 3.7.6 5.6-1.2-.7-3.1 0-2 2.3.6-1.4 1.8-1.1 2.1.1.2.9-.3 1.9-1.5 2.1-.9.2-2.4-.5-3.5-3 .6 0 1.2.3 2 .9l-1.2-4c-.3 1.1-.7 1.9-1.1 2.3-.3-.8-.2-1.4 0-2.7l-2.9.9C1.3 23 2.6 25.5 3.7 30c3.7-.5 7.9-.8 12.3-.8m28.3-11.6c0 .9.1 1.7.3 2.5.2.8.6 1.5 1 2.2.5.6 1 1.1 1.7 1.5.7.4 1.5.6 2.5.6.9 0 1.7-.1 2.3-.4s1.1-.7 1.5-1.1c.4-.4.6-.9.8-1.5.1-.5.2-1 .2-1.5v-.2h-5.3v-3.2h9.4V28H55v-2.5c-.3.4-.6.8-1 1.1-.4.3-.8.6-1.3.9-.5.2-1 .4-1.6.6s-1.2.2-1.8.2c-1.5 0-2.9-.3-4-.8-1.2-.6-2.2-1.3-3-2.3-.8-1-1.4-2.1-1.8-3.4-.3-1.4-.5-2.8-.5-4.3s.2-2.9.7-4.2c.5-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.6 2.6-.8 4.1-.8 1 0 1.9.1 2.8.3.9.2 1.7.6 2.4 1s1.4.9 1.9 1.5c.6.6 1 1.3 1.4 2l-3.7 2.1c-.2-.4-.5-.9-.8-1.2-.3-.4-.6-.7-1-1-.4-.3-.8-.5-1.3-.7-.5-.2-1.1-.2-1.7-.2-1 0-1.8.2-2.5.6-.7.4-1.3.9-1.7 1.5-.5.6-.8 1.4-1 2.2-.3.8-.4 1.9-.4 2.7zM71.5 6.8c1.5 0 2.9.3 4.2.8 1.2.6 2.3 1.3 3.1 2.3.9 1 1.5 2.1 2 3.4s.7 2.7.7 4.2-.2 2.9-.7 4.2c-.4 1.3-1.1 2.4-2 3.4-.9 1-1.9 1.7-3.1 2.3-1.2.6-2.6.8-4.2.8s-2.9-.3-4.2-.8c-1.2-.6-2.3-1.3-3.1-2.3-.9-1-1.5-2.1-2-3.4-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2c.4-1.3 1.1-2.4 2-3.4.9-1 1.9-1.7 3.1-2.3 1.2-.5 2.6-.8 4.2-.8zm0 17.6c.9 0 1.7-.2 2.4-.5s1.3-.8 1.7-1.4c.5-.6.8-1.3 1.1-2.2.2-.8.4-1.7.4-2.7v-.1c0-1-.1-1.9-.4-2.7-.2-.8-.6-1.6-1.1-2.2-.5-.6-1.1-1.1-1.7-1.4-.7-.3-1.5-.5-2.4-.5s-1.7.2-2.4.5-1.3.8-1.7 1.4c-.5.6-.8 1.3-1.1 2.2-.2.8-.4 1.7-.4 2.7v.1c0 1 .1 1.9.4 2.7.2.8.6 1.6 1.1 2.2.5.6 1.1 1.1 1.7 1.4.6.3 1.4.5 2.4.5zM88.9 28 83 7h4.7l4 15.7h.1l4-15.7h4.7l-5.9 21h-5.7zm28.8-3.6c.6 0 1.2-.1 1.7-.3.5-.2 1-.4 1.4-.8.4-.4.7-.8.9-1.4.2-.6.3-1.2.3-2v-13h4.1v13.6c0 1.2-.2 2.2-.6 3.1s-1 1.7-1.8 2.4c-.7.7-1.6 1.2-2.7 1.5-1 .4-2.2.5-3.4.5-1.2 0-2.4-.2-3.4-.5-1-.4-1.9-.9-2.7-1.5-.8-.7-1.3-1.5-1.8-2.4-.4-.9-.6-2-.6-3.1V6.9h4.2v13c0 .8.1 1.4.3 2 .2.6.5 1 .9 1.4.4.4.8.6 1.4.8.6.2 1.1.3 1.8.3zm13-17.4h4.2v9.1l7.4-9.1h5.2l-7.2 8.4L148 28h-4.9l-5.5-9.4-2.7 3V28h-4.2V7zm-27.6 16.1c-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.7-1.2 2.7-2.7-1.2-2.7-2.7-2.7z"></path>
+        </svg>
+        
+      </a>
+    </div>
+  
+    <div class="govuk-header__content">
+    
+      
+      <a href="/natural-capital-ecosystem-assessment" class="govuk-header__link govuk-header__service-name">
+        Find natural capital data
+      </a>
+      
+    
+    
+    </div>
+  
+  </div>
+</header>
+
+
+    <div class="govuk-grid-col login">
+      
+        <p class="govuk-body-m">Welcome, Guest</p>
+        <a href="/login?redirect_uri=http%3A%2F%2F0.0.0.0%3A4000%2Fnatural-capital-ecosystem-assessment%2Ffeeds" class="govuk-link govuk-body-m">Login</a>
+      
+    </div>
+  </header>
+
+
+    
+  
+      <div class="govuk-width-container">
+        
+  
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service - your <a class="govuk-link help-link" rel="noreferrer noopener" target="_blank" href="https://defragroup.eu.qualtrics.com/jfe/form/SV_02KhhVirzVmY0QK">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+
+        <main class="govuk-main-wrapper app-main-class" id="main-content">
+          
+  <h1 class="govuk-heading-l">Latest Articles</h1>
+  
+  
+    <div>
+    
+      <h2 class="govuk-heading-m">NCEA – Natural England</h2>
+      <ul class="govuk-list">
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">From AI to underwater microphones: improving the evidence base for marine mammals </h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Samantha Parker</small>
+              <small><b>Published on : </b>13 November 2024 08:13:48</small>
+            </div>
+            <p class="govuk-body">By Samantha Parker and Emma Milner, Natural England marine mammal senior specialists  Why are seal population numbers changing so fast along our coasts? How are porpoise feeding patterns changing as our seas become increasingly crowded? And how does the health …</p>
+            <a href="https://naturalengland.blog.gov.uk/2024/11/13/from-ai-to-underwater-microphones-improving-the-evidence-base-for-marine-mammals/" target="_blank">From AI to underwater microphones: improving the evidence base for marine mammals </a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">Mapping our green and blue spaces: the green infrastructure mapping project</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Natural England</small>
+              <small><b>Published on : </b>31 October 2024 15:33:05</small>
+            </div>
+            <p class="govuk-body">Martin Moss, senior officer for green infrastructure mapping, and Sarah Parrott, higher officer for engagement and impact If you looked at a map of your local area, could you identify the accessible green spaces? What about the blue ones? If …</p>
+            <a href="https://naturalengland.blog.gov.uk/2024/10/31/mapping-our-green-and-blue-spaces-the-green-infrastructure-mapping-project/" target="_blank">Mapping our green and blue spaces: the green infrastructure mapping project</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">Green Infrastructure: delivering quality of life and environmental benefits for communities</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Natural England</small>
+              <small><b>Published on : </b>27 August 2024 16:44:57</small>
+            </div>
+            <p class="govuk-body">David Drake, Director, People &amp;#38; Nature at Natural England In January 2023, Natural England launched the Green Infrastructure (GI) Framework to support the creation of good quality Green Infrastructure which maximises benefits for people and nature. GI helps local authorities, …</p>
+            <a href="https://naturalengland.blog.gov.uk/2024/08/27/green-infrastructure-delivering-quality-of-life-and-environmental-benefits-for-communities/" target="_blank">Green Infrastructure: delivering quality of life and environmental benefits for communities</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">With a lot of help from our friends: assembling an England Peat Map</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Andrew Webb</small>
+              <small><b>Published on : </b>06 August 2024 10:32:18</small>
+            </div>
+            <p class="govuk-body">Contributors: Andrew Webb, Principal advisor, England Peat Map. Tom Hunt, Data engagement lead, England Peat Map. Sarah Parrott, Engagement and impact lead advisor, NCEA. Elizabeth Mitchell, Engagement and impact senior advisor, NCEA &amp;#160; How do you make a map of something that’s largely underground, …</p>
+            <a href="https://naturalengland.blog.gov.uk/2024/08/06/with-a-lot-of-help-from-our-friends-assembling-an-england-peat-map/" target="_blank">With a lot of help from our friends: assembling an England Peat Map</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">The Chief Scientist Report: 2023</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Natural England</small>
+              <small><b>Published on : </b>02 August 2024 11:28:50</small>
+            </div>
+            <p class="govuk-body">Professor Sallie Bailey, Chief Scientist at Natural England, tells us about the publication of Natural England’s sixth Chief Scientist Report &amp;#160; This Report, the sixth in the series, focusses on the impact our work has and – crucially - how …</p>
+            <a href="https://naturalengland.blog.gov.uk/2024/08/02/the-chief-scientist-report-2023/" target="_blank">The Chief Scientist Report: 2023</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">England Ecosystem Survey: introducing England’s largest ever field survey</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Isabel Sloman</small>
+              <small><b>Published on : </b>03 April 2024 12:20:13</small>
+            </div>
+            <p class="govuk-body">By Isabel Sloman, Manager, and Elizabeth Mitchell, Senior Advisor for Engagement and Impact, Natural Capital and Ecosystem Assessment programme The England Ecosystem Survey (EES), the largest field survey ever undertaken in the UK, is now well underway. Working at thousands …</p>
+            <a href="https://naturalengland.blog.gov.uk/2024/04/03/england-ecosystem-survey-introducing-englands-largest-ever-field-survey/" target="_blank">England Ecosystem Survey: introducing England’s largest ever field survey</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">Green Infrastructure: creating habitable towns and cities fit for the future</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Natural England</small>
+              <small><b>Published on : </b>08 November 2023 14:57:33</small>
+            </div>
+            <p class="govuk-body">&amp;#160; This week is Green Infrastructure week, a celebration of green infrastructure design and best practices. Green infrastructure is a network of natural spaces designed to deliver benefits for people and the planet. The below video details green infrastructure in …</p>
+            <a href="https://naturalengland.blog.gov.uk/2023/11/08/green-infrastructure-creating-habitable-towns-and-cities-fit-for-the-future/" target="_blank">Green Infrastructure: creating habitable towns and cities fit for the future</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">How many mussels in Morecambe Bay? Understanding the value of mudflats and sandflats for birds, humans, and the ecosystems we share</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Elizabeth Mitchell</small>
+              <small><b>Published on : </b>24 July 2023 16:42:08</small>
+            </div>
+            <p class="govuk-body">By Louise Whatley, Marine Ecology Specialist and Elizabeth Mitchell, Senior Advisor for Engagement and Impact  As summer sets in in earnest, millions of us will head to the coast. In between dropping our ice-creams on our feet and taking a …</p>
+            <a href="https://naturalengland.blog.gov.uk/2023/07/24/how-many-mussels-in-morecambe-bay-understanding-the-value-of-mudflats-and-sandflats-for-birds-humans-and-the-ecosystems-we-share/" target="_blank">How many mussels in Morecambe Bay? Understanding the value of mudflats and sandflats for birds, humans, and the ecosystems we share</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">Working towards a Peat Data Standard</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Mike Prince</small>
+              <small><b>Published on : </b>12 January 2023 09:37:14</small>
+            </div>
+            <p class="govuk-body">By Mike Prince, Natural England The England Peat Map project is mapping the extent, depth and condition of England’s peat, using new and existing field survey data, satellite Earth observation, and a variety of modelling methods. Mapping England’s peat can …</p>
+            <a href="https://naturalengland.blog.gov.uk/2023/01/12/working-towards-a-peat-data-standard/" target="_blank">Working towards a Peat Data Standard</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">Taking an evidence led approach to delivery of the Government’s tree target</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Tim Hill</small>
+              <small><b>Published on : </b>15 June 2022 10:59:12</small>
+            </div>
+            <p class="govuk-body">The UK Government’s ambition to increase tree and woodland cover in England from 14 to 17%, by more than trebling annual planting rates by 2050, represents a major shift in land use policy. As well as enhancing carbon sequestration, new …</p>
+            <a href="https://naturalengland.blog.gov.uk/2022/06/15/taking-an-evidence-led-approach-to-delivery-of-the-governments-tree-target/" target="_blank">Taking an evidence led approach to delivery of the Government’s tree target</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+      </ul>
+    </div>
+    
+
+  
+    <div>
+    
+      <h2 class="govuk-heading-m">NCEA programme – Environment</h2>
+      <ul class="govuk-list">
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">Living England: a national habitat map for everyone </h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Amy Woodget</small>
+              <small><b>Published on : </b>18 December 2024 08:48:43</small>
+            </div>
+            <p class="govuk-body">Amy Woodget is the Communications and Engagement Lead for the Living England project. In this post, she introduces the latest release of Natural England’s ‘Living England’ dataset – a digital map providing information on England’s broad habitats.</p>
+            <a href="https://defraenvironment.blog.gov.uk/2024/12/18/living-england-a-national-habitat-map-for-everyone/" target="_blank">Living England: a national habitat map for everyone </a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">Why monitoring matters: showcasing the Natural Capital and Ecosystem Assessment programme</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>David Jones</small>
+              <small><b>Published on : </b>16 October 2024 11:16:25</small>
+            </div>
+            <p class="govuk-body">In this post, David Jones, Senior Responsible Owner for the terrestrial arm of Defra’s largest research and development programme - the NCEA, shares reflections from the recent stakeholder showcase event.</p>
+            <a href="https://defraenvironment.blog.gov.uk/2024/10/16/why-monitoring-matters-showcasing-the-natural-capital-and-ecosystem-assessment-programme/" target="_blank">Why monitoring matters: showcasing the Natural Capital and Ecosystem Assessment programme</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">Mapping our natural assets: the Natural Capital and Ecosystem Assessment programme</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Sarah Adcock</small>
+              <small><b>Published on : </b>28 March 2024 12:00:21</small>
+            </div>
+            <p class="govuk-body">Sarah Adcock and David Jones, Senior Responsible Owners for Defra&#39;s Natural Capital and Ecosystem Assessment programme explain why building a picture of our natural assets and their benefits is the first, crucial step in protecting our environment.</p>
+            <a href="https://defraenvironment.blog.gov.uk/2024/03/28/mapping-our-natural-assets-the-natural-capital-and-ecosystem-assessment-programme/" target="_blank">Mapping our natural assets: the Natural Capital and Ecosystem Assessment programme</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+      </ul>
+    </div>
+    
+
+  
+  
+
+        </main>
+      </div>
+    
+
+
+    
+  <footer class="govuk-footer">
+  <div class="govuk-width-container">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+        <h2 class="govuk-visually-hidden">Support links</h2>
+        
+        <ul class="govuk-footer__inline-list">
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
+              Help
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
+              Feeds
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
+              Privacy
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
+              Cookies
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
+              Accessibility statement
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
+              Terms and conditions
+            </a>
+          </li>
+        
+        </ul>
+        
+        
+        <div class="govuk-footer__meta-custom">
+          <p>Version: v1.11.1</p>
+        </div>
+        
+        
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+        
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >
+        
+          © Crown copyright
+        
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <div id="overlay" class="overlay"></div>
+
+
+    
+  
+  <script type="module" src="/natural-capital-ecosystem-assessment/assets/all.js"></script>
+  <script type="module">
+    import {initAll} from '/natural-capital-ecosystem-assessment/assets/all.js'
+    initAll()
+  </script>
+  <script>
+    const appInsightsConnString = "";
+  </script>
+  <script type="text/javascript" src="/natural-capital-ecosystem-assessment/assets/scripts/appinsights.js"></script>
+  <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/customScripts.js"></script>
+
+  </body>
+</html>
+"
+`;

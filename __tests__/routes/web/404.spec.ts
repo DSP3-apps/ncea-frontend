@@ -17,12 +17,6 @@ jest.mock('../../../src/utils/keyvault', () => ({
   getSecret: jest.fn(),
 }));
 
-jest.mock('../../../src/config/elasticSearchClient', () => ({
-  performQuery: jest.fn(() => {
-    return Promise.resolve({ data: 'mocked response' });
-  }),
-}));
-
 describe('404 Screen', () => {
   let server: Server;
   let response: ServerInjectResponse<object>;
@@ -63,11 +57,7 @@ describe('404 Screen', () => {
 
   describe('404 > Heading', () => {
     it('should render the 404 content heading', async () => {
-      expect(
-        document
-          ?.querySelectorAll('.govuk-heading-m')?.[1]
-          ?.textContent?.trim(),
-      ).toBe('Error 404 page not found');
+      expect(document?.querySelectorAll('.govuk-heading-m')?.[1]?.textContent?.trim()).toBe('Error 404 page not found');
     });
   });
 });

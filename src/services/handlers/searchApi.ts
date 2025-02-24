@@ -1,41 +1,49 @@
-import { CLASSIFIER_SEARCH_RESPONSE } from './mocks/classifier-search';
 import { CLASSIFIER_COUNT_LEVEL_2 } from './mocks/classifier-themes-level-2';
 import { CLASSIFIER_COUNT_LEVEL_3 } from './mocks/classifier-themes-level-3';
-import { MORE_INFO_NEW_DATA } from './mocks/more-info-response';
-import { QUICK_SEARCH_RESPONSE } from './mocks/quick-search';
+import { MORE_INFO_RESPOSE, MORE_INFO_NEW_DATA } from './mocks/more-info-response';
 import { QUICK_SEARCH_RESOURCE_TYPE_FILTERS, QUICK_SEARCH_STUDY_PERIOD_FILTERS } from './mocks/quick-search-filters';
+import { Credentials } from '../..//interfaces/auth';
+import { environmentConfig } from '../../config/environmentConfig';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { IFilterFlags } from '../../interfaces/searchPayload.interface';
-import { IAggregationOptions, ISearchResults } from '../../interfaces/searchResponse.interface';
+import {
+  IAggregationOptions,
+  ISearchItem,
+  ISearchResponse,
+  ISearchResults,
+} from '../../interfaces/searchResponse.interface';
 import { defaultFilterOptions } from '../../utils/constants';
-import { formatSearchResponse } from '../../utils/formatSearchResponse';
-import { formatSearchResponseMapper } from '../../utils/formatSearchResponseMapper';
-import { ISearchFiltersProcessed, applyMockFilters } from '../../utils/searchFilters';
+import { formatSearchResponse, transformSearchResponse } from '../../utils/formatSearchResponse';
+import { generateSearchQuery } from '../../utils/queryBuilder';
+import { ISearchFiltersProcessed } from '../../utils/searchFilters';
 
 const getSearchResults = async (
   searchFieldsObject: ISearchPayload,
+  credentials: Credentials,
   filters: ISearchFiltersProcessed,
   isMapResults: boolean = false,
-  isQuickSearchJourney: boolean = false,
+  // isQuickSearchJourney: boolean = false, // TODO: We may need to add this back in, which is why I've left it.
 ): Promise<ISearchResults> => {
   try {
     if (Object.keys(searchFieldsObject.fields).length) {
-      // const searchBuilderPayload: ISearchBuilderPayload = {
-      //   searchFieldsObject,
-      //   ...(isQuickSearchJourney && {
-      //     fieldsToSearch: quickSearchTargetFields,
-      //   }),
-      // };
-      // const payload = generateSearchQuery(searchBuilderPayload);
-      // const response = await performQuery<estypes.SearchResponse>(payload);
-      const response = isQuickSearchJourney ? QUICK_SEARCH_RESPONSE : CLASSIFIER_SEARCH_RESPONSE;
-      const finalResponse: ISearchResults = await formatSearchResponse(
-        applyMockFilters(response as never, filters, searchFieldsObject.fields.keyword?.q ?? ''),
-        false,
-        isMapResults,
-      );
+      const payload = generateSearchQuery(searchFieldsObject, filters);
 
-      return finalResponse;
+      const headers = credentials ? { Authorization: `Bearer ${credentials?.jwt}` } : null;
+      const agmApiResponse = await fetch(environmentConfig.searchApiUrl, {
+        method: 'POST',
+        ...(headers && { headers }),
+        body: JSON.stringify(payload),
+      });
+
+      if (!agmApiResponse.ok) {
+        throw new Error(`Error fetching results: ${agmApiResponse.statusText}`);
+      }
+
+      const searchData: ISearchResponse = await agmApiResponse.json();
+
+      const transformedResults: ISearchResults = transformSearchResponse(searchData, isMapResults);
+
+      return transformedResults;
     } else {
       return Promise.resolve({ total: 0, items: [], hasSpatialData: false });
     }

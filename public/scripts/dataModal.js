@@ -5,6 +5,7 @@ import {
   checkDuplicateKeywords,
   createBadgesFromExistingKeywords,
 } from './keywordsFilter.js';
+import { setMapFilterFormValues, addMapFilterFormSubmitListener, addMapFilterFormResetListener } from './filters.js';
 
 let scrollPositionY = 0;
 const overlayContainer = document.getElementById('overlay');
@@ -88,6 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function openMapModal() {
     toggleModalContainer('map-modal');
     freezeScroll();
+    setMapFilterFormValues('map_results', 'search_results');
+    addMapFilterFormSubmitListener('map_results');
+    addMapFilterFormResetListener('map_results');
     invokeKeyboardFilters();
   }
 

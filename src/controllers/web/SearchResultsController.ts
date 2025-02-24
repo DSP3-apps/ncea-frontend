@@ -3,6 +3,7 @@
 import { Lifecycle, Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 import Joi from 'joi';
 
+import { Credentials } from '../../interfaces/auth';
 import { FormattedTabOptions } from '../../interfaces/detailsTab.interface';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { ISearchItem, ISearchResults } from '../../interfaces/searchResponse.interface';
@@ -13,7 +14,6 @@ import {
   mapResultMaxCount,
   pageTitles,
   queryParamKeys,
-  requiredFieldsForMap,
   webRoutePaths,
 } from '../../utils/constants';
 import { getPaginationItems } from '../../utils/paginationBuilder';
@@ -36,19 +36,30 @@ const SearchResultsController = {
     const studyPeriodToYear: string = readQueryParams(request.query, queryParamKeys.toYear);
     const hasStudyPeriodFilterApplied: boolean = !!studyPeriodFromYear.length && !!studyPeriodToYear.length;
     const payload: ISearchPayload = generateQueryBuilderPayload(request.query);
-    const { rowsPerPage, page } = payload;
     const isQuickSearchJourney = journey === 'qs';
     try {
       const processedDspFilterOptions = processDSPFilterOptions(request.query);
 
       const searchResults: ISearchResults = await getSearchResults(
         payload,
+        request.auth.credentials as Credentials,
         processedDspFilterOptions,
         false,
-        isQuickSearchJourney,
+        // isQuickSearchJourney, // TODO: We may need to add this back in, which is why I've left it.
       );
 
-      const paginationItems = getPaginationItems(page, searchResults?.total ?? 0, rowsPerPage, request.query);
+      // Paginate search results client-side.
+      // Slice total result into just what is required for this page.
+      const startItem = payload.page ? (payload.page - 1) * payload.rowsPerPage : 0;
+      const endItem = startItem + payload.rowsPerPage;
+
+      const pagedSearchResults = {
+        ...searchResults,
+        items: searchResults?.items.slice(startItem, endItem),
+      };
+
+      // Pass total results to build pagination buttons at bottom of page.
+      const paginationItems = getPaginationItems(searchResults?.total ?? 0, request.query);
       const queryString = readQueryParams(request.query);
       const sortSubmitPath = `${BASE_PATH}${webRoutePaths.sortResults}?${queryString}`;
       const processedSortOptions = await processSortOptions(request.query);
@@ -63,7 +74,7 @@ const SearchResultsController = {
       return response.view('screens/results/template', {
         pageTitle: pageTitles.results,
         quickSearchFID,
-        searchResults,
+        searchResults: pagedSearchResults,
         hasError: false,
         isQuickSearchJourney,
         paginationItems,
@@ -117,25 +128,24 @@ const SearchResultsController = {
     return response.view(view, context).code(400).takeover();
   },
   getMapResultsHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
-    const journey: string = readQueryParams(request.query, queryParamKeys.journey);
     const payload: ISearchPayload = generateQueryBuilderPayload(request.query);
-    const isQuickSearchJourney = journey === 'qs';
+
     try {
       const mapPayload: ISearchPayload = {
         ...payload,
         rowsPerPage: mapResultMaxCount,
-        fieldsExist: ['geom'],
-        requiredFields: requiredFieldsForMap,
       };
 
       const processedDspFilterOptions = processDSPFilterOptions(request.query);
 
       const searchMapResults: ISearchResults = await getSearchResults(
         mapPayload,
+        request.auth.credentials as Credentials,
         processedDspFilterOptions,
         true,
-        isQuickSearchJourney,
+        // isQuickSearchJourney,
       );
+
       return response.response(searchMapResults).header('Content-Type', 'application/json');
     } catch (error) {
       return response.response({ error: 'An error occurred while processing your request' }).code(500);

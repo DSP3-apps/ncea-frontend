@@ -1,13 +1,23 @@
 import { estypes } from '@elastic/elasticsearch';
+import { endOfYear, format, startOfYear } from 'date-fns';
 
-import { levelMap, mapResultMaxCount, resourceTypeFilterField, studyPeriodFilterField } from './constants';
-import { generateDateString } from './generateDateString';
 import {
+  FILTER_VALUES,
+  levelMap,
+  mapResultMaxCount,
+  resourceTypeFilterField,
+  studyPeriodFilterField,
+} from './constants';
+import { generateDateString } from './generateDateString';
+import { ISearchFilterProcessed, ISearchFiltersProcessed } from './searchFilters';
+import {
+  IDateRange,
   IDateValues,
   IGeoCoordinates,
   IGeoShapeBlock,
   ISearchBuilderPayload,
   ISearchPayload,
+  ISearchRequest,
   IShapeCoordinates,
 } from '../interfaces/queryBuilder.interface';
 
@@ -218,28 +228,94 @@ const _generateDateRangeQuery = (
   return filterBlock;
 };
 
-const generateSearchQuery = (searchBuilderPayload: ISearchBuilderPayload): estypes.SearchRequest => {
-  const queryPayload: estypes.SearchRequest = _generateQuery(searchBuilderPayload);
-  const { searchFieldsObject, docId = '' } = searchBuilderPayload;
-  const { filters } = (searchFieldsObject as ISearchPayload) ?? {};
-  if (docId === '') {
-    const filterBlock: estypes.QueryDslQueryContainer[] = _generateDateRangeQuery(searchBuilderPayload, queryPayload);
-    const mustBlock: estypes.QueryDslQueryContainer[] =
-      (queryPayload.query?.bool?.must as estypes.QueryDslQueryContainer[]) ?? [];
+const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearchFiltersProcessed): ISearchRequest => {
+  // Get Organisation filter values.
+  const organisations = getFiltersForCategory(filters.categories, FILTER_VALUES.organisation); // FIXME: make 'org' etc a constant and update `searchFilters.ts` to use them also, look at bottom of page.
 
-    const resourceTypeFilters: string[] = (filters?.[resourceTypeFilterField] as string[]) ?? [];
+  // Get Title filter.
+  const titleFilters = filters.categories.find((category) => category.value === FILTER_VALUES.searchType);
+  const title = titleFilters?.filters.find((filter) => filter.checked)?.value;
 
-    if (resourceTypeFilters.length > 0) {
-      mustBlock.push(_generateTermsBlock('resourceType', filters[resourceTypeFilterField] as string[]));
+  // Get Data Type filter values e.g. spatial/non-spatial.
+  const dataTypes = getFiltersForCategory(filters.categories, FILTER_VALUES.dataType);
+
+  // Get Service Type filter values
+  const serviceTypes = getFiltersForCategory(filters.categories, FILTER_VALUES.serviceType);
+
+  // Get Data Format filter values
+  const dataFormats = getFiltersForCategory(filters.categories, FILTER_VALUES.dataFormat);
+
+  // Get date filter values
+  const mapping = {
+    beforeYear: 'StartDate',
+    afterYear: 'EndDate',
+  };
+
+  const dateGenerator = (key: string, value: string) => {
+    const DATE_FORMAT = 'yyyy-MM-dd';
+    if (key === 'beforeYear') {
+      return format(startOfYear(new Date(value)), DATE_FORMAT);
     }
-    if (queryPayload?.query?.bool) {
-      queryPayload.query.bool = {
-        must: [...mustBlock],
-        filter: [...filterBlock],
-      };
+    return format(endOfYear(new Date(value)), DATE_FORMAT);
+  };
+  const dateFilters: IDateRange = Object.entries(filters.lastUpdated).reduce((acc, [key, value]) => {
+    const newKey = mapping[key] ?? key;
+
+    acc[newKey] = value ? dateGenerator(key, value) : '';
+
+    return acc;
+  }, {} as IDateRange);
+
+  // Get licence filter value
+  const licence = filters.licence;
+
+  // Get keyword filter values
+  const keywords = filters.keywords;
+
+  // Get Retired and Archived filter value
+  const retiredAndArchived = filters.retiredAndArchived;
+
+  const request: ISearchRequest = {
+    Query: {
+      SearchTerms: [searchFieldsObject?.fields?.keyword?.q ?? ''],
+    },
+    Filters: {
+      Organisations: organisations ?? [],
+      SearchTitleOnly: !!title,
+      DataTypes: dataTypes ?? [],
+      ServiceType: serviceTypes ?? [],
+      Formats: dataFormats ?? [],
+      DateRange: dateFilters,
+      Licence: licence ?? null,
+      Keywords: keywords ?? [],
+      RetiredAndArchived: retiredAndArchived ?? false,
+      // !: None of the below are used in the UI.
+      FileIdentifier: null,
+      Title: null,
+      AlternativeTitle: null,
+      Abstract: null,
+      ResourceType: null,
+      TopicCategory: null,
+      Lineage: null,
+      AdditionalInformationSource: null,
+    },
+    ResultsPerPage: searchFieldsObject.rowsPerPage,
+  };
+
+  return request;
+};
+
+const getFiltersForCategory = (categories: ISearchFilterProcessed[], type: string) => {
+  const categoryFilters = categories.find((category) => category.value === type);
+  const filters = categoryFilters?.filters.reduce<string[]>((acc, category) => {
+    if (category.checked) {
+      acc.push(category.value);
     }
-  }
-  return queryPayload;
+
+    return acc;
+  }, []);
+
+  return filters;
 };
 
 const _generateStudyPeriodFilterQuery = (searchBuilderPayload: ISearchBuilderPayload): estypes.SearchRequest => {
