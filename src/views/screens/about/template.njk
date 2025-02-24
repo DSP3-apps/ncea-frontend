@@ -33,7 +33,7 @@
         <h2>Our Partners</h2>
           <div class="landingPage__partnersLogo-leftsection--logos">
            {% for item in partnerLogos %}
-              <img src="{{ item.imgUrl }}" title="{{ item.title }}">
+              <a href="{{ item.link }}"><img src="{{ item.imgUrl }}" title="{{ item.title }}"></a>
            {% endfor %}
           </div>
       </div>
