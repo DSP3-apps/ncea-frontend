@@ -527,6 +527,16 @@ function redirectToClassifierSearch() {
   window.location.href = url;
 }
 
+function setNavigationLinkActive() {
+  const navLinks = document.querySelectorAll('.govuk-service-navigation__item a');
+  const currentPath = window.location.pathname;
+  navLinks.forEach((link) => {
+    if (link.getAttribute('href') === currentPath) {
+      link.parentElement.classList.add('govuk-service-navigation__item--active');
+    }
+  });
+}
+
 if (typeof Storage !== 'undefined') {
   document.addEventListener('DOMContentLoaded', () => {
     const forms = document.querySelectorAll('[data-do-browser-storage]');
@@ -551,6 +561,7 @@ if (typeof Storage !== 'undefined') {
     classifierBackLinkHandler();
     searchResultBackLinkHandler();
     toggleClassifierCheckbox();
+    setNavigationLinkActive();
     document.querySelector('.back-link-date') &&
       document.querySelector('.back-link-date').addEventListener('click', redirectToClassifierSearch);
 
