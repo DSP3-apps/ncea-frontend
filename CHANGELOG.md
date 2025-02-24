@@ -1,3 +1,17 @@
+# [1.12.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.11.1...v1.12.0) (2025-02-24)
+
+
+### Features
+
+* **frontend:** added the partner links and logs quick links feeds section ([89cc8e9](https://github.com/DSP3-apps/ncea-frontend/commit/89cc8e950dd30ca50505fca37077dced13cda2c6))
+* **frontend:** added the partner links and logs quick links feeds section ([b1939f0](https://github.com/DSP3-apps/ncea-frontend/commit/b1939f08dec51678f704901594c028f0c4fdbd91))
+* **frontend:** Filter Atom feeds to just NCEA related. ([7848c4c](https://github.com/DSP3-apps/ncea-frontend/commit/7848c4c6632315be0ba1585517f7817a4afb7a75))
+* **frontend:** fix some minor UI issues ([092b328](https://github.com/DSP3-apps/ncea-frontend/commit/092b3286591157dc8148ed16aa554a87a0ed2dfd))
+* **frontend:** fix some minor UI issues ([74106e1](https://github.com/DSP3-apps/ncea-frontend/commit/74106e137b6958d970683588f143bd4a0fa44ac3))
+* **frontend:** fix the alignment issues ([7ff9474](https://github.com/DSP3-apps/ncea-frontend/commit/7ff9474f008729416676e77c5b60a1339798da55))
+* **frontend:** fix the test suites ([72a1987](https://github.com/DSP3-apps/ncea-frontend/commit/72a198738cff3934e084b4a781dddee52ac33d40))
+* **frontend:** Licence badge does not display. ([e0655d7](https://github.com/DSP3-apps/ncea-frontend/commit/e0655d77eb6e9d48a9fba69adf1eb8983b195d79))
+
 ## [1.11.1](https://github.com/DSP3-apps/ncea-frontend/compare/v1.11.0...v1.11.1) (2025-02-19)
 
 
