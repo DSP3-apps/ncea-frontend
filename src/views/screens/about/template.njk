@@ -54,15 +54,13 @@
         <div class="landingPage__links_container">
           <div class="landingPage__links_container-heading"><h2>Quick Links</h2></div>
            <div class="landingPage__links_container-quicklinks">
-            <div class="landingPage__links_container-quicklinks-list">
-                  <img width="30px" height="30px" src="{{ assetPath }}/images/favicon.svg" title="govuk">
-                    <a href="https://www.gov.uk/government/publications/natural-capital-and-ecosystem-assessment-programme/natural-capital-and-ecosystem-assessment-programme" target="_blank" rel="noreferrer noopener" class="govuk-link govuk-link--no-underline">GOV.UK</a>
-              </div>
+           {% for item in quickLinks %}
               <div class="landingPage__links_container-quicklinks-list">
-                  <img width="30px" height="30px" src="{{ assetPath }}/images/youtube-icon.svg" title="youtube">
-                    <a href="https://www.youtube.com/@NCEAprogramme/videos" target="_blank" rel="noreferrer noopener" class="govuk-link govuk-link--no-underline">YouTube</a>
+                    <img width="30px" height="30px" src="{{ item.iconUrl }}" title="{{item.iconName}}">
+                      <a href="{{ item.link }}" target="_blank" rel="noreferrer noopener" class="govuk-link govuk-link--no-underline">{{item.iconName}}</a>
+                </div>
+            {% endfor %}
               </div>
-            </div>
         </div>
      </div>
     <section>

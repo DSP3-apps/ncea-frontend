@@ -334,4 +334,16 @@ export const landingPageData = {
       title: 'Natural England',
     },
   ],
+  quickLinks: [
+    {
+      iconUrl: `${BASE_PATH}/assets/images/favicon.svg`,
+      iconName: 'GOV.UK',
+      link: 'https://www.gov.uk/government/publications/natural-capital-and-ecosystem-assessment-programme/natural-capital-and-ecosystem-assessment-programme',
+    },
+    {
+      iconUrl: `${BASE_PATH}/assets/images/youtube-icon.svg`,
+      iconName: 'YouTube',
+      link: 'https://www.youtube.com/@NCEAprogramme/videos',
+    },
+  ],
 };
