@@ -213,11 +213,72 @@ exports[`Accessibility Screen Accessibility > Sanpshot verification should match
   </div>
 </header>
 
+    
+
+  <div 
+class="govuk-service-navigation"
+data-module="govuk-service-navigation"
+>
+    
+  <div class="govuk-width-container">
+
+    <div class="govuk-service-navigation__container">
+      
+      
+
+      
+      
+        <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+          <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="navigation" hidden>
+            Menu
+          </button>
+
+          <ul class="govuk-service-navigation__list" id="navigation" >
+
+            
+              
+
+              
+              <li class="govuk-service-navigation__item">
+                
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment/about">
+                    
+                
+                About
+              
+                  </a>
+                
+              </li>
+            
+              
+
+              
+              <li class="govuk-service-navigation__item">
+                
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment/feeds">
+                    
+                
+                Feeds
+              
+                  </a>
+                
+              </li>
+            
+
+            </ul>
+        </nav>
+      
+    </div>
+
+    </div>
+
+  </div>
+
 
     <div class="govuk-grid-col login">
       
         <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A32937%2Fnatural-capital-ecosystem-assessment%2Faccessibility-statement" class="govuk-link govuk-body-m">Login</a>
+        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A39893%2Fnatural-capital-ecosystem-assessment%2Faccessibility-statement" class="govuk-link govuk-body-m">Login</a>
       
     </div>
   </header>
@@ -349,7 +410,7 @@ exports[`Accessibility Screen Accessibility > Sanpshot verification should match
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.11.1</p>
+          <p>Version: v1.12.0</p>
         </div>
         
         

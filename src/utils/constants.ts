@@ -30,6 +30,17 @@ export const webRoutePaths = {
   about: '/about',
 };
 
+export const headerNavigationLinks = [
+  {
+    text: 'About',
+    href: `${BASE_PATH}${webRoutePaths.about}`,
+  },
+  {
+    text: 'Feeds',
+    href: `${BASE_PATH}${webRoutePaths.atom}`,
+  },
+];
+
 export const elasticSearchAPIPaths = {
   searchPath: '_search',
   countPath: '_count',

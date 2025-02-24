@@ -81,6 +81,16 @@ describe('Vision Plugin Configuration', () => {
       gtmId: environmentConfig.gtmId,
       appVersion: process.env.npm_package_version,
       keyboardFiltersBaseUrl: '',
+      headerNavigationLinks: [
+        {
+          text: 'About',
+          href: `${BASE_PATH}${webRoutePaths.about}`,
+        },
+        {
+          text: 'Feeds',
+          href: `${BASE_PATH}${webRoutePaths.atom}`,
+        },
+      ],
     });
     expect(mockEnvironment.addFilter).toHaveBeenCalledTimes(2);
   });

@@ -1,6 +1,7 @@
 {% extends "govuk/template.njk" %}
 
 {% from "govuk/components/header/macro.njk" import govukHeader %}
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
 {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
 {% from "govuk/components/cookie-banner/macro.njk" import govukCookieBanner %}
 
@@ -72,7 +73,9 @@
       serviceUrl: routes.homePage,
       useTudorCrown: true
     }) }}
-
+    {{ govukServiceNavigation({
+      navigation: headerNavigationLinks
+    }) }}
     <div class="govuk-grid-col login">
       {% if user %}
         <p class="govuk-body-m">Welcome, {{ user.email }}</p>
