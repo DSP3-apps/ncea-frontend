@@ -164,21 +164,6 @@ export interface IResource {
   availableLanguages: string[];
 }
 
-export interface ISearchFields {
-  fileIdentifier: string;
-  title: string;
-  alternativeTitle: string;
-  abstract: string;
-  resourceType: string;
-  topicCategory: string;
-  keywords: string[];
-  lineage: string;
-  additionalInformationSource: string;
-  temporalExtent: ITemporalExtent;
-  mapping?: IGeometry;
-  resource?: IResource;
-}
-
 export interface ISearchResult {
   searchScore: number;
   id: string;
@@ -186,7 +171,6 @@ export interface ISearchResult {
   datasetType: string;
   ingestedDateTime: string;
   content: string;
-  fileIdentifier: string;
   title: string;
   alternativeTitle: string;
   abstract: string;

@@ -81,9 +81,9 @@ export const transformSearchResponse = (response: ISearchResponse, isMapResults:
     const endDate = new Date(result.temporalExtent.endPosition);
 
     const searchResponse = {
-      id: result.fileIdentifier,
+      id: result.id,
       title: result.title,
-      content: toggleContent(result.abstract, `abstract_content-${result.fileIdentifier}`),
+      content: toggleContent(result.abstract, `abstract_content-${result.id}`),
       studyPeriod: `${format(startDate, DATE_FORMAT)} to ${format(endDate, DATE_FORMAT)}`,
       startYear: startDate.getFullYear().toString(),
       toYear: endDate.getFullYear().toString(),
