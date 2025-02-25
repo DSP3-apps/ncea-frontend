@@ -1,6 +1,6 @@
 import { CLASSIFIER_COUNT_LEVEL_2 } from './mocks/classifier-themes-level-2';
 import { CLASSIFIER_COUNT_LEVEL_3 } from './mocks/classifier-themes-level-3';
-import { MORE_INFO_RESPOSE } from './mocks/more-info-response';
+import { MORE_INFO_RESPOSE, MORE_INFO_NEW_DATA } from './mocks/more-info-response';
 import { QUICK_SEARCH_RESOURCE_TYPE_FILTERS, QUICK_SEARCH_STUDY_PERIOD_FILTERS } from './mocks/quick-search-filters';
 import { Credentials } from '../..//interfaces/auth';
 import { environmentConfig } from '../../config/environmentConfig';
@@ -126,14 +126,12 @@ const getFilterOptions = async (
   }
 };
 
-const getDocumentDetails = async (docId: string): Promise<ISearchItem> => {
+const getDocumentDetails = async (docId: string): Promise<any> => {
   try {
-    // const payload = generateSearchQuery({ docId });
-    // const response = await performQuery<estypes.SearchResponse>(payload);
-    // const responseData = response;
-    const responseData = MORE_INFO_RESPOSE;
-    const finalResponse: ISearchResults = await formatSearchResponse(responseData, true);
-    return finalResponse?.items?.[0] as ISearchItem;
+    const responseData = MORE_INFO_NEW_DATA;
+    const finalResponse = formatSearchResponseMapper(responseData);
+    console.log(JSON.stringify(finalResponse));
+    return finalResponse;
     // if (responseData?.hits?.total?.valueOf) {
     // } else {
     //   return Promise.resolve({} as ISearchItem);
