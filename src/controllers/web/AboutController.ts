@@ -2,11 +2,21 @@
 
 import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 
-import { landingPageData } from '../../utils/constants';
+import { getFeedsData } from '@/utils/getFeedsData';
+
+import { landingPageData, nceaFeedsUrl } from '../../utils/constants';
 
 const AboutController = {
-  renderAboutHandler: (request: Request, response: ResponseToolkit): ResponseObject => {
-    return response.view('screens/about/template', landingPageData);
+  renderAboutHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
+    const feedsData = await getFeedsData(nceaFeedsUrl);
+
+    return response.view('screens/about/template', {
+      feedsList: {
+        title: feedsData.title,
+        articles: [feedsData.articles[0]],
+      },
+      ...landingPageData,
+    });
   },
 };
 
