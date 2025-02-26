@@ -181,7 +181,21 @@ exports[`Results block template Guided search journey Search results with empty 
     <!-- Google tag (gtag.js) -->
     
 
-    <header class="govuk-header" data-module="govuk-header">
+    
+
+    
+    
+      
+    
+
+
+    
+
+    
+ 
+    
+
+    <header class="govuk-header govuk-header--full-width-border" data-module="govuk-header">
   <div class="govuk-header__container govuk-width-container">
     <div class="govuk-header__logo">
       <a href="https://www.gov.uk/" class="govuk-header__link govuk-header__link--homepage">
@@ -211,18 +225,106 @@ exports[`Results block template Guided search journey Search results with empty 
       
     
     
+      <nav aria-label="User" class="govuk-header__navigation">
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" hidden>
+          User
+        </button>
+
+        <ul id="navigation" class="govuk-header__navigation-list">
+        
+          
+          <li class="govuk-header__navigation-item">
+            
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A44487%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+            
+          </li>
+          
+        
+        </ul>
+      </nav>
+    
     </div>
   
   </div>
 </header>
 
+    
 
-    <div class="govuk-grid-col login">
+  <div 
+class="govuk-service-navigation"
+data-module="govuk-service-navigation"
+>
+    
+  <div class="govuk-width-container">
+
+    <div class="govuk-service-navigation__container">
       
-        <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A46809%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+      
+
+      
+      
+        <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+          <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="secondaryMenu" hidden>
+            Menu
+          </button>
+
+          <ul class="govuk-service-navigation__list" id="secondaryMenu" >
+
+            
+              
+
+              
+              <li class="govuk-service-navigation__item">
+                
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment">
+                    
+                
+                Home
+              
+                  </a>
+                
+              </li>
+            
+              
+
+              
+              <li class="govuk-service-navigation__item">
+                
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment/about">
+                    
+                
+                About
+              
+                  </a>
+                
+              </li>
+            
+              
+
+              
+              <li class="govuk-service-navigation__item">
+                
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment/feeds">
+                    
+                
+                Feeds
+              
+                  </a>
+                
+              </li>
+            
+
+            </ul>
+        </nav>
       
     </div>
+
+    </div>
+
+  </div>
+
+
+    
   </header>
 
 
@@ -238,7 +340,7 @@ exports[`Results block template Guided search journey Search results with empty 
       Beta
     </strong>
     <span class="govuk-phase-banner__text">
-      This is a new service - your <a class="govuk-link help-link" rel="noreferrer noopener" target="_blank" href="https://defragroup.eu.qualtrics.com/jfe/form/SV_02KhhVirzVmY0QK">feedback</a> will help us to improve it.
+      This is a new service - your <a class="govuk-link" rel="noreferrer noopener" target="_blank" href="https://defragroup.eu.qualtrics.com/jfe/form/SV_02KhhVirzVmY0QK">feedback</a> will help us to improve it.
     </span>
   </p>
 </div>
@@ -1994,7 +2096,8 @@ exports[`Results block template Guided search journey Search results with empty 
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.13.0</p>
+          <p>Version: v1.12.0</p>
+          <p>Version: v1.12.0</p>
         </div>
         
         
@@ -2252,7 +2355,21 @@ exports[`Results block template Guided search journey Search results with error 
     <!-- Google tag (gtag.js) -->
     
 
-    <header class="govuk-header" data-module="govuk-header">
+    
+
+    
+    
+      
+    
+
+
+    
+
+    
+ 
+    
+
+    <header class="govuk-header govuk-header--full-width-border" data-module="govuk-header">
   <div class="govuk-header__container govuk-width-container">
     <div class="govuk-header__logo">
       <a href="https://www.gov.uk/" class="govuk-header__link govuk-header__link--homepage">
@@ -2282,18 +2399,106 @@ exports[`Results block template Guided search journey Search results with error 
       
     
     
+      <nav aria-label="User" class="govuk-header__navigation">
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" hidden>
+          User
+        </button>
+
+        <ul id="navigation" class="govuk-header__navigation-list">
+        
+          
+          <li class="govuk-header__navigation-item">
+            
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33611%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+            
+          </li>
+          
+        
+        </ul>
+      </nav>
+    
     </div>
   
   </div>
 </header>
 
+    
 
-    <div class="govuk-grid-col login">
+  <div 
+class="govuk-service-navigation"
+data-module="govuk-service-navigation"
+>
+    
+  <div class="govuk-width-container">
+
+    <div class="govuk-service-navigation__container">
       
-        <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33425%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+      
+
+      
+      
+        <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+          <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="secondaryMenu" hidden>
+            Menu
+          </button>
+
+          <ul class="govuk-service-navigation__list" id="secondaryMenu" >
+
+            
+              
+
+              
+              <li class="govuk-service-navigation__item">
+                
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment">
+                    
+                
+                Home
+              
+                  </a>
+                
+              </li>
+            
+              
+
+              
+              <li class="govuk-service-navigation__item">
+                
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment/about">
+                    
+                
+                About
+              
+                  </a>
+                
+              </li>
+            
+              
+
+              
+              <li class="govuk-service-navigation__item">
+                
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment/feeds">
+                    
+                
+                Feeds
+              
+                  </a>
+                
+              </li>
+            
+
+            </ul>
+        </nav>
       
     </div>
+
+    </div>
+
+  </div>
+
+
+    
   </header>
 
 
@@ -2309,7 +2514,7 @@ exports[`Results block template Guided search journey Search results with error 
       Beta
     </strong>
     <span class="govuk-phase-banner__text">
-      This is a new service - your <a class="govuk-link help-link" rel="noreferrer noopener" target="_blank" href="https://defragroup.eu.qualtrics.com/jfe/form/SV_02KhhVirzVmY0QK">feedback</a> will help us to improve it.
+      This is a new service - your <a class="govuk-link" rel="noreferrer noopener" target="_blank" href="https://defragroup.eu.qualtrics.com/jfe/form/SV_02KhhVirzVmY0QK">feedback</a> will help us to improve it.
     </span>
   </p>
 </div>
@@ -2873,7 +3078,8 @@ exports[`Results block template Guided search journey Search results with error 
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.13.0</p>
+          <p>Version: v1.12.0</p>
+          <p>Version: v1.12.0</p>
         </div>
         
         
@@ -3131,7 +3337,21 @@ exports[`Results block template Quick search journey Search results with data sh
     <!-- Google tag (gtag.js) -->
     
 
-    <header class="govuk-header" data-module="govuk-header">
+    
+
+    
+    
+      
+    
+
+
+    
+
+    
+ 
+    
+
+    <header class="govuk-header govuk-header--full-width-border" data-module="govuk-header">
   <div class="govuk-header__container govuk-width-container">
     <div class="govuk-header__logo">
       <a href="https://www.gov.uk/" class="govuk-header__link govuk-header__link--homepage">
@@ -3161,18 +3381,106 @@ exports[`Results block template Quick search journey Search results with data sh
       
     
     
+      <nav aria-label="User" class="govuk-header__navigation">
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" hidden>
+          User
+        </button>
+
+        <ul id="navigation" class="govuk-header__navigation-list">
+        
+          
+          <li class="govuk-header__navigation-item">
+            
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A46491%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+            
+          </li>
+          
+        
+        </ul>
+      </nav>
+    
     </div>
   
   </div>
 </header>
 
+    
 
-    <div class="govuk-grid-col login">
+  <div 
+class="govuk-service-navigation"
+data-module="govuk-service-navigation"
+>
+    
+  <div class="govuk-width-container">
+
+    <div class="govuk-service-navigation__container">
       
-        <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A36341%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+      
+
+      
+      
+        <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+          <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="secondaryMenu" hidden>
+            Menu
+          </button>
+
+          <ul class="govuk-service-navigation__list" id="secondaryMenu" >
+
+            
+              
+
+              
+              <li class="govuk-service-navigation__item">
+                
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment">
+                    
+                
+                Home
+              
+                  </a>
+                
+              </li>
+            
+              
+
+              
+              <li class="govuk-service-navigation__item">
+                
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment/about">
+                    
+                
+                About
+              
+                  </a>
+                
+              </li>
+            
+              
+
+              
+              <li class="govuk-service-navigation__item">
+                
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment/feeds">
+                    
+                
+                Feeds
+              
+                  </a>
+                
+              </li>
+            
+
+            </ul>
+        </nav>
       
     </div>
+
+    </div>
+
+  </div>
+
+
+    
   </header>
 
 
@@ -3188,7 +3496,7 @@ exports[`Results block template Quick search journey Search results with data sh
       Beta
     </strong>
     <span class="govuk-phase-banner__text">
-      This is a new service - your <a class="govuk-link help-link" rel="noreferrer noopener" target="_blank" href="https://defragroup.eu.qualtrics.com/jfe/form/SV_02KhhVirzVmY0QK">feedback</a> will help us to improve it.
+      This is a new service - your <a class="govuk-link" rel="noreferrer noopener" target="_blank" href="https://defragroup.eu.qualtrics.com/jfe/form/SV_02KhhVirzVmY0QK">feedback</a> will help us to improve it.
     </span>
   </p>
 </div>
@@ -5192,7 +5500,8 @@ exports[`Results block template Quick search journey Search results with data sh
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.13.0</p>
+          <p>Version: v1.12.0</p>
+          <p>Version: v1.12.0</p>
         </div>
         
         
@@ -5450,7 +5759,21 @@ exports[`Results block template Quick search journey Search results with empty d
     <!-- Google tag (gtag.js) -->
     
 
-    <header class="govuk-header" data-module="govuk-header">
+    
+
+    
+    
+      
+    
+
+
+    
+
+    
+ 
+    
+
+    <header class="govuk-header govuk-header--full-width-border" data-module="govuk-header">
   <div class="govuk-header__container govuk-width-container">
     <div class="govuk-header__logo">
       <a href="https://www.gov.uk/" class="govuk-header__link govuk-header__link--homepage">
@@ -5480,18 +5803,106 @@ exports[`Results block template Quick search journey Search results with empty d
       
     
     
+      <nav aria-label="User" class="govuk-header__navigation">
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" hidden>
+          User
+        </button>
+
+        <ul id="navigation" class="govuk-header__navigation-list">
+        
+          
+          <li class="govuk-header__navigation-item">
+            
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A36963%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+            
+          </li>
+          
+        
+        </ul>
+      </nav>
+    
     </div>
   
   </div>
 </header>
 
+    
 
-    <div class="govuk-grid-col login">
+  <div 
+class="govuk-service-navigation"
+data-module="govuk-service-navigation"
+>
+    
+  <div class="govuk-width-container">
+
+    <div class="govuk-service-navigation__container">
       
-        <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A36119%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+      
+
+      
+      
+        <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+          <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="secondaryMenu" hidden>
+            Menu
+          </button>
+
+          <ul class="govuk-service-navigation__list" id="secondaryMenu" >
+
+            
+              
+
+              
+              <li class="govuk-service-navigation__item">
+                
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment">
+                    
+                
+                Home
+              
+                  </a>
+                
+              </li>
+            
+              
+
+              
+              <li class="govuk-service-navigation__item">
+                
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment/about">
+                    
+                
+                About
+              
+                  </a>
+                
+              </li>
+            
+              
+
+              
+              <li class="govuk-service-navigation__item">
+                
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment/feeds">
+                    
+                
+                Feeds
+              
+                  </a>
+                
+              </li>
+            
+
+            </ul>
+        </nav>
       
     </div>
+
+    </div>
+
+  </div>
+
+
+    
   </header>
 
 
@@ -5507,7 +5918,7 @@ exports[`Results block template Quick search journey Search results with empty d
       Beta
     </strong>
     <span class="govuk-phase-banner__text">
-      This is a new service - your <a class="govuk-link help-link" rel="noreferrer noopener" target="_blank" href="https://defragroup.eu.qualtrics.com/jfe/form/SV_02KhhVirzVmY0QK">feedback</a> will help us to improve it.
+      This is a new service - your <a class="govuk-link" rel="noreferrer noopener" target="_blank" href="https://defragroup.eu.qualtrics.com/jfe/form/SV_02KhhVirzVmY0QK">feedback</a> will help us to improve it.
     </span>
   </p>
 </div>
@@ -7263,7 +7674,8 @@ exports[`Results block template Quick search journey Search results with empty d
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.13.0</p>
+          <p>Version: v1.12.0</p>
+          <p>Version: v1.12.0</p>
         </div>
         
         
@@ -7521,7 +7933,21 @@ exports[`Results block template Quick search journey Search results with error s
     <!-- Google tag (gtag.js) -->
     
 
-    <header class="govuk-header" data-module="govuk-header">
+    
+
+    
+    
+      
+    
+
+
+    
+
+    
+ 
+    
+
+    <header class="govuk-header govuk-header--full-width-border" data-module="govuk-header">
   <div class="govuk-header__container govuk-width-container">
     <div class="govuk-header__logo">
       <a href="https://www.gov.uk/" class="govuk-header__link govuk-header__link--homepage">
@@ -7551,18 +7977,106 @@ exports[`Results block template Quick search journey Search results with error s
       
     
     
+      <nav aria-label="User" class="govuk-header__navigation">
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" hidden>
+          User
+        </button>
+
+        <ul id="navigation" class="govuk-header__navigation-list">
+        
+          
+          <li class="govuk-header__navigation-item">
+            
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A45609%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+            
+          </li>
+          
+        
+        </ul>
+      </nav>
+    
     </div>
   
   </div>
 </header>
 
+    
 
-    <div class="govuk-grid-col login">
+  <div 
+class="govuk-service-navigation"
+data-module="govuk-service-navigation"
+>
+    
+  <div class="govuk-width-container">
+
+    <div class="govuk-service-navigation__container">
       
-        <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A37431%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall" class="govuk-link govuk-body-m">Login</a>
+      
+
+      
+      
+        <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+          <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="secondaryMenu" hidden>
+            Menu
+          </button>
+
+          <ul class="govuk-service-navigation__list" id="secondaryMenu" >
+
+            
+              
+
+              
+              <li class="govuk-service-navigation__item">
+                
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment">
+                    
+                
+                Home
+              
+                  </a>
+                
+              </li>
+            
+              
+
+              
+              <li class="govuk-service-navigation__item">
+                
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment/about">
+                    
+                
+                About
+              
+                  </a>
+                
+              </li>
+            
+              
+
+              
+              <li class="govuk-service-navigation__item">
+                
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment/feeds">
+                    
+                
+                Feeds
+              
+                  </a>
+                
+              </li>
+            
+
+            </ul>
+        </nav>
       
     </div>
+
+    </div>
+
+  </div>
+
+
+    
   </header>
 
 
@@ -7578,7 +8092,7 @@ exports[`Results block template Quick search journey Search results with error s
       Beta
     </strong>
     <span class="govuk-phase-banner__text">
-      This is a new service - your <a class="govuk-link help-link" rel="noreferrer noopener" target="_blank" href="https://defragroup.eu.qualtrics.com/jfe/form/SV_02KhhVirzVmY0QK">feedback</a> will help us to improve it.
+      This is a new service - your <a class="govuk-link" rel="noreferrer noopener" target="_blank" href="https://defragroup.eu.qualtrics.com/jfe/form/SV_02KhhVirzVmY0QK">feedback</a> will help us to improve it.
     </span>
   </p>
 </div>
@@ -8142,7 +8656,8 @@ exports[`Results block template Quick search journey Search results with error s
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.13.0</p>
+          <p>Version: v1.12.0</p>
+          <p>Version: v1.12.0</p>
         </div>
         
         
