@@ -1,3 +1,16 @@
+# [1.13.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.12.0...v1.13.0) (2025-02-25)
+
+
+### Bug Fixes
+
+* **tests:** Update snapshots ([f2bfa3b](https://github.com/DSP3-apps/ncea-frontend/commit/f2bfa3bd1a9edc0fec17fd5a71d8f30c27b355e3))
+
+
+### Features
+
+* **frontend:** Search Results not getting. ([3869e8a](https://github.com/DSP3-apps/ncea-frontend/commit/3869e8a4c2e9adc70daec1aacf102a67720d8a62))
+* **frontend:** Search Results not getting. ([f127051](https://github.com/DSP3-apps/ncea-frontend/commit/f127051169bf761e8d7ddc64a367d8276c81c9c9))
+
 # [1.12.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.11.1...v1.12.0) (2025-02-24)
 
 
