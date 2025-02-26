@@ -76,6 +76,14 @@ export const getStudyPeriodDetails = (isDetails: boolean, dateRanges: IDateRange
  */
 export const transformSearchResponse = (response: ISearchResponse, isMapResults: boolean = false): ISearchResults => {
   let hasSpatialData = false;
+
+  if (response.totalDocumentCount === 0) {
+    return {
+      total: response.totalDocumentCount,
+      items: [],
+      hasSpatialData,
+    };
+  }
   const items = response.results.map((result: ISearchResult) => {
     const startDate = new Date(result.temporalExtent.beginPosition);
     const endDate = new Date(result.temporalExtent.endPosition);
