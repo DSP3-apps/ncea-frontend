@@ -5,7 +5,7 @@ describe('formatTimestamp', () => {
   it('should format a valid ISO timestamp correctly', () => {
     const isoTimestamp = '2025-02-05T10:32:20Z';
     const formatted = formatTimestamp(isoTimestamp);
-    expect(formatted).toBe('05 February 2025 10:32:20');
+    expect(formatted).toBe('05 February 2025');
   });
 });
 
@@ -47,7 +47,7 @@ describe('getFeedsData', () => {
       title: validArticle.title,
       author: validArticle.author,
       link: validArticle.link,
-      pubDate: '05 February 2025 10:32:20',
+      pubDate: '05 February 2025',
       summary: validArticle.summary,
     });
   });
@@ -77,7 +77,7 @@ describe('getFeedsData', () => {
         title: 'Article 1',
         author: 'Author 1',
         link: 'http://example.com/article1',
-        pubDate: '05 February 2025 10:32:20',
+        pubDate: '05 February 2025',
         summary: 'Summary for article 1',
       },
     ]);

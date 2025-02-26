@@ -264,8 +264,8 @@ export const defaultFilters: ISearchFiltersProcessed = {
 export const jwtCookiePrefix = 'auth0-jwt-';
 
 export const atomFeeds = [
-  'https://defraenvironment.blog.gov.uk/category/research-and-data-analysis/ncea-programme/feed/',
-  'https://naturalengland.blog.gov.uk/tag/ncea/feed/',
+  'https://defraenvironment.blog.gov.uk/category/ncea-programme/feed/',
+  'https://naturalengland.blog.gov.uk/category/natural-capital/feed/',
 ];
 export const FILTER_VALUES = {
   organisation: 'org',

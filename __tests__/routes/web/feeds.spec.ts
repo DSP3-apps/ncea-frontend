@@ -50,7 +50,9 @@ describe('Feeds Screen', () => {
       expect(document?.querySelectorAll('.govuk-heading-m')?.[1]?.textContent?.trim()).toBe(
         'NCEA programme – Environment',
       );
-      expect(document?.querySelectorAll('.govuk-heading-m')?.[2]?.textContent?.trim()).toBe('NCEA – Natural England');
+      expect(document?.querySelectorAll('.govuk-heading-m')?.[2]?.textContent?.trim()).toBe(
+        'Natural Capital – Natural England',
+      );
     });
   });
 });
