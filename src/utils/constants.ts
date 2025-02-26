@@ -348,6 +348,11 @@ export const landingPageData = {
       iconName: 'YouTube',
       link: 'https://www.youtube.com/@NCEAprogramme/videos',
     },
+    {
+      iconUrl: `${BASE_PATH}/assets/images/email-icon.svg`,
+      iconName: 'Join our mailing list',
+      link: '#',
+    },
   ],
 };
 

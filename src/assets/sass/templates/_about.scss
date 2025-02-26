@@ -10,7 +10,7 @@
     &__intro {
       display: flex;
       gap: 1.5rem;
-      flex-direction: column-reverse;
+      flex-direction: column;
     }
     &__categories {
       max-width: 1200px;
@@ -53,6 +53,8 @@
     }
     &__partnersLogo {
       display: flex;
+      flex-direction: column;
+      align-items: center;
       max-width: 1200px;
       background-color: white;
       overflow: hidden;
@@ -109,18 +111,20 @@
     }
     &__feeds_container {
       display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
       gap: 10%;
       &--feeds {
         width: 70%;
         margin: auto;
         padding: 10px;
-        text-align: left;
+        text-align: center;
           button {
             width: 200px
           }
         &-text {
-          text-align: right;
+          text-align: center;
         }
         &-list {
           padding: 0;
@@ -128,8 +132,14 @@
       }
     }
     &__links_container {
+      text-align: center;
       width: 50%;
       height: 140px;
+      &-quicklinks {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
       &-quicklinks-list {
         display: flex;
         align-items: center;
@@ -139,14 +149,6 @@
         color: #1D70B8;
         font-size: 1.18rem;
         line-height: 1.25;
-      }
-    }
-    &__newsletter {
-      text-align: center;
-      margin-top: 20px;
-      &--text {
-        font-size: 25px;
-        font-weight: 700;
       }
     }
 
@@ -169,13 +171,28 @@
         }
       }
       &__feeds_container {
+        display: flex;
+        flex-direction: row;
         &--feeds {
+          text-align: left;
           &-list {
             padding: 0;
           }
           .govuk-width-container{
             margin: 0;
           }
+        }
+      }
+      &__partnersLogo {
+        display: flex;
+        flex-direction: row;
+      }
+      &__links_container {
+        text-align: left;
+        &-quicklinks {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
         }
       }
     }
