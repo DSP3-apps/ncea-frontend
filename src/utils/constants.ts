@@ -348,5 +348,13 @@ export const landingPageData = {
       iconName: 'YouTube',
       link: 'https://www.youtube.com/@NCEAprogramme/videos',
     },
+    {
+      iconUrl: `${BASE_PATH}/assets/images/email-icon.svg`,
+      iconName: 'Join our mailing list',
+      link: '#',
+    },
   ],
 };
+
+export const nceaFeedsUrl =
+  'https://defraenvironment.blog.gov.uk/category/research-and-data-analysis/ncea-programme/feed/';
