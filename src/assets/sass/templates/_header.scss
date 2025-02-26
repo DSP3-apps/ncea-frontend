@@ -100,6 +100,7 @@
     }
   }
   &__toggle {
+    color: $defra-brand;
     :focus {
       box-shadow: 0 4px $defra-brand-hover;
     }
