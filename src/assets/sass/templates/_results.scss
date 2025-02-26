@@ -142,10 +142,13 @@
   background-color: #00703c;
 }
 .govuk-link:link {
-  color: #00703c;
+  color: $defra-brand;
+}
+.govuk-link:hover {
+  color: $defra-brand-hover;
 }
 .govuk-link:visited {
-  color: #00703c;
+  color: $defra-brand;
 }
 .govuk-pagination__item--current:hover {
   background-color: #00703c;

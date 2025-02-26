@@ -1,6 +1,7 @@
 {% extends "govuk/template.njk" %}
 
 {% from "govuk/components/header/macro.njk" import govukHeader %}
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
 {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
 {% from "govuk/components/cookie-banner/macro.njk" import govukCookieBanner %}
 
@@ -66,22 +67,35 @@
 
 </script> #}
 
+    {% set loginUrl = routes.logIn %}
+
+    {% set redirectPart = "" %}
+    {% if loginUrl and loginUrl != "" %}
+      {% set redirectPart = "?redirect_uri=" + redirectUri %}
+    {% endif %}
+
+    {% set loginElement = "<span>Welcome, Guest&nbsp; <a href='" + loginUrl + redirectPart + "' class='govuk-link'>Login</a></span>" %}
+
+    {% if user.email %}
+      {% set loginElement = "<span>Welcome, " + user.email + "&nbsp; <a href='" + routes.logOut + redirectPart + "' class='govuk-link'>Logout</a></span>" %}
+    {% endif %}
+ 
+    {% set headerNavigators = [{html: loginElement}]%}
+
     {{ govukHeader({
       homepageUrl: "https://www.gov.uk/",
       serviceName: serviceName,
       serviceUrl: routes.homePage,
-      useTudorCrown: true
+      navigation: headerNavigators,
+      useTudorCrown: true,
+      classes: 'govuk-header--full-width-border',
+      menuButtonText: "User",
+      navigationId: "primaryMenu"
     }) }}
-
-    <div class="govuk-grid-col login">
-      {% if user %}
-        <p class="govuk-body-m">Welcome, {{ user.email }}</p>
-        <a href="{{routes.logOut}}?redirect_uri={{redirectUri}}" class="govuk-link govuk-body-m">Logout</a>
-      {% else %}
-        <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="{{routes.logIn}}{% if not routes.logIn == "" %}?redirect_uri={{redirectUri}}{% endif %}" class="govuk-link govuk-body-m">Login</a>
-      {% endif %}
-    </div>
+    {{ govukServiceNavigation({
+      navigation: headerNavigationLinks,
+      navigationId: "secondaryMenu"
+    }) }}
   </header>
 {% endblock %}
 
@@ -94,7 +108,7 @@
 {% block beforeContent %}
   {{ govukPhaseBanner({
     tag: { text: "Beta" },
-    html: 'This is a new service - your <a class="govuk-link help-link" rel="noreferrer noopener" target="_blank" href="https://defragroup.eu.qualtrics.com/jfe/form/SV_02KhhVirzVmY0QK">feedback</a> will help us to improve it.'
+    html: 'This is a new service - your <a class="govuk-link" rel="noreferrer noopener" target="_blank" href="https://defragroup.eu.qualtrics.com/jfe/form/SV_02KhhVirzVmY0QK">feedback</a> will help us to improve it.'
   }) }}
 {% endblock %}
 

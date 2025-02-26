@@ -6,7 +6,7 @@ import nunjucks from 'nunjucks';
 import dateFilter from 'nunjucks-date-filter';
 
 import { environmentConfig } from '../../config/environmentConfig';
-import { BASE_PATH, webRoutePaths } from '../../utils/constants';
+import { BASE_PATH, headerNavigationLinks, webRoutePaths } from '../../utils/constants';
 
 const packageJsonPath = path.join(process.cwd(), 'package.json');
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
@@ -96,6 +96,7 @@ const customHapiViews = {
       gtmId: environmentConfig.gtmId,
       appVersion: packageJson.version,
       keyboardFiltersBaseUrl: environmentConfig.keyboardFiltersBaseUrl,
+      headerNavigationLinks: headerNavigationLinks,
     },
   },
 };
