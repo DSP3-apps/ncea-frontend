@@ -178,7 +178,21 @@ exports[`Home Screen Home > Sanpshot verification should match the home screen s
     <!-- Google tag (gtag.js) -->
     
 
-    <header class="govuk-header" data-module="govuk-header">
+    
+
+    
+    
+      
+    
+
+
+    
+
+    
+ 
+    
+
+    <header class="govuk-header govuk-header--full-width-border" data-module="govuk-header">
   <div class="govuk-header__container govuk-width-container">
     <div class="govuk-header__logo">
       <a href="https://www.gov.uk/" class="govuk-header__link govuk-header__link--homepage">
@@ -208,6 +222,24 @@ exports[`Home Screen Home > Sanpshot verification should match the home screen s
       
     
     
+      <nav aria-label="User" class="govuk-header__navigation">
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" hidden>
+          User
+        </button>
+
+        <ul id="navigation" class="govuk-header__navigation-list">
+        
+          
+          <li class="govuk-header__navigation-item">
+            
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F0.0.0.0%3A4000%2Fnatural-capital-ecosystem-assessment' class='govuk-link'>Login</a></span>
+            
+          </li>
+          
+        
+        </ul>
+      </nav>
+    
     </div>
   
   </div>
@@ -229,12 +261,26 @@ data-module="govuk-service-navigation"
       
       
         <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
-          <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="navigation" hidden>
+          <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="secondaryMenu" hidden>
             Menu
           </button>
 
-          <ul class="govuk-service-navigation__list" id="navigation" >
+          <ul class="govuk-service-navigation__list" id="secondaryMenu" >
 
+            
+              
+
+              
+              <li class="govuk-service-navigation__item">
+                
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment">
+                    
+                
+                Home
+              
+                  </a>
+                
+              </li>
             
               
 
@@ -275,12 +321,7 @@ data-module="govuk-service-navigation"
   </div>
 
 
-    <div class="govuk-grid-col login">
-      
-        <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F0.0.0.0%3A4000%2Fnatural-capital-ecosystem-assessment" class="govuk-link govuk-body-m">Login</a>
-      
-    </div>
+    
   </header>
 
 
@@ -295,7 +336,7 @@ data-module="govuk-service-navigation"
       Beta
     </strong>
     <span class="govuk-phase-banner__text">
-      This is a new service - your <a class="govuk-link help-link" rel="noreferrer noopener" target="_blank" href="https://defragroup.eu.qualtrics.com/jfe/form/SV_02KhhVirzVmY0QK">feedback</a> will help us to improve it.
+      This is a new service - your <a class="govuk-link" rel="noreferrer noopener" target="_blank" href="https://defragroup.eu.qualtrics.com/jfe/form/SV_02KhhVirzVmY0QK">feedback</a> will help us to improve it.
     </span>
   </p>
 </div>
@@ -452,15 +493,15 @@ data-module="govuk-service-navigation"
           from several sources, including:</p>
         <ul class="govuk-!-margin-bottom-6">
           <li class="govuk-body-m ncea-static-page-line-item">
-            <a href="https://medin.org.uk/" target="_blank" class='help-link'>Marine Environmental Data & Information Network (MEDIN)</a>
+            <a href="https://medin.org.uk/" target="_blank" class='govuk-link'>Marine Environmental Data & Information Network (MEDIN)</a>
           </li>
           <li class="govuk-body-m ncea-static-page-line-item">
-            <a href="https://jncc.gov.uk/" target="_blank" class='help-link'>Joint Nature Conservation Committee (JNCC)</a>
+            <a href="https://jncc.gov.uk/" target="_blank" class='govuk-link'>Joint Nature Conservation Committee (JNCC)</a>
           </li>
         </ul>
         <h1 class="govuk-heading-m govuk-\\!-static-margin-0 educational-copy-container__heading-m">NCEA programme</h1>
         <p class="govuk-body govuk-!-margin-bottom-6">The Department for Environment, Food and Rural Affairs’(Defra’s)
-          <a class='help-link' href="https://www.gov.uk/government/publications/natural-capital-and-ecosystem-assessment-programme" target="_blank">
+          <a class='govuk-link' href="https://www.gov.uk/government/publications/natural-capital-and-ecosystem-assessment-programme" target="_blank">
           Natural Capital and Ecosystem Assessment (NCEA)</a>
           programme is delivering a nationwide survey of England’s land, coast, and sea: mapping the location, extent and
           condition of our ecosystems and the benefits they provide.</p>

@@ -181,7 +181,21 @@ exports[`Guided Search - Geography Questionnaire Screen GET Request Geography Qu
     <!-- Google tag (gtag.js) -->
     
 
-    <header class="govuk-header" data-module="govuk-header">
+    
+
+    
+    
+      
+    
+
+
+    
+
+    
+ 
+    
+
+    <header class="govuk-header govuk-header--full-width-border" data-module="govuk-header">
   <div class="govuk-header__container govuk-width-container">
     <div class="govuk-header__logo">
       <a href="https://www.gov.uk/" class="govuk-header__link govuk-header__link--homepage">
@@ -211,6 +225,24 @@ exports[`Guided Search - Geography Questionnaire Screen GET Request Geography Qu
       
     
     
+      <nav aria-label="User" class="govuk-header__navigation">
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" hidden>
+          User
+        </button>
+
+        <ul id="navigation" class="govuk-header__navigation-list">
+        
+          
+          <li class="govuk-header__navigation-item">
+            
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F0.0.0.0%3A4000%2Fnatural-capital-ecosystem-assessment%2Fcoordinate-search' class='govuk-link'>Login</a></span>
+            
+          </li>
+          
+        
+        </ul>
+      </nav>
+    
     </div>
   
   </div>
@@ -232,12 +264,26 @@ data-module="govuk-service-navigation"
       
       
         <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
-          <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="navigation" hidden>
+          <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="secondaryMenu" hidden>
             Menu
           </button>
 
-          <ul class="govuk-service-navigation__list" id="navigation" >
+          <ul class="govuk-service-navigation__list" id="secondaryMenu" >
 
+            
+              
+
+              
+              <li class="govuk-service-navigation__item">
+                
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment">
+                    
+                
+                Home
+              
+                  </a>
+                
+              </li>
             
               
 
@@ -278,12 +324,7 @@ data-module="govuk-service-navigation"
   </div>
 
 
-    <div class="govuk-grid-col login">
-      
-        <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F0.0.0.0%3A4000%2Fnatural-capital-ecosystem-assessment%2Fcoordinate-search" class="govuk-link govuk-body-m">Login</a>
-      
-    </div>
+    
   </header>
 
 
@@ -299,7 +340,7 @@ data-module="govuk-service-navigation"
       Beta
     </strong>
     <span class="govuk-phase-banner__text">
-      This is a new service - your <a class="govuk-link help-link" rel="noreferrer noopener" target="_blank" href="https://defragroup.eu.qualtrics.com/jfe/form/SV_02KhhVirzVmY0QK">feedback</a> will help us to improve it.
+      This is a new service - your <a class="govuk-link" rel="noreferrer noopener" target="_blank" href="https://defragroup.eu.qualtrics.com/jfe/form/SV_02KhhVirzVmY0QK">feedback</a> will help us to improve it.
     </span>
   </p>
 </div>

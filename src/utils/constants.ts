@@ -32,6 +32,10 @@ export const webRoutePaths = {
 
 export const headerNavigationLinks = [
   {
+    text: 'Home',
+    href: `${BASE_PATH}`,
+  },
+  {
     text: 'About',
     href: `${BASE_PATH}${webRoutePaths.about}`,
   },

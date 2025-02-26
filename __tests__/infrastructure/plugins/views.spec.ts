@@ -83,6 +83,10 @@ describe('Vision Plugin Configuration', () => {
       keyboardFiltersBaseUrl: '',
       headerNavigationLinks: [
         {
+          text: 'Home',
+          href: `${BASE_PATH}`,
+        },
+        {
           text: 'About',
           href: `${BASE_PATH}${webRoutePaths.about}`,
         },
