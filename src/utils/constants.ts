@@ -350,3 +350,6 @@ export const landingPageData = {
     },
   ],
 };
+
+export const nceaFeedsUrl =
+  'https://defraenvironment.blog.gov.uk/category/research-and-data-analysis/ncea-programme/feed/';

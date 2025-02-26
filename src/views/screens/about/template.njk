@@ -30,7 +30,7 @@
     {% endif %}
     <section class="landingPage__partnersLogo">
       <div class="landingPage__partnersLogo-leftsection">
-        <h2>Our Partners</h2>
+        <h2 class="govuk-heading-m">Our Partners</h2>
           <div class="landingPage__partnersLogo-leftsection--logos">
            {% for item in partnerLogos %}
               <a href="{{ item.link }}"><img src="{{ item.imgUrl }}" title="{{ item.title }}"></a>
@@ -38,8 +38,8 @@
           </div>
       </div>
         <div class="landingPage__partnersLogo-rightsection">
-          <h2>Product Brochure</h2>
-            <p>Explore our latest products with detailed specifications and benefits.</p>
+          <h2 class="govuk-heading-m">Product Brochure</h2>
+            <p class="govuk-body">Explore our latest products with detailed specifications and benefits.</p>
           <div class="landingPage__partnersLogo-rightsection--brochure">
               <img src="{{ assetPath }}/images/template.jpg" title="Product Brochure">
           </div>
@@ -49,10 +49,26 @@
     <section class="landingPage__feedlinks">
      <div class="landingPage__feeds_container">
       <div class="landingPage__feeds_container--feeds">
-         <a href="{{ routes.homePage }}/feeds" class="govuk-link govuk-link--no-underline landingPage__newsletter--text" >Feeds</a>
+        <h2 class="govuk-heading-m">{{feedsList.title}}</h2>
+        <ul class="govuk-list">
+          {% for article in feedsList.articles %}
+            <li class="govuk-width-container feed-container landingPage__feeds_container--feeds-list">
+              <h3 class="govuk-heading-s">{{ article.title }}</h3>
+               <div class="captions-section">
+                  <small><b>Author: </b>{{ article.author }}</small>
+                  <small><b>Published on : </b>{{ article.pubDate }}</small>
+                </div>
+              <p class="govuk-body">{{ article.summary }}</p>
+              <a href="{{ article.link }}" target="_blank">{{ article.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+        <p class="govuk-body landingPage__feeds_container--feeds-text">
+          <a href="{{routes.homePage}}/feeds" class="govuk-link">More Feeds</a>
+        </p>
       </div>
         <div class="landingPage__links_container">
-          <div class="landingPage__links_container-heading"><h2>Quick Links</h2></div>
+          <div class="landingPage__links_container-heading"><h2 class="govuk-heading-m">Quick Links</h2></div>
            <div class="landingPage__links_container-quicklinks">
            {% for item in quickLinks %}
               <div class="landingPage__links_container-quicklinks-list">
