@@ -55,17 +55,15 @@
         <div class="landingPage__feeds_container--feeds">
           <h2 class="govuk-heading-m">{{feedsList.title}}</h2>
           <ul class="govuk-list">
-            {% for article in feedsList.articles %}
               <li class="govuk-width-container feed-container landingPage__feeds_container--feeds-list">
-                <h3 class="govuk-heading-s">{{ article.title }}</h3>
+                <h3 class="govuk-heading-s">{{ feedsList.article.title }}</h3>
                 <div class="captions-section">
-                    <small><b>Author: </b>{{ article.author }}</small>
-                    <small><b>Published on : </b>{{ article.pubDate }}</small>
+                    <small><b>Author: </b>{{ feedsList.article.author }}</small>
+                    <small><b>Published on : </b>{{ feedsList.article.pubDate }}</small>
                   </div>
-                <p class="govuk-body">{{ article.summary }}</p>
-                <a class="govuk-link" href="{{ article.link }}" target="_blank">{{ article.title }}</a>
+                <p class="govuk-body">{{ feedsList.article.summary }}</p>
+                <a class="govuk-link" href="{{ feedsList.article.link }}" target="_blank">{{ feedsList.article.title }}</a>
               </li>
-            {% endfor %}
           </ul>
           <p class="govuk-body landingPage__feeds_container--feeds-text">
             <a href="{{routes.homePage}}/feeds" class="govuk-link">More Feeds</a>

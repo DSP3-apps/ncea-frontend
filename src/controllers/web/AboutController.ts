@@ -2,9 +2,8 @@
 
 import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 
-import { getFeedsData } from '@/utils/getFeedsData';
-
 import { landingPageData, nceaFeedsUrl } from '../../utils/constants';
+import { getFeedsData } from '../../utils/getFeedsData';
 
 const AboutController = {
   renderAboutHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
@@ -14,7 +13,7 @@ const AboutController = {
         displayFeedsPanel: true,
         feedsList: {
           title: feedsData.title,
-          articles: [feedsData.articles[0]],
+          article: feedsData.articles[0],
         },
         ...landingPageData,
       });
