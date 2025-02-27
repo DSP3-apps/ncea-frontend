@@ -300,7 +300,8 @@ export const landingPageData = {
       'NCEA is transforming the way we make decisions and policy, helping to ensure we invest in environmental reforms that achieve maximum benefit.',
       'Its outputs, including data, tools and processes, are supporting Government’s missions and commitments to improving economic growth, sustainable land management and ensuring our food security, progression towards net zero and public health.',
     ],
-    imageUrl: `${BASE_PATH}/assets/images/introText.jpg`,
+    imageUrl1: `${BASE_PATH}/assets/images/Blea-Tarn-Lake.jpg`,
+    imageUrl2: `${BASE_PATH}/assets/images/Beautiful-View-Green-Hills.jpg`,
   },
   displayCategoryPages: false,
   categories: [
@@ -363,5 +364,12 @@ export const landingPageData = {
       iconName: 'YouTube',
       link: 'https://www.youtube.com/@NCEAprogramme/videos',
     },
+    {
+      iconUrl: `${BASE_PATH}/assets/images/email-icon.svg`,
+      iconName: 'Join our mailing list',
+      link: '#',
+    },
   ],
 };
+
+export const nceaFeedsUrl = atomFeeds[0] ?? '';

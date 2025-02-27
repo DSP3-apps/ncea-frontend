@@ -10,7 +10,18 @@
   &__intro {
     display: flex;
     gap: 1.5rem;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    &-content{
+      width:100%;
+    }
+    &-imageLayout {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      img:nth-child(2) {
+        display: none;
+      }
+    }
   }
   &__categories {
     max-width: 1200px;
@@ -22,7 +33,7 @@
       gap: 20px;
       justify-content: center;
       &-card {
-        background-color: $defra-brand;
+        background-color: #008938;
         color: black;
         overflow: hidden;
         flex: 1 1 calc(25% - 15px);
@@ -53,18 +64,20 @@
   }
   &__partnersLogo {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     max-width: 1200px;
     background-color: white;
     overflow: hidden;
     margin-top: 20px;
     &-leftsection {
       width: 50%;
-      background-color: $defra-brand;
+      background-color: #008938;
       color: white;
       padding: 20px;
       text-align: center;
       h2 {
-        margin-bottom: 15px;
+        color: white;
       }
       &--logos {
         display: grid;
@@ -82,9 +95,7 @@
             padding-left: 10px;
           }
         }
-        a:nth-child(2),
-        a:nth-child(3),
-        a:nth-child(4) {
+        a:nth-child(2), a:nth-child(3), a:nth-child(4){
           img {
             padding: 6px;
           }
@@ -104,10 +115,6 @@
           box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
       }
-      h2 {
-        color: #2c3e50;
-        margin-bottom: 15px;
-      }
     }
   }
   &__feedlinks {
@@ -115,36 +122,47 @@
   }
   &__feeds_container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    gap: 10%;
     &--feeds {
-      width: 50%;
+      width: 70%;
       margin: auto;
+      padding: 10px;
       text-align: center;
-      button {
-        width: 200px;
+        button {
+          width: 200px
+        }
+      &-text {
+        text-align: center;
+      }
+      &-list {
+        padding: 0;
       }
     }
   }
   &__links_container {
+    text-align: center;
     width: 50%;
     height: 140px;
+    &-quicklinks {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      div:nth-of-type(3) {
+        margin-left: 72px;
+      }
+    }
     &-quicklinks-list {
       display: flex;
       align-items: center;
       gap: 1rem;
     }
     &-quicklinks-text {
-      color: #1d70b8;
+      color: #1D70B8;
       font-size: 1.18rem;
       line-height: 1.25;
-    }
-  }
-  &__newsletter {
-    text-align: center;
-    margin-top: 20px;
-    &--text {
-      font-size: 25px;
-      font-weight: 700;
     }
   }
 
@@ -162,8 +180,41 @@
       gap: 2rem;
       flex-direction: row;
       &-img {
-        width: 45%;
+        width: 100%;
         max-height: max-content;
+      }
+      &-imageLayout {
+        img:nth-child(2) {
+          display: block;
+        }
+      }
+    }
+    &__feeds_container {
+      display: flex;
+      flex-direction: row;
+      &--feeds {
+        text-align: left;
+        &-list {
+          padding: 0;
+        }
+        .govuk-width-container{
+          margin: 0;
+        }
+      }
+    }
+    &__partnersLogo {
+      display: flex;
+      flex-direction: row;
+    }
+    &__links_container {
+      text-align: left;
+      &-quicklinks {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        div:nth-of-type(3) {
+          margin-left: 0px;
+        }
       }
     }
   }
@@ -175,7 +226,17 @@
           display: grid;
           grid-template-columns: repeat(1, 1fr);
         }
+    }
+  }
+  &__feeds_container {
+    &--feeds {
+      &-list {
+        padding: 0;
+      }
+      .govuk-width-container{
+        margin: 0;
       }
     }
   }
+ }
 }

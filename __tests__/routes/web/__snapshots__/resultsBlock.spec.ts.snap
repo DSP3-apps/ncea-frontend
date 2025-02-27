@@ -2096,8 +2096,7 @@ data-module="govuk-service-navigation"
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.12.0</p>
-          <p>Version: v1.12.0</p>
+          <p>Version: v1.13.0</p>
         </div>
         
         
@@ -3078,8 +3077,7 @@ data-module="govuk-service-navigation"
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.12.0</p>
-          <p>Version: v1.12.0</p>
+          <p>Version: v1.13.0</p>
         </div>
         
         
@@ -5500,8 +5498,7 @@ data-module="govuk-service-navigation"
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.12.0</p>
-          <p>Version: v1.12.0</p>
+          <p>Version: v1.13.0</p>
         </div>
         
         
@@ -5840,6 +5837,7 @@ data-module="govuk-service-navigation"
       
 
       
+
       
         <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
           <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="secondaryMenu" hidden>
@@ -7674,8 +7672,7 @@ data-module="govuk-service-navigation"
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.12.0</p>
-          <p>Version: v1.12.0</p>
+          <p>Version: v1.13.0</p>
         </div>
         
         
@@ -8067,8 +8064,7 @@ data-module="govuk-service-navigation"
             
 
             </ul>
-        </nav>
-      
+        </nav>      
     </div>
 
     </div>
@@ -8656,8 +8652,7 @@ data-module="govuk-service-navigation"
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.12.0</p>
-          <p>Version: v1.12.0</p>
+          <p>Version: v1.13.0</p>
         </div>
         
         

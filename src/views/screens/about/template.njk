@@ -10,14 +10,17 @@
     </div>
   </header>
    <section class="landingPage__intro">
-        <div class="categories__intro-content">
+        <div class="landingPage__intro-content">
           {% for content in introText.content %}
             <p class="govuk-body govuk-!-margin-bottom-6">
             {{ content }}
             </p>
           {% endfor %}
         </div>
-        <img class="landingPage__intro-img" src={{ introText.imageUrl }} title="Landing Page Introduction Image">
+        <div class="landingPage__intro-imageLayout">
+        <img class="landingPage__intro-img" src={{ introText.imageUrl1 }} title="Blea Tarn Lake">
+        <img class="landingPage__intro-img" src={{ introText.imageUrl2 }} title="Beautiful View Green Hills">
+        </div>
     </section>
     {% if displayCategoryPages %}
       <section class="landingPage__categories">
@@ -30,7 +33,7 @@
     {% endif %}
     <section class="landingPage__partnersLogo">
       <div class="landingPage__partnersLogo-leftsection">
-        <h2>Our Partners</h2>
+        <h2 class="govuk-heading-m">Our Partners</h2>
           <div class="landingPage__partnersLogo-leftsection--logos">
            {% for item in partnerLogos %}
               <a href="{{ item.link }}"><img src="{{ item.imgUrl }}" title="{{ item.title }}"></a>
@@ -38,8 +41,8 @@
           </div>
       </div>
         <div class="landingPage__partnersLogo-rightsection">
-          <h2>Product Brochure</h2>
-            <p>Explore our latest products with detailed specifications and benefits.</p>
+          <h2 class="govuk-heading-m">Product Brochure</h2>
+            <p class="govuk-body">Explore our latest products with detailed specifications and benefits.</p>
           <div class="landingPage__partnersLogo-rightsection--brochure">
               <img src="{{ assetPath }}/images/template.jpg" title="Product Brochure">
           </div>
@@ -48,11 +51,27 @@
     </section>
     <section class="landingPage__feedlinks">
      <div class="landingPage__feeds_container">
-      <div class="landingPage__feeds_container--feeds">
-         <a href="{{ routes.homePage }}/feeds" class="govuk-link govuk-link--no-underline landingPage__newsletter--text" >Feeds</a>
-      </div>
+      {% if displayFeedsPanel %}
+        <div class="landingPage__feeds_container--feeds">
+          <h2 class="govuk-heading-m">{{feedsList.title}}</h2>
+          <ul class="govuk-list">
+              <li class="govuk-width-container feed-container landingPage__feeds_container--feeds-list">
+                <h3 class="govuk-heading-s">{{ feedsList.article.title }}</h3>
+                <div class="captions-section">
+                    <small><b>Author: </b>{{ feedsList.article.author }}</small>
+                    <small><b>Published on : </b>{{ feedsList.article.pubDate }}</small>
+                  </div>
+                <p class="govuk-body">{{ feedsList.article.summary }}</p>
+                <a class="govuk-link" href="{{ feedsList.article.link }}" target="_blank">{{ feedsList.article.title }}</a>
+              </li>
+          </ul>
+          <p class="govuk-body landingPage__feeds_container--feeds-text">
+            <a href="{{routes.homePage}}/feeds" class="govuk-link">More Feeds</a>
+          </p>
+        </div>
+      {% endif %}
         <div class="landingPage__links_container">
-          <div class="landingPage__links_container-heading"><h2>Quick Links</h2></div>
+          <div class="landingPage__links_container-heading"><h2 class="govuk-heading-m">Quick Links</h2></div>
            <div class="landingPage__links_container-quicklinks">
            {% for item in quickLinks %}
               <div class="landingPage__links_container-quicklinks-list">
@@ -63,9 +82,6 @@
               </div>
         </div>
      </div>
-    <section>
-    <section class="landingPage__newsletter">
-       <a href="#" class="govuk-link govuk-link--no-underline landingPage__newsletter--text">Join our mailing list</a>
     <section>
   </div>
 {% endblock %}
