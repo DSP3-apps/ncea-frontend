@@ -36,7 +36,7 @@ describe('AboutController.AboutController', () => {
       displayFeedsPanel: true,
       feedsList: {
         title: feedData.title,
-        articles: [feedData.articles[0]],
+        article: feedData.articles[0],
       },
       ...landingPageData,
     });
