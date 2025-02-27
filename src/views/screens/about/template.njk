@@ -10,14 +10,17 @@
     </div>
   </header>
    <section class="landingPage__intro">
-        <div class="categories__intro-content">
+        <div class="landingPage__intro-content">
           {% for content in introText.content %}
             <p class="govuk-body govuk-!-margin-bottom-6">
             {{ content }}
             </p>
           {% endfor %}
         </div>
-        <img class="landingPage__intro-img" src={{ introText.imageUrl }} title="Landing Page Introduction Image">
+        <div class="landingPage__intro-imageLayout">
+        <img class="landingPage__intro-img" src={{ introText.imageUrl1 }} title="Blea Tarn Lake">
+        <img class="landingPage__intro-img" src={{ introText.imageUrl2 }} title="Beautiful View Green Hills">
+        </div>
     </section>
     {% if displayCategoryPages %}
       <section class="landingPage__categories">
@@ -60,7 +63,7 @@
                     <small><b>Published on : </b>{{ article.pubDate }}</small>
                   </div>
                 <p class="govuk-body">{{ article.summary }}</p>
-                <a href="{{ article.link }}" target="_blank">{{ article.title }}</a>
+                <a class="govuk-link" href="{{ article.link }}" target="_blank">{{ article.title }}</a>
               </li>
             {% endfor %}
           </ul>
