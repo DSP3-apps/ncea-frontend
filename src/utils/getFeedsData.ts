@@ -14,7 +14,7 @@ const isValidArticle = (item): item is FeedArticle =>
 
 export function formatTimestamp(timestamp: string): string {
   const date = parseISO(timestamp);
-  return format(date, 'dd MMMM yyyy HH:mm:ss'); // Example: 05 February 2025 10:32:20
+  return format(date, 'dd MMMM yyyy'); // Example: 05 February 2025
 }
 
 export const getFeedsData = async (feedURL: string): Promise<Feed> => {

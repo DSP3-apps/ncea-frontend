@@ -30,6 +30,21 @@ export const webRoutePaths = {
   about: '/about',
 };
 
+export const headerNavigationLinks = [
+  {
+    text: 'Home',
+    href: `${BASE_PATH}`,
+  },
+  {
+    text: 'About',
+    href: `${BASE_PATH}${webRoutePaths.about}`,
+  },
+  {
+    text: 'Feeds',
+    href: `${BASE_PATH}${webRoutePaths.atom}`,
+  },
+];
+
 export const elasticSearchAPIPaths = {
   searchPath: '_search',
   countPath: '_count',
@@ -264,8 +279,8 @@ export const defaultFilters: ISearchFiltersProcessed = {
 export const jwtCookiePrefix = 'auth0-jwt-';
 
 export const atomFeeds = [
-  'https://naturalengland.blog.gov.uk/tag/ncea/feed/',
-  'https://defraenvironment.blog.gov.uk/category/research-and-data-analysis/ncea-programme/feed/',
+  'https://defraenvironment.blog.gov.uk/category/ncea-programme/feed/',
+  'https://naturalengland.blog.gov.uk/category/natural-capital/feed/',
 ];
 export const FILTER_VALUES = {
   organisation: 'org',

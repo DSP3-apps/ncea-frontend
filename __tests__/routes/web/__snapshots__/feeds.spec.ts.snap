@@ -178,7 +178,21 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
     <!-- Google tag (gtag.js) -->
     
 
-    <header class="govuk-header" data-module="govuk-header">
+    
+
+    
+    
+      
+    
+
+
+    
+
+    
+ 
+    
+
+    <header class="govuk-header govuk-header--full-width-border" data-module="govuk-header">
   <div class="govuk-header__container govuk-width-container">
     <div class="govuk-header__logo">
       <a href="https://www.gov.uk/" class="govuk-header__link govuk-header__link--homepage">
@@ -208,18 +222,106 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
       
     
     
+      <nav aria-label="User" class="govuk-header__navigation">
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" hidden>
+          User
+        </button>
+
+        <ul id="navigation" class="govuk-header__navigation-list">
+        
+          
+          <li class="govuk-header__navigation-item">
+            
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F0.0.0.0%3A4000%2Fnatural-capital-ecosystem-assessment%2Ffeeds' class='govuk-link'>Login</a></span>
+            
+          </li>
+          
+        
+        </ul>
+      </nav>
+    
     </div>
   
   </div>
 </header>
 
+    
 
-    <div class="govuk-grid-col login">
+  <div 
+class="govuk-service-navigation"
+data-module="govuk-service-navigation"
+>
+    
+  <div class="govuk-width-container">
+
+    <div class="govuk-service-navigation__container">
       
-        <p class="govuk-body-m">Welcome, Guest</p>
-        <a href="/login?redirect_uri=http%3A%2F%2F0.0.0.0%3A4000%2Fnatural-capital-ecosystem-assessment%2Ffeeds" class="govuk-link govuk-body-m">Login</a>
+      
+
+      
+      
+        <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+          <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="secondaryMenu" hidden>
+            Menu
+          </button>
+
+          <ul class="govuk-service-navigation__list" id="secondaryMenu" >
+
+            
+              
+
+              
+              <li class="govuk-service-navigation__item">
+                
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment">
+                    
+                
+                Home
+              
+                  </a>
+                
+              </li>
+            
+              
+
+              
+              <li class="govuk-service-navigation__item">
+                
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment/about">
+                    
+                
+                About
+              
+                  </a>
+                
+              </li>
+            
+              
+
+              
+              <li class="govuk-service-navigation__item">
+                
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment/feeds">
+                    
+                
+                Feeds
+              
+                  </a>
+                
+              </li>
+            
+
+            </ul>
+        </nav>
       
     </div>
+
+    </div>
+
+  </div>
+
+
+    
   </header>
 
 
@@ -234,7 +336,7 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
       Beta
     </strong>
     <span class="govuk-phase-banner__text">
-      This is a new service - your <a class="govuk-link help-link" rel="noreferrer noopener" target="_blank" href="https://defragroup.eu.qualtrics.com/jfe/form/SV_02KhhVirzVmY0QK">feedback</a> will help us to improve it.
+      This is a new service - your <a class="govuk-link" rel="noreferrer noopener" target="_blank" href="https://defragroup.eu.qualtrics.com/jfe/form/SV_02KhhVirzVmY0QK">feedback</a> will help us to improve it.
     </span>
   </p>
 </div>
@@ -247,116 +349,39 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
   
     <div>
     
-      <h2 class="govuk-heading-m">NCEA – Natural England</h2>
+      <h2 class="govuk-heading-m">NCEA programme – Environment</h2>
       <ul class="govuk-list">
         
           <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">From AI to underwater microphones: improving the evidence base for marine mammals </h3>
+            <h3 class="govuk-heading-s">Living England: a national habitat map for everyone </h3>
             <div class="captions-section">
-              <small><b>Author: </b>Samantha Parker</small>
-              <small><b>Published on : </b>13 November 2024 08:13:48</small>
+              <small><b>Author: </b>Amy Woodget</small>
+              <small><b>Published on : </b>18 December 2024</small>
             </div>
             <p class="govuk-body">By Samantha Parker and Emma Milner, Natural England marine mammal senior specialists  Why are seal population numbers changing so fast along our coasts? How are porpoise feeding patterns changing as our seas become increasingly crowded? And how does the health …</p>
-            <a href="https://naturalengland.blog.gov.uk/2024/11/13/from-ai-to-underwater-microphones-improving-the-evidence-base-for-marine-mammals/" target="_blank">From AI to underwater microphones: improving the evidence base for marine mammals </a>
+            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2024/11/13/from-ai-to-underwater-microphones-improving-the-evidence-base-for-marine-mammals/" target="_blank">From AI to underwater microphones: improving the evidence base for marine mammals </a>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
           </li>
         
           <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">Mapping our green and blue spaces: the green infrastructure mapping project</h3>
+            <h3 class="govuk-heading-s">Why monitoring matters: showcasing the Natural Capital and Ecosystem Assessment programme</h3>
             <div class="captions-section">
-              <small><b>Author: </b>Natural England</small>
-              <small><b>Published on : </b>31 October 2024 15:33:05</small>
+              <small><b>Author: </b>David Jones</small>
+              <small><b>Published on : </b>16 October 2024</small>
             </div>
             <p class="govuk-body">Martin Moss, senior officer for green infrastructure mapping, and Sarah Parrott, higher officer for engagement and impact If you looked at a map of your local area, could you identify the accessible green spaces? What about the blue ones? If …</p>
-            <a href="https://naturalengland.blog.gov.uk/2024/10/31/mapping-our-green-and-blue-spaces-the-green-infrastructure-mapping-project/" target="_blank">Mapping our green and blue spaces: the green infrastructure mapping project</a>
+            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2024/10/31/mapping-our-green-and-blue-spaces-the-green-infrastructure-mapping-project/" target="_blank">Mapping our green and blue spaces: the green infrastructure mapping project</a>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
           </li>
         
           <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">Green Infrastructure: delivering quality of life and environmental benefits for communities</h3>
+            <h3 class="govuk-heading-s">Mapping our natural assets: the Natural Capital and Ecosystem Assessment programme</h3>
             <div class="captions-section">
-              <small><b>Author: </b>Natural England</small>
-              <small><b>Published on : </b>27 August 2024 16:44:57</small>
+              <small><b>Author: </b>Sarah Adcock</small>
+              <small><b>Published on : </b>28 March 2024</small>
             </div>
             <p class="govuk-body">David Drake, Director, People &amp;#38; Nature at Natural England In January 2023, Natural England launched the Green Infrastructure (GI) Framework to support the creation of good quality Green Infrastructure which maximises benefits for people and nature. GI helps local authorities, …</p>
-            <a href="https://naturalengland.blog.gov.uk/2024/08/27/green-infrastructure-delivering-quality-of-life-and-environmental-benefits-for-communities/" target="_blank">Green Infrastructure: delivering quality of life and environmental benefits for communities</a>
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-          </li>
-        
-          <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">With a lot of help from our friends: assembling an England Peat Map</h3>
-            <div class="captions-section">
-              <small><b>Author: </b>Andrew Webb</small>
-              <small><b>Published on : </b>06 August 2024 10:32:18</small>
-            </div>
-            <p class="govuk-body">Contributors: Andrew Webb, Principal advisor, England Peat Map. Tom Hunt, Data engagement lead, England Peat Map. Sarah Parrott, Engagement and impact lead advisor, NCEA. Elizabeth Mitchell, Engagement and impact senior advisor, NCEA &amp;#160; How do you make a map of something that’s largely underground, …</p>
-            <a href="https://naturalengland.blog.gov.uk/2024/08/06/with-a-lot-of-help-from-our-friends-assembling-an-england-peat-map/" target="_blank">With a lot of help from our friends: assembling an England Peat Map</a>
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-          </li>
-        
-          <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">The Chief Scientist Report: 2023</h3>
-            <div class="captions-section">
-              <small><b>Author: </b>Natural England</small>
-              <small><b>Published on : </b>02 August 2024 11:28:50</small>
-            </div>
-            <p class="govuk-body">Professor Sallie Bailey, Chief Scientist at Natural England, tells us about the publication of Natural England’s sixth Chief Scientist Report &amp;#160; This Report, the sixth in the series, focusses on the impact our work has and – crucially - how …</p>
-            <a href="https://naturalengland.blog.gov.uk/2024/08/02/the-chief-scientist-report-2023/" target="_blank">The Chief Scientist Report: 2023</a>
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-          </li>
-        
-          <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">England Ecosystem Survey: introducing England’s largest ever field survey</h3>
-            <div class="captions-section">
-              <small><b>Author: </b>Isabel Sloman</small>
-              <small><b>Published on : </b>03 April 2024 12:20:13</small>
-            </div>
-            <p class="govuk-body">By Isabel Sloman, Manager, and Elizabeth Mitchell, Senior Advisor for Engagement and Impact, Natural Capital and Ecosystem Assessment programme The England Ecosystem Survey (EES), the largest field survey ever undertaken in the UK, is now well underway. Working at thousands …</p>
-            <a href="https://naturalengland.blog.gov.uk/2024/04/03/england-ecosystem-survey-introducing-englands-largest-ever-field-survey/" target="_blank">England Ecosystem Survey: introducing England’s largest ever field survey</a>
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-          </li>
-        
-          <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">Green Infrastructure: creating habitable towns and cities fit for the future</h3>
-            <div class="captions-section">
-              <small><b>Author: </b>Natural England</small>
-              <small><b>Published on : </b>08 November 2023 14:57:33</small>
-            </div>
-            <p class="govuk-body">&amp;#160; This week is Green Infrastructure week, a celebration of green infrastructure design and best practices. Green infrastructure is a network of natural spaces designed to deliver benefits for people and the planet. The below video details green infrastructure in …</p>
-            <a href="https://naturalengland.blog.gov.uk/2023/11/08/green-infrastructure-creating-habitable-towns-and-cities-fit-for-the-future/" target="_blank">Green Infrastructure: creating habitable towns and cities fit for the future</a>
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-          </li>
-        
-          <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">How many mussels in Morecambe Bay? Understanding the value of mudflats and sandflats for birds, humans, and the ecosystems we share</h3>
-            <div class="captions-section">
-              <small><b>Author: </b>Elizabeth Mitchell</small>
-              <small><b>Published on : </b>24 July 2023 16:42:08</small>
-            </div>
-            <p class="govuk-body">By Louise Whatley, Marine Ecology Specialist and Elizabeth Mitchell, Senior Advisor for Engagement and Impact  As summer sets in in earnest, millions of us will head to the coast. In between dropping our ice-creams on our feet and taking a …</p>
-            <a href="https://naturalengland.blog.gov.uk/2023/07/24/how-many-mussels-in-morecambe-bay-understanding-the-value-of-mudflats-and-sandflats-for-birds-humans-and-the-ecosystems-we-share/" target="_blank">How many mussels in Morecambe Bay? Understanding the value of mudflats and sandflats for birds, humans, and the ecosystems we share</a>
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-          </li>
-        
-          <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">Working towards a Peat Data Standard</h3>
-            <div class="captions-section">
-              <small><b>Author: </b>Mike Prince</small>
-              <small><b>Published on : </b>12 January 2023 09:37:14</small>
-            </div>
-            <p class="govuk-body">By Mike Prince, Natural England The England Peat Map project is mapping the extent, depth and condition of England’s peat, using new and existing field survey data, satellite Earth observation, and a variety of modelling methods. Mapping England’s peat can …</p>
-            <a href="https://naturalengland.blog.gov.uk/2023/01/12/working-towards-a-peat-data-standard/" target="_blank">Working towards a Peat Data Standard</a>
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-          </li>
-        
-          <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">Taking an evidence led approach to delivery of the Government’s tree target</h3>
-            <div class="captions-section">
-              <small><b>Author: </b>Tim Hill</small>
-              <small><b>Published on : </b>15 June 2022 10:59:12</small>
-            </div>
-            <p class="govuk-body">The UK Government’s ambition to increase tree and woodland cover in England from 14 to 17%, by more than trebling annual planting rates by 2050, represents a major shift in land use policy. As well as enhancing carbon sequestration, new …</p>
-            <a href="https://naturalengland.blog.gov.uk/2022/06/15/taking-an-evidence-led-approach-to-delivery-of-the-governments-tree-target/" target="_blank">Taking an evidence led approach to delivery of the Government’s tree target</a>
+            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2024/08/27/green-infrastructure-delivering-quality-of-life-and-environmental-benefits-for-communities/" target="_blank">Green Infrastructure: delivering quality of life and environmental benefits for communities</a>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
           </li>
         
@@ -367,39 +392,116 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
   
     <div>
     
-      <h2 class="govuk-heading-m">NCEA programme – Environment</h2>
+      <h2 class="govuk-heading-m">Natural Capital – Natural England</h2>
       <ul class="govuk-list">
         
           <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">Living England: a national habitat map for everyone </h3>
+            <h3 class="govuk-heading-s">How can Nature-Based Solutions address the climate and Nature crises?</h3>
             <div class="captions-section">
-              <small><b>Author: </b>Amy Woodget</small>
-              <small><b>Published on : </b>18 December 2024 08:48:43</small>
+              <small><b>Author: </b>Tony Juniper</small>
+              <small><b>Published on : </b>11 February 2025</small>
+            </div>
+            <p class="govuk-body">Contributors: Andrew Webb, Principal advisor, England Peat Map. Tom Hunt, Data engagement lead, England Peat Map. Sarah Parrott, Engagement and impact lead advisor, NCEA. Elizabeth Mitchell, Engagement and impact senior advisor, NCEA &amp;#160; How do you make a map of something that’s largely underground, …</p>
+            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2024/08/06/with-a-lot-of-help-from-our-friends-assembling-an-england-peat-map/" target="_blank">With a lot of help from our friends: assembling an England Peat Map</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">Three churrs for the heathland bird survey</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Alison Giacomelli</small>
+              <small><b>Published on : </b>05 February 2025</small>
+            </div>
+            <p class="govuk-body">Professor Sallie Bailey, Chief Scientist at Natural England, tells us about the publication of Natural England’s sixth Chief Scientist Report &amp;#160; This Report, the sixth in the series, focusses on the impact our work has and – crucially - how …</p>
+            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2024/08/02/the-chief-scientist-report-2023/" target="_blank">The Chief Scientist Report: 2023</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">Maximising the miracle and minimising the disaster – putting Nature at the heart of food security</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Tony Juniper</small>
+              <small><b>Published on : </b>10 January 2025</small>
+            </div>
+            <p class="govuk-body">By Isabel Sloman, Manager, and Elizabeth Mitchell, Senior Advisor for Engagement and Impact, Natural Capital and Ecosystem Assessment programme The England Ecosystem Survey (EES), the largest field survey ever undertaken in the UK, is now well underway. Working at thousands …</p>
+            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2024/04/03/england-ecosystem-survey-introducing-englands-largest-ever-field-survey/" target="_blank">England Ecosystem Survey: introducing England’s largest ever field survey</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">Working together for Nature Recovery in Greater Manchester  </h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Marian Spain</small>
+              <small><b>Published on : </b>03 December 2024</small>
+            </div>
+            <p class="govuk-body">&amp;#160; This week is Green Infrastructure week, a celebration of green infrastructure design and best practices. Green infrastructure is a network of natural spaces designed to deliver benefits for people and the planet. The below video details green infrastructure in …</p>
+            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2023/11/08/green-infrastructure-creating-habitable-towns-and-cities-fit-for-the-future/" target="_blank">Green Infrastructure: creating habitable towns and cities fit for the future</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">From AI to underwater microphones: improving the evidence base for marine mammals </h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Samantha Parker</small>
+              <small><b>Published on : </b>13 November 2024</small>
+            </div>
+            <p class="govuk-body">By Louise Whatley, Marine Ecology Specialist and Elizabeth Mitchell, Senior Advisor for Engagement and Impact  As summer sets in in earnest, millions of us will head to the coast. In between dropping our ice-creams on our feet and taking a …</p>
+            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2023/07/24/how-many-mussels-in-morecambe-bay-understanding-the-value-of-mudflats-and-sandflats-for-birds-humans-and-the-ecosystems-we-share/" target="_blank">How many mussels in Morecambe Bay? Understanding the value of mudflats and sandflats for birds, humans, and the ecosystems we share</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">International use of England&amp;#039;s biodiversity metric having global impact</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Natural England</small>
+              <small><b>Published on : </b>08 November 2024</small>
+            </div>
+            <p class="govuk-body">By Mike Prince, Natural England The England Peat Map project is mapping the extent, depth and condition of England’s peat, using new and existing field survey data, satellite Earth observation, and a variety of modelling methods. Mapping England’s peat can …</p>
+            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2023/01/12/working-towards-a-peat-data-standard/" target="_blank">Working towards a Peat Data Standard</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">Seabed Saviours - the EU Life Recreation ReMEDIES project comes to an end</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Fiona Tibbitt</small>
+              <small><b>Published on : </b>01 November 2024</small>
+            </div>
+            <p class="govuk-body">The UK Government’s ambition to increase tree and woodland cover in England from 14 to 17%, by more than trebling annual planting rates by 2050, represents a major shift in land use policy. As well as enhancing carbon sequestration, new …</p>
+            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2022/06/15/taking-an-evidence-led-approach-to-delivery-of-the-governments-tree-target/" target="_blank">Taking an evidence led approach to delivery of the Government’s tree target</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">Mapping our green and blue spaces: the green infrastructure mapping project</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Natural England</small>
+              <small><b>Published on : </b>31 October 2024</small>
             </div>
             <p class="govuk-body">Amy Woodget is the Communications and Engagement Lead for the Living England project. In this post, she introduces the latest release of Natural England’s ‘Living England’ dataset – a digital map providing information on England’s broad habitats.</p>
-            <a href="https://defraenvironment.blog.gov.uk/2024/12/18/living-england-a-national-habitat-map-for-everyone/" target="_blank">Living England: a national habitat map for everyone </a>
+            <a class="govuk-link" href="https://defraenvironment.blog.gov.uk/2024/12/18/living-england-a-national-habitat-map-for-everyone/" target="_blank">Living England: a national habitat map for everyone </a>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
           </li>
         
           <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">Why monitoring matters: showcasing the Natural Capital and Ecosystem Assessment programme</h3>
+            <h3 class="govuk-heading-s">Biodiversity Net Gain: delivering benefits for health</h3>
             <div class="captions-section">
-              <small><b>Author: </b>David Jones</small>
-              <small><b>Published on : </b>16 October 2024 11:16:25</small>
+              <small><b>Author: </b>Natural England</small>
+              <small><b>Published on : </b>16 October 2024</small>
             </div>
             <p class="govuk-body">In this post, David Jones, Senior Responsible Owner for the terrestrial arm of Defra’s largest research and development programme - the NCEA, shares reflections from the recent stakeholder showcase event.</p>
-            <a href="https://defraenvironment.blog.gov.uk/2024/10/16/why-monitoring-matters-showcasing-the-natural-capital-and-ecosystem-assessment-programme/" target="_blank">Why monitoring matters: showcasing the Natural Capital and Ecosystem Assessment programme</a>
+            <a class="govuk-link" href="https://defraenvironment.blog.gov.uk/2024/10/16/why-monitoring-matters-showcasing-the-natural-capital-and-ecosystem-assessment-programme/" target="_blank">Why monitoring matters: showcasing the Natural Capital and Ecosystem Assessment programme</a>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
           </li>
         
           <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">Mapping our natural assets: the Natural Capital and Ecosystem Assessment programme</h3>
+            <h3 class="govuk-heading-s">State of Natural Capital Report for England is now published</h3>
             <div class="captions-section">
-              <small><b>Author: </b>Sarah Adcock</small>
-              <small><b>Published on : </b>28 March 2024 12:00:21</small>
+              <small><b>Author: </b>Natural England</small>
+              <small><b>Published on : </b>09 October 2024</small>
             </div>
             <p class="govuk-body">Sarah Adcock and David Jones, Senior Responsible Owners for Defra&#39;s Natural Capital and Ecosystem Assessment programme explain why building a picture of our natural assets and their benefits is the first, crucial step in protecting our environment.</p>
-            <a href="https://defraenvironment.blog.gov.uk/2024/03/28/mapping-our-natural-assets-the-natural-capital-and-ecosystem-assessment-programme/" target="_blank">Mapping our natural assets: the Natural Capital and Ecosystem Assessment programme</a>
+            <a class="govuk-link" href="https://defraenvironment.blog.gov.uk/2024/03/28/mapping-our-natural-assets-the-natural-capital-and-ecosystem-assessment-programme/" target="_blank">Mapping our natural assets: the Natural Capital and Ecosystem Assessment programme</a>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
           </li>
         
