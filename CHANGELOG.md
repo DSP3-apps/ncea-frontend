@@ -1,3 +1,24 @@
+# [1.14.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.13.0...v1.14.0) (2025-02-28)
+
+
+### Features
+
+* **frontend:** Add navigation to header. ([bc8708f](https://github.com/DSP3-apps/ncea-frontend/commit/bc8708f6f3d8f2a2f6debe4efcd9fb5d0fdfa803))
+* **frontend:** Add navigation to header. ([493f096](https://github.com/DSP3-apps/ncea-frontend/commit/493f0965dd686682d27b07f89f7e8ed8618f9e2e))
+* **frontend:** added the feed API failure scenerio ([8f78d6d](https://github.com/DSP3-apps/ncea-frontend/commit/8f78d6dc501dc305cc0b5d3c724b8fa9a077e052))
+* **frontend:** added the feeds panel and updated the styles for landing page ([bdcf269](https://github.com/DSP3-apps/ncea-frontend/commit/bdcf269fc02e77fcf817ee82b7b740757ac4e467))
+* **frontend:** added the keyword validation for the filters ([b7b0248](https://github.com/DSP3-apps/ncea-frontend/commit/b7b024802c79e3bd427e399f5350736c7e740aa8))
+* **frontend:** added the snaphots files ([af5761e](https://github.com/DSP3-apps/ncea-frontend/commit/af5761e397e880b73e55bebd9621d28b3cdce6d5))
+* **frontend:** fix the keywords and license filters issue ([c6473ba](https://github.com/DSP3-apps/ncea-frontend/commit/c6473bafbf57a2808e69d8825a989b6abe49334f))
+* **frontend:** Make environment feeds top then NE. ([9a176bd](https://github.com/DSP3-apps/ncea-frontend/commit/9a176bdda930b5519d87b3d6406f78a2617216a7))
+* **frontend:** remove unused id ([f620827](https://github.com/DSP3-apps/ncea-frontend/commit/f6208277f037192c359fbf32550379ec5b6cf6af))
+* **frontend:** remove unused id ([c7ca564](https://github.com/DSP3-apps/ncea-frontend/commit/c7ca564c4f15d51bfca1f6339a5f1acdba4ab05f))
+* **frontend:** updated the code as per review comment ([b8a0ff7](https://github.com/DSP3-apps/ncea-frontend/commit/b8a0ff70b99ab34c8d61b9962241370b00c7a862))
+* **frontend:** updated the code as per review comment ([9991588](https://github.com/DSP3-apps/ncea-frontend/commit/99915881aac3f8f7235134c560e3bac690316e01))
+* **frontend:** updated the test file ([8cb538e](https://github.com/DSP3-apps/ncea-frontend/commit/8cb538e5bcb3751360887b81c404696846e4eb1f))
+* **frontend:** updated the UI as per code review comments ([b18afdc](https://github.com/DSP3-apps/ncea-frontend/commit/b18afdca138c9e7746557acbf8514226fc418b3a))
+* **frontend:** updated UI as per feedback ([61c7308](https://github.com/DSP3-apps/ncea-frontend/commit/61c7308f58b60eb9bdc3ee91e56b426dcadfdc19))
+
 # [1.13.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.12.0...v1.13.0) (2025-02-25)
 
 
