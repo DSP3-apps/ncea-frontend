@@ -86,10 +86,26 @@ const keywordsDropdownListAction = (keywordInput, filterInstanceId) => {
     'input',
     $.debounce(300, function () {
       const value = $(this).val().toLowerCase();
-      $('.filter-options__keyboard-filter-list li').filter(function () {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-        $('.filter-options__keyboard-filter-content-' + filterInstanceId).css('display', 'block');
+      let matchedCount = 0;
+
+      $('#keyboard-filter-list li').each(function () {
+        if (!$(this).hasClass('keyword-filter-no-record-found')) {
+          if ($(this).text().toLowerCase().indexOf(value) > -1) {
+            $(this).show();
+            matchedCount++;
+          } else {
+            $(this).hide();
+          }
+        }
       });
+
+      if (matchedCount === 0) {
+        $('.keyword-filter-no-record-found').show();
+      } else {
+        $('.keyword-filter-no-record-found').hide();
+      }
+
+      $('.filter-options__keyboard-filter-content-' + filterInstanceId).show();
     }),
   );
 };
@@ -123,6 +139,9 @@ $(document).ready(function () {
       data?.tags?.map((item) => {
         liElement = liElement.add('<li class="govuk-font-family">' + item.label + '</li>');
       });
+      liElement = liElement.add(
+        '<li class="govuk-font-family keyword-filter-no-record-found">No matching keywords found</li>',
+      );
       $('.filter-options__keyboard-filter-list').append(liElement);
     },
   });
@@ -139,11 +158,17 @@ $(document).ready(function () {
     const selectedValue = $(this).text();
     keywordInput.val('');
     keywordInput.focus();
-    $('.filter-options__keyboard-filter-content-' + filterType).hide();
+    if (!$(this).hasClass('keyword-filter-no-record-found')) {
+      keywordInput.val($(this).text());
+      $('.filter-options__keyboard-filter-content-' + filterType).hide();
+    }
 
     if (!checkDuplicateKeywords('#keyword-badge-container-search_results', selectedValue)) {
       createBadge(selectedValue, '#keyword-badge-container-search_results');
-
+      keywordInput.val('');
+      keywordInput.focus();
+      $(`.keyword-input-${filterType}-error-message`).hide();
+      $(`#filters-keywords-${filterType}`).removeClass('govuk-input--error');
       const params = new URLSearchParams(window.location.search);
       if (!!params.get('keywords')) {
         const updatedValue = `${params.get('keywords')},${selectedValue}`;

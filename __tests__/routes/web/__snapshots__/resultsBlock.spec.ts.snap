@@ -188,7 +188,6 @@ exports[`Results block template Guided search journey Search results with empty 
       
     
 
-
     
 
     
@@ -235,7 +234,7 @@ exports[`Results block template Guided search journey Search results with empty 
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A44487%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A43673%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -324,7 +323,6 @@ data-module="govuk-service-navigation"
   </div>
 
 
-    
   </header>
 
 
@@ -1667,6 +1665,9 @@ data-module="govuk-service-navigation"
       </label>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-keywords-filters-search_results">
         <div class="keyword-input">
+         <p class="govuk-error-message keyword-input-search_results-error-message">
+            The keyword is invalid. It must select one from the list.
+        </p>
           
 
 
@@ -2361,7 +2362,6 @@ exports[`Results block template Guided search journey Search results with error 
       
     
 
-
     
 
     
@@ -2408,7 +2408,7 @@ exports[`Results block template Guided search journey Search results with error 
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33611%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33043%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -2497,7 +2497,6 @@ data-module="govuk-service-navigation"
   </div>
 
 
-    
   </header>
 
 
@@ -2946,6 +2945,9 @@ data-module="govuk-service-navigation"
       </label>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters--filters-">
         <div class="keyword-input">
+         <p class="govuk-error-message keyword-input--error-message">
+            The keyword is invalid. It must select one from the list.
+        </p>
           
 
 
@@ -3342,7 +3344,6 @@ exports[`Results block template Quick search journey Search results with data sh
       
     
 
-
     
 
     
@@ -3389,7 +3390,7 @@ exports[`Results block template Quick search journey Search results with data sh
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A46491%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A35251%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -3478,7 +3479,6 @@ data-module="govuk-service-navigation"
   </div>
 
 
-    
   </header>
 
 
@@ -4821,6 +4821,9 @@ data-module="govuk-service-navigation"
       </label>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-keywords-filters-search_results">
         <div class="keyword-input">
+         <p class="govuk-error-message keyword-input-search_results-error-message">
+            The keyword is invalid. It must select one from the list.
+        </p>
           
 
 
@@ -5763,7 +5766,6 @@ exports[`Results block template Quick search journey Search results with empty d
       
     
 
-
     
 
     
@@ -5810,7 +5812,7 @@ exports[`Results block template Quick search journey Search results with empty d
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A36963%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A34373%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -5837,7 +5839,6 @@ data-module="govuk-service-navigation"
       
 
       
-
       
         <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
           <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="secondaryMenu" hidden>
@@ -5900,7 +5901,6 @@ data-module="govuk-service-navigation"
   </div>
 
 
-    
   </header>
 
 
@@ -7243,6 +7243,9 @@ data-module="govuk-service-navigation"
       </label>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-keywords-filters-search_results">
         <div class="keyword-input">
+         <p class="govuk-error-message keyword-input-search_results-error-message">
+            The keyword is invalid. It must select one from the list.
+        </p>
           
 
 
@@ -7937,7 +7940,6 @@ exports[`Results block template Quick search journey Search results with error s
       
     
 
-
     
 
     
@@ -7984,7 +7986,7 @@ exports[`Results block template Quick search journey Search results with error s
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A45609%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A46383%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -8064,7 +8066,8 @@ data-module="govuk-service-navigation"
             
 
             </ul>
-        </nav>      
+        </nav>
+      
     </div>
 
     </div>
@@ -8072,7 +8075,6 @@ data-module="govuk-service-navigation"
   </div>
 
 
-    
   </header>
 
 
@@ -8521,6 +8523,9 @@ data-module="govuk-service-navigation"
       </label>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters--filters-">
         <div class="keyword-input">
+         <p class="govuk-error-message keyword-input--error-message">
+            The keyword is invalid. It must select one from the list.
+        </p>
           
 
 

@@ -715,6 +715,10 @@
   .govuk-form-group {
     margin-bottom: 1rem;
   }
+
+  &-search_results-error-message, &-map_results-error-message {
+    display: none;
+  }
 }
 
 .govuk-font-family {
@@ -809,4 +813,9 @@
       }
     }
   }
+}
+
+.keyword-filter-no-record-found {
+  pointer-events: none;
+  display: none;
 }
