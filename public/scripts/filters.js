@@ -1,5 +1,5 @@
 import { invokeMapResultsFormFilters } from './location.js';
-
+import { checkDuplicateKeywords } from './keywordsFilter.js';
 const filtersInstance = 'search_results';
 
 const searchResultSortFormId = 'sort_results';
@@ -191,6 +191,9 @@ const addFilterFormSubmitListener = (instance) => {
     e.preventDefault();
 
     const data = getValidatedFormData(form, instance);
+    if (!validateKeywordFilters(instance)) {
+      return;
+    }
     if (!data) {
       return;
     }
@@ -263,6 +266,24 @@ const hideDateFilterError = (instance, input) => {
 
   $(`#${prefix}-group-${instance}`).remove(formGroupErrorClass);
   $(`#${prefix}-error-${instance}`).add(displayNoneClass);
+};
+
+/**
+ * Validates the keyword filter. If the typed keyword filter exist in the list, then it return `true`.
+ * Otherwise, it will return `false` with error message/
+ *
+ * @param {string} instance
+ * @returns {boolean}
+ */
+const validateKeywordFilters = (instance) => {
+  const keywordValue = document.getElementById(`filters-keywords-${instance}`).value;
+
+  if (keywordValue && !checkDuplicateKeywords(`#keyword-badge-container-${instance}`, keywordValue)) {
+    $(`#filters-keywords-${instance}`).addClass('govuk-input--error');
+    $(`.keyword-input-${instance}-error-message`).show();
+    return false;
+  }
+  return true;
 };
 
 /**
@@ -367,6 +388,9 @@ const addMapFilterFormSubmitListener = (instance) => {
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+    if (!validateKeywordFilters(instance)) {
+      return;
+    }
     const data = getValidatedFormData(form, instance);
     invokeMapResultsFormFilters(true, data);
   });

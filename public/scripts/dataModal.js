@@ -74,6 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!checkDuplicateKeywords('#keyword-badge-container-map_results', selectedValue)) {
         createBadge(selectedValue, '#keyword-badge-container-map_results');
+        $(`.keyword-input-${filterType}-error-message`).hide();
+        $(`#filters-keywords-${filterType}`).removeClass('govuk-input--error');
       }
     });
     $(document).click(function (event) {

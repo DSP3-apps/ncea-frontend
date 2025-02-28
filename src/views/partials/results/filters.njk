@@ -134,12 +134,15 @@
       </label>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-{{dspFilterNames.keywords}}-filters-{{filterInstance}}">
         <div class="keyword-input">
+         <p class="govuk-error-message keyword-input-{{filterInstance}}-error-message">
+            The keyword is invalid. It must select one from the list.
+        </p>
           {{ govukInput({
             id: "filters-"+dspFilterNames.keywords+"-"+filterInstance,
             name: dspFilterNames.keywords
           }) }}
 
-          <div class="filter-options__keyboard-filter-content-{{filterInstance}}">
+          <div class="filter-options__keyboard-filter-content-{{filterInstance}}" id="keyword-filter-list">
               <ul class="filter-options__keyboard-filter-list" id="keyboard-filter-list">
               </ul>
           </div>
