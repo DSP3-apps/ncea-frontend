@@ -1,17 +1,11 @@
 import { CLASSIFIER_COUNT_LEVEL_2 } from './mocks/classifier-themes-level-2';
 import { CLASSIFIER_COUNT_LEVEL_3 } from './mocks/classifier-themes-level-3';
-import { MORE_INFO_RESPOSE } from './mocks/more-info-response';
 import { QUICK_SEARCH_RESOURCE_TYPE_FILTERS, QUICK_SEARCH_STUDY_PERIOD_FILTERS } from './mocks/quick-search-filters';
 import { Credentials } from '../..//interfaces/auth';
 import { environmentConfig } from '../../config/environmentConfig';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { IFilterFlags } from '../../interfaces/searchPayload.interface';
-import {
-  IAggregationOptions,
-  ISearchItem,
-  ISearchResponse,
-  ISearchResults,
-} from '../../interfaces/searchResponse.interface';
+import { IAggregationOptions, ISearchResponse, ISearchResults } from '../../interfaces/searchResponse.interface';
 import { defaultFilterOptions } from '../../utils/constants';
 import { formatSearchResponse, transformSearchResponse } from '../../utils/formatSearchResponse';
 import { generateSearchQuery } from '../../utils/queryBuilder';
@@ -126,19 +120,20 @@ const getFilterOptions = async (
   }
 };
 
-const getDocumentDetails = async (docId: string): Promise<ISearchItem> => {
+const getDocumentDetails = async (docId: string, credentials: Credentials): Promise<any> => {
   try {
-    // const payload = generateSearchQuery({ docId });
-    // const response = await performQuery<estypes.SearchResponse>(payload);
-    // const responseData = response;
-    const responseData = MORE_INFO_RESPOSE;
-    const finalResponse: ISearchResults = await formatSearchResponse(responseData, true);
-    return finalResponse?.items?.[0] as ISearchItem;
-    // if (responseData?.hits?.total?.valueOf) {
-    // } else {
-    //   return Promise.resolve({} as ISearchItem);
-    // }
-    /* eslint-disable  @typescript-eslint/no-explicit-any */
+    const headers = credentials ? { Authorization: `Bearer ${credentials?.jwt}` } : null;
+    const agmApiSearchResponse = await fetch(`${environmentConfig.searchApiUrl}/${docId}`, {
+      method: 'GET',
+      ...(headers && { headers }),
+    });
+    if (!agmApiSearchResponse.ok) {
+      throw new Error(`Error fetching results: ${agmApiSearchResponse.statusText}`);
+    }
+    const searchData = await agmApiSearchResponse.json();
+    const finalResponse = formatSearchResponse(searchData);
+
+    return finalResponse;
   } catch (error: any) {
     throw new Error(`Error fetching results: ${error.message}`);
   }

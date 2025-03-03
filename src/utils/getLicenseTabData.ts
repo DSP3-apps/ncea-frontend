@@ -3,58 +3,6 @@
 
 import { ILicense } from '../interfaces/searchResponse.interface';
 
-const ensureArray = (response) => {
-  if (response === undefined || response === null) {
-    return [];
-  }
-  if (!Array.isArray(response)) {
-    response = [response];
-  }
-  return response;
-};
-
-const getLimitationData = (searchItem: Record<string, any>, type: string): string => {
-  let result = '';
-  const data = ensureArray(searchItem?._source?.OrgResourceConstraints);
-  const filteredData = data?.filter((value) => Object.keys(value).length !== 0);
-
-  if (filteredData) {
-    filteredData.forEach((constraint: any) => {
-      if (type === 'access' && constraint?.OrgAccessConstraints) {
-        constraint?.OrgAccessConstraints?.forEach((accessConstraint: string) => {
-          result += accessConstraint + '<br>';
-        });
-      }
-      if (type === 'other' && constraint?.OrgAccessConstraints && !constraint?.OrgUseConstraints) {
-        constraint?.OrgOtherConstraints?.forEach((otherConstraint: string) => {
-          result += otherConstraint + '<br>';
-        });
-      }
-      if (type === 'use' && constraint?.OrgUseConstraints) {
-        constraint?.OrgUseConstraints?.forEach((useConstraint: string) => {
-          result += useConstraint + '<br>';
-        });
-      }
-      if (type === 'useOther' && constraint?.OrgUseConstraints && !constraint?.OrgAccessConstraints) {
-        constraint?.OrgOtherConstraints?.forEach((otherConstraint: string) => {
-          result += otherConstraint + '<br>';
-        });
-      }
-      if (
-        type === 'publicOther' &&
-        ((!constraint?.OrgAccessConstraints && !constraint?.OrgUseConstraints) ||
-          (constraint?.OrgAccessConstraints && constraint?.OrgUseConstraints))
-      ) {
-        if (constraint?.OrgOtherConstraints) {
-          result = constraint?.OrgOtherConstraints?.join(', ');
-        }
-      }
-    });
-  }
-
-  return result;
-};
-
 const getFrequencyUpdate = (searchItem: Record<string, any>): string => {
   let limitationPublicAccessOtherConstraint = '';
   if (
@@ -68,24 +16,23 @@ const getFrequencyUpdate = (searchItem: Record<string, any>): string => {
   return limitationPublicAccessOtherConstraint;
 };
 
-const getAvailableFormats = (searchItem: Record<string, any>): string => {
-  let limitationPublicAccessAvailableFormats = '';
-  const data = ensureArray(searchItem?._source?.OrgDistributionFormats);
-  if (data) {
-    limitationPublicAccessAvailableFormats = data.map((format: { name: string }) => format.name).join(', ');
+const formmatLicenseData = (licenseData: string[]) => {
+  if (Array.isArray(licenseData) && licenseData.length > 0) {
+    return licenseData.join('<br>');
   }
-  return limitationPublicAccessAvailableFormats;
+  return '';
 };
 
-const getLicenseTabData = (searchItem: Record<string, any>): ILicense => ({
-  limitation_on_public_access: getLimitationData(searchItem, 'access'),
-  limitation_on_public_access_otherconstraint: getLimitationData(searchItem, 'other'),
-  conditions_for_access_and_use_useConstraints: getLimitationData(searchItem, 'use'),
-  conditions_for_access_and_useOtherConstraints: getLimitationData(searchItem, 'useOther'),
-  other_constraint: getLimitationData(searchItem, 'publicOther'),
-  available_formats: getAvailableFormats(searchItem),
-  frequency_of_update: getFrequencyUpdate(searchItem),
-  character_encoding: 'utf8',
-});
-
-export { getLicenseTabData, getLimitationData, getAvailableFormats, getFrequencyUpdate, ensureArray };
+const getLicenseTabData = (license: ILicense) => {
+  return {
+    limitation_on_public_access: formmatLicenseData(license?.publicAccessAccessContraints ?? []),
+    limitation_on_public_access_otherconstraint: formmatLicenseData(license?.publicAccessOtherConstraints ?? []),
+    conditions_for_access_and_use_useConstraints: formmatLicenseData(license?.publicUseUseConstraints ?? []),
+    conditions_for_access_and_useOtherConstraints: formmatLicenseData(license?.publicUseOtherContraints ?? []),
+    other_constraint: '', // Need to test once data is availble from AGM side
+    available_formats: '', // Need to test once data is availble from AGM side
+    frequency_of_update: license?.frequencyOfUpdate ?? '',
+    character_encoding: 'utf8',
+  };
+};
+export { getLicenseTabData, getFrequencyUpdate };

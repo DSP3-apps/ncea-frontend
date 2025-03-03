@@ -9,13 +9,17 @@ export interface IBaseItem {
   resourceLocator: string;
   organisationName?: string;
   resourceType?: string[];
+  abstract?: string;
 }
 
 export interface IGeneralItem {
   alternateTitle?: string;
-  topicCategories?: string;
+  topicCategories?: string[];
   language?: string;
-  keywords?: string;
+  keywords?: string[];
+  abstract?: string;
+  temporalExtent?: ITemporalExtent;
+  resources?: IResources[];
 }
 
 export interface IAccessItem {
@@ -32,10 +36,12 @@ export interface IAccessItem {
   project_number?: string;
   metadata_language?: string;
   ncea_catalogue_entry?: string;
+  contacts?: Contact[];
+  metadata?: IMetaData;
 }
 
 export interface Contact {
-  organisationName: string;
+  organisationName?: string;
   role: string;
   email: string;
   website: string;
@@ -48,8 +54,18 @@ export interface Contact {
   position: string;
   phone: string;
   address: string;
+  name: string;
+  delivery: string;
+  postcode: string;
+  aministrativeArea: string;
 }
 export interface ILicense {
+  publicAccessAccessContraints?: string[];
+  publicAccessOtherConstraints?: string[];
+  publicUseUseConstraints?: string[];
+  publicUseOtherContraints?: string[];
+  frequencyOfUpdate?: string;
+
   limitation_on_public_access?: string;
   limitation_on_public_access_otherconstraint?: string;
   conditions_for_access_and_use_useConstraints?: string;
@@ -77,6 +93,13 @@ export interface IGovernance {
   email?: string;
 }
 
+export interface IRecordDates {
+  publication?: string;
+  creation?: string;
+  revision?: string;
+  metadata?: string;
+}
+
 export interface IQualityItem {
   publicationInformation?: string;
   creationInformation?: string;
@@ -85,6 +108,7 @@ export interface IQualityItem {
   lineage?: string;
   conformity?: string;
   additionalInformation?: string;
+  recordDates: IRecordDates;
 }
 
 export type IVertex = [number, number];
@@ -105,7 +129,13 @@ export interface IAccumulatedCoordinatesWithCenter {
   center: string;
 }
 
-export interface IGeographyItem {
+export interface ISpatial {
+  dataService?: string;
+  representationService?: string;
+  referencingSystem?: string;
+}
+
+export interface IGeography {
   spatialDataService?: string;
   spatialRepresentationService?: string;
   spatialReferencingSystem?: string;
@@ -134,7 +164,7 @@ export type IOtherSearchItem = IGeneralItem &
   IGeographyItem &
   IGovernance;
 
-export interface ISearchItem extends IBaseItem, IOtherSearchItem {
+export interface ISearchItem extends IBaseItem {
   [key: string]: IGovernance | string | number | undefined | string[] | IAccumulatedCoordinates;
 }
 
@@ -209,4 +239,34 @@ export interface IOrganisationDetails {
 export interface IDateRange {
   start?: { date?: string };
   end?: { date?: string };
+}
+
+export interface IMetaData {
+  standard?: string;
+  language?: string;
+}
+
+export interface IResources {
+  url?: string;
+  type?: string;
+  language?: string;
+}
+interface SpatialItem {
+  dataService?: string;
+  representationService?: string;
+  referencingSystem?: string;
+}
+export interface IGeographyItem {
+  verticalExtent?: string;
+  spatial: SpatialItem;
+  geographicBoundary?: [];
+  geographicLocations?: string;
+}
+
+export interface MoreInfoSearchResults extends IBaseItem, IGeographyItem, IQualityItem {
+  temporalExtent: ITemporalExtent;
+  metadata: IMetaData;
+  resources: IResources[];
+  license: ILicense;
+  contacts?: Contact[];
 }
