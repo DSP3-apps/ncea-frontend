@@ -260,16 +260,16 @@ interface SpatialItem {
   referencingSystem?: string;
 }
 export interface IGeographyBoundry {
-  westBoundLongitude?: number;
-  eastBoundLongitude?: number;
-  southBoundLatitude?: number;
-  northBoundLatitude?: number;
+  bboxEastLong?: number;
+  bboxWestLong?: number;
+  bboxSouthLat?: number;
+  bboxNorthLat?: number;
 }
 
 export interface IGeographyItem {
   verticalExtent?: string | undefined | null;
   spatial: SpatialItem;
-  geographicBoundary?: IGeographyBoundry;
+  boundingBox?: IGeographyBoundry;
   geographicLocations?: string | undefined | null;
 }
 

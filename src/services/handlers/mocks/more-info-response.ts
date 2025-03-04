@@ -17,11 +17,11 @@ export const MORE_INFO_MOCK_DATA = {
       distributionFormat: null,
     },
   ],
-  geographicBoundary: {
-    westBoundLongitude: -6.2,
-    eastBoundLongitude: 1.7,
-    southBoundLatitude: -50,
-    northBoundLatitude: 58.7,
+  boundingBox: {
+    bboxEastLong: 1.7,
+    bboxWestLong: -6.2,
+    bboxSouthLat: -50,
+    bboxNorthLat: 58.7,
   },
   geographicLocations: null,
   topicCategories: ['environment'],
