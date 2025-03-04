@@ -2,7 +2,7 @@
 'use strict';
 
 import { formatDate } from './dates';
-import { IQualityItem } from '../interfaces/searchResponse.interface';
+import { IQuality, IQualityItem } from '../interfaces/searchResponse.interface';
 
 const checkAtLeastOnePropertyValueExists = (sourceObject: Record<string, any>): boolean => {
   return sourceObject?.title || sourceObject?.pass || sourceObject?.explanation;
@@ -41,14 +41,14 @@ const getRecordsDates = (data: string): string => {
   return formatDate(data, false, false);
 };
 
-const getQualityTabData = (payload: IQualityItem) => ({
+const getQualityTabData = (payload: IQualityItem): IQuality => ({
   publicationInformation: getRecordsDates(payload?.recordDates?.publication ?? ''),
   creationInformation: getRecordsDates(payload?.recordDates?.creation ?? ''),
   revisionInformation: getRecordsDates(payload?.recordDates?.revision ?? ''),
   metadataDate: getRecordsDates(payload?.recordDates?.metadata ?? ''),
   lineage: payload?.lineage ?? '',
   conformity: '', // Need to test this, once data is available from AGM side
-  additionalInformation: payload?.additionalInformation ?? '',
+  additionalInformation: '', // Need to test this, once data is available from AGM side
 });
 
-export { getQualityTabData, generateConformityData };
+export { getQualityTabData, generateConformityData, getRecordsDates };

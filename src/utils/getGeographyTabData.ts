@@ -46,9 +46,15 @@ const getGeographicMarkers = (location: string | string[]): string => {
   return markers.join('_');
 };
 
-const getGeographicLocations = (coordinates) => {
-  if (coordinates && Object.keys(coordinates).length) {
-    if (coordinates && Object.keys(coordinates).length) {
+const getGeographicLocations = (geographicBoundary) => {
+  if (geographicBoundary && Object.keys(geographicBoundary).length) {
+    if (geographicBoundary && Object.keys(geographicBoundary).length) {
+      const coordinates = {
+        north: geographicBoundary.northBoundLatitude,
+        south: geographicBoundary.southBoundLatitude,
+        east: geographicBoundary.eastBoundLongitude,
+        west: geographicBoundary.westBoundLongitude,
+      };
       const { north, south, east, west } = coordinates;
       const latitude = south - 5.0 + (north + 5.0 - (south - 5.0)) / 2;
       const longitude = west - 5.0 + (east + 5.0 - (west - 5.0)) / 2;
@@ -70,7 +76,7 @@ const getGeographyTabData = (payload: IGeographyItem): IGeography => {
     geographicBoundaryHtml: getGeographicBoundaryHtml(coordinatesData?.coordinates ?? ({} as IAccumulatedCoordinates)),
     geographicCenter: coordinatesData?.center ?? '0,0',
     geographicMarkers: getGeographicMarkers(payload.geographicLocations ?? ''), // Need to test it as its values is coming as null from AGM side
-    verticalExtent: payload?.verticalExtent ?? '',
+    verticalExtent: '', // Keeping its value empty as there no data is availble from AGM side
     samplingResolution: '', // Keeping its value empty as there no data is availble from AGM side
   };
 };

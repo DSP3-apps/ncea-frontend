@@ -188,7 +188,6 @@ exports[`Guided Search - Geography Questionnaire Screen GET Request Geography Qu
       
     
 
-
     
 
     
@@ -324,7 +323,6 @@ data-module="govuk-service-navigation"
   </div>
 
 
-    
   </header>
 
 
@@ -688,7 +686,7 @@ data-module="govuk-service-navigation"
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.13.0</p>
+          <p>Version: v1.14.0</p>
         </div>
         
         

@@ -1,8 +1,8 @@
 'use strict';
 
-import { IBaseItem, INatural } from '../interfaces/searchResponse.interface';
+import { INatural, INaturalItem } from '../interfaces/searchResponse.interface';
 
-const getNaturalTab = (payload: IBaseItem): INatural => ({
+const getNaturalTab = (payload: INaturalItem): INatural => ({
   Natural_capital_title: payload?.title ?? '',
   Natural_capital_description: payload?.abstract ?? '',
   Natural_capital_displayData: '', // There is no data available from AGM side, so decided to leave as empty

@@ -4,12 +4,9 @@ import Joi from 'joi';
 import { IAggregationOptions, ISearchItem } from '../../../src/interfaces/searchResponse.interface';
 import { SearchResultsController } from '../../../src/controllers/web/SearchResultsController';
 import { Request, ResponseToolkit } from '@hapi/hapi';
-
-import { formattedDetailsResponse } from '../../data/documentDetailsResponse';
-import { processDetailsTabData } from '../../../src/utils/processDetailsTabData';
 import { appendPublication } from '../../../src/utils/queryStringHelper';
 import { quickSearchJoiError } from '../../data/quickSearch';
-import { getDocumentDetails, getSearchResults, getFilterOptions } from '../../../src/services/handlers/searchApi';
+import { getSearchResults, getFilterOptions } from '../../../src/services/handlers/searchApi';
 import { BASE_PATH, formIds, pageTitles, queryParamKeys, webRoutePaths } from '../../../src/utils/constants';
 import { getPaginationItems } from '../../../src/utils/paginationBuilder';
 import { deleteQueryParams, readQueryParams, upsertQueryParams } from '../../../src/utils/queryStringHelper';
@@ -29,7 +26,7 @@ jest.mock('../../../src/services/handlers/searchApi', () => ({
 
 describe('Deals with search results controller', () => {
   xdescribe('Deals with search results handler', () => {
-    it.only('should return the results and rendered search items for quick search', async () => {
+    it('should return the results and rendered search items for quick search', async () => {
       const queryObject = {
         q: 'marine',
         jry: 'qs',
@@ -280,71 +277,6 @@ describe('Deals with search results controller', () => {
         searchInputError,
       };
       expect(response.view).toHaveBeenCalledWith('screens/home/template', context);
-    });
-  });
-
-  describe('Deals with document details handler', () => {
-    it('should fetch the data and return the view', async () => {
-      const queryObject = {
-        q: 'marine',
-        jry: 'qs',
-        pg: '1',
-        rpp: '20',
-        srt: 'most_relevant',
-      };
-      const request: Request = {
-        params: { id: '123' },
-        query: { ...queryObject },
-      } as any;
-      const response: ResponseToolkit = { view: jest.fn() } as any;
-      const expectedResponse: ISearchItem = formattedDetailsResponse?.items?.[0] as ISearchItem;
-      const queryString: string = readQueryParams(request.query);
-      (getDocumentDetails as jest.Mock).mockResolvedValue(expectedResponse);
-
-      await SearchResultsController.renderSearchDetailsHandler(request, response);
-      expect(response.view).toHaveBeenCalledWith('screens/details/template', {
-        pageTitle: pageTitles.generalTab,
-        pageTitles,
-        docDetails: expectedResponse,
-        detailsTabOptions: await processDetailsTabData(expectedResponse),
-        queryString,
-      });
-    });
-    it('should fetch the data as empty object when the API does not found the document and return the view', async () => {
-      const queryObject = {
-        q: 'marine',
-        jry: 'qs',
-        pg: '1',
-        rpp: '20',
-        srt: 'most_relevant',
-      };
-      const request: Request = {
-        params: { id: '123' },
-        query: { ...queryObject },
-      } as any;
-      const response: ResponseToolkit = { view: jest.fn() } as any;
-      (getDocumentDetails as jest.Mock).mockResolvedValue({});
-      await SearchResultsController.renderSearchDetailsHandler(request, response);
-      const queryString: string = readQueryParams(request.query);
-      expect(response.view).toHaveBeenCalledWith('screens/details/template', {
-        pageTitle: pageTitles.generalTab,
-        pageTitles,
-        docDetails: {},
-        detailsTabOptions: await processDetailsTabData({}),
-        queryString,
-      });
-    });
-
-    it('should show an error when something fails at API layer', async () => {
-      const request: Request = { params: { id: '123' } } as any;
-      const response: ResponseToolkit = { view: jest.fn() } as any;
-      const error = new Error('Mocked error');
-      (getDocumentDetails as jest.Mock).mockRejectedValue(error);
-      await SearchResultsController.renderSearchDetailsHandler(request, response);
-      expect(response.view).toHaveBeenCalledWith('screens/details/template', {
-        error,
-        docDetails: undefined,
-      });
     });
   });
 

@@ -5,21 +5,6 @@ import { capitalizeWords } from './formatAggregationResponse';
 import { getOrganisationDetails } from './getOrganisationDetails';
 import { Contact, IAccessItem } from '../interfaces/searchResponse.interface';
 
-const rolePrecedence = ['owner', 'pointofcontact', 'custodian', 'distributor', 'originator'];
-
-const combineAndSortContacts = (contactForResource: Contact[], contact: Contact[]): Contact[] => {
-  const contactForResourceArray = contactForResource ?? [];
-  const contactArray = contact ?? [];
-  const combined = [...contactForResourceArray, ...contactArray];
-  combined.sort((a, b) => {
-    const roleIndexA = rolePrecedence.indexOf(a.role.toLowerCase());
-    const roleIndexB = rolePrecedence.indexOf(b.role.toLowerCase());
-
-    return roleIndexA - roleIndexB;
-  });
-  return combined;
-};
-
 const getCoupledResource = (data: string | string[]): string => {
   const getCoupleResourceLink = (url: string): string => {
     const cleanedString: string = url.replace(/\\(.)/g, '$1');
@@ -102,4 +87,4 @@ const getAccessTabData = (payload: IAccessItem) => ({
   metadata_language: payload?.metadata?.language?.toUpperCase() ?? '',
 });
 
-export { getAccessTabData, getResourceLocators, getCoupledResource, getContactInformation, combineAndSortContacts };
+export { getAccessTabData, getResourceLocators, getCoupledResource, getContactInformation };

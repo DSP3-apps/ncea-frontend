@@ -13,10 +13,10 @@ import { getQualityTabData } from './getQualityTabData';
 import { toggleContent } from './toggleContent';
 import {
   IDateRange,
+  IMoreInfoSearchItem,
   ISearchResponse,
   ISearchResult,
   ISearchResults,
-  MoreInfoSearchResults,
 } from '../interfaces/searchResponse.interface';
 
 const DATE_FORMAT = 'd MMMM yyyy';
@@ -131,7 +131,7 @@ export const transformSearchResponse = (response: ISearchResponse, isMapResults:
   };
 };
 
-export const formatSearchResponse = (payload: MoreInfoSearchResults) => ({
+export const formatSearchResponse = (payload: IMoreInfoSearchItem) => ({
   id: payload?.id,
   title: payload?.title ?? '',
   publishedBy: '',
@@ -140,7 +140,6 @@ export const formatSearchResponse = (payload: MoreInfoSearchResults) => ({
   resourceLocator: getResourceLocatorURL(payload?.resources[0]?.url ?? ''),
   organisationName: '', // keeping this field as empty, right now it is not available from AGM side
   ncea_group_reference: '',
-  metadata_standard: payload?.metadata?.standard ?? '',
   project_number: '',
   ...getGeneralTabData(payload),
   ...getAccessTabData(payload),

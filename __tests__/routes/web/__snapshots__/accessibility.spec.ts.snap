@@ -185,7 +185,6 @@ exports[`Accessibility Screen Accessibility > Sanpshot verification should match
       
     
 
-
     
 
     
@@ -232,7 +231,7 @@ exports[`Accessibility Screen Accessibility > Sanpshot verification should match
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A41953%2Fnatural-capital-ecosystem-assessment%2Faccessibility-statement' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A44175%2Fnatural-capital-ecosystem-assessment%2Faccessibility-statement' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -254,7 +253,11 @@ data-module="govuk-service-navigation"
     
   <div class="govuk-width-container">
 
-    <div class="govuk-service-navigation__container">      
+    <div class="govuk-service-navigation__container">
+      
+      
+
+      
       
         <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
           <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="secondaryMenu" hidden>
@@ -317,7 +320,6 @@ data-module="govuk-service-navigation"
   </div>
 
 
-    
   </header>
 
 
@@ -447,7 +449,7 @@ data-module="govuk-service-navigation"
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.13.0</p>
+          <p>Version: v1.14.0</p>
         </div>
         
         
