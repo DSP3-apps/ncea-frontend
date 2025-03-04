@@ -3,7 +3,7 @@
 
 import { capitalizeWords } from './formatAggregationResponse';
 import { getOrganisationDetails } from './getOrganisationDetails';
-import { Contact, IAccessItem } from '../interfaces/searchResponse.interface';
+import { Contact, IAccess, IAccessItem, IIdentifiers } from '../interfaces/searchResponse.interface';
 
 const getCoupledResource = (data: string | string[]): string => {
   const getCoupleResourceLink = (url: string): string => {
@@ -76,14 +76,23 @@ const getContactInformation = (contacts): string => {
   }
 };
 
-const getAccessTabData = (payload: IAccessItem) => ({
-  ncea_catalogue_entry: '',
-  host_catalogue_number: '',
+const getIdentifiers = (identifier: IIdentifiers[]) => {
+  if (Array.isArray(identifier)) {
+    const identifierObj = Object.assign({}, ...identifier);
+    return identifierObj.id ?? '';
+  }
+  return '';
+};
+
+const getAccessTabData = (payload: IAccessItem): IAccess => ({
+  ncea_catalogue_number: payload.id ?? '', // file identifier
+  host_catalogue_number: getIdentifiers(payload.identifiers ?? []), // resource identifier
   host_catalogue_entry: '',
-  resource_type_and_hierarchy: '',
+  resource_type_and_hierarchy: payload?.resourceType ?? '',
   resource_locators: '', // keeps as empty as its value is not available from AGM side
   contact_information: getContactInformation(payload.contacts),
   catalogue_number: '',
+  metadata_standard: payload?.metadata?.standard ?? '',
   metadata_language: payload?.metadata?.language?.toUpperCase() ?? '',
 });
 

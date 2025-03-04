@@ -22,7 +22,19 @@ export interface IGeneralItem {
   resources?: IResources[];
 }
 
+export interface IIdentifiers {
+  id?: string;
+}
+
 export interface IAccessItem {
+  id?: string;
+  contacts?: Contact[];
+  metadata?: IMetaData;
+  identifiers?: IIdentifiers[];
+  resourceType?: string;
+}
+
+export interface IAccess {
   ncea_catalogue_number?: string;
   host_catalogue_number?: string;
   host_catalogue_entry?: string;
@@ -36,8 +48,6 @@ export interface IAccessItem {
   project_number?: string;
   metadata_language?: string;
   ncea_catalogue_entry?: string;
-  contacts?: Contact[];
-  metadata?: IMetaData;
 }
 
 export interface Contact {

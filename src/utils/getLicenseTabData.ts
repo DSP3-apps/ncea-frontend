@@ -14,8 +14,8 @@ const getLicenseTabData = (license: ILicenseItem): ILicense => {
   return {
     limitation_on_public_access: formmatLicenseData(license?.publicAccessAccessContraints ?? []),
     limitation_on_public_access_otherconstraint: formmatLicenseData(license?.publicAccessOtherConstraints ?? []),
-    conditions_for_access_and_use_useConstraints: '', // Need to test once data is availble from AGM side
-    conditions_for_access_and_useOtherConstraints: '', // Need to test once data is availble from AGM side
+    conditions_for_access_and_useOtherConstraints: license?.publicUseOtherContraints ?? '',
+    conditions_for_access_and_use_useConstraints: license?.publicUseUseConstraints ?? '',
     other_constraint: '', // Need to test once data is availble from AGM side
     available_formats: '', // Need to test once data is availble from AGM side
     frequency_of_update: license?.frequencyOfUpdate ?? '',

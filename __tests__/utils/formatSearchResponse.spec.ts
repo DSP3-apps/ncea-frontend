@@ -72,8 +72,6 @@ describe('Format the search response', () => {
       topicCategories: 'environment',
       keywords: 'surveillance, animal disease',
       language: 'ENG',
-      ncea_catalogue_entry: '',
-      host_catalogue_number: '',
       host_catalogue_entry: '',
       resource_type_and_hierarchy: '',
       resource_locators: '',
@@ -120,6 +118,9 @@ describe('Format the search response', () => {
       geographicMarkers: '',
       verticalExtent: '',
       samplingResolution: '',
+      metadata_standard: 'Environment Agency Metadata Profile',
+      ncea_catalogue_number: 'c9d7e118-d057-48f9-b520-76de8e51e014',
+      host_catalogue_number: '17f1f7c2-0c92-4ec1-86ea-b4d67dbeb2cf',
     };
     expect(result).toEqual(expectedResponse);
   });
