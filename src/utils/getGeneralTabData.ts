@@ -1,10 +1,11 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 'use strict';
 
+import { formatDate } from './dates';
 import { IGeneralItem } from '../interfaces/searchResponse.interface';
 
-const getResourceLanguages = (data: Record<string, any>): string => {
-  const resourceLanguages: string | string[] = data?.resourceLanguage ?? [];
+const getResourceLanguages = (data): string => {
+  const resourceLanguages: string | string[] = data[0]?.language ?? [];
   if (
     (typeof resourceLanguages === 'string' && resourceLanguages.length === 0) ||
     (Array.isArray(resourceLanguages) && resourceLanguages.length === 0)
@@ -22,11 +23,24 @@ const getResourceLanguages = (data: Record<string, any>): string => {
   return languagesData.join(', ');
 };
 
-const getGeneralTabData = (searchItem: Record<string, any>): IGeneralItem => ({
-  alternateTitle: searchItem?._source?.resourceAltTitleObject?.[0]?.default ?? '',
-  language: getResourceLanguages(searchItem?._source),
-  keywords: searchItem?._source?.tag?.map((item) => item.default).join(', ') ?? '',
-  topicCategories: searchItem?._source?.cl_topic?.map((item) => item.default).join(', ') ?? '',
+export const getStudyPeriodDetails = (dateRanges: any): string => {
+  const { beginPosition, endPosition } = dateRanges;
+  const startDate: string = beginPosition ? formatDate(beginPosition) : '';
+  const endDate: string = endPosition ? formatDate(endPosition) : '';
+
+  if (!startDate && !endDate) return '';
+  if (!startDate) return `${endDate} to ${endDate}`;
+  if (!endDate) return `${startDate} to ${startDate}`;
+
+  return `${startDate} to ${endDate}`;
+};
+
+const getGeneralTabData = (payload: IGeneralItem) => ({
+  content: payload?.abstract ?? '',
+  studyPeriod: getStudyPeriodDetails(payload.temporalExtent ?? ''),
+  topicCategories: payload?.topicCategories?.join(', ') ?? '',
+  keywords: payload?.keywords?.join(', ') ?? '',
+  language: getResourceLanguages(payload?.resources),
 });
 
-export { getGeneralTabData };
+export { getGeneralTabData, getResourceLanguages };

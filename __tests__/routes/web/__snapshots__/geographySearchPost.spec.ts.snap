@@ -188,7 +188,6 @@ exports[`Guided Search - Geography Questionnaire Screen POST Request HTML elemen
       
     
 
-
     
 
     
@@ -235,7 +234,7 @@ exports[`Guided Search - Geography Questionnaire Screen POST Request HTML elemen
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A36311%2Fnatural-capital-ecosystem-assessment%2Fcoordinate-search' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A35597%2Fnatural-capital-ecosystem-assessment%2Fcoordinate-search' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -324,7 +323,6 @@ data-module="govuk-service-navigation"
   </div>
 
 
-    
   </header>
 
 
@@ -708,7 +706,7 @@ data-module="govuk-service-navigation"
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.13.0</p>
+          <p>Version: v1.14.0</p>
         </div>
         
         

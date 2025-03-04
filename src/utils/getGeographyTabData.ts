@@ -1,10 +1,4 @@
-/* eslint-disable  @typescript-eslint/no-explicit-any */
-import { getAccumulatedCoordinatesNCenter } from './getBoundingBoxData';
-import {
-  IAccumulatedCoordinates,
-  IAccumulatedCoordinatesWithCenter,
-  IGeographyItem,
-} from '../interfaces/searchResponse.interface';
+import { IAccumulatedCoordinates, IGeography, IGeographyItem } from '../interfaces/searchResponse.interface';
 
 const getVerticalExtentHtml = (verticalRangeObject: { gte?: number; lte?: number }): string => {
   if (Object.keys(verticalRangeObject).length === 0) {
@@ -52,26 +46,38 @@ const getGeographicMarkers = (location: string | string[]): string => {
   return markers.join('_');
 };
 
-const getGeographyTabData = (searchItem: Record<string, any>): IGeographyItem => {
-  const coordinatesData: IAccumulatedCoordinatesWithCenter | null = getAccumulatedCoordinatesNCenter(
-    searchItem?._source?.geom ?? {},
-  );
+const getGeographicLocations = (geographicBoundary) => {
+  if (geographicBoundary && Object.keys(geographicBoundary).length) {
+    if (geographicBoundary && Object.keys(geographicBoundary).length) {
+      const coordinates = {
+        north: geographicBoundary.bboxNorthLat,
+        south: geographicBoundary.bboxSouthLat,
+        east: geographicBoundary.bboxEastLong,
+        west: geographicBoundary.bboxWestLong,
+      };
+      const { north, south, east, west } = coordinates;
+      const latitude = south - 5.0 + (north + 5.0 - (south - 5.0)) / 2;
+      const longitude = west - 5.0 + (east + 5.0 - (west - 5.0)) / 2;
+      return { coordinates, center: `${longitude},${latitude}` };
+    }
+  }
+  return {};
+};
+
+const getGeographyTabData = (payload: IGeographyItem): IGeography => {
+  const coordinatesData = getGeographicLocations(payload?.boundingBox);
+
   return {
-    spatialDataService: searchItem?._source?.OrgServiceType ?? '',
-    spatialRepresentationService:
-      searchItem?._source?.cl_spatialRepresentationType?.map((item) => item.default).join(', ') ?? '',
-    spatialReferencingSystem: searchItem?._source?.crsDetails?.map((item) => item.code).join(', ') ?? '',
-    geographicLocations:
-      searchItem?._source?.OrgGeographicIdentifierTitle?.map((item) => item?.ciTitle).join(', ') ?? '',
+    spatialDataService: payload?.spatial?.dataService ?? '',
+    spatialRepresentationService: payload?.spatial?.representationService ?? '',
+    spatialReferencingSystem: payload?.spatial?.referencingSystem ?? '',
+    geographicLocations: '',
     geographicBoundary: coordinatesData?.coordinates ?? '',
     geographicBoundaryHtml: getGeographicBoundaryHtml(coordinatesData?.coordinates ?? ({} as IAccumulatedCoordinates)),
     geographicCenter: coordinatesData?.center ?? '0,0',
-    geographicMarkers: getGeographicMarkers(searchItem?._source?.location ?? ''),
-    verticalExtent: getVerticalExtentHtml(searchItem?._source?.OrgResourceVerticalRange ?? {}),
-    samplingResolution: getSamplingResolution(
-      searchItem?._source?.OrgResolutionDistance ?? {},
-      searchItem?._source?.OrgResolutionScaleDenominator ?? null,
-    ),
+    geographicMarkers: getGeographicMarkers(payload.geographicLocations ?? ''), // Need to test it as its values is coming as null from AGM side
+    verticalExtent: '', // Keeping its value empty as there no data is availble from AGM side
+    samplingResolution: '', // Keeping its value empty as there no data is availble from AGM side
   };
 };
 

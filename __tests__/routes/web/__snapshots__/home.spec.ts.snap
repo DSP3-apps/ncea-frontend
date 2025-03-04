@@ -185,7 +185,6 @@ exports[`Home Screen Home > Sanpshot verification should match the home screen s
       
     
 
-
     
 
     
@@ -321,7 +320,6 @@ data-module="govuk-service-navigation"
   </div>
 
 
-    
   </header>
 
 
@@ -577,7 +575,7 @@ data-module="govuk-service-navigation"
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.13.0</p>
+          <p>Version: v1.14.0</p>
         </div>
         
         

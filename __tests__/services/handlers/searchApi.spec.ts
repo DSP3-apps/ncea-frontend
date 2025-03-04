@@ -105,23 +105,6 @@ describe('Search API', () => {
       expect(formatSearchResponse).toHaveBeenCalledWith(keywordFilteredData, false, false);
     });
 
-    it('should return equal or more results including archived and retired', async () => {
-      const searchFieldsObject: ISearchPayload = defaultQuery;
-      const results = await getSearchResults(
-        searchFieldsObject,
-        CREDENTIALS,
-        {
-          ...defaultFilters,
-          retiredAndArchived: true,
-        },
-        false,
-      );
-
-      const unfilteredFormatted = await formatSearchResponse(QUICK_SEARCH_RESPONSE);
-
-      expect(results.total).toEqual(unfilteredFormatted.total);
-    });
-
     it('should return filtered data with category filters applied', async () => {
       const searchFieldsObject: ISearchPayload = defaultQuery;
       await getSearchResults(

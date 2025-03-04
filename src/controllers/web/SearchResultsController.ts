@@ -176,7 +176,7 @@ const SearchResultsController = {
   renderSearchDetailsHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
     try {
       const docId = request.params.id;
-      const docDetails: ISearchItem = await getDocumentDetails(docId);
+      const docDetails: ISearchItem = await getDocumentDetails(docId, request.auth.credentials as Credentials);
       const queryString: string = readQueryParams(request.query);
       const detailsTabOptions: FormattedTabOptions = await processDetailsTabData(docDetails);
       return response.view('screens/details/template', {

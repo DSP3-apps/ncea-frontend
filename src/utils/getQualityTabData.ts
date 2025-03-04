@@ -2,25 +2,7 @@
 'use strict';
 
 import { formatDate } from './dates';
-import { toggleContent } from './toggleContent';
-import { IQualityItem } from '../interfaces/searchResponse.interface';
-
-const getPublicationInformation = (data: Record<string, any>[], type: string): string => {
-  if (Array.isArray(data) && data.length > 0) {
-    const item = data.find((item: Record<string, any>) => item.type?.toLowerCase() === type.toLowerCase());
-    if (item) {
-      return formatDate(item.date, false, false);
-    }
-  }
-  return '';
-};
-
-const getLineage = (data: Record<string, any>): string => {
-  if (Object.keys(data).length && data?.default) {
-    return toggleContent(data?.default, 'lineage');
-  }
-  return '';
-};
+import { IQuality, IQualityItem } from '../interfaces/searchResponse.interface';
 
 const checkAtLeastOnePropertyValueExists = (sourceObject: Record<string, any>): boolean => {
   return sourceObject?.title || sourceObject?.pass || sourceObject?.explanation;
@@ -55,14 +37,18 @@ const generateConformityData = (data: Record<string, any>[]): string => {
   return '';
 };
 
-const getQualityTabData = (searchItem: Record<string, any>): IQualityItem => ({
-  publicationInformation: getPublicationInformation(searchItem?._source?.resourceDate, 'publication'),
-  creationInformation: getPublicationInformation(searchItem?._source?.resourceDate, 'creation'),
-  revisionInformation: getPublicationInformation(searchItem?._source?.resourceDate, 'revision'),
-  metadataDate: searchItem?._source?.dateStamp ? `${formatDate(searchItem?._source?.dateStamp, false, false)}` : '',
-  lineage: getLineage(searchItem?._source?.lineageObject ?? ''),
-  conformity: generateConformityData(searchItem?._source?.specificationConformance ?? []),
-  additionalInformation: searchItem?._source?.supplementalInformationObject?.default ?? '',
+const getRecordsDates = (data: string): string => {
+  return formatDate(data, false, false);
+};
+
+const getQualityTabData = (payload: IQualityItem): IQuality => ({
+  publicationInformation: getRecordsDates(payload?.recordDates?.publication ?? ''),
+  creationInformation: getRecordsDates(payload?.recordDates?.creation ?? ''),
+  revisionInformation: getRecordsDates(payload?.recordDates?.revision ?? ''),
+  metadataDate: getRecordsDates(payload?.recordDates?.metadata ?? ''),
+  lineage: payload?.lineage ?? '',
+  conformity: '', // Need to test this, once data is available from AGM side
+  additionalInformation: '', // Need to test this, once data is available from AGM side
 });
 
-export { getQualityTabData };
+export { getQualityTabData, generateConformityData, getRecordsDates };

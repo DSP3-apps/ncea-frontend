@@ -1,7 +1,7 @@
 export interface IBaseItem {
   id: string;
   title: string;
-  publishedBy: string;
+  publishedBy?: string;
   content: string;
   studyPeriod: string;
   startYear?: string;
@@ -9,16 +9,32 @@ export interface IBaseItem {
   resourceLocator: string;
   organisationName?: string;
   resourceType?: string[];
+  abstract?: string;
 }
 
 export interface IGeneralItem {
   alternateTitle?: string;
-  topicCategories?: string;
+  topicCategories?: string[];
   language?: string;
-  keywords?: string;
+  keywords?: string[];
+  abstract?: string;
+  temporalExtent?: ITemporalExtent;
+  resources?: IResources[];
+}
+
+export interface IIdentifiers {
+  id?: string;
 }
 
 export interface IAccessItem {
+  id?: string;
+  contacts?: Contact[];
+  metadata?: IMetaData;
+  identifiers?: IIdentifiers[];
+  resourceType?: string;
+}
+
+export interface IAccess {
   ncea_catalogue_number?: string;
   host_catalogue_number?: string;
   host_catalogue_entry?: string;
@@ -35,30 +51,37 @@ export interface IAccessItem {
 }
 
 export interface Contact {
-  organisationName: string;
-  role: string;
-  email: string;
-  website: string;
-  logo: string;
-  individual: string;
-  postalCode: string;
-  administrativeArea: string;
-  country: string;
-  city: string;
-  position: string;
-  phone: string;
-  address: string;
+  name?: string;
+  email?: string;
+  phone: undefined | null | string;
+  address: undefined | null | string;
+  url: undefined | null | string;
+  delivery: undefined | null | string;
+  country: undefined | null | string;
+  city: undefined | null | string;
+  postcode: undefined | null | string;
+  aministrativeArea: undefined | null | string;
+  organisationName?: string;
+  role?: string;
 }
+
 export interface ILicense {
   limitation_on_public_access?: string;
   limitation_on_public_access_otherconstraint?: string;
   conditions_for_access_and_use_useConstraints?: string;
   conditions_for_access_and_useOtherConstraints?: string;
   other_constraint?: string;
-  data_owner?: string;
   available_formats?: string | string[];
   frequency_of_update?: string;
   character_encoding?: string;
+}
+
+export interface ILicenseItem {
+  publicAccessAccessContraints?: string[];
+  publicAccessOtherConstraints?: string[];
+  publicUseUseConstraints?: string | undefined | null;
+  publicUseOtherContraints?: string | undefined | null;
+  frequencyOfUpdate?: string;
 }
 
 export interface IGovernance {
@@ -77,14 +100,28 @@ export interface IGovernance {
   email?: string;
 }
 
+export interface IRecordDates {
+  publication?: string;
+  creation?: string;
+  revision?: string;
+  metadata?: null | undefined | string;
+}
+
 export interface IQualityItem {
+  metadataDate?: string;
+  lineage?: string;
+  additionalInformation?: null | undefined | string;
+  recordDates: IRecordDates;
+}
+
+export interface IQuality {
   publicationInformation?: string;
   creationInformation?: string;
   revisionInformation?: string;
   metadataDate?: string;
-  lineage?: string;
   conformity?: string;
   additionalInformation?: string;
+  lineage?: string;
 }
 
 export type IVertex = [number, number];
@@ -105,7 +142,13 @@ export interface IAccumulatedCoordinatesWithCenter {
   center: string;
 }
 
-export interface IGeographyItem {
+export interface ISpatial {
+  dataService?: string;
+  representationService?: string;
+  referencingSystem?: string;
+}
+
+export interface IGeography {
   spatialDataService?: string;
   spatialRepresentationService?: string;
   spatialReferencingSystem?: string;
@@ -134,7 +177,7 @@ export type IOtherSearchItem = IGeneralItem &
   IGeographyItem &
   IGovernance;
 
-export interface ISearchItem extends IBaseItem, IOtherSearchItem {
+export interface ISearchItem extends IBaseItem {
   [key: string]: IGovernance | string | number | undefined | string[] | IAccumulatedCoordinates;
 }
 
@@ -209,4 +252,46 @@ export interface IOrganisationDetails {
 export interface IDateRange {
   start?: { date?: string };
   end?: { date?: string };
+}
+
+export interface IMetaData {
+  standard?: string;
+  language?: string;
+}
+
+export interface IResources {
+  url?: string;
+  type?: string;
+  language?: string;
+}
+interface SpatialItem {
+  dataService?: string;
+  representationService?: string;
+  referencingSystem?: string;
+}
+export interface IGeographyBoundry {
+  bboxEastLong?: number;
+  bboxWestLong?: number;
+  bboxSouthLat?: number;
+  bboxNorthLat?: number;
+}
+
+export interface IGeographyItem {
+  verticalExtent?: string | undefined | null;
+  spatial: SpatialItem;
+  boundingBox?: IGeographyBoundry;
+  geographicLocations?: string | undefined | null;
+}
+
+export interface INaturalItem {
+  title?: string;
+  abstract?: string;
+}
+
+export interface IMoreInfoSearchItem extends IGeographyItem, IQualityItem, IGeneralItem, IAccessItem {
+  id?: string;
+  title?: string;
+  resources: IResources[];
+  temporalExtent: ITemporalExtent;
+  license: ILicenseItem;
 }
