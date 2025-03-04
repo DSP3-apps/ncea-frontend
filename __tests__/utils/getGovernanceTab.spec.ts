@@ -59,47 +59,4 @@ describe('getGovernanceTabData', () => {
 
     expect(result).toEqual(expected);
   });
-  //   const sortedContacts = [
-  //     {
-  //       role: undefined,
-  //       organisationName: undefined,
-  //       individual: undefined,
-  //       position: undefined,
-  //       phone: undefined,
-  //       address: undefined,
-  //       postalCode: undefined,
-  //       city: undefined,
-  //       administrativeArea: undefined,
-  //       country: undefined,
-  //       website: undefined,
-  //       email: undefined,
-  //     },
-  //   ];
-
-  //   const searchItem = { _source: { contact: sortedContacts, contactForResource: [] } };
-
-  //   (combineAndSortContacts as jest.Mock).mockReturnValue(sortedContacts);
-
-  //   const result = getGovernanceTabData(searchItem);
-
-  //   const expected: IGovernance[] = [
-  //     {
-  //       tab: 'governance',
-  //       role: '',
-  //       organization_name: '',
-  //       individual_name: '',
-  //       position_name: '',
-  //       telephone_number: '',
-  //       delivery_point: '',
-  //       postal_code: '',
-  //       city: '',
-  //       administrative_area: '',
-  //       country: '',
-  //       web_address: '',
-  //       email: '',
-  //     },
-  //   ];
-
-  //   expect(result).toEqual(expected);
-  // });
 });
