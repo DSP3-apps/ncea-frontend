@@ -86,7 +86,7 @@ export const transformSearchResponse = (response: ISearchResponse, isMapResults:
       toYear: endDate.getFullYear().toString(),
       resourceLocator: result?.resource?.url ?? '',
       organisationName: '',
-      publishedBy: '',
+      publishedBy: result?.organisation ?? '',
       resourceType: ['dataset'],
     };
 
@@ -134,11 +134,11 @@ export const transformSearchResponse = (response: ISearchResponse, isMapResults:
 export const formatSearchResponse = (payload: IMoreInfoSearchItem) => ({
   id: payload?.id,
   title: payload?.title ?? '',
-  publishedBy: '',
+  publishedBy: payload?.organisation ?? '',
   startYear: getYear(payload?.temporalExtent?.beginPosition ?? ''),
   toYear: getYear(payload?.temporalExtent?.endPosition ?? ''),
   resourceLocator: getResourceLocatorURL(payload?.resources[0]?.url ?? ''),
-  organisationName: '', // keeping this field as empty, right now it is not available from AGM side
+  organisationName: payload?.organisation ?? '',
   ncea_group_reference: '',
   project_number: '',
   ...getGeneralTabData(payload),
