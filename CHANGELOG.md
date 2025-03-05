@@ -1,3 +1,15 @@
+# [1.15.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.14.0...v1.15.0) (2025-03-05)
+
+
+### Features
+
+* **frontend:** added and fix the unit test suites ([0059d87](https://github.com/DSP3-apps/ncea-frontend/commit/0059d87269101ae4e65cde7cc371d4df0e6fa527))
+* **frontend:** added few few fields for access tab ([2ef32f0](https://github.com/DSP3-apps/ncea-frontend/commit/2ef32f0b3d4307864b32e71b3a9d9e8da2c8ab48))
+* **frontend:** added the organisation value ([afe25e1](https://github.com/DSP3-apps/ncea-frontend/commit/afe25e1f8905a4dbfe54aef7d36e80185ba7c4b3))
+* **frontend:** integrate the search by id API ([96b2237](https://github.com/DSP3-apps/ncea-frontend/commit/96b2237c648fc731eb9ace22e753df9df1a1cac5))
+* **frontend:** remove commented code ([a91659a](https://github.com/DSP3-apps/ncea-frontend/commit/a91659a2200e27d21b60d28deef3f012a431ac5d))
+* **frontend:** updated the geography coordinates as per API changes ([07ffdf4](https://github.com/DSP3-apps/ncea-frontend/commit/07ffdf4574cc6ae48fea51c256ccba908d923710))
+
 # [1.14.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.13.0...v1.14.0) (2025-02-28)
 
 
