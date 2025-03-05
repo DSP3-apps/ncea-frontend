@@ -225,6 +225,7 @@ export interface ISearchResult {
   temporalExtent: ITemporalExtent;
   mapping?: IGeometry;
   resource?: IResource;
+  organisation?: string;
 }
 
 export interface ISearchResponse {
@@ -294,4 +295,5 @@ export interface IMoreInfoSearchItem extends IGeographyItem, IQualityItem, IGene
   resources: IResources[];
   temporalExtent: ITemporalExtent;
   license: ILicenseItem;
+  organisation?: string;
 }
