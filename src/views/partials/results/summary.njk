@@ -1,7 +1,7 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/select/macro.njk" import govukSelect %}
 {% from "govuk/components/pagination/macro.njk" import govukPagination %}
-{% from 'partials/go_to_resource/macro.njk' import goToResource %}
+{# {% from 'partials/go_to_resource/macro.njk' import goToResource %} #}
 {% if hasError %}
   <p class="govuk-caption-m govuk-!-font-size-14">Unable to fetch the search results. Please try again.</p>
 {% endif %}
@@ -108,7 +108,7 @@
           {{ item.content | safe }}
         </p>
         <div class='govuk-button-group search-result__button-group'>
-          {{ goToResource({ organisationName: item.organisationName, resourceLocator: item.resourceLocator, isDetailsPage: false }) }}
+          {# {{ goToResource({ organisationName: item.organisationName, resourceLocator: item.resourceLocator, isDetailsPage: false }) }} #}
           {{ govukButton({
             text: 'More info',
             classes: 'govuk-button--secondary',

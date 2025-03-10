@@ -828,7 +828,7 @@ data-module="govuk-service-navigation"
           </li>
         
           <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/newsfeed">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
               Feeds
             </a>
           </li>
