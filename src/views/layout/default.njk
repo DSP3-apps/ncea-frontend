@@ -79,7 +79,7 @@
     {% if user.email %}
       {% set loginElement = "<span>Welcome, " + user.email + "&nbsp; <a href='" + routes.logOut + redirectPart + "' class='govuk-link'>Logout</a></span>" %}
     {% endif %}
- 
+
     {% set headerNavigators = [{html: loginElement}]%}
 
     {{ govukHeader({
@@ -174,14 +174,6 @@
   {{ govukFooter({
     meta: {
       items: [
-        {
-          href: routes.help,
-          text: "Help"
-        },
-        {
-          href: routes.feeds,
-          text: "Feeds"
-        },
         {
           href: routes.privacyPolicy,
           text: "Privacy"

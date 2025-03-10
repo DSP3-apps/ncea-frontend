@@ -11,6 +11,7 @@ import { getLicenseTabData } from './getLicenseTabData';
 import { getNaturalTab } from './getNaturalCapitalTab';
 import { getQualityTabData } from './getQualityTabData';
 import { toggleContent } from './toggleContent';
+import { validateUrl } from './validate';
 import {
   IDateRange,
   IMoreInfoSearchItem,
@@ -131,21 +132,25 @@ export const transformSearchResponse = (response: ISearchResponse, isMapResults:
   };
 };
 
-export const formatSearchResponse = (payload: IMoreInfoSearchItem) => ({
-  id: payload?.id,
-  title: payload?.title ?? '',
-  publishedBy: payload?.organisation ?? '',
-  startYear: getYear(payload?.temporalExtent?.beginPosition ?? ''),
-  toYear: getYear(payload?.temporalExtent?.endPosition ?? ''),
-  resourceLocator: getResourceLocatorURL(payload?.resources[0]?.url ?? ''),
-  organisationName: payload?.organisation ?? '',
-  ncea_group_reference: '',
-  project_number: '',
-  ...getGeneralTabData(payload),
-  ...getAccessTabData(payload),
-  ...getQualityTabData(payload),
-  ...getLicenseTabData(payload.license ?? {}),
-  ...getNaturalTab(payload),
-  ...getGovernanceTabData(payload.contacts ?? []),
-  ...getGeographyTabData(payload),
-});
+export const formatSearchResponse = (payload: IMoreInfoSearchItem) => {
+  const resourceUrl = getResourceLocatorURL(payload?.resources[0]?.url ?? '');
+  return {
+    id: payload?.id,
+    title: payload?.title ?? '',
+    publishedBy: payload?.organisation ?? '',
+    startYear: getYear(payload?.temporalExtent?.beginPosition ?? ''),
+    toYear: getYear(payload?.temporalExtent?.endPosition ?? ''),
+    resourceLocator: resourceUrl,
+    organisationName: payload?.organisation ?? '',
+    ncea_group_reference: '',
+    project_number: '',
+    resourceWebsite: validateUrl(resourceUrl) ? resourceUrl : '',
+    ...getGeneralTabData(payload),
+    ...getAccessTabData(payload),
+    ...getQualityTabData(payload),
+    ...getLicenseTabData(payload.license ?? {}),
+    ...getNaturalTab(payload),
+    ...getGovernanceTabData(payload.contacts ?? []),
+    ...getGeographyTabData(payload),
+  };
+};
