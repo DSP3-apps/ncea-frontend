@@ -64,7 +64,7 @@
       }) }}
       {% endif %}
       <div {% if not docDetails.resourceLocator or not docDetails.organisationName %} class="open-data-block--disabled" {% endif %}>
-        {{ goToResource({ organisationName: docDetails.organisationName, resourceLocator: docDetails.resourceLocator, isDetailsPage: true }) }}
+        {# {{ goToResource({ organisationName: docDetails.organisationName, resourceLocator: docDetails.resourceLocator, isDetailsPage: true }) }} #}
         {% if not docDetails.resourceLocator or not docDetails.organisationName %}
           <span class="open-data-block--tag">Access to this data resource is by application to the owner - please refer to access
             tab for further details</span>
@@ -165,8 +165,11 @@
       center = "{{docDetails.geographicCenter | safe}}";
     {% endif %}
   </script>
+  <script src="{{ assetPath }}/scripts/jquery.js"></script>
+  <script src="{{ assetPath }}/scripts/jquery-debounce.js"></script>
   <script type="module" src="{{ assetPath }}/scripts/dataModal.js"></script>
   <script src="{{ assetPath }}/scripts/ol.js"></script>
   <script type="module" src="{{ assetPath }}/scripts/location.js"></script>
   <script type="module" src="{{ assetPath }}/scripts/details.js"></script>
+  <script type="module" src="{{ assetPath }}/scripts/moreInfo.js"></script>
 {% endblock %}
