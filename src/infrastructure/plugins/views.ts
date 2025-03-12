@@ -89,7 +89,7 @@ const customHapiViews = {
         privacyPolicy: `${BASE_PATH}${privacyPolicy}`,
         cookiePolicy: `${BASE_PATH}${cookiePolicy}`,
         logOut: `${BASE_PATH}${logout}`,
-        logIn: login,
+        logIn: environmentConfig.isLocal ? '' : login, // dont want the base path on this URL as it should navigate to the core platform instead
         feeds: `${BASE_PATH}${atom}`,
       },
       appInsightsConnectionString: environmentConfig.appInsightsConnectionString,
