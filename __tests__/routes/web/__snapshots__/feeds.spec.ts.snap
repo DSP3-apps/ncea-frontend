@@ -231,7 +231,7 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=undefined' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F0.0.0.0%3A4000%2Fnatural-capital-ecosystem-assessment%2Fnewsfeed' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -342,25 +342,173 @@ data-module="govuk-service-navigation"
 
         <main class="govuk-main-wrapper app-main-class" id="main-content">
           
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-third">
-      <p>&nbsp;</p>
+  <h1 class="govuk-heading-l">Latest blogs</h1>
+  
+  
+    <div>
+    
+      <h2 class="govuk-heading-m">NCEA programme – Environment</h2>
+      <ul class="govuk-list">
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">Living England: a national habitat map for everyone </h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Amy Woodget</small>
+              <small><b>Published on : </b>18 December 2024</small>
+            </div>
+            <p class="govuk-body">Amy Woodget is the Communications and Engagement Lead for the Living England project. In this post, she introduces the latest release of Natural England’s ‘Living England’ dataset – a digital map providing information on England’s broad habitats.</p>
+            <a class="govuk-link" href="https://defraenvironment.blog.gov.uk/2024/12/18/living-england-a-national-habitat-map-for-everyone/" target="_blank">Living England: a national habitat map for everyone </a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">Why monitoring matters: showcasing the Natural Capital and Ecosystem Assessment programme</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>David Jones</small>
+              <small><b>Published on : </b>16 October 2024</small>
+            </div>
+            <p class="govuk-body">In this post, David Jones, Senior Responsible Owner for the terrestrial arm of Defra’s largest research and development programme - the NCEA, shares reflections from the recent stakeholder showcase event.</p>
+            <a class="govuk-link" href="https://defraenvironment.blog.gov.uk/2024/10/16/why-monitoring-matters-showcasing-the-natural-capital-and-ecosystem-assessment-programme/" target="_blank">Why monitoring matters: showcasing the Natural Capital and Ecosystem Assessment programme</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">Mapping our natural assets: the Natural Capital and Ecosystem Assessment programme</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Sarah Adcock</small>
+              <small><b>Published on : </b>28 March 2024</small>
+            </div>
+            <p class="govuk-body">Sarah Adcock and David Jones, Senior Responsible Owners for Defra&#39;s Natural Capital and Ecosystem Assessment programme explain why building a picture of our natural assets and their benefits is the first, crucial step in protecting our environment.</p>
+            <a class="govuk-link" href="https://defraenvironment.blog.gov.uk/2024/03/28/mapping-our-natural-assets-the-natural-capital-and-ecosystem-assessment-programme/" target="_blank">Mapping our natural assets: the Natural Capital and Ecosystem Assessment programme</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+      </ul>
     </div>
-    <div class="govuk-grid-column-full">
-      <h1 class="govuk-heading-m">
-                Error 404 page not found
-            </h1>
-      <p class="govuk-caption-m govuk-!-font-size-14">
-                If you typed the web address, check it is correct.
-            </P>
-      <p class="govuk-caption-m govuk-!-font-size-14">
-                If you pasted the web address, check you copied the entire address.
-            </P>
-      <p class="govuk-caption-m govuk-!-font-size-14">
-                If the web address is correct or you selected a link or button, you can <a href="#">contact us</a> to receive support.
-            </P>
+
+
+  
+    <div>
+    
+      <h2 class="govuk-heading-m">Natural Capital – Natural England</h2>
+      <ul class="govuk-list">
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">The North can be a powerhouse for Nature and growth</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Natural England</small>
+              <small><b>Published on : </b>07 March 2025</small>
+            </div>
+            <p class="govuk-body">&quot;Nature is vital to our economy our health and our security. The North has the natural assets that can help create the places people want to live, work and invest in and that will keep them happy and healthy, as …</p>
+            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2025/03/07/the-north-can-be-a-powerhouse-for-nature-and-growth/" target="_blank">The North can be a powerhouse for Nature and growth</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">How new technologies are helping us monitor one of England’s largest grey seal colonies </h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Natural England</small>
+              <small><b>Published on : </b>26 February 2025</small>
+            </div>
+            <p class="govuk-body">By Gabriella Fasoli and Nick Tomline (AI specialists), Emma Milner (marine mammal specialist) and Elizabeth Mitchell (engagement), all on the marine Natural Capital and Ecosystem Assessment (mNCEA) programme Documenting Norfolk&#39;s biggest beach party On a windy day in December, something …</p>
+            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2025/02/26/how-new-technologies-are-helping-us-monitor-one-of-englands-largest-grey-seal-colonies/" target="_blank">How new technologies are helping us monitor one of England’s largest grey seal colonies </a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">How can Nature-Based Solutions address the climate and Nature crises?</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Tony Juniper</small>
+              <small><b>Published on : </b>11 February 2025</small>
+            </div>
+            <p class="govuk-body">Keynote speech by Tony Juniper CBE, Chair of Natural England, at Nature Returns conference, 6 February 2025 It is an absolute pleasure to be here today and to see this latest journey in what has been a decades-long process of …</p>
+            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2025/02/11/how-can-nature-based-solutions-address-the-climate-and-nature-crises/" target="_blank">How can Nature-Based Solutions address the climate and Nature crises?</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">Three churrs for the heathland bird survey</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Alison Giacomelli</small>
+              <small><b>Published on : </b>05 February 2025</small>
+            </div>
+            <p class="govuk-body">By Alison Giacomelli, Senior Specialist – Ornithology, Natural England Heathlands are home to the eerie sound of churring Nightjars, sweet melody of singing Woodlarks and the rattling song of Dartford Warblers. This year teams of volunteers and fieldworkers will be …</p>
+            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2025/02/05/three-churrs-for-the-heathland-bird-survey/" target="_blank">Three churrs for the heathland bird survey</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">Maximising the miracle and minimising the disaster – putting Nature at the heart of food security</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Tony Juniper</small>
+              <small><b>Published on : </b>10 January 2025</small>
+            </div>
+            <p class="govuk-body">I was invited to speak at a historic event this week – the first major joint gathering of attendees at the two Oxford farming conferences: the Oxford Farming Conference and the Oxford Real Farming Conference. After more than a decade …</p>
+            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2025/01/10/maximising-the-miracle-and-minimising-the-disaster-putting-nature-at-the-heart-of-food-security/" target="_blank">Maximising the miracle and minimising the disaster – putting Nature at the heart of food security</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">Working together for Nature Recovery in Greater Manchester  </h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Marian Spain</small>
+              <small><b>Published on : </b>03 December 2024</small>
+            </div>
+            <p class="govuk-body">The launch of Biodiversity Net Gain (BNG) has been a major achievement this year – this world-leading initiative means that for the first time, development must leave nature measurably improved. I was lucky enough to visit Greater Manchester to speak …</p>
+            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2024/12/03/working-together-for-nature-recovery-in-greater-manchester/" target="_blank">Working together for Nature Recovery in Greater Manchester  </a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">From AI to underwater microphones: improving the evidence base for marine mammals </h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Samantha Parker</small>
+              <small><b>Published on : </b>13 November 2024</small>
+            </div>
+            <p class="govuk-body">By Samantha Parker and Emma Milner, Natural England marine mammal senior specialists  Why are seal population numbers changing so fast along our coasts? How are porpoise feeding patterns changing as our seas become increasingly crowded? And how does the health …</p>
+            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2024/11/13/from-ai-to-underwater-microphones-improving-the-evidence-base-for-marine-mammals/" target="_blank">From AI to underwater microphones: improving the evidence base for marine mammals </a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">International use of England&amp;#039;s biodiversity metric having global impact</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Natural England</small>
+              <small><b>Published on : </b>08 November 2024</small>
+            </div>
+            <p class="govuk-body">By Nick White, Principal Adviser on Biodiversity Net Gain, and Steve Panks, Principal Specialist Biodiversity Net Gain and Biodiversity Metrics, at Natural England, explore the global significance of the biodiversity metric and its role in nature recovery across the world.&amp;#160; …</p>
+            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2024/11/08/international-use-of-englands-biodiversity-metric-having-global-impact/" target="_blank">International use of England&amp;#039;s biodiversity metric having global impact</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">Seabed Saviours - the EU Life Recreation ReMEDIES project comes to an end</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Fiona Tibbitt</small>
+              <small><b>Published on : </b>01 November 2024</small>
+            </div>
+            <p class="govuk-body">By Fiona Tibbitt, Project Manager on the EU Life Recreation ReMEDIES  I have had the privilege of being Project Manager on the EU Life Recreation ReMEDIES project for the last one and half years. I’ll admit it was a daunting …</p>
+            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2024/11/01/seabed-saviours-the-eu-life-recreation-remedies-project-comes-to-an-end/" target="_blank">Seabed Saviours - the EU Life Recreation ReMEDIES project comes to an end</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">Mapping our green and blue spaces: the green infrastructure mapping project</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Natural England</small>
+              <small><b>Published on : </b>31 October 2024</small>
+            </div>
+            <p class="govuk-body">Martin Moss, senior officer for green infrastructure mapping, and Sarah Parrott, higher officer for engagement and impact If you looked at a map of your local area, could you identify the accessible green spaces? What about the blue ones? If …</p>
+            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2024/10/31/mapping-our-green-and-blue-spaces-the-green-infrastructure-mapping-project/" target="_blank">Mapping our green and blue spaces: the green infrastructure mapping project</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+      </ul>
     </div>
-  </div>
+
+
+  
+
 
         </main>
       </div>
