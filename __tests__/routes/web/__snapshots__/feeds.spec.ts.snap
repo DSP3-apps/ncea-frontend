@@ -87,7 +87,7 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
       </button>
     
       
-      <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
+      <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">View cookies</a>
     
     </div>
     
@@ -106,7 +106,7 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
         
         <div class="govuk-cookie-banner__content">
           
-          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
           
         </div>
       </div>
@@ -137,7 +137,7 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
         
         <div class="govuk-cookie-banner__content">
           
-          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
           
         </div>
       </div>
@@ -188,7 +188,7 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
     
 
     
- 
+
     
 
     <header class="govuk-header govuk-header--full-width-border" data-module="govuk-header">
@@ -527,38 +527,32 @@ data-module="govuk-service-navigation"
         <ul class="govuk-footer__inline-list">
         
           <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
-              Help
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
-              Feeds
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
-              Privacy
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
-              Cookies
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275810340/275810354">
               Accessibility statement
             </a>
           </li>
         
           <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/help/cookies">
+              Cookie Policy
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275811163/275811177">
               Terms and conditions
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275811163/275811229">
+              Privacy
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support">
+              Support
             </a>
           </li>
         
