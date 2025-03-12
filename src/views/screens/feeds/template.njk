@@ -1,6 +1,6 @@
 {% extends "layout/default.njk" %}
 {% block content %}
-  <h1 class="govuk-heading-l">Latest Articles</h1>
+  <h1 class="govuk-heading-l">Latest blogs</h1>
   {% if error %}
     {% set title = error.errorTitle %}
     {% set message = error.errorMessage %}
@@ -29,8 +29,8 @@
         {% endfor %}
       </ul>
     </div>
-    
+
 
   {% endfor %}
-  
+
 {% endblock %}

@@ -26,7 +26,7 @@ export const webRoutePaths = {
   mdcIdentifiers: `/mdc/identifiers.xsd`,
   logout: `/logout`,
   login: `/login`,
-  atom: '/feeds',
+  atom: '/newsfeed',
   about: '/about',
 };
 
@@ -40,7 +40,7 @@ export const headerNavigationLinks = [
     href: `${BASE_PATH}${webRoutePaths.about}`,
   },
   {
-    text: 'Feeds',
+    text: 'News Feed',
     href: `${BASE_PATH}${webRoutePaths.atom}`,
   },
 ];
@@ -293,13 +293,6 @@ export const FILTER_VALUES = {
 export const landingPageData = {
   pageHeading: 'Natural Capital and Ecosystem Assessment (NCEA) programme',
   introText: {
-    content: [
-      "NCEA is Defra's largest R&D programme, delivering a nationwide survey of freshwater, land and coast. It has been set up to collect data on the extent and condition of England’s ecosystems and Natural Capital.",
-      'Natural Capital is the term encompassing all natural assets that form the environment we live in. Natural Capital knowledge capability also enables us to improve people’s wellbeing while accelerating economic growth, by placing the benefits of nature to society at the heart of decision-making.',
-      'NCEA is delivering a baseline assessment of the environment and enabling a Natural Capital approach to policy and decision-making.',
-      'NCEA is transforming the way we make decisions and policy, helping to ensure we invest in environmental reforms that achieve maximum benefit.',
-      'Its outputs, including data, tools and processes, are supporting Government’s missions and commitments to improving economic growth, sustainable land management and ensuring our food security, progression towards net zero and public health.',
-    ],
     imageUrl1: `${BASE_PATH}/assets/images/Blea-Tarn-Lake.jpg`,
     imageUrl2: `${BASE_PATH}/assets/images/Beautiful-View-Green-Hills.jpg`,
   },
@@ -356,7 +349,7 @@ export const landingPageData = {
   quickLinks: [
     {
       iconUrl: `${BASE_PATH}/assets/images/favicon.svg`,
-      iconName: 'GOV.UK',
+      iconName: 'NCEA GOV.UK',
       link: 'https://www.gov.uk/government/publications/natural-capital-and-ecosystem-assessment-programme/natural-capital-and-ecosystem-assessment-programme',
     },
     {

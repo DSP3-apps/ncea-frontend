@@ -6,7 +6,7 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
   <head>
     <meta charset="utf-8">
     <title>
-  Find natural capital data - GOV.UK
+  About the Natural Capital Ecosystem Assessment - NCEA – programme
 </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#0b0c0c">
@@ -231,7 +231,7 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F0.0.0.0%3A4000%2Fnatural-capital-ecosystem-assessment%2Ffeeds' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F0.0.0.0%3A4000%2Fnatural-capital-ecosystem-assessment%2Fnewsfeed' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -300,10 +300,10 @@ data-module="govuk-service-navigation"
               
               <li class="govuk-service-navigation__item">
                 
-                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment/feeds">
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment/newsfeed">
                     
                 
-                Feeds
+                News Feed
               
                   </a>
                 
@@ -342,7 +342,7 @@ data-module="govuk-service-navigation"
 
         <main class="govuk-main-wrapper app-main-class" id="main-content">
           
-  <h1 class="govuk-heading-l">Latest Articles</h1>
+  <h1 class="govuk-heading-l">Latest blogs</h1>
   
   
     <div>
@@ -385,13 +385,24 @@ data-module="govuk-service-navigation"
         
       </ul>
     </div>
-    
+
 
   
     <div>
     
       <h2 class="govuk-heading-m">Natural Capital – Natural England</h2>
       <ul class="govuk-list">
+        
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">The North can be a powerhouse for Nature and growth</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>Natural England</small>
+              <small><b>Published on : </b>07 March 2025</small>
+            </div>
+            <p class="govuk-body">&quot;Nature is vital to our economy our health and our security. The North has the natural assets that can help create the places people want to live, work and invest in and that will keep them happy and healthy, as …</p>
+            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2025/03/07/the-north-can-be-a-powerhouse-for-nature-and-growth/" target="_blank">The North can be a powerhouse for Nature and growth</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
         
           <li class="govuk-width-container feed-container">
             <h3 class="govuk-heading-s">How new technologies are helping us monitor one of England’s largest grey seal colonies </h3>
@@ -492,23 +503,12 @@ data-module="govuk-service-navigation"
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
           </li>
         
-          <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">Biodiversity Net Gain: delivering benefits for health</h3>
-            <div class="captions-section">
-              <small><b>Author: </b>Natural England</small>
-              <small><b>Published on : </b>16 October 2024</small>
-            </div>
-            <p class="govuk-body">This Biodiversity Net Gain (BNG) guest blog explores the essential role of nature in promoting overall health. Experts highlight its benefits for mental and physical well-being. They also discuss the broader benefits of integrating BNG into project planning from the …</p>
-            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2024/10/16/biodiversity-net-gain-delivering-benefits-for-health/" target="_blank">Biodiversity Net Gain: delivering benefits for health</a>
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-          </li>
-        
       </ul>
     </div>
-    
+
 
   
-  
+
 
         </main>
       </div>
@@ -533,7 +533,7 @@ data-module="govuk-service-navigation"
           </li>
         
           <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/newsfeed">
               Feeds
             </a>
           </li>
@@ -566,7 +566,7 @@ data-module="govuk-service-navigation"
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.14.0</p>
+          <p>Version: v1.15.0</p>
         </div>
         
         

@@ -92,12 +92,12 @@
         }
         a:nth-child(1) {
           img {
-            padding-left: 10px;
+            padding: 4px;
           }
         }
         a:nth-child(2), a:nth-child(3), a:nth-child(4){
           img {
-            padding: 6px;
+            padding: 4px;
           }
         }
       }
@@ -134,9 +134,6 @@
         button {
           width: 200px
         }
-      &-text {
-        text-align: center;
-      }
       &-list {
         padding: 0;
       }
@@ -150,6 +147,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      div:nth-of-type(1) {
+        margin-left: 44px;
+      }
       div:nth-of-type(3) {
         margin-left: 72px;
       }
@@ -177,6 +177,7 @@
       }
     }
     &__intro {
+      margin-bottom: 30px;
       gap: 2rem;
       flex-direction: row;
       &-img {
@@ -212,7 +213,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        div:nth-of-type(3) {
+        div:nth-of-type(1), div:nth-of-type(3) {
           margin-left: 0px;
         }
       }

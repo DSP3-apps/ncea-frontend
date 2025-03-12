@@ -12,7 +12,7 @@ const AboutController = {
       return response.view('screens/about/template', {
         displayFeedsPanel: true,
         feedsList: {
-          title: feedsData.title,
+          title: 'latest news',
           article: feedsData.articles[0],
         },
         ...landingPageData,

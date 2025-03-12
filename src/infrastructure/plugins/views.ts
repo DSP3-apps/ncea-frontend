@@ -73,7 +73,7 @@ const customHapiViews = {
     context: {
       assetPath: `${BASE_PATH}/assets`,
       serviceName: 'Find natural capital data',
-      pageTitle: 'Find natural capital data - GOV.UK',
+      pageTitle: 'About the Natural Capital Ecosystem Assessment - NCEA – programme',
       routes: {
         homePage: `${BASE_PATH}`,
         searchResults: `${BASE_PATH}${searchResults}`,
