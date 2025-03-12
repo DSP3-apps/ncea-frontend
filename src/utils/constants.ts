@@ -365,3 +365,8 @@ export const landingPageData = {
 };
 
 export const nceaFeedsUrl = atomFeeds[0] ?? '';
+export const accessibilityStatementUrl = 'https://environment.data.gov.uk/support/faqs/275810340/275810354';
+export const cookiePolicyUrl = 'https://environment.data.gov.uk/help/cookies';
+export const termsAndConditionsUrl = 'https://environment.data.gov.uk/support/faqs/275811163/275811177';
+export const privacyPolicyUrl = 'https://environment.data.gov.uk/support/faqs/275811163/275811229';
+export const supportUrl = 'https://environment.data.gov.uk/support';
