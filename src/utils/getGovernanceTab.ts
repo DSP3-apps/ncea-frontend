@@ -6,7 +6,7 @@ const getGovernanceTabData = (contacts: Contact[]): IGovernance[] => {
   const governanceData: IGovernance[] = contacts?.map((contact) => ({
     tab: 'governance',
     role: contact.role ?? '',
-    organization_name: '', // Decided to keep as empty as there is no data exist from AGM side
+    organization_name: contact.organisation ?? '',
     individual_name: contact.name ?? '',
     position_name: '', // Decided to keep as empty as there is no data exist from AGM side
     telephone_number: contact.phone ?? '',

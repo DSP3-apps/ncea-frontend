@@ -90,7 +90,7 @@ exports[`Results block template Guided search journey Search results with empty 
       </button>
     
       
-      <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
+      <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">View cookies</a>
     
     </div>
     
@@ -109,7 +109,7 @@ exports[`Results block template Guided search journey Search results with empty 
         
         <div class="govuk-cookie-banner__content">
           
-          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
           
         </div>
       </div>
@@ -140,7 +140,7 @@ exports[`Results block template Guided search journey Search results with empty 
         
         <div class="govuk-cookie-banner__content">
           
-          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
           
         </div>
       </div>
@@ -191,7 +191,7 @@ exports[`Results block template Guided search journey Search results with empty 
     
 
     
- 
+
     
 
     <header class="govuk-header govuk-header--full-width-border" data-module="govuk-header">
@@ -234,7 +234,7 @@ exports[`Results block template Guided search journey Search results with empty 
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A42915%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A34515%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -536,21 +536,6 @@ data-module="govuk-service-navigation"
         <div class='defra-map-info__content' id="info-content"></div>
         <div>
           
-  
-
-  
-    
-  
-
-<button type="submit" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-1" data-module="govuk-button"
-    
-        
-      
-    
-   id="go-to-resource">
-  Go to resource
-</button>
-
           
   
 
@@ -2058,38 +2043,32 @@ data-module="govuk-service-navigation"
         <ul class="govuk-footer__inline-list">
         
           <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
-              Help
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/newsfeed">
-              Feeds
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
-              Privacy
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
-              Cookies
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275810340/275810354">
               Accessibility statement
             </a>
           </li>
         
           <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/help/cookies">
+              Cookie Policy
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275811163/275811177">
               Terms and conditions
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275811163/275811229">
+              Privacy
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support">
+              Support
             </a>
           </li>
         
@@ -2264,7 +2243,7 @@ exports[`Results block template Guided search journey Search results with error 
       </button>
     
       
-      <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
+      <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">View cookies</a>
     
     </div>
     
@@ -2283,7 +2262,7 @@ exports[`Results block template Guided search journey Search results with error 
         
         <div class="govuk-cookie-banner__content">
           
-          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
           
         </div>
       </div>
@@ -2314,7 +2293,7 @@ exports[`Results block template Guided search journey Search results with error 
         
         <div class="govuk-cookie-banner__content">
           
-          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
           
         </div>
       </div>
@@ -2365,7 +2344,7 @@ exports[`Results block template Guided search journey Search results with error 
     
 
     
- 
+
     
 
     <header class="govuk-header govuk-header--full-width-border" data-module="govuk-header">
@@ -2408,7 +2387,7 @@ exports[`Results block template Guided search journey Search results with error 
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A43425%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33873%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -2710,21 +2689,6 @@ data-module="govuk-service-navigation"
         <div class='defra-map-info__content' id="info-content"></div>
         <div>
           
-  
-
-  
-    
-  
-
-<button type="submit" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-1" data-module="govuk-button"
-    
-        
-      
-    
-   id="go-to-resource">
-  Go to resource
-</button>
-
           
   
 
@@ -3040,38 +3004,32 @@ data-module="govuk-service-navigation"
         <ul class="govuk-footer__inline-list">
         
           <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
-              Help
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/newsfeed">
-              Feeds
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
-              Privacy
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
-              Cookies
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275810340/275810354">
               Accessibility statement
             </a>
           </li>
         
           <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/help/cookies">
+              Cookie Policy
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275811163/275811177">
               Terms and conditions
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275811163/275811229">
+              Privacy
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support">
+              Support
             </a>
           </li>
         
@@ -3246,7 +3204,7 @@ exports[`Results block template Quick search journey Search results with data sh
       </button>
     
       
-      <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
+      <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">View cookies</a>
     
     </div>
     
@@ -3265,7 +3223,7 @@ exports[`Results block template Quick search journey Search results with data sh
         
         <div class="govuk-cookie-banner__content">
           
-          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
           
         </div>
       </div>
@@ -3296,7 +3254,7 @@ exports[`Results block template Quick search journey Search results with data sh
         
         <div class="govuk-cookie-banner__content">
           
-          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
           
         </div>
       </div>
@@ -3347,7 +3305,7 @@ exports[`Results block template Quick search journey Search results with data sh
     
 
     
- 
+
     
 
     <header class="govuk-header govuk-header--full-width-border" data-module="govuk-header">
@@ -3390,7 +3348,7 @@ exports[`Results block template Quick search journey Search results with data sh
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A32971%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33721%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -3692,21 +3650,6 @@ data-module="govuk-service-navigation"
         <div class='defra-map-info__content' id="info-content"></div>
         <div>
           
-  
-
-  
-    
-  
-
-<button type="submit" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-1" data-module="govuk-button"
-    
-        
-      
-    
-   id="go-to-resource">
-  Go to resource
-</button>
-
           
   
 
@@ -5266,32 +5209,6 @@ data-module="govuk-service-navigation"
         </p>
         <div class='govuk-button-group search-result__button-group'>
           
-
-
-  
-
-
-
-
-  
-
-
-
-  
-
-  
-    
-  
-
-<button type="submit" class="govuk-button govuk-!-margin-bottom-0 go-to-resource" data-module="govuk-button"
-    
-        
-      
-    
-   disabled="true">
-  Go to resource
-</button>
-
           
   
 
@@ -5327,32 +5244,6 @@ data-module="govuk-service-navigation"
         </p>
         <div class='govuk-button-group search-result__button-group'>
           
-
-
-  
-
-
-
-
-  
-
-
-
-  
-
-  
-    
-  
-
-<button type="submit" class="govuk-button govuk-!-margin-bottom-0 go-to-resource" data-module="govuk-button"
-    
-        
-      
-    
-   disabled="true">
-  Go to resource
-</button>
-
           
   
 
@@ -5462,38 +5353,32 @@ data-module="govuk-service-navigation"
         <ul class="govuk-footer__inline-list">
         
           <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
-              Help
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/newsfeed">
-              Feeds
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
-              Privacy
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
-              Cookies
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275810340/275810354">
               Accessibility statement
             </a>
           </li>
         
           <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/help/cookies">
+              Cookie Policy
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275811163/275811177">
               Terms and conditions
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275811163/275811229">
+              Privacy
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support">
+              Support
             </a>
           </li>
         
@@ -5668,7 +5553,7 @@ exports[`Results block template Quick search journey Search results with empty d
       </button>
     
       
-      <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
+      <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">View cookies</a>
     
     </div>
     
@@ -5687,7 +5572,7 @@ exports[`Results block template Quick search journey Search results with empty d
         
         <div class="govuk-cookie-banner__content">
           
-          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
           
         </div>
       </div>
@@ -5718,7 +5603,7 @@ exports[`Results block template Quick search journey Search results with empty d
         
         <div class="govuk-cookie-banner__content">
           
-          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
           
         </div>
       </div>
@@ -5769,7 +5654,7 @@ exports[`Results block template Quick search journey Search results with empty d
     
 
     
- 
+
     
 
     <header class="govuk-header govuk-header--full-width-border" data-module="govuk-header">
@@ -5812,7 +5697,7 @@ exports[`Results block template Quick search journey Search results with empty d
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A37817%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33007%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -6114,21 +5999,6 @@ data-module="govuk-service-navigation"
         <div class='defra-map-info__content' id="info-content"></div>
         <div>
           
-  
-
-  
-    
-  
-
-<button type="submit" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-1" data-module="govuk-button"
-    
-        
-      
-    
-   id="go-to-resource">
-  Go to resource
-</button>
-
           
   
 
@@ -7636,38 +7506,32 @@ data-module="govuk-service-navigation"
         <ul class="govuk-footer__inline-list">
         
           <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
-              Help
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/newsfeed">
-              Feeds
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
-              Privacy
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
-              Cookies
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275810340/275810354">
               Accessibility statement
             </a>
           </li>
         
           <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/help/cookies">
+              Cookie Policy
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275811163/275811177">
               Terms and conditions
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275811163/275811229">
+              Privacy
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support">
+              Support
             </a>
           </li>
         
@@ -7842,7 +7706,7 @@ exports[`Results block template Quick search journey Search results with error s
       </button>
     
       
-      <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">View cookies</a>
+      <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">View cookies</a>
     
     </div>
     
@@ -7861,7 +7725,7 @@ exports[`Results block template Quick search journey Search results with error s
         
         <div class="govuk-cookie-banner__content">
           
-          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
           
         </div>
       </div>
@@ -7892,7 +7756,7 @@ exports[`Results block template Quick search journey Search results with error s
         
         <div class="govuk-cookie-banner__content">
           
-          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="/natural-capital-ecosystem-assessment/cookie-policy">change your cookie settings</a> at any time.</p>
+          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
           
         </div>
       </div>
@@ -7943,7 +7807,7 @@ exports[`Results block template Quick search journey Search results with error s
     
 
     
- 
+
     
 
     <header class="govuk-header govuk-header--full-width-border" data-module="govuk-header">
@@ -7986,7 +7850,7 @@ exports[`Results block template Quick search journey Search results with error s
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A42165%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A34735%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -8288,21 +8152,6 @@ data-module="govuk-service-navigation"
         <div class='defra-map-info__content' id="info-content"></div>
         <div>
           
-  
-
-  
-    
-  
-
-<button type="submit" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-right-1" data-module="govuk-button"
-    
-        
-      
-    
-   id="go-to-resource">
-  Go to resource
-</button>
-
           
   
 
@@ -8618,38 +8467,32 @@ data-module="govuk-service-navigation"
         <ul class="govuk-footer__inline-list">
         
           <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/help">
-              Help
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/newsfeed">
-              Feeds
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/privacy-policy">
-              Privacy
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/cookie-policy">
-              Cookies
-            </a>
-          </li>
-        
-          <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/accessibility-statement">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275810340/275810354">
               Accessibility statement
             </a>
           </li>
         
           <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/terms-conditions">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/help/cookies">
+              Cookie Policy
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275811163/275811177">
               Terms and conditions
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275811163/275811229">
+              Privacy
+            </a>
+          </li>
+        
+          <li class="govuk-footer__inline-list-item">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support">
+              Support
             </a>
           </li>
         

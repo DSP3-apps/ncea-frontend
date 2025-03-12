@@ -61,7 +61,7 @@ export interface Contact {
   city: undefined | null | string;
   postcode: undefined | null | string;
   aministrativeArea: undefined | null | string;
-  organisationName?: string;
+  organisation?: string;
   role?: string;
 }
 

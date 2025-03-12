@@ -79,7 +79,7 @@
     {% if user.email %}
       {% set loginElement = "<span>Welcome, " + user.email + "&nbsp; <a href='" + routes.logOut + redirectPart + "' class='govuk-link'>Logout</a></span>" %}
     {% endif %}
- 
+
     {% set headerNavigators = [{html: loginElement}]%}
 
     {{ govukHeader({
@@ -175,28 +175,24 @@
     meta: {
       items: [
         {
-          href: routes.help,
-          text: "Help"
+          href: routes.accessibilityStatement,
+          text: "Accessibility statement"
         },
         {
-          href: routes.feeds,
-          text: "Feeds"
+          href: routes.cookiePolicy,
+          text: "Cookie Policy"
+        },
+        {
+          href: routes.termsAndConditions,
+          text: "Terms and conditions"
         },
         {
           href: routes.privacyPolicy,
           text: "Privacy"
         },
         {
-          href: routes.cookiePolicy,
-          text: "Cookies"
-        },
-        {
-          href: routes.accessibilityStatement,
-          text: "Accessibility statement"
-        },
-        {
-          href: routes.termsAndConditions,
-          text: "Terms and conditions"
+          href: routes.support,
+          text: "Support"
         }
       ],
       html: appVersionHtml

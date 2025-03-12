@@ -166,12 +166,11 @@ export const detailsTabOptions: TabOptions = {
     'Resource type': 'resource_type_and_hierarchy',
     'Resource locators': 'resource_locators',
     'Contact information': 'contact_information',
-    'Catalouge entry': 'ncea_catalogue_entry',
-    'NCEA catalogue number': 'catalogue_number',
     'Parent identifier': 'ncea_group_reference',
     'Metadata standard': 'metadata_standard',
     'Project number': 'project_number',
     'Metadata language': 'metadata_language',
+    'Resource website': 'resourceWebsite',
   },
   quality: {
     'Date of publication': 'publicationInformation',
@@ -213,14 +212,14 @@ export const detailsTabOptions: TabOptions = {
     Role: 'role',
     'Organization name': 'organization_name',
     'Individual name': 'individual_name',
-    'Position name': 'position_name',
-    'Telephone number': 'telephone_number',
-    'Delivery point': 'delivery_point',
-    'Postal code': 'postal_code',
-    City: 'city',
-    'Administrative area': 'administrative_area',
-    Country: 'country',
-    'Web address': 'web_address',
+    // 'Position name': 'position_name',
+    // 'Telephone number': 'telephone_number',
+    // 'Delivery point': 'delivery_point',
+    // 'Postal code': 'postal_code',
+    // City: 'city',
+    // 'Administrative area': 'administrative_area',
+    // Country: 'country',
+    // 'Web address': 'web_address',
     Email: 'email',
   },
 };
@@ -366,3 +365,8 @@ export const landingPageData = {
 };
 
 export const nceaFeedsUrl = atomFeeds[0] ?? '';
+export const accessibilityStatementUrl = 'https://environment.data.gov.uk/support/faqs/275810340/275810354';
+export const cookiePolicyUrl = 'https://environment.data.gov.uk/help/cookies';
+export const termsAndConditionsUrl = 'https://environment.data.gov.uk/support/faqs/275811163/275811177';
+export const privacyPolicyUrl = 'https://environment.data.gov.uk/support/faqs/275811163/275811229';
+export const supportUrl = 'https://environment.data.gov.uk/support';

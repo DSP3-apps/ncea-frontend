@@ -1,6 +1,14 @@
 import { environmentConfig } from '../../../src/config/environmentConfig';
 import path from 'path';
-import { BASE_PATH, webRoutePaths } from '../../../src/utils/constants';
+import {
+  accessibilityStatementUrl,
+  BASE_PATH,
+  cookiePolicyUrl,
+  privacyPolicyUrl,
+  supportUrl,
+  termsAndConditionsUrl,
+  webRoutePaths,
+} from '../../../src/utils/constants';
 import nunjucks, { Environment } from 'nunjucks';
 import { customHapiViews } from '../../../src/infrastructure/plugins/views';
 
@@ -68,11 +76,12 @@ describe('Vision Plugin Configuration', () => {
         getMapFilters: `${BASE_PATH}${getMapFilters}`,
         filterResourceType: `${BASE_PATH}${filterResourceType}`,
         filterStudyPeriod: `${BASE_PATH}${filterStudyPeriod}`,
-        accessibilityStatement: `${BASE_PATH}${accessibilityStatement}`,
+        accessibilityStatement: accessibilityStatementUrl,
         help: `${BASE_PATH}${help}`,
-        termsAndConditions: `${BASE_PATH}${termsAndConditions}`,
-        privacyPolicy: `${BASE_PATH}${privacyPolicy}`,
-        cookiePolicy: `${BASE_PATH}${cookiePolicy}`,
+        termsAndConditions: termsAndConditionsUrl,
+        privacyPolicy: privacyPolicyUrl,
+        cookiePolicy: cookiePolicyUrl,
+        support: supportUrl,
         logOut: `${BASE_PATH}${logout}`,
         logIn: environmentConfig.isLocal ? '' : login,
         feeds: `${BASE_PATH}${atom}`,

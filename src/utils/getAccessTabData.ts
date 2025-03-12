@@ -63,14 +63,15 @@ const getContactInformation = (contacts): string => {
   if (contacts.length > 0) {
     contacts.forEach((contact: Contact) => {
       const contactInfo = contact.email
-        ? `${contact.organisationName ?? ''} :- ${contact.email}`
-        : `${contact.organisationName ?? ''}`;
+        ? `${contact.organisation ?? ''} :- ${contact.email}`
+        : `${contact.organisation ?? ''}`;
       contactInformationArray.push(contactInfo);
     });
   }
 
   if (contactInformationArray.length === 0) {
-    return 'Find contact information on the Governance tab';
+    // return 'Find contact information on the Governance tab';
+    return '';
   } else {
     return contactInformationArray.join(', <br />');
   }

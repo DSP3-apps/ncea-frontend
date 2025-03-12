@@ -6,7 +6,16 @@ import nunjucks from 'nunjucks';
 import dateFilter from 'nunjucks-date-filter';
 
 import { environmentConfig } from '../../config/environmentConfig';
-import { BASE_PATH, headerNavigationLinks, webRoutePaths } from '../../utils/constants';
+import {
+  BASE_PATH,
+  accessibilityStatementUrl,
+  cookiePolicyUrl,
+  headerNavigationLinks,
+  privacyPolicyUrl,
+  supportUrl,
+  termsAndConditionsUrl,
+  webRoutePaths,
+} from '../../utils/constants';
 
 const packageJsonPath = path.join(process.cwd(), 'package.json');
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
@@ -20,10 +29,6 @@ const {
   filterResourceType,
   filterStudyPeriod,
   help,
-  accessibilityStatement,
-  termsAndConditions,
-  privacyPolicy,
-  cookiePolicy,
   login,
   logout,
   atom,
@@ -84,10 +89,11 @@ const customHapiViews = {
         filterResourceType: `${BASE_PATH}${filterResourceType}`,
         filterStudyPeriod: `${BASE_PATH}${filterStudyPeriod}`,
         help: `${BASE_PATH}${help}`,
-        accessibilityStatement: `${BASE_PATH}${accessibilityStatement}`,
-        termsAndConditions: `${BASE_PATH}${termsAndConditions}`,
-        privacyPolicy: `${BASE_PATH}${privacyPolicy}`,
-        cookiePolicy: `${BASE_PATH}${cookiePolicy}`,
+        accessibilityStatement: accessibilityStatementUrl,
+        termsAndConditions: termsAndConditionsUrl,
+        privacyPolicy: privacyPolicyUrl,
+        cookiePolicy: cookiePolicyUrl,
+        support: supportUrl,
         logOut: `${BASE_PATH}${logout}`,
         logIn: login,
         feeds: `${BASE_PATH}${atom}`,
