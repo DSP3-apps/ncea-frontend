@@ -24,7 +24,7 @@ describe('Feeds Screen', () => {
 
       const options = {
         method: 'GET',
-        url: `${BASE_PATH}/feeds`,
+        url: `${BASE_PATH}/newsfeed`,
       };
 
       response = await server.inject(options);
