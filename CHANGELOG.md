@@ -1,3 +1,27 @@
+# [1.16.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.15.0...v1.16.0) (2025-03-12)
+
+
+### Bug Fixes
+
+* **tests:** Update snapshots ([6a76e71](https://github.com/DSP3-apps/ncea-frontend/commit/6a76e71ad5cc1030e915bcbd0cf650767c52dfc2))
+
+
+### Features
+
+* **frontend:** added the support link ([2827c95](https://github.com/DSP3-apps/ncea-frontend/commit/2827c95526fa4e2c72dd5967e6c842dcaa5c23f8))
+* **frontend:** fixes minor issues ([be56f8e](https://github.com/DSP3-apps/ncea-frontend/commit/be56f8eb9c134ff7bc1138cc48053e3de6b9b59d))
+* **frontend:** fixes unit test suites ([10cc3d4](https://github.com/DSP3-apps/ncea-frontend/commit/10cc3d4b4c51aeb47b9f535aa30deedcf17e5f3c))
+* **frontend:** remove the login url condition check for local dev server ([3792677](https://github.com/DSP3-apps/ncea-frontend/commit/3792677879c66b7ed2f06e3e57bba4ba82d0b753))
+* **frontend:** revert the login check ([8aef09d](https://github.com/DSP3-apps/ncea-frontend/commit/8aef09d32d9e8c2785a925b0c35e8c11c3259c23))
+* **frontend:** UI changes are per feedback provided ([c9ac0b0](https://github.com/DSP3-apps/ncea-frontend/commit/c9ac0b043f34a238a67df32c927f310208005d77))
+* **frontend:** update the footer links url ([04c7e35](https://github.com/DSP3-apps/ncea-frontend/commit/04c7e355f02e0e906c0e0930316de8db35da4160))
+* **frontend:** update the footer links url ([9251f0a](https://github.com/DSP3-apps/ncea-frontend/commit/9251f0af86f96cb06c3ef92587a559fe09ed1f31))
+* **frontend:** update the footer links url ([1a1b46b](https://github.com/DSP3-apps/ncea-frontend/commit/1a1b46b8d351dd878c8a457c2d3f3ea4a79e8303))
+* **frontend:** update unit test suites ([ec246ee](https://github.com/DSP3-apps/ncea-frontend/commit/ec246ee30e3912db7a9ab009928ac0270a588e36))
+* **frontend:** updated feeds test case ([462d225](https://github.com/DSP3-apps/ncea-frontend/commit/462d225fc84594948a22dd24392403600c9f27c2))
+* **frontend:** updated the code and images name ([8f1d30c](https://github.com/DSP3-apps/ncea-frontend/commit/8f1d30c13cedf894fea7c3baed71c211c2513517))
+* **frontend:** updated the footer links ordering ([c443861](https://github.com/DSP3-apps/ncea-frontend/commit/c443861339843a59b19799733af48ffb2dd8048d))
+
 # [1.15.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.14.0...v1.15.0) (2025-03-05)
 
 
