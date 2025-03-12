@@ -7,8 +7,8 @@ import dateFilter from 'nunjucks-date-filter';
 
 import { environmentConfig } from '../../config/environmentConfig';
 import {
-  accessibilityStatementUrl,
   BASE_PATH,
+  accessibilityStatementUrl,
   cookiePolicyUrl,
   headerNavigationLinks,
   privacyPolicyUrl,
