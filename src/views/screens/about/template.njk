@@ -11,14 +11,21 @@
   </header>
    <section class="landingPage__intro">
         <div class="landingPage__intro-content">
-          {% for content in introText.content %}
             <p class="govuk-body govuk-!-margin-bottom-6">
-            {{ content }}
+              NCEA is Defra's largest research and development (R&D) programme, it has been set up to collect data on the extent and condition of England’s ecosystems and natural capital.
             </p>
-          {% endfor %}
+            <p class="govuk-body govuk-!-margin-bottom-6">
+              Natural capital is the term encompassing all natural assets that form the environment we live in. Natural capital knowledge capability also enables us to improve people’s wellbeing while accelerating economic growth, by placing the benefits of nature to society at the heart of decision-making.
+            </p>
+            <p class="govuk-body govuk-!-margin-bottom-6">
+              NCEA is delivering a baseline assessment of the environment and enabling a natural capital approach to policy and decision-making.
+            </p>
+            <p class="govuk-body govuk-!-margin-bottom-6">
+              <a class='govuk-link' href="https://www.gov.uk/government/publications/natural-capital-and-ecosystem-assessment-programme/natural-capital-and-ecosystem-assessment-programme" target="_blank">NCEA</a> is transforming the way we make decisions and develop policy, helping to ensure we invest in environmental reforms that achieve maximum benefit.
+            </p>
         </div>
         <div class="landingPage__intro-imageLayout">
-        <img class="landingPage__intro-img" src={{ introText.imageUrl1 }} title="Blea Tarn Lake">
+        <img class="landingPage__intro-img" src={{ introText.imageUrl1 }} title="Blea Tarn Lake District">
         <img class="landingPage__intro-img" src={{ introText.imageUrl2 }} title="Beautiful View Green Hills">
         </div>
     </section>
@@ -42,9 +49,9 @@
       </div>
         <div class="landingPage__partnersLogo-rightsection">
           <h2 class="govuk-heading-m">Product Brochure</h2>
-            <p class="govuk-body">Explore our latest products with detailed specifications and benefits.</p>
+            <p class="govuk-body">Explore our key NCEA products</p>
           <div class="landingPage__partnersLogo-rightsection--brochure">
-              <img src="{{ assetPath }}/images/template.jpg" title="Product Brochure">
+              <img src="{{ assetPath }}/images/ncea-product.jpeg" title="NCEA Product Brochure">
           </div>
         </div>
       </div>
@@ -66,7 +73,7 @@
               </li>
           </ul>
           <p class="govuk-body landingPage__feeds_container--feeds-text">
-            <a href="{{routes.homePage}}/feeds" class="govuk-link">More Feeds</a>
+            <a href="{{routes.homePage}}/feeds" class="govuk-link">more news</a>
           </p>
         </div>
       {% endif %}

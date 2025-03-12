@@ -26,7 +26,7 @@ export const webRoutePaths = {
   mdcIdentifiers: `/mdc/identifiers.xsd`,
   logout: `/logout`,
   login: `/login`,
-  atom: '/feeds',
+  atom: '/newsfeed',
   about: '/about',
 };
 
@@ -40,7 +40,7 @@ export const headerNavigationLinks = [
     href: `${BASE_PATH}${webRoutePaths.about}`,
   },
   {
-    text: 'Feeds',
+    text: 'News Feed',
     href: `${BASE_PATH}${webRoutePaths.atom}`,
   },
 ];
@@ -328,7 +328,7 @@ export const landingPageData = {
   ],
   partnerLogos: [
     {
-      imgUrl: `${BASE_PATH}/assets/images/environment-agency-logo.png`,
+      imgUrl: `${BASE_PATH}/assets/images/unnamed.png`,
       link: 'https://www.gov.uk/government/organisations/environment-agency',
       title: 'Environment Agency',
     },
@@ -356,7 +356,7 @@ export const landingPageData = {
   quickLinks: [
     {
       iconUrl: `${BASE_PATH}/assets/images/favicon.svg`,
-      iconName: 'GOV.UK',
+      iconName: 'NCEA GOV.UK',
       link: 'https://www.gov.uk/government/publications/natural-capital-and-ecosystem-assessment-programme/natural-capital-and-ecosystem-assessment-programme',
     },
     {

@@ -58,7 +58,7 @@ describe('Vision Plugin Configuration', () => {
     expect(options.context).toEqual({
       assetPath: `${BASE_PATH}/assets`,
       serviceName: 'Find natural capital data',
-      pageTitle: 'Find natural capital data - GOV.UK',
+      pageTitle: 'About the Natural Capital Ecosystem Assessment - NCEA – programme',
       routes: {
         homePage: `${BASE_PATH}`,
         searchResults: `${BASE_PATH}${searchResults}`,
@@ -91,7 +91,7 @@ describe('Vision Plugin Configuration', () => {
           href: `${BASE_PATH}${webRoutePaths.about}`,
         },
         {
-          text: 'Feeds',
+          text: 'News Feed',
           href: `${BASE_PATH}${webRoutePaths.atom}`,
         },
       ],

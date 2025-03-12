@@ -73,7 +73,7 @@ const customHapiViews = {
     context: {
       assetPath: `${BASE_PATH}/assets`,
       serviceName: 'Find natural capital data',
-      pageTitle: 'Find natural capital data - GOV.UK',
+      pageTitle: 'About the Natural Capital Ecosystem Assessment - NCEA – programme',
       routes: {
         homePage: `${BASE_PATH}`,
         searchResults: `${BASE_PATH}${searchResults}`,
@@ -89,7 +89,7 @@ const customHapiViews = {
         privacyPolicy: `${BASE_PATH}${privacyPolicy}`,
         cookiePolicy: `${BASE_PATH}${cookiePolicy}`,
         logOut: `${BASE_PATH}${logout}`,
-        logIn: environmentConfig.isLocal ? '' : login, // dont want the base path on this URL as it should navigate to the core platform instead
+        logIn: login,
         feeds: `${BASE_PATH}${atom}`,
       },
       appInsightsConnectionString: environmentConfig.appInsightsConnectionString,

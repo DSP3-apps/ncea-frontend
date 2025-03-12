@@ -234,7 +234,7 @@ exports[`Guided Search - Geography Questionnaire Screen POST Request HTML elemen
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A43981%2Fnatural-capital-ecosystem-assessment%2Fcoordinate-search' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33845%2Fnatural-capital-ecosystem-assessment%2Fcoordinate-search' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -303,10 +303,10 @@ data-module="govuk-service-navigation"
               
               <li class="govuk-service-navigation__item">
                 
-                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment/feeds">
+                  <a class="govuk-service-navigation__link" href="/natural-capital-ecosystem-assessment/newsfeed">
                     
                 
-                Feeds
+                News Feed
               
                   </a>
                 
@@ -624,7 +624,7 @@ data-module="govuk-service-navigation"
       
     
    data-do-storage-skip="">
-  Skip
+  Skip3
 </a>
 
         
@@ -643,7 +643,7 @@ data-module="govuk-service-navigation"
       
     
    data-to-disable="" data-next-question="">
-  See Results
+  See Results1
 </button>
 
       </div>
@@ -673,7 +673,7 @@ data-module="govuk-service-navigation"
           </li>
         
           <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/feeds">
+            <a class="govuk-footer__link" href="/natural-capital-ecosystem-assessment/newsfeed">
               Feeds
             </a>
           </li>
@@ -706,7 +706,7 @@ data-module="govuk-service-navigation"
         
         
         <div class="govuk-footer__meta-custom">
-          <p>Version: v1.14.0</p>
+          <p>Version: v1.15.0</p>
         </div>
         
         
