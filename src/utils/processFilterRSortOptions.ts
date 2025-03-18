@@ -1,7 +1,7 @@
 import { RequestQuery } from '@hapi/hapi';
 
 import { queryParamKeys, startYearRangeKey, toYearRangeKey, uniqueResourceTypesKey } from './constants';
-import { readQueryParams } from './queryStringHelper';
+import { readListQueryParams, readQueryParams } from './queryStringHelper';
 import {
   DataScope,
   ISearchFilterProcessed,
@@ -30,9 +30,7 @@ const processDSPFilterOptions = (requestQuery: RequestQuery): ISearchFiltersProc
 
   for (const category of searchFilters) {
     // filter to remove any empty strings
-    const catQueryValue = readQueryParams(requestQuery, category.value)
-      .split(',')
-      .filter((v) => v);
+    const catQueryValue = readListQueryParams(requestQuery, category.value);
 
     const newCategory: ISearchFilterProcessed = {
       name: category.name,
@@ -69,9 +67,7 @@ const processDSPFilterOptions = (requestQuery: RequestQuery): ISearchFiltersProc
     hasDSPFiltersRemoved: hasDSPFiltersRemoved,
     // without the filter if they keywords are empty it will return a 1 element array
     // where the element is just an empty string
-    keywords: readQueryParams(requestQuery, filterNames.keywords)
-      .split(',')
-      .filter((k) => k),
+    keywords: readListQueryParams(requestQuery, filterNames.keywords),
     licence: readQueryParams(requestQuery, filterNames.licence),
     lastUpdated: {
       beforeYear: readQueryParams(requestQuery, filterNames.updatedBefore),
@@ -88,7 +84,7 @@ const processFilterOptions = async (
   const { startYear, toYear, resourceType } = queryParamKeys;
   const startYearValue = readQueryParams(requestQuery, startYear);
   const toYearValue = readQueryParams(requestQuery, toYear);
-  const resourceTypeValue = readQueryParams(requestQuery, resourceType).split(',');
+  const resourceTypeValue = readListQueryParams(requestQuery, resourceType);
 
   const startYearOptions: IAggregationOption[] = filterOptions[startYearRangeKey] ?? [];
   const toYearOptions: IAggregationOption[] = filterOptions[toYearRangeKey] ?? [];

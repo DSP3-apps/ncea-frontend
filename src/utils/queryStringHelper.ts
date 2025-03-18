@@ -91,6 +91,16 @@ const readQueryParams = (
   return searchParams.toString();
 };
 
+const readListQueryParams = (requestQuery: RequestQuery, key: string): string[] => {
+  const keyItems: string | string[] = requestQuery[key];
+
+  if (Array.isArray(keyItems)) {
+    return keyItems; // Return the array directly
+  }
+
+  return keyItems ? keyItems.split(',') : []; // Convert single values to an array
+};
+
 const getClassifierParams = (searchParams: URLSearchParams): Record<string, string> => {
   const level: string = searchParams.get(queryParamKeys.level) ?? '';
   const parent: string = searchParams.get(queryParamKeys.parent) ?? '';
@@ -202,6 +212,7 @@ export {
   getQueryStringParams,
   upsertQueryParams,
   readQueryParams,
+  readListQueryParams,
   generateQueryBuilderPayload,
   generateCountPayload,
   getDateParams,
