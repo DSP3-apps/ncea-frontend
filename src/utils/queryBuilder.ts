@@ -240,6 +240,11 @@ const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearc
   const dataTypes = getFiltersForCategory(filters.categories, FILTER_VALUES.dataType);
   let dataType: string | null = null;
 
+  /* The Search API param for DataType is only accept null/spatial/non-spatial string values only.
+  So the current "dataTypes" value contains the array of values, when user selected datatypes, if he selected only one option
+  the array contains the single value, and it converted to string and passed to API, other wise it always have the null value
+  means API filters with null on DataType it wont accept both values at a time.
+   */
   if (dataTypes?.length === 1) {
     dataType = dataTypes.toString();
   }
