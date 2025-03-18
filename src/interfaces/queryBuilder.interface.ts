@@ -160,7 +160,7 @@ interface IFilter {
   AdditionalInformationSource: string | null;
   DateRange: IDateRange | null;
   Organisations: string[] | null;
-  DataTypes: string[] | null;
+  DataType: string | null;
   Formats: string[] | null;
   SearchTitleOnly: boolean;
   RetiredAndArchived: boolean;
