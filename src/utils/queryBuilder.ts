@@ -238,7 +238,11 @@ const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearc
 
   // Get Data Type filter values e.g. spatial/non-spatial.
   const dataTypes = getFiltersForCategory(filters.categories, FILTER_VALUES.dataType);
+  let dataType: string | null = null;
 
+  if (dataTypes?.length === 1) {
+    dataType = dataTypes.toString();
+  }
   // Get Service Type filter values
   const serviceTypes = getFiltersForCategory(filters.categories, FILTER_VALUES.serviceType);
 
@@ -282,7 +286,7 @@ const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearc
     Filters: {
       Organisations: organisations ?? [],
       SearchTitleOnly: !!title,
-      DataTypes: dataTypes ?? [],
+      DataType: dataType,
       ServiceType: serviceTypes ?? [],
       Formats: dataFormats ?? [],
       DateRange: dateFilters,
