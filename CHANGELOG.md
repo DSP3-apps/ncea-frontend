@@ -1,3 +1,11 @@
+## [1.16.1](https://github.com/DSP3-apps/ncea-frontend/compare/v1.16.0...v1.16.1) (2025-03-19)
+
+
+### Bug Fixes
+
+* **elements:** Filtering for all on org or Data Format is unchecking some checkboxes ([e1b3804](https://github.com/DSP3-apps/ncea-frontend/commit/e1b3804bcf9c194b11a5f442eb72887733b16475))
+* **elements:** Spatial/Non-spatial filtering is not working as expected ([a90910e](https://github.com/DSP3-apps/ncea-frontend/commit/a90910e7b12371afacb5d74a5035eb32719ad686))
+
 # [1.16.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.15.0...v1.16.0) (2025-03-12)
 
 
