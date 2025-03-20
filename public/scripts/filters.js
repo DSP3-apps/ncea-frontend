@@ -426,12 +426,12 @@ document.addEventListener('DOMContentLoaded', () => {
   addCategoryAccordionToggleListeners(filtersInstance);
   addFilterFormSubmitListener(filtersInstance);
   addFilterFormResetListener(filtersInstance);
-  addAllCheckboxListeners(filtersInstance);
   addScopeChangeListener(filtersInstance, searchResultsScopeCallback);
 });
 
 export {
   addCategoryAccordionToggleListeners,
+  addAllCheckboxListeners,
   filterFormToFormData,
   appendMetaSearchParams,
   filtersInstance,
