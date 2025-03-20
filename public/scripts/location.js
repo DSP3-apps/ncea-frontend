@@ -7,6 +7,7 @@ import {
   getValidatedFormData,
   addMapFilterFormSubmitListener,
   addMapFilterFormResetListener,
+  addAllCheckboxListeners,
 } from './filters.js';
 
 const mapResultsInstance = 'map_results';
@@ -853,6 +854,7 @@ const getMapFilters = async (path) => {
     addScopeChangeListener(mapResultsInstance, mapResultsScopeCallback);
     addMapFilterFormSubmitListener(mapResultsInstance);
     addMapFilterFormResetListener(mapResultsInstance);
+    addAllCheckboxListeners(mapResultsInstance);
   }
 };
 
