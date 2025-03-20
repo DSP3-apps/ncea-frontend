@@ -21,6 +21,7 @@
 
   &__parameter {
     display: flex;
+    align-items: center;
     gap: 10px;
 
     &-label {
@@ -716,7 +717,8 @@
     margin-bottom: 1rem;
   }
 
-  &-search_results-error-message, &-map_results-error-message {
+  &-search_results-error-message,
+  &-map_results-error-message {
     display: none;
   }
 }

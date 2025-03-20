@@ -50,8 +50,7 @@
 
     &__not-provided {
       @include font-style-stack(16px, 16px, 700, normal, false, 1px);
-      width: 130px;
-      padding: 5px 1px 5px 5px;
+      padding: 5px;
       margin: 0;
       height: fit-content;
     }
@@ -116,9 +115,9 @@
   padding-top: 0;
 }
 
-.details-table-hr{
+.details-table-hr {
   padding: 0 !important;
-  border-bottom: 1px solid #B1B4B6;
+  border-bottom: 1px solid #b1b4b6;
 }
 
 @media (min-width: 768px) {

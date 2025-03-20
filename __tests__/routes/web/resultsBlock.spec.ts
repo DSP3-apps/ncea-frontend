@@ -93,7 +93,8 @@ describe('Results block template', () => {
         const resultItems = resultItemsBlock.children;
         expect(resultItems.length).toBe(searchResultsWithData.total);
         Array.from(resultItems).forEach((resultItem: any, index) => {
-          const dateValue = searchResultsWithData?.items[index]?.studyPeriod;
+          const startDateValue = searchResultsWithData?.items[index]?.studyPeriodStart ?? 'Unavailable';
+          const endDateValue = searchResultsWithData?.items[index]?.studyPeriodEnd ?? 'Unavailable';
 
           expect(resultItem.querySelector('.search-result__heading')?.textContent?.trim()).toEqual(
             searchResultsWithData?.items[index]?.title,
@@ -106,7 +107,10 @@ describe('Results block template', () => {
 
           expect(resultItem.querySelector('.search-result__study-label')?.textContent?.trim()).toBe('Study period');
 
-          expect(resultItem.querySelector('.search-result__study-value')?.textContent?.trim()).toBe(dateValue);
+          expect(resultItem.querySelector('.search-result__study-value .start')?.textContent?.trim()).toBe(
+            startDateValue,
+          );
+          expect(resultItem.querySelector('.search-result__study-value .end')?.textContent?.trim()).toBe(endDateValue);
         });
       });
     });
