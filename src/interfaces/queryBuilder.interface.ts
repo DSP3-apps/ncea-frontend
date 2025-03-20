@@ -154,7 +154,7 @@ interface IFilter {
   AlternativeTitle: string | null;
   Abstract: string | null;
   ResourceType: string | null;
-  ServiceType: string[] | null;
+  ServiceTypes: string[] | null;
   TopicCategory: string | null;
   Lineage: string | null;
   AdditionalInformationSource: string | null;

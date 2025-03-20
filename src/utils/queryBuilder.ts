@@ -292,7 +292,7 @@ const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearc
       Organisations: organisations ?? [],
       SearchTitleOnly: !!title,
       DataType: dataType,
-      ServiceType: serviceTypes ?? [],
+      ServiceTypes: serviceTypes ?? [],
       Formats: dataFormats ?? [],
       DateRange: dateFilters,
       Licence: licence ?? null,
