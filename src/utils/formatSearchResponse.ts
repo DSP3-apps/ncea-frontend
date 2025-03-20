@@ -75,14 +75,18 @@ export const transformSearchResponse = (response: ISearchResponse, isMapResults:
     };
   }
   const items = response.results.map((result: ISearchResult) => {
-    const startDate = new Date(result.temporalExtent.beginPosition);
-    const endDate = new Date(result.temporalExtent.endPosition);
+    const start = result.temporalExtent.beginPosition;
+    const end = result.temporalExtent.endPosition;
+
+    const startDate = new Date(start);
+    const endDate = new Date(end);
 
     const searchResponse = {
       id: result.id,
       title: result.title,
       content: toggleContent(result.abstract, `abstract_content-${result.id}`),
-      studyPeriod: `${format(startDate, DATE_FORMAT)} to ${format(endDate, DATE_FORMAT)}`,
+      studyPeriodStart: start ? format(startDate, DATE_FORMAT) : undefined,
+      studyPeriodEnd: end ? format(endDate, DATE_FORMAT) : undefined,
       startYear: startDate.getFullYear().toString(),
       toYear: endDate.getFullYear().toString(),
       resourceLocator: result?.resource?.url ?? '',

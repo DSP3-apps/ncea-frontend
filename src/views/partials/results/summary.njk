@@ -1,6 +1,8 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/select/macro.njk" import govukSelect %}
 {% from "govuk/components/pagination/macro.njk" import govukPagination %}
+{%- from "govuk/components/tag/macro.njk" import govukTag -%}
+
 {# {% from 'partials/go_to_resource/macro.njk' import goToResource %} #}
 {% if hasError %}
   <p class="govuk-caption-m govuk-!-font-size-14">Unable to fetch the search results. Please try again.</p>
@@ -96,14 +98,32 @@
             <span class='search-result__parameter-value search-result__published-value'>{{ item.publishedBy }}</span>
           </div>
         {% endif %}
-        {% if item.studyPeriod %}
-          <div class='search-result__parameter'>
-            <span class='search-result__parameter-label search-result__study-label'>Study period</span>
-            <span class='search-result__parameter-value search-result__study-value'>
-              {{ item.studyPeriod }}
+        <div class='search-result__parameter'>
+          <span class='search-result__parameter-label search-result__study-label'>Study period</span>
+          <span class='search-result__parameter-value search-result__study-value'>
+            <span class='start'>
+              {% if item.studyPeriodStart %}
+                {{ item.studyPeriodStart }}
+              {% else %}
+                {{govukTag({
+                  text: "Unavailable",
+                  classes: "govuk-tag--grey tab-content-value__not-provided"
+                })}}
+              {% endif %}
             </span>
-          </div>
-        {% endif %}
+            <span>to</span>
+            <span class='end'>
+              {% if item.studyPeriodEnd %}
+                {{ item.studyPeriodEnd }}
+              {% else %}
+                {{govukTag({
+                  text: "Unavailable",
+                  classes: "govuk-tag--grey tab-content-value__not-provided"
+                })}}
+              {% endif %}
+            </span>
+          </span>
+        </div>
         <p class='search-result__content'>
           {{ item.content | safe }}
         </p>

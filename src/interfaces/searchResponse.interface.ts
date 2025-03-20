@@ -3,7 +3,8 @@ export interface IBaseItem {
   title: string;
   publishedBy?: string;
   content: string;
-  studyPeriod: string;
+  studyPeriodStart?: string;
+  studyPeriodEnd?: string;
   startYear?: string;
   toYear?: string;
   resourceLocator: string;
