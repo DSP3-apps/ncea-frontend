@@ -834,6 +834,7 @@ const getMapResults = async (path, fitToMapExtentFlag) => {
           boundingBoxInfo.style.display = 'none';
         }
         mapResults = mapResultsJson.items;
+        polygonFeatureData.length = 0;
         setTimeout(() => {
           drawBoundingBoxWithMarker(fitToMapExtentFlag, true);
         }, 100);
