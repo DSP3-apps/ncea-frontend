@@ -23,11 +23,14 @@ const getSearchResults = async (
       const payload = generateSearchQuery(searchFieldsObject, filters);
 
       const headers = credentials ? { Authorization: `Bearer ${credentials?.jwt}` } : null;
-      const agmApiResponse = await fetch(environmentConfig.searchApiUrl, {
-        method: 'POST',
-        ...(headers && { headers }),
-        body: JSON.stringify(payload),
-      });
+      const agmApiResponse = await fetch(
+        `${environmentConfig.searchApiUrl}?sortBy=${searchFieldsObject?.sort ?? 'most_relevant'}`,
+        {
+          method: 'POST',
+          ...(headers && { headers }),
+          body: JSON.stringify(payload),
+        },
+      );
 
       if (!agmApiResponse.ok) {
         throw new Error(`Error fetching results: ${agmApiResponse.statusText}`);
