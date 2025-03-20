@@ -1,6 +1,6 @@
 import { RequestQuery } from '@hapi/hapi';
 
-import { queryParamKeys, resourceTypeFilterField, studyPeriodFilterField } from './constants';
+import { FILTER_VALUES, queryParamKeys, resourceTypeFilterField, studyPeriodFilterField } from './constants';
 import { ISearchFields, ISearchPayload } from '../interfaces/queryBuilder.interface';
 
 const getMetaQueryParams = (requestQuery: RequestQuery): URLSearchParams => {
@@ -96,6 +96,13 @@ const readListQueryParams = (requestQuery: RequestQuery, key: string): string[] 
 
   if (Array.isArray(keyItems)) {
     return keyItems; // Return the array directly
+  }
+
+  /*When user selected  organisation or dataFormate of only single item, so value in requestQuery
+  as string formate, if the item  string as contains the commas, it treated as the multiple item with 
+  below split, So in this case we does not required the split, just return it as the array of string. */
+  if (key === FILTER_VALUES.organisation || key === FILTER_VALUES.dataFormat) {
+    return [keyItems];
   }
 
   return keyItems ? keyItems.split(',') : []; // Convert single values to an array
