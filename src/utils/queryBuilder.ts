@@ -298,6 +298,7 @@ const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearc
       Licence: licence ?? null,
       Keywords: keywords ?? [],
       RetiredAndArchived: retiredAndArchived ?? false,
+      NCEAOnly: filters.nceaOnly,
       // !: None of the below are used in the UI.
       FileIdentifier: null,
       Title: null,

@@ -164,6 +164,7 @@ interface IFilter {
   Formats: string[] | null;
   SearchTitleOnly: boolean;
   RetiredAndArchived: boolean;
+  NCEAOnly: boolean;
 }
 
 interface ISearchRequest {
