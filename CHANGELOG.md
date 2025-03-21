@@ -1,3 +1,20 @@
+# [1.17.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.16.1...v1.17.0) (2025-03-21)
+
+
+### Bug Fixes
+
+* **filters:** Integrate the sort by UI widget ([eb37e4e](https://github.com/DSP3-apps/ncea-frontend/commit/eb37e4e6d3297d74a2b315973dd46578fb3a85ff))
+* **filters:** Map bounding boxes seem to show all data, not just the filtered data ([6f186b6](https://github.com/DSP3-apps/ncea-frontend/commit/6f186b66d7232b26797d477ec0615dc067ff3fb6))
+* **filters:** Map results of filters check boxes are not working as expected. ([1126d65](https://github.com/DSP3-apps/ncea-frontend/commit/1126d6569847e25820e92c6f456c44102e7f382e))
+* **filters:** Update the values to send to the API ([cc7067e](https://github.com/DSP3-apps/ncea-frontend/commit/cc7067eea4192a3b79e74439aea02bf2e162eee4))
+* **frontend:** Display "Unavailable" in place of null dates ([ae01312](https://github.com/DSP3-apps/ncea-frontend/commit/ae01312590f18a601cea7f64f9623e3af6e68180)), closes [#NCEA-230](https://github.com/DSP3-apps/ncea-frontend/issues/NCEA-230)
+
+
+### Features
+
+* **frontend:** fix the spatial results count issue ([bdb4330](https://github.com/DSP3-apps/ncea-frontend/commit/bdb4330424da6abc11ad99572747e5acdfbe1b33))
+* **scope-param:** Add Scope param to search API payload ([22e67c4](https://github.com/DSP3-apps/ncea-frontend/commit/22e67c49d76835a43c00c2920dd5d1f3b6bc523a))
+
 ## [1.16.1](https://github.com/DSP3-apps/ncea-frontend/compare/v1.16.0...v1.16.1) (2025-03-19)
 
 
