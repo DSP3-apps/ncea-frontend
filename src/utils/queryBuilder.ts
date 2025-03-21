@@ -9,7 +9,7 @@ import {
   studyPeriodFilterField,
 } from './constants';
 import { generateDateString } from './generateDateString';
-import { DataScope, ISearchFilterProcessed, ISearchFiltersProcessed } from './searchFilters';
+import { ISearchFilterProcessed, ISearchFiltersProcessed } from './searchFilters';
 import {
   IDateRange,
   IDateValues,
@@ -298,7 +298,7 @@ const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearc
       Licence: licence ?? null,
       Keywords: keywords ?? [],
       RetiredAndArchived: retiredAndArchived ?? false,
-      Scope: filters.nceaOnly ? DataScope.NCEA : DataScope.ALL,
+      NCEAOnly: filters.nceaOnly,
       // !: None of the below are used in the UI.
       FileIdentifier: null,
       Title: null,
