@@ -1,3 +1,5 @@
+import { DataScope } from '@/utils/searchFilters';
+
 import { IFilterOptions } from './searchPayload.interface';
 
 interface IQueryStringBlock {
@@ -164,6 +166,7 @@ interface IFilter {
   Formats: string[] | null;
   SearchTitleOnly: boolean;
   RetiredAndArchived: boolean;
+  Scope: DataScope;
 }
 
 interface ISearchRequest {

@@ -234,7 +234,7 @@ exports[`Results block template Guided search journey Search results with empty 
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33889%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A35335%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -1717,7 +1717,6 @@ data-module="govuk-service-navigation"
 
 
 
-
   <h2 class='govuk-heading-m results-stats govuk-!-margin-bottom-2'>
     0 results found
     
@@ -2387,7 +2386,7 @@ exports[`Results block template Guided search journey Search results with error 
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A37785%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A42733%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -2975,7 +2974,6 @@ data-module="govuk-service-navigation"
 
 
 
-
   <p class="govuk-caption-m govuk-!-font-size-14">Unable to fetch the search results. Please try again.</p>
 
 
@@ -3348,7 +3346,7 @@ exports[`Results block template Quick search journey Search results with data sh
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33387%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33487%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -4831,7 +4829,6 @@ data-module="govuk-service-navigation"
 
 
 
-
   <h2 class='govuk-heading-m results-stats govuk-!-margin-bottom-2'>
     2 results
   </h2>
@@ -5196,14 +5193,25 @@ data-module="govuk-service-navigation"
             <span class='search-result__parameter-value search-result__published-value'>Organization 1</span>
           </div>
         
-        
-          <div class='search-result__parameter'>
-            <span class='search-result__parameter-label search-result__study-label'>Study period</span>
-            <span class='search-result__parameter-value search-result__study-value'>
-              04 Jan 1960
+        <div class='search-result__parameter'>
+          <span class='search-result__parameter-label search-result__study-label'>Study period</span>
+          <span class='search-result__parameter-value search-result__study-value'>
+            <span class='start'>
+              
+                04 Jan 1960
+              
             </span>
-          </div>
-        
+            <span>to</span>
+            <span class='end'>
+              
+                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+  Unavailable
+</strong>
+
+              
+            </span>
+          </span>
+        </div>
         <p class='search-result__content'>
           Content 1
         </p>
@@ -5231,14 +5239,22 @@ data-module="govuk-service-navigation"
             <span class='search-result__parameter-value search-result__published-value'>Organization 2</span>
           </div>
         
-        
-          <div class='search-result__parameter'>
-            <span class='search-result__parameter-label search-result__study-label'>Study period</span>
-            <span class='search-result__parameter-value search-result__study-value'>
-              04 Jan 1950 to 12 Jan 2009
+        <div class='search-result__parameter'>
+          <span class='search-result__parameter-label search-result__study-label'>Study period</span>
+          <span class='search-result__parameter-value search-result__study-value'>
+            <span class='start'>
+              
+                04 Jan 1950
+              
             </span>
-          </div>
-        
+            <span>to</span>
+            <span class='end'>
+              
+                12 Jan 2009
+              
+            </span>
+          </span>
+        </div>
         <p class='search-result__content'>
           Content 2
         </p>
@@ -5697,7 +5713,7 @@ exports[`Results block template Quick search journey Search results with empty d
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A41935%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A41161%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -7176,7 +7192,6 @@ data-module="govuk-service-navigation"
         </div>
         <div class="govuk-grid-column-two-thirds">
           
-
 
 
 
@@ -7850,7 +7865,7 @@ exports[`Results block template Quick search journey Search results with error s
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A38065%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A38017%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -8435,7 +8450,6 @@ data-module="govuk-service-navigation"
         </div>
         <div class="govuk-grid-column-two-thirds">
           
-
 
 
 
