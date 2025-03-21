@@ -808,6 +808,24 @@ const mapResultsScopeCallback = (data) => {
   invokeMapResults(true);
 };
 
+const validateObjNullValues = (obj) => {
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key) && obj[key] === null) {
+      return true;
+    }
+  }
+  return false;
+};
+
+const filterMapResults = (data) => {
+  const results = data.filter((item) => {
+    if (!validateObjNullValues(item.geographicBoundary)) {
+      return item;
+    }
+  });
+  return results;
+};
+
 const getMapResults = async (path, fitToMapExtentFlag) => {
   const mapResultsButton = document.getElementById(mapResultsButtonId);
   const mapResultsCount = document.getElementById(mapResultsCountId);
@@ -821,19 +839,25 @@ const getMapResults = async (path, fitToMapExtentFlag) => {
       const mapResultsJson = await response.json();
 
       if (mapResultsJson.hasSpatialData) {
-        mapResultsCount.textContent = mapResultsJson.total;
-        mapResultsButton.removeAttribute('disabled');
-        mapContainerDiv.classList.remove('disabled');
-        noSpatialDataSpan.classList.add('display-none');
-        viewResultsSpan.classList.remove('display-none');
-
+        const mapResultsData = filterMapResults(mapResultsJson.items);
+        mapResultsCount.textContent = mapResultsData.length;
+        if (mapResultsData.length === 0) {
+          mapContainerDiv.classList.add('disabled');
+          noSpatialDataSpan.classList.remove('display-none');
+          viewResultsSpan.classList.add('display-none');
+        } else {
+          mapResultsButton.removeAttribute('disabled');
+          mapContainerDiv.classList.remove('disabled');
+          noSpatialDataSpan.classList.add('display-none');
+          viewResultsSpan.classList.remove('display-none');
+        }
         const boundingBoxInfo = document.getElementById('defra-bounding-box-info');
         if (boundingBoxInfo && mapResultsJson.total > maxCountForBoundingBoxInfo) {
           boundingBoxInfo.style.display = 'block';
         } else {
           boundingBoxInfo.style.display = 'none';
         }
-        mapResults = mapResultsJson.items;
+        mapResults = mapResultsData;
         polygonFeatureData.length = 0;
         setTimeout(() => {
           drawBoundingBoxWithMarker(fitToMapExtentFlag, true);
