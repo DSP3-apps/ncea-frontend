@@ -234,7 +234,7 @@ exports[`Results block template Guided search journey Search results with empty 
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33069%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A37027%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -854,78 +854,78 @@ data-module="govuk-service-navigation"
 
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-http-fd-search_results" name="svt" type="checkbox" value="http-fd" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-http-fd-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-HTTP File Download-search_results" name="svt" type="checkbox" value="HTTP File Download" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-HTTP File Download-search_results">
                       HTTP File Download
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-http-wr-search_results" name="svt" type="checkbox" value="http-wr" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-http-wr-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-HTTP Web Resource-search_results" name="svt" type="checkbox" value="HTTP Web Resource" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-HTTP Web Resource-search_results">
                       HTTP Web Resource
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-http-app-search_results" name="svt" type="checkbox" value="http-app" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-http-app-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-HTTP Application-search_results" name="svt" type="checkbox" value="HTTP Application" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-HTTP Application-search_results">
                       HTTP Application
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-ftp-fd-search_results" name="svt" type="checkbox" value="ftp-fd" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-ftp-fd-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-FTP File Download-search_results" name="svt" type="checkbox" value="FTP File Download" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-FTP File Download-search_results">
                       FTP File Download
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-wms-search_results" name="svt" type="checkbox" value="wms" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-wms-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-WMS-search_results" name="svt" type="checkbox" value="WMS" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-WMS-search_results">
                       WMS
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-wfs-search_results" name="svt" type="checkbox" value="wfs" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-wfs-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-WFS-search_results" name="svt" type="checkbox" value="WFS" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-WFS-search_results">
                       WFS
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-wcs-search_results" name="svt" type="checkbox" value="wcs" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-wcs-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-WCS-search_results" name="svt" type="checkbox" value="WCS" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-WCS-search_results">
                       WCS
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-esri-search_results" name="svt" type="checkbox" value="esri" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-esri-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-ESRI REST API-search_results" name="svt" type="checkbox" value="ESRI REST API" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-ESRI REST API-search_results">
                       ESRI REST API
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-ogc-search_results" name="svt" type="checkbox" value="ogc" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-ogc-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-OGC API Features-search_results" name="svt" type="checkbox" value="OGC API Features" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-OGC API Features-search_results">
                       OGC API Features
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-rest-search_results" name="svt" type="checkbox" value="rest" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-rest-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-REST API-search_results" name="svt" type="checkbox" value="REST API" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-REST API-search_results">
                       REST API
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-soap-search_results" name="svt" type="checkbox" value="soap" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-soap-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-SOAP API-search_results" name="svt" type="checkbox" value="SOAP API" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-SOAP API-search_results">
                       SOAP API
                     </label>
                   </div>
@@ -1717,7 +1717,6 @@ data-module="govuk-service-navigation"
 
 
 
-
   <h2 class='govuk-heading-m results-stats govuk-!-margin-bottom-2'>
     0 results found
     
@@ -2387,7 +2386,7 @@ exports[`Results block template Guided search journey Search results with error 
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A43897%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A43367%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -3347,7 +3346,7 @@ exports[`Results block template Quick search journey Search results with data sh
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A44023%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A36759%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -3967,78 +3966,78 @@ data-module="govuk-service-navigation"
 
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-http-fd-search_results" name="svt" type="checkbox" value="http-fd" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-http-fd-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-HTTP File Download-search_results" name="svt" type="checkbox" value="HTTP File Download" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-HTTP File Download-search_results">
                       HTTP File Download
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-http-wr-search_results" name="svt" type="checkbox" value="http-wr" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-http-wr-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-HTTP Web Resource-search_results" name="svt" type="checkbox" value="HTTP Web Resource" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-HTTP Web Resource-search_results">
                       HTTP Web Resource
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-http-app-search_results" name="svt" type="checkbox" value="http-app" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-http-app-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-HTTP Application-search_results" name="svt" type="checkbox" value="HTTP Application" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-HTTP Application-search_results">
                       HTTP Application
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-ftp-fd-search_results" name="svt" type="checkbox" value="ftp-fd" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-ftp-fd-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-FTP File Download-search_results" name="svt" type="checkbox" value="FTP File Download" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-FTP File Download-search_results">
                       FTP File Download
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-wms-search_results" name="svt" type="checkbox" value="wms" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-wms-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-WMS-search_results" name="svt" type="checkbox" value="WMS" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-WMS-search_results">
                       WMS
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-wfs-search_results" name="svt" type="checkbox" value="wfs" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-wfs-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-WFS-search_results" name="svt" type="checkbox" value="WFS" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-WFS-search_results">
                       WFS
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-wcs-search_results" name="svt" type="checkbox" value="wcs" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-wcs-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-WCS-search_results" name="svt" type="checkbox" value="WCS" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-WCS-search_results">
                       WCS
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-esri-search_results" name="svt" type="checkbox" value="esri" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-esri-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-ESRI REST API-search_results" name="svt" type="checkbox" value="ESRI REST API" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-ESRI REST API-search_results">
                       ESRI REST API
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-ogc-search_results" name="svt" type="checkbox" value="ogc" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-ogc-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-OGC API Features-search_results" name="svt" type="checkbox" value="OGC API Features" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-OGC API Features-search_results">
                       OGC API Features
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-rest-search_results" name="svt" type="checkbox" value="rest" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-rest-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-REST API-search_results" name="svt" type="checkbox" value="REST API" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-REST API-search_results">
                       REST API
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-soap-search_results" name="svt" type="checkbox" value="soap" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-soap-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-SOAP API-search_results" name="svt" type="checkbox" value="SOAP API" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-SOAP API-search_results">
                       SOAP API
                     </label>
                   </div>
@@ -5714,7 +5713,7 @@ exports[`Results block template Quick search journey Search results with empty d
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A42915%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A36389%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -6334,78 +6333,78 @@ data-module="govuk-service-navigation"
 
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-http-fd-search_results" name="svt" type="checkbox" value="http-fd" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-http-fd-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-HTTP File Download-search_results" name="svt" type="checkbox" value="HTTP File Download" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-HTTP File Download-search_results">
                       HTTP File Download
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-http-wr-search_results" name="svt" type="checkbox" value="http-wr" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-http-wr-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-HTTP Web Resource-search_results" name="svt" type="checkbox" value="HTTP Web Resource" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-HTTP Web Resource-search_results">
                       HTTP Web Resource
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-http-app-search_results" name="svt" type="checkbox" value="http-app" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-http-app-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-HTTP Application-search_results" name="svt" type="checkbox" value="HTTP Application" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-HTTP Application-search_results">
                       HTTP Application
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-ftp-fd-search_results" name="svt" type="checkbox" value="ftp-fd" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-ftp-fd-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-FTP File Download-search_results" name="svt" type="checkbox" value="FTP File Download" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-FTP File Download-search_results">
                       FTP File Download
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-wms-search_results" name="svt" type="checkbox" value="wms" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-wms-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-WMS-search_results" name="svt" type="checkbox" value="WMS" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-WMS-search_results">
                       WMS
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-wfs-search_results" name="svt" type="checkbox" value="wfs" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-wfs-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-WFS-search_results" name="svt" type="checkbox" value="WFS" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-WFS-search_results">
                       WFS
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-wcs-search_results" name="svt" type="checkbox" value="wcs" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-wcs-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-WCS-search_results" name="svt" type="checkbox" value="WCS" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-WCS-search_results">
                       WCS
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-esri-search_results" name="svt" type="checkbox" value="esri" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-esri-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-ESRI REST API-search_results" name="svt" type="checkbox" value="ESRI REST API" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-ESRI REST API-search_results">
                       ESRI REST API
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-ogc-search_results" name="svt" type="checkbox" value="ogc" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-ogc-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-OGC API Features-search_results" name="svt" type="checkbox" value="OGC API Features" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-OGC API Features-search_results">
                       OGC API Features
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-rest-search_results" name="svt" type="checkbox" value="rest" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-rest-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-REST API-search_results" name="svt" type="checkbox" value="REST API" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-REST API-search_results">
                       REST API
                     </label>
                   </div>
                 
                   <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-                    <input class="govuk-checkboxes__input"  id="filters-soap-search_results" name="svt" type="checkbox" value="soap" data-multiple="true" data-ncea-only="">
-                    <label class="govuk-label govuk-checkboxes__label" for="filters-soap-search_results">
+                    <input class="govuk-checkboxes__input"  id="filters-SOAP API-search_results" name="svt" type="checkbox" value="SOAP API" data-multiple="true" data-ncea-only="">
+                    <label class="govuk-label govuk-checkboxes__label" for="filters-SOAP API-search_results">
                       SOAP API
                     </label>
                   </div>
@@ -7866,7 +7865,7 @@ exports[`Results block template Quick search journey Search results with error s
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A35241%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A43087%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           

@@ -340,57 +340,57 @@ export const searchFilters: ISearchFilters = [
     filters: [
       {
         name: 'HTTP File Download',
-        value: 'http-fd',
+        value: 'HTTP File Download',
         scope: DataScope.IGNORE,
       },
       {
         name: 'HTTP Web Resource',
-        value: 'http-wr',
+        value: 'HTTP Web Resource',
         scope: DataScope.IGNORE,
       },
       {
         name: 'HTTP Application',
-        value: 'http-app',
+        value: 'HTTP Application',
         scope: DataScope.IGNORE,
       },
       {
         name: 'FTP File Download',
-        value: 'ftp-fd',
+        value: 'FTP File Download',
         scope: DataScope.IGNORE,
       },
       {
         name: 'WMS',
-        value: 'wms',
+        value: 'WMS',
         scope: DataScope.IGNORE,
       },
       {
         name: 'WFS',
-        value: 'wfs',
+        value: 'WFS',
         scope: DataScope.IGNORE,
       },
       {
         name: 'WCS',
-        value: 'wcs',
+        value: 'WCS',
         scope: DataScope.IGNORE,
       },
       {
         name: 'ESRI REST API',
-        value: 'esri',
+        value: 'ESRI REST API',
         scope: DataScope.IGNORE,
       },
       {
         name: 'OGC API Features',
-        value: 'ogc',
+        value: 'OGC API Features',
         scope: DataScope.IGNORE,
       },
       {
         name: 'REST API',
-        value: 'rest',
+        value: 'REST API',
         scope: DataScope.IGNORE,
       },
       {
         name: 'SOAP API',
-        value: 'soap',
+        value: 'SOAP API',
         scope: DataScope.IGNORE,
       },
     ],
