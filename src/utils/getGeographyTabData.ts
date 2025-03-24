@@ -1,3 +1,4 @@
+import { validateObjNullValues } from './validate';
 import { IAccumulatedCoordinates, IGeography, IGeographyItem } from '../interfaces/searchResponse.interface';
 
 const getVerticalExtentHtml = (verticalRangeObject: { gte?: number; lte?: number }): string => {
@@ -25,8 +26,11 @@ const getSamplingResolution = (distanceObject: { distance?: string }, scale: num
 };
 
 const getGeographicBoundaryHtml = (coordinates: IAccumulatedCoordinates): string => {
-  const { north = '', south = '', east = '', west = '' } = coordinates;
-  return `<p>West bounding longitude: <span id="west">${west}</span></p><p>East bounding longitude: <span id="east">${east}</span></p><p>North bounding latitude: <span id="north">${north}</span></p><p>South bounding latitude: <span id="south">${south}</span></p>`;
+  if (Object.keys(coordinates).length > 0) {
+    const { north = '', south = '', east = '', west = '' } = coordinates;
+    return `<p>West bounding longitude: <span id="west">${west}</span></p><p>East bounding longitude: <span id="east">${east}</span></p><p>North bounding latitude: <span id="north">${north}</span></p><p>South bounding latitude: <span id="south">${south}</span></p>`;
+  }
+  return '';
 };
 
 const getGeographicMarkers = (location: string | string[]): string => {
@@ -47,19 +51,17 @@ const getGeographicMarkers = (location: string | string[]): string => {
 };
 
 const getGeographicLocations = (geographicBoundary) => {
-  if (geographicBoundary && Object.keys(geographicBoundary).length) {
-    if (geographicBoundary && Object.keys(geographicBoundary).length) {
-      const coordinates = {
-        north: geographicBoundary.bboxNorthLat,
-        south: geographicBoundary.bboxSouthLat,
-        east: geographicBoundary.bboxEastLong,
-        west: geographicBoundary.bboxWestLong,
-      };
-      const { north, south, east, west } = coordinates;
-      const latitude = south - 5.0 + (north + 5.0 - (south - 5.0)) / 2;
-      const longitude = west - 5.0 + (east + 5.0 - (west - 5.0)) / 2;
-      return { coordinates, center: `${longitude},${latitude}` };
-    }
+  if (geographicBoundary && Object.keys(geographicBoundary).length && !validateObjNullValues(geographicBoundary)) {
+    const coordinates = {
+      north: geographicBoundary.bboxNorthLat,
+      south: geographicBoundary.bboxSouthLat,
+      east: geographicBoundary.bboxEastLong,
+      west: geographicBoundary.bboxWestLong,
+    };
+    const { north, south, east, west } = coordinates;
+    const latitude = south - 5.0 + (north + 5.0 - (south - 5.0)) / 2;
+    const longitude = west - 5.0 + (east + 5.0 - (west - 5.0)) / 2;
+    return { coordinates, center: `${longitude},${latitude}` };
   }
   return {};
 };
