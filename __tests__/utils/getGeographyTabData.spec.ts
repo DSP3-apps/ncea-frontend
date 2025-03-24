@@ -24,9 +24,7 @@ describe('Geography tab data', () => {
 
     it('should return an empty string when coordinates are not provided', () => {
       const result = getGeographicBoundaryHtml({} as IAccumulatedCoordinates);
-      expect(result).toEqual(
-        '<p>West bounding longitude: <span id="west"></span></p><p>East bounding longitude: <span id="east"></span></p><p>North bounding latitude: <span id="north"></span></p><p>South bounding latitude: <span id="south"></span></p>',
-      );
+      expect(result).toEqual('');
     });
   });
 
