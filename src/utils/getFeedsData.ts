@@ -17,8 +17,8 @@ export function formatTimestamp(timestamp: string): string {
   return format(date, 'dd MMMM yyyy'); // Example: 05 February 2025
 }
 
-export const getFeedsData = async (feedURL: string): Promise<Feed> => {
-  const feed = await parser.parseURL(feedURL);
+export const getFeedsData = async (feedObj: Feed): Promise<Feed> => {
+  const feed = await parser.parseURL(feedObj.url);
 
   const articles: FeedArticle[] = feed.items.filter(isValidArticle).map((item) => ({
     title: item.title,
@@ -29,7 +29,8 @@ export const getFeedsData = async (feedURL: string): Promise<Feed> => {
   }));
 
   return {
-    title: feed.title ?? 'Untitled Feed',
+    title: feedObj.title,
+    url: feedObj.url,
     articles,
   };
 };
