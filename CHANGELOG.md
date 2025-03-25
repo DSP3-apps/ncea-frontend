@@ -1,3 +1,17 @@
+# [1.18.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.17.0...v1.18.0) (2025-03-25)
+
+
+### Bug Fixes
+
+* **frontend:** fix the geography details for non spatial ([4379d32](https://github.com/DSP3-apps/ncea-frontend/commit/4379d32e3eac6c510ef4d51c181a3f691ab13ac6))
+* **frontend:** update the test suites ([1182488](https://github.com/DSP3-apps/ncea-frontend/commit/11824880ffe596593960662f82ccfa7239c42e77))
+* **typo:** Typo in tab name of License in more info page. ([52f0aea](https://github.com/DSP3-apps/ncea-frontend/commit/52f0aea89af7cbbedcf64d6ee3087bbf5e675641))
+
+
+### Features
+
+* **feeds:** Feeds updates. ([c6cdb4b](https://github.com/DSP3-apps/ncea-frontend/commit/c6cdb4b64e70d426726e0f174bcc57f7bf0ef92f))
+
 # [1.17.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.16.1...v1.17.0) (2025-03-21)
 
 
