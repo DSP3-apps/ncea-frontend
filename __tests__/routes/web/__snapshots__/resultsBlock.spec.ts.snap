@@ -234,7 +234,7 @@ exports[`Results block template Guided search journey Search results with empty 
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A41855%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A39233%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -1546,7 +1546,7 @@ data-module="govuk-service-navigation"
         <div class="govuk-form-group" id="date-before-group-search_results">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="date-before-hint-search_results date-before-error-search_results">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Updated Before
+              Started Before
             </legend>
             <div id="date-before-hint-search_results" class="govuk-hint">
               For example, 2004
@@ -1570,7 +1570,7 @@ data-module="govuk-service-navigation"
         <div class="govuk-form-group" id="date-after-group-search_results">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="date-after-hint-search_results date-after-error-search_results">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Updated After
+              Ended After
             </legend>
             <div id="date-after-hint-search_results" class="govuk-hint">
               For example, 2015
@@ -2386,7 +2386,7 @@ exports[`Results block template Guided search journey Search results with error 
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33643%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A41015%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -2806,7 +2806,7 @@ data-module="govuk-service-navigation"
         <div class="govuk-form-group" id="-group-">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="-hint- -error-">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Updated Before
+              Started Before
             </legend>
             <div id="-hint-" class="govuk-hint">
               For example, 2004
@@ -2830,7 +2830,7 @@ data-module="govuk-service-navigation"
         <div class="govuk-form-group" id="-group-">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="-hint- -error-">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Updated After
+              Ended After
             </legend>
             <div id="-hint-" class="govuk-hint">
               For example, 2015
@@ -3346,7 +3346,7 @@ exports[`Results block template Quick search journey Search results with data sh
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A41371%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A38721%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -4658,7 +4658,7 @@ data-module="govuk-service-navigation"
         <div class="govuk-form-group" id="date-before-group-search_results">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="date-before-hint-search_results date-before-error-search_results">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Updated Before
+              Started Before
             </legend>
             <div id="date-before-hint-search_results" class="govuk-hint">
               For example, 2004
@@ -4682,7 +4682,7 @@ data-module="govuk-service-navigation"
         <div class="govuk-form-group" id="date-after-group-search_results">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="date-after-hint-search_results date-after-error-search_results">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Updated After
+              Ended After
             </legend>
             <div id="date-after-hint-search_results" class="govuk-hint">
               For example, 2015
@@ -5713,7 +5713,7 @@ exports[`Results block template Quick search journey Search results with empty d
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A42985%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A40297%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -7025,7 +7025,7 @@ data-module="govuk-service-navigation"
         <div class="govuk-form-group" id="date-before-group-search_results">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="date-before-hint-search_results date-before-error-search_results">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Updated Before
+              Started Before
             </legend>
             <div id="date-before-hint-search_results" class="govuk-hint">
               For example, 2004
@@ -7049,7 +7049,7 @@ data-module="govuk-service-navigation"
         <div class="govuk-form-group" id="date-after-group-search_results">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="date-after-hint-search_results date-after-error-search_results">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Updated After
+              Ended After
             </legend>
             <div id="date-after-hint-search_results" class="govuk-hint">
               For example, 2015
@@ -7865,7 +7865,7 @@ exports[`Results block template Quick search journey Search results with error s
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A44679%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33281%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -8285,7 +8285,7 @@ data-module="govuk-service-navigation"
         <div class="govuk-form-group" id="-group-">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="-hint- -error-">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Updated Before
+              Started Before
             </legend>
             <div id="-hint-" class="govuk-hint">
               For example, 2004
@@ -8309,7 +8309,7 @@ data-module="govuk-service-navigation"
         <div class="govuk-form-group" id="-group-">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="-hint- -error-">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Updated After
+              Ended After
             </legend>
             <div id="-hint-" class="govuk-hint">
               For example, 2015
