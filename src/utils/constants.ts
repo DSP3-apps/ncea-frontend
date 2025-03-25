@@ -235,7 +235,7 @@ export const pageTitles = {
   qualityTab: 'NCEA Catalogue Detail - Quality',
   geographyTab: 'NCEA Catalogue Detail - Geography',
   governanceTab: 'NCEA Catalogue Detail - Governance',
-  licenseTab: 'NCEA Catalogue Detail - License',
+  licenseTab: 'NCEA Catalogue Detail - Licence',
   help: 'Help',
   accessibility: 'Accessibility statement',
   termsAndConditions: 'Terms and conditions',
@@ -246,6 +246,7 @@ export const pageTitles = {
     'NCEA Guided Search- Categories',
     'NCEA questionnaire  Search- subcategories',
   ],
+  feeds: 'Latest news - Natural Capital Ecosystem Assessment - NCEA – programme',
 };
 
 export const levelMap = {
@@ -278,9 +279,16 @@ export const defaultFilters: ISearchFiltersProcessed = {
 export const jwtCookiePrefix = 'auth0-jwt-';
 
 export const atomFeeds = [
-  'https://defraenvironment.blog.gov.uk/category/ncea-programme/feed/',
-  'https://naturalengland.blog.gov.uk/category/natural-capital/feed/',
+  {
+    title: 'Defra',
+    url: 'https://defraenvironment.blog.gov.uk/category/ncea-programme/feed/',
+  },
+  {
+    title: 'Natural England',
+    url: 'https://naturalengland.blog.gov.uk/category/natural-capital/feed/',
+  },
 ];
+
 export const FILTER_VALUES = {
   organisation: 'org',
   searchType: 'st',
@@ -364,7 +372,6 @@ export const landingPageData = {
   ],
 };
 
-export const nceaFeedsUrl = atomFeeds[0] ?? '';
 export const accessibilityStatementUrl = 'https://environment.data.gov.uk/support/faqs/275810340/275810354';
 export const cookiePolicyUrl = 'https://environment.data.gov.uk/help/cookies';
 export const termsAndConditionsUrl = 'https://environment.data.gov.uk/support/faqs/275811163/275811177';

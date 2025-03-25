@@ -15,6 +15,8 @@ describe('getFeedsData', () => {
     jest.restoreAllMocks();
   });
 
+  const atomFeeds = { title: 'feed-1', url: 'http://example.com/rss' };
+
   it('should return feed data with valid articles only', async () => {
     const validArticle = {
       title: 'Article 1',
@@ -38,18 +40,18 @@ describe('getFeedsData', () => {
 
     jest.spyOn(Parser.prototype, 'parseURL').mockResolvedValue(feedData as any);
 
-    const result = await getFeedsData('http://example.com/rss');
+    const result = await getFeedsData(atomFeeds);
 
-    expect(result.title).toBe('Test Feed');
+    expect(result.title).toBe('feed-1');
 
     expect(result.articles).toHaveLength(1);
-    expect(result.articles[0]).toEqual({
+    expect(result.articles).toEqual([{
       title: validArticle.title,
       author: validArticle.author,
       link: validArticle.link,
       pubDate: '05 February 2025',
       summary: validArticle.summary,
-    });
+    }]);
   });
 
   it('should return a failure feed when the feed title is missing', async () => {
@@ -67,11 +69,10 @@ describe('getFeedsData', () => {
     };
 
     jest.spyOn(Parser.prototype, 'parseURL').mockResolvedValue(feedData as any);
-    const feedURL = 'http://example.com/rss';
 
-    const result = await getFeedsData(feedURL);
+    const result = await getFeedsData(atomFeeds);
 
-    expect(result.title).toBe('test feed');
+    expect(result.title).toBe('feed-1');
     expect(result.articles).toEqual([
       {
         title: 'Article 1',

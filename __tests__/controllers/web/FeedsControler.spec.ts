@@ -8,7 +8,17 @@ import { getFeedsData } from '../../../src/utils/getFeedsData';
 jest.mock('../../../src/utils/getFeedsData');
 
 jest.mock('../../../src/utils/constants', () => ({
-  atomFeeds: ['http://example.com/feed1', 'http://example.com/feed2'],
+  atomFeeds: [
+    {
+      title: 'Defra',
+      url: 'http://example.com/feed1',
+    },
+    {
+      title: 'Natural England',
+      url: 'http://example.com/feed2',
+    },
+  ],
+  pageTitles: 'Feeds page',
 }));
 
 describe('FeedsController.renderAtomFeedHandler', () => {
@@ -57,8 +67,8 @@ describe('FeedsController.renderAtomFeedHandler', () => {
 
     expect(response.view).toHaveBeenCalledWith('screens/feeds/template', {
       feeds: [
-        { errorMessage: 'Test error', errorTitle: 'Failed to get feeds from "http://example.com/feed1"' },
-        { errorMessage: 'Test error', errorTitle: 'Failed to get feeds from "http://example.com/feed2"' },
+        { errorMessage: 'Test error', errorTitle: 'Failed to get feeds from "Defra"' },
+        { errorMessage: 'Test error', errorTitle: 'Failed to get feeds from "Natural England"' },
       ],
     });
   });
