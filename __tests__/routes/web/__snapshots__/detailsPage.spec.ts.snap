@@ -481,8 +481,8 @@ data-module="govuk-service-navigation"
             
           
         
-       onclick="changeTitle(&quot;NCEA Catalogue Detail - License&quot;)">
-        License
+       onclick="changeTitle(&quot;NCEA Catalogue Detail - Licence&quot;)">
+        Licence
       </a>
     </li>
       
@@ -1893,8 +1893,8 @@ data-module="govuk-service-navigation"
             
           
         
-       onclick="changeTitle(&quot;NCEA Catalogue Detail - License&quot;)">
-        License
+       onclick="changeTitle(&quot;NCEA Catalogue Detail - Licence&quot;)">
+        Licence
       </a>
     </li>
       
