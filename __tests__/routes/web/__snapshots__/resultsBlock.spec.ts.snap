@@ -1546,7 +1546,7 @@ data-module="govuk-service-navigation"
         <div class="govuk-form-group" id="date-before-group-search_results">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="date-before-hint-search_results date-before-error-search_results">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Updated Before
+              Started Before
             </legend>
             <div id="date-before-hint-search_results" class="govuk-hint">
               For example, 2004
@@ -1570,7 +1570,7 @@ data-module="govuk-service-navigation"
         <div class="govuk-form-group" id="date-after-group-search_results">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="date-after-hint-search_results date-after-error-search_results">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Updated After
+              Ended After
             </legend>
             <div id="date-after-hint-search_results" class="govuk-hint">
               For example, 2015
@@ -2806,7 +2806,7 @@ data-module="govuk-service-navigation"
         <div class="govuk-form-group" id="-group-">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="-hint- -error-">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Updated Before
+              Started Before
             </legend>
             <div id="-hint-" class="govuk-hint">
               For example, 2004
@@ -2830,7 +2830,7 @@ data-module="govuk-service-navigation"
         <div class="govuk-form-group" id="-group-">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="-hint- -error-">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Updated After
+              Ended After
             </legend>
             <div id="-hint-" class="govuk-hint">
               For example, 2015
@@ -4658,7 +4658,7 @@ data-module="govuk-service-navigation"
         <div class="govuk-form-group" id="date-before-group-search_results">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="date-before-hint-search_results date-before-error-search_results">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Updated Before
+              Started Before
             </legend>
             <div id="date-before-hint-search_results" class="govuk-hint">
               For example, 2004
@@ -4682,7 +4682,7 @@ data-module="govuk-service-navigation"
         <div class="govuk-form-group" id="date-after-group-search_results">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="date-after-hint-search_results date-after-error-search_results">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Updated After
+              Ended After
             </legend>
             <div id="date-after-hint-search_results" class="govuk-hint">
               For example, 2015
@@ -7025,7 +7025,7 @@ data-module="govuk-service-navigation"
         <div class="govuk-form-group" id="date-before-group-search_results">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="date-before-hint-search_results date-before-error-search_results">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Updated Before
+              Started Before
             </legend>
             <div id="date-before-hint-search_results" class="govuk-hint">
               For example, 2004
@@ -7049,7 +7049,7 @@ data-module="govuk-service-navigation"
         <div class="govuk-form-group" id="date-after-group-search_results">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="date-after-hint-search_results date-after-error-search_results">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Updated After
+              Ended After
             </legend>
             <div id="date-after-hint-search_results" class="govuk-hint">
               For example, 2015
@@ -8285,7 +8285,7 @@ data-module="govuk-service-navigation"
         <div class="govuk-form-group" id="-group-">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="-hint- -error-">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Updated Before
+              Started Before
             </legend>
             <div id="-hint-" class="govuk-hint">
               For example, 2004
@@ -8309,7 +8309,7 @@ data-module="govuk-service-navigation"
         <div class="govuk-form-group" id="-group-">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="-hint- -error-">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Updated After
+              Ended After
             </legend>
             <div id="-hint-" class="govuk-hint">
               For example, 2015
