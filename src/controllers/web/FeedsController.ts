@@ -2,7 +2,7 @@
 
 import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 
-import { atomFeeds } from '../../utils/constants';
+import { atomFeeds, pageTitles } from '../../utils/constants';
 import { getFeedsData } from '../../utils/getFeedsData';
 
 /**
@@ -19,13 +19,13 @@ const FeedsController = {
     try {
       // Render a view with the articles
       const feeds = await Promise.all(
-        atomFeeds.map(async (feedURL) => {
+        atomFeeds.map(async (feedObj) => {
           try {
-            return await getFeedsData(feedURL);
+            return await getFeedsData(feedObj);
           } catch (error) {
             if (error instanceof Error) {
               const errorObj = {
-                errorTitle: `Failed to get feeds from "${feedURL}"`,
+                errorTitle: `Failed to get feeds from "${feedObj.title}"`,
                 errorMessage: error.message,
               };
               return errorObj;
@@ -35,6 +35,7 @@ const FeedsController = {
       );
       // throw new Error('something error');
       return response.view('screens/feeds/template', {
+        pageTitle: pageTitles.feeds,
         feeds: feeds,
       });
     } catch (error) {
