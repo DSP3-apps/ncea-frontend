@@ -10,5 +10,6 @@ export interface FeedArticle {
 
 export interface Feed {
   title: string;
-  articles: FeedArticle[];
+  url: string;
+  articles?: FeedArticle[];
 }

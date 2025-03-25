@@ -6,7 +6,7 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
   <head>
     <meta charset="utf-8">
     <title>
-  About the Natural Capital Ecosystem Assessment - NCEA – programme
+  Latest news - Natural Capital Ecosystem Assessment - NCEA – programme
 </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#0b0c0c">
@@ -342,12 +342,12 @@ data-module="govuk-service-navigation"
 
         <main class="govuk-main-wrapper app-main-class" id="main-content">
           
-  <h1 class="govuk-heading-l">Latest blogs</h1>
+  <h1 class="govuk-heading-l">Latest news</h1>
   
   
     <div>
     
-      <h2 class="govuk-heading-m">NCEA programme – Environment</h2>
+      <h2 class="govuk-heading-m">Defra</h2>
       <ul class="govuk-list">
         
           <li class="govuk-width-container feed-container">
@@ -390,7 +390,7 @@ data-module="govuk-service-navigation"
   
     <div>
     
-      <h2 class="govuk-heading-m">Natural Capital – Natural England</h2>
+      <h2 class="govuk-heading-m">Natural England</h2>
       <ul class="govuk-list">
         
           <li class="govuk-width-container feed-container">
