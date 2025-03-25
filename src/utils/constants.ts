@@ -235,7 +235,7 @@ export const pageTitles = {
   qualityTab: 'NCEA Catalogue Detail - Quality',
   geographyTab: 'NCEA Catalogue Detail - Geography',
   governanceTab: 'NCEA Catalogue Detail - Governance',
-  licenseTab: 'NCEA Catalogue Detail - License',
+  licenseTab: 'NCEA Catalogue Detail - Licence',
   help: 'Help',
   accessibility: 'Accessibility statement',
   termsAndConditions: 'Terms and conditions',

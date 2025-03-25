@@ -234,7 +234,7 @@ exports[`Details route template Document details with data Check status code and
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A38621%2Fnatural-capital-ecosystem-assessment%2Fsearch%2F%257B1234-56789213123-1233-1234%257D' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A42259%2Fnatural-capital-ecosystem-assessment%2Fsearch%2F%257B1234-56789213123-1233-1234%257D' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -481,8 +481,8 @@ data-module="govuk-service-navigation"
             
           
         
-       onclick="changeTitle(&quot;NCEA Catalogue Detail - License&quot;)">
-        License
+       onclick="changeTitle(&quot;NCEA Catalogue Detail - Licence&quot;)">
+        Licence
       </a>
     </li>
       
@@ -1655,7 +1655,7 @@ exports[`Details route template Document details with partial data Check status 
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A37423%2Fnatural-capital-ecosystem-assessment%2Fsearch%2F%257B1234-56789213123-1233-1234%257D' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A37131%2Fnatural-capital-ecosystem-assessment%2Fsearch%2F%257B1234-56789213123-1233-1234%257D' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -1893,8 +1893,8 @@ data-module="govuk-service-navigation"
             
           
         
-       onclick="changeTitle(&quot;NCEA Catalogue Detail - License&quot;)">
-        License
+       onclick="changeTitle(&quot;NCEA Catalogue Detail - Licence&quot;)">
+        Licence
       </a>
     </li>
       
