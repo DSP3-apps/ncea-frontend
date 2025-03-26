@@ -287,9 +287,9 @@ describe('Results Screen', () => {
     });
 
     describe('Educational Copy block elements', () => {
-      it('should render 9 child elements', async () => {
+      it('should render 6 child elements', async () => {
         const videoContainer = document?.querySelector('.educational-copy-container');
-        expect(videoContainer?.childElementCount).toEqual(9);
+        expect(videoContainer?.childElementCount).toEqual(6);
       });
     });
 
