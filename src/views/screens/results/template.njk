@@ -13,7 +13,7 @@
   {% block content %}
     <h1 class="govuk-heading-l ">Search results</h1>
     {% if dspFilterOptions.hasDSPFiltersRemoved %}
-      <p  class="govuk-body-m">You have reduced the search scope to NCEA only. Some filter items have been removed as they do not apply. See the filter summary to confirm the current filter choices.</p>
+      <p  class="govuk-body-m">You have reduced the search scope to NCEA programme only. Some filter items have been removed as they do not apply. See the filter summary to confirm the current filter choices.</p>
     {% endif %}
     <div class="govuk-grid-row govuk-!-text-align-right">
       {{ govukButton({ text: "New search", classes: "govuk-button--secondary", href: routes.homePage, attributes: {
