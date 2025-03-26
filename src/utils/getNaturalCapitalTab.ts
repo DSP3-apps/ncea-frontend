@@ -4,7 +4,7 @@
 import { INatural } from '../interfaces/searchResponse.interface';
 import { naturalTabStaticData, nceaClassifiersMockTableData } from '../utils/constants';
 
-const generateClassifierTable = (data: Record<string, any>[]): string => {
+export const generateClassifierTable = (data: Record<string, any>[]): string => {
   if (!Array.isArray(data) || data.length === 0) {
     return '';
   }
