@@ -647,6 +647,11 @@
   color: #0b0c0c;
 }
 
+.filter-options__accordion-toggle[data-expanded='true'] > svg {
+  transition: all 0.3s ease-in-out;
+  transform: rotate(180deg);
+}
+
 .filter-options__retired-label {
   color: #194578;
 }
