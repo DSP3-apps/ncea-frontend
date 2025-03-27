@@ -205,8 +205,8 @@ export const detailsTabOptions: TabOptions = {
     Natural_capital_title: 'Natural_capital_title',
     Natural_capital_description: 'Natural_capital_description',
     Natural_capital_displayData: 'Natural_capital_displayData',
-    Natural_capital_glossary_link: 'Natural_capital_glossary_link',
-    Natural_capital_no_data: 'Natural_capital_no_data',
+    // Natural_capital_glossary_link: 'Natural_capital_glossary_link',
+    // Natural_capital_no_data: 'Natural_capital_no_data',
   },
   governance: {
     Role: 'role',
@@ -377,3 +377,27 @@ export const cookiePolicyUrl = 'https://environment.data.gov.uk/help/cookies';
 export const termsAndConditionsUrl = 'https://environment.data.gov.uk/support/faqs/275811163/275811177';
 export const privacyPolicyUrl = 'https://environment.data.gov.uk/support/faqs/275811163/275811229';
 export const supportUrl = 'https://environment.data.gov.uk/support';
+export const nceaClassifiersMockTableData = {
+  isDatasetRelevantToANaturalCapitalApproach: true,
+  nceaContribution: 'Supported',
+  nceaClassifiers: {
+    naturalCapitalThemes: [
+      {
+        id: 'lv-1',
+        name: 'Natural asset',
+        naturalCapitalCategory: [
+          {
+            id: 'lv2-001',
+            name: 'Terrestrial and freshwater habitats',
+            naturalCapitalSubCategory: [
+              {
+                id: 'lv3-003',
+                name: 'Boundary and linear features',
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+};
