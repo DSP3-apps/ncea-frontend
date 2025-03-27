@@ -84,13 +84,14 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         justify-content: center;
-        align-items: center;
+        align-items: end;
         margin-bottom: 15px;
         .govuk-link {
           color: #fff;
           display: flex;
           flex-direction: column;
           gap: 0.2em;
+          align-items: center;
         }
         img {
           background: #fff;
