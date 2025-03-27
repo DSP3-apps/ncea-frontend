@@ -837,7 +837,9 @@ const getMapResults = async (path, fitToMapExtentFlag) => {
   if (response) {
     if (response.status === responseSuccessStatusCode) {
       const mapResultsJson = await response.json();
-
+      if (mapResultsJson.total === 0) {
+        clusterVectorSource.clear();
+      }
       if (mapResultsJson.hasSpatialData) {
         const mapResultsData = filterMapResults(mapResultsJson.items);
         mapResultsCount.textContent = mapResultsData.length;
