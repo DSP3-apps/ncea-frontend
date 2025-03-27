@@ -98,8 +98,6 @@ describe('Format the search response', () => {
       Natural_capital_title: naturalTabStaticData.title,
       Natural_capital_description: naturalTabStaticData.description,
       Natural_capital_displayData: expect.any(String),
-      Natural_capital_no_data: '',
-      Natural_capital_glossary_link: '',
       spatialDataService: '',
       spatialRepresentationService: 'vector',
       spatialReferencingSystem: 'http://www.opengis.net/def/crs/EPSG/0/27700',

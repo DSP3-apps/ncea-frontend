@@ -298,3 +298,20 @@ export interface IMoreInfoSearchItem extends IGeographyItem, IQualityItem, IGene
   license: ILicenseItem;
   organisation?: string;
 }
+
+export interface NaturalCapitalSubCategory {
+  id?: string;
+  name?: string;
+}
+
+export interface NaturalCapitalCategory {
+  id?: string;
+  name?: string;
+  naturalCapitalSubCategory?: NaturalCapitalSubCategory[] | null | undefined;
+}
+
+export interface NaturalCapitalTableItems {
+  id?: string;
+  name?: string;
+  naturalCapitalCategory?: NaturalCapitalCategory[] | null | undefined;
+}
