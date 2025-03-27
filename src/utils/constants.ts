@@ -205,8 +205,8 @@ export const detailsTabOptions: TabOptions = {
     Natural_capital_title: 'Natural_capital_title',
     Natural_capital_description: 'Natural_capital_description',
     Natural_capital_displayData: 'Natural_capital_displayData',
-    Natural_capital_glossary_link: 'Natural_capital_glossary_link',
-    Natural_capital_no_data: 'Natural_capital_no_data',
+    // Natural_capital_glossary_link: 'Natural_capital_glossary_link',
+    // Natural_capital_no_data: 'Natural_capital_no_data',
   },
   governance: {
     Role: 'role',

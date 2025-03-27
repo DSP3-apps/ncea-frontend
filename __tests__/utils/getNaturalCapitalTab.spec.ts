@@ -45,7 +45,7 @@ describe('generateClassifierTable', () => {
     expect(result).toBe('');
   });
 
-  it('should handle missing naturalCapitalCategory', () => {
+  it('should handle theme only if no category and sub category provided', () => {
     const data = [
       {
         name: 'Theme 1',
@@ -56,7 +56,27 @@ describe('generateClassifierTable', () => {
     const result = generateClassifierTable(data);
 
     expect(result).toContain('<td>Theme 1</td>');
-    expect(result).not.toContain('<td>Category 1</td>');
-    expect(result).not.toContain('<td>Subcategory 1</td>');
+    expect(result).not.toContain('<th width="35%">Category</th>');
+    expect(result).not.toContain('<th width="35%">Subcategory</th>');
+  });
+
+  it('should handle theme and category only if no sub category provided', () => {
+    const data = [
+      {
+        name: 'Theme 1',
+        naturalCapitalCategory: [
+          {
+            id: 'lv2-001',
+            name: 'Terrestrial and freshwater habitats',
+          },
+        ],
+      },
+    ];
+
+    const result = generateClassifierTable(data);
+
+    expect(result).toContain('<td>Theme 1</td>');
+    expect(result).toContain('<td>Terrestrial and freshwater habitats</td>');
+    expect(result).not.toContain('<th width="35%">Subcategory</th>');
   });
 });

@@ -1,10 +1,14 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
-import { INatural } from '../interfaces/searchResponse.interface';
+import {
+  INatural,
+  NaturalCapitalCategory,
+  NaturalCapitalSubCategory,
+  NaturalCapitalTableItems,
+} from '../interfaces/searchResponse.interface';
 import { naturalTabStaticData, nceaClassifiersMockTableData } from '../utils/constants';
 
-export const generateClassifierTable = (data: Record<string, any>[]): string => {
+export const generateClassifierTable = (data: NaturalCapitalTableItems[]): string => {
   if (!Array.isArray(data) || data.length === 0) {
     return '';
   }
@@ -23,14 +27,14 @@ export const generateClassifierTable = (data: Record<string, any>[]): string => 
   return tableHTML;
 };
 
-const analyzeClassifiers = (data: Record<string, any>[]) => {
+const analyzeClassifiers = (data: NaturalCapitalTableItems[]) => {
   let hasCategory = false;
   let hasSubcategory = false;
 
-  data.forEach((item: Record<string, any>) => {
+  data.forEach((item: NaturalCapitalTableItems) => {
     if (Array.isArray(item.naturalCapitalCategory) && item.naturalCapitalCategory.length > 0) {
       hasCategory = true;
-      item.naturalCapitalCategory.forEach((category: Record<string, any>) => {
+      item.naturalCapitalCategory.forEach((category: NaturalCapitalCategory) => {
         if (Array.isArray(category.naturalCapitalSubCategory) && category.naturalCapitalSubCategory.length > 0) {
           hasSubcategory = true;
         }
@@ -58,19 +62,19 @@ const generateTableHeader = (hasCategory: boolean, hasSubcategory: boolean): str
   `;
 };
 
-const generateTableRows = (data: Record<string, any>[], hasCategory: boolean, hasSubcategory: boolean): string => {
+const generateTableRows = (data: NaturalCapitalTableItems[], hasCategory: boolean, hasSubcategory: boolean): string => {
   return data.map((item) => generateTableRow(item, hasCategory, hasSubcategory)).join('');
 };
 
-const generateTableRow = (item: Record<string, any>, hasCategory: boolean, hasSubcategory: boolean): string => {
+const generateTableRow = (item: NaturalCapitalTableItems, hasCategory: boolean, hasSubcategory: boolean): string => {
   const themeName = item?.name ?? '';
   let rows = '';
 
   if (Array.isArray(item.naturalCapitalCategory) && item.naturalCapitalCategory.length > 0) {
-    item.naturalCapitalCategory.forEach((category: Record<string, any>, index: number) => {
+    item.naturalCapitalCategory.forEach((category: NaturalCapitalCategory, index: number) => {
       const categoryName = category?.name ?? '';
       if (Array.isArray(category.naturalCapitalSubCategory) && category.naturalCapitalSubCategory.length > 0) {
-        category.naturalCapitalSubCategory.forEach((subcategory: Record<string, any>, subIndex: number) => {
+        category.naturalCapitalSubCategory.forEach((subcategory: NaturalCapitalSubCategory, subIndex: number) => {
           const subcategoryName = subcategory?.name ?? '';
           rows += createRow(themeName, categoryName, subcategoryName, index, subIndex, hasCategory, hasSubcategory);
         });
@@ -124,8 +128,6 @@ const getNaturalTab = (payload): INatural => ({
     payload?.nceaClassifiers?.naturalCapitalThemes ??
       nceaClassifiersMockTableData?.nceaClassifiers?.naturalCapitalThemes,
   ),
-  Natural_capital_no_data: '',
-  Natural_capital_glossary_link: '',
 });
 
 export { getNaturalTab };
