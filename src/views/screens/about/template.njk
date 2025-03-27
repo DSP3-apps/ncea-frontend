@@ -45,8 +45,10 @@
       <div class="landingPage__partnersLogo-leftsection">
         <h2 class="govuk-heading-m">Our Partners</h2>
           <div class="landingPage__partnersLogo-leftsection--logos">
-           {% for item in partnerLogos %}
-              <a href="{{ item.link }}"><img src="{{ item.imgUrl }}" title="{{ item.title }}"></a>
+           {% for item in partnerLogos %} 
+            <a class="govuk-link" href="{{ item.link }}"><span>{{ item.title }}</span>
+            <img src="{{ item.imgUrl }}" title="{{ item.title }}">
+            </a>
            {% endfor %}
           </div>
       </div>

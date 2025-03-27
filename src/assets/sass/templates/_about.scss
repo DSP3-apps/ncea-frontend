@@ -11,8 +11,8 @@
     display: flex;
     gap: 1.5rem;
     flex-direction: column;
-    &-content{
-      width:100%;
+    &-content {
+      width: 100%;
     }
     &-imageLayout {
       display: flex;
@@ -84,18 +84,26 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         justify-content: center;
-        align-items: center;
+        align-items: end;
         margin-bottom: 15px;
+        .govuk-link {
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          gap: 0.2em;
+          align-items: center;
+        }
         img {
           background: #fff;
-          margin-top: 20px;
         }
         a:nth-child(1) {
           img {
             padding: 4px;
           }
         }
-        a:nth-child(2), a:nth-child(3), a:nth-child(4){
+        a:nth-child(2),
+        a:nth-child(3),
+        a:nth-child(4) {
           img {
             padding: 4px;
           }
@@ -131,9 +139,9 @@
       margin: auto;
       padding: 10px;
       text-align: center;
-        button {
-          width: 200px
-        }
+      button {
+        width: 200px;
+      }
       &-list {
         padding: 0;
       }
@@ -160,7 +168,7 @@
       gap: 1rem;
     }
     &-quicklinks-text {
-      color: #1D70B8;
+      color: #1d70b8;
       font-size: 1.18rem;
       line-height: 1.25;
     }
@@ -198,7 +206,7 @@
         &-list {
           padding: 0;
         }
-        .govuk-width-container{
+        .govuk-width-container {
           margin: 0;
         }
       }
@@ -213,7 +221,8 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        div:nth-of-type(1), div:nth-of-type(3) {
+        div:nth-of-type(1),
+        div:nth-of-type(3) {
           margin-left: 0px;
         }
       }
@@ -227,17 +236,17 @@
           display: grid;
           grid-template-columns: repeat(1, 1fr);
         }
-    }
-  }
-  &__feeds_container {
-    &--feeds {
-      &-list {
-        padding: 0;
-      }
-      .govuk-width-container{
-        margin: 0;
       }
     }
+    &__feeds_container {
+      &--feeds {
+        &-list {
+          padding: 0;
+        }
+        .govuk-width-container {
+          margin: 0;
+        }
+      }
+    }
   }
- }
 }

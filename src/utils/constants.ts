@@ -340,7 +340,7 @@ export const landingPageData = {
     {
       imgUrl: `${BASE_PATH}/assets/images/jncc-logo.png`,
       link: 'https://jncc.gov.uk/',
-      title: 'JNCC',
+      title: 'Joint Nature Conservation Committee',
     },
     {
       imgUrl: `${BASE_PATH}/assets/images/botanic-garden.svg`,
