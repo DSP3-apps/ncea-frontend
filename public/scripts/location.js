@@ -942,12 +942,20 @@ const invokeMapResults = (fitToMapExtentFlag = false, needOriginalQueryParams = 
   }
 };
 
+const updateResetPathParams = (resetPathParams) => {
+  if (document.getElementById('scope-map_results').checked) {
+    return `${resetPathParams}&scope=ncea`;
+  }
+  return `${resetPathParams}&scope=all`;
+};
+
 const invokeMapResultsFormFilters = (fitToMapExtentFlag = false, data) => {
   if (checkLatestBrowser()) {
     const fetchResults = document.querySelector('[data-fetch-map-results]');
     if (fetchResults) {
       const action = fetchResults.getAttribute(actionDataAttribute);
-      getMapResults(getPathWithFormFilters(action, data), fitToMapExtentFlag);
+      const updatePathParams = updateResetPathParams(getPathWithFormFilters(action, data));
+      getMapResults(updatePathParams, fitToMapExtentFlag);
     }
   }
 };
