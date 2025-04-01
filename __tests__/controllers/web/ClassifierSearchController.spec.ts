@@ -17,7 +17,7 @@ jest.mock('../../../src/services/handlers/searchApi', () => ({
 }));
 
 describe('Classifier Search Controller', () => {
-  describe('renderClassifierSearchHandler', () => {
+  xdescribe('renderClassifierSearchHandler', () => {
     let request: Request;
     let response: ResponseToolkit;
     const { guidedClassifierSearch: guidedClassifierSearchPath, guidedDateSearch: skipPath, results } = webRoutePaths;

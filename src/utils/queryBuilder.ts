@@ -9,6 +9,7 @@ import {
   studyPeriodFilterField,
 } from './constants';
 import { generateDateString } from './generateDateString';
+import { isEmpty } from './isEmpty';
 import { ISearchFilterProcessed, ISearchFiltersProcessed } from './searchFilters';
 import {
   IDateRange,
@@ -228,6 +229,16 @@ const _generateDateRangeQuery = (
   return filterBlock;
 };
 
+const generateCategorySearchQuery = (parent) => {
+  if (parent.includes(',')) {
+    return parent.split(',');
+  }
+  if (!isEmpty(parent)) {
+    return [parent];
+  }
+  return [];
+};
+
 const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearchFiltersProcessed): ISearchRequest => {
   // Get Organisation filter values.
   const organisations = getFiltersForCategory(filters.categories, FILTER_VALUES.organisation); // FIXME: make 'org' etc a constant and update `searchFilters.ts` to use them also, look at bottom of page.
@@ -284,9 +295,16 @@ const generateSearchQuery = (searchFieldsObject: ISearchPayload, filters: ISearc
   // Get Retired and Archived filter value
   const retiredAndArchived = filters.retiredAndArchived;
 
+  // generate a query for category search wrt parent ids
+  const classifyParentValue = generateCategorySearchQuery(searchFieldsObject?.fields?.classify?.parent ?? '');
+
+  const searchTerm = searchFieldsObject?.fields?.keyword?.q ?? '';
+  const searchTermValue = !isEmpty(searchTerm) ? [searchTerm] : [];
+
   const request: ISearchRequest = {
     Query: {
-      SearchTerms: [searchFieldsObject?.fields?.keyword?.q ?? ''],
+      SearchTerms: searchTermValue,
+      CategorySearch: classifyParentValue,
     },
     Filters: {
       Organisations: organisations ?? [],

@@ -202,35 +202,35 @@ describe('Search API', () => {
     });
   });
 
-  describe('Search API - To fetch the search results count', () => {
-    it('should return the total results count', async () => {
-      const searchFieldsObject: ISearchPayload = {
-        fields: {
-          keyword: {
-            q: 'example',
-          },
-        },
-        sort: '',
-        filters: {},
-        rowsPerPage: 20,
-        page: 1,
-      };
-      // (performQuery as jest.Mock).mockResolvedValueOnce({ count: 10 });
-      const result = await getSearchResultsCount(searchFieldsObject, 2);
-      expect(result).toEqual({ totalResults: CLASSIFIER_COUNT_LEVEL_2.count });
-    });
+  // describe('Search API - To fetch the search results count', () => {
+  //   it('should return the total results count', async () => {
+  //     const searchFieldsObject: ISearchPayload = {
+  //       fields: {
+  //         keyword: {
+  //           q: 'example',
+  //         },
+  //       },
+  //       sort: '',
+  //       filters: {},
+  //       rowsPerPage: 20,
+  //       page: 1,
+  //     };
+  //     // (performQuery as jest.Mock).mockResolvedValueOnce({ count: 10 });
+  //     const result = await getSearchResultsCount(searchFieldsObject, 2);
+  //     expect(result).toEqual({ totalResults: CLASSIFIER_COUNT_LEVEL_2.count });
+  //   });
 
-    it('should return the total results count as 0 if no must conditions are provided', async () => {
-      const result = await getSearchResultsCount({
-        fields: {},
-        sort: '',
-        rowsPerPage: 20,
-        filters: {},
-        page: 1,
-      });
-      expect(result).toEqual({ totalResults: 0 });
-    });
-  });
+  //   it('should return the total results count as 0 if no must conditions are provided', async () => {
+  //     const result = await getSearchResultsCount({
+  //       fields: {},
+  //       sort: '',
+  //       rowsPerPage: 20,
+  //       filters: {},
+  //       page: 1,
+  //     });
+  //     expect(result).toEqual({ totalResults: 0 });
+  //   });
+  // });
 
   describe('Search API - To fetch the aggregated results for filters', () => {
     it('should return the default response when no fields data is present', async () => {

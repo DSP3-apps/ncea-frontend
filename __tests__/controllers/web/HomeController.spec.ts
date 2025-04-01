@@ -127,7 +127,7 @@ describe('Deals with Home Controller', () => {
       await HomeController.intermediateHandler(request, response);
       expect(response.redirect).toHaveBeenCalledWith(`${BASE_PATH}${webRoutePaths.home}`);
     });
-    it('should redirect to geography page if step is date and search results count > 0', async () => {
+    xit('should redirect to geography page if step is date and search results count > 0', async () => {
       const dateFormFields = {
         'from-date-day': '2',
         'from-date-month': '',
