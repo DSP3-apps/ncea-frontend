@@ -7,6 +7,7 @@ import { LEVEL3_CLASSIFIER_ITEMS } from '../../../src/services/handlers/mocks/cl
 import { getClassifierThemes } from '../../../src/services/handlers/classifierApi';
 import { getSearchResultsCount } from '../../../src/services/handlers/searchApi';
 import { readQueryParams, upsertQueryParams } from '../../../src/utils/queryStringHelper';
+import { requestMockData } from '../../data/requestData';
 
 jest.mock('../../../src/services/handlers/classifierApi', () => ({
   getClassifierThemes: jest.fn(),
@@ -17,7 +18,7 @@ jest.mock('../../../src/services/handlers/searchApi', () => ({
 }));
 
 describe('Classifier Search Controller', () => {
-  xdescribe('renderClassifierSearchHandler', () => {
+  describe('renderClassifierSearchHandler', () => {
     let request: Request;
     let response: ResponseToolkit;
     const { guidedClassifierSearch: guidedClassifierSearchPath, guidedDateSearch: skipPath, results } = webRoutePaths;
@@ -30,6 +31,7 @@ describe('Classifier Search Controller', () => {
     it('should call the classifier view with context when level is greater than or equal to 1 and count is 0', async () => {
       request = {
         query: { level: '3', 'parent[]': 'lv2-001,lv2-002' },
+        ...requestMockData,
       } as any;
 
       const level3ClassifierItems = [];
@@ -63,6 +65,7 @@ describe('Classifier Search Controller', () => {
     it('should call the classifier view with context when count is present', async () => {
       request = {
         query: { level: '3', 'parent[]': 'lv2-001' },
+        ...requestMockData,
       } as any;
 
       (getClassifierThemes as jest.Mock).mockResolvedValue(LEVEL3_CLASSIFIER_ITEMS);
@@ -112,6 +115,7 @@ describe('Classifier Search Controller', () => {
     it('should redirect to results path when count is 0 and level is not 1', async () => {
       request = {
         query: { level: '2', 'parent[]': 'lv2-001,lv2-002' },
+        ...requestMockData,
       } as any;
 
       (getClassifierThemes as jest.Mock).mockResolvedValue(LEVEL3_CLASSIFIER_ITEMS);
@@ -143,6 +147,7 @@ describe('Classifier Search Controller', () => {
     it('should redirect to date search page when there are no items for the parent category', async () => {
       request = {
         query: { level: '2', 'parent[]': 'lv1-001' },
+        ...requestMockData,
       } as any;
 
       (getClassifierThemes as jest.Mock).mockResolvedValue([]);

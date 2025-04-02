@@ -16,14 +16,15 @@ import Joi from 'joi';
 import { FormFieldError } from '../../../src/interfaces/guidedSearch.interface';
 import { upsertQueryParams, readQueryParams } from '../../../src/utils/queryStringHelper';
 import { getSearchResultsCount } from '../../../src/services/handlers/searchApi';
+import { requestMockData } from '../../data/requestData';
 
 jest.mock('../../../src/services/handlers/searchApi', () => ({
   getSearchResultsCount: jest.fn(),
 }));
 
 describe('Deals with the Date Search Controller', () => {
-  xit('should render the guided data search handler', async () => {
-    const request: Request = { query: {} } as any;
+  it('should render the guided data search handler', async () => {
+    const request: Request = { query: {}, ...requestMockData } as any;
     const response: ResponseToolkit = { view: jest.fn(), redirect: jest.fn() } as any;
     const { guidedDateSearch, results, geographySearch } = webRoutePaths;
     const formId: string = formIds.dataQuestionnaireFID;
@@ -55,8 +56,8 @@ describe('Deals with the Date Search Controller', () => {
     });
   });
 
-  xit('should redirect to results if no search result or query is present', async () => {
-    const request: Request = { query: { someParam: 'someValue' } } as any;
+  it('should redirect to results if no search result or query is present', async () => {
+    const request: Request = { query: { someParam: 'someValue' }, ...requestMockData } as any;
     const response: ResponseToolkit = { view: jest.fn(), redirect: jest.fn() } as any;
     (getSearchResultsCount as jest.Mock).mockResolvedValue({ totalResults: 0 });
 
