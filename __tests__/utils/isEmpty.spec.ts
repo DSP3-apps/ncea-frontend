@@ -20,4 +20,8 @@ describe('Check the isEmpty function', () => {
   it('should return false for numbers', async () => {
     expect(isEmpty(2)).toBe(false);
   });
+
+  it('should return true for null value in string', async () => {
+    expect(isEmpty('null')).toBe(true);
+  });
 });
