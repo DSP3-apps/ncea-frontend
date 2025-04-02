@@ -1,3 +1,21 @@
+## [1.18.1](https://github.com/DSP3-apps/ncea-frontend/compare/v1.18.0...v1.18.1) (2025-04-01)
+
+
+### Bug Fixes
+
+* **about page:** Update links to NCEA partner sites so links from text rather than logo ([f8ca3b8](https://github.com/DSP3-apps/ncea-frontend/commit/f8ca3b8fef782a5ac07e33eb93c585293aab90af))
+* **content:** UAT fixes on home and about pages ([42dc09a](https://github.com/DSP3-apps/ncea-frontend/commit/42dc09ad535132ea1056e71e144fdfcd8fdea494))
+* **filters:** Filter drop down not animating on selection and Typo on Licence filter in UI ([fad484f](https://github.com/DSP3-apps/ncea-frontend/commit/fad484f0a7ee64004c6a91518832f2cd84d05927))
+* **frontenb:** As per review comments updated the code ([876cf37](https://github.com/DSP3-apps/ncea-frontend/commit/876cf37842350ace5d8e6cc05119b27ff642f01a))
+* **frontenb:** fix the reset issue wrt scope filter ([af7ab7f](https://github.com/DSP3-apps/ncea-frontend/commit/af7ab7f6145516c6333a733f7cb1849502438349))
+* **frontend:** added the missing files ([dcec38b](https://github.com/DSP3-apps/ncea-frontend/commit/dcec38b0ed6107fb3a3ec2b00a5065a1304c2394))
+* **frontend:** added the mockdata for NCEA capital tab ([cb05675](https://github.com/DSP3-apps/ncea-frontend/commit/cb05675a3f8c116db4c8c0690d8570a280010fcb))
+* **frontend:** added the test suite ([f3cfca0](https://github.com/DSP3-apps/ncea-frontend/commit/f3cfca096e1e4ff482d54be92d90445a3d8e8871))
+* **frontend:** fix the scope map view issue ([9eb559e](https://github.com/DSP3-apps/ncea-frontend/commit/9eb559ea2a329272d84ecf129236193af5d688a1))
+* **frontend:** fix the test suite ([8f77f5e](https://github.com/DSP3-apps/ncea-frontend/commit/8f77f5ed72958192702248728b07fc5b47846f4c))
+* **frontend:** updated code as per review comments ([5ba5cfc](https://github.com/DSP3-apps/ncea-frontend/commit/5ba5cfce12ec598b2452a48c07c1df42c437f9b6))
+* **result page:** Map image needs optimisation (currently 7.9MB) ([c4b88e0](https://github.com/DSP3-apps/ncea-frontend/commit/c4b88e0b0b362e1fac39365a6f0ad49ae2a8246c))
+
 # [1.18.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.17.0...v1.18.0) (2025-03-25)
 
 
