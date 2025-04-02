@@ -3,16 +3,13 @@ export const requestMockData = {
     credentials: {
       id: '123',
       user: {
-        name: 'John Doe',
-        email: 'john@example.com',
+        name: 'Test User',
+        email: 'test@testss.com',
       },
       jwt: 'token',
     },
-    isAuthenticated: true, // Required property
-    isAuthorized: true, // Optional but useful
-    artifacts: {}, // Required property
-    error: new Error(), // Required property
-    strategy: 'jwt', // Optional but useful
-    mode: 'required', // Optional
+    isAuthenticated: true,
+    isAuthorized: true,
+    artifacts: {},
   },
 };
