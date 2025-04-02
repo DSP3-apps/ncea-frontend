@@ -854,10 +854,6 @@ data-module="govuk-service-navigation"
         </ul>
         
         
-        <div class="govuk-footer__meta-custom">
-          <p>Version: v1.18.0</p>
-        </div>
-        
         
         <svg
           aria-hidden="true"

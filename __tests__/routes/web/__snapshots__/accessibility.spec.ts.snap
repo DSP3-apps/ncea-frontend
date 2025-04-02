@@ -231,7 +231,7 @@ exports[`Accessibility Screen Accessibility > Sanpshot verification should match
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A44203%2Fnatural-capital-ecosystem-assessment%2Faccessibility-statement' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A38597%2Fnatural-capital-ecosystem-assessment%2Faccessibility-statement' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -441,10 +441,6 @@ data-module="govuk-service-navigation"
         
         </ul>
         
-        
-        <div class="govuk-footer__meta-custom">
-          <p>Version: v1.18.0</p>
-        </div>
         
         
         <svg
