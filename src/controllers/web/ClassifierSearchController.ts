@@ -26,7 +26,7 @@ const ClassifierSearchController = {
     const totalCount = (
       await getSearchResultsCount(countPayload, request.auth.credentials as Credentials, processedDspFilterOptions)
     ).totalResults.toString();
-    console.log('totalCounttotalCounttotalCounttotalCounttotalCount', totalCount);
+
     const queryParamsObject: Record<string, string> = {
       ...request.query,
       level: (level - 1).toString(),
