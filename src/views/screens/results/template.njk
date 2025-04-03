@@ -40,6 +40,7 @@
     <script src="{{ assetPath }}/scripts/ol.js"></script>
     <script>
       var isViewMapResults = true;
+      window.searchResults = {{ totalSearchResults | dump | safe }}
     </script>
     <script type="module" src="{{ assetPath }}/scripts/location.js"></script>
     <script type="module" src="{{ assetPath }}/scripts/filters.js"></script>

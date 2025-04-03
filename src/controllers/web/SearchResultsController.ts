@@ -44,7 +44,7 @@ const SearchResultsController = {
         payload,
         request.auth.credentials as Credentials,
         processedDspFilterOptions,
-        false,
+        true,
         // isQuickSearchJourney, // TODO: We may need to add this back in, which is why I've left it.
       );
 
@@ -75,6 +75,7 @@ const SearchResultsController = {
         pageTitle: pageTitles.results,
         quickSearchFID,
         searchResults: pagedSearchResults,
+        totalSearchResults: searchResults,
         hasError: false,
         isQuickSearchJourney,
         paginationItems,
