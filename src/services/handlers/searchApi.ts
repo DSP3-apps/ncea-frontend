@@ -1,6 +1,6 @@
 import { QUICK_SEARCH_RESOURCE_TYPE_FILTERS, QUICK_SEARCH_STUDY_PERIOD_FILTERS } from './mocks/quick-search-filters';
-import { Credentials } from '../..//interfaces/auth';
 import { environmentConfig } from '../../config/environmentConfig';
+import { Credentials } from '../../interfaces/auth';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { IFilterFlags } from '../../interfaces/searchPayload.interface';
 import { IAggregationOptions, ISearchResponse, ISearchResults } from '../../interfaces/searchResponse.interface';
@@ -66,6 +66,7 @@ const getSearchResultsCount = async (
       if (!agmApiResponse.ok) {
         throw new Error(`Error fetching results: ${agmApiResponse.statusText}`);
       }
+
       const classifierSearchData = await agmApiResponse.json();
 
       return { totalResults: classifierSearchData?.totalDocumentCount ?? 0 };

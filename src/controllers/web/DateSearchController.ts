@@ -3,10 +3,8 @@
 import { Lifecycle, Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 import Joi from 'joi';
 
-import { Credentials } from '@/interfaces/auth';
-import { processDSPFilterOptions } from '@/utils/processFilterRSortOptions';
-
 import { fromDate, toDate } from '../../data/dateQuestionnaireFieldOptions';
+import { Credentials } from '../../interfaces/auth';
 import { FormFieldError } from '../../interfaces/guidedSearch.interface';
 import { getSearchResultsCount } from '../../services/handlers/searchApi';
 import {
@@ -18,6 +16,7 @@ import {
   queryParamKeys,
   webRoutePaths,
 } from '../../utils/constants';
+import { processDSPFilterOptions } from '../../utils/processFilterRSortOptions';
 import { generateCountPayload, readQueryParams, upsertQueryParams } from '../../utils/queryStringHelper';
 import { transformErrors } from '../../utils/transformErrors';
 

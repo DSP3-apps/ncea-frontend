@@ -2,10 +2,8 @@
 
 import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 
-import { Credentials } from '@/interfaces/auth';
-import { processDSPFilterOptions } from '@/utils/processFilterRSortOptions';
-
 import { allowedRedirectHosts, jwtCookieName, jwtCookieOptions } from '../../infrastructure/plugins/auth';
+import { Credentials } from '../../interfaces/auth';
 import { IGuidedSearchStepsMatrix, IStepRouteMatrix } from '../../interfaces/guidedSearch.interface';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { getSearchResultsCount } from '../../services/handlers/searchApi';
@@ -17,6 +15,7 @@ import {
   queryParamKeys,
   webRoutePaths,
 } from '../../utils/constants';
+import { processDSPFilterOptions } from '../../utils/processFilterRSortOptions';
 import { generateCountPayload, readQueryParams, upsertQueryParams } from '../../utils/queryStringHelper';
 
 /**
