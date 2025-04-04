@@ -4,6 +4,7 @@ import { Lifecycle, Request, ResponseObject, ResponseToolkit } from '@hapi/hapi'
 import Joi from 'joi';
 
 import { fromDate, toDate } from '../../data/dateQuestionnaireFieldOptions';
+import { Credentials } from '../../interfaces/auth';
 import { FormFieldError } from '../../interfaces/guidedSearch.interface';
 import { getSearchResultsCount } from '../../services/handlers/searchApi';
 import {
@@ -15,6 +16,7 @@ import {
   queryParamKeys,
   webRoutePaths,
 } from '../../utils/constants';
+import { processDSPFilterOptions } from '../../utils/processFilterRSortOptions';
 import { generateCountPayload, readQueryParams, upsertQueryParams } from '../../utils/queryStringHelper';
 import { transformErrors } from '../../utils/transformErrors';
 
@@ -23,7 +25,10 @@ const DateSearchController = {
     const { guidedDateSearch, geographySearch, results } = webRoutePaths;
     const formId: string = formIds.dataQuestionnaireFID;
     const countPayload = generateCountPayload(request.query);
-    const count = (await getSearchResultsCount(countPayload)).totalResults.toString();
+    const processedDspFilterOptions = processDSPFilterOptions(request.query);
+    const count = (
+      await getSearchResultsCount(countPayload, request.auth.credentials as Credentials, processedDspFilterOptions)
+    ).totalResults.toString();
 
     const queryParamsObject: Record<string, string> = {
       [queryParamKeys.journey]: 'gs',

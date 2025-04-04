@@ -2,9 +2,11 @@
 
 import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 
+import { Credentials } from '../../interfaces/auth';
 import { getClassifierThemes } from '../../services/handlers/classifierApi';
 import { getSearchResultsCount } from '../../services/handlers/searchApi';
 import { BASE_PATH, formIds, pageTitles, queryParamKeys, webRoutePaths } from '../../utils/constants';
+import { processDSPFilterOptions } from '../../utils/processFilterRSortOptions';
 import { generateCountPayload, readQueryParams, upsertQueryParams } from '../../utils/queryStringHelper';
 
 const ClassifierSearchController = {
@@ -20,7 +22,11 @@ const ClassifierSearchController = {
     };
     const classifierPageTitle = pageTitles.Classifier[level - 1];
     const countPayload = generateCountPayload(payloadQuery);
-    const totalCount = (await getSearchResultsCount(countPayload, level)).totalResults.toString();
+    const processedDspFilterOptions = processDSPFilterOptions(request.query);
+    const totalCount = (
+      await getSearchResultsCount(countPayload, request.auth.credentials as Credentials, processedDspFilterOptions)
+    ).totalResults.toString();
+
     const queryParamsObject: Record<string, string> = {
       ...request.query,
       level: (level - 1).toString(),

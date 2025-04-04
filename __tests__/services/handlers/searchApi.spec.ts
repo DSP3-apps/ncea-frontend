@@ -7,7 +7,8 @@ import { IAggregationOptions } from '../../../src/interfaces/searchResponse.inte
 import { QUICK_SEARCH_RESPONSE } from '../../../src/services/handlers/mocks/quick-search';
 import { CLASSIFIER_COUNT_LEVEL_2 } from '../../../src/services/handlers/mocks/classifier-themes-level-2';
 import { applyMockFilters, DataScope } from '../../../src/utils/searchFilters';
-
+import { requestMockData } from '../../data/requestData';
+import { processDSPFilterOptions } from '../../../src/utils//processFilterRSortOptions';
 import {
   categoryFilteredData,
   defaultQuery,
@@ -204,6 +205,10 @@ describe('Search API', () => {
 
   describe('Search API - To fetch the search results count', () => {
     it('should return the total results count', async () => {
+      global.fetch = jest.fn().mockResolvedValue({
+        ok: true,
+        json: () => Promise.resolve({ totalDocumentCount: 10 }),
+      });
       const searchFieldsObject: ISearchPayload = {
         fields: {
           keyword: {
@@ -215,19 +220,32 @@ describe('Search API', () => {
         rowsPerPage: 20,
         page: 1,
       };
-      // (performQuery as jest.Mock).mockResolvedValueOnce({ count: 10 });
-      const result = await getSearchResultsCount(searchFieldsObject, 2);
-      expect(result).toEqual({ totalResults: CLASSIFIER_COUNT_LEVEL_2.count });
+      const processedDspFilterOptions = processDSPFilterOptions({ level: '3', 'parent[]': 'lv2-001,lv2-002' });
+      const result = await getSearchResultsCount(
+        searchFieldsObject,
+        requestMockData.auth.credentials,
+        processedDspFilterOptions,
+      );
+      expect(result).toEqual({ totalResults: 10 });
     });
 
     it('should return the total results count as 0 if no must conditions are provided', async () => {
-      const result = await getSearchResultsCount({
-        fields: {},
-        sort: '',
-        rowsPerPage: 20,
-        filters: {},
-        page: 1,
+      global.fetch = jest.fn().mockResolvedValue({
+        ok: true,
+        json: () => Promise.resolve({ totalDocumentCount: 0 }),
       });
+      const processedDspFilterOptions = processDSPFilterOptions({ level: '3', 'parent[]': 'lv2-001,lv2-002' });
+      const result = await getSearchResultsCount(
+        {
+          fields: {},
+          sort: '',
+          rowsPerPage: 20,
+          filters: {},
+          page: 1,
+        },
+        requestMockData.auth.credentials,
+        processedDspFilterOptions,
+      );
       expect(result).toEqual({ totalResults: 0 });
     });
   });

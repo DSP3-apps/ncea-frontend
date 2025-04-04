@@ -191,7 +191,7 @@ export const detailsTabOptions: TabOptions = {
     'Geographic locations': 'geographicLocations',
     'Geographic boundary': 'geographicBoundaryHtml',
     map: 'geographicBoundary',
-    'Vertical extent<br /><span>(Meters above sea level)</span>': 'verticalExtent',
+    'Vertical extent<br /><span>(Metres above sea level)</span>': 'verticalExtent',
     'Spatial resolution': 'samplingResolution',
   },
   license: {
