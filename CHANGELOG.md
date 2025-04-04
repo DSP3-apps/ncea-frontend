@@ -1,3 +1,26 @@
+# [1.19.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.18.1...v1.19.0) (2025-04-04)
+
+
+### Bug Fixes
+
+* **frontend:** added the maxZoom value on the map ([7ed69bd](https://github.com/DSP3-apps/ncea-frontend/commit/7ed69bdaf17e3dc5f0b70e638f7442ba86c6cd06))
+* **frontend:** code updated as per review comments ([7b2684f](https://github.com/DSP3-apps/ncea-frontend/commit/7b2684f168b0b8b6d37a4df1838c776d8e9cb148))
+* **frontend:** fix the double search  issue on page load ([f2a187a](https://github.com/DSP3-apps/ncea-frontend/commit/f2a187a7f4b867fa8fe28c8a179ea526126a5c24))
+* **frontend:** fix the typo error ([46004b2](https://github.com/DSP3-apps/ncea-frontend/commit/46004b28cdfaa2cfab62d6eab1d40cc45b6bdea3))
+* **frontent:** added the transform function to show the Natural capital data ([eca0ed1](https://github.com/DSP3-apps/ncea-frontend/commit/eca0ed166c643d52fc81e1a048ab35ca7a54da7c))
+* **frontent:** remove console.log ([5697ba0](https://github.com/DSP3-apps/ncea-frontend/commit/5697ba05e05315e252c587f836e565cab4f77c45))
+
+
+### Features
+
+* **Footer update:** Update the footer section same as DSP Apps ([9fde040](https://github.com/DSP3-apps/ncea-frontend/commit/9fde040202e1a3a444f0682bddd10938aa6236da))
+* **frontend:** added the CategorySearch query parmans in the search API ([c1aaa97](https://github.com/DSP3-apps/ncea-frontend/commit/c1aaa97579217de7c9aed5abf48912c787eb2c29))
+* **frontend:** added the empty test suites for null string ([f699777](https://github.com/DSP3-apps/ncea-frontend/commit/f699777eab6d3beed8d7fe0549ddfb76b22c1498))
+* **frontend:** fix the code as per review comments received ([cb13d7c](https://github.com/DSP3-apps/ncea-frontend/commit/cb13d7c63ac7d38d69c5a8daafa09e24463a13ac))
+* **frontend:** fix the unit test suites ([5f81fbc](https://github.com/DSP3-apps/ncea-frontend/commit/5f81fbc10c77e629bf3f0b8c65a5b951439a308b))
+* **frontend:** fix the unit test suites ([7b45c47](https://github.com/DSP3-apps/ncea-frontend/commit/7b45c4773ba934eb5ae74d77f2f471d3d05a7d69))
+* **frontend:** remove console.log ([489c5e3](https://github.com/DSP3-apps/ncea-frontend/commit/489c5e33949b60938d0e94ca0d219e57e70d396c))
+
 ## [1.18.1](https://github.com/DSP3-apps/ncea-frontend/compare/v1.18.0...v1.18.1) (2025-04-01)
 
 
