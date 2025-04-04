@@ -94,14 +94,17 @@ describe('Vision Plugin Configuration', () => {
         {
           text: 'Home',
           href: `${BASE_PATH}`,
+          icon: 'home',
         },
         {
           text: 'About',
           href: `${BASE_PATH}${webRoutePaths.about}`,
+          icon: 'building',
         },
         {
           text: 'News Feed',
           href: `${BASE_PATH}${webRoutePaths.atom}`,
+          icon: 'feeds',
         },
       ],
     });
