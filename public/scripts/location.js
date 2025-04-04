@@ -872,37 +872,35 @@ const getMapResultsOnPageload = async (fitToMapExtentFlag) => {
   const noSpatialDataSpan = document.getElementById(noSpatialDataId);
   const viewResultsSpan = document.getElementById(viewResultsId);
   const mapContainerDiv = document.getElementById(mapContainerId);
-  const searchResults = window?.searchResults ?? {};
+  const searchResults = window.searchResults;
+  const mapResultsData = filterMapResults(searchResults.items);
 
-  if (Object.keys(searchResults).length !== 0) {
-    const mapResultsData = filterMapResults(searchResults.items);
-    mapResultsCount.textContent = mapResultsData.length;
+  mapResultsCount.textContent = mapResultsData.length;
 
-    if (mapResultsData.length === 0) {
-      mapContainerDiv.classList.add('disabled');
-      noSpatialDataSpan.classList.remove('display-none');
-      viewResultsSpan.classList.add('display-none');
-    } else {
-      mapResultsButton.removeAttribute('disabled');
-      mapContainerDiv.classList.remove('disabled');
-      noSpatialDataSpan.classList.add('display-none');
-      viewResultsSpan.classList.remove('display-none');
-    }
-    const boundingBoxInfo = document.getElementById('defra-bounding-box-info');
-
-    if (boundingBoxInfo && searchResults.total > maxCountForBoundingBoxInfo) {
-      boundingBoxInfo.style.display = 'block';
-    } else {
-      boundingBoxInfo.style.display = 'none';
-    }
-    mapResults = mapResultsData;
-    polygonFeatureData.length = 0;
-    setTimeout(() => {
-      drawBoundingBoxWithMarker(fitToMapExtentFlag, true);
-    }, 100);
-    attachBoundingBoxToggleListener();
-    // don't need to handle the `else` cases anymore as it start disabled by default
+  if (mapResultsData.length === 0) {
+    mapContainerDiv.classList.add('disabled');
+    noSpatialDataSpan.classList.remove('display-none');
+    viewResultsSpan.classList.add('display-none');
+  } else {
+    mapResultsButton.removeAttribute('disabled');
+    mapContainerDiv.classList.remove('disabled');
+    noSpatialDataSpan.classList.add('display-none');
+    viewResultsSpan.classList.remove('display-none');
   }
+  const boundingBoxInfo = document.getElementById('defra-bounding-box-info');
+
+  if (boundingBoxInfo && searchResults.total > maxCountForBoundingBoxInfo) {
+    boundingBoxInfo.style.display = 'block';
+  } else {
+    boundingBoxInfo.style.display = 'none';
+  }
+  mapResults = mapResultsData;
+  polygonFeatureData.length = 0;
+  setTimeout(() => {
+    drawBoundingBoxWithMarker(fitToMapExtentFlag, true);
+  }, 100);
+  attachBoundingBoxToggleListener();
+  // don't need to handle the `else` cases anymore as it start disabled by default
 };
 
 const getMapFilters = async (path) => {
