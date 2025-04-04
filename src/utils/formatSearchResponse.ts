@@ -138,7 +138,6 @@ export const transformSearchResponse = (response: ISearchResponse, isMapResults:
 
 export const formatSearchResponse = (payload: IMoreInfoSearchItem) => {
   const resourceUrl = getResourceLocatorURL(payload?.resources[0]?.url ?? '');
-  console.log('payload', payload);
   return {
     id: payload?.id,
     title: payload?.title ?? '',
