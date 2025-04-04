@@ -14,6 +14,7 @@ const mapResultsInstance = 'map_results';
 const index3 = 3;
 const precision = 6;
 const timeout = 200;
+const maxZoom = 16;
 const mapTarget = 'coordinate-map';
 const isDetailsScreen = typeof isDetails !== 'undefined' && isDetails;
 const hasCenter = typeof center !== 'undefined' && center;
@@ -1061,6 +1062,7 @@ function fitMapToExtent() {
     map.getView().fit(extent, {
       padding: [padding, padding, padding, padding],
       duration: 1000,
+      maxZoom,
     });
   }
   initialCenter = map.getView().getCenter();
