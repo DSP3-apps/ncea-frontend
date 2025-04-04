@@ -34,14 +34,17 @@ export const headerNavigationLinks = [
   {
     text: 'Home',
     href: `${BASE_PATH}`,
+    icon: 'home',
   },
   {
     text: 'About',
     href: `${BASE_PATH}${webRoutePaths.about}`,
+    icon: 'building',
   },
   {
     text: 'News Feed',
     href: `${BASE_PATH}${webRoutePaths.atom}`,
+    icon: 'feeds',
   },
 ];
 

@@ -4,6 +4,7 @@
 {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
 {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
 {% from "govuk/components/cookie-banner/macro.njk" import govukCookieBanner %}
+{% from "macros/header.njk" import header %}
 
 {% set htmlClasses = "app-html-class" %}
 {% set htmlLang = "en" %}
@@ -82,20 +83,9 @@
 
     {% set headerNavigators = [{html: loginElement}]%}
 
-    {{ govukHeader({
-      homepageUrl: "https://www.gov.uk/",
-      serviceName: serviceName,
-      serviceUrl: routes.homePage,
-      navigation: headerNavigators,
-      useTudorCrown: true,
-      classes: 'govuk-header--full-width-border',
-      menuButtonText: "User",
-      navigationId: "primaryMenu"
-    }) }}
-    {{ govukServiceNavigation({
-      navigation: headerNavigationLinks,
-      navigationId: "secondaryMenu"
-    }) }}
+    {% set homePage = routes.homePage %}
+
+    {{ header(loginElement, headerNavigationLinks, homePage) }}
   </header>
 {% endblock %}
 
