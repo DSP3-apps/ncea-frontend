@@ -537,6 +537,19 @@ function setNavigationLinkActive() {
   });
 }
 
+function headerMenuButtonHandler() {
+  const menuButton = document.querySelector('.menu-button');
+  const menu = document.getElementById(menuButton.getAttribute('aria-controls'));
+
+  menuButton.addEventListener('click', function () {
+    console.log('button clicked');
+    const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+
+    menuButton.setAttribute('aria-expanded', String(!isExpanded));
+    menu.classList.toggle('is-visible');
+  });
+}
+
 if (typeof Storage !== 'undefined') {
   document.addEventListener('DOMContentLoaded', () => {
     const forms = document.querySelectorAll('[data-do-browser-storage]');
@@ -562,6 +575,7 @@ if (typeof Storage !== 'undefined') {
     searchResultBackLinkHandler();
     toggleClassifierCheckbox();
     setNavigationLinkActive();
+    headerMenuButtonHandler();
     document.querySelector('.back-link-date') &&
       document.querySelector('.back-link-date').addEventListener('click', redirectToClassifierSearch);
 
