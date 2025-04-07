@@ -193,7 +193,7 @@ describe('Details route template', () => {
       it('should render the study periods details', async () => {
         expect(generalTabElement).toBeTruthy();
         expect(containerElement).toBeTruthy();
-        const rowElement = containerElement?.children?.[1];
+        const rowElement = containerElement?.children?.[2];
         const labelElement = rowElement?.children?.[0];
         const valueElement = rowElement?.children?.[1];
         expect(labelElement?.tagName.toLowerCase()).toBe('h2');
@@ -205,7 +205,7 @@ describe('Details route template', () => {
       it('should render the topic categories details', async () => {
         expect(generalTabElement).toBeTruthy();
         expect(containerElement).toBeTruthy();
-        const rowElement = containerElement?.children?.[2];
+        const rowElement = containerElement?.children?.[3];
         const labelElement = rowElement?.children?.[0];
         const valueElement = rowElement?.children?.[1];
         expect(labelElement?.tagName.toLowerCase()).toBe('h2');
@@ -217,7 +217,7 @@ describe('Details route template', () => {
       it('should render the keywords details', async () => {
         expect(generalTabElement).toBeTruthy();
         expect(containerElement).toBeTruthy();
-        const rowElement = containerElement?.children?.[3];
+        const rowElement = containerElement?.children?.[4];
         const labelElement = rowElement?.children?.[0];
         const valueElement = rowElement?.children?.[1];
         expect(labelElement?.tagName.toLowerCase()).toBe('h2');
@@ -229,7 +229,7 @@ describe('Details route template', () => {
       it('should render the language details', async () => {
         expect(generalTabElement).toBeTruthy();
         expect(containerElement).toBeTruthy();
-        const rowElement = containerElement?.children?.[4];
+        const rowElement = containerElement?.children?.[5];
         const labelElement = rowElement?.children?.[0];
         const valueElement = rowElement?.children?.[1];
         expect(labelElement?.tagName.toLowerCase()).toBe('h2');
@@ -384,7 +384,7 @@ describe('Details route template', () => {
       it('should render the study periods details', async () => {
         expect(generalTabElement).toBeTruthy();
         expect(containerElement).toBeTruthy();
-        const rowElement = containerElement?.children?.[1];
+        const rowElement = containerElement?.children?.[2];
         const labelElement = rowElement?.children?.[0];
         const valueElement = rowElement?.children?.[1];
         expect(labelElement?.tagName.toLowerCase()).toBe('h2');
@@ -396,7 +396,7 @@ describe('Details route template', () => {
       it('should render the topic categories details', async () => {
         expect(generalTabElement).toBeTruthy();
         expect(containerElement).toBeTruthy();
-        const rowElement = containerElement?.children?.[2];
+        const rowElement = containerElement?.children?.[3];
         const labelElement = rowElement?.children?.[0];
         const valueElement = rowElement?.children?.[1];
         expect(labelElement?.tagName.toLowerCase()).toBe('h2');
@@ -408,7 +408,7 @@ describe('Details route template', () => {
       it('should render the keywords details', async () => {
         expect(generalTabElement).toBeTruthy();
         expect(containerElement).toBeTruthy();
-        const rowElement = containerElement?.children?.[3];
+        const rowElement = containerElement?.children?.[4];
         const labelElement = rowElement?.children?.[0];
         const valueElement = rowElement?.children?.[1];
         expect(labelElement?.tagName.toLowerCase()).toBe('h2');
@@ -420,7 +420,7 @@ describe('Details route template', () => {
       it('should render the language details', async () => {
         expect(generalTabElement).toBeTruthy();
         expect(containerElement).toBeTruthy();
-        const rowElement = containerElement?.children?.[4];
+        const rowElement = containerElement?.children?.[5];
         const labelElement = rowElement?.children?.[0];
         const valueElement = rowElement?.children?.[1];
         expect(labelElement?.tagName.toLowerCase()).toBe('h2');
