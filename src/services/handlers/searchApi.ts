@@ -1,8 +1,6 @@
-import { CLASSIFIER_COUNT_LEVEL_2 } from './mocks/classifier-themes-level-2';
-import { CLASSIFIER_COUNT_LEVEL_3 } from './mocks/classifier-themes-level-3';
 import { QUICK_SEARCH_RESOURCE_TYPE_FILTERS, QUICK_SEARCH_STUDY_PERIOD_FILTERS } from './mocks/quick-search-filters';
-import { Credentials } from '../..//interfaces/auth';
 import { environmentConfig } from '../../config/environmentConfig';
+import { Credentials } from '../../interfaces/auth';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { IFilterFlags } from '../../interfaces/searchPayload.interface';
 import { IAggregationOptions, ISearchResponse, ISearchResults } from '../../interfaces/searchResponse.interface';
@@ -52,26 +50,26 @@ const getSearchResults = async (
 
 const getSearchResultsCount = async (
   searchFieldsObject: ISearchPayload,
-  level: number = 1,
+  credentials: Credentials,
+  filters: ISearchFiltersProcessed,
 ): Promise<{ totalResults: number }> => {
   try {
-    // const searchBuilderPayload: ISearchBuilderPayload = {
-    //   searchFieldsObject,
-    //   isCount: true,
-    // };
-    // const payload = generateSearchQuery(searchBuilderPayload);
     if (Object.keys(searchFieldsObject.fields).length) {
-      // const response = await performQuery<estypes.CountResponse>(payload, true);
+      const payload = generateSearchQuery(searchFieldsObject, filters);
+      const headers = credentials ? { Authorization: `Bearer ${credentials?.jwt}` } : null;
+      const agmApiResponse = await fetch(`${environmentConfig.searchApiUrl}`, {
+        method: 'POST',
+        ...(headers && { headers }),
+        body: JSON.stringify(payload),
+      });
 
-      // level 1 does not have a count as it's the first page
-      let response;
-      if (level === 2) {
-        response = CLASSIFIER_COUNT_LEVEL_2;
-      } else if (level === 3) {
-        response = CLASSIFIER_COUNT_LEVEL_3;
+      if (!agmApiResponse.ok) {
+        throw new Error(`Error fetching results: ${agmApiResponse.statusText}`);
       }
 
-      return { totalResults: response?.count ?? 0 };
+      const classifierSearchData = await agmApiResponse.json();
+
+      return { totalResults: classifierSearchData?.totalDocumentCount ?? 0 };
     } else {
       return Promise.resolve({ totalResults: 0 });
     }

@@ -14,6 +14,7 @@ import { HomeController } from '../../../src/controllers/web/HomeController';
 import { getSearchResultsCount } from '../../../src/services/handlers/searchApi';
 import { readQueryParams, upsertQueryParams } from '../../../src/utils/queryStringHelper';
 import { authSchema, jwtCookieName } from '../../../src/infrastructure/plugins/auth';
+import { requestMockData } from '../../data/requestData';
 
 jest.mock('../../../src/infrastructure/plugins/appinsights-logger', () => ({
   info: jest.fn(),
@@ -137,8 +138,10 @@ describe('Deals with Home Controller', () => {
         'to-date-year': '2023',
       };
       const request: Request = {
+        query: { level: '3', 'parent[]': 'lv2-001,lv2-002' },
         params: { step: guidedSearchSteps.date },
         payload: { ...dateFormFields },
+        ...requestMockData,
       } as any;
       const response: ResponseToolkit = { redirect: jest.fn() } as any;
       (getSearchResultsCount as jest.Mock).mockResolvedValue({

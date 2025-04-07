@@ -3,6 +3,7 @@
 import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 
 import { allowedRedirectHosts, jwtCookieName, jwtCookieOptions } from '../../infrastructure/plugins/auth';
+import { Credentials } from '../../interfaces/auth';
 import { IGuidedSearchStepsMatrix, IStepRouteMatrix } from '../../interfaces/guidedSearch.interface';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { getSearchResultsCount } from '../../services/handlers/searchApi';
@@ -14,6 +15,7 @@ import {
   queryParamKeys,
   webRoutePaths,
 } from '../../utils/constants';
+import { processDSPFilterOptions } from '../../utils/processFilterRSortOptions';
 import { generateCountPayload, readQueryParams, upsertQueryParams } from '../../utils/queryStringHelper';
 
 /**
@@ -51,7 +53,12 @@ const HomeController = {
         const queryString: string = readQueryParams(request.query, '', true);
         const queryBuilderSearchObject: ISearchPayload = generateCountPayload(request.query);
         try {
-          const searchResultsCount: { totalResults: number } = await getSearchResultsCount(queryBuilderSearchObject);
+          const processedDspFilterOptions = processDSPFilterOptions(request.query);
+          const searchResultsCount: { totalResults: number } = await getSearchResultsCount(
+            queryBuilderSearchObject,
+            request.auth.credentials as Credentials,
+            processedDspFilterOptions,
+          );
           if (searchResultsCount.totalResults > 0) {
             const queryString: string = upsertQueryParams(
               request.query,

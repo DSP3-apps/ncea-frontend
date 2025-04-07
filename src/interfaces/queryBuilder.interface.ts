@@ -170,6 +170,7 @@ interface IFilter {
 interface ISearchRequest {
   Query: {
     SearchTerms: string[];
+    CategorySearch: string[];
   };
   Filters: IFilter;
   ResultsPerPage: number;

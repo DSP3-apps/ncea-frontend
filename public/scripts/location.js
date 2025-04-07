@@ -14,6 +14,7 @@ const mapResultsInstance = 'map_results';
 const index3 = 3;
 const precision = 6;
 const timeout = 200;
+const maxZoom = 16;
 const mapTarget = 'coordinate-map';
 const isDetailsScreen = typeof isDetails !== 'undefined' && isDetails;
 const hasCenter = typeof center !== 'undefined' && center;
@@ -866,6 +867,43 @@ const getMapResults = async (path, fitToMapExtentFlag) => {
   }
 };
 
+const getMapResultsOnPageload = async (fitToMapExtentFlag) => {
+  const mapResultsButton = document.getElementById(mapResultsButtonId);
+  const mapResultsCount = document.getElementById(mapResultsCountId);
+  const noSpatialDataSpan = document.getElementById(noSpatialDataId);
+  const viewResultsSpan = document.getElementById(viewResultsId);
+  const mapContainerDiv = document.getElementById(mapContainerId);
+  const searchResults = window.searchResults;
+  const mapResultsData = filterMapResults(searchResults.items);
+
+  mapResultsCount.textContent = mapResultsData.length;
+
+  if (mapResultsData.length === 0) {
+    mapContainerDiv.classList.add('disabled');
+    noSpatialDataSpan.classList.remove('display-none');
+    viewResultsSpan.classList.add('display-none');
+  } else {
+    mapResultsButton.removeAttribute('disabled');
+    mapContainerDiv.classList.remove('disabled');
+    noSpatialDataSpan.classList.add('display-none');
+    viewResultsSpan.classList.remove('display-none');
+  }
+  const boundingBoxInfo = document.getElementById('defra-bounding-box-info');
+
+  if (boundingBoxInfo && searchResults.total > maxCountForBoundingBoxInfo) {
+    boundingBoxInfo.style.display = 'block';
+  } else {
+    boundingBoxInfo.style.display = 'none';
+  }
+  mapResults = mapResultsData;
+  polygonFeatureData.length = 0;
+  setTimeout(() => {
+    drawBoundingBoxWithMarker(fitToMapExtentFlag, true);
+  }, 100);
+  attachBoundingBoxToggleListener();
+  // don't need to handle the `else` cases anymore as it start disabled by default
+};
+
 const getMapFilters = async (path) => {
   const response = await invokeAjaxCall(path, {}, false, 'GET');
   if (response && response?.status === responseSuccessStatusCode) {
@@ -1024,6 +1062,7 @@ function fitMapToExtent() {
     map.getView().fit(extent, {
       padding: [padding, padding, padding, padding],
       duration: 1000,
+      maxZoom,
     });
   }
   initialCenter = map.getView().getCenter();
@@ -1134,7 +1173,7 @@ document.addEventListener('DOMContentLoaded', () => {
         geographyTabListener();
       }, timeout);
     } else if (isMapResultsScreen) {
-      invokeMapResults(true);
+      getMapResultsOnPageload(true);
       invokeMapFilters();
       exitMapEventListener();
       attachCluserListCloseListener();
