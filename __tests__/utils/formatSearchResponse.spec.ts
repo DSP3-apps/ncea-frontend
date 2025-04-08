@@ -113,6 +113,7 @@ describe('Format the search response', () => {
       ncea_catalogue_number: 'c9d7e118-d057-48f9-b520-76de8e51e014',
       host_catalogue_number: '17f1f7c2-0c92-4ec1-86ea-b4d67dbeb2cf',
       resourceWebsite: '',
+      nceaContribution: '',
     };
     expect(result).toEqual(expectedResponse);
   });

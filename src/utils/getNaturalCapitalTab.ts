@@ -6,7 +6,7 @@ import {
   NaturalCapitalSubCategory,
   NaturalCapitalTableItems,
 } from '../interfaces/searchResponse.interface';
-import { naturalTabStaticData, nceaClassifiersMockTableData } from '../utils/constants';
+import { naturalTabStaticData } from '../utils/constants';
 
 export const generateClassifierTable = (data: NaturalCapitalTableItems[]): string => {
   if (!Array.isArray(data) || data.length === 0) {
@@ -120,13 +120,34 @@ const createRow = (
     </tr>
   `;
 };
+// temp added the transform function, will remove it, once get the update from API
+export const transformNceaClassifierObj = (nceaClassfiersObj) => {
+  if (nceaClassfiersObj?.naturalCapitalTheme?.length > 0) {
+    return {
+      naturalCapitalThemes: nceaClassfiersObj?.naturalCapitalTheme?.map((theme) => ({
+        id: theme,
+        name: theme,
+        naturalCapitalCategory: nceaClassfiersObj?.naturalCapitalCategory?.map((category) => ({
+          id: category,
+          name: category,
+          naturalCapitalSubCategory: nceaClassfiersObj?.naturalCapitalSubCategory?.map((subCategory) => ({
+            id: subCategory,
+            name: subCategory,
+          })),
+        })),
+      })),
+    };
+  }
+  return {
+    naturalCapitalThemes: [],
+  };
+};
 
 const getNaturalTab = (payload): INatural => ({
   Natural_capital_title: naturalTabStaticData.title,
   Natural_capital_description: naturalTabStaticData.description,
   Natural_capital_displayData: generateClassifierTable(
-    payload?.nceaClassifiers?.naturalCapitalThemes ??
-      nceaClassifiersMockTableData?.nceaClassifiers?.naturalCapitalThemes,
+    transformNceaClassifierObj(payload?.nceaClassfiers).naturalCapitalThemes,
   ),
 });
 

@@ -157,6 +157,7 @@ export const defaultFilterOptions: IFilterOptions = [
 export const detailsTabOptions: TabOptions = {
   general: {
     Abstract: 'content',
+    nceaContribution: 'nceaContribution',
     'Study periods': 'studyPeriod',
     'Topic categories': 'topicCategories',
     Keywords: 'keywords',
