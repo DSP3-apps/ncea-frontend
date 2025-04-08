@@ -149,7 +149,7 @@ export const formatSearchResponse = (payload: IMoreInfoSearchItem) => {
     organisationName: payload?.organisation ?? '',
     ncea_group_reference: '',
     project_number: '',
-    nceaContribution: payload?.nceaContribution,
+    nceaContribution: payload?.nceaContribution?.toLowerCase(),
     resourceWebsite: validateUrl(resourceUrl) ? resourceUrl : '',
     ...getGeneralTabData(payload),
     ...getAccessTabData(payload),
