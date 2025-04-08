@@ -1,9 +1,15 @@
+import https from 'https';
+
 import { format, parseISO } from 'date-fns';
 import Parser from 'rss-parser';
 
 import { Feed, FeedArticle } from '../interfaces/feeds.interface';
 
-const parser = new Parser();
+const parser = new Parser({
+  requestOptions: {
+    agent: new https.Agent({ family: 4 }),
+  },
+});
 
 const isValidArticle = (item): item is FeedArticle =>
   typeof item.title === 'string' &&
