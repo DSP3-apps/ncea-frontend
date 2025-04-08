@@ -2,6 +2,7 @@
 {% from "govuk/components/select/macro.njk" import govukSelect %}
 {% from "govuk/components/pagination/macro.njk" import govukPagination %}
 {%- from "govuk/components/tag/macro.njk" import govukTag -%}
+{% from "macros/ncea-contribution.njk" import nceaContribution %}
 
 {# {% from 'partials/go_to_resource/macro.njk' import goToResource %} #}
 {% if hasError %}
@@ -127,6 +128,11 @@
         <p class='search-result__content'>
           {{ item.content | safe }}
         </p>
+
+        {% if item.nceaContribution %}
+          {{nceaContribution (assetPath, item.nceaContribution)}}
+        {% endif %}
+        
         <div class='govuk-button-group search-result__button-group'>
           {# {{ goToResource({ organisationName: item.organisationName, resourceLocator: item.resourceLocator, isDetailsPage: false }) }} #}
           {{ govukButton({

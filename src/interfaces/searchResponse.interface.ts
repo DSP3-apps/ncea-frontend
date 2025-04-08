@@ -227,6 +227,7 @@ export interface ISearchResult {
   mapping?: IGeometry;
   resource?: IResource;
   organisation?: string;
+  nceaContribution: string;
 }
 
 export interface ISearchResponse {
@@ -297,6 +298,7 @@ export interface IMoreInfoSearchItem extends IGeographyItem, IQualityItem, IGene
   temporalExtent: ITemporalExtent;
   license: ILicenseItem;
   organisation?: string;
+  nceaContribution: string;
 }
 
 export interface NaturalCapitalSubCategory {

@@ -93,6 +93,7 @@ export const transformSearchResponse = (response: ISearchResponse, isMapResults:
       organisationName: '',
       publishedBy: result?.organisation ?? '',
       resourceType: ['dataset'],
+      nceaContribution: result?.nceaContribution?.toLowerCase(),
     };
 
     if (isMapResults && result?.mapping) {
@@ -148,6 +149,7 @@ export const formatSearchResponse = (payload: IMoreInfoSearchItem) => {
     organisationName: payload?.organisation ?? '',
     ncea_group_reference: '',
     project_number: '',
+    nceaContribution: payload?.nceaContribution?.toLowerCase(),
     resourceWebsite: validateUrl(resourceUrl) ? resourceUrl : '',
     ...getGeneralTabData(payload),
     ...getAccessTabData(payload),

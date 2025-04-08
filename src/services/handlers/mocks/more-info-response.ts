@@ -106,4 +106,5 @@ export const MORE_INFO_MOCK_DATA = {
     publicUseOtherContraints: null,
     frequencyOfUpdate: 'unknown',
   },
+  nceaContribution: '',
 };
