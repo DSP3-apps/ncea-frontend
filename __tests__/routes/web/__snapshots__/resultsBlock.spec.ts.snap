@@ -27,7 +27,7 @@ exports[`Results block template Guided search journey Search results with empty 
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta name="version" content="v1.18.1">
+  <meta name="version" content="v1.19.0">
 
   <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
   
@@ -235,7 +235,7 @@ exports[`Results block template Guided search journey Search results with empty 
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A41923%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A43393%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -2138,6 +2138,7 @@ data-module="govuk-service-navigation"
     <script src="/natural-capital-ecosystem-assessment/assets/scripts/ol.js"></script>
     <script>
       var isViewMapResults = true;
+      window.searchResults = {"total":0,"items":[],"hasSpatialData":false}
     </script>
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/location.js"></script>
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/filters.js"></script>
@@ -2178,7 +2179,7 @@ exports[`Results block template Guided search journey Search results with error 
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta name="version" content="v1.18.1">
+  <meta name="version" content="v1.19.0">
 
   <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
   
@@ -2386,7 +2387,7 @@ exports[`Results block template Guided search journey Search results with error 
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A36313%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A34617%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -3097,6 +3098,7 @@ data-module="govuk-service-navigation"
     <script src="/natural-capital-ecosystem-assessment/assets/scripts/ol.js"></script>
     <script>
       var isViewMapResults = true;
+      window.searchResults = 
     </script>
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/location.js"></script>
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/filters.js"></script>
@@ -3137,7 +3139,7 @@ exports[`Results block template Quick search journey Search results with data sh
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta name="version" content="v1.18.1">
+  <meta name="version" content="v1.19.0">
 
   <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
   
@@ -3345,7 +3347,7 @@ exports[`Results block template Quick search journey Search results with data sh
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A44365%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33097%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -5469,6 +5471,7 @@ data-module="govuk-service-navigation"
     <script src="/natural-capital-ecosystem-assessment/assets/scripts/ol.js"></script>
     <script>
       var isViewMapResults = true;
+      window.searchResults = {"total":2,"items":[{"id":"1","title":"Title 1","publishedBy":"Organization 1","content":"Content 1","studyPeriodStart":"04 Jan 1960","resourceLocator":"","ncea_catalogue_number":"af7cd14f-6c20-445f-abd0-7c41385ba999","host_catalogue_number":"https://seabed.admiralty.co.uk af7cd14f-6c20-445f-abd0-7c41385ba999","host_catalogue_entry":"https://seabed.admiralty.co.uk","resource_type_and_hierarchy":"dataset","resource_locators":"Download from Seabed Mapping Service (https://seabed.admiralty.co.uk)"},{"id":"2","title":"Title 2","publishedBy":"Organization 2","content":"Content 2","studyPeriodStart":"04 Jan 1950","studyPeriodEnd":"12 Jan 2009","resourceLocator":"","ncea_catalogue_number":"ac7db62c-1908-48a3-a4be-8ca8526b4948","host_catalogue_number":"https://seabed.admiralty.co.uk ac7db62c-1908-48a3-a4be-8ca8526b4948","host_catalogue_entry":"","resource_type_and_hierarchy":"dataset","resource_locators":"Download from Seabed Mapping Service (https://seabed.admiralty.co.uk)"}],"hasSpatialData":false}
     </script>
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/location.js"></script>
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/filters.js"></script>
@@ -5509,7 +5512,7 @@ exports[`Results block template Quick search journey Search results with empty d
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta name="version" content="v1.18.1">
+  <meta name="version" content="v1.19.0">
 
   <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
   
@@ -5717,7 +5720,7 @@ exports[`Results block template Quick search journey Search results with empty d
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A44055%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A34611%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -7620,6 +7623,7 @@ data-module="govuk-service-navigation"
     <script src="/natural-capital-ecosystem-assessment/assets/scripts/ol.js"></script>
     <script>
       var isViewMapResults = true;
+      window.searchResults = {"total":0,"items":[],"hasSpatialData":false}
     </script>
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/location.js"></script>
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/filters.js"></script>
@@ -7660,7 +7664,7 @@ exports[`Results block template Quick search journey Search results with error s
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta name="version" content="v1.18.1">
+  <meta name="version" content="v1.19.0">
 
   <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
   
@@ -7868,7 +7872,7 @@ exports[`Results block template Quick search journey Search results with error s
           
           <li class="govuk-header__navigation-item">
             
-              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A38889%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
+              <span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A44483%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link'>Login</a></span>
             
           </li>
           
@@ -8579,6 +8583,7 @@ data-module="govuk-service-navigation"
     <script src="/natural-capital-ecosystem-assessment/assets/scripts/ol.js"></script>
     <script>
       var isViewMapResults = true;
+      window.searchResults = 
     </script>
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/location.js"></script>
     <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/filters.js"></script>
