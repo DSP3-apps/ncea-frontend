@@ -104,8 +104,6 @@ const customHapiViews = {
       appVersion: packageJson.version,
       keyboardFiltersBaseUrl: environmentConfig.keyboardFiltersBaseUrl,
       headerNavigationLinks: headerNavigationLinks,
-      eaHomeUrl: environmentConfig.eaHomeUrl,
-      defraHomeUrl: environmentConfig.defraHomeUrl,
     },
   },
 };

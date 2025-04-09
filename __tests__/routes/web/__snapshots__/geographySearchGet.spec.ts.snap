@@ -205,7 +205,7 @@ exports[`Guided Search - Geography Questionnaire Screen GET Request Geography Qu
           class="govuk-link defra-logo" 
           target="_blanck"
           ref="noopener noreferrer"
-          href=
+          href="https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs"
         >
           <span class="icon">
   
@@ -243,7 +243,7 @@ exports[`Guided Search - Geography Questionnaire Screen GET Request Geography Qu
         <span class="navLinks">
           <a 
             class="govuk-link ea-logo"
-            href=
+            href="https://www.gov.uk/government/organisations/environment-agency"
           >
             <span class="icon">
   

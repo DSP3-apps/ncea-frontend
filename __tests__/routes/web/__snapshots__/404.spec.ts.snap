@@ -202,7 +202,7 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
           class="govuk-link defra-logo" 
           target="_blanck"
           ref="noopener noreferrer"
-          href=
+          href="https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs"
         >
           <span class="icon">
   
@@ -240,7 +240,7 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
         <span class="navLinks">
           <a 
             class="govuk-link ea-logo"
-            href=
+            href="https://www.gov.uk/government/organisations/environment-agency"
           >
             <span class="icon">
   

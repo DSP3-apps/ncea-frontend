@@ -108,8 +108,6 @@ describe('Vision Plugin Configuration', () => {
           icon: 'feeds',
         },
       ],
-      eaHomeUrl: environmentConfig.eaHomeUrl,
-      defraHomeUrl: environmentConfig.defraHomeUrl,
     });
     expect(mockEnvironment.addFilter).toHaveBeenCalledTimes(2);
   });

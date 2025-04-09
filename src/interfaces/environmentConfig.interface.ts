@@ -12,6 +12,4 @@ export interface EnvironmentConfig {
   keyboardFiltersBaseUrl?: string | undefined;
   auth0JwtEnv?: string;
   searchApiUrl: string;
-  eaHomeUrl?: string;
-  defraHomeUrl?: string;
 }
