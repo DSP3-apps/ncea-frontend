@@ -52,4 +52,10 @@ export const environmentSchema: Joi.ObjectSchema = Joi.object({
   searchApiUrl: Joi.string().uri().allow('').default('').messages({
     'string.uri': 'Search API must be a valid URL',
   }),
+  eaHomeUrl: Joi.string().uri().allow('').default('').messages({
+    'string.uri': 'EA home URL must be a valid URL',
+  }),
+  defraHomeUrl: Joi.string().uri().allow('').default('').messages({
+    'string.uri': 'Defra home URL must be a valid URL',
+  }),
 });

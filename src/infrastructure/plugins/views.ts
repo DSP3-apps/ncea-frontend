@@ -80,6 +80,7 @@ const customHapiViews = {
       serviceName: 'Find natural capital data',
       pageTitle: 'About the Natural Capital Ecosystem Assessment - NCEA – programme',
       routes: {
+        rootPath: '/',
         homePage: `${BASE_PATH}`,
         searchResults: `${BASE_PATH}${searchResults}`,
         guidedSearch: `${BASE_PATH}${guidedSearch}`,
@@ -103,6 +104,8 @@ const customHapiViews = {
       appVersion: packageJson.version,
       keyboardFiltersBaseUrl: environmentConfig.keyboardFiltersBaseUrl,
       headerNavigationLinks: headerNavigationLinks,
+      eaHomeUrl: environmentConfig.eaHomeUrl,
+      defraHomeUrl: environmentConfig.defraHomeUrl,
     },
   },
 };

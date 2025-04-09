@@ -200,7 +200,9 @@ exports[`Guided Search - Date Questionnaire Screen Guided Search > Date Question
       <h1 class="navLinks">
         <a 
           class="govuk-link defra-logo" 
-          href="https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs"
+          target="_blanck"
+          ref="noopener noreferrer"
+          href=
         >
           <span class="icon">
   
@@ -215,7 +217,9 @@ exports[`Guided Search - Date Questionnaire Screen Guided Search > Date Question
        <span class="navLinks service-name">
         <a 
           class="govuk-link"
-          href="https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs"
+          target="_blanck"
+          ref="noopener noreferrer"
+          href=/
          >
           
   
@@ -236,7 +240,7 @@ exports[`Guided Search - Date Questionnaire Screen Guided Search > Date Question
         <span class="navLinks">
           <a 
             class="govuk-link ea-logo"
-            href="https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs"
+            href=
           >
             <span class="icon">
   
@@ -321,7 +325,7 @@ exports[`Guided Search - Date Questionnaire Screen Guided Search > Date Question
   
   
   
-  <svg stroke="currentColor" fill="currentColor" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M436 480h-20V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v456H12c-6.627 0-12 5.373-12 12v20h448v-20c0-6.627-5.373-12-12-12zM128 76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76zm0 96c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40zm52 148h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12zm76 160h-64v-84c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v84zm64-172c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40z"></path></svg>
+  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path></svg>
 
             <span>About</span>
             </a>
@@ -359,7 +363,7 @@ exports[`Guided Search - Date Questionnaire Screen Guided Search > Date Question
   
   
   
-  <svg stroke="currentColor" fill="currentColor" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M436 480h-20V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v456H12c-6.627 0-12 5.373-12 12v20h448v-20c0-6.627-5.373-12-12-12zM128 76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76zm0 96c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40zm52 148h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12zm76 160h-64v-84c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v84zm64-172c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40z"></path></svg>
+  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path></svg>
 
            <span>About</span>
           </a>
@@ -882,31 +886,71 @@ exports[`Guided Search - Date Questionnaire Screen Guided Search > Date Question
         <ul class="govuk-footer__inline-list">
         
           <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275810340/275810354">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275810340/275810354"
+    
+        
+      
+    
+        
+      
+    
+   target="_blanck" rel="noopener noreferrer">
               Accessibility statement
             </a>
           </li>
         
           <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="https://environment.data.gov.uk/help/cookies">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/help/cookies"
+    
+        
+      
+    
+        
+      
+    
+   target="_blanck" rel="noopener noreferrer">
               Cookie Policy
             </a>
           </li>
         
           <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275811163/275811177">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275811163/275811177"
+    
+        
+      
+    
+        
+      
+    
+   target="_blanck" rel="noopener noreferrer">
               Terms and conditions
             </a>
           </li>
         
           <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275811163/275811229">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support/faqs/275811163/275811229"
+    
+        
+      
+    
+        
+      
+    
+   target="_blanck" rel="noopener noreferrer">
               Privacy
             </a>
           </li>
         
           <li class="govuk-footer__inline-list-item">
-            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support">
+            <a class="govuk-footer__link" href="https://environment.data.gov.uk/support"
+    
+        
+      
+    
+        
+      
+    
+   target="_blanck" rel="noopener noreferrer">
               Support
             </a>
           </li>
@@ -946,7 +990,7 @@ exports[`Guided Search - Date Questionnaire Screen Guided Search > Date Question
           href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
         >
         
-          © Crown copyright
+          © Crown Copyright 2025
         
         </a>
       </div>

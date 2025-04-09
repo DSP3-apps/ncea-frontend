@@ -56,6 +56,8 @@ describe('Environment Configuration Schema', () => {
         keyboardFiltersBaseUrl: '',
         auth0JwtEnv: 'test',
         searchApiUrl: 'https://example.com/api',
+        eaHomeUrl: 'https://example.com',
+        defraHomeUrl: 'https://example.com',
       };
 
       const { error, value } = environmentSchema.validate(validConfig);

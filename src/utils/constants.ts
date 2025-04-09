@@ -39,7 +39,7 @@ export const headerNavigationLinks = [
   {
     text: 'About',
     href: `${BASE_PATH}${webRoutePaths.about}`,
-    icon: 'building',
+    icon: 'info',
   },
   {
     text: 'News Feed',

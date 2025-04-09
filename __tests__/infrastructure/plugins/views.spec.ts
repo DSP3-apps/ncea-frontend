@@ -68,6 +68,7 @@ describe('Vision Plugin Configuration', () => {
       serviceName: 'Find natural capital data',
       pageTitle: 'About the Natural Capital Ecosystem Assessment - NCEA – programme',
       routes: {
+        rootPath: '/',
         homePage: `${BASE_PATH}`,
         searchResults: `${BASE_PATH}${searchResults}`,
         guidedSearch: `${BASE_PATH}${guidedSearch}`,
@@ -99,7 +100,7 @@ describe('Vision Plugin Configuration', () => {
         {
           text: 'About',
           href: `${BASE_PATH}${webRoutePaths.about}`,
-          icon: 'building',
+          icon: 'info',
         },
         {
           text: 'News Feed',
@@ -107,6 +108,8 @@ describe('Vision Plugin Configuration', () => {
           icon: 'feeds',
         },
       ],
+      eaHomeUrl: environmentConfig.eaHomeUrl,
+      defraHomeUrl: environmentConfig.defraHomeUrl,
     });
     expect(mockEnvironment.addFilter).toHaveBeenCalledTimes(2);
   });

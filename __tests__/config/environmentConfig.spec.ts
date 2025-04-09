@@ -48,7 +48,7 @@ describe('Environment environmentConfig', () => {
       const { environmentConfig } = require('../../src/config/environmentConfig');
       expect(environmentConfig).toBeDefined();
       expect(typeof environmentConfig).toBe('object');
-      expect(Object.keys(environmentConfig).length).toBe(13);
+      expect(Object.keys(environmentConfig).length).toBe(15);
     });
 
     it('should validate and export the configuration object', () => {
@@ -62,6 +62,8 @@ describe('Environment environmentConfig', () => {
         WEBDOMAIN: '',
         KEYBOARD_FILTER_LOCAL_BASE_URL: '',
         AUTH0_JWT_ENV: 'test',
+        EA_HOME_URL: 'https://www.gov.uk/government/organisations/environment-agency',
+        DEFRA_HOME_URL: 'https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs',
       };
       process.env = { ...mockConfig };
 
@@ -81,6 +83,8 @@ describe('Environment environmentConfig', () => {
         keyboardFiltersBaseUrl: Joi.string().allow('').default(''),
         auth0JwtEnv: Joi.string().allow('').default(''),
         searchApiUrl: Joi.string().allow('').default(''),
+        eaHomeUrl: Joi.string().allow('').default(''),
+        defraHomeUrl: Joi.string().allow('').default(''),
       });
 
       const { environmentConfig } = require('../../src/config/environmentConfig');

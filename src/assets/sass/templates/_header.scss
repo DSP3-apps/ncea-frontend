@@ -111,6 +111,7 @@
     .service-name {
       text-align: center;
       font-size: 19px;
+      justify-content: center;
     }
 
     .service-links {
@@ -144,7 +145,7 @@
     background-color: rgb(255 255 255);
     z-index: 11;
     right: 0;
-    gap: 5px;
+    gap: 0px;
     overflow: hidden;
     box-shadow:
       0 0 #0000,
@@ -188,6 +189,7 @@
           align-items: center;
           .icon svg {
             width: 56px;
+            height: 45.69px;
           }
         }
       }

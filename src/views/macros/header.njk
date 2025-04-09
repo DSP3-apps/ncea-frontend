@@ -1,12 +1,14 @@
 {% from "macros/icons/icon.njk" import icon %}
 
-{% macro header(loginElement, headerNavigationLinks, homePage) %}
+{% macro header(loginElement, headerNavigationLinks, homePage, rootPath, eaHomeUrl, defraHomeUrl) %}
   <header class="header">
     <div class="header__primary">
       <h1 class="navLinks">
         <a 
           class="govuk-link defra-logo" 
-          href="https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs"
+          target="_blanck"
+          ref="noopener noreferrer"
+          href={{ defraHomeUrl }}
         >
           <span class="icon">{{icon("defra-logo", { })}}</span>
           <span>Department for Environment Food & Rural Affairs</span>
@@ -15,7 +17,9 @@
        <span class="navLinks service-name">
         <a 
           class="govuk-link"
-          href="https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs"
+          target="_blanck"
+          ref="noopener noreferrer"
+          href={{ rootPath }}
          >
           {{icon("house", { })}}
           <span class="text">Data Services Platform</span>
@@ -28,7 +32,7 @@
         <span class="navLinks">
           <a 
             class="govuk-link ea-logo"
-            href="https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs"
+            href={{eaHomeUrl}}
           >
             <span class="icon">{{icon("ea-logo", { })}}</span>
           </a> 

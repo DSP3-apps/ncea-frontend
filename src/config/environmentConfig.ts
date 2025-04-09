@@ -26,6 +26,8 @@ const config: EnvironmentConfig = {
   keyboardFiltersBaseUrl: process.env.KEYBOARD_FILTER_LOCAL_BASE_URL || '',
   auth0JwtEnv: process.env.AUTH0_JWT_ENV,
   searchApiUrl: process.env.SEARCH_API ?? '',
+  eaHomeUrl: process.env.EA_HOME_URL ?? '',
+  defraHomeUrl: process.env.DEFRA_HOME_URL ?? '',
 };
 
 const { error, value } = environmentSchema.validate(config);
