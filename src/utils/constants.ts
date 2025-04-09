@@ -281,11 +281,11 @@ export const jwtCookiePrefix = 'auth0-jwt-';
 
 export const atomFeeds = [
   {
-    title: 'Defra',
+    title: 'Defra - NCEA',
     url: 'https://defraenvironment.blog.gov.uk/category/ncea-programme/feed/',
   },
   {
-    title: 'Natural England',
+    title: 'Natural England - NCEA',
     url: 'https://naturalengland.blog.gov.uk/category/natural-capital/feed/',
   },
 ];
