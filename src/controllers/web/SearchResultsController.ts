@@ -181,7 +181,7 @@ const SearchResultsController = {
       const queryString: string = readQueryParams(request.query);
       const detailsTabOptions: FormattedTabOptions = await processDetailsTabData(docDetails);
       return response.view('screens/details/template', {
-        pageTitle: pageTitles.generalTab,
+        pageTitle: docDetails.title,
         docDetails,
         detailsTabOptions,
         queryString,
