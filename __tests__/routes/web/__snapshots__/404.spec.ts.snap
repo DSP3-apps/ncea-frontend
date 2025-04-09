@@ -229,7 +229,7 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
           <span class="text">Data Services Platform</span>
         </a> 
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=undefined' class='govuk-link'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=undefined' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">

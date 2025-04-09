@@ -229,7 +229,7 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
           <span class="text">Data Services Platform</span>
         </a> 
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F0.0.0.0%3A4000%2Fnatural-capital-ecosystem-assessment%2Fnewsfeed' class='govuk-link'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F0.0.0.0%3A4000%2Fnatural-capital-ecosystem-assessment%2Fnewsfeed' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">
