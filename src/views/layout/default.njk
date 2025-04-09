@@ -76,10 +76,10 @@
       {% set redirectPart = "?redirect_uri=" + redirectUri %}
     {% endif %}
 
-    {% set loginElement = "<span>Welcome, Guest&nbsp; <a href='" + loginUrl + redirectPart + "' class='govuk-link'>Login</a></span>" %}
+    {% set loginElement = "<span>Welcome, Guest&nbsp; <a href='" + loginUrl + redirectPart + "' class='govuk-link divider'>Login</a></span>" %}
 
     {% if user.email %}
-      {% set loginElement = "<span>Welcome, " + user.email + "&nbsp; <a href='" + routes.logOut + redirectPart + "' class='govuk-link'>Logout</a></span>" %}
+      {% set loginElement = "<span>Welcome, " + user.email + "&nbsp; <a href='" + routes.logOut + redirectPart + "' class='govuk-link divider'>Logout</a></span>" %}
     {% endif %}
 
     {% set headerNavigators = [{html: loginElement}]%}
