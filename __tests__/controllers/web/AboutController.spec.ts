@@ -25,7 +25,7 @@ describe('AboutController.AboutController', () => {
   });
 
   it('should render the landing page view if feeds API returns a successfull response', async () => {
-    const feedData = { title: 'latest news', articles: [] };
+    const feedData = { title: 'Latest news', articles: [] };
     (getFeedsData as jest.Mock).mockResolvedValueOnce(feedData);
 
     const dummyResponse: ResponseObject = {} as ResponseObject;
