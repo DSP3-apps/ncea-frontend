@@ -1,0 +1,81 @@
+{% from "macros/icons/icon.njk" import icon %}
+
+{% macro header(loginElement, headerNavigationLinks, homePage, rootPath) %}
+  <header class="header">
+    <div class="header__primary">
+      <h1 class="navLinks">
+        <a 
+          class="govuk-link defra-logo" 
+          target="_blank"
+          ref="noopener noreferrer"
+          href="https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs"
+        >
+          <span class="icon">{{icon("defra-logo", { })}}</span>
+          <span>Department for Environment Food & Rural Affairs</span>
+        </a> 
+        </h1>
+       <span class="navLinks service-name">
+        <a 
+          class="govuk-link"
+          target="_blank"
+          ref="noopener noreferrer"
+          href="{{ rootPath }}"
+         >
+          {{icon("house", { })}}
+          <span class="text">Data Services Platform</span>
+        </a> 
+       </span>
+        <div class="navLinks service-links">{{loginElement | safe}}</div>
+    </div>
+
+    <div class="header__secondary">
+        <span class="navLinks">
+          <a 
+            class="govuk-link ea-logo"
+            href="https://www.gov.uk/government/organisations/environment-agency"
+          >
+            <span class="icon">{{icon("ea-logo", { })}}</span>
+          </a> 
+        </span>
+        <h2 class="navLinks secondary__navLinks service-name">
+          <a 
+           class=" govuk-link" 
+           href="{{homePage}}"
+          >
+           Natural capital
+          </a> 
+        </h2>
+        <div class="relative mobile-only">
+          <button
+            class="menu-button"
+            arial-expanded="false" 
+            aria-controls="main-navigation"
+          >
+            Menu {{icon("down-arrow", { })}}
+          </button>
+          <nav 
+            class="navLinks secondary__navLinks menu-options" 
+            id="main-navigation"
+            hidden="true"
+          >
+          {% for navLink in headerNavigationLinks %}
+            <a class="govuk-link" href={{navLink.href}}>
+            {{icon(navLink.icon, { })}}
+            <span>{{navLink.text}}</span>
+            </a>
+          {% endfor %}
+          </nav>
+        </div>
+        
+        <nav class="navLinks secondary__navLinks service-links">
+         {% for navLink in headerNavigationLinks %}
+          <a class="govuk-link" href={{navLink.href}}>
+           {{icon(navLink.icon, { })}}
+           <span>{{navLink.text}}</span>
+          </a>
+         {% endfor %}
+        </nav>
+        
+    </div>
+  </header>
+{% endmacro %}
