@@ -1,3 +1,20 @@
+# [1.20.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.19.0...v1.20.0) (2025-04-10)
+
+
+### Bug Fixes
+
+* **blogs:** Ensure blog fetching uses IPv4 ([8ca207e](https://github.com/DSP3-apps/ncea-frontend/commit/8ca207e590c29abb4340ead8fe280ad46d3bb4d8))
+* **pagination:** Page number getting NaN ([b6337b1](https://github.com/DSP3-apps/ncea-frontend/commit/b6337b168020282d7369e0766435abc85e4458b8))
+
+
+### Features
+
+* **Header update:** Update the Header section same as DSP Apps ([3e50308](https://github.com/DSP3-apps/ncea-frontend/commit/3e50308ff9e2d8a3ef3822bf66d70a98046b23b5))
+* **header:** Header and footer fixes ([6cfd3b1](https://github.com/DSP3-apps/ncea-frontend/commit/6cfd3b1d924917027c171c681df8be0fce879e6a))
+* **header:** Header and footer fixes ([a10e22f](https://github.com/DSP3-apps/ncea-frontend/commit/a10e22feefe82fb32dc6cf922e6fb1f1f3a00004))
+* **ncea-contribution-attribute:** Add nceaContribution section based on the nceaContribution new attribute ([56d77ee](https://github.com/DSP3-apps/ncea-frontend/commit/56d77eef2dc2463cecdf12a2d087ca3f62e0845a))
+* **ncea-details-page:** Add dataset name to the page title along with tab name ([b0fc265](https://github.com/DSP3-apps/ncea-frontend/commit/b0fc265ef81d460ce28d8f39226d416f9320a707))
+
 # [1.19.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.18.1...v1.19.0) (2025-04-04)
 
 
