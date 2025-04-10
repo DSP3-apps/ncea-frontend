@@ -48,6 +48,7 @@
     {% if nextLevel > 3 %}
       <input type="hidden" name="srt" value="most_relevant"/>
       <input type="hidden" name="rpp" value="20"/>
+      <input type="hidden" name="pg" value="1"/>
     {% endif %}
     <input type="hidden" name="level" value="{% if nextLevel > 3 %}3{% else %}{{ nextLevel }}{% endif %}"/>
     <div class="govuk-grid-column-full govuk-!-padding-top-6">
