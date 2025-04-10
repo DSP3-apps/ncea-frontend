@@ -200,7 +200,7 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
       <h1 class="navLinks">
         <a 
           class="govuk-link defra-logo" 
-          target="_blanck"
+          target="_blank"
           ref="noopener noreferrer"
           href="https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs"
         >
@@ -217,9 +217,9 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
        <span class="navLinks service-name">
         <a 
           class="govuk-link"
-          target="_blanck"
+          target="_blank"
           ref="noopener noreferrer"
-          href=/
+          href="/"
          >
           
   
@@ -599,7 +599,7 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Accessibility statement
             </a>
           </li>
@@ -613,7 +613,7 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Cookie Policy
             </a>
           </li>
@@ -627,7 +627,7 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Terms and conditions
             </a>
           </li>
@@ -641,7 +641,7 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Privacy
             </a>
           </li>
@@ -655,7 +655,7 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Support
             </a>
           </li>

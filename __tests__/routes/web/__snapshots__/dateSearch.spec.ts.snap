@@ -200,7 +200,7 @@ exports[`Guided Search - Date Questionnaire Screen Guided Search > Date Question
       <h1 class="navLinks">
         <a 
           class="govuk-link defra-logo" 
-          target="_blanck"
+          target="_blank"
           ref="noopener noreferrer"
           href="https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs"
         >
@@ -217,9 +217,9 @@ exports[`Guided Search - Date Questionnaire Screen Guided Search > Date Question
        <span class="navLinks service-name">
         <a 
           class="govuk-link"
-          target="_blanck"
+          target="_blank"
           ref="noopener noreferrer"
-          href=/
+          href="/"
          >
           
   
@@ -894,7 +894,7 @@ exports[`Guided Search - Date Questionnaire Screen Guided Search > Date Question
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Accessibility statement
             </a>
           </li>
@@ -908,7 +908,7 @@ exports[`Guided Search - Date Questionnaire Screen Guided Search > Date Question
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Cookie Policy
             </a>
           </li>
@@ -922,7 +922,7 @@ exports[`Guided Search - Date Questionnaire Screen Guided Search > Date Question
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Terms and conditions
             </a>
           </li>
@@ -936,7 +936,7 @@ exports[`Guided Search - Date Questionnaire Screen Guided Search > Date Question
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Privacy
             </a>
           </li>
@@ -950,7 +950,7 @@ exports[`Guided Search - Date Questionnaire Screen Guided Search > Date Question
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Support
             </a>
           </li>

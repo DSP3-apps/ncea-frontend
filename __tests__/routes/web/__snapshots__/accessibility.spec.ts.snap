@@ -200,7 +200,7 @@ exports[`Accessibility Screen Accessibility > Sanpshot verification should match
       <h1 class="navLinks">
         <a 
           class="govuk-link defra-logo" 
-          target="_blanck"
+          target="_blank"
           ref="noopener noreferrer"
           href="https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs"
         >
@@ -217,9 +217,9 @@ exports[`Accessibility Screen Accessibility > Sanpshot verification should match
        <span class="navLinks service-name">
         <a 
           class="govuk-link"
-          target="_blanck"
+          target="_blank"
           ref="noopener noreferrer"
-          href=/
+          href="/"
          >
           
   
@@ -233,7 +233,7 @@ exports[`Accessibility Screen Accessibility > Sanpshot verification should match
           <span class="text">Data Services Platform</span>
         </a> 
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33487%2Fnatural-capital-ecosystem-assessment%2Faccessibility-statement' class='govuk-link divider'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A35933%2Fnatural-capital-ecosystem-assessment%2Faccessibility-statement' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">
@@ -482,7 +482,7 @@ exports[`Accessibility Screen Accessibility > Sanpshot verification should match
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Accessibility statement
             </a>
           </li>
@@ -496,7 +496,7 @@ exports[`Accessibility Screen Accessibility > Sanpshot verification should match
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Cookie Policy
             </a>
           </li>
@@ -510,7 +510,7 @@ exports[`Accessibility Screen Accessibility > Sanpshot verification should match
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Terms and conditions
             </a>
           </li>
@@ -524,7 +524,7 @@ exports[`Accessibility Screen Accessibility > Sanpshot verification should match
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Privacy
             </a>
           </li>
@@ -538,7 +538,7 @@ exports[`Accessibility Screen Accessibility > Sanpshot verification should match
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Support
             </a>
           </li>

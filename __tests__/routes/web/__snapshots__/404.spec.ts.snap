@@ -200,7 +200,7 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
       <h1 class="navLinks">
         <a 
           class="govuk-link defra-logo" 
-          target="_blanck"
+          target="_blank"
           ref="noopener noreferrer"
           href="https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs"
         >
@@ -217,9 +217,9 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
        <span class="navLinks service-name">
         <a 
           class="govuk-link"
-          target="_blanck"
+          target="_blank"
           ref="noopener noreferrer"
-          href=/
+          href="/"
          >
           
   
@@ -451,7 +451,7 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Accessibility statement
             </a>
           </li>
@@ -465,7 +465,7 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Cookie Policy
             </a>
           </li>
@@ -479,7 +479,7 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Terms and conditions
             </a>
           </li>
@@ -493,7 +493,7 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Privacy
             </a>
           </li>
@@ -507,7 +507,7 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Support
             </a>
           </li>

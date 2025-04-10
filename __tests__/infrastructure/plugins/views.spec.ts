@@ -108,6 +108,7 @@ describe('Vision Plugin Configuration', () => {
           icon: 'feeds',
         },
       ],
+      currentYear: new Date().getFullYear(),
     });
     expect(mockEnvironment.addFilter).toHaveBeenCalledTimes(2);
   });

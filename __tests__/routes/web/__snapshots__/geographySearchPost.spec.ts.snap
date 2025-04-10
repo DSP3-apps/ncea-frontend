@@ -203,7 +203,7 @@ exports[`Guided Search - Geography Questionnaire Screen POST Request HTML elemen
       <h1 class="navLinks">
         <a 
           class="govuk-link defra-logo" 
-          target="_blanck"
+          target="_blank"
           ref="noopener noreferrer"
           href="https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs"
         >
@@ -220,9 +220,9 @@ exports[`Guided Search - Geography Questionnaire Screen POST Request HTML elemen
        <span class="navLinks service-name">
         <a 
           class="govuk-link"
-          target="_blanck"
+          target="_blank"
           ref="noopener noreferrer"
-          href=/
+          href="/"
          >
           
   
@@ -236,7 +236,7 @@ exports[`Guided Search - Geography Questionnaire Screen POST Request HTML elemen
           <span class="text">Data Services Platform</span>
         </a> 
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A42183%2Fnatural-capital-ecosystem-assessment%2Fcoordinate-search' class='govuk-link divider'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A37353%2Fnatural-capital-ecosystem-assessment%2Fcoordinate-search' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">
@@ -739,7 +739,7 @@ exports[`Guided Search - Geography Questionnaire Screen POST Request HTML elemen
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Accessibility statement
             </a>
           </li>
@@ -753,7 +753,7 @@ exports[`Guided Search - Geography Questionnaire Screen POST Request HTML elemen
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Cookie Policy
             </a>
           </li>
@@ -767,7 +767,7 @@ exports[`Guided Search - Geography Questionnaire Screen POST Request HTML elemen
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Terms and conditions
             </a>
           </li>
@@ -781,7 +781,7 @@ exports[`Guided Search - Geography Questionnaire Screen POST Request HTML elemen
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Privacy
             </a>
           </li>
@@ -795,7 +795,7 @@ exports[`Guided Search - Geography Questionnaire Screen POST Request HTML elemen
         
       
     
-   target="_blanck" rel="noopener noreferrer">
+   target="_blank" rel="noopener noreferrer">
               Support
             </a>
           </li>

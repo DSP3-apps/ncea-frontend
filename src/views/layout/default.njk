@@ -86,7 +86,7 @@
 
     {% set homePage = routes.homePage %}
 
-    {{ header(loginElement, headerNavigationLinks, homePage, routes.rootPath, eaHomeUrl, defraHomeUrl) }}
+    {{ header(loginElement, headerNavigationLinks, homePage, routes.rootPath) }}
   </header>
 {% endblock %}
 
@@ -169,7 +169,7 @@
           href: routes.accessibilityStatement,
           text: "Accessibility statement",
           attributes: {
-            target: "_blanck",
+            target: "_blank",
             rel: "noopener noreferrer"
           }
         },
@@ -177,7 +177,7 @@
           href: routes.cookiePolicy,
           text: "Cookie Policy",
           attributes: {
-            target: "_blanck",
+            target: "_blank",
             rel: "noopener noreferrer"
           }
         },
@@ -185,7 +185,7 @@
           href: routes.termsAndConditions,
           text: "Terms and conditions",
           attributes: {
-            target: "_blanck",
+            target: "_blank",
             rel: "noopener noreferrer"
           }
         },
@@ -193,7 +193,7 @@
           href: routes.privacyPolicy,
           text: "Privacy",
           attributes: {
-            target: "_blanck",
+            target: "_blank",
             rel: "noopener noreferrer"
           }
         },
@@ -201,14 +201,14 @@
           href: routes.support,
           text: "Support",
           attributes: {
-            target: "_blanck",
+            target: "_blank",
             rel: "noopener noreferrer"
           }
         }
       ]
     },
     copyright: {
-      text: "© Crown Copyright 2025"
+      text: "© Crown Copyright " + currentYear
     }
   }) }}
   <div id="overlay" class="overlay"></div>

@@ -104,6 +104,7 @@ const customHapiViews = {
       appVersion: packageJson.version,
       keyboardFiltersBaseUrl: environmentConfig.keyboardFiltersBaseUrl,
       headerNavigationLinks: headerNavigationLinks,
+      currentYear: new Date().getFullYear(),
     },
   },
 };
