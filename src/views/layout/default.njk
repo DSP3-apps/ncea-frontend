@@ -4,6 +4,7 @@
 {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
 {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
 {% from "govuk/components/cookie-banner/macro.njk" import govukCookieBanner %}
+{% from "macros/header.njk" import header %}
 
 {% set htmlClasses = "app-html-class" %}
 {% set htmlLang = "en" %}
@@ -75,28 +76,17 @@
       {% set redirectPart = "?redirect_uri=" + redirectUri %}
     {% endif %}
 
-    {% set loginElement = "<span>Welcome, Guest&nbsp; <a href='" + loginUrl + redirectPart + "' class='govuk-link'>Login</a></span>" %}
+    {% set loginElement = "<span>Welcome, Guest&nbsp; <a href='" + loginUrl + redirectPart + "' class='govuk-link divider'>Login</a></span>" %}
 
     {% if user.email %}
-      {% set loginElement = "<span>Welcome, " + user.email + "&nbsp; <a href='" + routes.logOut + redirectPart + "' class='govuk-link'>Logout</a></span>" %}
+      {% set loginElement = "<span>Welcome, " + user.email + "&nbsp; <a href='" + routes.logOut + redirectPart + "' class='govuk-link divider'>Logout</a></span>" %}
     {% endif %}
 
     {% set headerNavigators = [{html: loginElement}]%}
 
-    {{ govukHeader({
-      homepageUrl: "https://www.gov.uk/",
-      serviceName: serviceName,
-      serviceUrl: routes.homePage,
-      navigation: headerNavigators,
-      useTudorCrown: true,
-      classes: 'govuk-header--full-width-border',
-      menuButtonText: "User",
-      navigationId: "primaryMenu"
-    }) }}
-    {{ govukServiceNavigation({
-      navigation: headerNavigationLinks,
-      navigationId: "secondaryMenu"
-    }) }}
+    {% set homePage = routes.homePage %}
+
+    {{ header(loginElement, headerNavigationLinks, homePage, routes.rootPath) }}
   </header>
 {% endblock %}
 
@@ -177,25 +167,48 @@
       items: [
         {
           href: routes.accessibilityStatement,
-          text: "Accessibility statement"
+          text: "Accessibility statement",
+          attributes: {
+            target: "_blank",
+            rel: "noopener noreferrer"
+          }
         },
         {
           href: routes.cookiePolicy,
-          text: "Cookie Policy"
+          text: "Cookie Policy",
+          attributes: {
+            target: "_blank",
+            rel: "noopener noreferrer"
+          }
         },
         {
           href: routes.termsAndConditions,
-          text: "Terms and conditions"
+          text: "Terms and conditions",
+          attributes: {
+            target: "_blank",
+            rel: "noopener noreferrer"
+          }
         },
         {
           href: routes.privacyPolicy,
-          text: "Privacy"
+          text: "Privacy",
+          attributes: {
+            target: "_blank",
+            rel: "noopener noreferrer"
+          }
         },
         {
           href: routes.support,
-          text: "Support"
+          text: "Support",
+          attributes: {
+            target: "_blank",
+            rel: "noopener noreferrer"
+          }
         }
       ]
+    },
+    copyright: {
+      text: "© Crown Copyright " + currentYear
     }
   }) }}
   <div id="overlay" class="overlay"></div>
