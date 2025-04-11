@@ -3,12 +3,12 @@
 import {
   Category,
   INatural,
+  INaturalItem,
   NaturalCapitalCategory,
   NaturalCapitalSubCategory,
   NaturalCapitalTableItems,
   NaturalCapitalTheme,
   OutputCategory,
-  OutputSubCategory,
   OutputTheme,
   SubCategory,
 } from '../interfaces/searchResponse.interface';
@@ -151,30 +151,29 @@ export const transformNceaClassifierObj = (nceaClassfiersObj, vocabularyData) =>
             const category = findCategory(theme, categoryCode);
             if (!category) return;
 
-            const subCategories: OutputSubCategory[] = nceaClassfiersObj.naturalCapitalSubCategory
-              .map((subCode: string) => {
-                const subCategory = findSubCategory(category, subCode);
-                return subCategory ? { id: subCategory.code, name: subCategory.name } : undefined;
-              })
-              .filter((subCategory: string) => subCategory);
-
-            if (subCategories.length > 0) {
-              return {
-                id: category.code,
-                name: category.name,
-                naturalCapitalSubCategory: subCategories,
-              };
+            let subCategories = [];
+            if ((category.classifiers ?? []).length > 0) {
+              subCategories = nceaClassfiersObj.naturalCapitalSubCategory
+                .map((subCode: string) => {
+                  const subCategory = findSubCategory(category, subCode);
+                  return subCategory ? { id: subCategory.code, name: subCategory.name } : undefined;
+                })
+                .filter((subCategory: string) => subCategory);
             }
+            return {
+              id: category.code,
+              name: category.name,
+              ...(subCategories.length > 0 ? { naturalCapitalSubCategory: subCategories } : {}),
+            };
           })
           .filter((category: string) => category);
 
-        if (categories.length > 0) {
-          return {
-            id: theme.code,
-            name: theme.name,
-            naturalCapitalCategory: categories,
-          };
-        }
+        return {
+          id: theme.code,
+          name: theme.name,
+          ...(categories.length > 0 ? { naturalCapitalCategory: categories } : {}),
+          naturalCapitalCategory: categories,
+        };
       })
       .filter((theme: string) => theme);
 
@@ -187,7 +186,7 @@ export const transformNceaClassifierObj = (nceaClassfiersObj, vocabularyData) =>
   };
 };
 
-const getNaturalTab = (payload, vocabularyData: NaturalCapitalTheme[]): INatural => ({
+const getNaturalTab = (payload: INaturalItem, vocabularyData: NaturalCapitalTheme[]): INatural => ({
   Natural_capital_title: naturalTabStaticData.title,
   Natural_capital_description: naturalTabStaticData.description,
   Natural_capital_displayData: generateClassifierTable(
