@@ -48,7 +48,7 @@ describe('Environment environmentConfig', () => {
       const { environmentConfig } = require('../../src/config/environmentConfig');
       expect(environmentConfig).toBeDefined();
       expect(typeof environmentConfig).toBe('object');
-      expect(Object.keys(environmentConfig).length).toBe(13);
+      expect(Object.keys(environmentConfig).length).toBe(14);
     });
 
     it('should validate and export the configuration object', () => {
@@ -62,6 +62,7 @@ describe('Environment environmentConfig', () => {
         WEBDOMAIN: '',
         KEYBOARD_FILTER_LOCAL_BASE_URL: '',
         AUTH0_JWT_ENV: 'test',
+        VOCABULARY_API: 'https://vocabulary-api.com',
       };
       process.env = { ...mockConfig };
 
@@ -81,6 +82,7 @@ describe('Environment environmentConfig', () => {
         keyboardFiltersBaseUrl: Joi.string().allow('').default(''),
         auth0JwtEnv: Joi.string().allow('').default(''),
         searchApiUrl: Joi.string().allow('').default(''),
+        vocabularyApiUrl: Joi.string().allow('').default(''),
       });
 
       const { environmentConfig } = require('../../src/config/environmentConfig');
