@@ -1,3 +1,16 @@
+# [1.22.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.21.0...v1.22.0) (2025-04-11)
+
+
+### Bug Fixes
+
+* **docs:** Add section on how to write commit messages ([246715d](https://github.com/DSP3-apps/ncea-frontend/commit/246715d8b89028121b35df831bf864a12f3e205b))
+
+
+### Features
+
+* **Feeds-page:** Update title of News feed blogs to include 'NCEA' ([ce41503](https://github.com/DSP3-apps/ncea-frontend/commit/ce41503a8eed57487c53f14f9ce84cff0562a285))
+* **ncea-moreinfo-page:** fix the issue related to displaying theme and category if there is no sub category ([157e42c](https://github.com/DSP3-apps/ncea-frontend/commit/157e42cd85251ba7733d5e48965d059f258c55f1))
+
 # [1.21.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.20.0...v1.21.0) (2025-04-11)
 
 
