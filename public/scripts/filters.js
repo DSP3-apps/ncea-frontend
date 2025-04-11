@@ -96,6 +96,14 @@ const appendMetaSearchParams = (filterParams) => {
   if (!!params.get('keywords')) {
     filterParams.set('keywords', params.get('keywords')); // set the keywords
   }
+
+  if (!!params.get('level')) {
+    filterParams.set('level', params.get('level')); // set the level
+  }
+
+  if (!!params.get('parent[]')) {
+    filterParams.set('parent[]', params.getAll('parent[]')); // set the all parents
+  }
 };
 
 /**
@@ -172,6 +180,9 @@ const getValidatedFormData = (form, instance) => {
  */
 const applyFormDataAndSubmit = (data) => {
   const url = new URLSearchParams(data);
+  for (const [key, value] of url.entries()) {
+    console.log(`${key}: ${value}`);
+  }
   appendMetaSearchParams(url);
 
   window.location.search = url.toString();
@@ -228,7 +239,7 @@ const addScopeChangeListener = (instance, cb) => {
     if (!data) {
       return;
     }
-
+    console.log(data);
     cb(data);
   });
 };
