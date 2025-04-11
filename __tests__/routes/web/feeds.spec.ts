@@ -47,8 +47,8 @@ describe('Feeds Screen', () => {
 
   describe('Feeds > Heading', () => {
     it('should render the Feeds content heading', async () => {
-      expect(document?.querySelectorAll('.govuk-heading-m')?.[1]?.textContent?.trim()).toBe('Defra');
-      expect(document?.querySelectorAll('.govuk-heading-m')?.[2]?.textContent?.trim()).toBe('Natural England');
+      expect(document?.querySelectorAll('.govuk-heading-m')?.[1]?.textContent?.trim()).toBe('Defra - NCEA');
+      expect(document?.querySelectorAll('.govuk-heading-m')?.[2]?.textContent?.trim()).toBe('Natural England - NCEA');
     });
   });
 });
