@@ -1,3 +1,19 @@
+# [1.21.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.20.0...v1.21.0) (2025-04-11)
+
+
+### Bug Fixes
+
+* **about:** About page feed text updates ([95fbf8c](https://github.com/DSP3-apps/ncea-frontend/commit/95fbf8cdae6935258ab7dabf288444e426bf034f))
+* **header:** Update EA logo with NCEA logo and name ([71d16cb](https://github.com/DSP3-apps/ncea-frontend/commit/71d16cb42233bd0acc93a1e4cdc2055870a19932))
+* **layout:** Update link for NCEA logo ([64bdbb4](https://github.com/DSP3-apps/ncea-frontend/commit/64bdbb42fc2789d05226aa5242c3ba3c7c71b7ca))
+
+
+### Features
+
+* **ncea-moreinfo-page:** added and style the error message if there is any API failure ([ed9dcf0](https://github.com/DSP3-apps/ncea-frontend/commit/ed9dcf07da84f4f0de1d3eaaae73b37b0602bacf))
+* **ncea-moreinfo-page:** created a function that will lookup theme, category and subcategory names ([6e7c074](https://github.com/DSP3-apps/ncea-frontend/commit/6e7c07493e8826e673ce5cde94c5aed08fdb2682))
+* **ncea-moreinfo-page:** making search api and vocabulary env variables mandatory in env config schema file ([1aaed14](https://github.com/DSP3-apps/ncea-frontend/commit/1aaed14ff3f925dde4d05ee24938f83826ed53ef))
+
 # [1.20.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.19.0...v1.20.0) (2025-04-10)
 
 
