@@ -289,6 +289,7 @@ export interface IGeographyItem {
 export interface INaturalItem {
   title?: string;
   abstract?: string;
+  nceaClassfiers?: NceaClassifier;
 }
 
 export interface IMoreInfoSearchItem extends IGeographyItem, IQualityItem, IGeneralItem, IAccessItem {
