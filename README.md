@@ -35,6 +35,12 @@ The Natural Capital and Ecosystem Assessment programme (NCEA) is a DEFRA program
 - [Environment Variables](#environment-variables)
 - [Login / Logout](#login--logout)
 - [TODO](#todo)
+- [Commit messages](#commit-messages)
+  - [Anatomy of a commit message](#anatomy-of-a-commit-message)
+    - [Type](#type)
+    - [Scope](#scope)
+    - [Title](#title)
+    - [Body](#body)
 
 ## Prerequisites
 
@@ -265,3 +271,53 @@ To logout, you must delete the local cookie.
 - [ ] Check over the content of the 404 and 500 error pages and tailor to suit
 - [ ] Update the build status badges if they are outdated or wish to add new
 - [x] Introduce a method for logging events to aid developers in debugging.
+
+## Commit messages
+
+We are following the [Angular commit guidelines](https://github.com/angular/angular/blob/main/contributing-docs/commit-message-guidelines.md) on commit messages. Below is some guidance on how to write you commit messages.
+
+### Anatomy of a commit message
+
+```text
+<type>(<scope>): <title>
+  │       │             │
+  │       │             └─⫸ Summary in present tense. Not capitalized. No period at the end.
+  │       │
+  │       └─⫸ Commit Scope: project|devops|docs|search|moreinfo|classifiers|misc
+  │
+  └─⫸ Commit Type: feat|fix|chore
+
+<body>
+  ```
+
+  #### Type
+
+  We will use a cut down version of the types that Angular provide:
+
+  Must be one of the following:
+
+| Type      | Description                            |
+| --------- | -------------------------------------- |
+| **feat**  | A new feature                          |
+| **fix**   | A bug fix                              |
+| **chore** | Mostly used by automated release tools |
+
+#### Scope
+
+| Scope           | Description                                                                                                                                                                                 |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **project**     | Changes that affect the build system or external dependencies (examples eslint/prettier changes, updates to tsconfig or jest config etc)                                                    |
+| **devops**      | Changes to our CI configuration files and scripts (examples: Github Actions, docker files etc                                                                                               |
+| **docs**        | Documentation only changes                                                                                                                                                                  |
+| **search**      | Changes that affect the Search page e.g. filters changes                                                                                                                                    |
+| **moreinfo**    | Changes that affect the Get Record by Id page                                                                                                                                               |
+| **classifiers** | Changes to the Classifiers/Categories search on **themes**                                                                                          , **categories** and **sub-categories** |
+| **misc**        | Changes that affect landing/about/feeds pages                                                                                                                                               |
+
+#### Title
+
+State what it is you plan to do in this commit, not what you have done, this is important for reporting back to the wider team, where they want brevity and just really a bullet point of what is being attempted in the commit.
+
+#### Body
+
+This is where you explain what you did and why. It is important to think about this, too often I see people just re-hash what I can read from the code. The purpose is more about why you did it this way, we already know how but looking at the code.
