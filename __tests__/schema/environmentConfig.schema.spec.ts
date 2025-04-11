@@ -15,7 +15,6 @@ describe('Environment Configuration Schema', () => {
       expect(value.classifierApiKey).toEqual('');
       expect(value.webDomain).toEqual('');
       expect(value.auth0JwtEnv).toEqual('');
-      expect(value.searchApiUrl).toEqual('');
     });
 
     it('should keep provided values for fields if available', () => {
@@ -36,7 +35,6 @@ describe('Environment Configuration Schema', () => {
       expect(value.classifierApiKey).toEqual('');
       expect(value.webDomain).toEqual('');
       expect(value.auth0JwtEnv).toEqual('');
-      expect(value.searchApiUrl).toEqual('');
     });
   });
 
@@ -56,7 +54,7 @@ describe('Environment Configuration Schema', () => {
         keyboardFiltersBaseUrl: '',
         auth0JwtEnv: 'test',
         searchApiUrl: 'https://example.com/api',
-        vocabularyApiUrl: '',
+        vocabularyApiUrl: 'https://example.com/api',
       };
 
       const { error, value } = environmentSchema.validate(validConfig);

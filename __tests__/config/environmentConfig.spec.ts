@@ -81,8 +81,8 @@ describe('Environment environmentConfig', () => {
         classifierApiKey: Joi.string().allow('').default(''),
         keyboardFiltersBaseUrl: Joi.string().allow('').default(''),
         auth0JwtEnv: Joi.string().allow('').default(''),
-        searchApiUrl: Joi.string().allow('').default(''),
-        vocabularyApiUrl: Joi.string().allow('').default(''),
+        searchApiUrl: Joi.string(),
+        vocabularyApiUrl: Joi.string(),
       });
 
       const { environmentConfig } = require('../../src/config/environmentConfig');
