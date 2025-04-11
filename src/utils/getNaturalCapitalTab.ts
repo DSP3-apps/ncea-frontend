@@ -1,10 +1,16 @@
 'use strict';
 
 import {
+  Category,
   INatural,
   NaturalCapitalCategory,
   NaturalCapitalSubCategory,
   NaturalCapitalTableItems,
+  NaturalCapitalTheme,
+  OutputCategory,
+  OutputSubCategory,
+  OutputTheme,
+  SubCategory,
 } from '../interfaces/searchResponse.interface';
 import { naturalTabStaticData } from '../utils/constants';
 
@@ -120,22 +126,60 @@ const createRow = (
     </tr>
   `;
 };
-// temp added the transform function, will remove it, once get the update from API
-export const transformNceaClassifierObj = (nceaClassfiersObj) => {
+
+const findTheme = (code: string, vocabularyData: NaturalCapitalTheme[]): NaturalCapitalTheme | undefined => {
+  return vocabularyData.find((theme) => theme.code === code);
+};
+
+const findCategory = (theme: NaturalCapitalTheme, code: string): Category | undefined => {
+  return theme.classifiers?.find((category) => category.code === code);
+};
+
+const findSubCategory = (category: Category, code: string): SubCategory | undefined => {
+  return category.classifiers?.find((subCategory) => subCategory.code === code);
+};
+
+export const transformNceaClassifierObj = (nceaClassfiersObj, vocabularyData) => {
   if (nceaClassfiersObj?.naturalCapitalTheme?.length > 0) {
+    const themes: OutputTheme[] = nceaClassfiersObj.naturalCapitalTheme
+      .map((themeCode: string) => {
+        const theme = findTheme(themeCode, vocabularyData);
+        if (!theme) return;
+
+        const categories: OutputCategory[] = nceaClassfiersObj.naturalCapitalCategory
+          .map((categoryCode: string) => {
+            const category = findCategory(theme, categoryCode);
+            if (!category) return;
+
+            const subCategories: OutputSubCategory[] = nceaClassfiersObj.naturalCapitalSubCategory
+              .map((subCode: string) => {
+                const subCategory = findSubCategory(category, subCode);
+                return subCategory ? { id: subCategory.code, name: subCategory.name } : undefined;
+              })
+              .filter((subCategory: string) => subCategory);
+
+            if (subCategories.length > 0) {
+              return {
+                id: category.code,
+                name: category.name,
+                naturalCapitalSubCategory: subCategories,
+              };
+            }
+          })
+          .filter((category: string) => category);
+
+        if (categories.length > 0) {
+          return {
+            id: theme.code,
+            name: theme.name,
+            naturalCapitalCategory: categories,
+          };
+        }
+      })
+      .filter((theme: string) => theme);
+
     return {
-      naturalCapitalThemes: nceaClassfiersObj?.naturalCapitalTheme?.map((theme) => ({
-        id: theme,
-        name: theme,
-        naturalCapitalCategory: nceaClassfiersObj?.naturalCapitalCategory?.map((category) => ({
-          id: category,
-          name: category,
-          naturalCapitalSubCategory: nceaClassfiersObj?.naturalCapitalSubCategory?.map((subCategory) => ({
-            id: subCategory,
-            name: subCategory,
-          })),
-        })),
-      })),
+      naturalCapitalThemes: themes,
     };
   }
   return {
@@ -143,12 +187,11 @@ export const transformNceaClassifierObj = (nceaClassfiersObj) => {
   };
 };
 
-const getNaturalTab = (payload): INatural => ({
+const getNaturalTab = (payload, vocabularyData: NaturalCapitalTheme[]): INatural => ({
   Natural_capital_title: naturalTabStaticData.title,
   Natural_capital_description: naturalTabStaticData.description,
   Natural_capital_displayData: generateClassifierTable(
-    transformNceaClassifierObj(payload?.nceaClassfiers).naturalCapitalThemes,
+    transformNceaClassifierObj(payload?.nceaClassfiers, vocabularyData).naturalCapitalThemes,
   ),
 });
-
 export { getNaturalTab };

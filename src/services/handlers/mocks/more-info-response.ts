@@ -108,3 +108,199 @@ export const MORE_INFO_MOCK_DATA = {
   },
   nceaContribution: '',
 };
+
+export const MOCK_VOCABULARY_DATA = [
+  {
+    code: 'lvl1_001',
+    name: 'Natural asset',
+    level: 1,
+    classifiers: [
+      {
+        code: 'lvl2_001',
+        name: 'Terrestrial and freshwater habitats',
+        level: 2,
+        classifiers: [
+          {
+            code: 'lvl3_001',
+            name: 'Broadleaved, mixed and yew woodland',
+            level: 3,
+          },
+          {
+            code: 'lvl3_003',
+            name: 'Boundary and linear features',
+            level: 3,
+          },
+          {
+            code: 'lvl3_004',
+            name: 'Arable and horticulture',
+            level: 3,
+          },
+          {
+            code: 'lvl3_005',
+            name: 'Improved grassland',
+            level: 3,
+          },
+          {
+            code: 'lvl3_006',
+            name: 'Neutral grassland',
+            level: 3,
+          },
+          {
+            code: 'lvl3_007',
+            name: 'Calcareous grassland',
+            level: 3,
+          },
+          {
+            code: 'lvl3_008',
+            name: 'Acid grassland',
+            level: 3,
+          },
+        ],
+      },
+      {
+        code: 'lvl2_002',
+        name: 'Coastal and estuarine habitats',
+        level: 2,
+        classifiers: [
+          {
+            code: 'lvl3_018',
+            name: 'Coastal dunes and sandy shores',
+            level: 3,
+          },
+          {
+            code: 'lvl3_019',
+            name: 'Coastal shingle',
+            level: 3,
+          },
+        ],
+      },
+      {
+        code: 'lvl2_003',
+        name: 'Marine habitats',
+        level: 2,
+        classifiers: [
+          {
+            code: 'lvl3_023',
+            name: 'Rock (and other hard substrate)',
+            level: 3,
+          },
+          {
+            code: 'lvl3_027',
+            name: 'Mud',
+            level: 3,
+          },
+          {
+            code: 'lvl3_028',
+            name: 'Pelagic - indeterminate',
+            level: 3,
+          },
+          {
+            code: 'lvl3_029',
+            name: 'Pelagic - intermittently stratified',
+            level: 3,
+          },
+          {
+            code: 'lvl3_034',
+            name: 'Pelagic - coastal water (up to 1 nautical mile)',
+            level: 3,
+          },
+        ],
+      },
+      {
+        code: 'lvl2_004',
+        name: 'Generalist species (spanning multiple habitats)',
+        level: 2,
+        classifiers: [
+          {
+            code: 'lvl3_036',
+            name: 'Birds',
+            level: 3,
+          },
+          {
+            code: 'lvl3_037',
+            name: 'Mammals',
+            level: 3,
+          },
+          {
+            code: 'lvl3_038',
+            name: 'Insects',
+            level: 3,
+          },
+        ],
+      },
+      {
+        code: 'lvl2_005',
+        name: 'Ecosystem component',
+        level: 2,
+        classifiers: [
+          {
+            code: 'lvl3_043',
+            name: 'Ecological community',
+            level: 3,
+          },
+          {
+            code: 'lvl3_044',
+            name: 'Functional trait',
+            level: 3,
+          },
+          {
+            code: 'lvl3_045',
+            name: 'Ecosystem process',
+            level: 3,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    code: 'lvl1_002',
+    name: 'Ecosystem service or benefit',
+    level: 1,
+    classifiers: [
+      {
+        code: 'lvl2_006',
+        name: 'Provisioning services',
+        level: 2,
+        classifiers: [
+          {
+            code: 'lvl3_050',
+            name: 'Materials',
+            level: 3,
+          },
+          {
+            code: 'lvl3_051',
+            name: 'Water',
+            level: 3,
+          },
+        ],
+      },
+      {
+        code: 'lvl2_007',
+        name: 'Regulating services',
+        level: 2,
+        classifiers: [
+          {
+            code: 'lvl3_054',
+            name: 'Maintaining wild populations',
+            level: 3,
+          },
+          {
+            code: 'lvl3_055',
+            name: 'Hazard and nuisance reduction',
+            level: 3,
+          },
+          {
+            code: 'lvl3_056',
+            name: 'Climate regulation',
+            level: 3,
+          },
+          {
+            code: 'lvl3_053',
+            name: 'Environmental quality',
+            level: 3,
+          },
+        ],
+      },
+    ],
+  },
+];

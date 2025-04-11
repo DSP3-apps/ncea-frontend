@@ -317,3 +317,46 @@ export interface NaturalCapitalTableItems {
   name?: string;
   naturalCapitalCategory?: NaturalCapitalCategory[] | null | undefined;
 }
+
+export interface SubCategory {
+  code: string;
+  name: string;
+  level: number;
+}
+
+export interface Category {
+  code: string;
+  name: string;
+  level: number;
+  classifiers?: SubCategory[];
+}
+
+export interface NaturalCapitalTheme {
+  code: string;
+  name: string;
+  level: number;
+  classifiers?: Category[];
+}
+
+export interface OutputSubCategory {
+  id: string;
+  name: string;
+}
+
+export interface OutputCategory {
+  id: string;
+  name: string;
+  naturalCapitalSubCategory: OutputSubCategory[];
+}
+
+export interface OutputTheme {
+  id: string;
+  name: string;
+  naturalCapitalCategory: OutputCategory[];
+}
+
+export interface NceaClassifier {
+  naturalCapitalTheme: string[];
+  naturalCapitalCategory: string[];
+  naturalCapitalSubCategory: string[];
+}

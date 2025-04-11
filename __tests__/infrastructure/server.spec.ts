@@ -41,6 +41,8 @@ describe('Server initialization', () => {
         env: 'development',
         port: 3000,
         appInsightsConnectionString: 'test',
+        searchApiUrl: 'https://example.com/api',
+        vocabularyApiUrl: 'https://example.com/api',
       },
     }));
 

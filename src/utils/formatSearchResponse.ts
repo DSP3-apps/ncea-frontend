@@ -18,6 +18,7 @@ import {
   ISearchResponse,
   ISearchResult,
   ISearchResults,
+  NaturalCapitalTheme,
 } from '../interfaces/searchResponse.interface';
 
 const DATE_FORMAT = 'd MMMM yyyy';
@@ -137,7 +138,7 @@ export const transformSearchResponse = (response: ISearchResponse, isMapResults:
   };
 };
 
-export const formatSearchResponse = (payload: IMoreInfoSearchItem) => {
+export const formatSearchResponse = (payload: IMoreInfoSearchItem, vocabularyData: NaturalCapitalTheme[]) => {
   const resourceUrl = getResourceLocatorURL(payload?.resources[0]?.url ?? '');
   return {
     id: payload?.id,
@@ -155,7 +156,7 @@ export const formatSearchResponse = (payload: IMoreInfoSearchItem) => {
     ...getAccessTabData(payload),
     ...getQualityTabData(payload),
     ...getLicenseTabData(payload.license ?? {}),
-    ...getNaturalTab(payload),
+    ...getNaturalTab(payload, vocabularyData),
     ...getGovernanceTabData(payload.contacts ?? []),
     ...getGeographyTabData(payload),
   };

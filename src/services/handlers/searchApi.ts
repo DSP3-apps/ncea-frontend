@@ -124,15 +124,27 @@ const getFilterOptions = async (
 const getDocumentDetails = async (docId: string, credentials: Credentials): Promise<any> => {
   try {
     const headers = credentials ? { Authorization: `Bearer ${credentials?.jwt}` } : null;
-    const agmApiSearchResponse = await fetch(`${environmentConfig.searchApiUrl}/${docId}`, {
-      method: 'GET',
-      ...(headers && { headers }),
-    });
+    const [agmApiSearchResponse, agmApiVocabalaryResponse] = await Promise.all([
+      fetch(`${environmentConfig.searchApiUrl}/${docId}`, {
+        method: 'GET',
+        ...(headers && { headers }),
+      }),
+      fetch(`${environmentConfig.vocabularyApiUrl}`, {
+        method: 'GET',
+        headers: { 'X-API-Key': environmentConfig.classifierApiKey } as HeadersInit,
+      }),
+    ]);
+
     if (!agmApiSearchResponse.ok) {
       throw new Error(`Error fetching results: ${agmApiSearchResponse.statusText}`);
     }
+
+    if (!agmApiVocabalaryResponse.ok) {
+      throw new Error(`Error fetching vocabulary data: ${agmApiVocabalaryResponse.statusText}`);
+    }
     const searchData = await agmApiSearchResponse.json();
-    const finalResponse = formatSearchResponse(searchData);
+    const vocabularyData = await agmApiVocabalaryResponse.json();
+    const finalResponse = formatSearchResponse(searchData, vocabularyData);
 
     return finalResponse;
   } catch (error: any) {

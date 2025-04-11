@@ -1,10 +1,10 @@
 import { formatSearchResponse } from '../../src/utils/formatSearchResponse';
-import { MORE_INFO_MOCK_DATA } from '../../src/services/handlers/mocks/more-info-response';
+import { MORE_INFO_MOCK_DATA, MOCK_VOCABULARY_DATA } from '../../src/services/handlers/mocks/more-info-response';
 import { naturalTabStaticData } from '../../src/utils/constants';
 
 describe('Format the search response', () => {
   it('should format the search response correctly', async () => {
-    const result = await formatSearchResponse(MORE_INFO_MOCK_DATA);
+    const result = await formatSearchResponse(MORE_INFO_MOCK_DATA, MOCK_VOCABULARY_DATA);
     const expectedResponse = {
       '0': {
         tab: 'governance',
