@@ -27,7 +27,7 @@ exports[`Guided Search - Geography Questionnaire Screen POST Request HTML elemen
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta name="version" content="v1.20.0">
+  <meta name="version" content="v1.22.0">
 
   <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
 
@@ -236,7 +236,7 @@ exports[`Guided Search - Geography Questionnaire Screen POST Request HTML elemen
           <span class="text">Data Services Platform</span>
         </a>
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A43371%2Fnatural-capital-ecosystem-assessment%2Fcoordinate-search' class='govuk-link divider'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A41007%2Fnatural-capital-ecosystem-assessment%2Fcoordinate-search' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">
