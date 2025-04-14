@@ -3,12 +3,12 @@ import {
   generateClassifierTable,
   transformNceaClassifierObj,
 } from '../../src/utils/getNaturalCapitalTab';
-import { MORE_INFO_MOCK_DATA } from '../../src/services/handlers/mocks/more-info-response';
+import { MORE_INFO_MOCK_DATA, MOCK_VOCABULARY_DATA } from '../../src/services/handlers/mocks/more-info-response';
 import { naturalTabStaticData } from '../../src/utils/constants';
 
 describe('getNaturalTab', () => {
   it('should return the correct structure when searchItem contains OrgNceaClassifiers', () => {
-    const result = getNaturalTab(MORE_INFO_MOCK_DATA);
+    const result = getNaturalTab(MORE_INFO_MOCK_DATA, MOCK_VOCABULARY_DATA);
 
     expect(result.Natural_capital_title).toStrictEqual(naturalTabStaticData.title);
     expect(result.Natural_capital_description).toStrictEqual(naturalTabStaticData.description);
@@ -86,39 +86,69 @@ describe('generateClassifierTable', () => {
 
   it('should validate the transformNceaClassifierObj and reture the expected output', () => {
     const input = {
-      naturalCapitalTheme: ['lvl1_003', 'lvl1_002', 'lvl1_001'],
-      naturalCapitalCategory: ['lvl2_004', 'lvl2_008'],
-      naturalCapitalSubCategory: ['lvl3_059'],
+      naturalCapitalTheme: ['lvl1_001', 'lvl1_002'],
+      naturalCapitalCategory: ['lvl2_001', 'lvl2_006', 'lvl2_007'],
+      naturalCapitalSubCategory: ['lvl3_001', 'lvl3_003', 'lvl3_050', 'lvl3_051', 'lvl3_054', 'lvl3_055'],
     };
 
     const output = {
       naturalCapitalThemes: [
         {
-          id: 'lvl1_003',
-          name: 'lvl1_003',
+          id: 'lvl1_001',
+          name: 'Natural asset',
           naturalCapitalCategory: [
-            { id: 'lvl2_004', name: 'lvl2_004', naturalCapitalSubCategory: [{ id: 'lvl3_059', name: 'lvl3_059' }] },
-            { id: 'lvl2_008', name: 'lvl2_008', naturalCapitalSubCategory: [{ id: 'lvl3_059', name: 'lvl3_059' }] },
+            {
+              id: 'lvl2_001',
+              name: 'Terrestrial and freshwater habitats',
+              naturalCapitalSubCategory: [
+                {
+                  id: 'lvl3_001',
+                  name: 'Broadleaved, mixed and yew woodland',
+                },
+                {
+                  id: 'lvl3_003',
+                  name: 'Boundary and linear features',
+                },
+              ],
+            },
           ],
         },
         {
           id: 'lvl1_002',
-          name: 'lvl1_002',
+          name: 'Ecosystem service or benefit',
           naturalCapitalCategory: [
-            { id: 'lvl2_004', name: 'lvl2_004', naturalCapitalSubCategory: [{ id: 'lvl3_059', name: 'lvl3_059' }] },
-            { id: 'lvl2_008', name: 'lvl2_008', naturalCapitalSubCategory: [{ id: 'lvl3_059', name: 'lvl3_059' }] },
-          ],
-        },
-        {
-          id: 'lvl1_001',
-          name: 'lvl1_001',
-          naturalCapitalCategory: [
-            { id: 'lvl2_004', name: 'lvl2_004', naturalCapitalSubCategory: [{ id: 'lvl3_059', name: 'lvl3_059' }] },
-            { id: 'lvl2_008', name: 'lvl2_008', naturalCapitalSubCategory: [{ id: 'lvl3_059', name: 'lvl3_059' }] },
+            {
+              id: 'lvl2_006',
+              name: 'Provisioning services',
+              naturalCapitalSubCategory: [
+                {
+                  id: 'lvl3_050',
+                  name: 'Materials',
+                },
+                {
+                  id: 'lvl3_051',
+                  name: 'Water',
+                },
+              ],
+            },
+            {
+              id: 'lvl2_007',
+              name: 'Regulating services',
+              naturalCapitalSubCategory: [
+                {
+                  id: 'lvl3_054',
+                  name: 'Maintaining wild populations',
+                },
+                {
+                  id: 'lvl3_055',
+                  name: 'Hazard and nuisance reduction',
+                },
+              ],
+            },
           ],
         },
       ],
     };
-    expect(transformNceaClassifierObj(input)).toEqual(output);
+    expect(transformNceaClassifierObj(input, MOCK_VOCABULARY_DATA)).toEqual(output);
   });
 });

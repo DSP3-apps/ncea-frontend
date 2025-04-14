@@ -49,7 +49,10 @@ export const environmentSchema: Joi.ObjectSchema = Joi.object({
   auth0JwtEnv: Joi.string().allow('').default('').messages({
     'string.base': 'The auth0 JWT environment must be a string.',
   }),
-  searchApiUrl: Joi.string().uri().allow('').default('').messages({
+  searchApiUrl: Joi.string().uri().messages({
     'string.uri': 'Search API must be a valid URL',
+  }),
+  vocabularyApiUrl: Joi.string().uri().messages({
+    'string.uri': 'Vocabulary API must be a valid URL',
   }),
 });

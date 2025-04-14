@@ -11,5 +11,6 @@ export interface EnvironmentConfig {
   webDomain?: string;
   keyboardFiltersBaseUrl?: string | undefined;
   auth0JwtEnv?: string;
-  searchApiUrl: string;
+  searchApiUrl: string | undefined;
+  vocabularyApiUrl: string | undefined;
 }
