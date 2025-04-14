@@ -310,8 +310,3 @@ export const MOCK_VOCABULARY_DATA = [
     ],
   },
 ];
-
-export const MOCK_SEARCH_RESULTS = {
-  results: [MORE_INFO_MOCK_DATA],
-  totalDocumentCount: 1,
-};
