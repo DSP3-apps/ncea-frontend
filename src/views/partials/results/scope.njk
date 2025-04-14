@@ -7,13 +7,13 @@
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="scope-{{filterInstance}}" {% if dspFilterOptions.nceaOnly %}checked{% endif %} name="{{dspFilterNames.scope}}" type="radio" value="{{dataScopeValues.ncea}}">
         <label class="govuk-label govuk-radios__label" for="scope-{{filterInstance}}">
-          NCEA Metadata Only
+          NCEA data
         </label>
       </div>
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="scope-all-{{filterInstance}}" {% if not dspFilterOptions.nceaOnly %}checked{% endif %} name="{{dspFilterNames.scope}}" type="radio" value="{{dataScopeValues.all}}">
         <label class="govuk-label govuk-radios__label" for="scope-all-{{filterInstance}}">
-          DSP and NCEA Metadata
+          All natural capital data
         </label>
       </div>
     </div>
