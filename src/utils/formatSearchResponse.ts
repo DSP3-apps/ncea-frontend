@@ -10,6 +10,7 @@ import { getGovernanceTabData } from './getGovernanceTab';
 import { getLicenseTabData } from './getLicenseTabData';
 import { getNaturalTab } from './getNaturalCapitalTab';
 import { getQualityTabData } from './getQualityTabData';
+import { isEmpty } from './isEmpty';
 import { setNceaContribution } from './nceaContribution';
 import { toggleContent } from './toggleContent';
 import { validateUrl } from './validate';
@@ -96,7 +97,19 @@ export const transformSearchResponse = (response: ISearchResponse, isMapResults:
       publishedBy: result?.organisation ?? '',
       resourceType: ['dataset'],
       nceaContribution: setNceaContribution(result?.nceaContribution),
+      displayDataSetReferenceDate: false,
+      dataSetReferenceDate: '',
     };
+
+    if (isEmpty(searchResponse.studyPeriodStart) && isEmpty(searchResponse.studyPeriodEnd)) {
+      const dataSetReferenceDate = new Date(
+        result.datasetReferenceDate.publication ??
+          result.datasetReferenceDate.revision ??
+          result.datasetReferenceDate.creation,
+      );
+      searchResponse.displayDataSetReferenceDate = true;
+      searchResponse.dataSetReferenceDate = dataSetReferenceDate ? format(dataSetReferenceDate, DATE_FORMAT) : '';
+    }
 
     if (isMapResults && result?.mapping) {
       const envelope = result?.mapping;

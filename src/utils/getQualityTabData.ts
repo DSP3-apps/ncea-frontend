@@ -42,10 +42,10 @@ const getRecordsDates = (data: string): string => {
 };
 
 const getQualityTabData = (payload: IQualityItem): IQuality => ({
-  publicationInformation: getRecordsDates(payload?.recordDates?.publication ?? ''),
-  creationInformation: getRecordsDates(payload?.recordDates?.creation ?? ''),
-  revisionInformation: getRecordsDates(payload?.recordDates?.revision ?? ''),
-  metadataDate: getRecordsDates(payload?.recordDates?.metadata ?? ''),
+  publicationInformation: getRecordsDates(payload?.datasetReferenceDate?.publication ?? ''),
+  creationInformation: getRecordsDates(payload?.datasetReferenceDate?.creation ?? ''),
+  revisionInformation: getRecordsDates(payload?.datasetReferenceDate?.revision ?? ''),
+  metadataDate: getRecordsDates(payload?.datasetReferenceDate?.metadata ?? ''),
   lineage: payload?.lineage ?? '',
   conformity: '', // Need to test this, once data is available from AGM side
   additionalInformation: '', // Need to test this, once data is available from AGM side
