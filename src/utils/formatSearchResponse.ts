@@ -10,6 +10,7 @@ import { getGovernanceTabData } from './getGovernanceTab';
 import { getLicenseTabData } from './getLicenseTabData';
 import { getNaturalTab } from './getNaturalCapitalTab';
 import { getQualityTabData } from './getQualityTabData';
+import { setNceaContribution } from './nceaContribution';
 import { toggleContent } from './toggleContent';
 import { validateUrl } from './validate';
 import {
@@ -93,7 +94,7 @@ export const transformSearchResponse = (response: ISearchResponse, isMapResults:
       organisationName: '',
       publishedBy: result?.organisation ?? '',
       resourceType: ['dataset'],
-      nceaContribution: result?.nceaContribution?.toLowerCase(),
+      nceaContribution: setNceaContribution(result?.nceaContribution),
     };
 
     if (isMapResults && result?.mapping) {
@@ -149,7 +150,7 @@ export const formatSearchResponse = (payload: IMoreInfoSearchItem) => {
     organisationName: payload?.organisation ?? '',
     ncea_group_reference: '',
     project_number: '',
-    nceaContribution: payload?.nceaContribution?.toLowerCase(),
+    nceaContribution: setNceaContribution(payload?.nceaContribution),
     resourceWebsite: validateUrl(resourceUrl) ? resourceUrl : '',
     ...getGeneralTabData(payload),
     ...getAccessTabData(payload),
