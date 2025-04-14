@@ -1,3 +1,16 @@
+# [1.23.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.22.0...v1.23.0) (2025-04-14)
+
+
+### Bug Fixes
+
+* **aboutus-page:** update the join our news mailing list link ([be6d591](https://github.com/DSP3-apps/ncea-frontend/commit/be6d591d09e19a62c748175653e42ae10be93352))
+* **nceaContribution:** NCEA logo appearing on non-NCEA records ([1a2c728](https://github.com/DSP3-apps/ncea-frontend/commit/1a2c728f6761752f140c46144172e393ea310235))
+
+
+### Features
+
+* **search-result-page:** update the data scope radio button labels ([61d9166](https://github.com/DSP3-apps/ncea-frontend/commit/61d9166368b9ee68d61e0200e0bb83f7248f95cd))
+
 # [1.22.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.21.0...v1.22.0) (2025-04-11)
 
 
