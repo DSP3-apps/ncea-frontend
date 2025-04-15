@@ -107,6 +107,12 @@ export const MORE_INFO_MOCK_DATA = {
     frequencyOfUpdate: 'unknown',
   },
   nceaContribution: '',
+  datasetReferenceDate: {
+    metadata: null,
+    publication: '2017-02-11T00:00:00Z',
+    revision: '2024-06-10T18:41:32Z',
+    creation: '2023-03-10T15:10:20Z',
+  },
 };
 
 export const MOCK_VOCABULARY_DATA = [

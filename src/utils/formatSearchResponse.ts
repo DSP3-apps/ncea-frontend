@@ -2,6 +2,7 @@
 import { center } from '@turf/turf';
 import { format } from 'date-fns';
 
+import { DATASET_CREATION_DATE_LABEL, DATASET_PUBLICATION_DATE_LABEL, DATASET_REVISION_DATE_LABEL } from './constants';
 import { formatDate, getYear } from './dates';
 import { getAccessTabData } from './getAccessTabData';
 import { getGeneralTabData } from './getGeneralTabData';
@@ -10,6 +11,7 @@ import { getGovernanceTabData } from './getGovernanceTab';
 import { getLicenseTabData } from './getLicenseTabData';
 import { getNaturalTab } from './getNaturalCapitalTab';
 import { getQualityTabData } from './getQualityTabData';
+import { isEmpty } from './isEmpty';
 import { setNceaContribution } from './nceaContribution';
 import { toggleContent } from './toggleContent';
 import { validateUrl } from './validate';
@@ -96,7 +98,27 @@ export const transformSearchResponse = (response: ISearchResponse, isMapResults:
       publishedBy: result?.organisation ?? '',
       resourceType: ['dataset'],
       nceaContribution: setNceaContribution(result?.nceaContribution),
+      displayDataSetReferenceDate: false,
+      dataSetReferenceDate: '',
+      dataSetReferenceLabel: '',
     };
+
+    if (isEmpty(searchResponse.studyPeriodStart) && isEmpty(searchResponse.studyPeriodEnd)) {
+      const dataSetPublicationDate = result.datasetReferenceDate.publication;
+      const dataSetRevisionDate = result.datasetReferenceDate.revision;
+      const dataSetCreationDate = result.datasetReferenceDate.creation;
+
+      if (dataSetPublicationDate) {
+        searchResponse.dataSetReferenceLabel = DATASET_PUBLICATION_DATE_LABEL;
+      } else if (dataSetRevisionDate) {
+        searchResponse.dataSetReferenceLabel = DATASET_REVISION_DATE_LABEL;
+      } else {
+        searchResponse.dataSetReferenceLabel = DATASET_CREATION_DATE_LABEL;
+      }
+      const dataSetReferenceDate = new Date(dataSetPublicationDate ?? dataSetRevisionDate ?? dataSetCreationDate);
+      searchResponse.displayDataSetReferenceDate = true;
+      searchResponse.dataSetReferenceDate = dataSetReferenceDate ? format(dataSetReferenceDate, DATE_FORMAT) : '';
+    }
 
     if (isMapResults && result?.mapping) {
       const envelope = result?.mapping;

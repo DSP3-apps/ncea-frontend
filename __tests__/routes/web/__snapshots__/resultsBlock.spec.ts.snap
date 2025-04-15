@@ -27,7 +27,7 @@ exports[`Results block template Guided search journey Search results with empty 
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta name="version" content="v1.22.0">
+  <meta name="version" content="v1.23.0">
 
   <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
   
@@ -236,7 +236,7 @@ exports[`Results block template Guided search journey Search results with empty 
           <span class="text">Data Services Platform</span>
         </a>
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33273%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link divider'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A40373%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">
@@ -621,13 +621,13 @@ exports[`Results block template Guided search journey Search results with empty 
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="scope-search_results"  name="scope" type="radio" value="ncea">
         <label class="govuk-label govuk-radios__label" for="scope-search_results">
-          NCEA Metadata Only
+          NCEA data
         </label>
       </div>
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="scope-all-search_results" checked name="scope" type="radio" value="all">
         <label class="govuk-label govuk-radios__label" for="scope-all-search_results">
-          DSP and NCEA Metadata
+          All natural capital data
         </label>
       </div>
     </div>
@@ -2264,7 +2264,7 @@ exports[`Results block template Guided search journey Search results with error 
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta name="version" content="v1.22.0">
+  <meta name="version" content="v1.23.0">
 
   <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
   
@@ -2473,7 +2473,7 @@ exports[`Results block template Guided search journey Search results with error 
           <span class="text">Data Services Platform</span>
         </a>
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A45503%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link divider'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A40859%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">
@@ -2858,13 +2858,13 @@ exports[`Results block template Guided search journey Search results with error 
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="scope-"  name="" type="radio" value="">
         <label class="govuk-label govuk-radios__label" for="scope-">
-          NCEA Metadata Only
+          NCEA data
         </label>
       </div>
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="scope-all-" checked name="" type="radio" value="">
         <label class="govuk-label govuk-radios__label" for="scope-all-">
-          DSP and NCEA Metadata
+          All natural capital data
         </label>
       </div>
     </div>
@@ -3309,7 +3309,7 @@ exports[`Results block template Quick search journey Search results with data sh
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta name="version" content="v1.22.0">
+  <meta name="version" content="v1.23.0">
 
   <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
   
@@ -3518,7 +3518,7 @@ exports[`Results block template Quick search journey Search results with data sh
           <span class="text">Data Services Platform</span>
         </a>
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A43019%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link divider'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A39689%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">
@@ -3903,13 +3903,13 @@ exports[`Results block template Quick search journey Search results with data sh
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="scope-search_results"  name="scope" type="radio" value="ncea">
         <label class="govuk-label govuk-radios__label" for="scope-search_results">
-          NCEA Metadata Only
+          NCEA data
         </label>
       </div>
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="scope-all-search_results" checked name="scope" type="radio" value="all">
         <label class="govuk-label govuk-radios__label" for="scope-all-search_results">
-          DSP and NCEA Metadata
+          All natural capital data
         </label>
       </div>
     </div>
@@ -5411,31 +5411,34 @@ exports[`Results block template Quick search journey Search results with data sh
             <span class='search-result__parameter-value search-result__published-value'>Organization 1</span>
           </div>
         
-        <div class='search-result__parameter'>
-          <span class='search-result__parameter-label search-result__study-label'>Study period</span>
-          <span class='search-result__parameter-value search-result__study-value'>
-            <span class='start'>
-              
-                04 Jan 1960
-              
-            </span>
-            <span>to</span>
-            <span class='end'>
-              
-                <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+        
+        
+          <div class='search-result__parameter'>
+            <span class='search-result__parameter-label search-result__study-label'>Study period</span>
+            <span class='search-result__parameter-value search-result__study-value'>
+              <span class='start'>
+                
+                  04 Jan 1960
+                
+              </span>
+              <span>to</span>
+              <span class='end'>
+                
+                  <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
   Unavailable
 </strong>
 
-              
+                
+              </span>
             </span>
-          </span>
-        </div>
+          </div>
+        
         <p class='search-result__content'>
           Content 1
         </p>
 
         
-        
+
         <div class='govuk-button-group search-result__button-group'>
           
           
@@ -5460,28 +5463,31 @@ exports[`Results block template Quick search journey Search results with data sh
             <span class='search-result__parameter-value search-result__published-value'>Organization 2</span>
           </div>
         
-        <div class='search-result__parameter'>
-          <span class='search-result__parameter-label search-result__study-label'>Study period</span>
-          <span class='search-result__parameter-value search-result__study-value'>
-            <span class='start'>
-              
-                04 Jan 1950
-              
+        
+        
+          <div class='search-result__parameter'>
+            <span class='search-result__parameter-label search-result__study-label'>Study period</span>
+            <span class='search-result__parameter-value search-result__study-value'>
+              <span class='start'>
+                
+                  04 Jan 1950
+                
+              </span>
+              <span>to</span>
+              <span class='end'>
+                
+                  12 Jan 2009
+                
+              </span>
             </span>
-            <span>to</span>
-            <span class='end'>
-              
-                12 Jan 2009
-              
-            </span>
-          </span>
-        </div>
+          </div>
+        
         <p class='search-result__content'>
           Content 2
         </p>
 
         
-        
+
         <div class='govuk-button-group search-result__button-group'>
           
           
@@ -5767,7 +5773,7 @@ exports[`Results block template Quick search journey Search results with empty d
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta name="version" content="v1.22.0">
+  <meta name="version" content="v1.23.0">
 
   <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
   
@@ -5976,7 +5982,7 @@ exports[`Results block template Quick search journey Search results with empty d
           <span class="text">Data Services Platform</span>
         </a>
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A36019%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link divider'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A45343%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">
@@ -6361,13 +6367,13 @@ exports[`Results block template Quick search journey Search results with empty d
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="scope-search_results"  name="scope" type="radio" value="ncea">
         <label class="govuk-label govuk-radios__label" for="scope-search_results">
-          NCEA Metadata Only
+          NCEA data
         </label>
       </div>
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="scope-all-search_results" checked name="scope" type="radio" value="all">
         <label class="govuk-label govuk-radios__label" for="scope-all-search_results">
-          DSP and NCEA Metadata
+          All natural capital data
         </label>
       </div>
     </div>
@@ -8004,7 +8010,7 @@ exports[`Results block template Quick search journey Search results with error s
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta name="version" content="v1.22.0">
+  <meta name="version" content="v1.23.0">
 
   <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
   
@@ -8213,7 +8219,7 @@ exports[`Results block template Quick search journey Search results with error s
           <span class="text">Data Services Platform</span>
         </a>
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A42375%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link divider'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A38779%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">
@@ -8598,13 +8604,13 @@ exports[`Results block template Quick search journey Search results with error s
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="scope-"  name="" type="radio" value="">
         <label class="govuk-label govuk-radios__label" for="scope-">
-          NCEA Metadata Only
+          NCEA data
         </label>
       </div>
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="scope-all-" checked name="" type="radio" value="">
         <label class="govuk-label govuk-radios__label" for="scope-all-">
-          DSP and NCEA Metadata
+          All natural capital data
         </label>
       </div>
     </div>

@@ -27,7 +27,7 @@ exports[`Details route template Document details with data Check status code and
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta name="version" content="v1.22.0">
+  <meta name="version" content="v1.23.0">
 
   <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
 
@@ -236,7 +236,7 @@ exports[`Details route template Document details with data Check status code and
           <span class="text">Data Services Platform</span>
         </a>
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33837%2Fnatural-capital-ecosystem-assessment%2Fsearch%2F%257B1234-56789213123-1233-1234%257D' class='govuk-link divider'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A45079%2Fnatural-capital-ecosystem-assessment%2Fsearch%2F%257B1234-56789213123-1233-1234%257D' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">
@@ -1699,7 +1699,7 @@ exports[`Details route template Document details with partial data Check status 
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta name="version" content="v1.22.0">
+  <meta name="version" content="v1.23.0">
 
   <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
 
@@ -1908,7 +1908,7 @@ exports[`Details route template Document details with partial data Check status 
           <span class="text">Data Services Platform</span>
         </a>
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A32861%2Fnatural-capital-ecosystem-assessment%2Fsearch%2F%257B1234-56789213123-1233-1234%257D' class='govuk-link divider'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A41723%2Fnatural-capital-ecosystem-assessment%2Fsearch%2F%257B1234-56789213123-1233-1234%257D' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">

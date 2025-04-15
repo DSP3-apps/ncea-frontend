@@ -405,3 +405,6 @@ export const nceaClassifiersMockTableData = {
     ],
   },
 };
+export const DATASET_PUBLICATION_DATE_LABEL = 'Dataset publication date';
+export const DATASET_REVISION_DATE_LABEL = 'Dataset revision date';
+export const DATASET_CREATION_DATE_LABEL = 'Dataset creation date';

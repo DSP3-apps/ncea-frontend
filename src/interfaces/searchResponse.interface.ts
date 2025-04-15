@@ -11,6 +11,9 @@ export interface IBaseItem {
   organisationName?: string;
   resourceType?: string[];
   abstract?: string;
+  displayDataSetReferenceDate?: boolean;
+  dataSetReferenceDate?: string;
+  dataSetReferenceLabel?: string;
 }
 
 export interface IGeneralItem {
@@ -112,7 +115,7 @@ export interface IQualityItem {
   metadataDate?: string;
   lineage?: string;
   additionalInformation?: null | undefined | string;
-  recordDates: IRecordDates;
+  datasetReferenceDate: IDataSetReferenceDate;
 }
 
 export interface IQuality {
@@ -179,7 +182,7 @@ export type IOtherSearchItem = IGeneralItem &
   IGovernance;
 
 export interface ISearchItem extends IBaseItem {
-  [key: string]: IGovernance | string | number | undefined | string[] | IAccumulatedCoordinates;
+  [key: string]: IGovernance | string | number | undefined | boolean | string[] | IAccumulatedCoordinates;
 }
 
 export interface TabbedItem {
@@ -208,6 +211,13 @@ export interface IResource {
   availableLanguages: string[];
 }
 
+interface IDataSetReferenceDate {
+  publication?: string;
+  creation: string;
+  revision: string;
+  metadata?: null | undefined | string;
+}
+
 export interface ISearchResult {
   searchScore: number;
   id: string;
@@ -228,6 +238,7 @@ export interface ISearchResult {
   resource?: IResource;
   organisation?: string;
   nceaContribution: string;
+  datasetReferenceDate: IDataSetReferenceDate;
 }
 
 export interface ISearchResponse {
