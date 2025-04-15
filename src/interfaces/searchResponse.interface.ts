@@ -13,6 +13,7 @@ export interface IBaseItem {
   abstract?: string;
   displayDataSetReferenceDate?: boolean;
   dataSetReferenceDate?: string;
+  dataSetReferenceLabel?: string;
 }
 
 export interface IGeneralItem {
