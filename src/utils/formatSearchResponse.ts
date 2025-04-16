@@ -14,7 +14,6 @@ import { getQualityTabData } from './getQualityTabData';
 import { isEmpty } from './isEmpty';
 import { setNceaContribution } from './nceaContribution';
 import { toggleContent } from './toggleContent';
-import { validateUrl } from './validate';
 import {
   IDateRange,
   IMoreInfoSearchItem,
@@ -174,7 +173,6 @@ export const formatSearchResponse = (payload: IMoreInfoSearchItem, vocabularyDat
     ncea_group_reference: '',
     project_number: '',
     nceaContribution: setNceaContribution(payload?.nceaContribution),
-    resourceWebsite: validateUrl(resourceUrl) ? resourceUrl : '',
     ...getGeneralTabData(payload),
     ...getAccessTabData(payload),
     ...getQualityTabData(payload),
