@@ -56,7 +56,8 @@ describe('Format the search response', () => {
       publishedBy: '',
       startYear: '2008',
       toYear: '2015',
-      resourceLocator: 'http://www',
+      resourceLocator:
+        'https://environment-test.data.gov.uk/explore/9bceae16-607b-49d6-a980-289289fc4643?download=true',
       organisationName: '',
       ncea_group_reference: '',
       project_number: '',
@@ -112,7 +113,7 @@ describe('Format the search response', () => {
       metadata_standard: 'Environment Agency Metadata Profile',
       ncea_catalogue_number: 'c9d7e118-d057-48f9-b520-76de8e51e014',
       host_catalogue_number: '17f1f7c2-0c92-4ec1-86ea-b4d67dbeb2cf',
-      resourceWebsite: '',
+      resourceWebsite: expect.any(String),
       nceaContribution: '',
     };
     expect(result).toEqual(expectedResponse);

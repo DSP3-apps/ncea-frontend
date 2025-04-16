@@ -36,6 +36,7 @@ export interface IAccessItem {
   metadata?: IMetaData;
   identifiers?: IIdentifiers[];
   resourceType?: string;
+  resources?: IResources[] | undefined;
 }
 
 export interface IAccess {
@@ -52,6 +53,7 @@ export interface IAccess {
   project_number?: string;
   metadata_language?: string;
   ncea_catalogue_entry?: string;
+  resourceWebsite?: string;
 }
 
 export interface Contact {
@@ -274,9 +276,10 @@ export interface IMetaData {
 }
 
 export interface IResources {
-  url?: string;
-  type?: string;
-  language?: string;
+  url: string;
+  type: string;
+  name: string;
+  distributionFormat?: undefined | null | [string];
 }
 interface SpatialItem {
   dataService?: string;

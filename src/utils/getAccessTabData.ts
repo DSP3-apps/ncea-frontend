@@ -1,9 +1,11 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 'use strict';
 
+import { DATA_DOWNLOADS_TYPES, DATA_SERVICES_TYPES } from './constants';
 import { capitalizeWords } from './formatAggregationResponse';
 import { getOrganisationDetails } from './getOrganisationDetails';
-import { Contact, IAccess, IAccessItem, IIdentifiers } from '../interfaces/searchResponse.interface';
+import { isEmpty } from './isEmpty';
+import { Contact, IAccess, IAccessItem, IIdentifiers, IResources } from '../interfaces/searchResponse.interface';
 
 const getCoupledResource = (data: string | string[]): string => {
   const getCoupleResourceLink = (url: string): string => {
@@ -85,6 +87,144 @@ const getIdentifiers = (identifier: IIdentifiers[]) => {
   return '';
 };
 
+export const generateResourceWebsiteTable = (resources: IResources[]) => {
+  if (Array.isArray(resources) && resources.length > 0) {
+    const filterDataServicesSet = resources.filter(({ type }) => type !== null && DATA_SERVICES_TYPES.includes(type));
+    const filterDataDownloadSet = resources.filter(({ type }) => type !== null && DATA_DOWNLOADS_TYPES.includes(type));
+    const dataServicesTable = generateDataServicesTable(filterDataServicesSet);
+    const dataDownloadTable = generateDataDownloadsTable(filterDataDownloadSet);
+
+    return `${dataServicesTable}${dataDownloadTable}`;
+  }
+  return '';
+};
+
+const generateDataServicesTable = (dataServices: IResources[]) => {
+  if (Array.isArray(dataServices) && dataServices.length > 0) {
+    return `
+    <table class="details-table-full">
+    ${generateTableHeader()}
+    <tbody>
+      ${generateTableRows(dataServices, 'data-services')}
+    </tbody>
+  </table>`;
+  }
+  return '';
+};
+
+const generateDataDownloadsTable = (dataDownloads: IResources[]) => {
+  if (Array.isArray(dataDownloads) && dataDownloads.length > 0) {
+    return `
+    <table class="details-table-full">
+      ${generateFullDownloadsTableHeader()}
+      <tbody>
+        ${generateTableRows(dataDownloads, 'full-downloads')}
+      </tbody>
+    </table>`;
+  }
+  return '';
+};
+
+const generateFullDownloadsTableHeader = () => `
+  <thead>
+    <tr>
+      <th width="74%">Full downloads and supporting documentation</th>
+      <th width="15%">Format</th>
+      <th width="20%">Action</th>
+    </tr>
+    <tr><td colspan="3" class="details-table-hr"></td></tr>
+  </thead>
+`;
+
+const generateTableHeader = () => `
+  <thead>
+    <tr>
+      <th width="74%">Data services and download area of interest</th>
+      <th width="15%">Link</th>
+      <th width="20%">Action</th>
+    </tr>
+    <tr><td colspan="3" class="details-table-hr"></td></tr>
+  </thead>
+`;
+
+const generateTableRows = (resources: IResources[], datatType: string) => {
+  return resources
+    .map((item: IResources) => {
+      const { name, url } = item;
+      const rowHTML = datatType === 'full-downloads' ? createDownloadsTableRow(item) : createTableRow(name, url);
+
+      return `
+        ${rowHTML}
+        <tr><td colspan="3" class="details-table-hr"></td></tr>
+      `;
+    })
+    .join('');
+};
+
+export const extractFileFormat = (url: string | null) => {
+  if (!isEmpty(url)) {
+    const data = url?.split('.');
+    return data?.[data.length - 1]?.toUpperCase() ?? 'N/A';
+  }
+  return 'N/A';
+};
+
+export const createDownloadsTableRow = (payload) => {
+  const { distributionFormat, name, url } = payload;
+  const dataSetName = isEmpty(name) ? 'N/A' : name;
+  const fileType = isEmpty(distributionFormat) ? extractFileFormat(url) : distributionFormat[0].toString();
+
+  if (isEmpty(url)) {
+    return `
+   <tr>
+    <td>${dataSetName}</td>
+    <td>${fileType}</td>
+    <td>N/A</td>
+  </tr>
+  `;
+  }
+  return `
+   <tr>
+    <td>${dataSetName}</td>
+    <td>${fileType}</td>
+    <td>
+      <a class="govuk-link" href="${url}" download>Download</a>
+    </td>
+  </tr>
+  `;
+};
+
+const createTableRow = (name: string, url: string) => {
+  const dataSetName = isEmpty(name) ? 'N/A' : name;
+  if (isEmpty(url)) {
+    return `
+   <tr>
+    <td>${dataSetName}</td>
+    <td>N/A</td>
+    <td>N/A</td>
+  </tr>
+  `;
+  }
+  return `
+   <tr>
+    <td>${dataSetName}</td>
+    <td>
+      <button
+        id="copyLink"
+        class="govuk-button copy-link-btn"
+        value="${url}"
+        data-module="govuk-button"
+      >
+        Copy Link
+      </button>
+    </td>
+    <td>
+      <a class="govuk-link" href="${url}" target="_blank">Open Link</a>
+    </td>
+  </tr>
+  `;
+};
+
 const getAccessTabData = (payload: IAccessItem): IAccess => ({
   ncea_catalogue_number: payload.id ?? '', // file identifier
   host_catalogue_number: getIdentifiers(payload.identifiers ?? []), // resource identifier
@@ -95,6 +235,7 @@ const getAccessTabData = (payload: IAccessItem): IAccess => ({
   catalogue_number: '',
   metadata_standard: payload?.metadata?.standard ?? '',
   metadata_language: payload?.metadata?.language?.toUpperCase() ?? '',
+  resourceWebsite: generateResourceWebsiteTable(payload.resources ?? []),
 });
 
 export { getAccessTabData, getResourceLocators, getCoupledResource, getContactInformation };
