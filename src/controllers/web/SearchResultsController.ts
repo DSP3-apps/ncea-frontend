@@ -1,5 +1,7 @@
 'use strict';
 
+import crypto from 'crypto';
+
 import { Lifecycle, Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 import Joi from 'joi';
 
@@ -28,6 +30,9 @@ import {
 } from '../../utils/queryStringHelper';
 import { DataScope, buildFilterResetUrl, filterNames } from '../../utils/searchFilters';
 
+const hashPayload = (payload: unknown): string =>
+  crypto.createHash('md5').update(JSON.stringify(payload)).digest('hex');
+
 const SearchResultsController = {
   renderSearchResultsHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
     const { quickSearchFID } = formIds;
@@ -35,18 +40,33 @@ const SearchResultsController = {
     const studyPeriodFromYear: string = readQueryParams(request.query, queryParamKeys.startYear);
     const studyPeriodToYear: string = readQueryParams(request.query, queryParamKeys.toYear);
     const hasStudyPeriodFilterApplied: boolean = !!studyPeriodFromYear.length && !!studyPeriodToYear.length;
+
     const payload: ISearchPayload = generateQueryBuilderPayload(request.query);
+
     const isQuickSearchJourney = journey === 'qs';
+
     try {
       const processedDspFilterOptions = processDSPFilterOptions(request.query);
 
-      const searchResults: ISearchResults = await getSearchResults(
-        payload,
-        request.auth.credentials as Credentials,
-        processedDspFilterOptions,
-        true,
-        // isQuickSearchJourney, // TODO: We may need to add this back in, which is why I've left it.
-      );
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { page, rowsPerPage, ...rest } = payload;
+      const payloadHash = hashPayload({ ...rest, filters: processedDspFilterOptions });
+
+      let searchResults = (await request.yar.get(payloadHash)) as ISearchResults | undefined;
+
+      // Only fetch search results from API if not already in session.
+      // This is to prevent multiple API calls for the same search.
+      // the cache is keyed by the payload hash of filters and querystring, minus pagination.
+      if (!searchResults) {
+        searchResults = await getSearchResults(
+          payload,
+          request.auth.credentials as Credentials,
+          processedDspFilterOptions,
+          true,
+        );
+
+        await request.yar.set(payloadHash, searchResults);
+      }
 
       // Paginate search results client-side.
       // Slice total result into just what is required for this page.

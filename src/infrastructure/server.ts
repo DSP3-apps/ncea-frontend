@@ -4,6 +4,7 @@ import { Server } from '@hapi/hapi';
 import * as Hapi from '@hapi/hapi';
 import inert from '@hapi/inert';
 import vision from '@hapi/vision';
+import Yar from '@hapi/yar';
 
 import { environmentConfig } from '../config/environmentConfig';
 import { getSecret } from '../utils/keyvault';
@@ -52,6 +53,23 @@ const initializeServer = async (): Promise<Server> => {
   await server.register({ plugin: customHapiViews.plugin, options: customHapiViews.options });
   await server.register({ plugin: customHapiRoutes }, { routes: { prefix: '/natural-capital-ecosystem-assessment' } });
   await server.register([customHapiPino]);
+  await server.register({
+    plugin: Yar,
+    options: {
+      storeBlank: false,
+      cookieOptions: {
+        isSecure: true,
+        password: process.env.SESSION_COOKIE_PASSWORD!, // must be 32+ characters
+        isHttpOnly: true,
+        path: '/',
+      },
+      maxCookieSize: 0, // Force storage to server-side memory (default anyway)
+      name: 'session', // Cookie name
+      cache: {
+        expiresIn: 24 * 60 * 60 * 1000, // 24 hours
+      },
+    },
+  });
 
   await server.initialize();
 
