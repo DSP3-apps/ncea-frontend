@@ -340,7 +340,7 @@ export const searchFilters: ISearchFilters = [
     filters: [
       {
         name: 'HTTP File Download',
-        value: 'HTTP file download',
+        value: 'HTTP File Download',
         scope: DataScope.IGNORE,
       },
       {

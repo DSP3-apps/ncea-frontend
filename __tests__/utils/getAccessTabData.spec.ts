@@ -3,8 +3,10 @@ import {
   generateResourceWebsiteTable,
   createDownloadsTableRow,
   extractFileFormat,
+  validateServiceTypes,
 } from '../../src/utils/getAccessTabData';
 import { MORE_INFO_MOCK_DATA } from '../../src/services/handlers/mocks/more-info-response';
+import { DATA_DOWNLOADS_TYPES, DATA_SERVICES_TYPES } from '../../src/utils/constants';
 
 describe('getAccessTabData functions', () => {
   describe('getAccessTabData result', () => {
@@ -67,6 +69,15 @@ describe('getAccessTabData functions', () => {
           'http://data.defra.gov.uk/Agriculture/Notifiable_Disease_Datasets_Additional_Information.odt',
         ),
       ).toStrictEqual('ODT');
+    });
+  });
+
+  describe('validateServiceTypes', () => {
+    it('should validate validate the service types by converting into the lowercase', () => {
+      expect(validateServiceTypes(DATA_SERVICES_TYPES, 'HTTP web resource')).toStrictEqual(true);
+      expect(validateServiceTypes(DATA_DOWNLOADS_TYPES, 'HTTP FILE DOWNLOAD')).toStrictEqual(true);
+      expect(validateServiceTypes(DATA_DOWNLOADS_TYPES, 'ABC')).toStrictEqual(false);
+      expect(validateServiceTypes(DATA_DOWNLOADS_TYPES, '')).toStrictEqual(false);
     });
   });
 });

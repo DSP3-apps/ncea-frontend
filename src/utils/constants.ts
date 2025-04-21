@@ -408,5 +408,15 @@ export const nceaClassifiersMockTableData = {
 export const DATASET_PUBLICATION_DATE_LABEL = 'Dataset publication date';
 export const DATASET_REVISION_DATE_LABEL = 'Dataset revision date';
 export const DATASET_CREATION_DATE_LABEL = 'Dataset creation date';
-export const DATA_SERVICES_TYPES = ['WFS', 'WMS', 'HTTP Application', 'ESRI REST API'];
-export const DATA_DOWNLOADS_TYPES = ['HTTP file download'];
+export const DATA_DOWNLOADS_TYPES = {
+  HTTP_FILE_DOWNLOAD: 'HTTP File Download',
+};
+export const DATA_SERVICES_TYPES = {
+  WFS: 'WFS',
+  WMS: 'WMS',
+  HTTP_APPLICATION: 'HTTP Application',
+  ESRI_REST_API: 'ESRI REST API',
+  HTTP_WEB_RESOURCE: 'HTTP Web Resource',
+  OCG_API_FEATURES: 'OGC API Features',
+  REST_API: 'REST API',
+};
