@@ -5,7 +5,14 @@ import { DATA_DOWNLOADS_TYPES, DATA_SERVICES_TYPES } from './constants';
 import { capitalizeWords } from './formatAggregationResponse';
 import { getOrganisationDetails } from './getOrganisationDetails';
 import { isEmpty } from './isEmpty';
-import { Contact, IAccess, IAccessItem, IIdentifiers, IResources } from '../interfaces/searchResponse.interface';
+import {
+  Contact,
+  IAccess,
+  IAccessItem,
+  IIdentifiers,
+  IResources,
+  ServiceOptions,
+} from '../interfaces/searchResponse.interface';
 
 const getCoupledResource = (data: string | string[]): string => {
   const getCoupleResourceLink = (url: string): string => {
@@ -87,10 +94,21 @@ const getIdentifiers = (identifier: IIdentifiers[]) => {
   return '';
 };
 
+export const validateServiceTypes = (options: ServiceOptions, value: string): boolean => {
+  const lowerCaseServiceTypes = Object.values(options).map((item) => item.toLowerCase());
+  const lowerCaseServiceTypesSet = new Set(lowerCaseServiceTypes);
+
+  return lowerCaseServiceTypesSet.has(value.toLowerCase());
+};
+
 export const generateResourceWebsiteTable = (resources: IResources[]) => {
   if (Array.isArray(resources) && resources.length > 0) {
-    const filterDataServicesSet = resources.filter(({ type }) => type !== null && DATA_SERVICES_TYPES.includes(type));
-    const filterDataDownloadSet = resources.filter(({ type }) => type !== null && DATA_DOWNLOADS_TYPES.includes(type));
+    const filterDataServicesSet = resources.filter(
+      ({ type }) => type !== null && validateServiceTypes(DATA_SERVICES_TYPES, type),
+    );
+    const filterDataDownloadSet = resources.filter(
+      ({ type }) => type !== null && validateServiceTypes(DATA_DOWNLOADS_TYPES, type),
+    );
     const dataServicesTable = generateDataServicesTable(filterDataServicesSet);
     const dataDownloadTable = generateDataDownloadsTable(filterDataDownloadSet);
 

@@ -375,3 +375,7 @@ export interface NceaClassifier {
   naturalCapitalCategory: string[];
   naturalCapitalSubCategory: string[];
 }
+
+export interface ServiceOptions {
+  [key: string]: string;
+}
