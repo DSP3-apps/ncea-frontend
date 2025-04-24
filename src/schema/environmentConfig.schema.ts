@@ -55,4 +55,7 @@ export const environmentSchema: Joi.ObjectSchema = Joi.object({
   vocabularyApiUrl: Joi.string().uri().messages({
     'string.uri': 'Vocabulary API must be a valid URL',
   }),
+  categoryResultCountApiUrl: Joi.string().uri().messages({
+    'string.uri': 'Category Result Count API must be a valid URL',
+  }),
 });

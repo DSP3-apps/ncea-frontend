@@ -10,6 +10,7 @@ import {
   generateQueryBuilderFields,
   generateQueryBuilderPayload,
   deleteQueryParams,
+  removeDuplicatesValues,
 } from '../../src/utils/queryStringHelper';
 
 describe('queryStringHelper functions', () => {
@@ -111,9 +112,7 @@ describe('queryStringHelper functions', () => {
 
   describe('getDateParams', () => {
     test('should return date parameters from URLSearchParams', () => {
-      const searchParams = new URLSearchParams(
-        'fdd=01&fdm=01&fdy=2023&tdd=31&tdm=12&tdy=2023',
-      );
+      const searchParams = new URLSearchParams('fdd=01&fdm=01&fdy=2023&tdd=31&tdm=12&tdy=2023');
       const result = getDateParams(searchParams);
       expect(result).toEqual({
         fdd: '01',
@@ -389,6 +388,14 @@ describe('queryStringHelper functions', () => {
           resourceTypeFilter: ['article'],
         },
       });
+    });
+  });
+  describe('removeDuplicatesValues', () => {
+    it('should return empty string if the input value is passed as empty or null', () => {
+      expect(removeDuplicatesValues('')).toStrictEqual('');
+    });
+    it('should return expected output and removed the duplicates', () => {
+      expect(removeDuplicatesValues('A,A,A,A,A,A,A,B,B,C,C,D,D,D')).toStrictEqual('A,B,C,D');
     });
   });
 });

@@ -1,6 +1,7 @@
 import { RequestQuery } from '@hapi/hapi';
 
 import { FILTER_VALUES, queryParamKeys, resourceTypeFilterField, studyPeriodFilterField } from './constants';
+import { isEmpty } from './isEmpty';
 import { ISearchFields, ISearchPayload } from '../interfaces/queryBuilder.interface';
 
 const getMetaQueryParams = (requestQuery: RequestQuery): URLSearchParams => {
@@ -99,7 +100,7 @@ const readListQueryParams = (requestQuery: RequestQuery, key: string): string[] 
   }
 
   /*When user selected  organisation or dataFormate of only single item, so value in requestQuery
-  as string formate, if the item  string as contains the commas, it treated as the multiple item with 
+  as string formate, if the item  string as contains the commas, it treated as the multiple item with
   below split, So in this case we does not required the split, just return it as the array of string. */
   if (key === FILTER_VALUES.organisation || key === FILTER_VALUES.dataFormat) {
     return [keyItems];
@@ -215,6 +216,13 @@ const appendPublication = (resourceTypes: string): string => {
   return resourceTypes;
 };
 
+const removeDuplicatesValues = (data: string) => {
+  if (!isEmpty(data)) {
+    return [...new Set(data.split(','))].join(',');
+  }
+  return '';
+};
+
 export {
   getQueryStringParams,
   upsertQueryParams,
@@ -230,4 +238,5 @@ export {
   deleteQueryParams,
   appendPublication,
   getMetaQueryParams,
+  removeDuplicatesValues,
 };

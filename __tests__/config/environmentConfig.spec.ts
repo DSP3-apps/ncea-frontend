@@ -48,7 +48,7 @@ describe('Environment environmentConfig', () => {
       const { environmentConfig } = require('../../src/config/environmentConfig');
       expect(environmentConfig).toBeDefined();
       expect(typeof environmentConfig).toBe('object');
-      expect(Object.keys(environmentConfig).length).toBe(14);
+      expect(Object.keys(environmentConfig).length).toBe(15);
     });
 
     it('should validate and export the configuration object', () => {
@@ -83,6 +83,7 @@ describe('Environment environmentConfig', () => {
         auth0JwtEnv: Joi.string().allow('').default(''),
         searchApiUrl: Joi.string(),
         vocabularyApiUrl: Joi.string(),
+        categoryResultCountApiUrl: Joi.string(),
       });
 
       const { environmentConfig } = require('../../src/config/environmentConfig');
