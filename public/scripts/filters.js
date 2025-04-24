@@ -88,13 +88,13 @@ const addAllCheckboxListeners = (instance) => {
 const appendMetaSearchParams = (filterParams) => {
   const params = new URLSearchParams(window.location.search);
 
-  filterParams.set('q', params.get('q')); // query
-  filterParams.set('rpp', params.get('rpp')); // results per page
-  filterParams.set('srt', params.get('srt')); // sort
-  filterParams.set('jry', params.get('jry')); // journey (quick / classifier)
-  filterParams.set('pg', params.get('pg')); // current page
-  if (!!params.get('keywords')) {
-    filterParams.set('keywords', params.get('keywords')); // set the keywords
+  for (const [key, value] of params.entries()) {
+    if (!filterParams.has(key)) {
+      filterParams.set(key, value);
+    }
+    if (!!params.get('keywords')) {
+      filterParams.set('keywords', params.get('keywords')); // set the keywords
+    }
   }
 };
 
