@@ -1,3 +1,23 @@
+# [1.24.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.23.0...v1.24.0) (2025-04-24)
+
+
+### Bug Fixes
+
+* **project:** Add repo specific GIT commit template ([4c6da83](https://github.com/DSP3-apps/ncea-frontend/commit/4c6da83bc680b5088b313cc3ed290d53a8228bca))
+* **search-result-info-page:** Improve service type validation ([ba9f5df](https://github.com/DSP3-apps/ncea-frontend/commit/ba9f5df1ad86c4a7ffc8e76357b80e93a7b84baa))
+* **search-result-page:** Add the Dynamic labels based upon the data reference date ([7aebfda](https://github.com/DSP3-apps/ncea-frontend/commit/7aebfda8ad4663adbac52858ad417f805408db8c))
+* **search-result-page:** Added the Dateset reference date in the summary section of Search Results section ([9014271](https://github.com/DSP3-apps/ncea-frontend/commit/9014271661596ba890ab8339dbca3be909b019b7))
+* **search-result-page:** Refactor appendMetaSearchParams to set Filters from URL Params ([d02da61](https://github.com/DSP3-apps/ncea-frontend/commit/d02da61599c0f433dc4010ac4f2b0f243d6c2a38))
+* **search-result-page:** Remove unwanted variable ([6296862](https://github.com/DSP3-apps/ncea-frontend/commit/62968620526bd6a478fd8015a71ad10d9c9bd51a))
+* **search-result-page:** Update service type filter value for Http File Download ([3c16a93](https://github.com/DSP3-apps/ncea-frontend/commit/3c16a93bb062b93729015d95d0c4731ffeba2124))
+
+
+### Features
+
+* **Categories:** Integrate category result count API for performance improvement in category search ([cd1ad42](https://github.com/DSP3-apps/ncea-frontend/commit/cd1ad42e07099d76711b12d2bc1095265ab569eb))
+* **Categories:** Integrate category result count API for performance improvement in category search ([706b39e](https://github.com/DSP3-apps/ncea-frontend/commit/706b39e720b15b9c6dcde2a739baf4d6b8532a49))
+* **more-info-page:** Data services and Full downloads tables for Resources under Access Tab ([bb5c10c](https://github.com/DSP3-apps/ncea-frontend/commit/bb5c10cb85429618a129932fdf6a92c25fd56482))
+
 # [1.23.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.22.0...v1.23.0) (2025-04-14)
 
 
