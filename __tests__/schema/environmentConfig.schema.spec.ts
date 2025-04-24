@@ -55,7 +55,7 @@ describe('Environment Configuration Schema', () => {
         auth0JwtEnv: 'test',
         searchApiUrl: 'https://example.com/api',
         vocabularyApiUrl: 'https://example.com/api',
-         categoryResultCountApiUrl: 'https://example.com/api'
+        categoryResultCountApiUrl: 'https://example.com/api',
       };
 
       const { error, value } = environmentSchema.validate(validConfig);
