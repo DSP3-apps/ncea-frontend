@@ -6,6 +6,7 @@ import { IFilterFlags } from '../../interfaces/searchPayload.interface';
 import { IAggregationOptions, ISearchResponse, ISearchResults } from '../../interfaces/searchResponse.interface';
 import { defaultFilterOptions } from '../../utils/constants';
 import { formatSearchResponse, transformSearchResponse } from '../../utils/formatSearchResponse';
+import { isEmpty } from '../../utils/isEmpty';
 import { generateSearchQuery } from '../../utils/queryBuilder';
 import { ISearchFiltersProcessed } from '../../utils/searchFilters';
 
@@ -48,34 +49,29 @@ const getSearchResults = async (
   }
 };
 
-const getSearchResultsCount = async (
-  searchFieldsObject: ISearchPayload,
-  credentials: Credentials,
-  filters: ISearchFiltersProcessed,
-): Promise<{ totalResults: number }> => {
+const getSearchResultsCount = async (parent: string, credentials: Credentials): Promise<{ totalResults: number }> => {
   try {
-    if (Object.keys(searchFieldsObject.fields).length) {
-      const payload = generateSearchQuery(searchFieldsObject, filters);
+    if (!isEmpty(parent)) {
       const headers = credentials ? { Authorization: `Bearer ${credentials?.jwt}` } : null;
-      const agmApiResponse = await fetch(`${environmentConfig.searchApiUrl}`, {
+      const agmApiResponse = await fetch(`${environmentConfig.categoryResultCountApiUrl}`, {
         method: 'POST',
         ...(headers && { headers }),
-        body: JSON.stringify(payload),
+        body: JSON.stringify(parent.split(',')),
       });
 
       if (!agmApiResponse.ok) {
-        throw new Error(`Error fetching results: ${agmApiResponse.statusText}`);
+        throw new Error(`Error fetching category record count results: ${agmApiResponse.statusText}`);
       }
 
-      const classifierSearchData = await agmApiResponse.json();
+      const categoryCountData = await agmApiResponse.json();
 
-      return { totalResults: classifierSearchData?.totalDocumentCount ?? 0 };
-    } else {
-      return Promise.resolve({ totalResults: 0 });
+      return { totalResults: categoryCountData?.totalDocumentCount ?? 0 };
     }
+    return { totalResults: 0 };
+
     /* eslint-disable  @typescript-eslint/no-explicit-any */
   } catch (error: any) {
-    throw new Error(`Error fetching results: ${error.message}`);
+    throw new Error(`Error fetching category record count results: ${error.message}`);
   }
 };
 

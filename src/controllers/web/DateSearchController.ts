@@ -16,18 +16,16 @@ import {
   queryParamKeys,
   webRoutePaths,
 } from '../../utils/constants';
-import { processDSPFilterOptions } from '../../utils/processFilterRSortOptions';
-import { generateCountPayload, readQueryParams, upsertQueryParams } from '../../utils/queryStringHelper';
+import { readQueryParams, removeDuplicatesValues, upsertQueryParams } from '../../utils/queryStringHelper';
 import { transformErrors } from '../../utils/transformErrors';
 
 const DateSearchController = {
   renderGuidedSearchHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
     const { guidedDateSearch, geographySearch, results } = webRoutePaths;
     const formId: string = formIds.dataQuestionnaireFID;
-    const countPayload = generateCountPayload(request.query);
-    const processedDspFilterOptions = processDSPFilterOptions(request.query);
+    const parent: string = removeDuplicatesValues(readQueryParams(request.query, 'parent[]') ?? '');
     const count = (
-      await getSearchResultsCount(countPayload, request.auth.credentials as Credentials, processedDspFilterOptions)
+      await getSearchResultsCount(parent, request.auth.credentials as Credentials)
     ).totalResults.toString();
 
     const queryParamsObject: Record<string, string> = {

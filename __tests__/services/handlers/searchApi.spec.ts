@@ -5,7 +5,6 @@ import { getFilterOptions, getSearchResults, getSearchResultsCount } from '../..
 import { formatSearchResponse } from '../../../src/utils/formatSearchResponse';
 import { IAggregationOptions } from '../../../src/interfaces/searchResponse.interface';
 import { QUICK_SEARCH_RESPONSE } from '../../../src/services/handlers/mocks/quick-search';
-import { CLASSIFIER_COUNT_LEVEL_2 } from '../../../src/services/handlers/mocks/classifier-themes-level-2';
 import { applyMockFilters, DataScope } from '../../../src/utils/searchFilters';
 import { requestMockData } from '../../data/requestData';
 import { processDSPFilterOptions } from '../../../src/utils//processFilterRSortOptions';
@@ -209,23 +208,7 @@ describe('Search API', () => {
         ok: true,
         json: () => Promise.resolve({ totalDocumentCount: 10 }),
       });
-      const searchFieldsObject: ISearchPayload = {
-        fields: {
-          keyword: {
-            q: 'example',
-          },
-        },
-        sort: '',
-        filters: {},
-        rowsPerPage: 20,
-        page: 1,
-      };
-      const processedDspFilterOptions = processDSPFilterOptions({ level: '3', 'parent[]': 'lv2-001,lv2-002' });
-      const result = await getSearchResultsCount(
-        searchFieldsObject,
-        requestMockData.auth.credentials,
-        processedDspFilterOptions,
-      );
+      const result = await getSearchResultsCount('lv2-001,lv2-002', requestMockData.auth.credentials);
       expect(result).toEqual({ totalResults: 10 });
     });
 
@@ -234,18 +217,7 @@ describe('Search API', () => {
         ok: true,
         json: () => Promise.resolve({ totalDocumentCount: 0 }),
       });
-      const processedDspFilterOptions = processDSPFilterOptions({ level: '3', 'parent[]': 'lv2-001,lv2-002' });
-      const result = await getSearchResultsCount(
-        {
-          fields: {},
-          sort: '',
-          rowsPerPage: 20,
-          filters: {},
-          page: 1,
-        },
-        requestMockData.auth.credentials,
-        processedDspFilterOptions,
-      );
+      const result = await getSearchResultsCount('lv2-001,lv2-002', requestMockData.auth.credentials);
       expect(result).toEqual({ totalResults: 0 });
     });
   });

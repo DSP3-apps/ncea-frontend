@@ -13,4 +13,5 @@ export interface EnvironmentConfig {
   auth0JwtEnv?: string;
   searchApiUrl: string | undefined;
   vocabularyApiUrl: string | undefined;
+  categoryResultCountApiUrl: string | undefined;
 }

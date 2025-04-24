@@ -5,7 +5,6 @@ import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 import { allowedRedirectHosts, jwtCookieName, jwtCookieOptions } from '../../infrastructure/plugins/auth';
 import { Credentials } from '../../interfaces/auth';
 import { IGuidedSearchStepsMatrix, IStepRouteMatrix } from '../../interfaces/guidedSearch.interface';
-import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { getSearchResultsCount } from '../../services/handlers/searchApi';
 import {
   BASE_PATH,
@@ -15,8 +14,7 @@ import {
   queryParamKeys,
   webRoutePaths,
 } from '../../utils/constants';
-import { processDSPFilterOptions } from '../../utils/processFilterRSortOptions';
-import { generateCountPayload, readQueryParams, upsertQueryParams } from '../../utils/queryStringHelper';
+import { readQueryParams, removeDuplicatesValues, upsertQueryParams } from '../../utils/queryStringHelper';
 
 /**
  * This code snippet exports a module named HomeController.
@@ -51,13 +49,11 @@ const HomeController = {
       const stepMatrix: IStepRouteMatrix = stepRouteMatrix?.[step] ?? {};
       if (Object.keys(stepMatrix).length) {
         const queryString: string = readQueryParams(request.query, '', true);
-        const queryBuilderSearchObject: ISearchPayload = generateCountPayload(request.query);
         try {
-          const processedDspFilterOptions = processDSPFilterOptions(request.query);
+          const parent: string = removeDuplicatesValues(readQueryParams(request.query, 'parent[]') ?? '');
           const searchResultsCount: { totalResults: number } = await getSearchResultsCount(
-            queryBuilderSearchObject,
+            parent,
             request.auth.credentials as Credentials,
-            processedDspFilterOptions,
           );
           if (searchResultsCount.totalResults > 0) {
             const queryString: string = upsertQueryParams(

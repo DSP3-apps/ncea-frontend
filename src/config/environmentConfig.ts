@@ -27,6 +27,7 @@ const config: EnvironmentConfig = {
   auth0JwtEnv: process.env.AUTH0_JWT_ENV,
   searchApiUrl: process.env.SEARCH_API,
   vocabularyApiUrl: process.env.VOCABULARY_API,
+  categoryResultCountApiUrl: process.env.CATEGORY_RESULT_COUNT_API,
 };
 
 const { error, value } = environmentSchema.validate(config);
