@@ -10,7 +10,7 @@ const formGroupErrorClass = 'govuk-form-group--error';
 const displayNoneClass = 'display-none';
 
 const validYearRegex = /^$|^[0-9]{4}$/; // matches empty string OR 4 digit number
-const BASE_PATH = '/natural-capital-ecosystem-assessment';
+
 /**
  * Attatch event listeners to the filters accordions so
  * they can be interacted with (opened and closed).
