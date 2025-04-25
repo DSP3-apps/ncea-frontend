@@ -122,18 +122,6 @@ const filterFormToFormData = (form) => {
   return data;
 };
 
-const buildResetFilterURl = (formData) => {
-  const params = new URLSearchParams(window.location.search);
-
-  for (const key of formData.keys()) {
-    if (params.has(key) && params.get(key).trim() !== '') {
-      params.delete(key);
-    }
-  }
-
-  return params;
-};
-
 /**
  * Attatch event listener to the form reset
  * so it resets the filters correctly, instead of relying on default
@@ -143,13 +131,12 @@ const buildResetFilterURl = (formData) => {
  */
 const addFilterFormResetListener = (instance) => {
   const formSubmit = document.getElementById(`filters-${instance}`);
-  const formData = filterFormToFormData(formSubmit);
+  const resetButton = document.getElementById(`filters-reset-${instance}`);
 
   formSubmit.addEventListener('reset', (e) => {
     e.preventDefault();
 
-    const params = buildResetFilterURl(formData);
-    window.location.href = `${BASE_PATH}/search?${params.toString()}`;
+    window.location.href = resetButton.getAttribute('data-reset-url');
   });
 };
 
