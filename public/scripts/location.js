@@ -9,6 +9,12 @@ import {
   addMapFilterFormResetListener,
   addAllCheckboxListeners,
 } from './filters.js';
+import {
+  loadKeyboardListData,
+  keywordsDropdownListAction,
+  createBadge,
+  checkDuplicateKeywords,
+} from './keywordsFilter.js';
 
 const mapResultsInstance = 'map_results';
 const index3 = 3;
@@ -864,6 +870,38 @@ const getMapResults = async (path, fitToMapExtentFlag) => {
       attachBoundingBoxToggleListener();
       // don't need to handle the `else` cases anymore as it start disabled by default
     }
+
+    // intialize the keywords functionality whenerver the DOM refreshed
+    const keywordInput = $(`#filters-keywords-map_results`);
+    const filterType = 'map_results';
+    loadKeyboardListData();
+    keywordsDropdownListAction(keywordInput, filterType);
+
+    $('#keyboard-filter-list').on('click', 'li', function () {
+      const selectedValue = $(this).text();
+      keywordInput.val('');
+      keywordInput.focus();
+      if (!$(this).hasClass('keyword-filter-no-record-found')) {
+        keywordInput.val($(this).text());
+        $('.filter-options__keyboard-filter-content-' + filterType).hide();
+      }
+
+      if (!checkDuplicateKeywords('#keyword-badge-container-map_results', selectedValue)) {
+        createBadge(selectedValue, '#keyword-badge-container-map_results');
+        keywordInput.val('');
+        keywordInput.focus();
+        $(`.keyword-input-${filterType}-error-message`).hide();
+        $(`#filters-keywords-${filterType}`).removeClass('govuk-input--error');
+      }
+    });
+    $(document).click(function (event) {
+      if (
+        !$(event.target).closest('#filters-keywords-map_results').length &&
+        !$(event.target).closest('.filter-options__keyboard-filter-content-' + filterType).length
+      ) {
+        $('.filter-options__keyboard-filter-content-' + filterType).hide();
+      }
+    });
   }
 };
 
