@@ -420,3 +420,12 @@ export const DATA_SERVICES_TYPES = {
   OCG_API_FEATURES: 'OGC API Features',
   REST_API: 'REST API',
 };
+
+export const FILTER_NAMES = {
+  ...FILTER_VALUES,
+  retiredAndArchived: 'retired-archived',
+  keywords: 'keywords',
+  licence: 'licence',
+  updatedBefore: 'date-before',
+  updatedAfter: 'date-after',
+};

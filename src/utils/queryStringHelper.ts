@@ -1,20 +1,25 @@
 import { RequestQuery } from '@hapi/hapi';
 
-import { FILTER_VALUES, queryParamKeys, resourceTypeFilterField, studyPeriodFilterField } from './constants';
+import {
+  FILTER_NAMES,
+  FILTER_VALUES,
+  queryParamKeys,
+  resourceTypeFilterField,
+  studyPeriodFilterField,
+} from './constants';
 import { isEmpty } from './isEmpty';
 import { ISearchFields, ISearchPayload } from '../interfaces/queryBuilder.interface';
 
-const getMetaQueryParams = (requestQuery: RequestQuery): URLSearchParams => {
+const getClearFilterUrl = (requestQuery: RequestQuery): URLSearchParams => {
   const searchParams = getQueryStringParams(requestQuery);
-  const filterParams = new URLSearchParams();
 
-  filterParams.set(queryParamKeys.quickSearch, searchParams.get(queryParamKeys.quickSearch) ?? '');
-  filterParams.set(queryParamKeys.rowsPerPage, searchParams.get(queryParamKeys.rowsPerPage) ?? '10');
-  filterParams.set(queryParamKeys.sort, searchParams.get(queryParamKeys.sort) ?? 'most_relevant');
-  filterParams.set(queryParamKeys.journey, searchParams.get(queryParamKeys.journey) ?? '');
-  filterParams.set(queryParamKeys.page, searchParams.get(queryParamKeys.page) ?? '1');
+  for (const key of Object.values(FILTER_NAMES)) {
+    if (searchParams.has(key) && searchParams.get(key)?.trim() !== '') {
+      searchParams.delete(key);
+    }
+  }
 
-  return filterParams;
+  return searchParams;
 };
 
 const setDefaultQueryParams = (searchParams: URLSearchParams): URLSearchParams => {
@@ -237,6 +242,6 @@ export {
   getClassifierParams,
   deleteQueryParams,
   appendPublication,
-  getMetaQueryParams,
+  getClearFilterUrl,
   removeDuplicatesValues,
 };
