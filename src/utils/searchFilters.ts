@@ -3,7 +3,7 @@ import { RequestQuery } from '@hapi/hapi';
 
 import { BASE_PATH, FILTER_VALUES, webRoutePaths } from './constants';
 import { convertToDate } from './dates';
-import { getMetaQueryParams, readQueryParams } from './queryStringHelper';
+import { getClearFilterUrl, readQueryParams } from './queryStringHelper';
 
 export const filterNames = {
   scope: 'scope',
@@ -59,7 +59,7 @@ export const buildFilterResetUrl = (requestQuery: RequestQuery): string => {
   // this will only return the meta params important to the query
   // this is required otherwise the reset url would reflect all the filters enabled, which
   // would mean nothing gets reset.
-  const params = getMetaQueryParams(requestQuery);
+  const params = getClearFilterUrl(requestQuery);
 
   params.set(filterNames.scope, nceaOnly ? DataScope.NCEA : DataScope.ALL);
 

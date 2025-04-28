@@ -10,7 +10,7 @@ import {
 import { isEmpty } from './isEmpty';
 import { ISearchFields, ISearchPayload } from '../interfaces/queryBuilder.interface';
 
-const getMetaQueryParams = (requestQuery: RequestQuery): URLSearchParams => {
+const getClearFilterUrl = (requestQuery: RequestQuery): URLSearchParams => {
   const searchParams = getQueryStringParams(requestQuery);
 
   for (const key of Object.values(FILTER_NAMES)) {
@@ -242,6 +242,6 @@ export {
   getClassifierParams,
   deleteQueryParams,
   appendPublication,
-  getMetaQueryParams,
+  getClearFilterUrl,
   removeDuplicatesValues,
 };
