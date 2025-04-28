@@ -122,11 +122,7 @@ const checkDuplicateKeywords = (filtersInstanceId, keyword) => {
   return false;
 };
 
-$(document).ready(function () {
-  createBadgesFromExistingKeywords('#keyword-badge-container-search_results');
-  const filterType = 'search_results';
-  const keywordInput = $(`#filters-keywords-${filtersInstance}`);
-
+const loadKeyboardListData = () => {
   const getTagsApiUrl = Boolean(keyboardFiltersBaseUrlValue)
     ? `${keyboardFiltersBaseUrlValue}/backend/catalog/api/catalog/tags`
     : '/backend/catalog/api/catalog/tags';
@@ -145,15 +141,9 @@ $(document).ready(function () {
       $('.filter-options__keyboard-filter-list').append(liElement);
     },
   });
-  $(document).click(function (event) {
-    if (
-      !$(event.target).closest('#filters-keywords-search_results').length &&
-      !$(event.target).closest('filter-options__keyboard-filter-content-' + filterType).length
-    ) {
-      $('.filter-options__keyboard-filter-content-' + filterType).hide();
-    }
-  });
-  keywordsDropdownListAction(keywordInput, filterType);
+};
+
+const keywordSelectEventHandlder = (keywordInput, filterType) => {
   $('#keyboard-filter-list').on('click', 'li', function () {
     const selectedValue = $(this).text();
     keywordInput.val('');
@@ -183,6 +173,30 @@ $(document).ready(function () {
       window.history.pushState({}, '', url);
     }
   });
+};
+
+$(document).ready(function () {
+  createBadgesFromExistingKeywords('#keyword-badge-container-search_results');
+  loadKeyboardListData();
+  const filterType = 'search_results';
+  const keywordInput = $(`#filters-keywords-${filtersInstance}`);
+  $(document).click(function (event) {
+    if (
+      !$(event.target).closest('#filters-keywords-search_results').length &&
+      !$(event.target).closest('filter-options__keyboard-filter-content-' + filterType).length
+    ) {
+      $('.filter-options__keyboard-filter-content-' + filterType).hide();
+    }
+  });
+  keywordsDropdownListAction(keywordInput, filterType);
+  keywordSelectEventHandlder(keywordInput, filterType);
 });
 
-export { createBadge, keywordsDropdownListAction, checkDuplicateKeywords, createBadgesFromExistingKeywords };
+export {
+  createBadge,
+  keywordsDropdownListAction,
+  checkDuplicateKeywords,
+  createBadgesFromExistingKeywords,
+  loadKeyboardListData,
+  keywordSelectEventHandlder,
+};
