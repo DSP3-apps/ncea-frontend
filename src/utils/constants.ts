@@ -429,3 +429,33 @@ export const FILTER_NAMES = {
   updatedBefore: 'date-before',
   updatedAfter: 'date-after',
 };
+
+export const monetaryCategory = {
+  code: 'lvl2_009',
+  name: 'Monetary',
+  classifiers: [],
+  sectionTitle: 'Monetary',
+  sectionIntroduction: '',
+  text: '',
+  value: 'Monetary',
+  selectAll: 'lvl2_009',
+};
+
+export const nonMonetaryCategory = {
+  code: 'lvl2_010',
+  name: 'Non-monetary',
+  classifiers: [],
+  sectionTitle: 'Non-monetary',
+  sectionIntroduction: '',
+  text: '',
+  value: 'Non-monetary',
+  selectAll: 'lvl2_010',
+};
+
+export const naturalCapitalEvaluation = {
+  sectionTitle: 'Natural capital valuation',
+  sectionIntroduction:
+    'For the purposes of this search tool, natural capital valuation is defined as the method used to determine the value of an ecosystem service. This can be in non-monetary terms (e.g. heritage values or existence values) or in monetary terms (e.g. market price or willingness to pay). Select all that apply.',
+  classifiers: [],
+  selectAll: '',
+};

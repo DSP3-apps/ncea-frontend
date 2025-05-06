@@ -119,6 +119,8 @@
 </div>{% endblock %}{% block bodyEnd %}
 {{ super() }}
 <script type="module" src="{{ assetPath }}/scripts/dataModal.js"></script>
+<script src="{{ assetPath }}/scripts/jquery.js"></script>
+<script type="module" src="{{ assetPath }}/scripts/categorySearch.js"></script>
 <script>
   function handleError(group, action) {
     const formGroup = group.closest('.govuk-form-group');
