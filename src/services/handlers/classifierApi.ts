@@ -1,5 +1,6 @@
 import { environmentConfig } from '../../config/environmentConfig';
 import { Classifiers, Classify } from '../../interfaces/classifierSearch.interface';
+import { monetaryCategory, naturalCapitalEvaluation, nonMonetaryCategory } from '../../utils/constants';
 
 const transformClassifierDetails = (classifiers: Classify[]): Classify[] => {
   return classifiers?.map((classifier) => ({
@@ -41,6 +42,7 @@ const invokeClassifierApi = async (level: string, parents: string = '') => {
 export const getClassifierThemes = async (level: string, parents: string = ''): Promise<Classifiers[]> => {
   try {
     const response = await invokeClassifierApi(level, parents);
+    const parentIdsArr = parents.split(',');
     const classifierResponse: Classifiers[] = [];
     response.forEach((classifier: Classifiers) => {
       if (classifier.level === 3) {
@@ -62,7 +64,19 @@ export const getClassifierThemes = async (level: string, parents: string = ''): 
         });
       }
     });
-
+    if (Number(level) === 3 && parentIdsArr.includes('lvl2_009') && parentIdsArr.includes('lvl2_010')) {
+      classifierResponse.push(naturalCapitalEvaluation);
+      classifierResponse.push(monetaryCategory);
+      classifierResponse.push(nonMonetaryCategory);
+    }
+    if (Number(level) === 3 && parentIdsArr.includes('lvl2_009') && !parentIdsArr.includes('lvl2_010')) {
+      classifierResponse.push(naturalCapitalEvaluation);
+      classifierResponse.push(monetaryCategory);
+    }
+    if (Number(level) === 3 && !parentIdsArr.includes('lvl2_009') && parentIdsArr.includes('lvl2_010')) {
+      classifierResponse.push(naturalCapitalEvaluation);
+      classifierResponse.push(nonMonetaryCategory);
+    }
     return classifierResponse;
   } catch (error: unknown) {
     return [];
