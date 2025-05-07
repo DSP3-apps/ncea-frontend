@@ -34,7 +34,7 @@
     {% include "partials/results_count/template.njk" %}
     <div class='classifier-error-summary' id='errorBlock' style="display:none;">
       {{ govukErrorSummary({
-         titleText: "There is a problem",
+         titleText: "There is a problem11111",
          errorList: [
         {
            text: "You must select a theme to continue"
@@ -140,19 +140,4 @@
       }
     }
   }
-  document.getElementById('classifier-search').addEventListener('submit', function (event) {
-    const selectedCheckboxes = Array.from(document.querySelectorAll('input[name="parent[]"]:checked'));
-    const checkboxGroups = document.querySelectorAll('.govuk-checkboxes');
-    const isAnyCheckboxNotSelected = selectedCheckboxes.length === 0;
-    if (isAnyCheckboxNotSelected) {
-      event.preventDefault();
-      document
-        .getElementById("errorBlock")
-        .style
-        .display = '';
-      checkboxGroups.forEach(group => handleError(group, 'apply'));
-    } else {
-      checkboxGroups.forEach(group => handleError(group, 'remove'));
-    }
-  });
 </script>{% endblock %}

@@ -27,4 +27,33 @@ $(document).ready(function () {
       }
     });
   }
+
+  $('#classifier-search').on('submit', function (event) {
+    let skipFormValidation = false;
+    const selectedCheckboxes = $('input[name="parent[]"]:checked');
+    const checkboxGroups = $('.govuk-checkboxes');
+    const isAnyCheckboxNotSelected = selectedCheckboxes.length === 0;
+    const formData = new FormData(this);
+    const parentValues = formData.getAll('parent[]');
+
+    if (
+      (parentValues.includes('lvl2_009') && parentValues.includes('lvl2_010')) ||
+      parentValues.includes('lvl2_009') ||
+      parentValues.includes('lvl2_010')
+    ) {
+      skipFormValidation = true;
+    }
+
+    if (isAnyCheckboxNotSelected && !skipFormValidation) {
+      event.preventDefault();
+      $('#errorBlock').css('display', '');
+      checkboxGroups.each(function () {
+        handleError(this, 'apply');
+      });
+    } else {
+      checkboxGroups.each(function () {
+        handleError(this, 'remove');
+      });
+    }
+  });
 });
