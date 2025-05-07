@@ -89,11 +89,20 @@ const appendMetaSearchParams = (filterParams) => {
   const params = new URLSearchParams(window.location.search);
 
   for (const [key, value] of params.entries()) {
-    if (!filterParams.has(key)) {
+    if (!filterParams.has(key) && key !== 'parent[]') {
       filterParams.set(key, value);
     }
     if (!!params.get('keywords')) {
       filterParams.set('keywords', params.get('keywords')); // set the keywords
+    }
+    if (key === 'parent[]') {
+      const existingValues = new Set(filterParams.getAll('parent[]'));
+      const values = params.getAll(key);
+      for (const value of values) {
+        if (!existingValues.has(value)) {
+          filterParams.append(key, value);
+        }
+      }
     }
   }
 };
