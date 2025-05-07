@@ -1,3 +1,20 @@
+# [1.25.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.24.0...v1.25.0) (2025-05-07)
+
+
+### Bug Fixes
+
+* **filters:** Move filter-clearing logic to server side with preserved query parameters ([630b47b](https://github.com/DSP3-apps/ncea-frontend/commit/630b47b676c17a036d2f584326d4ca7733957836))
+* **filters:** Move filter-clearing logic to server side with preserved query parameters ([55c00a1](https://github.com/DSP3-apps/ncea-frontend/commit/55c00a19ff104ff90e0643709686e3da824ee553))
+* **filters:** Move filter-clearing logic to server side with preserved query parameters ([f3168ac](https://github.com/DSP3-apps/ncea-frontend/commit/f3168acb14d1bc4e55ccf5c5eb5d1a363ee77742))
+* **filters:** Preserve query parameters on filter clear in search results ([b1c825b](https://github.com/DSP3-apps/ncea-frontend/commit/b1c825be042a84148c97033a26cf10c1b9d93f64))
+* **keyboard-filters:** Restore client-side keywords functionality when scope is changed ([8480f45](https://github.com/DSP3-apps/ncea-frontend/commit/8480f45d0a34b943dc3194034ed286b6f61be43e))
+* **Search-Result-Page:** Retain all parent IDs in URL after map exit ([bb550f4](https://github.com/DSP3-apps/ncea-frontend/commit/bb550f479c136ee84039720507830029d01c0576))
+
+
+### Features
+
+* **Category-Page:** Monetary and non-monetary categories ([ae9ef97](https://github.com/DSP3-apps/ncea-frontend/commit/ae9ef977798fedcc2294e66a7126e6336898c3bd))
+
 # [1.24.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.23.0...v1.24.0) (2025-04-24)
 
 
