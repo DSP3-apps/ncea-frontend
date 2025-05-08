@@ -45,7 +45,7 @@
 
 {% block header %}
   <script>
-    var gtmIdValue = "{{gtmId}}";
+    var gtmIdValue = "{{ gtmId }}";
     var keyboardFiltersBaseUrlValue = "{{keyboardFiltersBaseUrl}}"
   </script>
   <script type="module" src="{{ assetPath }}/scripts/cookieScript.js"></script>
@@ -54,20 +54,20 @@
     <!--Will be removed once Defra GA accounts been created -->
 
     <!-- Google tag (gtag.js) -->
-    {# <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FDPPSVB0H"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id="+gtmIdValue></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-0FDPPSVB0H');
+  gtag('config', gtmIdValue);
 
   gtag('event', 'screen_view', {
         'app_name': 'myAppName',
         'screen_name': 'Home sashdjk'
       });
 
-</script> #}
+</script>
 
     {% set loginUrl = routes.logIn %}
 
