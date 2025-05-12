@@ -371,7 +371,7 @@ export const landingPageData = {
     {
       iconUrl: `${BASE_PATH}/assets/images/email-icon.svg`,
       iconName: 'Join our mailing list',
-      link: 'https://pages.bbtp.defra.gov.uk/p/ncea',
+      link: 'https://pages.mailshot.defra.gov.uk/p/ncea',
     },
   ],
 };
