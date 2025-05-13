@@ -45,48 +45,32 @@
 
 {% block header %}
   <script>
-    var gtmIdValue = "{{gtmId}}";
+    var gtmIdValue = "{{ gtmId }}";
     var keyboardFiltersBaseUrlValue = "{{keyboardFiltersBaseUrl}}"
   </script>
   <script type="module" src="{{ assetPath }}/scripts/cookieScript.js"></script>
   <header class="header-container">
-
-    <!--Will be removed once Defra GA accounts been created -->
-
     <!-- Google tag (gtag.js) -->
-    {# <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FDPPSVB0H"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id="+gtmIdValue></script>
 
-  gtag('config', 'G-0FDPPSVB0H');
+  {% set loginUrl = routes.logIn %}
 
-  gtag('event', 'screen_view', {
-        'app_name': 'myAppName',
-        'screen_name': 'Home sashdjk'
-      });
-
-</script> #}
-
-    {% set loginUrl = routes.logIn %}
-
-    {% set redirectPart = "" %}
+  {% set redirectPart = "" %}
     {% if loginUrl and loginUrl != "" %}
       {% set redirectPart = "?redirect_uri=" + redirectUri %}
     {% endif %}
 
-    {% set loginElement = "<span>Welcome, Guest&nbsp; <a href='" + loginUrl + redirectPart + "' class='govuk-link divider'>Login</a></span>" %}
+  {% set loginElement = "<span>Welcome, Guest&nbsp; <a href='" + loginUrl + redirectPart + "' class='govuk-link divider'>Login</a></span>" %}
 
     {% if user.email %}
       {% set loginElement = "<span>Welcome, " + user.email + "&nbsp; <a href='" + routes.logOut + redirectPart + "' class='govuk-link divider'>Logout</a></span>" %}
     {% endif %}
 
-    {% set headerNavigators = [{html: loginElement}]%}
+  {% set headerNavigators = [{html: loginElement}]%}
 
-    {% set homePage = routes.homePage %}
+  {% set homePage = routes.homePage %}
 
-    {{ header(loginElement, headerNavigationLinks, homePage, routes.rootPath) }}
+  {{ header(loginElement, headerNavigationLinks, homePage, routes.rootPath) }}
   </header>
 {% endblock %}
 
