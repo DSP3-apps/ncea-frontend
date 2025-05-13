@@ -1,3 +1,12 @@
+## [1.25.1](https://github.com/DSP3-apps/ncea-frontend/compare/v1.25.0...v1.25.1) (2025-05-13)
+
+
+### Bug Fixes
+
+* **About-Page:** Change the Join our mailing list link ([d59fa90](https://github.com/DSP3-apps/ncea-frontend/commit/d59fa900d4ab49f494bea34dab2fb7effb479bfc))
+* **HomePage:** Enable Google Analytics Tracking with New ID ([f4c92e9](https://github.com/DSP3-apps/ncea-frontend/commit/f4c92e9c9f699de7909bc57d1d2eb8ed472f6145))
+* **HomePage:** Enable Google Analytics Tracking with New ID ([0fe105b](https://github.com/DSP3-apps/ncea-frontend/commit/0fe105b8ff7e376bfa0b450afc063d05179d558b))
+
 # [1.25.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.24.0...v1.25.0) (2025-05-07)
 
 
