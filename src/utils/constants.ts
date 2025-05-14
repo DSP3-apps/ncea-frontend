@@ -304,8 +304,10 @@ export const FILTER_VALUES = {
 export const landingPageData = {
   pageHeading: 'Natural Capital and Ecosystem Assessment (NCEA) programme',
   introText: {
-    imageUrl1: `${BASE_PATH}/assets/images/Blea-Tarn-Lake.jpg`,
-    imageUrl2: `${BASE_PATH}/assets/images/Beautiful-View-Green-Hills.jpg`,
+    imageUrl1: `${BASE_PATH}/assets/images/Trees-Outside-Woodland.jpeg`,
+    image1Url: 'https://www.gov.uk/government/news/englands-non-woodland-trees-freely-mapped-for-first-time',
+    imageUrl2: `${BASE_PATH}/assets/images/England-Peat-Map.jpg`,
+    image2Url: 'https://naturalengland.blog.gov.uk/2025/05/12/a-new-peat-map-for-england/',
   },
   displayCategoryPages: false,
   categories: [
@@ -332,6 +334,16 @@ export const landingPageData = {
   ],
   partnerLogos: [
     {
+      imgUrl: `${BASE_PATH}/assets/images/defra-logo.svg`,
+      link: '#',
+      title: 'Defra Logo',
+    },
+    {
+      imgUrl: `${BASE_PATH}/assets/images/natural-england.png`,
+      link: 'https://www.gov.uk/government/organisations/natural-england',
+      title: 'Natural England',
+    },
+    {
       imgUrl: `${BASE_PATH}/assets/images/environment-agency-logo.png`,
       link: 'https://www.gov.uk/government/organisations/environment-agency',
       title: 'Environment Agency',
@@ -342,19 +354,14 @@ export const landingPageData = {
       title: 'Forest Research',
     },
     {
-      imgUrl: `${BASE_PATH}/assets/images/jncc-logo.png`,
-      link: 'https://jncc.gov.uk/',
-      title: 'Joint Nature Conservation Committee',
-    },
-    {
       imgUrl: `${BASE_PATH}/assets/images/botanic-garden.svg`,
       link: 'https://www.kew.org/kew-gardens?gad_source=1&gclid=EAIaIQobChMI6t6wgu-7iwMVo5RQBh0sdjtGEAAYAiAAEgK1gvD_BwE',
       title: 'Royal Botanic Garden',
     },
     {
-      imgUrl: `${BASE_PATH}/assets/images/natural-england.png`,
-      link: 'https://www.gov.uk/government/organisations/natural-england',
-      title: 'Natural England',
+      imgUrl: `${BASE_PATH}/assets/images/jncc-logo.png`,
+      link: 'https://jncc.gov.uk/',
+      title: 'Joint Nature Conservation Committee',
     },
   ],
   quickLinks: [
@@ -369,11 +376,22 @@ export const landingPageData = {
       link: 'https://www.youtube.com/@NCEAprogramme/videos',
     },
     {
-      iconUrl: `${BASE_PATH}/assets/images/email-icon.svg`,
+      iconUrl: `${BASE_PATH}/assets/images/mailing-list.svg`,
       iconName: 'Join our mailing list',
       link: 'https://pages.mailshot.defra.gov.uk/p/ncea',
     },
+    {
+      iconUrl: `${BASE_PATH}/assets/images/email-icon-new.svg`,
+      iconName: 'nceaprogramme@defra.gov.uk',
+      link: '#',
+    },
+    {
+      iconUrl: `${BASE_PATH}/assets/images/favicon.svg`,
+      iconName: 'ENCA GOV.UK',
+      link: 'https://www.gov.uk/guidance/enabling-a-natural-capital-approach-enca',
+    },
   ],
+  defraLogo: `${BASE_PATH}/assets/images/defra-logo.svg`,
 };
 
 export const accessibilityStatementUrl = 'https://environment.data.gov.uk/support/faqs/275810340/275810354';
@@ -459,3 +477,6 @@ export const naturalCapitalEvaluation = {
   classifiers: [],
   selectAll: '',
 };
+
+export const encaUrl = 'https://www.gov.uk/guidance/enabling-a-natural-capital-approach-enca';
+export const feedbackLinkUrl = 'https://defragroup.eu.qualtrics.com/jfe/form/SV_02KhhVirzVmY0QK';

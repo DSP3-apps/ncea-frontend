@@ -6,9 +6,8 @@
     <div class="banner-container">
       <img alt="Department for Environment Food &amp; Rural Affairs Logo" src="{{ assetPath }}/images/NCEA-logo-landscape.png" class="banner-container__ncea-logo">
         <h1 class="govuk-heading-xl banner-container__heading-xl">Find natural capital data</h1>
-        <span class="govuk-caption-l banner-container__caption-l">Use this service to search for data and information about the
-          environment and ecosystems in the England.</span>
-        <span class="govuk-caption-l banner-container__caption-l">This service supports the use of natural capital approaches in evidence gathering and decision making.</span>
+        <span class="govuk-caption-l banner-container__caption-l">Use this service to search for data and information relevant to a natural capital approach.</span>
+        <span class="govuk-caption-l banner-container__caption-l">Explore outputs from the Natural Capital and Ecosystem Assessment programme, and other natural capital data.</span>
       </div>
     </header>
     {{ quickSearch({
@@ -22,7 +21,7 @@
         Natural capital
       </h2>
       <p class="govuk-body govuk-!-margin-bottom-6">
-        Natural capital is the parts of our natural environment that hold value for people. This includes nature’s living and non-living resources, such as ecosystems, species, freshwater, land, soils, minerals, air and ocean, that provide environmental, economic, societal and cultural benefits.
+        Natural capital includes certain stocks of the elements of nature that have value to society, such as forests, fisheries, rivers, biodiversity, land and minerals. Natural capital includes both the living and non-living aspects of ecosystems. Taking a natural capital approach is about considering the value of the natural environment for people and the economy.
       </p>
     </div>
     <div class="govuk-grid-column-full  govuk-grid-row">
@@ -30,15 +29,14 @@
         Category search
       </h2>
       <p class="govuk-body govuk-!-margin-bottom-6">
-        All natural capital resources in this service are classified into broad themes and specific categories for better
-        clarity and understanding.
+        All resources in this service are classified into broad themes and specific categories relevant to taking a natural capital approach. Use the category search to select the natural capital themes and categories of interest to help narrow down your search.
       </p>
       {# disabling it enable once glossary link is available #}
       {# <p class="govuk-body govuk-!-margin-bottom-6">
         <a href="#" target="_blank" class='help-link'>Natural capital classification glossary</a>
       </p> #}
       <p class="govuk-body govuk-!-margin-bottom-6">
-        Use these natural capital theme and classification filters to help narrow down your search
+       The Category search is a beta service that is continuing to be improved. Your <a class='govuk-link' href="{{routes.feedbackLink}}" target="_blank">feedback</a> will help us improve it.
       </p>
     </div>
     {{ govukButton({
@@ -60,16 +58,19 @@
           <li class="govuk-body-m ncea-static-page-line-item">reports and publications</li>
           <li class="govuk-body-m ncea-static-page-line-item">maps</li>
           <li class="govuk-body-m ncea-static-page-line-item">geospatial web services</li>
+          <li class="govuk-body-m ncea-static-page-line-item">standards and protocols</li>
         </ul>
         <p class="govuk-body govuk-!-margin-bottom-6">
           The data discoverable here is primarily from England and inshore waters, although may extend beyond these areas.</p>
         <h1 class="govuk-heading-m govuk-\!-static-margin-0 educational-copy-container__heading-m">NCEA and natural capital approach</h1>
         <p class="govuk-body govuk-!-margin-bottom-6">The Department for Environment, Food and Rural Affairs’(Defra’s)
           <a class='govuk-link' href="{{routes.homePage}}/about" target="_blank">
-          Natural Capital and Ecosystem Assessment (NCEA)</a> is delivering a nationwide survey of England’s land, freshwater assets and coast; mapping the location,
-          extent and condition of our ecosystems.​ Natural capital evidence and approaches help us recognise and communicate the value of natural assets to people,
-          integrating this into decision-making. This prevents undervaluation and guides better management, protection, and enhancement of our natural
-          assets and the services they provide.​</p>
+          Natural Capital and Ecosystem Assessment (NCEA)</a> programme is transforming environmental decision making in England through generating a ‘whole system’ picture of the state of our natural environment. The ‘Find Natural Capital Data’ search service contributes to this by improving access to natural capital data.
+        ​</p>
+        <p class="govuk-body govuk-!-margin-bottom-6">Defra’s
+          <a class='govuk-link' href="{{encaUrl}}" target="_blank">
+          Enabling a Natural Capital Approach (ENCA)</a> provides guidance on using natural capital data, including economic valuation, and taking a natural capital approach to policy and decision making.
+        ​</p>
       </div>
     </article>
   {% endblock %}

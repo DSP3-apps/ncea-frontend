@@ -8,6 +8,7 @@ import {
   supportUrl,
   termsAndConditionsUrl,
   webRoutePaths,
+  feedbackLinkUrl,
 } from '../../../src/utils/constants';
 import nunjucks, { Environment } from 'nunjucks';
 import { customHapiViews } from '../../../src/infrastructure/plugins/views';
@@ -86,6 +87,7 @@ describe('Vision Plugin Configuration', () => {
         logOut: `${BASE_PATH}${logout}`,
         logIn: environmentConfig.isLocal ? '' : login,
         feeds: `${BASE_PATH}${atom}`,
+        feedbackLink: feedbackLinkUrl,
       },
       appInsightsConnectionString: environmentConfig.appInsightsConnectionString,
       gtmId: environmentConfig.gtmId,
