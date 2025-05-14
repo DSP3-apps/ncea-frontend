@@ -48,18 +48,9 @@
             <p class="govuk-body govuk-!-margin-bottom-6">
               The programme's outputs are supporting the Government’s missions and Defra's priorities to turbocharge nature's recovery, boost food security, make our water cleaner, reduce flooding impact and create a roadmap to zero waste economy.
             </p>
-            <div class="landingPage__intro-content-actions">
-              <div class="landingPage__intro-content-actions-button">
-                {{ govukButton({
-                  text: "Learn more about NCEA"
-                }) }}
-              </div>
-              <div class="landingPage__intro-content-actions-button">
-                {{ govukButton({
-                  text: "Search for Natural Capital Data"
-                }) }}
-              </div>
-            <div>
+            <p class="govuk-body govuk-!-margin-bottom-6">
+              <a class='govuk-link' href="{{ moreLink }}/about" target="_blank">Learn more about NCEA</a>
+            </p>
         </div>
     </section>
     {% if displayCategoryPages %}
