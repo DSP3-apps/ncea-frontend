@@ -14,8 +14,9 @@ describe.only('Quality tab fields', () => {
       revisionInformation: '10 June 2024',
       metadataDate: '',
       lineage: 'An RDF Vocabulary to described data on exotic notifiable disease investigations.',
-      additionalInformation: '',
-      conformity: '',
+      available_formats: '',
+      frequency_of_update: 'unknown',
+      character_encoding: 'utf8',
     });
   });
 

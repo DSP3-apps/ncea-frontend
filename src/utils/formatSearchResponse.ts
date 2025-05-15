@@ -25,12 +25,12 @@ import {
 
 const DATE_FORMAT = 'd MMMM yyyy';
 
-const getResourceLocatorURL = (data: string | string[]): string => {
-  if (Array.isArray(data) && data.length) {
-    return data[0] as string;
-  }
-  return data as string;
-};
+// const getResourceLocatorURL = (data: string | string[]): string => {
+//   if (Array.isArray(data) && data.length) {
+//     return data[0] as string;
+//   }
+//   return data as string;
+// };
 
 export const getStudyPeriodDetails = (isDetails: boolean, dateRanges: IDateRange[] = []): string => {
   const studyPeriodString = (startDate: string, endDate: string): string => {
@@ -161,14 +161,14 @@ export const transformSearchResponse = (response: ISearchResponse, isMapResults:
 };
 
 export const formatSearchResponse = (payload: IMoreInfoSearchItem, vocabularyData: NaturalCapitalTheme[]) => {
-  const resourceUrl = getResourceLocatorURL(payload?.resources[0]?.url ?? '');
+  // const resourceUrl = getResourceLocatorURL(payload?.resources[0]?.url ?? '');
   return {
     id: payload?.id,
     title: payload?.title ?? '',
     publishedBy: payload?.organisation ?? '',
     startYear: getYear(payload?.temporalExtent?.beginPosition ?? ''),
     toYear: getYear(payload?.temporalExtent?.endPosition ?? ''),
-    resourceLocator: resourceUrl,
+    // resourceLocator: resourceUrl,
     organisationName: payload?.organisation ?? '',
     ncea_group_reference: '',
     project_number: '',

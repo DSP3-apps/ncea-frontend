@@ -17,9 +17,6 @@ const getLicenseTabData = (license: ILicenseItem): ILicense => {
     conditions_for_access_and_useOtherConstraints: license?.publicUseOtherContraints ?? '',
     conditions_for_access_and_use_useConstraints: license?.publicUseUseConstraints ?? '',
     other_constraint: '', // Need to test once data is availble from AGM side
-    available_formats: '', // Need to test once data is availble from AGM side
-    frequency_of_update: license?.frequencyOfUpdate ?? '',
-    character_encoding: 'utf8',
   };
 };
 export { getLicenseTabData, formmatLicenseData };

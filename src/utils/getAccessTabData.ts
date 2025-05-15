@@ -5,14 +5,7 @@ import { DATA_DOWNLOADS_TYPES, DATA_SERVICES_TYPES } from './constants';
 import { capitalizeWords } from './formatAggregationResponse';
 import { getOrganisationDetails } from './getOrganisationDetails';
 import { isEmpty } from './isEmpty';
-import {
-  Contact,
-  IAccess,
-  IAccessItem,
-  IIdentifiers,
-  IResources,
-  ServiceOptions,
-} from '../interfaces/searchResponse.interface';
+import { Contact, IAccess, IAccessItem, IResources, ServiceOptions } from '../interfaces/searchResponse.interface';
 
 const getCoupledResource = (data: string | string[]): string => {
   const getCoupleResourceLink = (url: string): string => {
@@ -86,13 +79,13 @@ const getContactInformation = (contacts): string => {
   }
 };
 
-const getIdentifiers = (identifier: IIdentifiers[]) => {
-  if (Array.isArray(identifier)) {
-    const identifierObj = Object.assign({}, ...identifier);
-    return identifierObj.id ?? '';
-  }
-  return '';
-};
+// const getIdentifiers = (identifier: IIdentifiers[]) => {
+//   if (Array.isArray(identifier)) {
+//     const identifierObj = Object.assign({}, ...identifier);
+//     return identifierObj.id ?? '';
+//   }
+//   return '';
+// };
 
 export const validateServiceTypes = (options: ServiceOptions, value: string): boolean => {
   const lowerCaseServiceTypes = Object.values(options).map((item) => item.toLowerCase());
@@ -256,13 +249,13 @@ const createTableRow = (name: string, url: string) => {
 
 const getAccessTabData = (payload: IAccessItem): IAccess => ({
   ncea_catalogue_number: payload.id ?? '', // file identifier
-  host_catalogue_number: getIdentifiers(payload.identifiers ?? []), // resource identifier
+  // host_catalogue_number: getIdentifiers(payload.identifiers ?? []), // resource identifier
   host_catalogue_entry: '',
   resource_type_and_hierarchy: payload?.resourceType ?? '',
-  resource_locators: '', // keeps as empty as its value is not available from AGM side
+  // resource_locators: '', // keeps as empty as its value is not available from AGM side
   contact_information: getContactInformation(payload.contacts),
   catalogue_number: '',
-  metadata_standard: payload?.metadata?.standard ?? '',
+  // metadata_standard: payload?.metadata?.standard ?? '',
   metadata_language: payload?.metadata?.language?.toUpperCase() ?? '',
   resourceWebsite: generateResourceWebsiteTable(payload.resources ?? []),
 });

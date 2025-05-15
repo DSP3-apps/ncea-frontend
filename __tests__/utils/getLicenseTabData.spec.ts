@@ -9,9 +9,6 @@ describe('getLicenseTabData', () => {
       conditions_for_access_and_use_useConstraints: '',
       conditions_for_access_and_useOtherConstraints: '',
       other_constraint: '',
-      available_formats: '',
-      frequency_of_update: 'unknown',
-      character_encoding: 'utf8',
     };
     expect(getLicenseTabData(MORE_INFO_MOCK_DATA.license)).toEqual(expectedData);
   });
