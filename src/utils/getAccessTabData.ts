@@ -101,16 +101,26 @@ export const validateServiceTypes = (options: ServiceOptions, value: string): bo
   return lowerCaseServiceTypesSet.has(value.toLowerCase());
 };
 
+export const validateDataSetServiceTypes = (options: ServiceOptions, value: string | null): boolean => {
+  if (value == null) {
+    return true;
+  }
+  const lowerCaseServiceTypes = Object.values(options).map((item) => item.toLowerCase());
+  const lowerCaseServiceTypesSet = new Set(lowerCaseServiceTypes);
+
+  return lowerCaseServiceTypesSet.has(value.toLowerCase());
+};
+
 export const generateResourceWebsiteTable = (resources: IResources[]) => {
   if (Array.isArray(resources) && resources.length > 0) {
-    const filterDataServicesSet = resources.filter(
-      ({ type }) => type !== null && validateServiceTypes(DATA_SERVICES_TYPES, type),
+    const filterDataServicesSet = resources.filter(({ type }) =>
+      validateDataSetServiceTypes(DATA_SERVICES_TYPES, type),
     );
     const filterDataDownloadSet = resources.filter(
       ({ type }) => type !== null && validateServiceTypes(DATA_DOWNLOADS_TYPES, type),
     );
     const dataServicesTable = generateDataServicesTable(filterDataServicesSet);
-    const dataDownloadTable = generateDataDownloadsTable(filterDataDownloadSet);
+    const dataDownloadTable = generateDataDownloadsTable(filterDataDownloadSet, filterDataServicesSet);
 
     return `${dataServicesTable}${dataDownloadTable}`;
   }
@@ -130,10 +140,11 @@ const generateDataServicesTable = (dataServices: IResources[]) => {
   return '';
 };
 
-const generateDataDownloadsTable = (dataDownloads: IResources[]) => {
+const generateDataDownloadsTable = (dataDownloads: IResources[], dataServices: IResources[]) => {
   if (Array.isArray(dataDownloads) && dataDownloads.length > 0) {
+    const style = dataServices.length > 0 ? 'style="margin-top:30px"' : '';
     return `
-    <table class="details-table-full">
+    <table class="details-table-full" ${style}>
       ${generateFullDownloadsTableHeader()}
       <tbody>
         ${generateTableRows(dataDownloads, 'full-downloads')}
