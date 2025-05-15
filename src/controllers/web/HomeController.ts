@@ -8,6 +8,7 @@ import { IGuidedSearchStepsMatrix, IStepRouteMatrix } from '../../interfaces/gui
 import { getSearchResultsCount } from '../../services/handlers/searchApi';
 import {
   BASE_PATH,
+  encaUrl,
   formIds,
   guidedSearchSteps,
   pageTitles,
@@ -32,6 +33,7 @@ const HomeController = {
       pageTitle: pageTitles.home,
       quickSearchFID,
       searchInputError: undefined,
+      encaUrl,
     });
   },
   intermediateHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {

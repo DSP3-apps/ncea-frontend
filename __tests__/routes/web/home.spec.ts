@@ -211,9 +211,9 @@ describe('Home Screen', () => {
     });
 
     describe('Educational Copy block elements', () => {
-      it('should render 6 child elements', async () => {
+      it('should render 7 child elements', async () => {
         const videoContainer = document?.querySelector('.educational-copy-container');
-        expect(videoContainer?.childElementCount).toEqual(6);
+        expect(videoContainer?.childElementCount).toEqual(7);
       });
     });
   });

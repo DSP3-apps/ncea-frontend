@@ -4,6 +4,7 @@ import { Request, ResponseToolkit } from '@hapi/hapi';
 import { decode } from 'jsonwebtoken';
 import {
   BASE_PATH,
+  encaUrl,
   formIds,
   guidedSearchSteps,
   pageTitles,
@@ -91,6 +92,7 @@ describe('Deals with Home Controller', () => {
         quickSearchFID,
         searchInputError: undefined,
         user: null,
+        encaUrl,
       });
     });
     it('should call the home view with context with logged in user', async () => {
@@ -106,6 +108,7 @@ describe('Deals with Home Controller', () => {
         searchInputError: undefined,
         // We only want a partial match on the jwt as it contains lots of keys
         user: expect.objectContaining({ email: 'test@test.com' }),
+        encaUrl,
       });
     });
   });
