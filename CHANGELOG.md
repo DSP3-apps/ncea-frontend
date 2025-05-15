@@ -1,3 +1,16 @@
+# [1.26.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.25.1...v1.26.0) (2025-05-15)
+
+
+### Bug Fixes
+
+* **MoreInfo:** remove null type check for resources and default to Data Services ([450b4bb](https://github.com/DSP3-apps/ncea-frontend/commit/450b4bbac3fd1bfe9969915167b95f035b9c918c))
+
+
+### Features
+
+* **frontend:** Convert "Learn more about NCEA" button to anchor tag and add PPT link ([71e9bf7](https://github.com/DSP3-apps/ncea-frontend/commit/71e9bf729c90aebcfc75a1d3c80d1948411d5184))
+* **frontend:** Update homepage content and redesign About page ([a297f14](https://github.com/DSP3-apps/ncea-frontend/commit/a297f142bc4a3d807dd84ead97c9283eaed13d25))
+
 ## [1.25.1](https://github.com/DSP3-apps/ncea-frontend/compare/v1.25.0...v1.25.1) (2025-05-13)
 
 
