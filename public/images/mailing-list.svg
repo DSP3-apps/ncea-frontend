@@ -1,27 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66.5 66.5">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: none;
-        stroke: #fff;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        stroke-width: 2px;
-      }
-
-      .cls-2 {
-        stroke-width: 0px;
-      }
-    </style>
-  </defs>
-  <g id="Layer_1-2" data-name="Layer 1">
-    <g>
-      <circle class="cls-2" cx="33.25" cy="33.25" r="33.25"/>
-      <circle class="cls-1" cx="33.25" cy="38.67" r="5.94"/>
-      <path class="cls-1" d="m43.15,54.96c0-5.47-4.43-9.9-9.9-9.9s-9.9,4.43-9.9,9.9"/>
-      <polyline class="cls-1" points="30.21 18.75 32.03 20.57 36.29 16.31"/>
-      <path class="cls-1" d="m37.84,11.51h-9.19c-1.25,0-2.26,1.01-2.26,2.26v9.19c0,1.25,1.01,2.26,2.26,2.26h2.59l2,3.83,2-3.83h2.59c1.25,0,2.26-1.01,2.26-2.26v-9.19c0-1.25-1.01-2.26-2.26-2.26Z"/>
-    </g>
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 28.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_2_00000106863734017233565290000005873506999309155735_"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 66.5 66.5"
+	 style="enable-background:new 0 0 66.5 66.5;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;}
+</style>
+<g id="Layer_1-2">
+	<g>
+		<circle cx="33.2" cy="33.2" r="33.2"/>
+		<circle class="st0" cx="33.2" cy="34.6" r="5.9"/>
+		<path class="st0" d="M43.2,50.9c0-5.5-4.4-9.9-9.9-9.9s-9.9,4.4-9.9,9.9"/>
+		<polyline class="st0" points="27.9,17.7 31.1,20.6 38.6,13.7 		"/>
+	</g>
+</g>
 </svg>

@@ -394,6 +394,8 @@ export const landingPageData = {
   defraLogo: `${BASE_PATH}/assets/images/defra-logo.svg`,
   moreLink:
     'https://environment.data.gov.uk/wiki/download/attachments/854032402/Natural Capital and Ecosystem Assessment (NCEA) programme overview - updated.pptx?version=1&modificationDate=1746620632254&cacheVersion=1&api=v2',
+  brochureLink:
+    'https://environment.data.gov.uk/file-management-open/data-sets/2fb268cd-76fe-48f5-9f97-d9b29576877a/files/NCEA_Product_Brochure.pdf ',
 };
 
 export const accessibilityStatementUrl = 'https://environment.data.gov.uk/support/faqs/275810340/275810354';

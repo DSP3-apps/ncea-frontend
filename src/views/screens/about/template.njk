@@ -17,7 +17,7 @@
         <img src={{ introText.imageUrl1 }} title="Trees Outside Woodland" />
         <span class="govuk-body landingPage__articles-container--article-imageTitle">Trees Outside Woodland</span>
         <p class="landingPage__articles-container--article-text govuk-body">
-          England’s <span>trees outside woodlands</span> have been mapped by satellite and laser are freely available for first time revealing they make up 30% of nation’s tree cover.
+          England’s trees outside woodlands have been mapped by satellite and laser are freely available for first time revealing they make up 30% of nation’s tree cover.
         </p>
          <a href="{{introText.image1Url}}" target="_blank" rel="noreferrer noopener" class="govuk-link govuk-link--no-underline landingPage__articles-container--article-link">More &gt;&gt;</a>
       </div>
@@ -25,7 +25,7 @@
         <img src={{ introText.imageUrl2 }} title="England Peat Map" />
         <span class="govuk-body govuk-body landingPage__articles-container--article-imageTitle">England Peat Map</span>
         <p class="landingPage__articles-container--article-text govuk-body">
-          The new nationwide map of peat and peaty soils, <span>England Peat Map</span>, shows the most detailed national coverage to date for peat depth, peatland vegetation, upland drainage channels, and bare peat.
+          The new nationwide map of peat and peaty soils, England Peat Map, shows the most detailed national coverage to date for peat depth, peatland vegetation, upland drainage channels, and bare peat.
         </p>
          <a href="{{introText.image2Url}}" target="_blank" rel="noreferrer noopener" class="govuk-link govuk-link--no-underline landingPage__articles-container--article-link">More &gt;&gt;</a>
       </div>
@@ -48,9 +48,20 @@
             <p class="govuk-body govuk-!-margin-bottom-6">
               The programme's outputs are supporting the Government’s missions and Defra's priorities to turbocharge nature's recovery, boost food security, make our water cleaner, reduce flooding impact and create a roadmap to zero waste economy.
             </p>
-            <p class="govuk-body govuk-!-margin-bottom-6">
-              <a class='govuk-link' href="{{ moreLink }}/about" target="_blank">Learn more about NCEA</a>
-            </p>
+            <div class="landingPage__intro-content-actions">
+              <div class="landingPage__intro-content-actions-button">
+                  {{ govukButton({
+                  text: "Learn more about NCEA",
+                  href: moreLink
+                  }) }}
+              </div>
+              <div class="landingPage__intro-content-actions-button">
+                  {{ govukButton({
+                  text: "Search for Natural Capital Data",
+                  href: routes.homePage
+                  }) }}
+              </div>
+            </div>
         </div>
     </section>
     {% if displayCategoryPages %}
@@ -72,7 +83,7 @@
             NCEA intends to release all relevant components of product collections under Open Government Licence, providing useful insights into the work of the programme and the diverse applications our outputs have within Defra, the Government, and beyond.
           </p>
           <p class="govuk-body govuk-!-margin-bottom-6">
-            <a class='govuk-link' href="{{routes.homePage}}/about" target="_blank">Explore the NCEA Product Brochure</a>
+            <a class='govuk-link' href="{{ brochureLink }}" target="_blank">Explore the NCEA Product Brochure</a>
           </p>
       </div>
       <div class="landingPage__partnersLogo-rightsection">
