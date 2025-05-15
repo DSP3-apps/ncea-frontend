@@ -47,8 +47,9 @@ const getQualityTabData = (payload: IQualityItem): IQuality => ({
   revisionInformation: getRecordsDates(payload?.datasetReferenceDate?.revision ?? ''),
   metadataDate: getRecordsDates(payload?.datasetReferenceDate?.metadata ?? ''),
   lineage: payload?.lineage ?? '',
-  conformity: '', // Need to test this, once data is available from AGM side
-  additionalInformation: '', // Need to test this, once data is available from AGM side
+  available_formats: '',
+  frequency_of_update: payload?.license?.frequencyOfUpdate ?? '',
+  character_encoding: 'utf8',
 });
 
 export { getQualityTabData, generateConformityData, getRecordsDates };

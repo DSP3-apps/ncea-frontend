@@ -37,6 +37,7 @@ export interface IAccessItem {
   identifiers?: IIdentifiers[];
   resourceType?: string;
   resources?: IResources[] | undefined;
+  contactEmail?: string;
 }
 
 export interface IAccess {
@@ -77,9 +78,6 @@ export interface ILicense {
   conditions_for_access_and_use_useConstraints?: string;
   conditions_for_access_and_useOtherConstraints?: string;
   other_constraint?: string;
-  available_formats?: string | string[];
-  frequency_of_update?: string;
-  character_encoding?: string;
 }
 
 export interface ILicenseItem {
@@ -118,6 +116,7 @@ export interface IQualityItem {
   lineage?: string;
   additionalInformation?: null | undefined | string;
   datasetReferenceDate: IDataSetReferenceDate;
+  license?: ILicenseItem;
 }
 
 export interface IQuality {
@@ -128,6 +127,9 @@ export interface IQuality {
   conformity?: string;
   additionalInformation?: string;
   lineage?: string;
+  available_formats?: string;
+  frequency_of_update?: string;
+  character_encoding?: string;
 }
 
 export type IVertex = [number, number];
