@@ -1,3 +1,15 @@
+# [1.27.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.26.0...v1.27.0) (2025-05-16)
+
+
+### Bug Fixes
+
+* **MoreInfo:** Update more info UI fields ([05305ee](https://github.com/DSP3-apps/ncea-frontend/commit/05305eed4c42bc65768fdfbe8362e69563697d5c))
+
+
+### Features
+
+* **frontend:** Update quick links svg icons ([6ada659](https://github.com/DSP3-apps/ncea-frontend/commit/6ada659030c722ac9686f6024504f1fd3506bcda))
+
 # [1.26.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.25.1...v1.26.0) (2025-05-15)
 
 
