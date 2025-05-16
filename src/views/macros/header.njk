@@ -62,7 +62,6 @@
           >
           {% for navLink in headerNavigationLinks %}
             <a class="govuk-link" href={{navLink.href}}>
-            {{icon(navLink.icon, { })}}
             <span>{{navLink.text}}</span>
             </a>
           {% endfor %}
@@ -72,7 +71,6 @@
         <nav class="navLinks secondary__navLinks service-links">
          {% for navLink in headerNavigationLinks %}
           <a class="govuk-link" href={{navLink.href}}>
-           {{icon(navLink.icon, { })}}
            <span>{{navLink.text}}</span>
           </a>
          {% endfor %}
