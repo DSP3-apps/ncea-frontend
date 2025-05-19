@@ -8,7 +8,7 @@ import { getFeedsData } from '../../utils/getFeedsData';
 const AboutController = {
   renderAboutHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
     try {
-      const feedsData = atomFeeds[0] ? await getFeedsData(atomFeeds[0]) : null;
+      const feedsData = atomFeeds[1] ? await getFeedsData(atomFeeds[1]) : null;
 
       return response.view('screens/about/template', {
         displayFeedsPanel: true,
