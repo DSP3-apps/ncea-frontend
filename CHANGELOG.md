@@ -1,3 +1,10 @@
+# [1.28.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.27.0...v1.28.0) (2025-05-19)
+
+
+### Features
+
+* **Header:** Remove icons from standard header links ([aa54cd5](https://github.com/DSP3-apps/ncea-frontend/commit/aa54cd5494f7ec30374e3a076bd5fb720d232cbc))
+
 # [1.27.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.26.0...v1.27.0) (2025-05-16)
 
 
