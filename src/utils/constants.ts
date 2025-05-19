@@ -289,7 +289,7 @@ export const atomFeeds = [
   },
   {
     title: 'Natural England - NCEA',
-    url: 'https://naturalengland.blog.gov.uk/category/natural-capital/feed/',
+    url: 'https://naturalengland.blog.gov.uk/category/NCEA/feed/',
   },
 ];
 
