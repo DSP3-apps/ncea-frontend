@@ -249,11 +249,11 @@ const createTableRow = (name: string, url: string) => {
 
 const getAccessTabData = (payload: IAccessItem): IAccess => ({
   ncea_catalogue_number: payload.id ?? '', // file identifier
-  // host_catalogue_number: getIdentifiers(payload.identifiers ?? []), // resource identifier
+  host_catalogue_number: payload.id ?? '', // resource identifier
   host_catalogue_entry: '',
   resource_type_and_hierarchy: payload?.resourceType ?? '',
   // resource_locators: '', // keeps as empty as its value is not available from AGM side
-  contact_information: getContactInformation(payload.contacts),
+  contact_information: payload.contactEmail ?? '',
   catalogue_number: '',
   // metadata_standard: payload?.metadata?.standard ?? '',
   metadata_language: payload?.metadata?.language?.toUpperCase() ?? '',

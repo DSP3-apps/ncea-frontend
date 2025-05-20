@@ -117,6 +117,7 @@ export interface IQualityItem {
   additionalInformation?: null | undefined | string;
   datasetReferenceDate: IDataSetReferenceDate;
   license?: ILicenseItem;
+  resources?: IResources[] | undefined;
 }
 
 export interface IQuality {
