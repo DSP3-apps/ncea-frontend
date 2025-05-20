@@ -222,27 +222,27 @@
     margin-top: 94px;
     &-container {
       display: flex;
-      gap: 5px;
+      gap: 16px;
       flex-wrap: wrap;
       align-items: end;
       a:nth-child(1) {
         img {
-          width:9rem;
+          width:8rem;
         }
       }
       a:nth-child(2) {
         img {
-          width:6rem;
+          width:5rem;
         }
       }
       a:nth-child(4) {
         img {
-          width:11rem;
+          width:10rem;
         }
       }
       a:nth-child(5), a:nth-child(6) {
         img {
-          width:10rem;
+          width:9rem;
         }
       }
     }

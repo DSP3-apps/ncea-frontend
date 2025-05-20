@@ -335,7 +335,7 @@ export const landingPageData = {
   partnerLogos: [
     {
       imgUrl: `${BASE_PATH}/assets/images/defra-logo.svg`,
-      link: '#',
+      link: ' https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs ',
       title: 'Defra Logo',
     },
     {
@@ -355,7 +355,7 @@ export const landingPageData = {
     },
     {
       imgUrl: `${BASE_PATH}/assets/images/botanic-garden.svg`,
-      link: 'https://www.kew.org/kew-gardens?gad_source=1&gclid=EAIaIQobChMI6t6wgu-7iwMVo5RQBh0sdjtGEAAYAiAAEgK1gvD_BwE',
+      link: 'https://www.kew.org/science/our-science/projects/natural-capital-and-ecosystem-assessment-programme-terrestrial-ncea-mycorrhizas',
       title: 'Royal Botanic Garden',
     },
     {
@@ -383,7 +383,7 @@ export const landingPageData = {
     {
       iconUrl: `${BASE_PATH}/assets/images/email-icon-new.svg`,
       iconName: 'nceaprogramme@defra.gov.uk',
-      link: '#',
+      link: 'mailto:nceaprogramme@defra.gov.uk',
     },
     {
       iconUrl: `${BASE_PATH}/assets/images/favicon.svg`,
@@ -395,7 +395,9 @@ export const landingPageData = {
   moreLink:
     'https://environment.data.gov.uk/wiki/download/attachments/854032402/Natural Capital and Ecosystem Assessment (NCEA) programme overview - updated.pptx?version=1&modificationDate=1746620632254&cacheVersion=1&api=v2',
   brochureLink:
-    'https://environment.data.gov.uk/file-management-open/data-sets/2fb268cd-76fe-48f5-9f97-d9b29576877a/files/NCEA_Product_Brochure.pdf ',
+    'https://environment.data.gov.uk/file-management-open/data-sets/f47ae4ff-e5aa-4e79-bdf9-e22499f810aa/files/NCEA_Product_Brochure_V1.1_Autum_2024.pdf ',
+  nceaAboutLink:
+    'https://www.gov.uk/government/publications/natural-capital-and-ecosystem-assessment-programme/natural-capital-and-ecosystem-assessment-programme ',
 };
 
 export const accessibilityStatementUrl = 'https://environment.data.gov.uk/support/faqs/275810340/275810354';
