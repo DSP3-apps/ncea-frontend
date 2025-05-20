@@ -42,10 +42,9 @@ const getRecordsDates = (data: string): string => {
 };
 
 export const getDistributionFormats = (resources): string => {
-  if (Array.isArray(resources) && resources.length > 0) {
+  if (resources?.length > 0) {
     const formats = resources.flatMap((item) => item.distributionFormat || []).filter(Boolean);
-    const uniqueFormats = Array.from(new Set(formats));
-    return uniqueFormats.join(', ');
+    return [...new Set(formats ?? [])].join(', ');
   }
   return '';
 };
