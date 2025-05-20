@@ -74,8 +74,7 @@ describe('Format the search response', () => {
       language: 'ENG',
       host_catalogue_entry: '',
       resource_type_and_hierarchy: '',
-      contact_information:
-        ' :- jonathan.smith@apha.gov.uk, <br /> :- neil.sampson@apha.gov.uk, <br /> :- aphaopendata@apha.gov.uk',
+      contact_information: 'Peter.Walker@naturalengland.org.uk',
       catalogue_number: '',
       metadata_language: 'ENG',
       publicationInformation: '11 February 2017',
@@ -108,6 +107,7 @@ describe('Format the search response', () => {
       ncea_catalogue_number: 'c9d7e118-d057-48f9-b520-76de8e51e014',
       resourceWebsite: expect.any(String),
       nceaContribution: '',
+      host_catalogue_number: 'c9d7e118-d057-48f9-b520-76de8e51e014',
     };
     expect(result).toEqual(expectedResponse);
   });

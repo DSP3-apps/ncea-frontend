@@ -41,13 +41,21 @@ const getRecordsDates = (data: string): string => {
   return formatDate(data, false, false);
 };
 
+export const getDistributionFormats = (resources): string => {
+  if (resources?.length > 0) {
+    const formats = resources.flatMap((item) => item.distributionFormat || []).filter(Boolean);
+    return [...new Set(formats ?? [])].join(', ');
+  }
+  return '';
+};
+
 const getQualityTabData = (payload: IQualityItem): IQuality => ({
   publicationInformation: getRecordsDates(payload?.datasetReferenceDate?.publication ?? ''),
   creationInformation: getRecordsDates(payload?.datasetReferenceDate?.creation ?? ''),
   revisionInformation: getRecordsDates(payload?.datasetReferenceDate?.revision ?? ''),
   metadataDate: getRecordsDates(payload?.datasetReferenceDate?.metadata ?? ''),
   lineage: payload?.lineage ?? '',
-  available_formats: '',
+  available_formats: getDistributionFormats(payload.resources ?? []),
   frequency_of_update: payload?.license?.frequencyOfUpdate ?? '',
   character_encoding: 'utf8',
 });

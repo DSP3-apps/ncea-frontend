@@ -189,7 +189,7 @@ export const detailsTabOptions: TabOptions = {
     // 'Additional information': 'additionalInformation',
   },
   geography: {
-    'Spatial data service': 'spatialDataService',
+    // 'Spatial data service': 'spatialDataService',
     'Spatial representation service': 'spatialRepresentationService',
     'Spatial referencing system': 'spatialReferencingSystem',
     // 'Geographic locations': 'geographicLocations',

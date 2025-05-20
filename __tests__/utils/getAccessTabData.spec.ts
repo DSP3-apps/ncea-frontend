@@ -16,11 +16,11 @@ describe('getAccessTabData functions', () => {
         host_catalogue_entry: '',
         resource_type_and_hierarchy: '',
         ncea_catalogue_number: 'c9d7e118-d057-48f9-b520-76de8e51e014',
-        contact_information:
-          ' :- jonathan.smith@apha.gov.uk, <br /> :- neil.sampson@apha.gov.uk, <br /> :- aphaopendata@apha.gov.uk',
+        contact_information: 'Peter.Walker@naturalengland.org.uk',
         catalogue_number: '',
         metadata_language: 'ENG',
         resourceWebsite: expect.any(String),
+        host_catalogue_number: 'c9d7e118-d057-48f9-b520-76de8e51e014'
       });
     });
   });
