@@ -93,8 +93,8 @@ describe('Results block template', () => {
         const resultItems = resultItemsBlock.children;
         expect(resultItems.length).toBe(searchResultsWithData.total);
         Array.from(resultItems).forEach((resultItem: any, index) => {
-          const startDateValue = searchResultsWithData?.items[index]?.studyPeriodStart ?? 'Unavailable';
-          const endDateValue = searchResultsWithData?.items[index]?.studyPeriodEnd ?? 'Unavailable';
+          const startDateValue = searchResultsWithData?.items[index]?.studyPeriodStart ?? '';
+          const endDateValue = searchResultsWithData?.items[index]?.studyPeriodEnd ?? '';
 
           expect(resultItem.querySelector('.search-result__heading')?.textContent?.trim()).toEqual(
             searchResultsWithData?.items[index]?.title,
