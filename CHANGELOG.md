@@ -1,3 +1,17 @@
+# [1.29.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.28.0...v1.29.0) (2025-05-21)
+
+
+### Bug Fixes
+
+* **frontend:** Rename Category Search to Natural Capital Search and update About Us links ([684173d](https://github.com/DSP3-apps/ncea-frontend/commit/684173d52e82f3bc0c966dba6d376772ae0af71d))
+* **frontend:** Update Natural Capital category from NCEA in Natural England Blogs API and update About Us feeds ([16d39f3](https://github.com/DSP3-apps/ncea-frontend/commit/16d39f3acda96d704a22d6f91547bb60365f9188))
+
+
+### Features
+
+* **MoreInfoPage:** Refactor identifiers and update metadata structure ([8bc213b](https://github.com/DSP3-apps/ncea-frontend/commit/8bc213b165e0c89a1e31b18ccdc144806215b68e))
+* **MoreInfoPage:** Refactor the getDistributionFormats function ([818f102](https://github.com/DSP3-apps/ncea-frontend/commit/818f102c3f2dd900f7464f8ae4e7406bf8917e44))
+
 # [1.28.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.27.0...v1.28.0) (2025-05-19)
 
 
