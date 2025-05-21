@@ -29,8 +29,8 @@ export const getStudyPeriodDetails = (dateRanges: any): string => {
   const endDate: string = endPosition ? formatDate(endPosition) : '';
 
   if (!startDate && !endDate) return '';
-  if (!startDate) return `${endDate} to ${endDate}`;
-  if (!endDate) return `${startDate} to ${startDate}`;
+  if (!startDate) return `${endDate}`;
+  if (!endDate) return `${startDate}`;
 
   return `${startDate} to ${endDate}`;
 };
