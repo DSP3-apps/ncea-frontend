@@ -65,7 +65,7 @@
       {% endif %}
       <div {% if not docDetails.resourceLocator or not docDetails.organisationName %} class="open-data-block--disabled" {% endif %}>
         {# {{ goToResource({ organisationName: docDetails.organisationName, resourceLocator: docDetails.resourceLocator, isDetailsPage: true }) }} #}
-        {% if not docDetails.resourceLocator or not docDetails.organisationName %}
+        {% if not docDetails.resourceWebsite %}
           <span class="open-data-block--tag">Access to this data resource is by application to the owner - please refer to access
             tab for further details</span>
         {% endif %}

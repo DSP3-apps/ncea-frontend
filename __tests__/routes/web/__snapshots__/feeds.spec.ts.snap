@@ -26,7 +26,7 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta name="version" content="v1.23.0">
+  <meta name="version" content="v1.29.0">
 
     
   </head>
@@ -173,28 +173,25 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
   </script>
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
-
-    <!--Will be removed once Defra GA accounts been created -->
-
     <!-- Google tag (gtag.js) -->
-    
+    <script async src="https://www.googletagmanager.com/gtag/js?id="+gtmIdValue></script>
 
-    
+  
 
-    
+  
     
       
     
 
-    
+  
 
     
 
-    
+  
 
-    
+  
 
-    
+  
   <header class="header">
     <div class="header__primary">
       <h1 class="navLinks">
@@ -291,35 +288,14 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
           >
           
             <a class="govuk-link" href=/natural-capital-ecosystem-assessment>
-            
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M192 0c-41.8 0-77.4 26.7-90.5 64L64 64C28.7 64 0 92.7 0 128L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64l-37.5 0C269.4 26.7 233.8 0 192 0zm0 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM72 272a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zm104-16l128 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-128 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zM72 368a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zm88 0c0-8.8 7.2-16 16-16l128 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-128 0c-8.8 0-16-7.2-16-16z"></path></svg>
-
             <span>Home</span>
             </a>
           
             <a class="govuk-link" href=/natural-capital-ecosystem-assessment/about>
-            
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path></svg>
-
             <span>About</span>
             </a>
           
             <a class="govuk-link" href=/natural-capital-ecosystem-assessment/newsfeed>
-            
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><circle cx="6.18" cy="17.82" r="2.18"></circle><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg>
-
             <span>News Feed</span>
             </a>
           
@@ -329,35 +305,14 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
         <nav class="navLinks secondary__navLinks service-links">
          
           <a class="govuk-link" href=/natural-capital-ecosystem-assessment>
-           
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M192 0c-41.8 0-77.4 26.7-90.5 64L64 64C28.7 64 0 92.7 0 128L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64l-37.5 0C269.4 26.7 233.8 0 192 0zm0 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM72 272a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zm104-16l128 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-128 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zM72 368a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zm88 0c0-8.8 7.2-16 16-16l128 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-128 0c-8.8 0-16-7.2-16-16z"></path></svg>
-
            <span>Home</span>
           </a>
          
           <a class="govuk-link" href=/natural-capital-ecosystem-assessment/about>
-           
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path></svg>
-
            <span>About</span>
           </a>
          
           <a class="govuk-link" href=/natural-capital-ecosystem-assessment/newsfeed>
-           
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><circle cx="6.18" cy="17.82" r="2.18"></circle><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg>
-
            <span>News Feed</span>
           </a>
          
@@ -440,13 +395,13 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
       <ul class="govuk-list">
         
           <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">The North can be a powerhouse for Nature and growth</h3>
+            <h3 class="govuk-heading-s">A new peat map for England </h3>
             <div class="captions-section">
               <small><b>Author: </b>Natural England</small>
-              <small><b>Published on : </b>07 March 2025</small>
+              <small><b>Published on : </b>12 May 2025</small>
             </div>
-            <p class="govuk-body">&quot;Nature is vital to our economy our health and our security. The North has the natural assets that can help create the places people want to live, work and invest in and that will keep them happy and healthy, as …</p>
-            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2025/03/07/the-north-can-be-a-powerhouse-for-nature-and-growth/" target="_blank">The North can be a powerhouse for Nature and growth</a>
+            <p class="govuk-body">By Dr Ruth Waters, Director for Evidence, Natural England, and David Jones, Senior Responsible Officer for the Natural Capital and Ecosystem Assessment, Defra England’s peat deposits are one of our most valuable national assets. They’re our largest carbon store, they …</p>
+            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2025/05/12/a-new-peat-map-for-england/" target="_blank">A new peat map for England </a>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
           </li>
         
@@ -458,83 +413,6 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
             </div>
             <p class="govuk-body">By Gabriella Fasoli and Nick Tomline (AI specialists), Emma Milner (marine mammal specialist) and Elizabeth Mitchell (engagement), all on the marine Natural Capital and Ecosystem Assessment (mNCEA) programme Documenting Norfolk&#39;s biggest beach party On a windy day in December, something …</p>
             <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2025/02/26/how-new-technologies-are-helping-us-monitor-one-of-englands-largest-grey-seal-colonies/" target="_blank">How new technologies are helping us monitor one of England’s largest grey seal colonies </a>
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-          </li>
-        
-          <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">How can Nature-Based Solutions address the climate and Nature crises?</h3>
-            <div class="captions-section">
-              <small><b>Author: </b>Tony Juniper</small>
-              <small><b>Published on : </b>11 February 2025</small>
-            </div>
-            <p class="govuk-body">Keynote speech by Tony Juniper CBE, Chair of Natural England, at Nature Returns conference, 6 February 2025 It is an absolute pleasure to be here today and to see this latest journey in what has been a decades-long process of …</p>
-            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2025/02/11/how-can-nature-based-solutions-address-the-climate-and-nature-crises/" target="_blank">How can Nature-Based Solutions address the climate and Nature crises?</a>
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-          </li>
-        
-          <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">Three churrs for the heathland bird survey</h3>
-            <div class="captions-section">
-              <small><b>Author: </b>Alison Giacomelli</small>
-              <small><b>Published on : </b>05 February 2025</small>
-            </div>
-            <p class="govuk-body">By Alison Giacomelli, Senior Specialist – Ornithology, Natural England Heathlands are home to the eerie sound of churring Nightjars, sweet melody of singing Woodlarks and the rattling song of Dartford Warblers. This year teams of volunteers and fieldworkers will be …</p>
-            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2025/02/05/three-churrs-for-the-heathland-bird-survey/" target="_blank">Three churrs for the heathland bird survey</a>
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-          </li>
-        
-          <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">Maximising the miracle and minimising the disaster – putting Nature at the heart of food security</h3>
-            <div class="captions-section">
-              <small><b>Author: </b>Tony Juniper</small>
-              <small><b>Published on : </b>10 January 2025</small>
-            </div>
-            <p class="govuk-body">I was invited to speak at a historic event this week – the first major joint gathering of attendees at the two Oxford farming conferences: the Oxford Farming Conference and the Oxford Real Farming Conference. After more than a decade …</p>
-            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2025/01/10/maximising-the-miracle-and-minimising-the-disaster-putting-nature-at-the-heart-of-food-security/" target="_blank">Maximising the miracle and minimising the disaster – putting Nature at the heart of food security</a>
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-          </li>
-        
-          <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">Working together for Nature Recovery in Greater Manchester  </h3>
-            <div class="captions-section">
-              <small><b>Author: </b>Marian Spain</small>
-              <small><b>Published on : </b>03 December 2024</small>
-            </div>
-            <p class="govuk-body">The launch of Biodiversity Net Gain (BNG) has been a major achievement this year – this world-leading initiative means that for the first time, development must leave nature measurably improved. I was lucky enough to visit Greater Manchester to speak …</p>
-            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2024/12/03/working-together-for-nature-recovery-in-greater-manchester/" target="_blank">Working together for Nature Recovery in Greater Manchester  </a>
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-          </li>
-        
-          <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">From AI to underwater microphones: improving the evidence base for marine mammals </h3>
-            <div class="captions-section">
-              <small><b>Author: </b>Samantha Parker</small>
-              <small><b>Published on : </b>13 November 2024</small>
-            </div>
-            <p class="govuk-body">By Samantha Parker and Emma Milner, Natural England marine mammal senior specialists  Why are seal population numbers changing so fast along our coasts? How are porpoise feeding patterns changing as our seas become increasingly crowded? And how does the health …</p>
-            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2024/11/13/from-ai-to-underwater-microphones-improving-the-evidence-base-for-marine-mammals/" target="_blank">From AI to underwater microphones: improving the evidence base for marine mammals </a>
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-          </li>
-        
-          <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">International use of England&amp;#039;s biodiversity metric having global impact</h3>
-            <div class="captions-section">
-              <small><b>Author: </b>Natural England</small>
-              <small><b>Published on : </b>08 November 2024</small>
-            </div>
-            <p class="govuk-body">By Nick White, Principal Adviser on Biodiversity Net Gain, and Steve Panks, Principal Specialist Biodiversity Net Gain and Biodiversity Metrics, at Natural England, explore the global significance of the biodiversity metric and its role in nature recovery across the world.&amp;#160; …</p>
-            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2024/11/08/international-use-of-englands-biodiversity-metric-having-global-impact/" target="_blank">International use of England&amp;#039;s biodiversity metric having global impact</a>
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-          </li>
-        
-          <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">Seabed Saviours - the EU Life Recreation ReMEDIES project comes to an end</h3>
-            <div class="captions-section">
-              <small><b>Author: </b>Fiona Tibbitt</small>
-              <small><b>Published on : </b>01 November 2024</small>
-            </div>
-            <p class="govuk-body">By Fiona Tibbitt, Project Manager on the EU Life Recreation ReMEDIES  I have had the privilege of being Project Manager on the EU Life Recreation ReMEDIES project for the last one and half years. I’ll admit it was a daunting …</p>
-            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2024/11/01/seabed-saviours-the-eu-life-recreation-remedies-project-comes-to-an-end/" target="_blank">Seabed Saviours - the EU Life Recreation ReMEDIES project comes to an end</a>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
           </li>
         
