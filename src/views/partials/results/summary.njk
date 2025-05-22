@@ -112,22 +112,14 @@
               <span class='start'>
                 {% if item.studyPeriodStart %}
                   {{ item.studyPeriodStart }}
-                {% else %}
-                  {{govukTag({
-                    text: "Unavailable",
-                    classes: "govuk-tag--grey tab-content-value__not-provided"
-                  })}}
                 {% endif %}
               </span>
-              <span>to</span>
+             {% if item.studyPeriodEnd %}
+               <span>to</span>
+             {% endif %}
               <span class='end'>
                 {% if item.studyPeriodEnd %}
                   {{ item.studyPeriodEnd }}
-                {% else %}
-                  {{govukTag({
-                    text: "Unavailable",
-                    classes: "govuk-tag--grey tab-content-value__not-provided"
-                  })}}
                 {% endif %}
               </span>
             </span>
