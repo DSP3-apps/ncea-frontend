@@ -26,7 +26,7 @@ exports[`Home Screen Home > Sanpshot verification should match the home screen s
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta name="version" content="v1.23.0">
+  <meta name="version" content="v1.29.0">
 
     
   </head>
@@ -173,28 +173,25 @@ exports[`Home Screen Home > Sanpshot verification should match the home screen s
   </script>
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
-
-    <!--Will be removed once Defra GA accounts been created -->
-
     <!-- Google tag (gtag.js) -->
-    
+    <script async src="https://www.googletagmanager.com/gtag/js?id="+gtmIdValue></script>
 
-    
+  
 
-    
+  
     
       
     
 
-    
+  
 
     
 
-    
+  
 
-    
+  
 
-    
+  
   <header class="header">
     <div class="header__primary">
       <h1 class="navLinks">
@@ -291,35 +288,14 @@ exports[`Home Screen Home > Sanpshot verification should match the home screen s
           >
           
             <a class="govuk-link" href=/natural-capital-ecosystem-assessment>
-            
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M192 0c-41.8 0-77.4 26.7-90.5 64L64 64C28.7 64 0 92.7 0 128L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64l-37.5 0C269.4 26.7 233.8 0 192 0zm0 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM72 272a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zm104-16l128 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-128 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zM72 368a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zm88 0c0-8.8 7.2-16 16-16l128 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-128 0c-8.8 0-16-7.2-16-16z"></path></svg>
-
             <span>Home</span>
             </a>
           
             <a class="govuk-link" href=/natural-capital-ecosystem-assessment/about>
-            
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path></svg>
-
             <span>About</span>
             </a>
           
             <a class="govuk-link" href=/natural-capital-ecosystem-assessment/newsfeed>
-            
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><circle cx="6.18" cy="17.82" r="2.18"></circle><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg>
-
             <span>News Feed</span>
             </a>
           
@@ -329,35 +305,14 @@ exports[`Home Screen Home > Sanpshot verification should match the home screen s
         <nav class="navLinks secondary__navLinks service-links">
          
           <a class="govuk-link" href=/natural-capital-ecosystem-assessment>
-           
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M192 0c-41.8 0-77.4 26.7-90.5 64L64 64C28.7 64 0 92.7 0 128L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64l-37.5 0C269.4 26.7 233.8 0 192 0zm0 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM72 272a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zm104-16l128 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-128 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zM72 368a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zm88 0c0-8.8 7.2-16 16-16l128 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-128 0c-8.8 0-16-7.2-16-16z"></path></svg>
-
            <span>Home</span>
           </a>
          
           <a class="govuk-link" href=/natural-capital-ecosystem-assessment/about>
-           
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path></svg>
-
            <span>About</span>
           </a>
          
           <a class="govuk-link" href=/natural-capital-ecosystem-assessment/newsfeed>
-           
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><circle cx="6.18" cy="17.82" r="2.18"></circle><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg>
-
            <span>News Feed</span>
           </a>
          
@@ -392,9 +347,8 @@ exports[`Home Screen Home > Sanpshot verification should match the home screen s
     <div class="banner-container">
       <img alt="Department for Environment Food &amp; Rural Affairs Logo" src="/natural-capital-ecosystem-assessment/assets/images/NCEA-logo-landscape.png" class="banner-container__ncea-logo">
         <h1 class="govuk-heading-xl banner-container__heading-xl">Find natural capital data</h1>
-        <span class="govuk-caption-l banner-container__caption-l">Use this service to search for data and information about the
-          environment and ecosystems in the England.</span>
-        <span class="govuk-caption-l banner-container__caption-l">This service supports the use of natural capital approaches in evidence gathering and decision making.</span>
+        <span class="govuk-caption-l banner-container__caption-l">Use this service to search for data and information relevant to a natural capital approach.</span>
+        <span class="govuk-caption-l banner-container__caption-l">Explore outputs from the Natural Capital and Ecosystem Assessment programme, and other natural capital data.</span>
       </div>
     </header>
     
@@ -480,21 +434,20 @@ exports[`Home Screen Home > Sanpshot verification should match the home screen s
         Natural capital
       </h2>
       <p class="govuk-body govuk-!-margin-bottom-6">
-        Natural capital is the parts of our natural environment that hold value for people. This includes nature’s living and non-living resources, such as ecosystems, species, freshwater, land, soils, minerals, air and ocean, that provide environmental, economic, societal and cultural benefits.
+        Natural capital includes certain stocks of the elements of nature that have value to society, such as forests, fisheries, rivers, biodiversity, land and minerals. Natural capital includes both the living and non-living aspects of ecosystems. Taking a natural capital approach is about considering the value of the natural environment for people and the economy.
       </p>
     </div>
     <div class="govuk-grid-column-full  govuk-grid-row">
       <h2 class="govuk-heading-m govuk-!-margin-bottom-6">
-        Category search
+        Natural Capital Search
       </h2>
       <p class="govuk-body govuk-!-margin-bottom-6">
-        All natural capital resources in this service are classified into broad themes and specific categories for better
-        clarity and understanding.
+        All resources in this service are classified into broad themes and specific categories relevant to taking a natural capital approach. Use the category search to select the natural capital themes and categories of interest to help narrow down your search.
       </p>
       
       
       <p class="govuk-body govuk-!-margin-bottom-6">
-        Use these natural capital theme and classification filters to help narrow down your search
+       The Natural Capital Search is a beta service that is continuing to be improved. Your <a class='govuk-link' href="https://defragroup.eu.qualtrics.com/jfe/form/SV_02KhhVirzVmY0QK" target="_blank">feedback</a> will help us improve it.
       </p>
     </div>
     
@@ -525,16 +478,19 @@ exports[`Home Screen Home > Sanpshot verification should match the home screen s
           <li class="govuk-body-m ncea-static-page-line-item">reports and publications</li>
           <li class="govuk-body-m ncea-static-page-line-item">maps</li>
           <li class="govuk-body-m ncea-static-page-line-item">geospatial web services</li>
+          <li class="govuk-body-m ncea-static-page-line-item">standards and protocols</li>
         </ul>
         <p class="govuk-body govuk-!-margin-bottom-6">
           The data discoverable here is primarily from England and inshore waters, although may extend beyond these areas.</p>
         <h1 class="govuk-heading-m govuk-\\!-static-margin-0 educational-copy-container__heading-m">NCEA and natural capital approach</h1>
         <p class="govuk-body govuk-!-margin-bottom-6">The Department for Environment, Food and Rural Affairs’(Defra’s)
           <a class='govuk-link' href="/natural-capital-ecosystem-assessment/about" target="_blank">
-          Natural Capital and Ecosystem Assessment (NCEA)</a> is delivering a nationwide survey of England’s land, freshwater assets and coast; mapping the location,
-          extent and condition of our ecosystems.​ Natural capital evidence and approaches help us recognise and communicate the value of natural assets to people,
-          integrating this into decision-making. This prevents undervaluation and guides better management, protection, and enhancement of our natural
-          assets and the services they provide.​</p>
+          Natural Capital and Ecosystem Assessment (NCEA)</a> programme is transforming environmental decision making in England through generating a ‘whole system’ picture of the state of our natural environment. The ‘Find Natural Capital Data’ search service contributes to this by improving access to natural capital data.
+        ​</p>
+        <p class="govuk-body govuk-!-margin-bottom-6">Defra’s
+          <a class='govuk-link' href="https://www.gov.uk/guidance/enabling-a-natural-capital-approach-enca" target="_blank">
+          Enabling a Natural Capital Approach (ENCA)</a> provides guidance on using natural capital data, including economic valuation, and taking a natural capital approach to policy and decision making.
+        ​</p>
       </div>
     </article>
   

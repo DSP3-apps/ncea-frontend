@@ -27,7 +27,7 @@ exports[`Details route template Document details with data Check status code and
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta name="version" content="v1.23.0">
+  <meta name="version" content="v1.29.0">
 
   <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
 
@@ -176,28 +176,25 @@ exports[`Details route template Document details with data Check status code and
   </script>
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
-
-    <!--Will be removed once Defra GA accounts been created -->
-
     <!-- Google tag (gtag.js) -->
-    
+    <script async src="https://www.googletagmanager.com/gtag/js?id="+gtmIdValue></script>
 
-    
+  
 
-    
+  
     
       
     
 
-    
+  
 
     
 
-    
+  
 
-    
+  
 
-    
+  
   <header class="header">
     <div class="header__primary">
       <h1 class="navLinks">
@@ -236,7 +233,7 @@ exports[`Details route template Document details with data Check status code and
           <span class="text">Data Services Platform</span>
         </a>
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A41777%2Fnatural-capital-ecosystem-assessment%2Fsearch%2F%257B1234-56789213123-1233-1234%257D' class='govuk-link divider'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A39275%2Fnatural-capital-ecosystem-assessment%2Fsearch%2F%257B1234-56789213123-1233-1234%257D' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">
@@ -294,35 +291,14 @@ exports[`Details route template Document details with data Check status code and
           >
           
             <a class="govuk-link" href=/natural-capital-ecosystem-assessment>
-            
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M192 0c-41.8 0-77.4 26.7-90.5 64L64 64C28.7 64 0 92.7 0 128L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64l-37.5 0C269.4 26.7 233.8 0 192 0zm0 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM72 272a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zm104-16l128 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-128 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zM72 368a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zm88 0c0-8.8 7.2-16 16-16l128 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-128 0c-8.8 0-16-7.2-16-16z"></path></svg>
-
             <span>Home</span>
             </a>
           
             <a class="govuk-link" href=/natural-capital-ecosystem-assessment/about>
-            
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path></svg>
-
             <span>About</span>
             </a>
           
             <a class="govuk-link" href=/natural-capital-ecosystem-assessment/newsfeed>
-            
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><circle cx="6.18" cy="17.82" r="2.18"></circle><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg>
-
             <span>News Feed</span>
             </a>
           
@@ -332,35 +308,14 @@ exports[`Details route template Document details with data Check status code and
         <nav class="navLinks secondary__navLinks service-links">
          
           <a class="govuk-link" href=/natural-capital-ecosystem-assessment>
-           
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M192 0c-41.8 0-77.4 26.7-90.5 64L64 64C28.7 64 0 92.7 0 128L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64l-37.5 0C269.4 26.7 233.8 0 192 0zm0 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM72 272a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zm104-16l128 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-128 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zM72 368a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zm88 0c0-8.8 7.2-16 16-16l128 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-128 0c-8.8 0-16-7.2-16-16z"></path></svg>
-
            <span>Home</span>
           </a>
          
           <a class="govuk-link" href=/natural-capital-ecosystem-assessment/about>
-           
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path></svg>
-
            <span>About</span>
           </a>
          
           <a class="govuk-link" href=/natural-capital-ecosystem-assessment/newsfeed>
-           
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><circle cx="6.18" cy="17.82" r="2.18"></circle><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg>
-
            <span>News Feed</span>
           </a>
          
@@ -678,41 +633,10 @@ exports[`Details route template Document details with data Check status code and
           
             <div class='tab-content-row'>
               
-                <h2 class='tab-content-label'>Coupled resources</h2>
-                
-                  <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-      Unavailable
-    </strong>
-    
-                
-              
-              
-            </div>
-          
-          
-        
-          
-            <div class='tab-content-row'>
-              
                 <h2 class='tab-content-label'>Resource type</h2>
                 
                   <span class='tab-content-value'>
                     Dataset
-                  </span>
-                
-              
-              
-            </div>
-          
-          
-        
-          
-            <div class='tab-content-row'>
-              
-                <h2 class='tab-content-label'>Resource locators</h2>
-                
-                  <span class='tab-content-value'>
-                    <p>Download from Seabed Mapping Service (<a class="govuk-link" href="https://seabed.admiralty.co.uk" target="_blank">https://seabed.admiralty.co.uk</a>)</p>
                   </span>
                 
               
@@ -755,37 +679,6 @@ exports[`Details route template Document details with data Check status code and
           
             <div class='tab-content-row'>
               
-                <h2 class='tab-content-label'>Metadata standard</h2>
-                
-                  <span class='tab-content-value'>
-                    MEDIN
-                  </span>
-                
-              
-              
-            </div>
-          
-          
-        
-          
-            <div class='tab-content-row'>
-              
-                <h2 class='tab-content-label'>Project number</h2>
-                
-                  <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-      Unavailable
-    </strong>
-    
-                
-              
-              
-            </div>
-          
-          
-        
-          
-            <div class='tab-content-row'>
-              
                 <h2 class='tab-content-label'>Metadata language</h2>
                 
                   <span class='tab-content-value'>
@@ -803,10 +696,20 @@ exports[`Details route template Document details with data Check status code and
               
                 <h2 class='tab-content-label'>Resource website</h2>
                 
-                  <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-      Unavailable
-    </strong>
-    
+                  <span class='tab-content-value'>
+                    <table class="details-table">
+                          <thead>
+                            <tr>
+                              <th width="60%">Data services and download area of interest</th>
+                              <th width="10%">Link</th>
+                              <th>Action</th>
+                            </tr>
+                          </thead><tbody><tr>
+                          <td>Notifiable Disease Datasets: Additional Information</td>
+                          <td>Copy Link</td>
+                          <td>Open Link</td>
+                        </tr></tbody></table>
+                  </span>
                 
               
               
@@ -914,21 +817,26 @@ exports[`Details route template Document details with data Check status code and
           
             <div class='tab-content-row'>
               
-                <h2 class='tab-content-label'>Conformity</h2>
+                <h2 class='tab-content-label'>Distribution formats</h2>
+                
+                  <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
+      Unavailable
+    </strong>
+    
+                
+              
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              
+                <h2 class='tab-content-label'>Frequency of update</h2>
                 
                   <span class='tab-content-value'>
-                    <table class="details-table">
-                          <thead>
-                            <tr>
-                              <th width="60%">Specification</th>
-                              <th width="10%">Degree</th>
-                              <th>Explanation</th>
-                            </tr>
-                          </thead><tbody><tr>
-                          <td>Commission Regulation (EU) No 1089/2010 of 23 November 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of spatial data sets and services</td>
-                          <td>false</td>
-                          <td>inapplicable</td>
-                        </tr></tbody></table>
+                    Not planned
                   </span>
                 
               
@@ -940,12 +848,11 @@ exports[`Details route template Document details with data Check status code and
           
             <div class='tab-content-row'>
               
-                <h2 class='tab-content-label'>Additional information</h2>
+                <h2 class='tab-content-label'>Character encoding</h2>
                 
-                  <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-      Unavailable
-    </strong>
-    
+                  <span class='tab-content-value'>
+                    utf8
+                  </span>
                 
               
               
@@ -961,22 +868,6 @@ exports[`Details route template Document details with data Check status code and
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="geography">
   
     <div class='tab-content-container'>
-        
-          
-            <div class='tab-content-row'>
-              
-                <h2 class='tab-content-label'>Spatial data service</h2>
-                
-                  <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-      Unavailable
-    </strong>
-    
-                
-              
-              
-            </div>
-          
-          
         
           
             <div class='tab-content-row'>
@@ -1011,22 +902,6 @@ exports[`Details route template Document details with data Check status code and
           
             <div class='tab-content-row'>
               
-                <h2 class='tab-content-label'>Geographic locations</h2>
-                
-                  <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-      Unavailable
-    </strong>
-    
-                
-              
-              
-            </div>
-          
-          
-        
-          
-            <div class='tab-content-row'>
-              
                 <h2 class='tab-content-label'>Geographic boundary</h2>
                 
                   <span class='tab-content-value'>
@@ -1042,38 +917,6 @@ exports[`Details route template Document details with data Check status code and
           
           
             <div id="coordinate-map" class="detail-map" style="height: 335px;"></div>
-          
-        
-          
-            <div class='tab-content-row'>
-              
-                <h2 class='tab-content-label'>Vertical extent<br /><span>(Metres above sea level)</span></h2>
-                
-                  <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-      Unavailable
-    </strong>
-    
-                
-              
-              
-            </div>
-          
-          
-        
-          
-            <div class='tab-content-row'>
-              
-                <h2 class='tab-content-label'>Spatial resolution</h2>
-                
-                  <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-      Unavailable
-    </strong>
-    
-                
-              
-              
-            </div>
-          
           
         
       </div>
@@ -1142,52 +985,6 @@ exports[`Details route template Document details with data Check status code and
       Unavailable
     </strong>
     
-                
-              
-              
-            </div>
-          
-          
-        
-          
-            <div class='tab-content-row'>
-              
-                <h2 class='tab-content-label'>Distribution formats</h2>
-                
-                  <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-      Unavailable
-    </strong>
-    
-                
-              
-              
-            </div>
-          
-          
-        
-          
-            <div class='tab-content-row'>
-              
-                <h2 class='tab-content-label'>Frequency of update</h2>
-                
-                  <span class='tab-content-value'>
-                    Not planned
-                  </span>
-                
-              
-              
-            </div>
-          
-          
-        
-          
-            <div class='tab-content-row'>
-              
-                <h2 class='tab-content-label'>Character encoding</h2>
-                
-                  <span class='tab-content-value'>
-                    utf8
-                  </span>
                 
               
               
@@ -1699,7 +1496,7 @@ exports[`Details route template Document details with partial data Check status 
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta name="version" content="v1.23.0">
+  <meta name="version" content="v1.29.0">
 
   <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
 
@@ -1848,28 +1645,25 @@ exports[`Details route template Document details with partial data Check status 
   </script>
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/cookieScript.js"></script>
   <header class="header-container">
-
-    <!--Will be removed once Defra GA accounts been created -->
-
     <!-- Google tag (gtag.js) -->
-    
+    <script async src="https://www.googletagmanager.com/gtag/js?id="+gtmIdValue></script>
 
-    
+  
 
-    
+  
     
       
     
 
-    
+  
 
     
 
-    
+  
 
-    
+  
 
-    
+  
   <header class="header">
     <div class="header__primary">
       <h1 class="navLinks">
@@ -1908,7 +1702,7 @@ exports[`Details route template Document details with partial data Check status 
           <span class="text">Data Services Platform</span>
         </a>
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A37103%2Fnatural-capital-ecosystem-assessment%2Fsearch%2F%257B1234-56789213123-1233-1234%257D' class='govuk-link divider'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A46409%2Fnatural-capital-ecosystem-assessment%2Fsearch%2F%257B1234-56789213123-1233-1234%257D' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">
@@ -1966,35 +1760,14 @@ exports[`Details route template Document details with partial data Check status 
           >
           
             <a class="govuk-link" href=/natural-capital-ecosystem-assessment>
-            
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M192 0c-41.8 0-77.4 26.7-90.5 64L64 64C28.7 64 0 92.7 0 128L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64l-37.5 0C269.4 26.7 233.8 0 192 0zm0 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM72 272a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zm104-16l128 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-128 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zM72 368a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zm88 0c0-8.8 7.2-16 16-16l128 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-128 0c-8.8 0-16-7.2-16-16z"></path></svg>
-
             <span>Home</span>
             </a>
           
             <a class="govuk-link" href=/natural-capital-ecosystem-assessment/about>
-            
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path></svg>
-
             <span>About</span>
             </a>
           
             <a class="govuk-link" href=/natural-capital-ecosystem-assessment/newsfeed>
-            
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><circle cx="6.18" cy="17.82" r="2.18"></circle><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg>
-
             <span>News Feed</span>
             </a>
           
@@ -2004,35 +1777,14 @@ exports[`Details route template Document details with partial data Check status 
         <nav class="navLinks secondary__navLinks service-links">
          
           <a class="govuk-link" href=/natural-capital-ecosystem-assessment>
-           
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M192 0c-41.8 0-77.4 26.7-90.5 64L64 64C28.7 64 0 92.7 0 128L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64l-37.5 0C269.4 26.7 233.8 0 192 0zm0 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM72 272a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zm104-16l128 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-128 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zM72 368a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zm88 0c0-8.8 7.2-16 16-16l128 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-128 0c-8.8 0-16-7.2-16-16z"></path></svg>
-
            <span>Home</span>
           </a>
          
           <a class="govuk-link" href=/natural-capital-ecosystem-assessment/about>
-           
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path></svg>
-
            <span>About</span>
           </a>
          
           <a class="govuk-link" href=/natural-capital-ecosystem-assessment/newsfeed>
-           
-  
-  
-  
-  
-  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><circle cx="6.18" cy="17.82" r="2.18"></circle><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg>
-
            <span>News Feed</span>
           </a>
          
@@ -2345,41 +2097,10 @@ exports[`Details route template Document details with partial data Check status 
           
             <div class='tab-content-row'>
               
-                <h2 class='tab-content-label'>Coupled resources</h2>
-                
-                  <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-      Unavailable
-    </strong>
-    
-                
-              
-              
-            </div>
-          
-          
-        
-          
-            <div class='tab-content-row'>
-              
                 <h2 class='tab-content-label'>Resource type</h2>
                 
                   <span class='tab-content-value'>
                     Dataset
-                  </span>
-                
-              
-              
-            </div>
-          
-          
-        
-          
-            <div class='tab-content-row'>
-              
-                <h2 class='tab-content-label'>Resource locators</h2>
-                
-                  <span class='tab-content-value'>
-                    <p>Download from Seabed Mapping Service (<a class="govuk-link" href="https://seabed.admiralty.co.uk" target="_blank">https://seabed.admiralty.co.uk</a>)</p>
                   </span>
                 
               
@@ -2407,38 +2128,6 @@ exports[`Details route template Document details with partial data Check status 
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Parent identifier</h2>
-                
-                  <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-      Unavailable
-    </strong>
-    
-                
-              
-              
-            </div>
-          
-          
-        
-          
-            <div class='tab-content-row'>
-              
-                <h2 class='tab-content-label'>Metadata standard</h2>
-                
-                  <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-      Unavailable
-    </strong>
-    
-                
-              
-              
-            </div>
-          
-          
-        
-          
-            <div class='tab-content-row'>
-              
-                <h2 class='tab-content-label'>Project number</h2>
                 
                   <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
       Unavailable
@@ -2586,7 +2275,7 @@ exports[`Details route template Document details with partial data Check status 
           
             <div class='tab-content-row'>
               
-                <h2 class='tab-content-label'>Conformity</h2>
+                <h2 class='tab-content-label'>Distribution formats</h2>
                 
                   <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
       Unavailable
@@ -2602,12 +2291,27 @@ exports[`Details route template Document details with partial data Check status 
           
             <div class='tab-content-row'>
               
-                <h2 class='tab-content-label'>Additional information</h2>
+                <h2 class='tab-content-label'>Frequency of update</h2>
                 
                   <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
       Unavailable
     </strong>
     
+                
+              
+              
+            </div>
+          
+          
+        
+          
+            <div class='tab-content-row'>
+              
+                <h2 class='tab-content-label'>Character encoding</h2>
+                
+                  <span class='tab-content-value'>
+                    utf8
+                  </span>
                 
               
               
@@ -2623,22 +2327,6 @@ exports[`Details route template Document details with partial data Check status 
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="geography">
   
     <div class='tab-content-container'>
-        
-          
-            <div class='tab-content-row'>
-              
-                <h2 class='tab-content-label'>Spatial data service</h2>
-                
-                  <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-      Unavailable
-    </strong>
-    
-                
-              
-              
-            </div>
-          
-          
         
           
             <div class='tab-content-row'>
@@ -2675,22 +2363,6 @@ exports[`Details route template Document details with partial data Check status 
           
             <div class='tab-content-row'>
               
-                <h2 class='tab-content-label'>Geographic locations</h2>
-                
-                  <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-      Unavailable
-    </strong>
-    
-                
-              
-              
-            </div>
-          
-          
-        
-          
-            <div class='tab-content-row'>
-              
                 <h2 class='tab-content-label'>Geographic boundary</h2>
                 
                   <span class='tab-content-value'>
@@ -2703,38 +2375,6 @@ exports[`Details route template Document details with partial data Check status 
           
           
         
-          
-          
-        
-          
-            <div class='tab-content-row'>
-              
-                <h2 class='tab-content-label'>Vertical extent<br /><span>(Metres above sea level)</span></h2>
-                
-                  <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-      Unavailable
-    </strong>
-    
-                
-              
-              
-            </div>
-          
-          
-        
-          
-            <div class='tab-content-row'>
-              
-                <h2 class='tab-content-label'>Spatial resolution</h2>
-                
-                  <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-      Unavailable
-    </strong>
-    
-                
-              
-              
-            </div>
           
           
         
@@ -2804,53 +2444,6 @@ exports[`Details route template Document details with partial data Check status 
       Unavailable
     </strong>
     
-                
-              
-              
-            </div>
-          
-          
-        
-          
-            <div class='tab-content-row'>
-              
-                <h2 class='tab-content-label'>Distribution formats</h2>
-                
-                  <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-      Unavailable
-    </strong>
-    
-                
-              
-              
-            </div>
-          
-          
-        
-          
-            <div class='tab-content-row'>
-              
-                <h2 class='tab-content-label'>Frequency of update</h2>
-                
-                  <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-      Unavailable
-    </strong>
-    
-                
-              
-              
-            </div>
-          
-          
-        
-          
-            <div class='tab-content-row'>
-              
-                <h2 class='tab-content-label'>Character encoding</h2>
-                
-                  <span class='tab-content-value'>
-                    utf8
-                  </span>
                 
               
               
