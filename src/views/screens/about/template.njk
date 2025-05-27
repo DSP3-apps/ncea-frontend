@@ -2,19 +2,25 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% extends "layout/default.njk" %}
+{% block head %}
+  {{ super() }}
+
+    <meta name="description" content="Describe NCEA application and links to partner sites as well as other relevant links.">
+{% endblock %}
+
 {% block content %}
   <div class="landingPage">
   <header class="landingPage__header full-width-banner" role="banner">
     <div class="landingPage__header-heading">
       <h1 class="govuk-heading-xl banner-container__heading-xl">{{ pageHeading }}</h1>
-      <img alt="Department for Environment Food &amp; Rural Affairs Logo" src="{{ assetPath }}/images/NCEA-logo-landscape.png" class="banner-container__ncea-logo">
+      <img alt="Department for Environment Food &amp; Rural Affairs Logo" src="{{ assetPath }}/images/NCEA-logo-landscape.webp" class="banner-container__ncea-logo">
     </div>
   </header>
   <section class="landingPage__articles">
     <h2 class="govuk-heading-m">Featured articles</h2>
     <div class="landingPage__articles-container">
       <div class="landingPage__articles-container--article">
-        <img src={{ introText.imageUrl1 }} title="Trees Outside Woodland" />
+        <img src={{ introText.imageUrl1 }} width="800" height="533" alt="A street lined with parked cars and blooming cherry blossom trees on both sides during springtime" title="Trees Outside Woodland" />
         <span class="govuk-body landingPage__articles-container--article-imageTitle">Trees Outside Woodland</span>
         <p class="landingPage__articles-container--article-text govuk-body">
           England’s trees outside woodlands have been mapped by satellite and laser are freely available for first time revealing they make up 30% of nation’s tree cover.
@@ -22,7 +28,7 @@
          <a href="{{introText.image1Url}}" target="_blank" rel="noreferrer noopener" class="govuk-link govuk-link--no-underline landingPage__articles-container--article-link">More &gt;&gt;</a>
       </div>
       <div class="landingPage__articles-container--article">
-        <img src={{ introText.imageUrl2 }} title="England Peat Map" />
+        <img src={{ introText.imageUrl2 }} width="800" height="533" alt="A peatland landscape in England with water channels and grassy vegetation" title="England Peat Map" />
         <span class="govuk-body govuk-body landingPage__articles-container--article-imageTitle">England Peat Map</span>
         <p class="landingPage__articles-container--article-text govuk-body">
           The new nationwide map of peat and peaty soils, England Peat Map, shows the most detailed national coverage to date for peat depth, peatland vegetation, upland drainage channels, and bare peat.
@@ -88,7 +94,7 @@
       </div>
       <div class="landingPage__partnersLogo-rightsection">
          <div class="landingPage__partnersLogo-rightsection--brochure">
-          <img src="{{ assetPath }}/images/ncea-product.png" title="NCEA Product Brochure">
+          <img src="{{ assetPath }}/images/ncea-product.webp"  alt="Informational brochure pages from Natural England about the England Ecosystem Survey" title="NCEA Product Brochure">
       </div>
         </div>
       </div>
@@ -129,8 +135,8 @@
            <div class="landingPage__links_container-quicklinks">
            {% for item in quickLinks %}
               <div class="landingPage__links_container-quicklinks-list">
-                  <img width="30px" height="30px" src="{{ item.iconUrl }}" title="{{item.iconName}}">
-                  <a href="{{ item.link }}" target="_blank" rel="noreferrer noopener" class="govuk-link govuk-link--no-underline">{{item.iconName}}</a>
+                  <img width="30px" height="30px" src="{{ item.iconUrl }}" alt="{{item.description}}" title="{{item.name}}">
+                  <a href="{{ item.link }}" target="_blank" rel="noreferrer noopener" class="govuk-link govuk-link--no-underline">{{item.name}}</a>
               </div>
             {% endfor %}
             </div>
@@ -141,7 +147,7 @@
       <div class="landingPage__partners-container">
        {% for item in partnerLogos %}
           <a class="govuk-link" href="{{ item.link }}">
-            <img src="{{ item.imgUrl }}" title="{{ item.title }}">
+            <img src="{{ item.imgUrl }}" alt="{{ item.title}} logo" title="{{ item.title }}">
           </a>
         {% endfor %}
       <div>

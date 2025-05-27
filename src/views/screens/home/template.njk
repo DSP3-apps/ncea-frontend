@@ -1,10 +1,14 @@
 {% extends "layout/default.njk" %}
 {% from "partials/quick_search/macro.njk" import quickSearch %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
+{% block head %}
+  {{ super() }}
+    <meta name="description" content="Landing page for the NCEA app, allowing users to do a quick search or a more guided category search.">
+{% endblock %}
 {% block content %}
   <header class="full-width-banner" role="banner">
     <div class="banner-container">
-      <img alt="Department for Environment Food &amp; Rural Affairs Logo" src="{{ assetPath }}/images/NCEA-logo-landscape.png" class="banner-container__ncea-logo">
+      <img alt="Department for Environment Food &amp; Rural Affairs Logo" src="{{ assetPath }}/images/NCEA-logo-landscape.webp" class="banner-container__ncea-logo">
         <h1 class="govuk-heading-xl banner-container__heading-xl">Find natural capital data</h1>
         <span class="govuk-caption-l banner-container__caption-l">Use this service to search for data and information relevant to a natural capital approach.</span>
         <span class="govuk-caption-l banner-container__caption-l">Explore outputs from the Natural Capital and Ecosystem Assessment programme, and other natural capital data.</span>

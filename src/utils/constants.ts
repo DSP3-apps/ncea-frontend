@@ -304,9 +304,9 @@ export const FILTER_VALUES = {
 export const landingPageData = {
   pageHeading: 'Natural Capital and Ecosystem Assessment (NCEA) programme',
   introText: {
-    imageUrl1: `${BASE_PATH}/assets/images/Trees-Outside-Woodland.jpeg`,
+    imageUrl1: `${BASE_PATH}/assets/images/Trees-Outside-Woodland.webp`,
     image1Url: 'https://www.gov.uk/government/news/englands-non-woodland-trees-freely-mapped-for-first-time',
-    imageUrl2: `${BASE_PATH}/assets/images/England-Peat-Map.jpg`,
+    imageUrl2: `${BASE_PATH}/assets/images/England-Peat-Map.webp`,
     image2Url: 'https://naturalengland.blog.gov.uk/2025/05/12/a-new-peat-map-for-england/',
   },
   displayCategoryPages: false,
@@ -344,7 +344,7 @@ export const landingPageData = {
       title: 'Natural England',
     },
     {
-      imgUrl: `${BASE_PATH}/assets/images/environment-agency-logo.png`,
+      imgUrl: `${BASE_PATH}/assets/images/environment-agency-logo.webp`,
       link: 'https://www.gov.uk/government/organisations/environment-agency',
       title: 'Environment Agency',
     },
@@ -367,28 +367,33 @@ export const landingPageData = {
   quickLinks: [
     {
       iconUrl: `${BASE_PATH}/assets/images/favicon.svg`,
-      iconName: 'NCEA GOV.UK',
+      name: 'NCEA GOV.UK',
       link: 'https://www.gov.uk/government/publications/natural-capital-and-ecosystem-assessment-programme/natural-capital-and-ecosystem-assessment-programme',
+      description: 'Visit the NCEA page',
     },
     {
       iconUrl: `${BASE_PATH}/assets/images/youtube-icon.svg`,
-      iconName: 'YouTube',
+      name: 'YouTube',
       link: 'https://www.youtube.com/@NCEAprogramme/videos',
+      description: 'Visit our YouTube channel',
     },
     {
       iconUrl: `${BASE_PATH}/assets/images/mailing-list.svg`,
-      iconName: 'Join our mailing list',
+      name: 'Join our mailing list',
       link: 'https://pages.mailshot.defra.gov.uk/p/ncea',
+      description: 'Sign up to receive the latest updates',
     },
     {
       iconUrl: `${BASE_PATH}/assets/images/email-icon-new.svg`,
-      iconName: 'nceaprogramme@defra.gov.uk',
+      name: 'nceaprogramme@defra.gov.uk',
       link: 'mailto:nceaprogramme@defra.gov.uk',
+      description: 'Contact us via email',
     },
     {
       iconUrl: `${BASE_PATH}/assets/images/favicon.svg`,
-      iconName: 'ENCA GOV.UK',
+      name: 'ENCA GOV.UK',
       link: 'https://www.gov.uk/guidance/enabling-a-natural-capital-approach-enca',
+      description: 'Visit the ENCA page',
     },
   ],
   defraLogo: `${BASE_PATH}/assets/images/defra-logo.svg`,

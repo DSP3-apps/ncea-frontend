@@ -27,6 +27,10 @@
   }) }}
   {% endif %}
 {% endblock %}
+{% block head %}
+  {{ super() }}
+    <meta name="description" content="A page to guide users searching for information when not familiar or confident in providing specific search terms.">
+{% endblock %}
 {% block content %}
   {% if  nextLevel > 2 %}
     {% include "partials/results_count/template.njk" %}
