@@ -63,7 +63,7 @@ const generateTableHeader = (hasCategory: boolean, hasSubcategory: boolean): str
         ${hasCategory ? `<th width="${categoryWidth}">Category</th>` : ''}
         ${hasSubcategory ? `<th width="${subcategoryWidth}">Subcategory</th>` : ''}
       </tr>
-      <tr><td colspan="${1 + (hasCategory ? 1 : 0) + (hasSubcategory ? 1 : 0)}" class="details-table-hr"></td></tr>
+      <tr aria-hidden="true" role="presentation"><td colspan="${1 + (hasCategory ? 1 : 0) + (hasSubcategory ? 1 : 0)}" class="details-table-hr"></td></tr>
     </thead>
   `;
 };
@@ -93,7 +93,7 @@ const generateTableRow = (item: NaturalCapitalTableItems, hasCategory: boolean, 
   }
 
   const colspan = 1 + (hasCategory ? 1 : 0) + (hasSubcategory ? 1 : 0);
-  rows += `<tr><td colspan="${colspan}" class="details-table-hr"></td></tr>`;
+  rows += `<tr aria-hidden="true" role="presentation"><td colspan="${colspan}" class="details-table-hr"></td></tr>`;
 
   return rows;
 };

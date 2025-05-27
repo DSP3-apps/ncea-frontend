@@ -37,7 +37,7 @@ exports[`Guided Search - Geography Questionnaire Screen POST Request HTML elemen
     <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
     
   
-<div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on the find natural capital data service"
+<div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Tell us whether you accept cookies"
     
         
       
@@ -55,13 +55,14 @@ exports[`Guided Search - Geography Questionnaire Screen POST Request HTML elemen
       <div class="govuk-grid-column-two-thirds">
         
         <h2 class="govuk-cookie-banner__heading govuk-heading-m">
-          Cookies on the find natural capital data service
+          Tell us whether you accept cookies
         </h2>
         
         <div class="govuk-cookie-banner__content">
           
-          <p class="govuk-body">We use some essential cookies to make this service work.</p>
-          <p class="govuk-body">We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements</p>
+          <p class="govuk-body">We use essential cookies to give you the best online experience. Without them, this service will not work.</p>
+          <p class="govuk-body">We also use non-essential cookies to analyze site usage to continually improve the services we provide you with.</p>
+          <p class="govuk-body">Full details of cookies collected, and the functionality to change your cookie preference at any time can be accessed on our <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a></p>
           
         </div>
       </div>
@@ -77,7 +78,7 @@ exports[`Guided Search - Geography Questionnaire Screen POST Request HTML elemen
             
           
          id="accept_button">
-        Accept analytics cookies
+        Accept all cookies
       </button>
     
       
@@ -88,71 +89,6 @@ exports[`Guided Search - Geography Questionnaire Screen POST Request HTML elemen
           
          id="reject_button">
         Reject analytics cookies
-      </button>
-    
-      
-      <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">View cookies</a>
-    
-    </div>
-    
-
-  </div>
-  
-  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
-    
-        
-      
-    
-   id="accept_block" hidden>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        
-        <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
-          
-        </div>
-      </div>
-    </div>
-
-    
-    <div class="govuk-button-group">
-    
-      
-      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-        Hide cookie message
-      </button>
-    
-    </div>
-    
-
-  </div>
-  
-  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
-    
-        
-      
-    
-   id="reject_block" hidden>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        
-        <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
-          
-        </div>
-      </div>
-    </div>
-
-    
-    <div class="govuk-button-group">
-    
-      
-      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-        Hide cookie message
       </button>
     
     </div>
@@ -233,7 +169,7 @@ exports[`Guided Search - Geography Questionnaire Screen POST Request HTML elemen
           <span class="text">Data Services Platform</span>
         </a>
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A36177%2Fnatural-capital-ecosystem-assessment%2Fcoordinate-search' class='govuk-link divider'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A44101%2Fnatural-capital-ecosystem-assessment%2Fcoordinate-search' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">

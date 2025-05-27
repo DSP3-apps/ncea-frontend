@@ -154,7 +154,7 @@ const generateFullDownloadsTableHeader = () => `
       <th width="15%">Format</th>
       <th width="20%">Action</th>
     </tr>
-    <tr><td colspan="3" class="details-table-hr"></td></tr>
+    <tr aria-hidden="true" role="presentation"><td colspan="3" class="details-table-hr"></td></tr>
   </thead>
 `;
 
@@ -165,7 +165,7 @@ const generateTableHeader = () => `
       <th width="15%">Link</th>
       <th width="20%">Action</th>
     </tr>
-    <tr><td colspan="3" class="details-table-hr"></td></tr>
+    <tr aria-hidden="true" role="presentation"><td colspan="3" class="details-table-hr"></td></tr>
   </thead>
 `;
 
@@ -177,7 +177,7 @@ const generateTableRows = (resources: IResources[], datatType: string) => {
 
       return `
         ${rowHTML}
-        <tr><td colspan="3" class="details-table-hr"></td></tr>
+        <tr aria-hidden="true" role="presentation"><td colspan="3" class="details-table-hr"></td></tr>
       `;
     })
     .join('');
@@ -241,7 +241,7 @@ const createTableRow = (name: string, url: string) => {
       </button>
     </td>
     <td>
-      <a class="govuk-link" href="${url}" target="_blank">Open Link</a>
+      <a class="govuk-link" href="${url}" target="_blank">Open Link<span class="govuk-visually-hidden">(opens in a new tab)</span></a>
     </td>
   </tr>
   `;

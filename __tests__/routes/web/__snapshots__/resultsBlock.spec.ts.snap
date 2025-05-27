@@ -30,6 +30,7 @@ exports[`Results block template Guided search journey Search results with empty 
   <meta name="version" content="v1.29.0">
 
   <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
+  <meta name="description" content="Paginated list of search results with filters to further narrow results.">
   
     
   </head>
@@ -37,7 +38,7 @@ exports[`Results block template Guided search journey Search results with empty 
     <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
     
   
-<div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on the find natural capital data service"
+<div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Tell us whether you accept cookies"
     
         
       
@@ -55,13 +56,14 @@ exports[`Results block template Guided search journey Search results with empty 
       <div class="govuk-grid-column-two-thirds">
         
         <h2 class="govuk-cookie-banner__heading govuk-heading-m">
-          Cookies on the find natural capital data service
+          Tell us whether you accept cookies
         </h2>
         
         <div class="govuk-cookie-banner__content">
           
-          <p class="govuk-body">We use some essential cookies to make this service work.</p>
-          <p class="govuk-body">We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements</p>
+          <p class="govuk-body">We use essential cookies to give you the best online experience. Without them, this service will not work.</p>
+          <p class="govuk-body">We also use non-essential cookies to analyze site usage to continually improve the services we provide you with.</p>
+          <p class="govuk-body">Full details of cookies collected, and the functionality to change your cookie preference at any time can be accessed on our <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a></p>
           
         </div>
       </div>
@@ -77,7 +79,7 @@ exports[`Results block template Guided search journey Search results with empty 
             
           
          id="accept_button">
-        Accept analytics cookies
+        Accept all cookies
       </button>
     
       
@@ -88,71 +90,6 @@ exports[`Results block template Guided search journey Search results with empty 
           
          id="reject_button">
         Reject analytics cookies
-      </button>
-    
-      
-      <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">View cookies</a>
-    
-    </div>
-    
-
-  </div>
-  
-  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
-    
-        
-      
-    
-   id="accept_block" hidden>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        
-        <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
-          
-        </div>
-      </div>
-    </div>
-
-    
-    <div class="govuk-button-group">
-    
-      
-      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-        Hide cookie message
-      </button>
-    
-    </div>
-    
-
-  </div>
-  
-  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
-    
-        
-      
-    
-   id="reject_block" hidden>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        
-        <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
-          
-        </div>
-      </div>
-    </div>
-
-    
-    <div class="govuk-button-group">
-    
-      
-      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-        Hide cookie message
       </button>
     
     </div>
@@ -233,7 +170,7 @@ exports[`Results block template Guided search journey Search results with empty 
           <span class="text">Data Services Platform</span>
         </a>
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A42451%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link divider'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A42663%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">
@@ -383,8 +320,7 @@ exports[`Results block template Guided search journey Search results with empty 
         <div class="container">
           <div class="heading">
             <span class="title">
-              <h2 class="govuk-heading-m filter-heading govuk-!-margin-0" id="cluster-list-heading"></h2>
-              <button id="cluster-list-close" class="close">
+              <button id="cluster-list-close" class="close" aria-label="close">
                 
   
   
@@ -642,14 +578,14 @@ exports[`Results block template Guided search journey Search results with empty 
       
         <div class="filter-options__container">
           
-          <label for="filters-org-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="org">
+          <div for="filters-org-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="org">
             <button type="button" aria-expanded="false" data-expanded="false" id="filters-org-accordion-toggle-search_results" class="filter-options__accordion-toggle">
               <svg id="filters-org-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
               <h3 class="govuk-body-m filter-options__category-heading">
                 Organisation
               </h3>
             </button>
-          </label>
+          </div>
           <fieldset class="filter-options__filters filter-options__accordion-child filter-options__filters--hidden govuk-fieldset" id="filters-org-filters-search_results">
             <legend class="filter-options__legend">
               <h3>
@@ -749,14 +685,14 @@ exports[`Results block template Guided search journey Search results with empty 
       
         <div class="filter-options__container">
           
-          <label for="filters-st-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="st">
+          <div for="filters-st-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="st">
             <button type="button" aria-expanded="false" data-expanded="false" id="filters-st-accordion-toggle-search_results" class="filter-options__accordion-toggle">
               <svg id="filters-st-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
               <h3 class="govuk-body-m filter-options__category-heading">
                 Search Type
               </h3>
             </button>
-          </label>
+          </div>
           <fieldset class="filter-options__filters filter-options__accordion-child filter-options__filters--hidden govuk-fieldset" id="filters-st-filters-search_results">
             <legend class="filter-options__legend">
               <h3>
@@ -786,14 +722,14 @@ exports[`Results block template Guided search journey Search results with empty 
       
         <div class="filter-options__container">
           
-          <label for="filters-dt-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="dt">
+          <div for="filters-dt-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="dt">
             <button type="button" aria-expanded="false" data-expanded="false" id="filters-dt-accordion-toggle-search_results" class="filter-options__accordion-toggle">
               <svg id="filters-dt-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
               <h3 class="govuk-body-m filter-options__category-heading">
                 Data Type
               </h3>
             </button>
-          </label>
+          </div>
           <fieldset class="filter-options__filters filter-options__accordion-child filter-options__filters--hidden govuk-fieldset" id="filters-dt-filters-search_results">
             <legend class="filter-options__legend">
               <h3>
@@ -830,14 +766,14 @@ exports[`Results block template Guided search journey Search results with empty 
       
         <div class="filter-options__container">
           
-          <label for="filters-svt-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="svt">
+          <div for="filters-svt-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="svt">
             <button type="button" aria-expanded="false" data-expanded="false" id="filters-svt-accordion-toggle-search_results" class="filter-options__accordion-toggle">
               <svg id="filters-svt-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
               <h3 class="govuk-body-m filter-options__category-heading">
                 Service Type
               </h3>
             </button>
-          </label>
+          </div>
           <fieldset class="filter-options__filters filter-options__accordion-child filter-options__filters--hidden govuk-fieldset" id="filters-svt-filters-search_results">
             <legend class="filter-options__legend">
               <h3>
@@ -937,14 +873,14 @@ exports[`Results block template Guided search journey Search results with empty 
       
         <div class="filter-options__container">
           
-          <label for="filters-fmt-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="fmt">
+          <div for="filters-fmt-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="fmt">
             <button type="button" aria-expanded="false" data-expanded="false" id="filters-fmt-accordion-toggle-search_results" class="filter-options__accordion-toggle">
               <svg id="filters-fmt-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
               <h3 class="govuk-body-m filter-options__category-heading">
                 Data Format
               </h3>
             </button>
-          </label>
+          </div>
           <fieldset class="filter-options__filters filter-options__accordion-child filter-options__filters--hidden govuk-fieldset" id="filters-fmt-filters-search_results">
             <legend class="filter-options__legend">
               <h3>
@@ -1535,14 +1471,14 @@ exports[`Results block template Guided search journey Search results with empty 
     </div>
 
     <div class="filter-options__container">
-      <label for="filters-date-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="date">
+      <div for="filters-date-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="date">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters-date-accordion-toggle-search_results" class="filter-options__accordion-toggle">
           <svg id="filters-date-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
           <h3 class="filter-options__category-heading govuk-body-m">
             Date
           </h3>
         </button>
-      </label>
+      </div>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-date-filters-search_results">
         <div class="govuk-form-group" id="date-before-group-search_results">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="date-before-hint-search_results date-before-error-search_results">
@@ -1552,7 +1488,7 @@ exports[`Results block template Guided search journey Search results with empty 
             <div id="date-before-hint-search_results" class="govuk-hint">
               For example, 2004
             </div>
-            <p id="date-before-error-search_results" class="govuk-error-message display-none">
+            <p id="date-before-error-search_results" class="govuk-error-message display-none" role="alert">
               <span class="govuk-visually-hidden">Error:</span><span id="date-before-error-message-search_results"></span>
             </p>
             <div class="govuk-date-input" id="date-before-search_results">
@@ -1576,7 +1512,7 @@ exports[`Results block template Guided search journey Search results with empty 
             <div id="date-after-hint-search_results" class="govuk-hint">
               For example, 2015
             </div>
-            <p id="date-after-error-search_results" class="govuk-error-message display-none">
+            <p id="date-after-error-search_results" class="govuk-error-message display-none" role="alert">
               <span class="govuk-visually-hidden">Error:</span><span id="date-after-error-message-search_results"></span>
             </p>
             <div class="govuk-date-input" id="date-after-search_results">
@@ -1594,14 +1530,14 @@ exports[`Results block template Guided search journey Search results with empty 
       </div>
     </div>
     <div class="filter-options__container">
-      <label for="filters-licence-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="licence">
+      <div for="filters-licence-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="licence">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters-licence-accordion-toggle-search_results" class="filter-options__accordion-toggle">
           <svg id="filters-licence-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
           <h3 class="filter-options__category-heading govuk-body-m">
             Licence
           </h3>
         </button>
-      </label>
+      </div>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-licence-filters-search_results">
         
 
@@ -1641,14 +1577,14 @@ exports[`Results block template Guided search journey Search results with empty 
       </div>
     </div>
     <div class="filter-options__container filter-options__keyword-filter">
-      <label for="filters-keywords-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="keywords">
+      <div for="filters-keywords-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="keywords">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters-keywords-accordion-toggle-search_results" class="filter-options__accordion-toggle">
           <svg id="filters-keywords-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
           <h3 class="filter-options__category-heading govuk-body-m">
             Keywords
           </h3>
         </button>
-      </label>
+      </div>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-keywords-filters-search_results">
         <div class="keyword-input">
          <p class="govuk-error-message keyword-input-search_results-error-message">
@@ -1701,12 +1637,15 @@ exports[`Results block template Guided search journey Search results with empty 
     </div>
 
     <div class="govuk-checkboxes govuk-checkboxes--small">
-      <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-        <input class="govuk-checkboxes__input" id="filters-retired-archived-search_results"  name="retired-archived" type="checkbox" value="true">
-        <label class="govuk-label govuk-checkboxes__label" for="filters-retired-archived-search_results">
-          <span class="filter-options__retired-label">Include Retired & Archived records</span>
-        </label>
-      </div>
+      <fieldset class="govuk-fieldset">
+       <legend class="govuk-visually-hidden">Record status options</legend>
+        <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
+          <input class="govuk-checkboxes__input" id="filters-retired-archived-search_results"  name="retired-archived" type="checkbox" value="true">
+          <label class="govuk-label govuk-checkboxes__label" for="filters-retired-archived-search_results">
+            <span class="filter-options__retired-label">Include Retired & Archived records</span>
+          </label>
+        </div>
+      </fieldset>
     </div>
   </section>
 </form>
@@ -2222,6 +2161,7 @@ exports[`Results block template Guided search journey Search results with error 
   <meta name="version" content="v1.29.0">
 
   <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
+  <meta name="description" content="Paginated list of search results with filters to further narrow results.">
   
     
   </head>
@@ -2229,7 +2169,7 @@ exports[`Results block template Guided search journey Search results with error 
     <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
     
   
-<div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on the find natural capital data service"
+<div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Tell us whether you accept cookies"
     
         
       
@@ -2247,13 +2187,14 @@ exports[`Results block template Guided search journey Search results with error 
       <div class="govuk-grid-column-two-thirds">
         
         <h2 class="govuk-cookie-banner__heading govuk-heading-m">
-          Cookies on the find natural capital data service
+          Tell us whether you accept cookies
         </h2>
         
         <div class="govuk-cookie-banner__content">
           
-          <p class="govuk-body">We use some essential cookies to make this service work.</p>
-          <p class="govuk-body">We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements</p>
+          <p class="govuk-body">We use essential cookies to give you the best online experience. Without them, this service will not work.</p>
+          <p class="govuk-body">We also use non-essential cookies to analyze site usage to continually improve the services we provide you with.</p>
+          <p class="govuk-body">Full details of cookies collected, and the functionality to change your cookie preference at any time can be accessed on our <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a></p>
           
         </div>
       </div>
@@ -2269,7 +2210,7 @@ exports[`Results block template Guided search journey Search results with error 
             
           
          id="accept_button">
-        Accept analytics cookies
+        Accept all cookies
       </button>
     
       
@@ -2280,71 +2221,6 @@ exports[`Results block template Guided search journey Search results with error 
           
          id="reject_button">
         Reject analytics cookies
-      </button>
-    
-      
-      <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">View cookies</a>
-    
-    </div>
-    
-
-  </div>
-  
-  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
-    
-        
-      
-    
-   id="accept_block" hidden>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        
-        <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
-          
-        </div>
-      </div>
-    </div>
-
-    
-    <div class="govuk-button-group">
-    
-      
-      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-        Hide cookie message
-      </button>
-    
-    </div>
-    
-
-  </div>
-  
-  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
-    
-        
-      
-    
-   id="reject_block" hidden>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        
-        <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
-          
-        </div>
-      </div>
-    </div>
-
-    
-    <div class="govuk-button-group">
-    
-      
-      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-        Hide cookie message
       </button>
     
     </div>
@@ -2425,7 +2301,7 @@ exports[`Results block template Guided search journey Search results with error 
           <span class="text">Data Services Platform</span>
         </a>
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A43183%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link divider'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A46331%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Ffdy%3D2000%26tdy%3D2023%26jry%3Dgs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">
@@ -2575,8 +2451,7 @@ exports[`Results block template Guided search journey Search results with error 
         <div class="container">
           <div class="heading">
             <span class="title">
-              <h2 class="govuk-heading-m filter-heading govuk-!-margin-0" id="cluster-list-heading"></h2>
-              <button id="cluster-list-close" class="close">
+              <button id="cluster-list-close" class="close" aria-label="close">
                 
   
   
@@ -2835,14 +2710,14 @@ exports[`Results block template Guided search journey Search results with error 
     </div>
 
     <div class="filter-options__container">
-      <label for="filters-date-accordion-toggle-" class="filter-options__accordion" data-category-="date">
+      <div for="filters-date-accordion-toggle-" class="filter-options__accordion" data-category-="date">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters-date-accordion-toggle-" class="filter-options__accordion-toggle">
           <svg id="filters-date-accordion-icon-" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
           <h3 class="filter-options__category-heading govuk-body-m">
             Date
           </h3>
         </button>
-      </label>
+      </div>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-date-filters-">
         <div class="govuk-form-group" id="-group-">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="-hint- -error-">
@@ -2852,7 +2727,7 @@ exports[`Results block template Guided search journey Search results with error 
             <div id="-hint-" class="govuk-hint">
               For example, 2004
             </div>
-            <p id="-error-" class="govuk-error-message display-none">
+            <p id="-error-" class="govuk-error-message display-none" role="alert">
               <span class="govuk-visually-hidden">Error:</span><span id="-error-message-"></span>
             </p>
             <div class="govuk-date-input" id="-">
@@ -2876,7 +2751,7 @@ exports[`Results block template Guided search journey Search results with error 
             <div id="-hint-" class="govuk-hint">
               For example, 2015
             </div>
-            <p id="-error-" class="govuk-error-message display-none">
+            <p id="-error-" class="govuk-error-message display-none" role="alert">
               <span class="govuk-visually-hidden">Error:</span><span id="-error-message-"></span>
             </p>
             <div class="govuk-date-input" id="-">
@@ -2894,14 +2769,14 @@ exports[`Results block template Guided search journey Search results with error 
       </div>
     </div>
     <div class="filter-options__container">
-      <label for="filters--accordion-toggle-" class="filter-options__accordion" data-category-="licence">
+      <div for="filters--accordion-toggle-" class="filter-options__accordion" data-category-="licence">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters--accordion-toggle-" class="filter-options__accordion-toggle">
           <svg id="filters--accordion-icon-" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
           <h3 class="filter-options__category-heading govuk-body-m">
             Licence
           </h3>
         </button>
-      </label>
+      </div>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters--filters-">
         
 
@@ -2939,14 +2814,14 @@ exports[`Results block template Guided search journey Search results with error 
       </div>
     </div>
     <div class="filter-options__container filter-options__keyword-filter">
-      <label for="filters--accordion-toggle-" class="filter-options__accordion" data-category-="keywords">
+      <div for="filters--accordion-toggle-" class="filter-options__accordion" data-category-="keywords">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters--accordion-toggle-" class="filter-options__accordion-toggle">
           <svg id="filters--accordion-icon-" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
           <h3 class="filter-options__category-heading govuk-body-m">
             Keywords
           </h3>
         </button>
-      </label>
+      </div>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters--filters-">
         <div class="keyword-input">
          <p class="govuk-error-message keyword-input--error-message">
@@ -2999,12 +2874,15 @@ exports[`Results block template Guided search journey Search results with error 
     </div>
 
     <div class="govuk-checkboxes govuk-checkboxes--small">
-      <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-        <input class="govuk-checkboxes__input" id="filters--"  name="" type="checkbox" value="true">
-        <label class="govuk-label govuk-checkboxes__label" for="filters--">
-          <span class="filter-options__retired-label">Include Retired & Archived records</span>
-        </label>
-      </div>
+      <fieldset class="govuk-fieldset">
+       <legend class="govuk-visually-hidden">Record status options</legend>
+        <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
+          <input class="govuk-checkboxes__input" id="filters--"  name="" type="checkbox" value="true">
+          <label class="govuk-label govuk-checkboxes__label" for="filters--">
+            <span class="filter-options__retired-label">Include Retired & Archived records</span>
+          </label>
+        </div>
+      </fieldset>
     </div>
   </section>
 </form>
@@ -3222,6 +3100,7 @@ exports[`Results block template Quick search journey Search results with data sh
   <meta name="version" content="v1.29.0">
 
   <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
+  <meta name="description" content="Paginated list of search results with filters to further narrow results.">
   
     
   </head>
@@ -3229,7 +3108,7 @@ exports[`Results block template Quick search journey Search results with data sh
     <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
     
   
-<div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on the find natural capital data service"
+<div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Tell us whether you accept cookies"
     
         
       
@@ -3247,13 +3126,14 @@ exports[`Results block template Quick search journey Search results with data sh
       <div class="govuk-grid-column-two-thirds">
         
         <h2 class="govuk-cookie-banner__heading govuk-heading-m">
-          Cookies on the find natural capital data service
+          Tell us whether you accept cookies
         </h2>
         
         <div class="govuk-cookie-banner__content">
           
-          <p class="govuk-body">We use some essential cookies to make this service work.</p>
-          <p class="govuk-body">We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements</p>
+          <p class="govuk-body">We use essential cookies to give you the best online experience. Without them, this service will not work.</p>
+          <p class="govuk-body">We also use non-essential cookies to analyze site usage to continually improve the services we provide you with.</p>
+          <p class="govuk-body">Full details of cookies collected, and the functionality to change your cookie preference at any time can be accessed on our <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a></p>
           
         </div>
       </div>
@@ -3269,7 +3149,7 @@ exports[`Results block template Quick search journey Search results with data sh
             
           
          id="accept_button">
-        Accept analytics cookies
+        Accept all cookies
       </button>
     
       
@@ -3280,71 +3160,6 @@ exports[`Results block template Quick search journey Search results with data sh
           
          id="reject_button">
         Reject analytics cookies
-      </button>
-    
-      
-      <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">View cookies</a>
-    
-    </div>
-    
-
-  </div>
-  
-  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
-    
-        
-      
-    
-   id="accept_block" hidden>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        
-        <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
-          
-        </div>
-      </div>
-    </div>
-
-    
-    <div class="govuk-button-group">
-    
-      
-      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-        Hide cookie message
-      </button>
-    
-    </div>
-    
-
-  </div>
-  
-  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
-    
-        
-      
-    
-   id="reject_block" hidden>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        
-        <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
-          
-        </div>
-      </div>
-    </div>
-
-    
-    <div class="govuk-button-group">
-    
-      
-      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-        Hide cookie message
       </button>
     
     </div>
@@ -3425,7 +3240,7 @@ exports[`Results block template Quick search journey Search results with data sh
           <span class="text">Data Services Platform</span>
         </a>
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A46245%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link divider'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A46289%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">
@@ -3575,8 +3390,7 @@ exports[`Results block template Quick search journey Search results with data sh
         <div class="container">
           <div class="heading">
             <span class="title">
-              <h2 class="govuk-heading-m filter-heading govuk-!-margin-0" id="cluster-list-heading"></h2>
-              <button id="cluster-list-close" class="close">
+              <button id="cluster-list-close" class="close" aria-label="close">
                 
   
   
@@ -3834,14 +3648,14 @@ exports[`Results block template Quick search journey Search results with data sh
       
         <div class="filter-options__container">
           
-          <label for="filters-org-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="org">
+          <div for="filters-org-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="org">
             <button type="button" aria-expanded="false" data-expanded="false" id="filters-org-accordion-toggle-search_results" class="filter-options__accordion-toggle">
               <svg id="filters-org-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
               <h3 class="govuk-body-m filter-options__category-heading">
                 Organisation
               </h3>
             </button>
-          </label>
+          </div>
           <fieldset class="filter-options__filters filter-options__accordion-child filter-options__filters--hidden govuk-fieldset" id="filters-org-filters-search_results">
             <legend class="filter-options__legend">
               <h3>
@@ -3941,14 +3755,14 @@ exports[`Results block template Quick search journey Search results with data sh
       
         <div class="filter-options__container">
           
-          <label for="filters-st-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="st">
+          <div for="filters-st-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="st">
             <button type="button" aria-expanded="false" data-expanded="false" id="filters-st-accordion-toggle-search_results" class="filter-options__accordion-toggle">
               <svg id="filters-st-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
               <h3 class="govuk-body-m filter-options__category-heading">
                 Search Type
               </h3>
             </button>
-          </label>
+          </div>
           <fieldset class="filter-options__filters filter-options__accordion-child filter-options__filters--hidden govuk-fieldset" id="filters-st-filters-search_results">
             <legend class="filter-options__legend">
               <h3>
@@ -3978,14 +3792,14 @@ exports[`Results block template Quick search journey Search results with data sh
       
         <div class="filter-options__container">
           
-          <label for="filters-dt-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="dt">
+          <div for="filters-dt-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="dt">
             <button type="button" aria-expanded="false" data-expanded="false" id="filters-dt-accordion-toggle-search_results" class="filter-options__accordion-toggle">
               <svg id="filters-dt-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
               <h3 class="govuk-body-m filter-options__category-heading">
                 Data Type
               </h3>
             </button>
-          </label>
+          </div>
           <fieldset class="filter-options__filters filter-options__accordion-child filter-options__filters--hidden govuk-fieldset" id="filters-dt-filters-search_results">
             <legend class="filter-options__legend">
               <h3>
@@ -4022,14 +3836,14 @@ exports[`Results block template Quick search journey Search results with data sh
       
         <div class="filter-options__container">
           
-          <label for="filters-svt-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="svt">
+          <div for="filters-svt-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="svt">
             <button type="button" aria-expanded="false" data-expanded="false" id="filters-svt-accordion-toggle-search_results" class="filter-options__accordion-toggle">
               <svg id="filters-svt-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
               <h3 class="govuk-body-m filter-options__category-heading">
                 Service Type
               </h3>
             </button>
-          </label>
+          </div>
           <fieldset class="filter-options__filters filter-options__accordion-child filter-options__filters--hidden govuk-fieldset" id="filters-svt-filters-search_results">
             <legend class="filter-options__legend">
               <h3>
@@ -4129,14 +3943,14 @@ exports[`Results block template Quick search journey Search results with data sh
       
         <div class="filter-options__container">
           
-          <label for="filters-fmt-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="fmt">
+          <div for="filters-fmt-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="fmt">
             <button type="button" aria-expanded="false" data-expanded="false" id="filters-fmt-accordion-toggle-search_results" class="filter-options__accordion-toggle">
               <svg id="filters-fmt-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
               <h3 class="govuk-body-m filter-options__category-heading">
                 Data Format
               </h3>
             </button>
-          </label>
+          </div>
           <fieldset class="filter-options__filters filter-options__accordion-child filter-options__filters--hidden govuk-fieldset" id="filters-fmt-filters-search_results">
             <legend class="filter-options__legend">
               <h3>
@@ -4727,14 +4541,14 @@ exports[`Results block template Quick search journey Search results with data sh
     </div>
 
     <div class="filter-options__container">
-      <label for="filters-date-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="date">
+      <div for="filters-date-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="date">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters-date-accordion-toggle-search_results" class="filter-options__accordion-toggle">
           <svg id="filters-date-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
           <h3 class="filter-options__category-heading govuk-body-m">
             Date
           </h3>
         </button>
-      </label>
+      </div>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-date-filters-search_results">
         <div class="govuk-form-group" id="date-before-group-search_results">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="date-before-hint-search_results date-before-error-search_results">
@@ -4744,7 +4558,7 @@ exports[`Results block template Quick search journey Search results with data sh
             <div id="date-before-hint-search_results" class="govuk-hint">
               For example, 2004
             </div>
-            <p id="date-before-error-search_results" class="govuk-error-message display-none">
+            <p id="date-before-error-search_results" class="govuk-error-message display-none" role="alert">
               <span class="govuk-visually-hidden">Error:</span><span id="date-before-error-message-search_results"></span>
             </p>
             <div class="govuk-date-input" id="date-before-search_results">
@@ -4768,7 +4582,7 @@ exports[`Results block template Quick search journey Search results with data sh
             <div id="date-after-hint-search_results" class="govuk-hint">
               For example, 2015
             </div>
-            <p id="date-after-error-search_results" class="govuk-error-message display-none">
+            <p id="date-after-error-search_results" class="govuk-error-message display-none" role="alert">
               <span class="govuk-visually-hidden">Error:</span><span id="date-after-error-message-search_results"></span>
             </p>
             <div class="govuk-date-input" id="date-after-search_results">
@@ -4786,14 +4600,14 @@ exports[`Results block template Quick search journey Search results with data sh
       </div>
     </div>
     <div class="filter-options__container">
-      <label for="filters-licence-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="licence">
+      <div for="filters-licence-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="licence">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters-licence-accordion-toggle-search_results" class="filter-options__accordion-toggle">
           <svg id="filters-licence-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
           <h3 class="filter-options__category-heading govuk-body-m">
             Licence
           </h3>
         </button>
-      </label>
+      </div>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-licence-filters-search_results">
         
 
@@ -4833,14 +4647,14 @@ exports[`Results block template Quick search journey Search results with data sh
       </div>
     </div>
     <div class="filter-options__container filter-options__keyword-filter">
-      <label for="filters-keywords-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="keywords">
+      <div for="filters-keywords-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="keywords">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters-keywords-accordion-toggle-search_results" class="filter-options__accordion-toggle">
           <svg id="filters-keywords-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
           <h3 class="filter-options__category-heading govuk-body-m">
             Keywords
           </h3>
         </button>
-      </label>
+      </div>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-keywords-filters-search_results">
         <div class="keyword-input">
          <p class="govuk-error-message keyword-input-search_results-error-message">
@@ -4893,12 +4707,15 @@ exports[`Results block template Quick search journey Search results with data sh
     </div>
 
     <div class="govuk-checkboxes govuk-checkboxes--small">
-      <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-        <input class="govuk-checkboxes__input" id="filters-retired-archived-search_results"  name="retired-archived" type="checkbox" value="true">
-        <label class="govuk-label govuk-checkboxes__label" for="filters-retired-archived-search_results">
-          <span class="filter-options__retired-label">Include Retired & Archived records</span>
-        </label>
-      </div>
+      <fieldset class="govuk-fieldset">
+       <legend class="govuk-visually-hidden">Record status options</legend>
+        <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
+          <input class="govuk-checkboxes__input" id="filters-retired-archived-search_results"  name="retired-archived" type="checkbox" value="true">
+          <label class="govuk-label govuk-checkboxes__label" for="filters-retired-archived-search_results">
+            <span class="filter-options__retired-label">Include Retired & Archived records</span>
+          </label>
+        </div>
+      </fieldset>
     </div>
   </section>
 </form>
@@ -5286,13 +5103,8 @@ exports[`Results block template Quick search journey Search results with data sh
                   04 Jan 1960
                 
               </span>
-              <span>to</span>
+             
               <span class='end'>
-                
-                  <strong class="govuk-tag govuk-tag--grey tab-content-value__not-provided">
-  Unavailable
-</strong>
-
                 
               </span>
             </span>
@@ -5338,7 +5150,9 @@ exports[`Results block template Quick search journey Search results with data sh
                   04 Jan 1950
                 
               </span>
-              <span>to</span>
+             
+               <span>to</span>
+             
               <span class='end'>
                 
                   12 Jan 2009
@@ -5641,6 +5455,7 @@ exports[`Results block template Quick search journey Search results with empty d
   <meta name="version" content="v1.29.0">
 
   <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
+  <meta name="description" content="Paginated list of search results with filters to further narrow results.">
   
     
   </head>
@@ -5648,7 +5463,7 @@ exports[`Results block template Quick search journey Search results with empty d
     <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
     
   
-<div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on the find natural capital data service"
+<div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Tell us whether you accept cookies"
     
         
       
@@ -5666,13 +5481,14 @@ exports[`Results block template Quick search journey Search results with empty d
       <div class="govuk-grid-column-two-thirds">
         
         <h2 class="govuk-cookie-banner__heading govuk-heading-m">
-          Cookies on the find natural capital data service
+          Tell us whether you accept cookies
         </h2>
         
         <div class="govuk-cookie-banner__content">
           
-          <p class="govuk-body">We use some essential cookies to make this service work.</p>
-          <p class="govuk-body">We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements</p>
+          <p class="govuk-body">We use essential cookies to give you the best online experience. Without them, this service will not work.</p>
+          <p class="govuk-body">We also use non-essential cookies to analyze site usage to continually improve the services we provide you with.</p>
+          <p class="govuk-body">Full details of cookies collected, and the functionality to change your cookie preference at any time can be accessed on our <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a></p>
           
         </div>
       </div>
@@ -5688,7 +5504,7 @@ exports[`Results block template Quick search journey Search results with empty d
             
           
          id="accept_button">
-        Accept analytics cookies
+        Accept all cookies
       </button>
     
       
@@ -5699,71 +5515,6 @@ exports[`Results block template Quick search journey Search results with empty d
           
          id="reject_button">
         Reject analytics cookies
-      </button>
-    
-      
-      <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">View cookies</a>
-    
-    </div>
-    
-
-  </div>
-  
-  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
-    
-        
-      
-    
-   id="accept_block" hidden>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        
-        <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
-          
-        </div>
-      </div>
-    </div>
-
-    
-    <div class="govuk-button-group">
-    
-      
-      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-        Hide cookie message
-      </button>
-    
-    </div>
-    
-
-  </div>
-  
-  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
-    
-        
-      
-    
-   id="reject_block" hidden>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        
-        <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
-          
-        </div>
-      </div>
-    </div>
-
-    
-    <div class="govuk-button-group">
-    
-      
-      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-        Hide cookie message
       </button>
     
     </div>
@@ -5844,7 +5595,7 @@ exports[`Results block template Quick search journey Search results with empty d
           <span class="text">Data Services Platform</span>
         </a>
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A43357%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link divider'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A43821%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">
@@ -5994,8 +5745,7 @@ exports[`Results block template Quick search journey Search results with empty d
         <div class="container">
           <div class="heading">
             <span class="title">
-              <h2 class="govuk-heading-m filter-heading govuk-!-margin-0" id="cluster-list-heading"></h2>
-              <button id="cluster-list-close" class="close">
+              <button id="cluster-list-close" class="close" aria-label="close">
                 
   
   
@@ -6253,14 +6003,14 @@ exports[`Results block template Quick search journey Search results with empty d
       
         <div class="filter-options__container">
           
-          <label for="filters-org-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="org">
+          <div for="filters-org-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="org">
             <button type="button" aria-expanded="false" data-expanded="false" id="filters-org-accordion-toggle-search_results" class="filter-options__accordion-toggle">
               <svg id="filters-org-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
               <h3 class="govuk-body-m filter-options__category-heading">
                 Organisation
               </h3>
             </button>
-          </label>
+          </div>
           <fieldset class="filter-options__filters filter-options__accordion-child filter-options__filters--hidden govuk-fieldset" id="filters-org-filters-search_results">
             <legend class="filter-options__legend">
               <h3>
@@ -6360,14 +6110,14 @@ exports[`Results block template Quick search journey Search results with empty d
       
         <div class="filter-options__container">
           
-          <label for="filters-st-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="st">
+          <div for="filters-st-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="st">
             <button type="button" aria-expanded="false" data-expanded="false" id="filters-st-accordion-toggle-search_results" class="filter-options__accordion-toggle">
               <svg id="filters-st-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
               <h3 class="govuk-body-m filter-options__category-heading">
                 Search Type
               </h3>
             </button>
-          </label>
+          </div>
           <fieldset class="filter-options__filters filter-options__accordion-child filter-options__filters--hidden govuk-fieldset" id="filters-st-filters-search_results">
             <legend class="filter-options__legend">
               <h3>
@@ -6397,14 +6147,14 @@ exports[`Results block template Quick search journey Search results with empty d
       
         <div class="filter-options__container">
           
-          <label for="filters-dt-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="dt">
+          <div for="filters-dt-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="dt">
             <button type="button" aria-expanded="false" data-expanded="false" id="filters-dt-accordion-toggle-search_results" class="filter-options__accordion-toggle">
               <svg id="filters-dt-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
               <h3 class="govuk-body-m filter-options__category-heading">
                 Data Type
               </h3>
             </button>
-          </label>
+          </div>
           <fieldset class="filter-options__filters filter-options__accordion-child filter-options__filters--hidden govuk-fieldset" id="filters-dt-filters-search_results">
             <legend class="filter-options__legend">
               <h3>
@@ -6441,14 +6191,14 @@ exports[`Results block template Quick search journey Search results with empty d
       
         <div class="filter-options__container">
           
-          <label for="filters-svt-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="svt">
+          <div for="filters-svt-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="svt">
             <button type="button" aria-expanded="false" data-expanded="false" id="filters-svt-accordion-toggle-search_results" class="filter-options__accordion-toggle">
               <svg id="filters-svt-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
               <h3 class="govuk-body-m filter-options__category-heading">
                 Service Type
               </h3>
             </button>
-          </label>
+          </div>
           <fieldset class="filter-options__filters filter-options__accordion-child filter-options__filters--hidden govuk-fieldset" id="filters-svt-filters-search_results">
             <legend class="filter-options__legend">
               <h3>
@@ -6548,14 +6298,14 @@ exports[`Results block template Quick search journey Search results with empty d
       
         <div class="filter-options__container">
           
-          <label for="filters-fmt-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="fmt">
+          <div for="filters-fmt-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="fmt">
             <button type="button" aria-expanded="false" data-expanded="false" id="filters-fmt-accordion-toggle-search_results" class="filter-options__accordion-toggle">
               <svg id="filters-fmt-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
               <h3 class="govuk-body-m filter-options__category-heading">
                 Data Format
               </h3>
             </button>
-          </label>
+          </div>
           <fieldset class="filter-options__filters filter-options__accordion-child filter-options__filters--hidden govuk-fieldset" id="filters-fmt-filters-search_results">
             <legend class="filter-options__legend">
               <h3>
@@ -7146,14 +6896,14 @@ exports[`Results block template Quick search journey Search results with empty d
     </div>
 
     <div class="filter-options__container">
-      <label for="filters-date-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="date">
+      <div for="filters-date-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="date">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters-date-accordion-toggle-search_results" class="filter-options__accordion-toggle">
           <svg id="filters-date-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
           <h3 class="filter-options__category-heading govuk-body-m">
             Date
           </h3>
         </button>
-      </label>
+      </div>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-date-filters-search_results">
         <div class="govuk-form-group" id="date-before-group-search_results">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="date-before-hint-search_results date-before-error-search_results">
@@ -7163,7 +6913,7 @@ exports[`Results block template Quick search journey Search results with empty d
             <div id="date-before-hint-search_results" class="govuk-hint">
               For example, 2004
             </div>
-            <p id="date-before-error-search_results" class="govuk-error-message display-none">
+            <p id="date-before-error-search_results" class="govuk-error-message display-none" role="alert">
               <span class="govuk-visually-hidden">Error:</span><span id="date-before-error-message-search_results"></span>
             </p>
             <div class="govuk-date-input" id="date-before-search_results">
@@ -7187,7 +6937,7 @@ exports[`Results block template Quick search journey Search results with empty d
             <div id="date-after-hint-search_results" class="govuk-hint">
               For example, 2015
             </div>
-            <p id="date-after-error-search_results" class="govuk-error-message display-none">
+            <p id="date-after-error-search_results" class="govuk-error-message display-none" role="alert">
               <span class="govuk-visually-hidden">Error:</span><span id="date-after-error-message-search_results"></span>
             </p>
             <div class="govuk-date-input" id="date-after-search_results">
@@ -7205,14 +6955,14 @@ exports[`Results block template Quick search journey Search results with empty d
       </div>
     </div>
     <div class="filter-options__container">
-      <label for="filters-licence-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="licence">
+      <div for="filters-licence-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="licence">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters-licence-accordion-toggle-search_results" class="filter-options__accordion-toggle">
           <svg id="filters-licence-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
           <h3 class="filter-options__category-heading govuk-body-m">
             Licence
           </h3>
         </button>
-      </label>
+      </div>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-licence-filters-search_results">
         
 
@@ -7252,14 +7002,14 @@ exports[`Results block template Quick search journey Search results with empty d
       </div>
     </div>
     <div class="filter-options__container filter-options__keyword-filter">
-      <label for="filters-keywords-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="keywords">
+      <div for="filters-keywords-accordion-toggle-search_results" class="filter-options__accordion" data-category-search_results="keywords">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters-keywords-accordion-toggle-search_results" class="filter-options__accordion-toggle">
           <svg id="filters-keywords-accordion-icon-search_results" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
           <h3 class="filter-options__category-heading govuk-body-m">
             Keywords
           </h3>
         </button>
-      </label>
+      </div>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-keywords-filters-search_results">
         <div class="keyword-input">
          <p class="govuk-error-message keyword-input-search_results-error-message">
@@ -7312,12 +7062,15 @@ exports[`Results block template Quick search journey Search results with empty d
     </div>
 
     <div class="govuk-checkboxes govuk-checkboxes--small">
-      <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-        <input class="govuk-checkboxes__input" id="filters-retired-archived-search_results"  name="retired-archived" type="checkbox" value="true">
-        <label class="govuk-label govuk-checkboxes__label" for="filters-retired-archived-search_results">
-          <span class="filter-options__retired-label">Include Retired & Archived records</span>
-        </label>
-      </div>
+      <fieldset class="govuk-fieldset">
+       <legend class="govuk-visually-hidden">Record status options</legend>
+        <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
+          <input class="govuk-checkboxes__input" id="filters-retired-archived-search_results"  name="retired-archived" type="checkbox" value="true">
+          <label class="govuk-label govuk-checkboxes__label" for="filters-retired-archived-search_results">
+            <span class="filter-options__retired-label">Include Retired & Archived records</span>
+          </label>
+        </div>
+      </fieldset>
     </div>
   </section>
 </form>
@@ -7833,6 +7586,7 @@ exports[`Results block template Quick search journey Search results with error s
   <meta name="version" content="v1.29.0">
 
   <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
+  <meta name="description" content="Paginated list of search results with filters to further narrow results.">
   
     
   </head>
@@ -7840,7 +7594,7 @@ exports[`Results block template Quick search journey Search results with error s
     <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
     
   
-<div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on the find natural capital data service"
+<div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Tell us whether you accept cookies"
     
         
       
@@ -7858,13 +7612,14 @@ exports[`Results block template Quick search journey Search results with error s
       <div class="govuk-grid-column-two-thirds">
         
         <h2 class="govuk-cookie-banner__heading govuk-heading-m">
-          Cookies on the find natural capital data service
+          Tell us whether you accept cookies
         </h2>
         
         <div class="govuk-cookie-banner__content">
           
-          <p class="govuk-body">We use some essential cookies to make this service work.</p>
-          <p class="govuk-body">We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements</p>
+          <p class="govuk-body">We use essential cookies to give you the best online experience. Without them, this service will not work.</p>
+          <p class="govuk-body">We also use non-essential cookies to analyze site usage to continually improve the services we provide you with.</p>
+          <p class="govuk-body">Full details of cookies collected, and the functionality to change your cookie preference at any time can be accessed on our <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a></p>
           
         </div>
       </div>
@@ -7880,7 +7635,7 @@ exports[`Results block template Quick search journey Search results with error s
             
           
          id="accept_button">
-        Accept analytics cookies
+        Accept all cookies
       </button>
     
       
@@ -7891,71 +7646,6 @@ exports[`Results block template Quick search journey Search results with error s
           
          id="reject_button">
         Reject analytics cookies
-      </button>
-    
-      
-      <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">View cookies</a>
-    
-    </div>
-    
-
-  </div>
-  
-  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
-    
-        
-      
-    
-   id="accept_block" hidden>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        
-        <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
-          
-        </div>
-      </div>
-    </div>
-
-    
-    <div class="govuk-button-group">
-    
-      
-      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-        Hide cookie message
-      </button>
-    
-    </div>
-    
-
-  </div>
-  
-  <div class="govuk-cookie-banner__message govuk-width-container" role="alert"
-    
-        
-      
-    
-   id="reject_block" hidden>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        
-        <div class="govuk-cookie-banner__content">
-          
-          <p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
-          
-        </div>
-      </div>
-    </div>
-
-    
-    <div class="govuk-button-group">
-    
-      
-      <button type="button" class="govuk-button hide_button" data-module="govuk-button">
-        Hide cookie message
       </button>
     
     </div>
@@ -8036,7 +7726,7 @@ exports[`Results block template Quick search journey Search results with error s
           <span class="text">Data Services Platform</span>
         </a>
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A43007%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link divider'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A35149%2Fnatural-capital-ecosystem-assessment%2Fsearch%3Fq%3Dmarine%26jry%3Dqs%26pg%3D1%26rpp%3D20%26srt%3Dmost_relevant%26rty%3Dall' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">
@@ -8186,8 +7876,7 @@ exports[`Results block template Quick search journey Search results with error s
         <div class="container">
           <div class="heading">
             <span class="title">
-              <h2 class="govuk-heading-m filter-heading govuk-!-margin-0" id="cluster-list-heading"></h2>
-              <button id="cluster-list-close" class="close">
+              <button id="cluster-list-close" class="close" aria-label="close">
                 
   
   
@@ -8446,14 +8135,14 @@ exports[`Results block template Quick search journey Search results with error s
     </div>
 
     <div class="filter-options__container">
-      <label for="filters-date-accordion-toggle-" class="filter-options__accordion" data-category-="date">
+      <div for="filters-date-accordion-toggle-" class="filter-options__accordion" data-category-="date">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters-date-accordion-toggle-" class="filter-options__accordion-toggle">
           <svg id="filters-date-accordion-icon-" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
           <h3 class="filter-options__category-heading govuk-body-m">
             Date
           </h3>
         </button>
-      </label>
+      </div>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters-date-filters-">
         <div class="govuk-form-group" id="-group-">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="-hint- -error-">
@@ -8463,7 +8152,7 @@ exports[`Results block template Quick search journey Search results with error s
             <div id="-hint-" class="govuk-hint">
               For example, 2004
             </div>
-            <p id="-error-" class="govuk-error-message display-none">
+            <p id="-error-" class="govuk-error-message display-none" role="alert">
               <span class="govuk-visually-hidden">Error:</span><span id="-error-message-"></span>
             </p>
             <div class="govuk-date-input" id="-">
@@ -8487,7 +8176,7 @@ exports[`Results block template Quick search journey Search results with error s
             <div id="-hint-" class="govuk-hint">
               For example, 2015
             </div>
-            <p id="-error-" class="govuk-error-message display-none">
+            <p id="-error-" class="govuk-error-message display-none" role="alert">
               <span class="govuk-visually-hidden">Error:</span><span id="-error-message-"></span>
             </p>
             <div class="govuk-date-input" id="-">
@@ -8505,14 +8194,14 @@ exports[`Results block template Quick search journey Search results with error s
       </div>
     </div>
     <div class="filter-options__container">
-      <label for="filters--accordion-toggle-" class="filter-options__accordion" data-category-="licence">
+      <div for="filters--accordion-toggle-" class="filter-options__accordion" data-category-="licence">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters--accordion-toggle-" class="filter-options__accordion-toggle">
           <svg id="filters--accordion-icon-" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
           <h3 class="filter-options__category-heading govuk-body-m">
             Licence
           </h3>
         </button>
-      </label>
+      </div>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters--filters-">
         
 
@@ -8550,14 +8239,14 @@ exports[`Results block template Quick search journey Search results with error s
       </div>
     </div>
     <div class="filter-options__container filter-options__keyword-filter">
-      <label for="filters--accordion-toggle-" class="filter-options__accordion" data-category-="keywords">
+      <div for="filters--accordion-toggle-" class="filter-options__accordion" data-category-="keywords">
         <button type="button" aria-expanded="false" data-expanded="false" id="filters--accordion-toggle-" class="filter-options__accordion-toggle">
           <svg id="filters--accordion-icon-" stroke="currentColor" fill="currentColor" viewBox="0 0 512 512" height="20px" width="20px" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m112 328 144-144 144 144"></path></svg>
           <h3 class="filter-options__category-heading govuk-body-m">
             Keywords
           </h3>
         </button>
-      </label>
+      </div>
       <div class="filter-options__filters--hidden filter-options__accordion-child" id="filters--filters-">
         <div class="keyword-input">
          <p class="govuk-error-message keyword-input--error-message">
@@ -8610,12 +8299,15 @@ exports[`Results block template Quick search journey Search results with error s
     </div>
 
     <div class="govuk-checkboxes govuk-checkboxes--small">
-      <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
-        <input class="govuk-checkboxes__input" id="filters--"  name="" type="checkbox" value="true">
-        <label class="govuk-label govuk-checkboxes__label" for="filters--">
-          <span class="filter-options__retired-label">Include Retired & Archived records</span>
-        </label>
-      </div>
+      <fieldset class="govuk-fieldset">
+       <legend class="govuk-visually-hidden">Record status options</legend>
+        <div class="govuk-checkboxes__item" data-module="govuk-checkboxes">
+          <input class="govuk-checkboxes__input" id="filters--"  name="" type="checkbox" value="true">
+          <label class="govuk-label govuk-checkboxes__label" for="filters--">
+            <span class="filter-options__retired-label">Include Retired & Archived records</span>
+          </label>
+        </div>
+      </fieldset>
     </div>
   </section>
 </form>

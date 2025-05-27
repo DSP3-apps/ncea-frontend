@@ -430,8 +430,11 @@ const addMapFilterFormResetListener = (instance) => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  attachSearchResultsSortChangeListener();
+  // added arai label
+  document.getElementById('filters-licence-search_results').setAttribute('aria-label', 'Licence');
+  document.getElementById('filters-keywords-search_results').setAttribute('aria-label', 'Keywords');
 
+  attachSearchResultsSortChangeListener();
   addCategoryAccordionToggleListeners(filtersInstance);
   addFilterFormSubmitListener(filtersInstance);
   addFilterFormResetListener(filtersInstance);

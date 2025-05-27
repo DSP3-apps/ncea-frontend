@@ -27,18 +27,10 @@
 {% endblock %}
 
 {% set cookieHtml %}
-<p class="govuk-body">We use some essential cookies to make this service work.</p>
-<p class="govuk-body">We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements</p>
+<p class="govuk-body">We use essential cookies to give you the best online experience. Without them, this service will not work.</p>
+<p class="govuk-body">We also use non-essential cookies to analyze site usage to continually improve the services we provide you with.</p>
+<p class="govuk-body">Full details of cookies collected, and the functionality to change your cookie preference at any time can be accessed on our <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a></p>
 {% endset %}
-
-{% set acceptHtml %}
-<p class="govuk-body">You've accepted additional cookies. You can <a class="govuk-link help-link" href="{{routes.cookiePolicy}}">change your cookie settings</a> at any time.</p>
-{% endset %}
-
-{% set rejectHtml %}
-<p class="govuk-body">You've rejected additional cookies. You can <a class="govuk-link help-link" href="{{routes.cookiePolicy}}">change your cookie settings</a> at any time.</p>
-{% endset %}
-
 {% set appVersionHtml %}
 <p>Version: v{{appVersion}}</p>
 {% endset %}
@@ -89,16 +81,16 @@
 
 {% block bodyStart %}
   {{ govukCookieBanner({
-    ariaLabel: "Cookies on the find natural capital data service",
+    ariaLabel: "Tell us whether you accept cookies",
     attributes: { id: "cookie_banner" },
     messages: [
       {
-        headingText: "Cookies on the find natural capital data service",
+        headingText: "Tell us whether you accept cookies",
         html: cookieHtml,
         hidden: true,
         actions: [
           {
-            text: "Accept analytics cookies",
+            text: "Accept all cookies",
             type: "button",
             attributes: { id: "accept_button" }
           },
@@ -106,40 +98,9 @@
             text: "Reject analytics cookies",
             type: "button",
             attributes: { id: "reject_button" }
-          },
-          {
-            text: "View cookies",
-            href: routes.cookiePolicy,
-            classes: "help-link"
           }
         ],
         attributes: { id: "cookie_block" }
-      },
-      {
-        html: acceptHtml,
-        role: "alert",
-        hidden: true,
-        actions: [
-          {
-            text: "Hide cookie message",
-            type: "button",
-            classes: "hide_button"
-          }
-        ],
-        attributes: { id: "accept_block" }
-      },
-      {
-        html: rejectHtml,
-        role: "alert",
-        hidden: true,
-        actions: [
-          {
-            text: "Hide cookie message",
-            type: "button",
-            classes: "hide_button"
-          }
-        ],
-        attributes: { id: "reject_block" }
       }
     ]
   }) }}

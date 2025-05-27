@@ -953,6 +953,8 @@ const getMapFilters = async (path) => {
     addMapFilterFormSubmitListener(mapResultsInstance);
     addMapFilterFormResetListener(mapResultsInstance);
     addAllCheckboxListeners(mapResultsInstance);
+    document.getElementById('filters-licence-map_results').setAttribute('aria-label', 'Licence');
+    document.getElementById('filters-keywords-map_results').setAttribute('aria-label', 'Keywords');
   }
 };
 
