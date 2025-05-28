@@ -1,3 +1,15 @@
+## [1.29.1](https://github.com/DSP3-apps/ncea-frontend/compare/v1.29.0...v1.29.1) (2025-05-28)
+
+
+### Bug Fixes
+
+* **frontend:** Improve accessibility, SEO and performance across NCEA pages ([53c5159](https://github.com/DSP3-apps/ncea-frontend/commit/53c5159682fe8f9d61fdc6a1d83312bad105caca))
+* **frontend:** Improve accessibility, SEO and performance across NCEA pages ([080bc23](https://github.com/DSP3-apps/ncea-frontend/commit/080bc23054fbc89e8762201b90257b99bb65ce6c))
+* **frontend:** Rename Category Search to Natural Capital Search ([ee0d517](https://github.com/DSP3-apps/ncea-frontend/commit/ee0d5176e08cf8612d0080c4b40c58c1fc6352c5))
+* **frontend:** Update NCEA button link and improve resource access messaging ([ff55374](https://github.com/DSP3-apps/ncea-frontend/commit/ff55374d9c2173c5800a26a9f66d97d227cf1a18))
+* **MoreInfoPage:** Remove unavailable date text when start or end date is missing in Study Period ([abc1133](https://github.com/DSP3-apps/ncea-frontend/commit/abc1133d28ca810dca5322218dfd7512a55b6127))
+* **MoreInfoPage:** Update study period display value ([53c4d8e](https://github.com/DSP3-apps/ncea-frontend/commit/53c4d8ea9c39ff502c8da7ee5be91b6f8714645f))
+
 # [1.29.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.28.0...v1.29.0) (2025-05-21)
 
 
