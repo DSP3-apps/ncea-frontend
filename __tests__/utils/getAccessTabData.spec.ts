@@ -20,19 +20,21 @@ describe('getAccessTabData functions', () => {
         catalogue_number: '',
         metadata_language: 'ENG',
         resourceWebsite: expect.any(String),
-        host_catalogue_number: 'c9d7e118-d057-48f9-b520-76de8e51e014'
+        host_catalogue_number: 'c9d7e118-d057-48f9-b520-76de8e51e014',
       });
     });
   });
 
   describe('generateResourceWebsiteTable', () => {
     it('should return empty string if there are not resources exist', () => {
-      expect(generateResourceWebsiteTable([])).toStrictEqual('');
+      expect(generateResourceWebsiteTable([], '')).toStrictEqual('');
     });
 
     it('should return the a properly formatted HTML table by providing the expected resources', () => {
-      const output = generateResourceWebsiteTable(MORE_INFO_MOCK_DATA.resources);
-      console.log('output', output);
+      const output = generateResourceWebsiteTable(
+        MORE_INFO_MOCK_DATA.resources,
+        'c9d7e118-d057-48f9-b520-76de8e51e014',
+      );
       expect(output).toContain('<td>Living England Segmentation (2019) Download</td>');
       expect(output).toContain('<td>Living England Segmentation (2019) WFS</td>');
       expect(output).toContain('<td>Living England Segmentation (2019) REST Map Service</td>');
@@ -43,13 +45,15 @@ describe('getAccessTabData functions', () => {
 
   describe('createDownloadsTableRow', () => {
     it('should return the a properly formatted HTML Download table', () => {
-      const output = createDownloadsTableRow({
-        url: 'http://data.defra.gov.uk/Agriculture/Notifiable_Disease_Datasets_Additional_Information.odt',
-        name: 'Notifiable Disease Datasets: Additional Information',
-        type: 'HTTP file download',
-        distributionFormat: null,
-      });
-      console.log('output', output);
+      const output = createDownloadsTableRow(
+        {
+          url: 'http://data.defra.gov.uk/Agriculture/Notifiable_Disease_Datasets_Additional_Information.odt',
+          name: 'Notifiable Disease Datasets: Additional Information',
+          type: 'HTTP file download',
+          distributionFormat: null,
+        },
+        'c9d7e118-d057-48f9-b520-76de8e51e014',
+      );
       expect(output).toContain('<td>Notifiable Disease Datasets: Additional Information</td>');
       expect(output).toContain('<td>ODT</td>');
     });
