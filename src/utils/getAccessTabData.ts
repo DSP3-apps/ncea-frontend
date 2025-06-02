@@ -104,7 +104,7 @@ export const validateDataSetServiceTypes = (options: ServiceOptions, value: stri
   return lowerCaseServiceTypesSet.has(value.toLowerCase());
 };
 
-export const generateResourceWebsiteTable = (resources: IResources[]) => {
+export const generateResourceWebsiteTable = (resources: IResources[], recordId: string) => {
   if (Array.isArray(resources) && resources.length > 0) {
     const filterDataServicesSet = resources.filter(({ type }) =>
       validateDataSetServiceTypes(DATA_SERVICES_TYPES, type),
@@ -113,7 +113,7 @@ export const generateResourceWebsiteTable = (resources: IResources[]) => {
       ({ type }) => type !== null && validateServiceTypes(DATA_DOWNLOADS_TYPES, type),
     );
     const dataServicesTable = generateDataServicesTable(filterDataServicesSet);
-    const dataDownloadTable = generateDataDownloadsTable(filterDataDownloadSet, filterDataServicesSet);
+    const dataDownloadTable = generateDataDownloadsTable(filterDataDownloadSet, filterDataServicesSet, recordId);
 
     return `${dataServicesTable}${dataDownloadTable}`;
   }
@@ -133,14 +133,14 @@ const generateDataServicesTable = (dataServices: IResources[]) => {
   return '';
 };
 
-const generateDataDownloadsTable = (dataDownloads: IResources[], dataServices: IResources[]) => {
+const generateDataDownloadsTable = (dataDownloads: IResources[], dataServices: IResources[], recordId: string) => {
   if (Array.isArray(dataDownloads) && dataDownloads.length > 0) {
     const style = dataServices.length > 0 ? 'style="margin-top:30px"' : '';
     return `
     <table class="details-table-full" ${style}>
       ${generateFullDownloadsTableHeader()}
       <tbody>
-        ${generateTableRows(dataDownloads, 'full-downloads')}
+        ${generateTableRows(dataDownloads, 'full-downloads', recordId)}
       </tbody>
     </table>`;
   }
@@ -169,11 +169,12 @@ const generateTableHeader = () => `
   </thead>
 `;
 
-const generateTableRows = (resources: IResources[], datatType: string) => {
+const generateTableRows = (resources: IResources[], datatType: string, recordId?: string) => {
   return resources
     .map((item: IResources) => {
       const { name, url } = item;
-      const rowHTML = datatType === 'full-downloads' ? createDownloadsTableRow(item) : createTableRow(name, url);
+      const rowHTML =
+        datatType === 'full-downloads' ? createDownloadsTableRow(item, recordId) : createTableRow(name, url);
 
       return `
         ${rowHTML}
@@ -191,7 +192,7 @@ export const extractFileFormat = (url: string | null) => {
   return 'N/A';
 };
 
-export const createDownloadsTableRow = (payload) => {
+export const createDownloadsTableRow = (payload, recordId) => {
   const { distributionFormat, name, url } = payload;
   const dataSetName = isEmpty(name) ? 'N/A' : name;
   const fileType = isEmpty(distributionFormat) ? extractFileFormat(url) : distributionFormat[0].toString();
@@ -210,7 +211,7 @@ export const createDownloadsTableRow = (payload) => {
     <td>${dataSetName}</td>
     <td>${fileType}</td>
     <td>
-      <a class="govuk-link" href="${url}" download>Download</a>
+      <button data-url="${url}" data-id="${recordId}" class="download-resource govuk-button copy-link-btn" type="button">Download</button>
     </td>
   </tr>
   `;
@@ -257,7 +258,7 @@ const getAccessTabData = (payload: IAccessItem): IAccess => ({
   catalogue_number: '',
   // metadata_standard: payload?.metadata?.standard ?? '',
   metadata_language: payload?.metadata?.language?.toUpperCase() ?? '',
-  resourceWebsite: generateResourceWebsiteTable(payload.resources ?? []),
+  resourceWebsite: generateResourceWebsiteTable(payload.resources ?? [], payload.id),
 });
 
 export { getAccessTabData, getResourceLocators, getCoupledResource, getContactInformation };

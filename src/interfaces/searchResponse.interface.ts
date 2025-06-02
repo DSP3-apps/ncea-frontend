@@ -31,7 +31,7 @@ export interface IIdentifiers {
 }
 
 export interface IAccessItem {
-  id?: string;
+  id: string;
   contacts?: Contact[];
   metadata?: IMetaData;
   identifiers?: IIdentifiers[];
@@ -310,7 +310,7 @@ export interface INaturalItem {
 }
 
 export interface IMoreInfoSearchItem extends IGeographyItem, IQualityItem, IGeneralItem, IAccessItem {
-  id?: string;
+  id: string;
   title?: string;
   resources: IResources[];
   temporalExtent: ITemporalExtent;

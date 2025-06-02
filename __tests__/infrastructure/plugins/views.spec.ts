@@ -24,11 +24,7 @@ const {
   getMapFilters,
   filterResourceType,
   filterStudyPeriod,
-  accessibilityStatement,
   help,
-  termsAndConditions,
-  privacyPolicy,
-  cookiePolicy,
   login,
   logout,
   atom,
@@ -93,6 +89,7 @@ describe('Vision Plugin Configuration', () => {
       gtmId: environmentConfig.gtmId,
       appVersion: process.env.npm_package_version,
       keyboardFiltersBaseUrl: '',
+      isLocal: false,
       headerNavigationLinks: [
         {
           text: 'Home',

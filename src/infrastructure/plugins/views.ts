@@ -107,6 +107,7 @@ const customHapiViews = {
       keyboardFiltersBaseUrl: environmentConfig.keyboardFiltersBaseUrl,
       headerNavigationLinks: headerNavigationLinks,
       currentYear: new Date().getFullYear(),
+      isLocal: environmentConfig.isLocal,
     },
   },
 };
