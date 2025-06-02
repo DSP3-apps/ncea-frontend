@@ -1,3 +1,15 @@
+# [1.30.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.29.1...v1.30.0) (2025-06-02)
+
+
+### Bug Fixes
+
+* **moreinfo:** Scrollbar and text wrapping issue ([067f42f](https://github.com/DSP3-apps/ncea-frontend/commit/067f42f4c6ff2c458e2b95d5db1d14f5ec9e8ca2))
+
+
+### Features
+
+* **moreinfo:** Check resource access before downloading file ([2c5ab76](https://github.com/DSP3-apps/ncea-frontend/commit/2c5ab76a000714f9298935e21311d9e267c1c64f))
+
 ## [1.29.1](https://github.com/DSP3-apps/ncea-frontend/compare/v1.29.0...v1.29.1) (2025-05-28)
 
 
