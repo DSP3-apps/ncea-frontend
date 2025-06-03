@@ -22,6 +22,7 @@ export interface IGeneralItem {
   language?: string;
   keywords?: string[];
   abstract?: string;
+  metadata?: IMetaData;
   temporalExtent?: ITemporalExtent;
   resources?: IResources[];
 }
@@ -282,6 +283,7 @@ export interface IResources {
   url: string;
   type: string;
   name: string;
+  language: string | null;
   distributionFormat?: undefined | null | [string];
 }
 interface SpatialItem {

@@ -1,29 +1,16 @@
-/* eslint-disable  @typescript-eslint/no-explicit-any */
 'use strict';
 
 import { formatDate } from './dates';
-import { IGeneralItem } from '../interfaces/searchResponse.interface';
+import { IGeneralItem, IResources, ITemporalExtent } from '../interfaces/searchResponse.interface';
 
-const getResourceLanguages = (data): string => {
-  const resourceLanguages: string | string[] = data[0]?.language ?? [];
-  if (
-    (typeof resourceLanguages === 'string' && resourceLanguages.length === 0) ||
-    (Array.isArray(resourceLanguages) && resourceLanguages.length === 0)
-  ) {
-    return '';
+const getResourceLanguages = (data: IResources[]): string => {
+  if (data?.length > 0) {
+    return [...new Set(data.map((item) => item.language?.toUpperCase()).filter((language) => language))].join(', ');
   }
-  const languagesData: string[] = [];
-  if (Array.isArray(resourceLanguages) && resourceLanguages.length) {
-    resourceLanguages.forEach((language: string) => {
-      languagesData.push(language.toUpperCase());
-    });
-  } else {
-    languagesData.push((resourceLanguages as string).toUpperCase());
-  }
-  return languagesData.join(', ');
+  return '';
 };
 
-export const getStudyPeriodDetails = (dateRanges: any): string => {
+export const getStudyPeriodDetails = (dateRanges: ITemporalExtent): string => {
   const { beginPosition, endPosition } = dateRanges;
   const startDate: string = beginPosition ? formatDate(beginPosition) : '';
   const endDate: string = endPosition ? formatDate(endPosition) : '';
@@ -37,10 +24,10 @@ export const getStudyPeriodDetails = (dateRanges: any): string => {
 
 const getGeneralTabData = (payload: IGeneralItem) => ({
   content: payload?.abstract ?? '',
-  studyPeriod: getStudyPeriodDetails(payload.temporalExtent ?? ''),
+  studyPeriod: payload?.temporalExtent ? getStudyPeriodDetails(payload.temporalExtent) : '',
   topicCategories: payload?.topicCategories?.join(', ') ?? '',
   keywords: payload?.keywords?.join(', ') ?? '',
-  language: getResourceLanguages(payload?.resources),
+  language: payload?.resources ? getResourceLanguages(payload.resources) : [],
 });
 
 export { getGeneralTabData, getResourceLanguages };
