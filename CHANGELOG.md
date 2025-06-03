@@ -1,3 +1,10 @@
+## [1.30.1](https://github.com/DSP3-apps/ncea-frontend/compare/v1.30.0...v1.30.1) (2025-06-03)
+
+
+### Bug Fixes
+
+* **moreinfo:** Refactor language list and update brochure link ([54686bd](https://github.com/DSP3-apps/ncea-frontend/commit/54686bdc3ee89d6c596ea3831e6830db3f1b0127))
+
 # [1.30.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.29.1...v1.30.0) (2025-06-02)
 
 
