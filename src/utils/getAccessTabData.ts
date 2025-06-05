@@ -218,7 +218,7 @@ export const createDownloadsTableRow = (payload, recordId) => {
 };
 
 const createTableRow = (name: string, url: string) => {
-  const dataSetName = isEmpty(name) ? 'N/A' : name;
+  const dataSetName = name || 'Download data';
   if (isEmpty(url)) {
     return `
    <tr>
