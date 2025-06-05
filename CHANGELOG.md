@@ -1,3 +1,14 @@
+## [1.30.2](https://github.com/DSP3-apps/ncea-frontend/compare/v1.30.1...v1.30.2) (2025-06-05)
+
+
+### Bug Fixes
+
+* **moreinfo:** Update the resources name when it doesn't exist ([8b73395](https://github.com/DSP3-apps/ncea-frontend/commit/8b7339553cea4ba179523fe2ae5e9930d7896cd9))
+* **pages:** Update Future Releases text ([d3bb0a4](https://github.com/DSP3-apps/ncea-frontend/commit/d3bb0a4fe72320241a54326818b881afe93b7e85))
+* **pages:** Update meta description text ([8d0dc94](https://github.com/DSP3-apps/ncea-frontend/commit/8d0dc946f887090952a7761d462f64b4bff097a4))
+* **project:** Commit updated snapshot tests ([cc106a2](https://github.com/DSP3-apps/ncea-frontend/commit/cc106a2e7ef018864f0c920a7dbe47e2eeb1d1d1))
+* **project:** Fix Google Tag Manager usage ([15201fb](https://github.com/DSP3-apps/ncea-frontend/commit/15201fbe4be2d4a37b0af5dfd3124ec6f25cb475))
+
 ## [1.30.1](https://github.com/DSP3-apps/ncea-frontend/compare/v1.30.0...v1.30.1) (2025-06-03)
 
 
