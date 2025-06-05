@@ -2,11 +2,13 @@
 {% from "partials/quick_search/macro.njk" import quickSearch %}
 {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
+
 {% block head %}
   {{ super() }}
   <link rel="stylesheet" href="{{ assetPath }}/css/ol.css">
-  <meta name="description" content="Paginated list of search results with filters to further narrow results.">
-  {% endblock %}
+  <meta name="description" content="Natural Capital search results with options to filter results further and view on a map">
+{% endblock %}
+
   {% block beforeContent %}
     {{ super() }}
     {% include "partials/guided_search_breadcrumb/template.njk" %}
