@@ -1,3 +1,11 @@
+## [1.30.3](https://github.com/DSP3-apps/ncea-frontend/compare/v1.30.2...v1.30.3) (2025-06-05)
+
+
+### Bug Fixes
+
+* **pages:** Update link to Learn more PDF ([c570ab1](https://github.com/DSP3-apps/ncea-frontend/commit/c570ab163b2e25a8d3eb172f46e2147bc509b11a))
+* **pages:** Update meta description for search results page ([aa9a00a](https://github.com/DSP3-apps/ncea-frontend/commit/aa9a00a8a96c6efa3640de8822c9383ca8e01ba7))
+
 ## [1.30.2](https://github.com/DSP3-apps/ncea-frontend/compare/v1.30.1...v1.30.2) (2025-06-05)
 
 
