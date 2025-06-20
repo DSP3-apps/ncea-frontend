@@ -1,3 +1,10 @@
+## [1.30.4](https://github.com/DSP3-apps/ncea-frontend/compare/v1.30.3...v1.30.4) (2025-06-20)
+
+
+### Bug Fixes
+
+* **search:** Fix typo in NCEA contribution text in search results ([c9ede12](https://github.com/DSP3-apps/ncea-frontend/commit/c9ede12ba2b21d9e0d050d15e1cc18bb4fae84ca))
+
 ## [1.30.3](https://github.com/DSP3-apps/ncea-frontend/compare/v1.30.2...v1.30.3) (2025-06-05)
 
 
