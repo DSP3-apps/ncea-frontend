@@ -1,3 +1,10 @@
+## [1.30.5](https://github.com/DSP3-apps/ncea-frontend/compare/v1.30.4...v1.30.5) (2025-06-24)
+
+
+### Bug Fixes
+
+* **search:** Fix spacing issue between NCEA image and contribution text ([2b44e34](https://github.com/DSP3-apps/ncea-frontend/commit/2b44e34c056ca63065660d35a1116902d815990c))
+
 ## [1.30.4](https://github.com/DSP3-apps/ncea-frontend/compare/v1.30.3...v1.30.4) (2025-06-20)
 
 
