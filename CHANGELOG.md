@@ -1,3 +1,10 @@
+## [1.30.6](https://github.com/DSP3-apps/ncea-frontend/compare/v1.30.5...v1.30.6) (2025-06-26)
+
+
+### Bug Fixes
+
+* **pages:** Update link to `Learn more about NCEA` ([77d6a60](https://github.com/DSP3-apps/ncea-frontend/commit/77d6a60310f0c985f3b0e9be2287e2b1c539b2bf))
+
 ## [1.30.5](https://github.com/DSP3-apps/ncea-frontend/compare/v1.30.4...v1.30.5) (2025-06-24)
 
 
