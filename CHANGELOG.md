@@ -1,3 +1,10 @@
+# [1.31.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.30.6...v1.31.0) (2025-08-05)
+
+
+### Features
+
+* **pages:** Update the NCEA GOV.UK url in about page ([1ce3a74](https://github.com/DSP3-apps/ncea-frontend/commit/1ce3a747b22dfc8133551e244f94e033fb684f0d))
+
 ## [1.30.6](https://github.com/DSP3-apps/ncea-frontend/compare/v1.30.5...v1.30.6) (2025-06-26)
 
 
