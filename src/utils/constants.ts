@@ -301,6 +301,9 @@ export const FILTER_VALUES = {
   dataFormat: 'fmt',
 };
 
+const nceaAboutLink =
+  'https://www.gov.uk/government/publications/natural-capital-and-ecosystem-assessment-ncea-programme';
+
 export const landingPageData = {
   pageHeading: 'Natural Capital and Ecosystem Assessment (NCEA) programme',
   introText: {
@@ -368,7 +371,7 @@ export const landingPageData = {
     {
       iconUrl: `${BASE_PATH}/assets/images/favicon.svg`,
       name: 'NCEA GOV.UK',
-      link: 'https://www.gov.uk/government/publications/natural-capital-and-ecosystem-assessment-programme/natural-capital-and-ecosystem-assessment-programme',
+      link: nceaAboutLink,
       description: 'Visit the NCEA page',
     },
     {
@@ -401,8 +404,7 @@ export const landingPageData = {
     'https://environment.data.gov.uk/file-management-open/data-sets/3f81b29d-71fe-4d8a-90c7-40457cacf92d/files/Natural%20Capital%20and%20Ecosystem%20Assessment%20(NCEA)%20programme%20overview.pdf',
   brochureLink:
     'https://environment.data.gov.uk/file-management-open/data-sets/f47ae4ff-e5aa-4e79-bdf9-e22499f810aa/files/V1.1%20Spring%202025%20Product%20Brochure%20Edition.pdf ',
-  nceaAboutLink:
-    'https://www.gov.uk/government/publications/natural-capital-and-ecosystem-assessment-programme/natural-capital-and-ecosystem-assessment-programme ',
+  nceaAboutLink,
 };
 
 export const accessibilityStatementUrl = 'https://environment.data.gov.uk/support/faqs/275810340/275810354';
