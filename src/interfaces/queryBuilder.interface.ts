@@ -163,7 +163,7 @@ interface IFilter {
   DataType: string | null;
   Formats: string[] | null;
   SearchTitleOnly: boolean;
-  RetiredAndArchived: boolean;
+  IncludeRetiredAndArchived: boolean;
   NCEAOnly: boolean;
 }
 
