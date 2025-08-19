@@ -1,3 +1,10 @@
+## [1.31.1](https://github.com/DSP3-apps/ncea-frontend/compare/v1.31.0...v1.31.1) (2025-08-19)
+
+
+### Bug Fixes
+
+* **search:** Rename filter key to IncludeRetiredAndArchived ([bddcd2d](https://github.com/DSP3-apps/ncea-frontend/commit/bddcd2db458961e0f42af9cd740c013189ab7382))
+
 # [1.31.0](https://github.com/DSP3-apps/ncea-frontend/compare/v1.30.6...v1.31.0) (2025-08-05)
 
 
