@@ -89,7 +89,10 @@ const appendMetaSearchParams = (filterParams) => {
   const params = new URLSearchParams(window.location.search);
 
   for (const [key, value] of params.entries()) {
-    if (!filterParams.has(key) && key !== 'parent[]') {
+    if (filterParams.has('retired-archived')) {
+      filterParams.set(key, value);
+    }
+    if (!filterParams.has(key) && key !== 'parent[]' && key !== 'retired-archived') {
       filterParams.set(key, value);
     }
     if (!!params.get('keywords')) {
