@@ -1,3 +1,10 @@
+## [1.31.2](https://github.com/DSP3-apps/ncea-frontend/compare/v1.31.1...v1.31.2) (2025-08-20)
+
+
+### Bug Fixes
+
+* **search:** Handle unchecked state of Include Retired filter ([3be68b9](https://github.com/DSP3-apps/ncea-frontend/commit/3be68b9e4ffe168f48596ad152cf2f397110f97c))
+
 ## [1.31.1](https://github.com/DSP3-apps/ncea-frontend/compare/v1.31.0...v1.31.1) (2025-08-19)
 
 
