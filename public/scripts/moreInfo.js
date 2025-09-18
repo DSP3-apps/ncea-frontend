@@ -1,13 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
   const baseUrl = isLocal ? 'https://environment-test.data.gov.uk' : window.location.origin;
 
-  document.getElementById('copyLink').addEventListener('click', async (event) => {
-    try {
-      const link = event.target.value;
-      await navigator.clipboard.writeText(link);
-    } catch (err) {
-      console.error('Clipboard write failed:', err);
-    }
+  document.querySelectorAll('.copy-link').forEach((button) => {
+    button.addEventListener('click', async (event) => {
+      try {
+        const link = event.target.value;
+
+        await navigator.clipboard.writeText(link);
+      } catch (err) {
+        console.error('Clipboard write failed:', err);
+      }
+    });
   });
 
   const buttons = document.querySelectorAll('.download-resource');
