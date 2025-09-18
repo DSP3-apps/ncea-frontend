@@ -1,3 +1,10 @@
+## [1.31.4](https://github.com/DSP3-apps/ncea-frontend/compare/v1.31.3...v1.31.4) (2025-09-18)
+
+
+### Bug Fixes
+
+* **moreinfo:** Fix copy link issue on Access tab ([ae5b265](https://github.com/DSP3-apps/ncea-frontend/commit/ae5b26520d69ff16a1d1ea29d672127d133562a7))
+
 ## [1.31.3](https://github.com/DSP3-apps/ncea-frontend/compare/v1.31.2...v1.31.3) (2025-08-28)
 
 
