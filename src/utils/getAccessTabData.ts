@@ -233,8 +233,7 @@ const createTableRow = (name: string, url: string) => {
     <td>${dataSetName}</td>
     <td>
       <button
-        id="copyLink"
-        class="govuk-button copy-link-btn"
+        class="govuk-button copy-link-btn copy-link"
         value="${url}"
         data-module="govuk-button"
       >
