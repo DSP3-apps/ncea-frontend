@@ -14,4 +14,5 @@ export interface EnvironmentConfig {
   searchApiUrl: string | undefined;
   vocabularyApiUrl: string | undefined;
   categoryResultCountApiUrl: string | undefined;
+  surveyIndexPreviewRecordId: string | undefined;
 }

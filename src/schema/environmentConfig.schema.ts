@@ -58,4 +58,7 @@ export const environmentSchema: Joi.ObjectSchema = Joi.object({
   categoryResultCountApiUrl: Joi.string().uri().messages({
     'string.uri': 'Category Result Count API must be a valid URL',
   }),
+  surveyIndexPreviewRecordId: Joi.string().messages({
+    'string.base': 'Survey Index Preview Record ID must be a string',
+  }),
 });

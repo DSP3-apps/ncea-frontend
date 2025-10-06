@@ -43,7 +43,8 @@ describe('Server initialization', () => {
         appInsightsConnectionString: 'test',
         searchApiUrl: 'https://example.com/api',
         vocabularyApiUrl: 'https://example.com/api',
-        categoryResultCountApiUrl: 'https://example.com/api'
+        categoryResultCountApiUrl: 'https://example.com/api',
+        surveyIndexPreviewRecordId: '123',
       },
     }));
 
