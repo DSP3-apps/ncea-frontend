@@ -1,3 +1,10 @@
+## [1.31.5](https://github.com/DSP3-apps/ncea-frontend/compare/v1.31.4...v1.31.5) (2025-10-06)
+
+
+### Bug Fixes
+
+* **moreinfo:** Update action column rendering for WFS/WMS servicesTypes ([d66ea43](https://github.com/DSP3-apps/ncea-frontend/commit/d66ea431d87e323be25d04ce155075b785b10077))
+
 ## [1.31.4](https://github.com/DSP3-apps/ncea-frontend/compare/v1.31.3...v1.31.4) (2025-09-18)
 
 
