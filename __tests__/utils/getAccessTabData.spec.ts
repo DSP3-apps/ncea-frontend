@@ -35,11 +35,29 @@ describe('getAccessTabData functions', () => {
         MORE_INFO_MOCK_DATA.resources,
         'c9d7e118-d057-48f9-b520-76de8e51e014',
       );
-      expect(output).toContain('<td>Living England Segmentation (2019) Download</td>');
+      expect(output).toContain('<td>Download data by area of interest and format</td>');
       expect(output).toContain('<td>Living England Segmentation (2019) WFS</td>');
       expect(output).toContain('<td>Living England Segmentation (2019) REST Map Service</td>');
       expect(output).toContain('<td>Living England Segmentation (2019) WMS</td>');
       expect(output).toContain('<td>Natural England Open Data Geoportal dataset page</td>');
+    });
+
+    it('should return preview in action column if the url contains wms', () => {
+      const output = generateResourceWebsiteTable(
+        MORE_INFO_MOCK_DATA.resources,
+        'c9d7e118-d057-48f9-b520-76de8e51e014',
+      );
+      expect(output).toContain(
+        '<a class="govuk-link" href="/explore/c9d7e118-d057-48f9-b520-76de8e51e014" target="_blank">Preview<span class="govuk-visually-hidden">(opens in a new tab)</span></a>',
+      );
+    });
+
+    it('should return N/A in action column if the url contains wfs', () => {
+      const output = generateResourceWebsiteTable(
+        MORE_INFO_MOCK_DATA.resources,
+        'c9d7e118-d057-48f9-b520-76de8e51e014',
+      );
+      expect(output).toContain('<td>N/A</td>');
     });
   });
 

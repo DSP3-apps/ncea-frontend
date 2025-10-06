@@ -112,7 +112,7 @@ export const generateResourceWebsiteTable = (resources: IResources[], recordId: 
     const filterDataDownloadSet = resources.filter(
       ({ type }) => type !== null && validateServiceTypes(DATA_DOWNLOADS_TYPES, type),
     );
-    const dataServicesTable = generateDataServicesTable(filterDataServicesSet);
+    const dataServicesTable = generateDataServicesTable(filterDataServicesSet, recordId);
     const dataDownloadTable = generateDataDownloadsTable(filterDataDownloadSet, filterDataServicesSet, recordId);
 
     return `${dataServicesTable}${dataDownloadTable}`;
@@ -120,13 +120,13 @@ export const generateResourceWebsiteTable = (resources: IResources[], recordId: 
   return '';
 };
 
-const generateDataServicesTable = (dataServices: IResources[]) => {
+const generateDataServicesTable = (dataServices: IResources[], recordId: string) => {
   if (Array.isArray(dataServices) && dataServices.length > 0) {
     return `
     <table class="details-table-full">
     ${generateTableHeader()}
     <tbody>
-      ${generateTableRows(dataServices, 'data-services')}
+      ${generateTableRows(dataServices, 'data-services', recordId)}
     </tbody>
   </table>`;
   }
@@ -169,12 +169,12 @@ const generateTableHeader = () => `
   </thead>
 `;
 
-const generateTableRows = (resources: IResources[], datatType: string, recordId?: string) => {
+const generateTableRows = (resources: IResources[], dataType: string, recordId: string) => {
   return resources
     .map((item: IResources) => {
       const { name, url } = item;
       const rowHTML =
-        datatType === 'full-downloads' ? createDownloadsTableRow(item, recordId) : createTableRow(name, url);
+        dataType === 'full-downloads' ? createDownloadsTableRow(item, recordId) : createTableRow(name, url, recordId);
 
       return `
         ${rowHTML}
@@ -217,12 +217,37 @@ export const createDownloadsTableRow = (payload, recordId) => {
   `;
 };
 
-const createTableRow = (name: string, url: string) => {
+const renderCopyLinkButton = (downloadLink: boolean, url: string): string => {
+  return downloadLink
+    ? 'N/A'
+    : `<button class="govuk-button copy-link-btn copy-link" value="${url}" data-module="govuk-button">Copy Link</button>`;
+};
+
+const renderActionLink = (url: string, recordId: string) => {
+  if (isEmpty(url)) {
+    return 'N/A';
+  }
+
+  if (url.includes('/wfs')) {
+    return `N/A`;
+  }
+
+  if (url.includes('/wms')) {
+    return `<a class="govuk-link" href="/explore/${recordId}" target="_blank">Preview<span class="govuk-visually-hidden">(opens in a new tab)</span></a>`;
+  }
+
+  return `<a class="govuk-link" href="${url}" target="_blank">Open Link<span class="govuk-visually-hidden">(opens in a new tab)</span></a>`;
+};
+
+const createTableRow = (name: string, url: string, recordId: string) => {
   const dataSetName = name || 'Download data';
+  const downloadLink = url.includes('?download=true');
+  const dataServiceName = downloadLink ? 'Download data by area of interest and format' : dataSetName;
+
   if (isEmpty(url)) {
     return `
    <tr>
-    <td>${dataSetName}</td>
+    <td>${dataServiceName}</td>
     <td>N/A</td>
     <td>N/A</td>
   </tr>
@@ -230,19 +255,9 @@ const createTableRow = (name: string, url: string) => {
   }
   return `
    <tr>
-    <td>${dataSetName}</td>
-    <td>
-      <button
-        class="govuk-button copy-link-btn copy-link"
-        value="${url}"
-        data-module="govuk-button"
-      >
-        Copy Link
-      </button>
-    </td>
-    <td>
-      <a class="govuk-link" href="${url}" target="_blank">Open Link<span class="govuk-visually-hidden">(opens in a new tab)</span></a>
-    </td>
+    <td>${dataServiceName}</td>
+    <td>${renderCopyLinkButton(downloadLink, url)}</td>
+    <td>${renderActionLink(url, recordId)}</td>
   </tr>
   `;
 };
