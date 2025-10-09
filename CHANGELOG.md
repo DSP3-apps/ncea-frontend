@@ -1,3 +1,10 @@
+## [1.31.6](https://github.com/DSP3-apps/ncea-frontend/compare/v1.31.5...v1.31.6) (2025-10-09)
+
+
+### Bug Fixes
+
+* **moreinfo:** Add specific preview link for survey-index in url ([a96008b](https://github.com/DSP3-apps/ncea-frontend/commit/a96008b7c96a69b50b492576c79cc2f0f3e4d83b))
+
 ## [1.31.5](https://github.com/DSP3-apps/ncea-frontend/compare/v1.31.4...v1.31.5) (2025-10-06)
 
 
