@@ -5,6 +5,7 @@ import { DATA_DOWNLOADS_TYPES, DATA_SERVICES_TYPES } from './constants';
 import { capitalizeWords } from './formatAggregationResponse';
 import { getOrganisationDetails } from './getOrganisationDetails';
 import { isEmpty } from './isEmpty';
+import { environmentConfig } from '../config/environmentConfig';
 import { Contact, IAccess, IAccessItem, IResources, ServiceOptions } from '../interfaces/searchResponse.interface';
 
 const getCoupledResource = (data: string | string[]): string => {
@@ -228,15 +229,19 @@ const renderActionLink = (url: string, recordId: string) => {
     return 'N/A';
   }
 
+  if (url.includes('spatialdata/survey-index-files/wms')) {
+    return `<a class="govuk-link" href="/explore/${environmentConfig.surveyIndexPreviewRecordId}" rel="noopener noreferrer" target="_blank">Preview<span class="govuk-visually-hidden">(opens in a new tab)</span></a>`;
+  }
+
   if (url.includes('/wfs')) {
     return `N/A`;
   }
 
   if (url.includes('/wms')) {
-    return `<a class="govuk-link" href="/explore/${recordId}" target="_blank">Preview<span class="govuk-visually-hidden">(opens in a new tab)</span></a>`;
+    return `<a class="govuk-link" href="/explore/${recordId}" rel="noopener noreferrer" target="_blank">Preview<span class="govuk-visually-hidden">(opens in a new tab)</span></a>`;
   }
 
-  return `<a class="govuk-link" href="${url}" target="_blank">Open Link<span class="govuk-visually-hidden">(opens in a new tab)</span></a>`;
+  return `<a class="govuk-link" href="${url}" rel="noopener noreferrer" target="_blank">Open Link<span class="govuk-visually-hidden">(opens in a new tab)</span></a>`;
 };
 
 const createTableRow = (name: string, url: string, recordId: string) => {

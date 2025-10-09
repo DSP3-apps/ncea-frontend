@@ -117,6 +117,13 @@ export const MORE_INFO_MOCK_DATA = {
       language: 'eng',
       distributionFormat: null,
     },
+    {
+      url: 'https://environment-test.data.gov.uk/spatialdata/survey-index-files/wms',
+      name: 'Living England Segmentation (2022) WMS',
+      type: 'WMS',
+      language: 'eng',
+      distributionFormat: null,
+    },
   ],
   lineage: 'An RDF Vocabulary to described data on exotic notifiable disease investigations.',
   additionalInformation: null,

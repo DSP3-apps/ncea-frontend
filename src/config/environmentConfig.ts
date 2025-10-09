@@ -28,6 +28,7 @@ const config: EnvironmentConfig = {
   searchApiUrl: process.env.SEARCH_API,
   vocabularyApiUrl: process.env.VOCABULARY_API,
   categoryResultCountApiUrl: process.env.CATEGORY_RESULT_COUNT_API,
+  surveyIndexPreviewRecordId: process.env.SURVEY_INDEX_PREVIEW_RECORD_ID,
 };
 
 const { error, value } = environmentSchema.validate(config);

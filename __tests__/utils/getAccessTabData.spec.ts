@@ -7,6 +7,13 @@ import {
 } from '../../src/utils/getAccessTabData';
 import { MORE_INFO_MOCK_DATA } from '../../src/services/handlers/mocks/more-info-response';
 import { DATA_DOWNLOADS_TYPES, DATA_SERVICES_TYPES } from '../../src/utils/constants';
+import { environmentConfig } from '../../src/config/environmentConfig';
+
+jest.mock('../../src/config/environmentConfig', () => ({
+  environmentConfig: {
+    surveyIndexPreviewRecordId: '123',
+  },
+}));
 
 describe('getAccessTabData functions', () => {
   describe('getAccessTabData result', () => {
@@ -48,7 +55,7 @@ describe('getAccessTabData functions', () => {
         'c9d7e118-d057-48f9-b520-76de8e51e014',
       );
       expect(output).toContain(
-        '<a class="govuk-link" href="/explore/c9d7e118-d057-48f9-b520-76de8e51e014" target="_blank">Preview<span class="govuk-visually-hidden">(opens in a new tab)</span></a>',
+        '<a class="govuk-link" href="/explore/c9d7e118-d057-48f9-b520-76de8e51e014" rel="noopener noreferrer" target="_blank">Preview<span class="govuk-visually-hidden">(opens in a new tab)</span></a>',
       );
     });
 
@@ -58,6 +65,16 @@ describe('getAccessTabData functions', () => {
         'c9d7e118-d057-48f9-b520-76de8e51e014',
       );
       expect(output).toContain('<td>N/A</td>');
+    });
+
+    it('should return preview with specific href if the url contains spatialdata/survey-index-files/wms', () => {
+      const output = generateResourceWebsiteTable(
+        MORE_INFO_MOCK_DATA.resources,
+        'c9d7e118-d057-48f9-b520-76de8e51e014',
+      );
+      expect(output).toContain(
+        `<a class="govuk-link" href="/explore/${environmentConfig.surveyIndexPreviewRecordId}" rel="noopener noreferrer" target="_blank">Preview<span class="govuk-visually-hidden">(opens in a new tab)</span></a>`,
+      );
     });
   });
 
