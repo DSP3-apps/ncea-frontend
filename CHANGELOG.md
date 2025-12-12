@@ -1,3 +1,11 @@
+## [1.31.7](https://github.com/DSP3-apps/ncea-frontend/compare/v1.31.6...v1.31.7) (2025-12-12)
+
+
+### Bug Fixes
+
+* **moreinfo:** Fix download button URL handling ([cbbc3e9](https://github.com/DSP3-apps/ncea-frontend/commit/cbbc3e986491a19609392860c62bb4c21361e79b))
+* **pages:** Update year from 2028 to 2029 on About Us page ([37f06c8](https://github.com/DSP3-apps/ncea-frontend/commit/37f06c83006991ed204877120b4ef3b8c61f6c3e))
+
 ## [1.31.6](https://github.com/DSP3-apps/ncea-frontend/compare/v1.31.5...v1.31.6) (2025-10-09)
 
 
