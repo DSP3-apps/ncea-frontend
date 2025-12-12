@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const baseUrl = isLocal ? 'https://environment-test.data.gov.uk' : window.location.origin;
+  const baseUrl = window.location.origin;
 
   document.querySelectorAll('.copy-link').forEach((button) => {
     button.addEventListener('click', async (event) => {
@@ -18,7 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', async function (event) {
       event.preventDefault();
 
-      const url = `${baseUrl}/${event.target.dataset.url}`;
+      const datasetUrl = event.target.dataset.url;
+      const url =
+        datasetUrl.startsWith('http://') || datasetUrl.startsWith('https://') ? datasetUrl : `${baseUrl}/${datasetUrl}`;
       const datasetId = event.target.dataset.id;
 
       try {
