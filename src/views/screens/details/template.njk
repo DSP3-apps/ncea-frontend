@@ -55,6 +55,56 @@
       {% set geographyHtml = details({options: detailsTabOptions.geography, hasData: docDetails.title}) %}
       {% set licenseHtml = details({options: detailsTabOptions.license, hasData: docDetails.title}) %}
 
+      {% set tabItems = [
+        {
+          label: 'General',
+          id: 'general',
+          panel: { html: generalHTML },
+          attributes: { 'onclick': 'changeTitle("' + pageTitle + ' - ' + pageTitles.generalTab + '")' }
+        },
+        {
+          label: 'Access',
+          id: 'access',
+          panel: { html: accessHtml },
+          attributes: { 'onclick': 'changeTitle("' + pageTitle + ' - ' + pageTitles.accessTab + '")' }
+        },
+        {
+          label: 'Natural capital',
+          id: 'natural',
+          panel: { html: naturalHtml },
+          attributes: { 'onclick': 'changeTitle("' + pageTitle + ' - ' + pageTitles.naturalTab + '")' }
+        },
+        {
+          label: 'Quality',
+          id: 'quality',
+          panel: { html: qualityHtml },
+          attributes: { 'onclick': 'changeTitle("' + pageTitle + ' - ' + pageTitles.qualityTab + '")' }
+        },
+        {
+          label: 'Geography',
+          id: 'geography',
+          panel: { html: geographyHtml },
+          attributes: { 'onclick': 'changeTitle("' + pageTitle + ' - ' + pageTitles.geographyTab + '")' }
+        },
+        {
+          label: 'Licence',
+          id: 'license',
+          panel: { html: licenseHtml },
+          attributes: { 'onclick': 'changeTitle("' + pageTitle + ' - ' + pageTitles.licenseTab + '")' }
+        }
+      ] %}
+
+      {% if authenticated %}
+        {% set governanceItem = {
+          label: 'Governance',
+          id: 'governance',
+          panel: { html: governanceHtml },
+          attributes: { 'onclick': 'changeTitle("' + pageTitle + ' - ' + pageTitles.governanceTab + '")' }
+        } %}
+
+        {% set tabItems = tabItems.concat([governanceItem]) %}
+      {% endif %}
+
       <h1 class='govuk-heading-m details-title'>{{ docDetails.title }}</h1>
       {% if docDetails !== undefined and docDetails.alternateTitle %}
         {{ govukDetails({
@@ -71,80 +121,7 @@
             tab for further details</span>
         {% endif %}
       </div>
-      {{ govukTabs({
-    items: [
-      {
-        label: 'General',
-        id: 'general',
-        panel: {
-          html: generalHTML
-        },
-        attributes: {
-          'onclick': 'changeTitle("'+pageTitle+' - '+pageTitles.generalTab+'")'
-        }
-      },
-      {
-        label: 'Access',
-        id: 'access',
-        panel: {
-          html: accessHtml
-        },
-        attributes: {
-          'onclick': 'changeTitle("'+pageTitle+' - '+pageTitles.accessTab+'")'
-        }
-      },
-       {
-        label: 'Natural capital',
-        id: 'natural',
-        panel: {
-          html: naturalHtml
-        },
-        attributes: {
-          'onclick': 'changeTitle("'+pageTitle+' - '+pageTitles.naturalTab+'")'
-        }
-      },
-      {
-        label: 'Quality',
-        id: 'quality',
-        panel: {
-          html: qualityHtml
-        },
-        attributes: {
-          'onclick': 'changeTitle("'+pageTitle+' - '+pageTitles.qualityTab+'")'
-        }
-      },
-      {
-        label: 'Geography',
-        id: 'geography',
-        panel: {
-          html: geographyHtml
-        },
-        attributes: {
-          'onclick': 'changeTitle("'+pageTitle+' - '+pageTitles.geographyTab+'")'
-        }
-      },
-      {
-        label: 'Licence',
-        id: 'license',
-        panel: {
-          html: licenseHtml
-        },
-        attributes: {
-          'onclick': 'changeTitle("'+pageTitle+' - '+pageTitles.licenseTab+'")'
-        }
-      },
-        {
-        label: 'Governance',
-        id: 'governance',
-        panel: {
-          html: governanceHtml
-        },
-        attributes: {
-          'onclick': 'changeTitle("'+pageTitle+' - '+pageTitles.governanceTab+'")'
-        }
-      }
-    ]
-  }) }}
+      {{ govukTabs({items: tabItems}) }}
 
   {% else %}
     <p class="govuk-body moreInfo-error-msg">{{error}}</p>
