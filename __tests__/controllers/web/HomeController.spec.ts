@@ -17,10 +17,6 @@ import { readQueryParams, upsertQueryParams } from '../../../src/utils/queryStri
 import { authSchema, jwtCookieName } from '../../../src/infrastructure/plugins/auth';
 import { requestMockData } from '../../data/requestData';
 
-jest.mock('../../../src/infrastructure/plugins/appinsights-logger', () => ({
-  info: jest.fn(),
-}));
-
 jest.mock('../../../src/services/handlers/searchApi', () => ({
   getSearchResultsCount: jest.fn(),
 }));

@@ -20,14 +20,6 @@ jest.mock('@hapi/hapi', () => ({
   Server: jest.fn(),
 }));
 
-jest.mock('../../src/infrastructure/plugins/appinsights-logger', () => ({
-  info: jest.fn(),
-}));
-
-jest.mock('../../src/utils/keyvault', () => ({
-  getSecret: jest.fn(),
-}));
-
 describe('Server initialization', () => {
   beforeEach(() => {
     jest.clearAllMocks();

@@ -18,14 +18,6 @@ jest.mock('../../../src/services/handlers/searchApi', () => ({
   getFilterOptions: jest.fn(),
 }));
 
-jest.mock('../../../src/infrastructure/plugins/appinsights-logger', () => ({
-  info: jest.fn(),
-}));
-
-jest.mock('../../../src/utils/keyvault', () => ({
-  getSecret: jest.fn(),
-}));
-
 let serverRequest;
 
 const invokeRoute = async (route, query) => {

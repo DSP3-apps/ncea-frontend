@@ -7,7 +7,7 @@ import vision from '@hapi/vision';
 
 import { environmentConfig } from '../config/environmentConfig';
 import { authSchema, injectAuthIntoContext } from './plugins/auth';
-import { customHapiPino, customHapiRoutes } from './plugins/index';
+import { customHapiPino, customHapiRoutes, customHapiViews } from './plugins/index';
 
 // Create the hapi server
 const server: Server = Hapi.server({
@@ -23,7 +23,6 @@ const server: Server = Hapi.server({
 });
 
 const initializeServer = async (): Promise<Server> => {
-
   // Register vendors plugins
   await server.register([inert, vision]);
 
@@ -39,7 +38,7 @@ const initializeServer = async (): Promise<Server> => {
   server.ext('onPreResponse', injectAuthIntoContext);
 
   // Register the custom plugins
-  // await server.register({ plugin: customHapiViews.plugin, options: customHapiViews.options });
+  await server.register({ plugin: customHapiViews.plugin, options: customHapiViews.options });
   await server.register({ plugin: customHapiRoutes }, { routes: { prefix: '/natural-capital-ecosystem-assessment' } });
   await server.register([customHapiPino]);
 
