@@ -12,7 +12,7 @@ import { customHapiPino, customHapiRoutes, customHapiViews } from './plugins/ind
 // Create the hapi server
 const server: Server = Hapi.server({
   host: process.env.HOST ?? '0.0.0.0',
-  port: environmentConfig.env !== 'test' ? environmentConfig.port : 4000,
+  port: environmentConfig.port,
   routes: {
     validate: {
       options: {
