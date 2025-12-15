@@ -6,13 +6,8 @@ import inert from '@hapi/inert';
 import vision from '@hapi/vision';
 
 import { environmentConfig } from '../config/environmentConfig';
-import { getSecret } from '../utils/keyvault';
 import { authSchema, injectAuthIntoContext } from './plugins/auth';
-import { customHapiPino, customHapiRoutes, customHapiViews } from './plugins/index';
-
-const appInsightsConnectionStringSecretName =
-  environmentConfig.appInsightsSecretName ?? 'ApplicationInsights--ConnectionString';
-const shouldPushToAppInsights = environmentConfig.env === 'local';
+import { customHapiPino, customHapiRoutes } from './plugins/index';
 
 // Create the hapi server
 const server: Server = Hapi.server({
@@ -28,11 +23,6 @@ const server: Server = Hapi.server({
 });
 
 const initializeServer = async (): Promise<Server> => {
-  if (!shouldPushToAppInsights) {
-    const appInsightsConnectionString = await getSecret(appInsightsConnectionStringSecretName);
-    environmentConfig.appInsightsConnectionString = appInsightsConnectionString;
-    customHapiViews.options.context.appInsightsConnectionString = appInsightsConnectionString;
-  }
 
   // Register vendors plugins
   await server.register([inert, vision]);
@@ -49,7 +39,7 @@ const initializeServer = async (): Promise<Server> => {
   server.ext('onPreResponse', injectAuthIntoContext);
 
   // Register the custom plugins
-  await server.register({ plugin: customHapiViews.plugin, options: customHapiViews.options });
+  // await server.register({ plugin: customHapiViews.plugin, options: customHapiViews.options });
   await server.register({ plugin: customHapiRoutes }, { routes: { prefix: '/natural-capital-ecosystem-assessment' } });
   await server.register([customHapiPino]);
 
