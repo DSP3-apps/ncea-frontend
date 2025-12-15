@@ -186,6 +186,7 @@ const SearchResultsController = {
         detailsTabOptions,
         queryString,
         pageTitles,
+        authenticated: request.auth.isAuthenticated,
       });
     } catch (error) {
       return response.view('screens/details/template', {
