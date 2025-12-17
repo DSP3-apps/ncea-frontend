@@ -307,8 +307,9 @@ const nceaAboutLink =
 export const landingPageData = {
   pageHeading: 'Natural Capital and Ecosystem Assessment (NCEA) programme',
   introText: {
-    imageUrl1: `${BASE_PATH}/assets/images/Trees-Outside-Woodland.webp`,
-    image1Url: 'https://www.gov.uk/government/news/englands-non-woodland-trees-freely-mapped-for-first-time',
+    imageUrl1: `${BASE_PATH}/assets/images/Lowther-view-NCEA-blog.jpg`,
+    image1Url:
+      'https://defraenvironment.blog.gov.uk/2025/12/15/major-milestone-ncea-publishes-new-datasets-on-englands-environment/',
     imageUrl2: `${BASE_PATH}/assets/images/England-Peat-Map.webp`,
     image2Url: 'https://naturalengland.blog.gov.uk/2025/05/12/a-new-peat-map-for-england/',
   },
