@@ -22,9 +22,9 @@
     <div class="landingPage__articles-container">
       <div class="landingPage__articles-container--article">
         <img src={{ introText.imageUrl1 }} width="800" height="533" alt="A street lined with parked cars and blooming cherry blossom trees on both sides during springtime" title="Trees Outside Woodland" />
-        <span class="govuk-body landingPage__articles-container--article-imageTitle">Trees Outside Woodland</span>
+        <span class="govuk-body landingPage__articles-container--article-imageTitle">Analysis Ready Data</span>
         <p class="landingPage__articles-container--article-text govuk-body">
-          England’s trees outside woodlands have been mapped by satellite and laser are freely available for first time revealing they make up 30% of nation’s tree cover.
+          NCEA programme publishes Analysis Ready Data from the UK’s largest ever field surveys. They are cleaned, standardised, quality-assured data that are well-documented, accessible, and prepared for analysis.
         </p>
          <a href="{{introText.image1Url}}" target="_blank" rel="noreferrer noopener" class="govuk-link govuk-link--no-underline landingPage__articles-container--article-link">More &gt;&gt;</a>
       </div>
@@ -106,7 +106,7 @@
                 Future Releases
             </h2>
             <p class="govuk-body govuk-!-margin-bottom-6">
-             Over the next year NCEA will release a range of products developed by the programme, including the updates to the National Habitat Network Maps, Hedgerow Map, Landscape evaluation statistics and analysis-ready data from the England Ecosystem Survey, Water Monitoring Networks, mycorrhizal diversity data and National Forest Inventory Plus.
+             In 2025, the NCEA programme published the first release of analysis-ready data from the UK’s largest ever field surveys. This includes analysis-ready data from the England Ecosystem Survey, Water Monitoring Networks, mycorrhizal baseline dataset and National Forest Inventory Plus. In 2026, the Hedgerow Map will be launched, alongside additional analysis-ready datasets, with regular data publications continuing through to the end of the programme in 2028/29.
             </p>
         </div>
     </section>
@@ -114,16 +114,16 @@
      <div class="landingPage__feeds_container">
       {% if displayFeedsPanel %}
         <div class="landingPage__feeds_container--feeds">
-          <h2 class="govuk-heading-m">{{feedsList.title}}</h2>
+          <h2 class="govuk-heading-m">{{feedsList.title | safe}}</h2>
           <ul class="govuk-list">
               <li class="govuk-width-container feed-container landingPage__feeds_container--feeds-list">
-                <h3 class="govuk-heading-s">{{ feedsList.article.title }}</h3>
+                <h3 class="govuk-heading-s">{{ feedsList.article.title | safe }}</h3>
                 <div class="captions-section">
-                    <small><b>Author: </b>{{ feedsList.article.author }}</small>
-                    <small><b>Published on : </b>{{ feedsList.article.pubDate }}</small>
+                    <small><b>Author: </b>{{ feedsList.article.author | safe }}</small>
+                    <small><b>Published on : </b>{{ feedsList.article.pubDate | safe }}</small>
                   </div>
-                <p class="govuk-body">{{ feedsList.article.summary }}</p>
-                <a class="govuk-link" href="{{ feedsList.article.link }}" target="_blank">{{ feedsList.article.title }}</a>
+                <p class="govuk-body">{{ feedsList.article.summary | safe }}</p>
+                <a class="govuk-link" href="{{ feedsList.article.link | safe }}" target="_blank">{{ feedsList.article.title | safe }}</a>
               </li>
           </ul>
           <p class="govuk-body landingPage__feeds_container--feeds-text">
