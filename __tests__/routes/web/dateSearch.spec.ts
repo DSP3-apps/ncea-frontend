@@ -10,14 +10,6 @@ import { BASE_PATH, webRoutePaths } from '../../../src/utils/constants';
 import { DateSearchController } from '../../../src/controllers/web/DateSearchController';
 import { dateSearchRoutes } from '../../../src/routes/web/dateSearch';
 
-jest.mock('../../../src/infrastructure/plugins/appinsights-logger', () => ({
-  logger: jest.fn(),
-}));
-
-jest.mock('../../../src/utils/keyvault', () => ({
-  getSecret: jest.fn(),
-}));
-
 jest.mock('../../../src/services/handlers/searchApi', () => ({
   getSearchResultsCount: jest.fn(() => {
     return Promise.resolve({ totalResults: 10 });

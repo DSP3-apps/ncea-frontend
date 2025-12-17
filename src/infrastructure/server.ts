@@ -6,18 +6,13 @@ import inert from '@hapi/inert';
 import vision from '@hapi/vision';
 
 import { environmentConfig } from '../config/environmentConfig';
-import { getSecret } from '../utils/keyvault';
 import { authSchema, injectAuthIntoContext } from './plugins/auth';
 import { customHapiPino, customHapiRoutes, customHapiViews } from './plugins/index';
-
-const appInsightsConnectionStringSecretName =
-  environmentConfig.appInsightsSecretName ?? 'ApplicationInsights--ConnectionString';
-const shouldPushToAppInsights = environmentConfig.env === 'local';
 
 // Create the hapi server
 const server: Server = Hapi.server({
   host: process.env.HOST ?? '0.0.0.0',
-  port: environmentConfig.env !== 'test' ? environmentConfig.port : 4000,
+  port: environmentConfig.port,
   routes: {
     validate: {
       options: {
@@ -28,12 +23,6 @@ const server: Server = Hapi.server({
 });
 
 const initializeServer = async (): Promise<Server> => {
-  if (!shouldPushToAppInsights) {
-    const appInsightsConnectionString = await getSecret(appInsightsConnectionStringSecretName);
-    environmentConfig.appInsightsConnectionString = appInsightsConnectionString;
-    customHapiViews.options.context.appInsightsConnectionString = appInsightsConnectionString;
-  }
-
   // Register vendors plugins
   await server.register([inert, vision]);
 

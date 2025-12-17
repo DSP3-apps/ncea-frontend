@@ -9,14 +9,6 @@ import { Server, ServerInjectResponse } from '@hapi/hapi';
 import { initializeServer } from '../../../src/infrastructure/server';
 import { BASE_PATH } from '../../../src/utils/constants';
 
-jest.mock('../../../src/infrastructure/plugins/appinsights-logger', () => ({
-  logger: jest.fn(),
-}));
-
-jest.mock('../../../src/utils/keyvault', () => ({
-  getSecret: jest.fn(),
-}));
-
 describe('404 Screen', () => {
   let server: Server;
   let response: ServerInjectResponse<object>;
