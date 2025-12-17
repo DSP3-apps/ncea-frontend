@@ -27,7 +27,7 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta name="version" content="v1.30.1">
+  <meta name="version" content="v1.31.7">
 
     <meta name="description" content="Latest news from the Natural Capital and Ecosystem Assessment programme (NCEA) from Defra and Natural England">
 
@@ -179,7 +179,7 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
             class="govuk-link ea-logo"
             target="_blank"
             ref="noopener noreferrer"
-            href="https://www.gov.uk/government/publications/natural-capital-and-ecosystem-assessment-programme/natural-capital-and-ecosystem-assessment-programme"
+            href="https://environment.data.gov.uk/natural-capital-ecosystem-assessment/about"
           >
             <span class="icon">
   
@@ -292,6 +292,17 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
       <ul class="govuk-list">
         
           <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">Major milestone: NCEA publishes new datasets on England&#039;s environment</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>David Jones</small>
+              <small><b>Published on : </b>15 December 2025</small>
+            </div>
+            <p class="govuk-body">Today, a major milestone for the programme has been announced – the first release of Analysis Ready Data from the UK’s largest ever field surveys have been published.  The NCEA programme is all about turbocharging nature's recovery through delivering robust and up to date evidence on the terrestrial and freshwater environment. Read this blog post to find out more.</p>
+            <a class="govuk-link" href="https://defraenvironment.blog.gov.uk/2025/12/15/major-milestone-ncea-publishes-new-datasets-on-englands-environment/" target="_blank">Major milestone: NCEA publishes new datasets on England&#039;s environment</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        
+          <li class="govuk-width-container feed-container">
             <h3 class="govuk-heading-s">Living England: a national habitat map for everyone </h3>
             <div class="captions-section">
               <small><b>Author: </b>Amy Woodget</small>
@@ -319,7 +330,7 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
               <small><b>Author: </b>Sarah Adcock</small>
               <small><b>Published on : </b>28 March 2024</small>
             </div>
-            <p class="govuk-body">Sarah Adcock and David Jones, Senior Responsible Owners for Defra&#39;s Natural Capital and Ecosystem Assessment programme explain why building a picture of our natural assets and their benefits is the first, crucial step in protecting our environment.</p>
+            <p class="govuk-body">Sarah Adcock and David Jones, Senior Responsible Owners for Defra's Natural Capital and Ecosystem Assessment programme explain why building a picture of our natural assets and their benefits is the first, crucial step in protecting our environment.</p>
             <a class="govuk-link" href="https://defraenvironment.blog.gov.uk/2024/03/28/mapping-our-natural-assets-the-natural-capital-and-ecosystem-assessment-programme/" target="_blank">Mapping our natural assets: the Natural Capital and Ecosystem Assessment programme</a>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
           </li>
@@ -351,7 +362,7 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
               <small><b>Author: </b>Natural England</small>
               <small><b>Published on : </b>26 February 2025</small>
             </div>
-            <p class="govuk-body">By Gabriella Fasoli and Nick Tomline (AI specialists), Emma Milner (marine mammal specialist) and Elizabeth Mitchell (engagement), all on the marine Natural Capital and Ecosystem Assessment (mNCEA) programme Documenting Norfolk&#39;s biggest beach party On a windy day in December, something …</p>
+            <p class="govuk-body">By Gabriella Fasoli and Nick Tomline (AI specialists), Emma Milner (marine mammal specialist) and Elizabeth Mitchell (engagement), all on the marine Natural Capital and Ecosystem Assessment (mNCEA) programme Documenting Norfolk's biggest beach party On a windy day in December, something …</p>
             <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2025/02/26/how-new-technologies-are-helping-us-monitor-one-of-englands-largest-grey-seal-colonies/" target="_blank">How new technologies are helping us monitor one of England’s largest grey seal colonies </a>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
           </li>
