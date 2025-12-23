@@ -174,7 +174,6 @@ exports[`404 Screen 404 > Sanpshot verification should match the 404 screen snap
         <span class="navLinks">
           <a
             class="govuk-link ea-logo"
-            target="_blank"
             ref="noopener noreferrer"
             href="https://environment.data.gov.uk/natural-capital-ecosystem-assessment/about"
           >
