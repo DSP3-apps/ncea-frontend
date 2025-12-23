@@ -44,6 +44,7 @@
     @include font-style-stack(16px, 20px, 300);
     color: $govuk-text-colour;
     text-align: left;
+
     p {
       margin: 0;
     }
@@ -105,6 +106,16 @@
   border-bottom: 1px solid #b1b4b6;
 }
 
+.tab-content-value {
+  p {
+    margin-bottom: 20px;
+  }
+
+  a {
+    @extend .govuk-link;
+  }
+}
+
 @media (min-width: 768px) {
   .tab-content-row {
     grid-template-columns: auto 1fr;
@@ -142,11 +153,10 @@
 }
 
 @media (max-width: 600px) {
+
   .details-table-full th,
   .details-table-full td {
     font-size: 14px;
     padding: 8px;
   }
 }
-
-

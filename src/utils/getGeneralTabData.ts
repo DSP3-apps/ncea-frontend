@@ -1,5 +1,7 @@
 'use strict';
 
+import { marked } from 'marked';
+
 import { formatDate } from './dates';
 import { IGeneralItem, IResources, ITemporalExtent } from '../interfaces/searchResponse.interface';
 
@@ -22,8 +24,13 @@ export const getStudyPeriodDetails = (dateRanges: ITemporalExtent): string => {
   return `${startDate} to ${endDate}`;
 };
 
+const formatContent = (content: string): string => {
+  if (!content) return '';
+  return marked.parse(content);
+};
+
 const getGeneralTabData = (payload: IGeneralItem) => ({
-  content: payload?.abstract ?? '',
+  content: formatContent(payload?.abstract ?? ''),
   studyPeriod: payload?.temporalExtent ? getStudyPeriodDetails(payload.temporalExtent) : '',
   topicCategories: payload?.topicCategories?.join(', ') ?? '',
   keywords: payload?.keywords?.join(', ') ?? '',
