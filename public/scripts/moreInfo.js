@@ -18,10 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', async function (event) {
       event.preventDefault();
 
-      const datasetUrl = event.target.dataset.url;
-      const url =
-        datasetUrl.startsWith('http://') || datasetUrl.startsWith('https://') ? datasetUrl : `${baseUrl}/${datasetUrl}`;
+      const rawUrl = event.target.dataset.url;
       const datasetId = event.target.dataset.id;
+      let url = `${baseUrl}/${rawUrl}`;
+
+      if (/^https?:\/\//i.test(rawUrl)) {
+        forceDownload(rawUrl);
+        return;
+      }
+
+      if (rawUrl.includes('/file-management-open/')) {
+        url = `${baseUrl}/${rawUrl}`;
+      }
 
       try {
         const res = await fetch(url, {
@@ -39,9 +47,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       } catch (err) {
         console.error('Download check failed:', err);
+        window.location.href = `${baseUrl}/dataset/${datasetId}`;
       }
     });
   });
+
+  function forceDownload(url, filename = '') {
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.rel = 'noopener';
+    a.style.display = 'none';
+
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
 
   window.onload = function () {
     window.scrollTo(0, 0);
