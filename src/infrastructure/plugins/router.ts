@@ -13,6 +13,7 @@ import {
   mdcRoutes,
   searchResultsRoutes,
   staticRoutes,
+  categoriesDetail,
 } from '../../routes/index';
 
 const routes = [
@@ -26,6 +27,7 @@ const routes = [
   ...mdcRoutes,
   ...atomFeedRoutes,
   ...aboutRoutes,
+  ...categoriesDetail,
 ];
 
 const customHapiRoutes = {

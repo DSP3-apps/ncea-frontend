@@ -1,0 +1,178 @@
+{% from "macros/card.njk" import card %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% extends "layout/default.njk" %}
+
+{% block head %}
+  {{ super() }}
+
+    <meta name="description" content="Natural Capital and Ecosystem Assessment programme (NCEA) background, highlights and product brochure">
+{% endblock %}
+
+{% block content %}
+  <div class="landingPage">
+  <header class="landingPage__header full-width-banner" role="banner">
+    <div class="landingPage__header-heading">
+      <h1 class="govuk-heading-xl banner-container__heading-xl">{{ pageHeading }}</h1>
+      <img alt="Department for Environment Food &amp; Rural Affairs Logo" src="{{ assetPath }}/images/NCEA-logo-landscape.webp" class="banner-container__ncea-logo">
+    </div>
+  </header>
+  <section class="landingPage__articles">
+    <h2 class="govuk-heading-m">Marine</h2>
+    <div class="landingPage__articles-container">
+    <img src={{ introText.catDetailimageUrl1 }} width="800" height="533" alt="A " >
+    </div>
+    </div>
+  </section>
+   <section class="landingPage__intro">
+        <div class="landingPage__intro-content">
+            <h2 class="govuk-heading-m">
+                Image caption: 
+            </h2>
+            <p class="govuk-body govuk-!-margin-bottom-6">
+                The challenges our seas and coasts face are complex and interconnected, from how to sustainably manage fisheries to where to place offshore windfarms. A natural capital approach helps us to consider the marine environment from multiple perspectives and identify trade-offs, dependencies and synergies across policy ambitions. 
+            </p>
+            <p class="govuk-body govuk-!-margin-bottom-6">
+                EH note: Can shorten this caption or move into the overview text and have no image caption
+            </p>
+            <h2 class="govuk-heading-m">
+                Overview text (approx. 140 words) 
+            </h2>
+            <p class="govuk-body govuk-!-margin-bottom-6">
+                Through a mix of monitoring, innovation and application projects, the marine Natural Capital and Ecosystem Assessment (mNCEA) programme explored the state of England’s marine and coastal natural assets, the benefits they provide, and the value they hold for people. ​ 
+            </p>
+            <p>
+                Marine NCEA sat within the overarching NCEA programme and ran from April 2022 to March 2025, following a proof-of-concept year. Over three years, it delivered evidence, tools and guidance to integrate natural capital approaches into policy and decision making for marine and coastal environments.
+            </p>
+            <p class="govuk-body govuk-!-margin-bottom-6">
+                The programme was led by Defra and delivered in partnership with the Centre for Environment, Fisheries and Aquaculture Science (Cefas), Environment Agency, the Joint Nature Conservation Committee (JNCC), Marine Management Organisation, and Natural England. We also collaborated with other government departments, academia, the private sector and non-profits. 
+            </p>
+            <p class="govuk-body govuk-!-margin-bottom-6">
+                mNCEA evidence and approaches are now helping us to factor the wider (environmental, economic and social) value of nature into decision making, so we can manage our natural resources in a way that drives benefits for both people and nature. 
+            </p>
+            <h2 class="govuk-heading-m">
+                Descriptions of main areas of work and links to policy
+            </h2>
+            <p class="govuk-body govuk-!-margin-bottom-6">
+                Through mNCEA, we have:
+            </p>
+
+            <ul class="govuk-!-margin-bottom-6">
+                <li class="govuk-body-m ncea-static-page-line-item">Collected new evidence on the location, extent and condition of England’s marine and coastal natural assets and the value they hold for people. This has filled marine evidence gaps to better inform our assessment of Good Environmental Status in UK seas. </li>
+                <li class="govuk-body-m ncea-static-page-line-item">Established new data collection methods to improve how Defra monitors our marine environment, including through citizen science, remote sensing, environmental DNA, and autonomous underwater vehicles. </li>
+                <li class="govuk-body-m ncea-static-page-line-item">Improved the way marine natural capital data is captured and analysed and ensured that mNCEA data meets Q-FAIR standards (Quality data that is Findable, Accessible, Interoperable and Reusable).</li>
+                <li class="govuk-body-m ncea-static-page-line-item">Developed tools, methodologies and guidance to enable a natural capital approach in local, regional and national decision making. This will help us understand the benefits and disbenefits and balance trade-offs between different marine management decisions.</li>
+                <li class="govuk-body-m ncea-static-page-line-item">Promoted collaborative new ways of working within Defra group and across the marine system; and boosted private finance investment in marine research and innovation through match-funded partnerships with industry.</li>
+            </ul>
+            <h2 class="govuk-heading-m">
+                Links to key products
+            </h2> 
+
+            <ul class="govuk-!-margin-bottom-6">
+                <li class="govuk-body-m ncea-static-page-line-item">mNCEA data are discoverable through the Marine Environmental Data and Information Network (MEDIN). </li>
+                <li class="govuk-body-m ncea-static-page-line-item">Established new data collection methods to improve how Defra monitors our marine environment, including through citizen science, remote sensing, environmental DNA, and autonomous underwater vehicles. </li>
+                <li class="govuk-body-m ncea-static-page-line-item">Improved the way marine natural capital data is captured and analysed and ensured that mNCEA data meets Q-FAIR standards (Quality data that is Findable, Accessible, Interoperable and Reusable).</li>
+                <li class="govuk-body-m ncea-static-page-line-item">Developed tools, methodologies and guidance to enable a natural capital approach in local, regional and national decision making. This will help us understand the benefits and disbenefits and balance trade-offs between different marine management decisions.</li>
+                <li class="govuk-body-m ncea-static-page-line-item">Promoted collaborative new ways of working within Defra group and across the marine system; and boosted private finance investment in marine research and innovation through match-funded partnerships with industry.</li>
+            </ul>   
+
+            <div class="landingPage__intro-content-actions">
+              <div class="landingPage__intro-content-actions-button">
+                  {{ govukButton({
+                  text: "Learn more about NCEA",
+                  href: moreLink
+                  }) }}
+              </div>
+              <div class="landingPage__intro-content-actions-button">
+                  {{ govukButton({
+                  text: "Search for Natural Capital Data",
+                  href: routes.homePage
+                  }) }}
+              </div>
+            </div>
+        </div>
+    </section>
+    {% if displayCategoryPages %}
+      <section class="landingPage__categories">
+        <div class="landingPage__categories_cardLayout">
+        {% for item in categories %}
+          {{card(item.text, item.imgUrl, item.title)}}
+        {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+    <section class="landingPage__partnersLogo">
+      <div class="landingPage__partnersLogo-leftsection">
+        <h2 class="govuk-heading-m">Product Brochure</h2>
+         <p class="govuk-body govuk-!-margin-bottom-6">
+            This brochure offers a comprehensive overview of key products delivered by the programme, accompanied by examples of their current applications. Each product collection typically includes a series of underpinning datasets, map layers, protocols, standards as well as summary reports and publications.
+         </p>
+          <p class="govuk-body govuk-!-margin-bottom-6">
+            NCEA intends to release all relevant components of product collections under Open Government Licence, providing useful insights into the work of the programme and the diverse applications our outputs have within Defra, the Government, and beyond.
+          </p>
+          <p class="govuk-body govuk-!-margin-bottom-6">
+            <a class='govuk-link' href="{{ brochureLink }}" target="_blank">Explore the NCEA Product Brochure</a>
+          </p>
+      </div>
+      <div class="landingPage__partnersLogo-rightsection">
+         <div class="landingPage__partnersLogo-rightsection--brochure">
+          <img src="{{ assetPath }}/images/ncea-product.webp"  alt="Informational brochure pages from Natural England about the England Ecosystem Survey" title="NCEA Product Brochure">
+      </div>
+        </div>
+      </div>
+    </section>
+    <section class="landingPage__intro">
+        <div class="landingPage__intro-content">
+            <h2 class="govuk-heading-m">
+                Future Releases
+            </h2>
+            <p class="govuk-body govuk-!-margin-bottom-6">
+             In 2025, the NCEA programme published the first release of analysis-ready data from the UK’s largest ever field surveys. This includes analysis-ready data from the England Ecosystem Survey, Water Monitoring Networks, mycorrhizal baseline dataset and National Forest Inventory Plus. In 2026, the Hedgerow Map will be launched, alongside additional analysis-ready datasets, with regular data publications continuing through to the end of the programme in 2028/29.
+            </p>
+        </div>
+    </section>
+    <section class="landingPage__feedlinks">
+     <div class="landingPage__feeds_container">
+      {% if displayFeedsPanel %}
+        <div class="landingPage__feeds_container--feeds">
+          <h2 class="govuk-heading-m">{{feedsList.title | safe}}</h2>
+          <ul class="govuk-list">
+              <li class="govuk-width-container feed-container landingPage__feeds_container--feeds-list">
+                <h3 class="govuk-heading-s">{{ feedsList.article.title | safe }}</h3>
+                <div class="captions-section">
+                    <small><b>Author: </b>{{ feedsList.article.author | safe }}</small>
+                    <small><b>Published on : </b>{{ feedsList.article.pubDate | safe }}</small>
+                  </div>
+                <p class="govuk-body">{{ feedsList.article.summary | safe }}</p>
+                <a class="govuk-link" href="{{ feedsList.article.link | safe }}" target="_blank">{{ feedsList.article.title | safe }}</a>
+              </li>
+          </ul>
+          <p class="govuk-body landingPage__feeds_container--feeds-text">
+            <a href="{{routes.feeds}}" class="govuk-link">More news</a>
+          </p>
+        </div>
+      {% endif %}
+        <div class="landingPage__links_container">
+          <div class="landingPage__links_container-heading"><h2 class="govuk-heading-m">Quick Links</h2></div>
+           <div class="landingPage__links_container-quicklinks">
+           {% for item in quickLinks %}
+              <div class="landingPage__links_container-quicklinks-list">
+                  <img width="30px" height="30px" src="{{ item.iconUrl }}" alt="{{item.description}}" title="{{item.name}}">
+                  <a href="{{ item.link }}" target="_blank" rel="noreferrer noopener" class="govuk-link govuk-link--no-underline">{{item.name}}</a>
+              </div>
+            {% endfor %}
+            </div>
+        </div>
+     </div>
+    <section>
+     <section class="landingPage__partners">
+      <div class="landingPage__partners-container">
+       {% for item in partnerLogos %}
+          <a class="govuk-link" href="{{ item.link }}">
+            <img src="{{ item.imgUrl }}" alt="{{ item.title}} logo" title="{{ item.title }}">
+          </a>
+        {% endfor %}
+      <div>
+    </section>
+  </div>
+{% endblock %}
