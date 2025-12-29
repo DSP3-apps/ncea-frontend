@@ -1,0 +1,176 @@
+{% extends 'layout/default.njk' %}
+
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+{% from 'govuk/components/breadcrumbs/macro.njk' import govukBreadcrumbs %}
+{% from 'govuk/components/tabs/macro.njk' import govukTabs %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% from 'partials/details/macro.njk' import details %}
+{% from 'partials/detailsHeaderTable/macro.njk' import detailsHeaderTable %}
+{% from 'partials/go_to_resource/macro.njk' import goToResource %}
+
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ assetPath }}/css/ol.css">
+  <meta name="description" content="Natural Capital search results with options to filter results further and view on a map">
+{% endblock %}
+
+{% block beforeContent %}
+  {{ super() }}
+
+  {% set breadcrumbItems = [{
+      text: 'Home',
+      href: routes.homePage,
+      attributes: {
+        'data-do-storage-reset': ''
+      }
+    },
+    {
+      text: 'Search results',
+      href: routes.searchResults + '?' + queryString
+    }]
+  %}
+
+  {% if docDetails.title %}
+    {% set breadcrumbItems = breadcrumbItems.concat([
+      {
+        text: docDetails.title
+      }
+    ]) %}
+  {% endif %}
+
+  {{ govukBreadcrumbs({
+    items: breadcrumbItems
+  }) }}
+{% endblock %}
+
+{% block content %}
+    {% if docDetails !== undefined and docDetails.title %}
+      {% set generalHTML = details({options: detailsTabOptions.general, hasData: docDetails.title, assetPath: assetPath}) %}
+      {% set accessHtml = details({options: detailsTabOptions.access, hasData: docDetails.title}) %}
+      {% set naturalHtml = detailsHeaderTable({options: detailsTabOptions.natural,  hasData: docDetails.title}) %}
+      {% set qualityHtml = details({options: detailsTabOptions.quality, hasData: docDetails.title}) %}
+      {% set governanceHtml = details({options: detailsTabOptions.governance, hasData: docDetails.title}) %}
+      {% set geographyHtml = details({options: detailsTabOptions.geography, hasData: docDetails.title}) %}
+      {% set licenseHtml = details({options: detailsTabOptions.license, hasData: docDetails.title}) %}
+
+      <h1 class='govuk-heading-m details-title'>{{ docDetails.title }}</h1>
+      {% if docDetails !== undefined and docDetails.alternateTitle %}
+        {{ govukDetails({
+        summaryText: "Alternate title (additional business name or alternative language)",
+        text: docDetails.alternateTitle,
+        classes: "details-alt_title",
+        open: false
+      }) }}
+      {% endif %}
+      <div {% if not docDetails.resourceLocator or not docDetails.organisationName %} class="open-data-block--disabled" {% endif %}>
+        {# {{ goToResource({ organisationName: docDetails.organisationName, resourceLocator: docDetails.resourceLocator, isDetailsPage: true }) }} #}
+        {% if not docDetails.resourceWebsite %}
+          <span class="open-data-block--tag">Access to this data resource is by application to the owner - please refer to access
+            tab for further details</span>
+        {% endif %}
+      </div>
+      {{ govukTabs({
+    items: [
+      {
+        label: 'General',
+        id: 'general',
+        panel: {
+          html: generalHTML
+        },
+        attributes: {
+          'onclick': 'changeTitle("'+pageTitle+' - '+pageTitles.generalTab+'")'
+        }
+      },
+      {
+        label: 'Access',
+        id: 'access',
+        panel: {
+          html: accessHtml
+        },
+        attributes: {
+          'onclick': 'changeTitle("'+pageTitle+' - '+pageTitles.accessTab+'")'
+        }
+      },
+       {
+        label: 'Natural capital',
+        id: 'natural',
+        panel: {
+          html: naturalHtml
+        },
+        attributes: {
+          'onclick': 'changeTitle("'+pageTitle+' - '+pageTitles.naturalTab+'")'
+        }
+      },
+      {
+        label: 'Quality',
+        id: 'quality',
+        panel: {
+          html: qualityHtml
+        },
+        attributes: {
+          'onclick': 'changeTitle("'+pageTitle+' - '+pageTitles.qualityTab+'")'
+        }
+      },
+      {
+        label: 'Geography',
+        id: 'geography',
+        panel: {
+          html: geographyHtml
+        },
+        attributes: {
+          'onclick': 'changeTitle("'+pageTitle+' - '+pageTitles.geographyTab+'")'
+        }
+      },
+      {
+        label: 'Licence',
+        id: 'license',
+        panel: {
+          html: licenseHtml
+        },
+        attributes: {
+          'onclick': 'changeTitle("'+pageTitle+' - '+pageTitles.licenseTab+'")'
+        }
+      },
+        {
+        label: 'Governance',
+        id: 'governance',
+        panel: {
+          html: governanceHtml
+        },
+        attributes: {
+          'onclick': 'changeTitle("'+pageTitle+' - '+pageTitles.governanceTab+'")'
+        }
+      }
+    ]
+  }) }}
+
+  {% else %}
+    <p class="govuk-body moreInfo-error-msg">{{error}}</p>
+  {% endif %}
+
+  {% if docDetails.resourceLocator %}
+    {%- include 'partials/go_to_resource/modal.njk' -%}
+  {% endif %}
+{% endblock %}
+
+{% block bodyEnd %}
+  {{ super() }}
+  <script>
+    var isDetails = true;
+    var markers = '';
+    var center = '0,0';
+    {% if docDetails !== undefined %}
+      markers = "{{docDetails.geographicMarkers | safe}}"
+      center = "{{docDetails.geographicCenter | safe}}";
+    {% endif %}
+  </script>
+  <script src="{{ assetPath }}/scripts/jquery.js"></script>
+  <script src="{{ assetPath }}/scripts/jquery-debounce.js"></script>
+  <script type="module" src="{{ assetPath }}/scripts/dataModal.js"></script>
+  <script src="{{ assetPath }}/scripts/ol.js"></script>
+  <script type="module" src="{{ assetPath }}/scripts/location.js"></script>
+  <script type="module" src="{{ assetPath }}/scripts/details.js"></script>
+  <script type="module" src="{{ assetPath }}/scripts/moreInfo.js"></script>
+{% endblock %}

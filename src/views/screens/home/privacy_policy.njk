@@ -1,0 +1,131 @@
+{% extends "layout/default.njk" %}
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: routes.homePage,
+        attributes: {
+          'data-do-storage-reset': ''
+        }
+      },
+      {
+        text: "Privacy policy"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full ncea-static-page">
+      <p class="privacy_policy_last_updated govuk-!-margin-top-2">Last updated September 2024</p>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Privacy policy</h1>
+        <h1 class="govuk-heading-m ">Find natural capital data</h1>
+         <p class="govuk-body-m">This privacy notice explains the privacy policies for the Find natural capital data service. If you have any queries about the content of this privacy notice, please email  <a class="govuk-link" href="mailto: data.protection@defra.gov.uk">data.protection@defra.gov.uk.</a></p>
+      <h1 class="govuk-heading-m">Who collects your personal data</h1>
+        <p class="govuk-body-m">Department for Environment, Food and Rural Affairs (Defra) is the controller for the personal data we collect:</p>
+
+         <p class="govuk-body-m ncea-static-page-line-item">Department for Environment, Food and Rural Affairs</p>
+         <p class="govuk-body-m ncea-static-page-line-item">Seacole Building</p>
+         <p class="govuk-body-m ncea-static-page-line-item">2 Marsham Street</p>
+         <p class="govuk-body-m ncea-static-page-line-item">London</p>
+         <p class="govuk-body-m ncea-static-page-line-item">SW1P 4DF</p>
+
+        <p class="govuk-body-m govuk-!-margin-top-4 govuk-!-margin-bottom-0">If you need further information about how Defra uses your personal data and your associated rights you can contact the Defra data protection manager at  <a class="govuk-link" href="mailto: data.protection@defra.gov.uk">data.protection@defra.gov.uk</a> or at the above address.</p>
+        <p class="govuk-body-m"> The data protection officer for Defra is responsible for checking that Defra complies with legislation. You can contact them at the above address.</p>
+
+      <h1 class="govuk-heading-m">What personal data we collect and how it is used</h1>
+       <p class="govuk-body-m">The personal data we collect from you includes: </p>
+      <ul>
+        <li class="govuk-body-m ncea-static-page-line-item">questions, queries or feedback you leave, including your email address if you contact NCEA.</li>
+        <li class="govuk-body-m ncea-static-page-line-item">your Internet Protocol (IP) address, and details of which version of  <a class="govuk-link" href="https://www.gov.uk/help/browsers" rel="noreferrer noopener" target="_blank" class="govuk-link">web browser</a> you used </li>
+        <li class="govuk-body-m ncea-static-page-line-item">information on how you use the site, <a class="govuk-link" href="https://www.gov.uk/help/cookies" rel="noreferrer noopener" target="_blank" class="govuk-link">using cookies</a> and page tagging techniques </li>
+      </ul>
+
+      <h1 class="govuk-heading-m">Lawful basis for processing your personal data</h1>
+        <p class="govuk-body-m">The legal basis for processing personal data in relation to site security is performing a public task.</p>
+        <p class="govuk-body-m">The legal basis for processing data collected with Google Analytics on Find natural capital data and other government digital services is your consent. </p>
+         <p class="govuk-body-m">The legal basis for processing all other personal data is that it’s necessary: </p>
+        <ul>
+        <li class="govuk-body-m ncea-static-page-line-item">to perform a task in the public interest </li>
+        <li class="govuk-body-m ncea-static-page-line-item">in the exercise of our functions as a government department  </li>
+       </ul>
+
+       <h1 class="govuk-heading-m">Consent to process your personal data</h1>
+       <p class="govuk-body-m">The processing of your personal data in the service itself is not based on consent. You cannot withdraw it.<br/> However, your consent is required to use  <a class="govuk-link" href="https://support.google.com/analytics/topic/2919631" rel="noreferrer noopener" target="_blank" class="govuk-link">Google Analytics</a> cookies. You can give or revoke your consent on our Cookies notice page.</p>
+
+        <p class="govuk-body-m">Google Analytics processes information about: </p>
+         <ul>
+        <li class="govuk-body-m ncea-static-page-line-item">the pages you visit on Find natural capital data</li>
+        <li class="govuk-body-m ncea-static-page-line-item">how long you spend on each Find natural capital data page </li>
+        <li class="govuk-body-m ncea-static-page-line-item">how you got to the site </li>
+       <li class="govuk-body-m ncea-static-page-line-item"> what you click on while you’re visiting the site </li>
+       </ul>
+
+      <p class="govuk-body-m "> We make sure you cannot be directly identified by Google Analytics data. We do this by using<a class="govuk-link" href="https://support.google.com/analytics/answer/2763052" rel="noreferrer noopener" target="_blank" class="govuk-link"> Google Analytics’ IP address anonymisation</a> feature and by removing any other personal data from the titles or URLs of the pages you visit. </p>
+
+      <p class="govuk-body-m">We will not combine analytics information with other data sets in a way that would directly identify who you are.</p>
+
+      <p class="govuk-body-m">
+        <a class="govuk-link" href="https://www.gov.uk/help/cookie-details" rel="noreferrer noopener" target="_blank" class="govuk-link">Find out more about how we use Google Analytics and other cookies on GOV.UK. </a>
+      </p>
+
+      <h1 class="govuk-heading-m">Who we share your personal data with</h1>
+       <p class="govuk-body-m">We will share your data if we are required to do so by law - for example, by court order, or to prevent fraud or other crime. </p>
+        <p class="govuk-body-m">The data we collect with Google Analytics cookies is transferred and stored with Google where we analyse it with Google Analytics software (Universal Analytics). We do not allow Google to use or share this data for their own purposes. </p>
+
+        <p class="govuk-body-m">We will not: </p>
+        <ul>
+        <li class="govuk-body-m ncea-static-page-line-item">sell or rent your data to third parties </li>
+        <li class="govuk-body-m ncea-static-page-line-item">share your data with third parties for marketing purposes  </li>
+
+       </ul>
+        <p class="govuk-body-m"> We respect your personal privacy when responding to access to information requests. We only share information when necessary to meet the statutory requirements of the Environmental Information Regulations 2004 and the Freedom of Information Act 2000.</p>
+
+        <h1 class="govuk-heading-m"> How long we hold personal data</h1>
+       <p class="govuk-body-m"> We will only retain your personal data for as long as it is needed for the purposes set out in this document or for as long as the law requires us to. </p>
+      <p class="govuk-body-m"> We will: </p>
+            <ul>
+        <li class="govuk-body-m ncea-static-page-line-item">keep your email data until you unsubscribe  </li>
+        <li class="govuk-body-m ncea-static-page-line-item">keep your feedback data for 2 years  </li>
+        <li class="govuk-body-m ncea-static-page-line-item">delete access log data which contain your IP address after 120 days  </li>
+       </ul>
+
+      <h1 class="govuk-heading-l govuk-!-margin-top-4"> Links to other websites</h1>
+      <p class="govuk-body-m"> Find natural capital data contains links to other websites. </p>
+       <p class="govuk-body-m">This privacy notice only applies to Find natural capital data and does not cover other government services and transactions that we link to.  </p>
+
+        <h1 class="govuk-heading-m">Following a link to another website</h1>
+       <p class="govuk-body-m"> If you go to another website from this one, read the privacy policy on that website to find out what it does with your information. </p>
+
+        <h1 class="govuk-heading-m">Following a link to Find natural capital data from another website </h1>
+        <p class="govuk-body-m"> If you come to Find natural capital data from another website, we may receive personal information from the other website. You should read the privacy policy of the website you came from to find out more about this. </p>
+
+        <h1 class="govuk-heading-m">Data published on GOV.UK from another website </h1>
+         <p class="govuk-body-m">This service displays information, including contact information, from other websites and data sources. All external information displayed is publicly available and Open Government Licence (OGL) compliant. </p>
+
+
+         <h1 class="govuk-heading-l">Your rights</h1>
+         <p class="govuk-body-m">Based on the lawful processing above, your individual rights are:</p>
+
+
+     <ul>
+        <li class="govuk-body-m ncea-static-page-line-item">The right to be informed </li>
+        <li class="govuk-body-m ncea-static-page-line-item">The right of access  </li>
+        <li class="govuk-body-m ncea-static-page-line-item">The right to rectification  </li>
+        <li class="govuk-body-m ncea-static-page-line-item">The right to restrict processing  </li>
+        <li class="govuk-body-m ncea-static-page-line-item">The right to object  </li>
+        <li class="govuk-body-m ncea-static-page-line-item">Rights in relation to automated decision making and profiling  </li>
+       </ul>
+
+          <p class="govuk-body-m govuk-!-margin-bottom-5">More information about your <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/individual-rights/" rel="noreferrer noopener" target="_blank" class="govuk-link">individual rights</a> under the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018 (DPA 2018), <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/individual-rights/" rel="noreferrer noopener" target="_blank" class="govuk-link">can be found here.</a></p>
+       <br/>
+    </div>
+  </div>
+{% endblock %}
+

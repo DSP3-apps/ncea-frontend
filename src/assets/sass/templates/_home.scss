@@ -1,0 +1,161 @@
+.full-width-banner {
+  width: 100%;
+  background-color: $gov-defra-color-websafe;
+  box-shadow: 0 0 0 50vmax $gov-defra-color-websafe;
+  clip-path: inset(0 -50vmax);
+  margin-bottom: 20px;
+}
+
+.banner-container {
+  padding-top: 14px;
+  padding-bottom: 30px;
+
+  &__heading-xl {
+    @include font-style-stack(36px, 40px);
+    color: govuk-colour("white");
+    margin-bottom: 20px;
+  }
+
+  &__caption-l {
+    @include font-style-stack(19px, 30px, 300);
+    color: govuk-colour("white");
+  }
+
+  &__ncea-logo {
+    height: 88px;
+    gap: 0px;
+    opacity: 0px;
+    margin-bottom: 14px;
+  }
+}
+
+.privacy_policy_last_updated{
+  color: govuk-colour("dark-grey");
+  font-weight: 300;
+  line-height: 30px;
+  font-size: 1.5rem;
+  font-family: "GDS Transport", arial, sans-serif;
+}
+
+.educational-copy-container {
+  margin-bottom: 40px;
+
+  &__heading-m {
+    @include font-style-stack(24px, 30px, 700);
+    color: $govuk-text-colour;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 0px;
+    border-top: 1.5px solid $govuk-border-colour;
+  }
+}
+
+.help-link {
+  color: #1d70b8 !important;
+}
+
+.ncea-static-page-line-item {
+  margin-bottom: 0px;
+}
+
+.hide {
+  display: none;
+}
+
+.ncea-static-page {
+  &__heading-m {
+    @include font-style-stack(48px, 50px, 700);
+    color: $govuk-text-colour;
+  }
+  &__heading-s {
+    @include font-style-stack(24px, 30px, 700);
+    color: $govuk-text-colour;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(auto, max-content);
+    row-gap: 20px;
+
+    &-item {
+      @include font-style-stack(19px, 25px, 300, normal, true);
+      color: $govuk-text-colour;
+      margin: 0;
+    }
+  }
+
+  &__table {
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+
+    thead tr,
+    tbody tr,
+    thead {
+      border-bottom: 1px solid $govuk-border-colour;
+    }
+
+    th {
+      @include font-style-stack(19px, 25px, 700, normal, true);
+    }
+
+    td {
+      @include font-style-stack(19px, 25px, 300, normal, true);
+    }
+
+    th,
+    td {
+      vertical-align: top;
+      padding: 10px 20px 10px 0;
+    }
+  }
+}
+
+.data-categories {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-left: 0;
+  margin-right: 0;
+
+  > .govuk-grid-column-full {
+    grid-column: 1 / -1;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    float: none;
+  }
+
+  > .govuk-grid-column-one-third {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    float: none;
+  }
+
+  @include govuk-media-query($from: tablet, $until: desktop) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include govuk-media-query($until: tablet) {
+    grid-template-columns: 1fr;
+  }
+
+  &__image {
+    width: 100%;
+    height: 203px;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__link {
+    display: inline-block;
+  }
+}

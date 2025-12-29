@@ -1,0 +1,83 @@
+replicaCount: 1
+
+image:
+  repository: $(containerRepositoryFullPath)
+  pullPolicy: IfNotPresent
+  tag: $(imageTag)
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:  
+  create: false 
+  automount: false  
+  annotations: {}  
+  name: 
+
+podAnnotations: {}
+podLabels: 
+  azure.workload.identity/use: "true"
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations: 
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+  hosts:
+    - host: 
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+
+#resources: {}
+resources:
+  requests:
+    memory: "100Mi"
+    cpu: "50m"
+  limits:
+    memory: "250Mi"
+    cpu: "250m"
+
+autoscaling:
+  enabled: $(autoScalingEnabled)
+  minReplicas: $(autoScalingMinReplicas)
+  maxReplicas: $(autoScalingMaxReplicas)
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+volumes:
+- name: elasticsearch-certs
+  secret:
+    secretName: elasticsearch-master-certs
+
+volumeMounts:
+- mountPath: /usr/share/elasticsearch/config/certs
+  name: elasticsearch-certs
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+env:
+  PORT: $(port)
+  NODE_ENV: $(nodeEnd)
+  AZURE_KEYVAULT_URL: $(keyVaultUri)
+  ELASTICSEARCH_API: $(elasticSearchApi)
+  ES_USERNAME: $(elasticSearchUser)
+  ES_PASSWORD: $(elasticSearchPassword)
+  CLASSIFIER_API: $(classifierApiBaseUri)
+  WEBDOMAIN: $(webdomain)
+  GTM_ID: $(gtmId)

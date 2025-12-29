@@ -1,0 +1,82 @@
+{% extends "layout/default.njk" %}
+
+{% from "partials/data_questionnaire/macro.njk" import dateQuestionnaire %}
+{% from "partials/results_count/macro.njk" import resultsCount %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ assetPath }}/css/ol.css">
+{% endblock %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {% include "partials/guided_search_breadcrumb/template.njk" %}
+{% endblock %}
+
+{% block content %}
+  {% include "partials/results_count/template.njk" %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full govuk-!-padding-top-6 govuk-!-padding-bottom-6">
+      <h2 class="govuk-heading-l">What geography does it cover?</h2>
+      <h1 class="govuk-heading-m coordinate-sub-heading">Draw area on map</h1>
+      <span class="govuk-caption-m">Click and drag to draw a boundary box. This will auto-populate the geographical coordinate box.</span>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div id="coordinate-map" style="width: 660px; height: 623px;"></div>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full govuk-!-padding-top-6 govuk-!-padding-bottom-6">
+      <h1 class="govuk-heading-m">Geographical coordinate box</h1>
+      <span class="govuk-caption-m">Enter a coordinate in each field to create a geographic bounding box. This will show you the data that exists within that geographical area.</span>
+    </div>
+  </div>
+  <form method="POST" action="{{geographySearchPath}}" id="{{formId}}" data-do-browser-storage data-toggle-submit-button>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <div class="geography-fields__container">
+          <div class="geography-fields__field">{{ govukInput(formFields.north) }}</div>
+          <div class="geography-fields__field">{{ govukInput(formFields.south) }}</div>
+          <div class="geography-fields__field">{{ govukInput(formFields.east) }}</div>
+          <div class="geography-fields__field">{{ govukInput(formFields.west) }}</div>
+          <div class="govuk-!-margin-top-2 govuk-!-margin-bottom-3 defra-map-clear-selection__block" id="clear-map-selection">
+            <a href="javascript:void(0);" class="govuk-link defra-map-clear-selection__link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" class="govuk-!-margin-right-1" viewBox="0 0 16 17" fill="none">
+                <g clip-path="url(#clip0_7099_112575)">
+                  <path d="M12.6673 5.02594L11.7273 4.08594L8.00065 7.8126L4.27398 4.08594L3.33398 5.02594L7.06065 8.7526L3.33398 12.4793L4.27398 13.4193L8.00065 9.6926L11.7273 13.4193L12.6673 12.4793L8.94065 8.7526L12.6673 5.02594Z" fill="#1D70B8"/>
+                </g>
+                <defs>
+                  <clipPath id="clip0_7099_112575">
+                    <rect width="16" height="16" fill="white" transform="translate(0 0.75)"/>
+                  </clipPath>
+                </defs>
+              </svg>
+              <span>Clear selection</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="govuk-grid-row  govuk-!-margin-top-4 govuk-!-margin-bottom-6 geography-buttons">
+       <div class="govuk-button-group govuk-grid-column-one-half">
+        {{ govukButton({ text: "Skip", classes: "govuk-button--secondary govuk-!-margin-bottom-0 coordinate-buttons", href: skipPath, attributes: {
+            'data-do-storage-skip': ''
+          } }) }}
+        {{ govukButton({ text: "See Results", classes: "govuk-!-margin-bottom-0 govuk-!-margin-right-0 coordinate-buttons", attributes: {
+            'data-to-disable': '',
+            'data-next-question': ''
+          } }) }}
+      </div>
+    </div>
+  </form>
+{% endblock %}
+
+{% block bodyEnd %}
+  {{ super() }}
+  <script src="{{ assetPath }}/scripts/ol.js"></script>
+  <script type="module" src="{{ assetPath }}/scripts/location.js"></script>
+{% endblock %}

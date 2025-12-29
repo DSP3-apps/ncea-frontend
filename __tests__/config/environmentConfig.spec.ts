@@ -1,0 +1,107 @@
+'use strict';
+
+import Joi from 'joi';
+
+describe('Environment environmentConfig', () => {
+  let originalEnv: NodeJS.ProcessEnv;
+  const envs = ['local', 'sandbox', 'dev', 'qa', 'test', 'preprod', 'prod'];
+
+  beforeAll(() => {
+    originalEnv = { ...process.env };
+  });
+
+  beforeEach(() => {
+    jest.resetAllMocks();
+    jest.resetModules();
+  });
+
+  afterEach(() => {
+    process.env = { ...originalEnv };
+  });
+
+  describe('Check local environment configuration', () => {
+    it('should call dotenv.config() when NODE_ENV is set to local', () => {
+      process.env.NODE_ENV = 'local';
+      jest.mock('dotenv', () => ({
+        config: jest.fn(),
+      }));
+
+      require('../../src/config/environmentConfig');
+
+      expect(require('dotenv').config).toHaveBeenCalledTimes(1);
+    });
+
+    it('should not call dotenv.config() when NODE_ENV is not set to local', () => {
+      process.env.NODE_ENV = 'prod';
+      jest.mock('dotenv', () => ({
+        config: jest.fn(),
+      }));
+
+      require('../../src/config/environmentConfig');
+
+      expect(require('dotenv').config).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('Check environment configuration', () => {
+    it('should be accessible and usable', () => {
+      const { environmentConfig } = require('../../src/config/environmentConfig');
+      expect(environmentConfig).toBeDefined();
+      expect(typeof environmentConfig).toBe('object');
+      expect(Object.keys(environmentConfig).length).toBe(16);
+    });
+
+    it('should validate and export the configuration object', () => {
+      const mockConfig = {
+        PORT: '5000',
+        NODE_ENV: 'qa',
+        APPLICATIONINSIGHTS_CONNECTION_STRING: 'abc123',
+        AZURE_KEYVAULT_URL: 'https://azure-keyvault.com',
+        APPINSIGHTS_SECRET_NAME: 'appinsights--connections string',
+        SEARCH_API: 'https://search-api.com',
+        WEBDOMAIN: '',
+        KEYBOARD_FILTER_LOCAL_BASE_URL: '',
+        AUTH0_JWT_ENV: 'test',
+        VOCABULARY_API: 'https://vocabulary-api.com',
+        SURVEY_INDEX_PREVIEW_RECORD_ID: '123',
+      };
+      process.env = { ...mockConfig };
+
+      const schema = Joi.object().keys({
+        port: Joi.string().default('3000'),
+        env: Joi.string()
+          .valid(...envs)
+          .default(envs[0]),
+        appInsightsConnectionString: Joi.string().allow('').default(''),
+        appInsightsSecretName: Joi.string().allow('').default(''),
+        azureKeyVaultURL: Joi.string().allow('').default(''),
+        isLocal: Joi.boolean().valid(true, false).default(false),
+        gtmId: Joi.string().allow('').default(''),
+        webDomain: Joi.string().allow('').default(''),
+        classifierApiUrl: Joi.string().allow('').default(''),
+        classifierApiKey: Joi.string().allow('').default(''),
+        keyboardFiltersBaseUrl: Joi.string().allow('').default(''),
+        auth0JwtEnv: Joi.string().allow('').default(''),
+        searchApiUrl: Joi.string(),
+        vocabularyApiUrl: Joi.string(),
+        categoryResultCountApiUrl: Joi.string(),
+        surveyIndexPreviewRecordId: Joi.string(),
+      });
+
+      const { environmentConfig } = require('../../src/config/environmentConfig');
+
+      const { error, value } = schema.validate(environmentConfig);
+
+      expect(error).toBeUndefined();
+      expect(value).toEqual(environmentConfig);
+    });
+
+    it('should throw an error of the configuration object is invalid', () => {
+      process.env.NODE_ENV = 'invalid';
+
+      expect(() => {
+        require('../../src/config/environmentConfig');
+      }).toThrow('The environment config is invalid:');
+    });
+  });
+});

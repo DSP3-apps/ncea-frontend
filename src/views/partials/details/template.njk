@@ -1,0 +1,36 @@
+{%- from "govuk/components/tag/macro.njk" import govukTag -%}
+
+{% from "macros/ncea-contribution.njk" import nceaContribution %}
+
+{% if params.options and params.hasData %}
+  <div class='tab-content-container'>
+    {% for option in params.options %}
+      {% if option.label and option.label !== 'map' %}
+        <div class='tab-content-row'>
+          {% if option.label === 'nceaContribution' and params.assetPath %}
+            {% if option.displayValue !== '' %}
+              <h2 class='tab-content-label'></h2>
+              <div class='tab-content-value'>{{nceaContribution (params.assetPath, option.displayValue )}}</div> 
+            {% endif %}
+          {% else %}
+            <h2 class='tab-content-label'>{{ option.label | safe }}</h2>
+            {% if option.displayValue %}
+              <span class='tab-content-value'>
+                {{option.displayValue | safe}}
+              </span>
+            {% else %}
+              {{govukTag({
+                text: "Unavailable",
+                classes: "govuk-tag--grey tab-content-value__not-provided"
+              })}}
+            {% endif %}
+          {% endif %}
+          
+        </div>
+      {% endif %}
+      {% if option.label and option.label === 'map' and option.displayValue %}
+        <div id="coordinate-map" class="detail-map" style="height: 335px;"></div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}

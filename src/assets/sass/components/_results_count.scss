@@ -1,0 +1,15 @@
+.count {
+  &-block {
+    padding-bottom: 30px;
+
+    &-link {
+      @include font-style-stack(24px, 30px);
+      text-decoration-line: underline;
+      color: $govuk-link-colour !important;
+    }
+
+    &-link:visited {
+      color: $govuk-link-visited-colour !important;
+    }
+  }
+}

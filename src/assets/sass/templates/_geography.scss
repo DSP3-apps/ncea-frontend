@@ -1,0 +1,56 @@
+.geography-fields {
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+.geography-buttons {
+  &__right {
+    display: flex;
+    justify-content: flex-end;
+    float: right;
+  }
+}
+
+.classifier-error-summary{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.govuk-error-summary {
+  margin-bottom: 40px;
+}
+.govuk-error-summary__body ul.govuk-list li {
+  font-weight: 700;
+  color: #d4351c;
+  font-size: 1.188rem;
+  line-height: 1.3157894737;
+}
+.govuk-error-summary__title{
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 20px;
+}
+
+.defra-map-clear-selection {
+  &__block {
+    display: none;
+    width: 150px;
+  }
+
+  &__link {
+    @include font-style-stack(19px, 25px, 300, normal, true);
+    display: flex;
+    align-items: center;
+    color: $govuk-link-colour !important;
+
+    &:hover {
+      color: $govuk-link-hover-colour !important;
+    }
+
+    &:focus {
+      color: $govuk-link-hover-colour !important;
+    }
+  }
+}

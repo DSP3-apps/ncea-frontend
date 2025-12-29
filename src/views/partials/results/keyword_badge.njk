@@ -1,0 +1,11 @@
+{% from "macros/icons/icon.njk" import icon %}
+
+{# template badge that can be duplicated and filled out in client-side javascript.
+we don't want the template visible, hence the `display-none` #}
+<li id="keyword-badge-template" class="display-none badge">
+  <span class="govuk-font-family badge-text" id="keyword-badge-text"></span>
+  {{icon("cross", {
+    width: "1rem",
+    height: "1rem"
+  })}}
+</li>

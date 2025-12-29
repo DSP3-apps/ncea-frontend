@@ -1,0 +1,36 @@
+{% macro badge(badgeName, badgeValue) %}
+<li class="badge">
+  <span class="govuk-font-family">{{ badgeName }}: {{badgeValue}}</span>
+</li>
+{% endmacro %}
+
+{% for category in dspFilterOptions.categories %}
+  {% if category.selectedAll %}
+    {{ badge(category.name, "All") }}
+  {% else %}
+    {% for filter in category.filters %}
+      {% if filter.checked %}
+        {{ badge(category.name, filter.name) }}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+
+{% if (dspFilterOptions.lastUpdated.beforeYear | length) > 0 %}
+  {{ badge("Date Before", dspFilterOptions.lastUpdated.beforeYear) }}
+{% endif %}
+{% if (dspFilterOptions.lastUpdated.afterYear | length) > 0 %}
+  {{ badge("Date After", dspFilterOptions.lastUpdated.afterYear) }}
+{% endif %}
+
+{% if (dspFilterOptions.licence | length) > 0 %}
+  {{ badge("Licence", dspFilterOptions.licence) }}
+{% endif %}
+
+{% for keyword in dspFilterOptions.keywords %}
+  {{ badge("Keyword", keyword) }}
+{% endfor %}
+
+{% if dspFilterOptions.retiredAndArchived %}
+  {{ badge("Retired and Archived records", "Yes") }}
+{% endif %}

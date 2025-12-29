@@ -1,0 +1,152 @@
+.details {
+  &-title {
+    @include font-style-stack(36px, 40px);
+  }
+
+  &-alt_title {
+    @include font-style-stack(19px, 25px, 300);
+    width: 630px;
+    margin-bottom: 20px;
+  }
+}
+
+.govuk-tabs__list-item .govuk-tabs__tab {
+  @include font-style-stack(19px, 19px, 300);
+  color: $govuk-text-colour;
+}
+
+.tab-content {
+  &-container {
+    display: grid;
+    gap: 15px;
+  }
+
+  &-row {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  &-label {
+    @include font-style-stack(16px, 20px, 700);
+    width: 270px;
+    text-align: left;
+    vertical-align: top;
+    color: #000;
+    margin: 0;
+
+    span {
+      @include font-style-stack(16px, 20px, 300);
+    }
+  }
+
+  &-value {
+    overflow: auto;
+    @include font-style-stack(16px, 20px, 300);
+    color: $govuk-text-colour;
+    text-align: left;
+    p {
+      margin: 0;
+    }
+
+    &__not-provided {
+      @include font-style-stack(16px, 16px, 700, normal, false, 1px);
+      padding: 5px;
+      margin: 0;
+      height: fit-content;
+    }
+  }
+}
+
+.open-data-block {
+  &--disabled {
+    padding-left: 15px;
+    border-left: 5px solid $govuk-error-colour;
+    margin-bottom: 25px;
+  }
+
+  &--tag {
+    @include font-style-stack(19px, 25px, 700, normal, true);
+    color: $govuk-error-colour;
+    display: block;
+  }
+}
+
+.toggle-content__link {
+  @include font-style-stack(16px, 20px, 300);
+  color: $govuk-link-colour !important;
+}
+
+.details-table {
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 8px 0;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    padding-top: 0;
+  }
+
+  thead tr,
+  tbody tr {
+    border-bottom: 1px solid $govuk-border-colour;
+  }
+}
+
+.detail-map {
+  border: 2px solid $govuk-text-colour;
+}
+
+.details-table-hr {
+  padding: 0 !important;
+  border-bottom: 1px solid #b1b4b6;
+}
+
+@media (min-width: 768px) {
+  .tab-content-row {
+    grid-template-columns: auto 1fr;
+  }
+}
+
+.details-table-full {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.details-table-full th,
+.details-table-full td {
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.details-table-full td:nth-child(1) {
+  min-width: 250px;
+}
+
+.details-table-full td:nth-child(2) {
+  min-width: 60px;
+  width: 10%;
+}
+
+.details-table-full td:nth-child(3) {
+  min-width: 100px;
+  width: 20%;
+}
+
+@media (max-width: 600px) {
+  .details-table-full th,
+  .details-table-full td {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+

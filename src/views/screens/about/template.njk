@@ -1,0 +1,159 @@
+{% from "macros/card.njk" import card %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% extends "layout/default.njk" %}
+
+{% block head %}
+  {{ super() }}
+
+    <meta name="description" content="Natural Capital and Ecosystem Assessment programme (NCEA) background, highlights and product brochure">
+{% endblock %}
+
+{% block content %}
+  <div class="landingPage">
+  <header class="landingPage__header full-width-banner" role="banner">
+    <div class="landingPage__header-heading">
+      <h1 class="govuk-heading-xl banner-container__heading-xl">{{ pageHeading }}</h1>
+      <img alt="Department for Environment Food &amp; Rural Affairs Logo" src="{{ assetPath }}/images/NCEA-logo-landscape.webp" class="banner-container__ncea-logo">
+    </div>
+  </header>
+  <section class="landingPage__articles">
+    <h2 class="govuk-heading-m">Featured articles</h2>
+    <div class="landingPage__articles-container">
+      <div class="landingPage__articles-container--article">
+        <img src={{ introText.imageUrl1 }} width="800" height="533" alt="A street lined with parked cars and blooming cherry blossom trees on both sides during springtime" title="Trees Outside Woodland" />
+        <span class="govuk-body landingPage__articles-container--article-imageTitle">Analysis Ready Data</span>
+        <p class="landingPage__articles-container--article-text govuk-body">
+          NCEA programme publishes Analysis Ready Data from the UK’s largest ever field surveys. They are cleaned, standardised, quality-assured data that are well-documented, accessible, and prepared for analysis.
+        </p>
+         <a href="{{introText.image1Url}}" target="_blank" rel="noreferrer noopener" class="govuk-link govuk-link--no-underline landingPage__articles-container--article-link">More &gt;&gt;</a>
+      </div>
+      <div class="landingPage__articles-container--article">
+        <img src={{ introText.imageUrl2 }} width="800" height="533" alt="A peatland landscape in England with water channels and grassy vegetation" title="England Peat Map" />
+        <span class="govuk-body govuk-body landingPage__articles-container--article-imageTitle">England Peat Map</span>
+        <p class="landingPage__articles-container--article-text govuk-body">
+          The new nationwide map of peat and peaty soils, England Peat Map, shows the most detailed national coverage to date for peat depth, peatland vegetation, upland drainage channels, and bare peat.
+        </p>
+         <a href="{{introText.image2Url}}" target="_blank" rel="noreferrer noopener" class="govuk-link govuk-link--no-underline landingPage__articles-container--article-link">More &gt;&gt;</a>
+      </div>
+    </div>
+  </section>
+   <section class="landingPage__intro">
+        <div class="landingPage__intro-content">
+            <h2 class="govuk-heading-m">
+                About NCEA
+            </h2>
+            <p class="govuk-body govuk-!-margin-bottom-6">
+              NCEA is Defra's largest research and development (R&D) programme. It is assessing England's land, freshwater, and coastal ecosystems to produce a baseline of our natural assets by 2029; enabling a natural capital approach to policy and decision-making.
+            </p>
+            <p class="govuk-body govuk-!-margin-bottom-6">
+              Natural capital is the term encompassing all natural assets that form the environment we live in. Natural capital knowledge enables us to improve people’s wellbeing while accelerating economic growth, by placing the benefits of nature to society at the heart of decision-making.
+            </p>
+            <p class="govuk-body govuk-!-margin-bottom-6">
+              <a class='govuk-link' href="{{ nceaAboutLink }}" target="_blank">NCEA</a> is transforming the way we make decisions and develop policy, helping to ensure we invest in environmental reforms that achieve maximum benefit.
+            </p>
+            <p class="govuk-body govuk-!-margin-bottom-6">
+              The programme's outputs are supporting the Government’s missions and Defra's priorities to turbocharge nature's recovery, boost food security, make our water cleaner, reduce flooding impact and create a roadmap to zero waste economy.
+            </p>
+            <div class="landingPage__intro-content-actions">
+              <div class="landingPage__intro-content-actions-button">
+                  {{ govukButton({
+                  text: "Learn more about NCEA",
+                  href: moreLink
+                  }) }}
+              </div>
+              <div class="landingPage__intro-content-actions-button">
+                  {{ govukButton({
+                  text: "Search for Natural Capital Data",
+                  href: routes.homePage
+                  }) }}
+              </div>
+            </div>
+        </div>
+    </section>
+
+    {% if displayCategoryPages %}
+      <section class="landingPage__categories">
+        <div class="landingPage__categories_cardLayout">
+        {% for item in categories %}
+          {{card(item.text, item.imgUrl, item.title)}}
+        {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+    {% include "partials/home_data_categories/template.njk" %}
+    <section class="landingPage__partnersLogo">
+      <div class="landingPage__partnersLogo-leftsection">
+        <h2 class="govuk-heading-m">Product Brochure</h2>
+         <p class="govuk-body govuk-!-margin-bottom-6">
+            This brochure offers a comprehensive overview of key products delivered by the programme, accompanied by examples of their current applications. Each product collection typically includes a series of underpinning datasets, map layers, protocols, standards as well as summary reports and publications.
+         </p>
+          <p class="govuk-body govuk-!-margin-bottom-6">
+            NCEA intends to release all relevant components of product collections under Open Government Licence, providing useful insights into the work of the programme and the diverse applications our outputs have within Defra, the Government, and beyond.
+          </p>
+          <p class="govuk-body govuk-!-margin-bottom-6">
+            <a class='govuk-link' href="{{ brochureLink }}" target="_blank">Explore the NCEA Product Brochure</a>
+          </p>
+      </div>
+      <div class="landingPage__partnersLogo-rightsection">
+         <div class="landingPage__partnersLogo-rightsection--brochure">
+          <img src="{{ assetPath }}/images/ncea-product.webp"  alt="Informational brochure pages from Natural England about the England Ecosystem Survey" title="NCEA Product Brochure">
+      </div>
+        </div>
+      </div>
+    </section>
+    <section class="landingPage__intro">
+        <div class="landingPage__intro-content">
+            <h2 class="govuk-heading-m">
+                Future Releases
+            </h2>
+            <p class="govuk-body govuk-!-margin-bottom-6">
+             In 2025, the NCEA programme published the first release of analysis-ready data from the UK’s largest ever field surveys. This includes analysis-ready data from the England Ecosystem Survey, Water Monitoring Networks, mycorrhizal baseline dataset and National Forest Inventory Plus. In 2026, the Hedgerow Map will be launched, alongside additional analysis-ready datasets, with regular data publications continuing through to the end of the programme in 2028/29.
+            </p>
+        </div>
+    </section>
+    <section class="landingPage__feedlinks">
+     <div class="landingPage__feeds_container">
+      {% if displayFeedsPanel %}
+        <div class="landingPage__feeds_container--feeds">
+          <h2 class="govuk-heading-m">{{feedsList.title | safe}}</h2>
+          <ul class="govuk-list">
+              <li class="govuk-width-container feed-container landingPage__feeds_container--feeds-list">
+                <h3 class="govuk-heading-s">{{ feedsList.article.title | safe }}</h3>
+                <div class="captions-section">
+                    <small><b>Author: </b>{{ feedsList.article.author | safe }}</small>
+                    <small><b>Published on : </b>{{ feedsList.article.pubDate | safe }}</small>
+                  </div>
+                <p class="govuk-body">{{ feedsList.article.summary | safe }}</p>
+                <a class="govuk-link" href="{{ feedsList.article.link | safe }}" target="_blank">{{ feedsList.article.title | safe }}</a>
+              </li>
+          </ul>
+          <p class="govuk-body landingPage__feeds_container--feeds-text">
+            <a href="{{routes.feeds}}" class="govuk-link">More news</a>
+          </p>
+        </div>
+      {% endif %}
+        <div class="landingPage__links_container">
+          <div class="landingPage__links_container-heading"><h2 class="govuk-heading-m">Quick Links</h2></div>
+           <div class="landingPage__links_container-quicklinks">
+           {% for item in quickLinks %}
+              <div class="landingPage__links_container-quicklinks-list">
+                  <img width="30px" height="30px" src="{{ item.iconUrl }}" alt="{{item.description}}" title="{{item.name}}">
+                  <a href="{{ item.link }}" target="_blank" rel="noreferrer noopener" class="govuk-link govuk-link--no-underline">{{item.name}}</a>
+              </div>
+            {% endfor %}
+            </div>
+        </div>
+     </div>
+    <section>
+     <section class="landingPage__partners">
+      <div class="landingPage__partners-container">
+       {% for item in partnerLogos %}
+          <a class="govuk-link" href="{{ item.link }}">
+            <img src="{{ item.imgUrl }}" alt="{{ item.title}} logo" title="{{ item.title }}">
+          </a>
+        {% endfor %}
+      <div>
+    </section>
+  </div>
+{% endblock %}

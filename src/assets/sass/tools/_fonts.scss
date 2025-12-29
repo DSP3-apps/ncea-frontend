@@ -1,0 +1,27 @@
+// ================================
+// Tools: Fonts
+// ================================
+
+@import './get-rem';
+
+@mixin font-style-stack(
+  $size,
+  $height: null,
+  $weight: 700,
+  $style: normal,
+  $includeFamily: false,
+  $spacing: null
+) {
+  @if ($includeFamily) {
+    font-family: 'GDS Transport', arial, sans-serif;
+  }
+  font-size: fds-rem($size);
+  font-style: $style;
+  font-weight: $weight;
+  @if ($height) {
+    line-height: $height;
+  }
+  @if ($spacing) {
+    letter-spacing: $spacing;
+  }
+}

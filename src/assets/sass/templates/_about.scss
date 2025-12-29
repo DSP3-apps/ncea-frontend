@@ -1,0 +1,348 @@
+.landingPage {
+  &__header {
+    padding: 1rem 0rem;
+    &-heading {
+      align-items: flex-start;
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+  &__intro {
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: column;
+    &-content {
+      width: 100%;
+      &-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        &-button {
+          width: 50%;
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+    &-imageLayout {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      img:nth-child(2) {
+        display: none;
+      }
+    }
+  }
+  &__articles {
+    margin-top: 40px;
+    margin-bottom: 30px;
+    &-container {
+      display: flex;
+      gap: 50px;
+      flex-wrap: wrap;
+      &--article {
+        flex: 1 1 300px;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 4px;
+          margin-bottom: 10px;
+        }
+        &-imageTitle {
+          text-align: left;
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+        &-text {
+          margin-bottom: 10px;
+        }
+        &-link {
+          width: 18%;
+          margin-bottom: 8px;
+          display: inline-block;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  &__categories {
+    max-width: 1200px;
+    margin: auto;
+    border-radius: 10px;
+    &_cardLayout {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      &-card {
+        background-color: #008938;
+        color: black;
+        overflow: hidden;
+        flex: 1 1 calc(25% - 15px);
+        min-width: 200px;
+        box-shadow: 0 0 0 1px #fff;
+        display: flex;
+        flex-direction: column;
+        img {
+          width: 100%;
+          height: 150px;
+        }
+      }
+      &-content {
+        color: #fff;
+        line-height: 1.25;
+        font-size: 20px;
+        font-weight: 700;
+        flex-grow: 1;
+        color: #fff;
+        line-height: 1.25;
+        margin-bottom: 8px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-bottom: 5px;
+        padding-top: 10px;
+      }
+    }
+  }
+  &__partnersLogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    background-color: white;
+    overflow: hidden;
+    margin-top: 20px;
+    &-leftsection {
+      width: 100%;
+      &--logos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        justify-content: center;
+        align-items: end;
+        margin-bottom: 15px;
+        .govuk-link {
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          gap: 0.2em;
+          align-items: center;
+        }
+        img {
+          background: #fff;
+        }
+        a:nth-child(1) {
+          img {
+            padding: 4px;
+          }
+        }
+        a:nth-child(2),
+        a:nth-child(3),
+        a:nth-child(4) {
+          img {
+            padding: 4px;
+          }
+        }
+      }
+    }
+    &-rightsection {
+      width: 50%;
+      padding: 20px;
+      text-align: center;
+      &--brochure {
+        img {
+          width: 100%;
+          max-width: 400px;
+          margin-top: 15px;
+          border-radius: 8px;
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+  &__feedlinks {
+    margin-top: 20px;
+  }
+  &__feeds_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10%;
+    &--feeds {
+      width: 100%;
+      margin: auto;
+      text-align: center;
+      button {
+        width: 200px;
+      }
+      &-list {
+        padding: 0;
+      }
+    }
+  }
+  &__links_container {
+    padding-left: 10rem;
+    text-align: center;
+    width: 50%;
+    height: 140px;
+    &-quicklinks {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      div:nth-of-type(1) {
+        margin-left: 44px;
+      }
+      div:nth-of-type(3) {
+        margin-left: 72px;
+      }
+      div:nth-of-type(4) {
+        margin-left: 154px;
+        margin-top: 6px;
+      }
+      div:nth-of-type(5) {
+        margin-left: 41px;
+        margin-top: 6px;
+      }
+    }
+    &-quicklinks-list {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    &-quicklinks-text {
+      color: #1d70b8;
+      font-size: 1.18rem;
+      line-height: 1.25;
+    }
+  }
+  &__partners {
+    margin-top: 94px;
+    &-container {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: end;
+      a:nth-child(1) {
+        img {
+          width:8rem;
+        }
+      }
+      a:nth-child(2) {
+        img {
+          width:5rem;
+        }
+      }
+      a:nth-child(4) {
+        img {
+          width:10rem;
+        }
+      }
+      a:nth-child(5), a:nth-child(6) {
+        img {
+          width:9rem;
+        }
+      }
+    }
+  }
+
+  @media only screen and (min-width: 769px) {
+    padding: 1rem 0rem;
+    &__header {
+      &-heading {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+    &__intro {
+      margin-bottom: 30px;
+      gap: 2rem;
+      flex-direction: row;
+      &-img {
+        width: 100%;
+        max-height: max-content;
+      }
+      &-imageLayout {
+        img:nth-child(2) {
+          display: block;
+        }
+      }
+    }
+    &__articles {
+      &-container {
+      display: flex;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+    }
+    &__feeds_container {
+      display: flex;
+      flex-direction: row;
+      &--feeds {
+        width: 70%;
+        text-align: left;
+        &-list {
+          padding: 0;
+        }
+        .govuk-width-container {
+          margin: 0;
+        }
+      }
+    }
+    &__partnersLogo {
+      display: flex;
+      flex-direction: row;
+      &-leftsection {
+        width: 50%;
+      }
+    }
+    &__links_container {
+      padding-left: 0px;
+      text-align: left;
+      padding: 10px;
+      &-quicklinks {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap:10px;
+        div:nth-of-type(1),
+        div:nth-of-type(3) {
+          margin-left: 0px;
+        }
+        div:nth-of-type(4),
+        div:nth-of-type(5) {
+          margin-left: 0px;
+          margin-top: 0px;
+        }
+      }
+    }
+    &__partners {
+      margin-top:0px;
+    }
+  }
+
+  @media screen and (max-width: 850px) {
+    &__partnersLogo {
+      &-leftsection {
+        &--logos {
+          display: grid;
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+    }
+    &__feeds_container {
+      &--feeds {
+        &-list {
+          padding: 0;
+        }
+        .govuk-width-container {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

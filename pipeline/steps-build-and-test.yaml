@@ -1,0 +1,41 @@
+steps:
+
+- checkout: self
+
+- task: UseNode@1
+  inputs:
+    version: '18.x'
+  displayName: 'Install Node.js'
+
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'defra-sonarcloud'
+    organization: '$(sonarCloudOrganization)'
+    scannerMode: CLI
+    projectKey: '$(sonarProjectKeySearchWebApp)'
+    projectName: '$(sonarProjectNameSearchWebApp)'    
+  displayName: 'Prepare analysis on SonarCloud'
+
+- script: |
+    npm install
+    npm run build
+  displayName: 'npm install and build'
+
+- script: |
+    npm run test
+  displayName: 'npm test'
+
+- task: PublishCodeCoverageResults@1
+  condition: succeededOrFailed()
+  inputs:
+    codeCoverageTool: Cobertura
+    summaryFileLocation: $(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml
+  displayName: 'Publish code coverage result'
+
+- task: SonarCloudAnalyze@1
+  displayName: 'Run Code Analysis'
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
+  displayName: 'Publish Quality Gate Result'

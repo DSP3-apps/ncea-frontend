@@ -1,0 +1,175 @@
+{% extends "govuk/template.njk" %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{% from "govuk/components/cookie-banner/macro.njk" import govukCookieBanner %}
+{% from "macros/header.njk" import header %}
+
+{% set htmlClasses = "app-html-class" %}
+{% set htmlLang = "en" %}
+{% set bodyClasses = "app-body-class" %}x
+
+{% block pageTitle %}
+  {{ pageTitle }}
+{% endblock %}
+
+{% block headIcons %}
+  {{ super() }}
+{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="{{ assetPath }}/css/application.css">
+  <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="version" content="v{{appVersion}}">
+{% endblock %}
+
+{% set cookieHtml %}
+<p class="govuk-body">We use essential cookies to give you the best online experience. Without them, this service will not work.</p>
+<p class="govuk-body">We also use non-essential cookies to analyze site usage to continually improve the services we provide you with.</p>
+<p class="govuk-body">Full details of cookies collected, and the functionality to change your cookie preference at any time can be accessed on our <a class="govuk-link help-link" href="https://environment.data.gov.uk/help/cookies">change your cookie settings</a></p>
+{% endset %}
+{% set appVersionHtml %}
+<p>Version: v{{appVersion}}</p>
+{% endset %}
+
+{% block header %}
+  <script>
+    var gtmIdValue = "{{ gtmId }}";
+    var keyboardFiltersBaseUrlValue = "{{keyboardFiltersBaseUrl}}"
+    var isLocal = "{{ isLocal }}"
+  </script>
+  <script type="module" src="{{ assetPath }}/scripts/cookieScript.js"></script>
+  <header class="header-container">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id="+gtmIdValue></script>
+
+  {% set loginUrl = routes.logIn %}
+
+  {% set redirectPart = "" %}
+    {% if loginUrl and loginUrl != "" %}
+      {% set redirectPart = "?redirect_uri=" + redirectUri %}
+    {% endif %}
+
+  {% set loginElement = "<span>Welcome, Guest&nbsp; <a href='" + loginUrl + redirectPart + "' class='govuk-link divider'>Login</a></span>" %}
+
+    {% if user.email %}
+      {% set loginElement = "<span>Welcome, " + user.email + "&nbsp; <a href='" + routes.logOut + redirectPart + "' class='govuk-link divider'>Logout</a></span>" %}
+    {% endif %}
+
+  {% set headerNavigators = [{html: loginElement}]%}
+
+  {% set homePage = routes.homePage %}
+
+  {{ header(loginElement, headerNavigationLinks, homePage, routes.rootPath) }}
+  </header>
+{% endblock %}
+
+{% set mainClasses = "app-main-class" %}
+
+{% block main %}
+  {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: { text: "Beta" },
+    html: 'This is a new service - your <a class="govuk-link" rel="noreferrer noopener" target="_blank" href="https://defragroup.eu.qualtrics.com/jfe/form/SV_02KhhVirzVmY0QK">feedback</a> will help us to improve it.'
+  }) }}
+{% endblock %}
+
+{% block bodyStart %}
+  {{ govukCookieBanner({
+    ariaLabel: "Tell us whether you accept cookies",
+    attributes: { id: "cookie_banner" },
+    messages: [
+      {
+        headingText: "Tell us whether you accept cookies",
+        html: cookieHtml,
+        hidden: true,
+        actions: [
+          {
+            text: "Accept all cookies",
+            type: "button",
+            attributes: { id: "accept_button" }
+          },
+          {
+            text: "Reject analytics cookies",
+            type: "button",
+            attributes: { id: "reject_button" }
+          }
+        ],
+        attributes: { id: "cookie_block" }
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: [
+        {
+          href: routes.accessibilityStatement,
+          text: "Accessibility statement",
+          attributes: {
+            target: "_blank",
+            rel: "noopener noreferrer"
+          }
+        },
+        {
+          href: routes.cookiePolicy,
+          text: "Cookie Policy",
+          attributes: {
+            target: "_blank",
+            rel: "noopener noreferrer"
+          }
+        },
+        {
+          href: routes.termsAndConditions,
+          text: "Terms and conditions",
+          attributes: {
+            target: "_blank",
+            rel: "noopener noreferrer"
+          }
+        },
+        {
+          href: routes.privacyPolicy,
+          text: "Privacy",
+          attributes: {
+            target: "_blank",
+            rel: "noopener noreferrer"
+          }
+        },
+        {
+          href: routes.support,
+          text: "Support",
+          attributes: {
+            target: "_blank",
+            rel: "noopener noreferrer"
+          }
+        }
+      ]
+    },
+    copyright: {
+      text: "© Crown Copyright " + currentYear
+    }
+  }) }}
+  <div id="overlay" class="overlay"></div>
+{% endblock %}
+
+{% block bodyEnd %}
+  {# Run JavaScript at end of the <body>, to avoid blocking the initial render. #}
+  <script type="module" src="{{ assetPath }}/all.js"></script>
+  <script type="module">
+    import {initAll} from '{{ assetPath }}/all.js'
+    initAll()
+  </script>
+  <script>
+    const appInsightsConnString = "{{ appInsightsConnectionString }}";
+  </script>
+  <script type="text/javascript" src="{{ assetPath }}/scripts/appinsights.js"></script>
+  <script type="module" src="{{ assetPath }}/scripts/customScripts.js"></script>
+{% endblock %}

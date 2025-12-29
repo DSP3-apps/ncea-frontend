@@ -1,0 +1,18 @@
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% if params.isDetailsPage %}
+  {% set buttonClasses = 'govuk-!-margin-bottom-4 go-to-resource' %}
+{% else %}
+  {% set buttonClasses = 'govuk-!-margin-bottom-0 go-to-resource' %}
+{% endif %}
+
+{% set openDataAttributes = {} %}
+{% if params.resourceLocator and params.organisationName %}
+  {% set openDataAttributes = openDataAttributes | merge({
+    onclick: "openDataModal('" + params.organisationName + "', '" + params.resourceLocator + "')"
+  }) %}
+{% else %}
+  {% set openDataAttributes = openDataAttributes | merge({disabled: "true"}) %}
+{% endif %}
+
+{{ govukButton({ text: 'Go to resource', attributes: openDataAttributes, classes: buttonClasses, isStartButton: params.isDetailsPage }) }}

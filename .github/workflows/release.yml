@@ -1,0 +1,39 @@
+name: RELEASE
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [make_release]
+    branches:
+    - main
+
+env:
+  GH_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+  HUSKY: 0
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        persist-credentials: false
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20.x
+    - name: Cache Node Nodules
+      uses: actions/cache@v4
+      with:
+        path: node_modules
+        key: ncea-frontend-${{ hashFiles('**/npm-lock.json') }}
+        restore-keys: |
+          frontend-
+    - name: Build Release
+      env:
+        CI: true
+      run: |
+        npm ci
+        npm run release

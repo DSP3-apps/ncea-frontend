@@ -1,0 +1,42 @@
+{% extends "layout/default.njk" %}
+
+{% block head %}
+  {{ super() }}
+    <meta name="description" content="Latest news from the Natural Capital and Ecosystem Assessment programme (NCEA) from Defra and Natural England">
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l">Latest news</h1>
+  {% if error %}
+    {% set title = error.errorTitle %}
+    {% set message = error.errorMessage %}
+    {% include 'partials/feeds/errorSummary.njk' %}
+  {% endif %}
+  {% for feed in feeds %}
+    <div>
+    {% if feed.errorTitle %}
+      {% set title = feed.errorTitle %}
+      {% set message = feed.errorMessage %}
+      {% include 'partials/feeds/errorSummary.njk' %}
+    {% endif %}
+      <h2 class="govuk-heading-m">{{feed.title}}</h2>
+      <ul class="govuk-list">
+        {% for article in feed.articles %}
+          <li class="govuk-width-container feed-container">
+            <h3 class="govuk-heading-s">{{ article.title | safe }}</h3>
+            <div class="captions-section">
+              <small><b>Author: </b>{{ article.author | safe }}</small>
+              <small><b>Published on : </b>{{ article.pubDate }}</small>
+            </div>
+            <p class="govuk-body">{{ article.summary | safe }}</p>
+            <a class="govuk-link" href="{{ article.link | safe }}" target="_blank">{{ article.title | safe }}</a>
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+
+  {% endfor %}
+
+{% endblock %}

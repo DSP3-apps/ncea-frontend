@@ -1,0 +1,17 @@
+.feed-container {
+  .captions-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: govuk-colour('black');
+  }
+
+  @media only screen and (min-width: 769px) {
+    padding: 0rem 1rem;
+    .captions-section {
+      justify-content: space-between;
+      flex-direction: row;
+    }
+  }
+}
