@@ -167,14 +167,13 @@ exports[`Accessibility Screen Accessibility > Sanpshot verification should match
           <span class="text">Data Services Platform</span>
         </a>
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A39241%2Fnatural-capital-ecosystem-assessment%2Faccessibility-statement' class='govuk-link divider'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A35885%2Fnatural-capital-ecosystem-assessment%2Faccessibility-statement' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">
         <span class="navLinks">
           <a
             class="govuk-link ea-logo"
-            target="_blank"
             ref="noopener noreferrer"
             href="https://environment.data.gov.uk/natural-capital-ecosystem-assessment/about"
           >

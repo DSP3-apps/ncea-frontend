@@ -43,11 +43,6 @@ export const headerNavigationLinks = [
     icon: 'info',
   },
   {
-    text: 'Categories Detail',
-    href: `${BASE_PATH}${webRoutePaths.categoriesDetail}`,
-    icon: 'info',
-  },
-  {
     text: 'News Feed',
     href: `${BASE_PATH}${webRoutePaths.atom}`,
     icon: 'feeds',
@@ -310,12 +305,8 @@ export const FILTER_VALUES = {
 const nceaAboutLink =
   'https://www.gov.uk/government/publications/natural-capital-and-ecosystem-assessment-ncea-programme';
 
-const categoriesDetail =
-  'http://localhost:4000/natural-capital-ecosystem-assessment/categoriesDetail';
-
-
 export const landingPageData = {
-  pageHeading: 'Natural Capital and Ecosystem Assessment (NCEA) programme',  
+  pageHeading: 'Natural Capital and Ecosystem Assessment (NCEA) programme',
   introText: {
     imageUrl1: `${BASE_PATH}/assets/images/Lowther-view-NCEA-blog.jpg`,
     image1Url:
@@ -323,8 +314,8 @@ export const landingPageData = {
     imageUrl2: `${BASE_PATH}/assets/images/England-Peat-Map.webp`,
     image2Url: 'https://naturalengland.blog.gov.uk/2025/05/12/a-new-peat-map-for-england/',
     catDetailimageUrl1: `${BASE_PATH}/assets/images/marine_category_deatil_page.png`,
-  }, 
-  
+    catDetailimageUrlCaseStudy1: `${BASE_PATH}/assets/images/marine_category_deatil_page_casestudy1.png`,
+  },
   displayCategoryPages: false,
   categories: [
     {
