@@ -12,6 +12,8 @@ const CategoriesDetailController = {
 
       return response.view('screens/categoriesDetail/template', {
         displayFeedsPanel: true,
+        type: request.query.type,
+        year: request.query.year,
         feedsList: {
           title: 'Latest news',
           article: feedsData?.articles ? feedsData.articles[0] : {},

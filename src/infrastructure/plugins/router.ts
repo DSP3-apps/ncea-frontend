@@ -5,6 +5,7 @@ import { Server } from '@hapi/hapi';
 import {
   aboutRoutes,
   atomFeedRoutes,
+  categoriesDetail,
   classifierSearchRoutes,
   dateSearchRoutes,
   errorRoutes,
@@ -13,7 +14,6 @@ import {
   mdcRoutes,
   searchResultsRoutes,
   staticRoutes,
-  categoriesDetail,
 } from '../../routes/index';
 
 const routes = [
