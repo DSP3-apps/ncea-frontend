@@ -160,3 +160,21 @@
     padding: 8px;
   }
 }
+
+// Parent/Child record accordion styles
+.govuk-accordion__show-all {
+  display: none;
+}
+
+.govuk-accordion__section-toggle .govuk-accordion__section-toggle-focus .govuk-accordion__section-toggle-text {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  color: #000;
+}
+
+.record-link-item {
+  margin-bottom: 10px;
+}
+

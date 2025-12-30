@@ -6,7 +6,14 @@ import { capitalizeWords } from './formatAggregationResponse';
 import { getOrganisationDetails } from './getOrganisationDetails';
 import { isEmpty } from './isEmpty';
 import { environmentConfig } from '../config/environmentConfig';
-import { Contact, IAccess, IAccessItem, IResources, ServiceOptions } from '../interfaces/searchResponse.interface';
+import {
+  Contact,
+  IAccess,
+  IAccessItem,
+  IResources,
+  ParentsRecords,
+  ServiceOptions,
+} from '../interfaces/searchResponse.interface';
 
 const getCoupledResource = (data: string | string[]): string => {
   const getCoupleResourceLink = (url: string): string => {
@@ -244,6 +251,13 @@ const renderActionLink = (url: string, recordId: string) => {
   return `<a class="govuk-link" href="${url}">Open Link</a>`;
 };
 
+const validateParentChildRecords = (dataset?: ParentsRecords[]): ParentsRecords[] => {
+  if (Array.isArray(dataset)) {
+    return dataset;
+  }
+  return [];
+};
+
 const createTableRow = (name: string, url: string, recordId: string) => {
   const dataSetName = name || 'Download data';
   const downloadLink = url.includes('?download=true');
@@ -278,6 +292,8 @@ const getAccessTabData = (payload: IAccessItem): IAccess => ({
   // metadata_standard: payload?.metadata?.standard ?? '',
   metadata_language: payload?.metadata?.language?.toUpperCase() ?? '',
   resourceWebsite: generateResourceWebsiteTable(payload.resources ?? [], payload.id),
+  parent_records: validateParentChildRecords(payload.parentRecords),
+  child_records: validateParentChildRecords(payload.childRecords),
 });
 
-export { getAccessTabData, getResourceLocators, getCoupledResource, getContactInformation };
+export { getAccessTabData, getResourceLocators, getCoupledResource, getContactInformation, validateParentChildRecords };

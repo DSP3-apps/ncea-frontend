@@ -109,6 +109,8 @@ describe('Format the search response', () => {
       resourceWebsite: expect.any(String),
       nceaContribution: '',
       host_catalogue_number: 'c9d7e118-d057-48f9-b520-76de8e51e014',
+      child_records: [],
+      parent_records: [],
     };
     expect(result).toEqual(expectedResponse);
   });

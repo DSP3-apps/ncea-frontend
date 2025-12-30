@@ -12,14 +12,34 @@ const formatValue = (value: string, part: string): string => {
 };
 
 const appendFormattedValue = (value: unknown, part: string, displayValue: string[]) => {
-  if (value) {
-    const formattedValue = formatValue(value as string, part);
-    if (part.includes('(') && part.includes(')')) {
-      displayValue.push(`(${formattedValue})`);
-    } else {
-      displayValue.push(formattedValue);
+  if (value === null || value === undefined) return;
+
+  if (Array.isArray(value)) {
+    const stringItems = value.filter((item): item is string => typeof item === 'string');
+    if (stringItems.length === value.length && stringItems.length > 0) {
+      displayValue.push(stringItems.join(', '));
     }
+    return;
   }
+
+  if (typeof value !== 'string') return;
+
+  const formattedValue = formatValue(value, part);
+  if (part.includes('(') && part.includes(')')) {
+    displayValue.push(`(${formattedValue})`);
+  } else {
+    displayValue.push(formattedValue);
+  }
+};
+
+const getRawValue = (
+  option: string | undefined,
+  entry: Record<string, unknown>,
+  docDetails: ISearchItem | Record<string, unknown>,
+): unknown => {
+  const sanitizedKey = (option?.split(' ')[0] ?? '').replace(/[()]/g, '');
+  if (!sanitizedKey) return undefined;
+  return entry[sanitizedKey] ?? docDetails[sanitizedKey];
 };
 
 const processTabOption = (
@@ -34,6 +54,7 @@ const processTabOption = (
       return {
         label,
         displayValue: displayValue.length > 0 ? displayValue.join(' ') : '',
+        rawValue: getRawValue(tabOptions[label], entry, docDetails),
       };
     })
     .filter((option) => !(option.label === 'Other Constraint' && option.displayValue === ''));
@@ -103,4 +124,4 @@ const processDetailsTabData = (docDetails: ISearchItem | Record<string, unknown>
   return processedTabOption;
 };
 
-export { processDetailsTabData };
+export { processDetailsTabData, appendFormattedValue, getRawValue };
