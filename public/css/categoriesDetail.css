@@ -29,7 +29,7 @@
 
 .landingPage__partnersLogo-rightsection {
   flex: 0 0 200px; /* fixed width for image column */
-  margin-top: -20px;
+  margin-top: -20px !important;
 }
 
 .case-study-image {
