@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+.video-container {
+  max-width: 500px;
+  margin: 0;
+  display: flex;
+  align-items: flex-start;    /* vertical alignment */
+  justify-content: flex-start; /* horizontal alignment */
+}
+
+.video-container iframe {
+    width: 60%;
+    height: 250px;
+}
+
+.video-caption {
+    text-align: left;
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 8px;
+    margin-bottom:18px;
+}
+
+.landingPage__partnersLogo-wrapper {
+  display: flex;
+  align-items: flex-start; /* KEY: aligns image & text at the top */
+  gap: 24px;
+}
+
+.landingPage__partnersLogo-rightsection {
+  flex: 0 0 200px; /* fixed width for image column */
+  margin-top: -20px !important;
+}
+
+.case-study-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.landingPage__partnersLogo-leftsection {
+  flex: 1;
+}
+
+.educational-copy-container__heading-m {
+    border-top:2.5px solid #008938 !important;
+} 
