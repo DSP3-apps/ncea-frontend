@@ -1,0 +1,40 @@
+{% from "macros/card.njk" import card %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% extends "layout/default.njk" %}
+
+{% block head %}
+  {{ super() }}
+
+    <meta name="description" content="Natural Capital and Ecosystem Assessment programme (NCEA) background, highlights and product brochure">
+{% endblock %}
+
+{% block content %}
+  <div class="landingPage">
+  <header class="landingPage__header full-width-banner" role="banner">
+    <div class="landingPage__header-heading">
+      <h1 class="govuk-heading-xl banner-container__heading-xl">{{ pageHeading }}</h1>
+      <img alt="Department for Environment Food &amp; Rural Affairs Logo" src="{{ assetPath }}/images/NCEA-logo-landscape.webp" class="banner-container__ncea-logo">
+      <link rel="stylesheet" href="{{ assetPath }}/css/categoriesDetail.css" >
+    </div>
+  </header>
+
+  <section class="landingPage__articles">
+    <h2 class="govuk-heading-m">{{ type }} </h2>
+    <div class="landingPage__articles-container">
+    <img src={{ introText.catDetailimageUrl1 }} width="800" height="533" alt="{{ type }}" >
+    <figcaption>The challenges our seas and coasts face are complex and interconnected, from how to sustainably manage fisheries to where to place offshore windfarms. A natural capital approach helps us to consider the marine environment from multiple perspectives and identify trade-offs, dependencies and synergies across policy ambitions. </figcaption>
+    </div>
+  </section>
+
+  <section class="landingPage__intro">
+    <div class="landingPage__intro-content">
+        {% include "partials/categories_detail/key_description.njk" %}
+        {% include "partials/categories_detail/key_videos.njk" %}
+        {% include "partials/categories_detail/key_products.njk" %}
+        {% include "partials/categories_detail/case_studies.njk" %}
+        {% include "partials/categories_detail/featured_datasets.njk" %}
+    </div>
+  </section>
+
+{% endblock %}
