@@ -312,6 +312,8 @@ export const landingPageData = {
       'https://defraenvironment.blog.gov.uk/2025/12/15/major-milestone-ncea-publishes-new-datasets-on-englands-environment/',
     imageUrl2: `${BASE_PATH}/assets/images/England-Peat-Map.webp`,
     image2Url: 'https://naturalengland.blog.gov.uk/2025/05/12/a-new-peat-map-for-england/',
+    catDetailimageUrl1: `${BASE_PATH}/assets/images/marine_category_deatil_page.png`,
+    catDetailimageUrlCaseStudy1: `${BASE_PATH}/assets/images/marine_category_deatil_page_casestudy1.png`,
   },
   displayCategoryPages: false,
   categories: [

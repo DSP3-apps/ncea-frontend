@@ -167,7 +167,7 @@ exports[`Accessibility Screen Accessibility > Sanpshot verification should match
           <span class="text">Data Services Platform</span>
         </a>
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A38567%2Fnatural-capital-ecosystem-assessment%2Faccessibility-statement' class='govuk-link divider'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A36345%2Fnatural-capital-ecosystem-assessment%2Faccessibility-statement' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">
@@ -451,7 +451,7 @@ exports[`Accessibility Screen Accessibility > Sanpshot verification should match
           href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
         >
         
-          © Crown Copyright 2025
+          © Crown Copyright 2026
         
         </a>
       </div>

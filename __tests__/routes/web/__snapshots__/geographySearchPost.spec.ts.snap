@@ -170,7 +170,7 @@ exports[`Guided Search - Geography Questionnaire Screen POST Request HTML elemen
           <span class="text">Data Services Platform</span>
         </a>
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A41577%2Fnatural-capital-ecosystem-assessment%2Fcoordinate-search' class='govuk-link divider'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33513%2Fnatural-capital-ecosystem-assessment%2Fcoordinate-search' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">
@@ -708,7 +708,7 @@ exports[`Guided Search - Geography Questionnaire Screen POST Request HTML elemen
           href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
         >
         
-          © Crown Copyright 2025
+          © Crown Copyright 2026
         
         </a>
       </div>
