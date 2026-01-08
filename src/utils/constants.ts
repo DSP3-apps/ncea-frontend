@@ -251,6 +251,7 @@ export const pageTitles = {
     'NCEA questionnaire  Search- subcategories',
   ],
   feeds: 'Latest news - Natural Capital Ecosystem Assessment - NCEA – programme',
+  categoryDetail: 'Category Detail - NCEA',
 };
 
 export const levelMap = {

@@ -2,7 +2,7 @@
 
 import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 
-import { landingPageData } from '../../utils/constants';
+import { landingPageData, pageTitles } from '../../utils/constants';
 
 const CategoriesDetailController = {
   renderCategoriesDetailHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
@@ -10,6 +10,7 @@ const CategoriesDetailController = {
       return response.view('screens/categories_detail/template', {
         displayFeedsPanel: true,
         type: request.query.type,
+        pageTitle: pageTitles.categoryDetail,
         ...landingPageData,
       });
     } catch (err) {
