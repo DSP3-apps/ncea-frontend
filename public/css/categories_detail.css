@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+.video-container {
+  max-width: 500px;
+  margin: 0;
+  display: flex;
+  align-items: flex-start;    /* vertical alignment */
+  justify-content: flex-start; /* horizontal alignment */
+}
+.video-container iframe {
+    width: 60%;
+    height: 250px;
+}
+.video-caption {
+    text-align: left;
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 8px;
+    margin-bottom:18px;
+}
+.landingPage__partnersLogo-wrapper {
+  display: flex;
+  align-items: flex-start; /* KEY: aligns image & text at the top */
+  gap: 24px;
+}
+.landingPage__partnersLogo-rightsection {
+  flex: 0 0 200px; /* fixed width for image column */
+  margin-top: -20px !important;
+}
+.case-study-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.landingPage__partnersLogo-leftsection {
+  flex: 1;
+}
+.educational-copy-container__heading-m {
+    border-top:2.5px solid #008938 !important;
+} 
+p.first-desc {
+  margin-top: -25px !important;
+}
+p.cat-video-capt {
+  margin-top: 15px !important;
+}
+ul li.cat-dts-li {
+  padding-top: 08px;
+}
+.cate-featured-datasets a.govuk-link {
+  color: #0b0c0c;
+  align-items: center;
+  display: inline-flex;
+  gap: 5px;  
+}
+.cate-featured-datasets p {
+  margin-bottom: 5px !important;
+}
+hr { 
+  border-top: 1.5px #b1b4b6 !important;
+}
+p.cate-pby {
+  font-size: 16px;
+}
