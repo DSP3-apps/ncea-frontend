@@ -241,7 +241,7 @@ const renderActionLink = (url: string, recordId: string) => {
     return `<a class="govuk-link" href="/explore/${recordId}" rel="noopener noreferrer" target="_blank">Preview<span class="govuk-visually-hidden">(opens in a new tab)</span></a>`;
   }
 
-  return `<a class="govuk-link" href="${url}" rel="noopener noreferrer" target="_blank">Open Link<span class="govuk-visually-hidden">(opens in a new tab)</span></a>`;
+  return `<a class="govuk-link" href="${url}">Open Link</a>`;
 };
 
 const createTableRow = (name: string, url: string, recordId: string) => {
