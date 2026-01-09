@@ -171,7 +171,11 @@ exports[`Details route template Document details with data Check status code and
           <span class="text">Data Services Platform</span>
         </a>
        </span>
+<<<<<<< HEAD
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A45691%2Fnatural-capital-ecosystem-assessment%2Fsearch%2F%257B1234-56789213123-1233-1234%257D' class='govuk-link divider'>Login</a></span></div>
+=======
         <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A37141%2Fnatural-capital-ecosystem-assessment%2Fsearch%2F%257B1234-56789213123-1233-1234%257D' class='govuk-link divider'>Login</a></span></div>
+>>>>>>> main
     </div>
 
     <div class="header__secondary">
@@ -328,6 +332,10 @@ exports[`Details route template Document details with data Check status code and
 
 
 
+      
+
+      
+
       <h1 class='govuk-heading-m details-title'>20190731 - HI1597 - Firth of Clyde - Troon to Turnberry Point - 2m - Bathymetric Survey</h1>
 
         <details class="govuk-details details-alt_title">
@@ -423,6 +431,10 @@ exports[`Details route template Document details with data Check status code and
         Licence
       </a>
     </li>
+<<<<<<< HEAD
+      
+    
+=======
 
 
           <li class="govuk-tabs__list-item">
@@ -437,6 +449,7 @@ exports[`Details route template Document details with data Check status code and
     </li>
 
 
+>>>>>>> main
   </ul>
 
       <div class="govuk-tabs__panel" id="general">
@@ -932,6 +945,10 @@ exports[`Details route template Document details with data Check status code and
       </div>
 
   </div>
+<<<<<<< HEAD
+    
+  
+=======
 
 
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="governance">
@@ -1183,6 +1200,7 @@ exports[`Details route template Document details with data Check status code and
   </div>
 
 
+>>>>>>> main
 
 </div>
 
@@ -1433,11 +1451,18 @@ exports[`Details route template Document details with partial data Check status 
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
+<<<<<<< HEAD
+  <meta name="version" content="v1.31.6">
+
+  <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
+  <meta name="description" content="Natural Capital search results with options to filter results further and view on a map">
+=======
   <meta name="version" content="v1.31.7">
 
   <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
   <meta name="description" content="Natural Capital search results with options to filter results further and view on a map">
 
+>>>>>>> main
 
   </head>
   <body class="govuk-template__body app-body-class">
@@ -1577,7 +1602,11 @@ exports[`Details route template Document details with partial data Check status 
           <span class="text">Data Services Platform</span>
         </a>
        </span>
+<<<<<<< HEAD
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A46819%2Fnatural-capital-ecosystem-assessment%2Fsearch%2F%257B1234-56789213123-1233-1234%257D' class='govuk-link divider'>Login</a></span></div>
+=======
         <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A34149%2Fnatural-capital-ecosystem-assessment%2Fsearch%2F%257B1234-56789213123-1233-1234%257D' class='govuk-link divider'>Login</a></span></div>
+>>>>>>> main
     </div>
 
     <div class="header__secondary">
@@ -1734,6 +1763,10 @@ exports[`Details route template Document details with partial data Check status 
 
 
 
+      
+
+      
+
       <h1 class='govuk-heading-m details-title'>Geoserver WFS Fragments Country Boundaries Test Template</h1>
 
       <div  class="open-data-block--disabled" >
@@ -1820,6 +1853,10 @@ exports[`Details route template Document details with partial data Check status 
         Licence
       </a>
     </li>
+<<<<<<< HEAD
+      
+    
+=======
 
 
           <li class="govuk-tabs__list-item">
@@ -1834,6 +1871,7 @@ exports[`Details route template Document details with partial data Check status 
     </li>
 
 
+>>>>>>> main
   </ul>
 
       <div class="govuk-tabs__panel" id="general">
@@ -2328,6 +2366,10 @@ exports[`Details route template Document details with partial data Check status 
       </div>
 
   </div>
+<<<<<<< HEAD
+    
+  
+=======
 
 
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="governance">
@@ -2339,6 +2381,7 @@ exports[`Details route template Document details with partial data Check status 
   </div>
 
 
+>>>>>>> main
 
 </div>
 
