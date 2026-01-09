@@ -31,6 +31,19 @@ export interface IIdentifiers {
   id?: string;
 }
 
+export interface IRelatedRecordBase {
+  id: string;
+  title?: string;
+}
+
+export interface ParentsRecords extends IRelatedRecordBase {
+  grandParent?: ParentsRecords[];
+}
+
+export interface ChildRecords extends IRelatedRecordBase {
+  grandChildren?: ChildRecords[];
+}
+
 export interface IAccessItem {
   id: string;
   contacts?: Contact[];
@@ -39,6 +52,8 @@ export interface IAccessItem {
   resourceType?: string;
   resources?: IResources[] | undefined;
   contactEmail?: string;
+  parentRecords?: ParentsRecords[];
+  childRecords?: ChildRecords[];
 }
 
 export interface IAccess {
@@ -51,6 +66,8 @@ export interface IAccess {
   resource_locators?: string;
   host_service_catalogue_number?: string;
   ncea_group_reference?: string;
+  parent_records?: ParentsRecords[];
+  child_records?: ChildRecords[];
   metadata_standard?: string;
   project_number?: string;
   metadata_language?: string;
@@ -188,7 +205,16 @@ export type IOtherSearchItem = IGeneralItem &
   IGovernance;
 
 export interface ISearchItem extends IBaseItem {
-  [key: string]: IGovernance | string | number | undefined | boolean | string[] | IAccumulatedCoordinates;
+  [key: string]:
+    | IGovernance
+    | string
+    | number
+    | undefined
+    | boolean
+    | string[]
+    | IAccumulatedCoordinates
+    | ParentsRecords[]
+    | ChildRecords[];
 }
 
 export interface TabbedItem {

@@ -8,6 +8,7 @@ export interface TabOptions {
 export interface FormattedTabOption {
   label: string;
   displayValue: string;
+  rawValue?: unknown;
 }
 
 export interface FormattedTabOptions {

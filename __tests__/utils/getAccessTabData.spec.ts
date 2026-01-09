@@ -4,6 +4,7 @@ import {
   createDownloadsTableRow,
   extractFileFormat,
   validateServiceTypes,
+  validateParentChildRecords,
 } from '../../src/utils/getAccessTabData';
 import { MORE_INFO_MOCK_DATA } from '../../src/services/handlers/mocks/more-info-response';
 import { DATA_DOWNLOADS_TYPES, DATA_SERVICES_TYPES } from '../../src/utils/constants';
@@ -28,6 +29,8 @@ describe('getAccessTabData functions', () => {
         metadata_language: 'ENG',
         resourceWebsite: expect.any(String),
         host_catalogue_number: 'c9d7e118-d057-48f9-b520-76de8e51e014',
+        child_records: [],
+        parent_records: [],
       });
     });
   });
@@ -114,6 +117,34 @@ describe('getAccessTabData functions', () => {
       expect(validateServiceTypes(DATA_DOWNLOADS_TYPES, 'HTTP FILE DOWNLOAD')).toStrictEqual(true);
       expect(validateServiceTypes(DATA_DOWNLOADS_TYPES, 'ABC')).toStrictEqual(false);
       expect(validateServiceTypes(DATA_DOWNLOADS_TYPES, '')).toStrictEqual(false);
+    });
+  });
+
+  describe('validateParentChildRecords', () => {
+    it('should return the same array when valid array is provided', () => {
+      const validRecords = [
+        { id: '123', title: 'Parent 1', grandParent: [] },
+        { id: '456', title: 'Parent 2', grandParent: [] },
+      ];
+      expect(validateParentChildRecords(validRecords)).toEqual(validRecords);
+    });
+
+    it('should return empty array when undefined is provided', () => {
+      expect(validateParentChildRecords(undefined)).toEqual([]);
+    });
+
+    it('should return empty array when null is provided', () => {
+      expect(validateParentChildRecords(null as any)).toEqual([]);
+    });
+
+    it('should return empty array when non-array value is provided', () => {
+      expect(validateParentChildRecords({} as any)).toEqual([]);
+      expect(validateParentChildRecords('string' as any)).toEqual([]);
+      expect(validateParentChildRecords(123 as any)).toEqual([]);
+    });
+
+    it('should return empty array when provided', () => {
+      expect(validateParentChildRecords([])).toEqual([]);
     });
   });
 });
