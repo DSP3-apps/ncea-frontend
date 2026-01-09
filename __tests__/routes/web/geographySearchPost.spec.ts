@@ -10,14 +10,6 @@ import { initializeServer } from '../../../src/infrastructure/server';
 import supertest from 'supertest';
 import { BASE_PATH, webRoutePaths } from '../../../src/utils/constants';
 
-jest.mock('../../../src/infrastructure/plugins/appinsights-logger', () => ({
-  info: jest.fn(),
-}));
-
-jest.mock('../../../src/utils/keyvault', () => ({
-  getSecret: jest.fn(),
-}));
-
 let serverRequest;
 
 const getHTMLDocument = (rawHTML) => {

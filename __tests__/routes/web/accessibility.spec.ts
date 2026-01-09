@@ -10,14 +10,6 @@ import { initializeServer } from '../../../src/infrastructure/server';
 import supertest from 'supertest';
 import { BASE_PATH, webRoutePaths } from '../../../src/utils/constants';
 
-jest.mock('../../../src/infrastructure/plugins/appinsights-logger', () => ({
-  info: jest.fn(),
-}));
-
-jest.mock('../../../src/utils/keyvault', () => ({
-  getSecret: jest.fn(),
-}));
-
 let serverRequest;
 
 const invokeRoute = async (route) => {
@@ -38,9 +30,7 @@ describe('Accessibility Screen', () => {
       server = s;
       serverRequest = supertest(server.listener);
 
-      const responseObject = await invokeRoute(
-        `${BASE_PATH}${webRoutePaths.accessibilityStatement}`,
-      );
+      const responseObject = await invokeRoute(`${BASE_PATH}${webRoutePaths.accessibilityStatement}`);
       response = responseObject.response;
       document = responseObject.document;
       done();
@@ -75,18 +65,14 @@ describe('Accessibility Screen', () => {
 
   describe('Breadcrumb list items', () => {
     it('should render 2 list items', async () => {
-      const breadcrumbList = document?.querySelector(
-        '.govuk-breadcrumbs__list',
-      );
+      const breadcrumbList = document?.querySelector('.govuk-breadcrumbs__list');
       expect(breadcrumbList?.childElementCount).toEqual(2);
     });
   });
 
   describe('Breadcrumb list item options', () => {
     it('should render home list item first child as an anchor tag', async () => {
-      const breadcrumbItems = document?.querySelector(
-        '.govuk-breadcrumbs__list',
-      )?.children;
+      const breadcrumbItems = document?.querySelector('.govuk-breadcrumbs__list')?.children;
       const anchor = breadcrumbItems?.[0]?.firstElementChild;
       expect(anchor?.tagName.toLowerCase()).toBe('a');
       expect(anchor?.getAttribute('class')).toEqual('govuk-breadcrumbs__link');
@@ -95,9 +81,7 @@ describe('Accessibility Screen', () => {
     });
 
     it('should not render accessibility statement list item second child not as an anchor', async () => {
-      const item = document.querySelector(
-        '.govuk-breadcrumbs__list',
-      )?.lastElementChild;
+      const item = document.querySelector('.govuk-breadcrumbs__list')?.lastElementChild;
       expect(item?.querySelector('a')).toBeNull();
       expect(item?.textContent?.trim()).toEqual('Accessibility statement');
     });
@@ -109,20 +93,14 @@ describe('Accessibility Screen', () => {
       expect(heading?.textContent?.trim()).toEqual('Accessibility statement');
     });
     it('should render 3 items', async () => {
-      const contentSections = document.querySelectorAll(
-        '.ncea-static-page__content',
-      );
+      const contentSections = document.querySelectorAll('.ncea-static-page__content');
       const content = contentSections?.[0];
       expect(content?.childElementCount).toBe(3);
     });
     it('should render 3 items content', async () => {
-      const contentSections = document.querySelectorAll(
-        '.ncea-static-page__content',
-      );
+      const contentSections = document.querySelectorAll('.ncea-static-page__content');
       const content = contentSections?.[0];
-      const items = content?.querySelectorAll(
-        'p.ncea-static-page__content-item',
-      );
+      const items = content?.querySelectorAll('p.ncea-static-page__content-item');
       expect(items?.[0]?.textContent?.trim()).toEqual(
         'This accessibility statement applies to the find natural capital data service.',
       );
@@ -137,29 +115,19 @@ describe('Accessibility Screen', () => {
 
   describe('Content section 2', () => {
     it('should render the heading', async () => {
-      const headings = document.querySelectorAll(
-        '.ncea-static-page__heading-s',
-      );
+      const headings = document.querySelectorAll('.ncea-static-page__heading-s');
       const heading = headings[0];
-      expect(heading?.textContent?.trim()).toEqual(
-        "What we're doing to improve accessibility",
-      );
+      expect(heading?.textContent?.trim()).toEqual("What we're doing to improve accessibility");
     });
     it('should render 3 items', async () => {
-      const contentSections = document.querySelectorAll(
-        '.ncea-static-page__content',
-      );
+      const contentSections = document.querySelectorAll('.ncea-static-page__content');
       const content = contentSections?.[1];
       expect(content?.childElementCount).toBe(3);
     });
     it('should render 3 items content', async () => {
-      const contentSections = document.querySelectorAll(
-        '.ncea-static-page__content',
-      );
+      const contentSections = document.querySelectorAll('.ncea-static-page__content');
       const content = contentSections?.[1];
-      const items = content?.querySelectorAll(
-        'p.ncea-static-page__content-item',
-      );
+      const items = content?.querySelectorAll('p.ncea-static-page__content-item');
       expect(items?.[0]?.textContent?.trim()).toEqual(
         'This service is currently in private beta. It does not yet fully meet Web Content Accessibility Guidelines version 2.2 AA standard.',
       );
@@ -174,29 +142,19 @@ describe('Accessibility Screen', () => {
 
   describe('Content section 3', () => {
     it('should render the heading', async () => {
-      const headings = document.querySelectorAll(
-        '.ncea-static-page__heading-s',
-      );
+      const headings = document.querySelectorAll('.ncea-static-page__heading-s');
       const heading = headings[1];
-      expect(heading?.textContent?.trim()).toEqual(
-        'Feedback and contact information',
-      );
+      expect(heading?.textContent?.trim()).toEqual('Feedback and contact information');
     });
     it('should render 1 item', async () => {
-      const contentSections = document.querySelectorAll(
-        '.ncea-static-page__content',
-      );
+      const contentSections = document.querySelectorAll('.ncea-static-page__content');
       const content = contentSections?.[2];
       expect(content?.childElementCount).toBe(1);
     });
     it('should render 1 item content', async () => {
-      const contentSections = document.querySelectorAll(
-        '.ncea-static-page__content',
-      );
+      const contentSections = document.querySelectorAll('.ncea-static-page__content');
       const content = contentSections?.[2];
-      const items = content?.querySelectorAll(
-        'p.ncea-static-page__content-item',
-      );
+      const items = content?.querySelectorAll('p.ncea-static-page__content-item');
       expect(items?.[0]?.textContent?.trim()).toEqual(
         'If you would like to give feedback or report accessibility problems with this service, email us at NCEAemail@email.com.',
       );
@@ -205,35 +163,21 @@ describe('Accessibility Screen', () => {
 
   describe('Content section 4', () => {
     it('should render the heading', async () => {
-      const headings = document.querySelectorAll(
-        '.ncea-static-page__heading-s',
-      );
+      const headings = document.querySelectorAll('.ncea-static-page__heading-s');
       const heading = headings[2];
-      expect(heading?.textContent?.trim()).toEqual(
-        'Preparation of this accessibility statement',
-      );
+      expect(heading?.textContent?.trim()).toEqual('Preparation of this accessibility statement');
     });
     it('should render 1 item', async () => {
-      const contentSections = document.querySelectorAll(
-        '.ncea-static-page__content',
-      );
+      const contentSections = document.querySelectorAll('.ncea-static-page__content');
       const content = contentSections?.[3];
       expect(content?.childElementCount).toBe(2);
     });
     it('should render 1 item content', async () => {
-      const contentSections = document.querySelectorAll(
-        '.ncea-static-page__content',
-      );
+      const contentSections = document.querySelectorAll('.ncea-static-page__content');
       const content = contentSections?.[3];
-      const items = content?.querySelectorAll(
-        'p.ncea-static-page__content-item',
-      );
-      expect(items?.[0]?.textContent?.trim()).toEqual(
-        'This statement was prepared on 26 April 2024.',
-      );
-      expect(items?.[1]?.textContent?.trim()).toEqual(
-        'Last updated 29 April 2024.',
-      );
+      const items = content?.querySelectorAll('p.ncea-static-page__content-item');
+      expect(items?.[0]?.textContent?.trim()).toEqual('This statement was prepared on 26 April 2024.');
+      expect(items?.[1]?.textContent?.trim()).toEqual('Last updated 29 April 2024.');
     });
   });
 });

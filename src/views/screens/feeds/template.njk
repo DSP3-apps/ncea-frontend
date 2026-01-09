@@ -23,13 +23,13 @@
       <ul class="govuk-list">
         {% for article in feed.articles %}
           <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">{{ article.title }}</h3>
+            <h3 class="govuk-heading-s">{{ article.title | safe }}</h3>
             <div class="captions-section">
-              <small><b>Author: </b>{{ article.author }}</small>
+              <small><b>Author: </b>{{ article.author | safe }}</small>
               <small><b>Published on : </b>{{ article.pubDate }}</small>
             </div>
-            <p class="govuk-body">{{ article.summary }}</p>
-            <a class="govuk-link" href="{{ article.link }}" target="_blank">{{ article.title }}</a>
+            <p class="govuk-body">{{ article.summary | safe }}</p>
+            <a class="govuk-link" href="{{ article.link | safe }}" target="_blank">{{ article.title | safe }}</a>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
           </li>
         {% endfor %}
