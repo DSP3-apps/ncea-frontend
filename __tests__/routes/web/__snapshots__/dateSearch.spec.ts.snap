@@ -27,6 +27,12 @@ exports[`Guided Search - Date Questionnaire Screen Guided Search > Date Question
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <meta name="version" content="v1.31.7">
+  
+  <script>
+    window.posthogEnabled = false;
+    window.posthogApiKey = "";
+    window.posthogHost = "https://eu.posthog.com";
+  </script>
 
     
   </head>
@@ -886,6 +892,8 @@ exports[`Guided Search - Date Questionnaire Screen Guided Search > Date Question
   </script>
   <script type="text/javascript" src="/natural-capital-ecosystem-assessment/assets/scripts/appinsights.js"></script>
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/customScripts.js"></script>
+  
+  <script type="text/javascript" src="/natural-capital-ecosystem-assessment/assets/scripts/posthog.js"></script>
 
   </body>
 </html>

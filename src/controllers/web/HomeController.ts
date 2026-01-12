@@ -15,6 +15,7 @@ import {
   queryParamKeys,
   webRoutePaths,
 } from '../../utils/constants';
+import { getPostHogConfig } from '../../utils/postHogConfig';
 import { readQueryParams, removeDuplicatesValues, upsertQueryParams } from '../../utils/queryStringHelper';
 
 /**
@@ -34,6 +35,7 @@ const HomeController = {
       quickSearchFID,
       searchInputError: undefined,
       encaUrl,
+      ...getPostHogConfig(),
     });
   },
   intermediateHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
