@@ -89,6 +89,9 @@ describe('Deals with Home Controller', () => {
         searchInputError: undefined,
         user: null,
         encaUrl,
+        posthogEnabled: expect.any(Boolean),
+        posthogApiKey: expect.any(String),
+        posthogHost: expect.any(String),
       });
     });
     it('should call the home view with context with logged in user', async () => {
@@ -105,6 +108,9 @@ describe('Deals with Home Controller', () => {
         // We only want a partial match on the jwt as it contains lots of keys
         user: expect.objectContaining({ email: 'test@test.com' }),
         encaUrl,
+        posthogEnabled: expect.any(Boolean),
+        posthogApiKey: expect.any(String),
+        posthogHost: expect.any(String),
       });
     });
   });
