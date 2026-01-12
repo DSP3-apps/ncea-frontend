@@ -17,6 +17,7 @@ import {
   termsAndConditionsUrl,
   webRoutePaths,
 } from '../../utils/constants';
+import { getPostHogConfig } from '../../utils/postHogConfig';
 
 const packageJsonPath = path.join(process.cwd(), 'package.json');
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
@@ -108,6 +109,7 @@ const customHapiViews = {
       headerNavigationLinks: headerNavigationLinks,
       currentYear: new Date().getFullYear(),
       isLocal: environmentConfig.isLocal,
+      ...getPostHogConfig(),
     },
   },
 };
