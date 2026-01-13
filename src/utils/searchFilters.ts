@@ -286,7 +286,7 @@ export const searchFilters: ISearchFilters = [
         scope: DataScope.ALL,
       },
       {
-        name: 'KEW',
+        name: 'Royal Botanic Gardens, Kew',
         value: 'KEW',
         scope: DataScope.ALL,
       },
