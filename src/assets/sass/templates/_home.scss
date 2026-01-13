@@ -29,7 +29,7 @@
   }
 }
 
-.privacy_policy_last_updated{
+.privacy_policy_last_updated {
   color: govuk-colour("dark-grey");
   font-weight: 300;
   line-height: 30px;
@@ -67,6 +67,7 @@
     @include font-style-stack(48px, 50px, 700);
     color: $govuk-text-colour;
   }
+
   &__heading-s {
     @include font-style-stack(24px, 30px, 700);
     color: $govuk-text-colour;
@@ -111,10 +112,11 @@
     }
   }
 }
+
 .data-categories {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  gap: 16px;
   margin-left: 0;
   margin-right: 0;
 
