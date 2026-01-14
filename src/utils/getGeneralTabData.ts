@@ -1,6 +1,8 @@
 'use strict';
 
-import { marked } from 'marked';
+import { remark } from 'remark';
+import remarkGfm from 'remark-gfm';
+import remarkHtml from 'remark-html';
 
 import { formatDate } from './dates';
 import { IGeneralItem, IResources, ITemporalExtent } from '../interfaces/searchResponse.interface';
@@ -26,7 +28,9 @@ export const getStudyPeriodDetails = (dateRanges: ITemporalExtent): string => {
 
 const formatContent = (content: string): string => {
   if (!content) return '';
-  return marked.parse(content);
+
+  const result = remark().use(remarkGfm).use(remarkHtml).processSync(content);
+  return String(result);
 };
 
 const getGeneralTabData = (payload: IGeneralItem) => ({

@@ -108,7 +108,9 @@
 
 .tab-content-value {
   p {
+    margin: 0;
     margin-bottom: 20px;
+    white-space: pre-line;
   }
 
   a {
@@ -177,4 +179,3 @@
 .record-link-item {
   margin-bottom: 10px;
 }
-
