@@ -45,6 +45,7 @@
   margin: 0;
   line-height: 0;
   display: flex;
+  height: 228px;
 }
 
 .landingPage__partnersLogo-leftsection {
@@ -59,7 +60,7 @@
   display: block;
   margin: 0;
   padding: 0;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .case-study-description {
@@ -80,10 +81,15 @@
     flex-direction: column;
   }
 
-  .landingPage__partnersLogo-wrapper .landingPage__partnersLogo-rightsection {
-    flex: 1 1 auto;
+  .landingPage__partnersLogo-rightsection {
     max-width: 100%;
-    margin-top: 0;
+    height: auto; 
+  }
+
+  .case-study-image {
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: contain;
   }
 }
 
