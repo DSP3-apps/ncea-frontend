@@ -12,6 +12,7 @@ import {
 } from '../../../src/utils/constants';
 import nunjucks, { Environment } from 'nunjucks';
 import { customHapiViews } from '../../../src/infrastructure/plugins/views';
+import { getPostHogConfig } from '../../../src/utils/postHogConfig';
 
 jest.mock('nunjucks');
 
@@ -108,8 +109,9 @@ describe('Vision Plugin Configuration', () => {
         },
       ],
       currentYear: new Date().getFullYear(),
+      ...getPostHogConfig(),
     });
-    expect(mockEnvironment.addFilter).toHaveBeenCalledTimes(2);
+    expect(mockEnvironment.addFilter).toHaveBeenCalledTimes(3);
   });
   it('should compile and render the template', () => {
     const nunjucksMock = jest.requireMock('nunjucks');

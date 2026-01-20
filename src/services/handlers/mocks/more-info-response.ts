@@ -141,6 +141,7 @@ export const MORE_INFO_MOCK_DATA = {
     publicUseUseConstraints: null,
     publicUseOtherContraints: null,
     frequencyOfUpdate: 'unknown',
+    attributionStatement: null,
   },
   nceaContribution: '',
   datasetReferenceDate: {

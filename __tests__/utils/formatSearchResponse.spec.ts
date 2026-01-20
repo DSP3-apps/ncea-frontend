@@ -81,6 +81,7 @@ describe('Format the search response', () => {
       conditions_for_access_and_use_useConstraints: '',
       conditions_for_access_and_useOtherConstraints: '',
       other_constraint: '',
+      attribution_statement: "",
       available_formats: '',
       frequency_of_update: 'unknown',
       character_encoding: 'utf8',

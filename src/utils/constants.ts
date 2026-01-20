@@ -205,6 +205,7 @@ export const detailsTabOptions: TabOptions = {
     'Conditions for access and use -<br /> Use constraints': 'conditions_for_access_and_use_useConstraints',
     'Conditions for access and use -<br /> Other constraints': 'conditions_for_access_and_useOtherConstraints',
     'Other Constraint': 'other_constraint',
+    'Attribution statement': 'attribution_statement',
   },
   natural: {
     Natural_capital_title: 'Natural_capital_title',
