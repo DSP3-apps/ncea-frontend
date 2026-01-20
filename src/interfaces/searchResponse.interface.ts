@@ -96,6 +96,7 @@ export interface ILicense {
   conditions_for_access_and_use_useConstraints?: string;
   conditions_for_access_and_useOtherConstraints?: string;
   other_constraint?: string;
+  attribution_statement?: string;
 }
 
 export interface ILicenseItem {
@@ -104,6 +105,7 @@ export interface ILicenseItem {
   publicUseUseConstraints?: string | undefined | null;
   publicUseOtherContraints?: string | undefined | null;
   frequencyOfUpdate?: string;
+  attributionStatement?: string | undefined | null;
 }
 
 export interface IGovernance {

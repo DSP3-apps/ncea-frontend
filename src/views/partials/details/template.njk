@@ -40,7 +40,7 @@
                       {% set accordionItems = [] %}
                       {% set nestedLinks = [] %}
                       {% for nested in nestedItems %}
-                        {% set link = '<li><a class="govuk-link tab-content-label" href="/explore/' ~ nested.id ~ '" target="_blank" rel="noopener noreferrer">' ~ (nested.title or nested.id) ~ '</a></li>' %}
+                        {% set link = '<li><a class="govuk-link tab-content-label" href="' ~ params.homePage ~'/search/' ~ nested.id ~ '" target="_blank" rel="noopener noreferrer">' ~ (nested.title or nested.id) ~ '</a></li>' %}
                         {% set nestedLinks = nestedLinks.concat([link]) %}
                       {% endfor %}
                       {% set contentHtml = '<ul class="govuk-list govuk-list--bullet">' ~ nestedLinks | join('') ~ '</ul>' %}
@@ -61,7 +61,7 @@
                         showAllSections: false
                       }) }}
                     {% else %}
-                      <div class="record-link-item"><a class="govuk-link tab-content-label" href="/explore/{{ record.id }}" target="_blank" rel="noopener noreferrer">{{ record.title or record.id }}</a></div>
+                      <div class="record-link-item"><a class="govuk-link tab-content-label" href="{{ params.homePage }}/search/{{ record.id }}" target="_blank" rel="noopener noreferrer">{{ record.title or record.id }}</a></div>
                     {% endif %}
                   {% endfor %}
                 </div>

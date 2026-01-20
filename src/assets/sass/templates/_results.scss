@@ -49,7 +49,7 @@
     margin-bottom: 25px;
   }
 
-  &__button-group > .govuk-button {
+  &__button-group>.govuk-button {
     margin-bottom: 0;
   }
 }
@@ -136,21 +136,27 @@
     color: $gov-defra-color-websafe !important;
   }
 }
+
 .govuk-pagination {
   margin-top: 20px;
 }
+
 .govuk-pagination__item--current {
   background-color: #00703c;
 }
+
 .govuk-link:link {
   color: $defra-brand;
 }
+
 .govuk-link:hover {
   color: $defra-brand-hover;
 }
+
 .govuk-link:visited {
   color: $defra-brand;
 }
+
 .govuk-pagination__item--current:hover {
   background-color: #00703c;
 }
@@ -397,6 +403,7 @@
 
 .defra-checkboxes {
   @include font-style-stack(16px, 20px, 300);
+
   &__label {
     display: flex;
     align-items: center;
@@ -529,6 +536,7 @@
 .govuk-checkboxes__label {
   padding: 7px 25px;
 }
+
 .defra-reset-study-period--link {
   @include font-style-stack(16px, 20px, 300, normal, true);
   color: $govuk-link-colour !important;
@@ -629,11 +637,11 @@
   margin-bottom: 12px;
 }
 
-.filter-options__accordion-toggle > h3 {
+.filter-options__accordion-toggle>h3 {
   color: #1d70b8;
 }
 
-.filter-options__accordion-toggle:hover > h3 {
+.filter-options__accordion-toggle:hover>h3 {
   color: #194578;
 }
 
@@ -643,11 +651,11 @@
   background-color: #ffdd00;
 }
 
-.filter-options__accordion-toggle:focus > h3 {
+.filter-options__accordion-toggle:focus>h3 {
   color: #0b0c0c;
 }
 
-.filter-options__accordion-toggle[data-expanded='true'] > svg {
+.filter-options__accordion-toggle[data-expanded='true']>svg {
   transition: all 0.3s ease-in-out;
   transform: rotate(180deg);
 }
@@ -678,6 +686,7 @@
 .filter-options__keyboard-filter-content-search_results {
   @include keyword-filter-dropdown;
 }
+
 .filter-options__keyboard-filter-content-map_results {
   @include keyword-filter-dropdown;
 }
@@ -687,10 +696,12 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
+
     & li {
       padding: 10px;
       cursor: pointer;
     }
+
     & li:hover {
       background-color: #f1f1f1;
     }
@@ -855,4 +866,23 @@
   border: none;
   text-decoration: none;
   box-shadow: 0 1px 0 #079050;
+}
+
+.tab-content-container {
+  .govuk-accordion {
+    margin-bottom: 0;
+
+    .govuk-accordion__section-content {
+      padding: 0;
+    }
+
+    .govuk-accordion__section-button {
+      padding-bottom: 0;
+    }
+
+    .govuk-accordion__section-heading-text,
+    .govuk-accordion__section-toggle {
+      margin-bottom: 10px;
+    }
+  }
 }
