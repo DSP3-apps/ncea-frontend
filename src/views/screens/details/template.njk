@@ -47,13 +47,13 @@
 
 {% block content %}
     {% if docDetails !== undefined and docDetails.title %}
-      {% set generalHTML = details({options: detailsTabOptions.general, hasData: docDetails.title, assetPath: assetPath}) %}
-      {% set accessHtml = details({options: detailsTabOptions.access, hasData: docDetails.title}) %}
+      {% set generalHTML = details({options: detailsTabOptions.general, hasData: docDetails.title, assetPath: assetPath, homePage: routes.homePage}) %}
+      {% set accessHtml = details({options: detailsTabOptions.access, hasData: docDetails.title, homePage: routes.homePage}) %}
       {% set naturalHtml = detailsHeaderTable({options: detailsTabOptions.natural,  hasData: docDetails.title}) %}
-      {% set qualityHtml = details({options: detailsTabOptions.quality, hasData: docDetails.title}) %}
-      {% set governanceHtml = details({options: detailsTabOptions.governance, hasData: docDetails.title}) %}
-      {% set geographyHtml = details({options: detailsTabOptions.geography, hasData: docDetails.title}) %}
-      {% set licenseHtml = details({options: detailsTabOptions.license, hasData: docDetails.title}) %}
+      {% set qualityHtml = details({options: detailsTabOptions.quality, hasData: docDetails.title, homePage: routes.homePage}) %}
+      {% set governanceHtml = details({options: detailsTabOptions.governance, hasData: docDetails.title, homePage: routes.homePage}) %}
+      {% set geographyHtml = details({options: detailsTabOptions.geography, hasData: docDetails.title, homePage: routes.homePage}) %}
+      {% set licenseHtml = details({options: detailsTabOptions.license, hasData: docDetails.title, homePage: routes.homePage}) %}
 
       {% set tabItems = [
         {
