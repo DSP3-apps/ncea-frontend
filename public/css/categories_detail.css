@@ -95,10 +95,7 @@
 
 .landingPage .educational-copy-container__heading-m {
   border-top: 2px solid #008938;
-}
-
-.landingPage p.first-desc {
-  margin-top: -25px;
+  margin-top: 20px;
 }
 
 .landingPage p.cat-video-capt {
@@ -117,7 +114,7 @@
 }
 
 .landingPage .cate-featured-datasets p {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .landingPage p.cate-pby {
@@ -125,5 +122,29 @@
 }
 
 .landingPage hr {
-  border-top: 2px solid #b1b4b6;
+  border-top: 1.5px solid #b1b4b6;
+}
+
+.landingPage ul li.cat-dts-li a:link{
+  color: #0b0c0c;
+}
+
+.landingPage .cate-featured-datasets ul {
+  margin-left: 0px;
+}
+
+.case_study {
+  border-top: 1.5px solid #b1b4b6;  
+}
+
+.landingPage__partnersLogo-wrapper {  
+  margin-top: 20px;
+}
+
+.landingPage .cate-featured-datasets {
+  border-top: 1.5px solid #b1b4b6;
+}
+
+.landingPage .cate-featured-datasets p {  
+  margin-top: 10px;
 }
