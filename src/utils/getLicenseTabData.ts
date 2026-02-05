@@ -12,7 +12,7 @@ const formmatLicenseData = (licenseData: string[]) => {
 
 const getLicenseTabData = (license: ILicenseItem): ILicense => {
   return {
-    limitation_on_public_access: formmatLicenseData(license?.publicAccessAccessContraints ?? []),
+    limitation_on_public_access: license?.publicAccessAccessContraints ?? '',
     limitation_on_public_access_otherconstraint: formmatLicenseData(license?.publicAccessOtherConstraints ?? []),
     conditions_for_access_and_useOtherConstraints: license?.publicUseOtherContraints ?? '',
     conditions_for_access_and_use_useConstraints: license?.publicUseUseConstraints ?? '',

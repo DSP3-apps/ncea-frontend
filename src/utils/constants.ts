@@ -200,9 +200,9 @@ export const detailsTabOptions: TabOptions = {
     // 'Spatial resolution': 'samplingResolution',
   },
   license: {
+    'Conditions for access and use -<br /> Use constraints': 'conditions_for_access_and_use_useConstraints',
     'Limitations on public access -<br /> Access constraints': 'limitation_on_public_access',
     'Limitations on public access -<br /> Other constraints': 'limitation_on_public_access_otherconstraint',
-    'Conditions for access and use -<br /> Use constraints': 'conditions_for_access_and_use_useConstraints',
     'Conditions for access and use -<br /> Other constraints': 'conditions_for_access_and_useOtherConstraints',
     'Other Constraint': 'other_constraint',
     'Attribution statement': 'attribution_statement',

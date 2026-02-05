@@ -4,8 +4,8 @@ import { MORE_INFO_MOCK_DATA } from '../../src/services/handlers/mocks/more-info
 describe('getLicenseTabData', () => {
   it('should return correct license tab data', () => {
     const expectedData = {
-      limitation_on_public_access: 'otherRestrictions<br>license<br>copyright',
-      limitation_on_public_access_otherconstraint: 'Open Government Licence<br>©Crown Copyright, APHA 2016',
+      limitation_on_public_access: 'Open Government Licence<br>©Crown Copyright, APHA 2016',
+      limitation_on_public_access_otherconstraint: 'otherRestrictions<br>license<br>copyright',
       conditions_for_access_and_use_useConstraints: '',
       conditions_for_access_and_useOtherConstraints: '',
       other_constraint: '',

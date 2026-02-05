@@ -100,7 +100,7 @@ export interface ILicense {
 }
 
 export interface ILicenseItem {
-  publicAccessAccessContraints?: string[];
+  publicAccessAccessContraints?: string | undefined | null;
   publicAccessOtherConstraints?: string[];
   publicUseUseConstraints?: string | undefined | null;
   publicUseOtherContraints?: string | undefined | null;
