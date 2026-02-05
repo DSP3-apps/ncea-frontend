@@ -56,7 +56,7 @@ const getQualityTabData = (payload: IQualityItem): IQuality => ({
   metadataDate: getRecordsDates(payload?.datasetReferenceDate?.metadata ?? ''),
   lineage: payload?.lineage ?? '',
   available_formats: getDistributionFormats(payload.resources ?? []),
-  frequency_of_update: payload?.license?.frequencyOfUpdate ?? '',
+  frequency_of_update: payload?.license?.frequencyOfUpdate ?? payload?.license?.accrualPeriodicity,
   character_encoding: 'utf8',
 });
 

@@ -53,10 +53,10 @@ const getGeographicMarkers = (location: string | string[]): string => {
 const getGeographicLocations = (geographicBoundary) => {
   if (geographicBoundary && Object.keys(geographicBoundary).length && !validateObjNullValues(geographicBoundary)) {
     const coordinates = {
-      north: geographicBoundary.bboxNorthLat,
-      south: geographicBoundary.bboxSouthLat,
-      east: geographicBoundary.bboxEastLong,
-      west: geographicBoundary.bboxWestLong,
+      north: geographicBoundary.northBoundLatitude,
+      south: geographicBoundary.southBoundLatitude,
+      east: geographicBoundary.eastBoundLongitude,
+      west: geographicBoundary.westBoundLongitude,
     };
     const { north, south, east, west } = coordinates;
     const latitude = south - 5.0 + (north + 5.0 - (south - 5.0)) / 2;
@@ -67,7 +67,7 @@ const getGeographicLocations = (geographicBoundary) => {
 };
 
 const getGeographyTabData = (payload: IGeographyItem): IGeography => {
-  const coordinatesData = getGeographicLocations(payload?.boundingBox);
+  const coordinatesData = getGeographicLocations(payload?.geospatialExtent);
 
   return {
     spatialDataService: payload?.spatial?.dataService ?? '',

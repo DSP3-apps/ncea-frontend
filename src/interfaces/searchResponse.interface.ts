@@ -105,6 +105,7 @@ export interface ILicenseItem {
   publicUseUseConstraints?: string | undefined | null;
   publicUseOtherContraints?: string | undefined | null;
   frequencyOfUpdate?: string;
+  accrualPeriodicity?: string;
   attributionStatement?: string | undefined | null;
 }
 
@@ -320,16 +321,16 @@ interface SpatialItem {
   referencingSystem?: string;
 }
 export interface IGeographyBoundry {
-  bboxEastLong?: number;
-  bboxWestLong?: number;
-  bboxSouthLat?: number;
-  bboxNorthLat?: number;
+  eastBoundLongitude?: number;
+  westBoundLongitude?: number;
+  southBoundLatitude?: number;
+  northBoundLatitude?: number;
 }
 
 export interface IGeographyItem {
   verticalExtent?: string | undefined | null;
   spatial: SpatialItem;
-  boundingBox?: IGeographyBoundry;
+  geospatialExtent?: IGeographyBoundry;
   geographicLocations?: string | undefined | null;
 }
 

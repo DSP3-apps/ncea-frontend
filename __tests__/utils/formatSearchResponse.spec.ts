@@ -60,7 +60,7 @@ describe('Format the search response', () => {
       ncea_group_reference: '',
       project_number: '',
       content: expect.stringContaining(
-        'This dataset provides a codelist for the reason why a sample resulting in Non Negative Lab Result was submitted'
+        'This dataset provides a codelist for the reason why a sample resulting in Non Negative Lab Result was submitted',
       ),
       studyPeriod: '1 January 2008 to 31 December 2015',
       topicCategories: 'environment',
@@ -81,7 +81,7 @@ describe('Format the search response', () => {
       conditions_for_access_and_use_useConstraints: '',
       conditions_for_access_and_useOtherConstraints: '',
       other_constraint: '',
-      attribution_statement: "",
+      attribution_statement: '',
       available_formats: '',
       frequency_of_update: 'unknown',
       character_encoding: 'utf8',

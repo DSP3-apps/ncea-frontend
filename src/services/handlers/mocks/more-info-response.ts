@@ -9,11 +9,11 @@ export const MORE_INFO_MOCK_DATA = {
     beginPosition: '2008-01-01',
     endPosition: '2015-12-31',
   },
-  boundingBox: {
-    bboxEastLong: 1.7,
-    bboxWestLong: -6.2,
-    bboxSouthLat: -50,
-    bboxNorthLat: 58.7,
+  geospatialExtent: {
+    eastBoundLongitude: 1.7,
+    westBoundLongitude: -6.2,
+    southBoundLatitude: -50,
+    northBoundLatitude: 58.7,
   },
   geographicLocations: null,
   topicCategories: ['environment'],
