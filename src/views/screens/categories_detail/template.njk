@@ -21,17 +21,19 @@
 
   <section class="landingPage__articles">
     <h2 class="govuk-heading-m">{{ type }} </h2>
-    <div class="landingPage__articles-container">
+    <div class="landingPage__intro-content">
+    {% include "partials/categories_detail/key_description.njk" %}
     <img src={{ introText.catDetailimageUrl1 }} width="100%" height="533" alt="{{ type }}" >
     <p class="govuk-body govuk-!-margin-bottom-6">
-      The challenges our seas and coasts face are complex and interconnected, from how to sustainably manage fisheries to where to place offshore windfarms. A natural capital approach helps us to consider the marine environment from multiple perspectives and identify trade-offs, dependencies and synergies across policy ambitions.
+      <small><strong>Image caption</strong>: The challenges our seas and coasts face are complex and interconnected, from how to sustainably manage fisheries to where to place offshore windfarms. A natural capital approach helps us to consider the marine environment from multiple perspectives and identify trade-offs, dependencies and synergies across policy ambitions.</small>
     </p>
+    {% include "partials/categories_detail/key_thought.njk" %}
     </div>
   </section>
 
   <section class="landingPage__intro">
     <div class="landingPage__intro-content">
-        {% include "partials/categories_detail/key_description.njk" %}
+        
         {% include "partials/categories_detail/key_videos.njk" %}
         {% include "partials/categories_detail/key_products.njk" %}
         {% include "partials/categories_detail/case_studies.njk" %}
