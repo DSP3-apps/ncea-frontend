@@ -17,6 +17,7 @@ import {
   termsAndConditionsUrl,
   webRoutePaths,
 } from '../../utils/constants';
+import { getPostHogConfig } from '../../utils/postHogConfig';
 
 const packageJsonPath = path.join(process.cwd(), 'package.json');
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
@@ -68,6 +69,9 @@ const customHapiViews = {
           options.compileOptions.environment.addFilter('merge', (obj1, obj2) => {
             return { ...obj1, ...obj2 };
           });
+          options.compileOptions.environment.addFilter('tojson', (val: unknown) =>
+            val == null ? 'null' : JSON.stringify(val),
+          );
 
           return next();
         },
@@ -108,6 +112,7 @@ const customHapiViews = {
       headerNavigationLinks: headerNavigationLinks,
       currentYear: new Date().getFullYear(),
       isLocal: environmentConfig.isLocal,
+      ...getPostHogConfig(),
     },
   },
 };
