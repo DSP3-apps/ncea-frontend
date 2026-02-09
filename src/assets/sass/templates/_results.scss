@@ -856,3 +856,22 @@
   text-decoration: none;
   box-shadow: 0 1px 0 #079050;
 }
+
+.tab-content-container {
+  .govuk-accordion {
+    margin-bottom: 0;
+
+    .govuk-accordion__section-content {
+      padding: 0;
+    }
+
+    .govuk-accordion__section-button {
+      padding-bottom: 0;
+    }
+
+    .govuk-accordion__section-heading-text,
+    .govuk-accordion__section-toggle {
+      margin-bottom: 10px;
+    }
+  }
+}
