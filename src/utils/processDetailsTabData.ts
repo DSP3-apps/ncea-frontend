@@ -6,6 +6,11 @@ const addLink = (value: string): string => {
   return `<a class="govuk-link" href="${value}" target="_blank">${value}</a>`;
 };
 
+const hasNonNullObjectValues = (value: unknown): boolean => {
+  if (typeof value !== 'object' || value === null) return false;
+  return Object.values(value as Record<string, unknown>).some((v) => v !== null && v !== undefined && v !== '');
+};
+
 const formatValue = (value: string, part: string): string => {
   const isLink = /^(http|https):\/\/.*$/.test(value);
   return isLink && part !== 'host_catalogue_number' ? addLink(value) : value;
@@ -51,10 +56,17 @@ const processTabOption = (
     .map((label) => {
       const displayValue: string[] = [];
       processTabOptionParts(tabOptions[label], entry, docDetails, displayValue);
+      const rawValue = getRawValue(tabOptions[label], entry, docDetails);
+      let formattedDisplayValue = displayValue.length > 0 ? displayValue.join(' ') : '';
+
+      if (label === 'map' && !formattedDisplayValue && hasNonNullObjectValues(rawValue)) {
+        formattedDisplayValue = 'map';
+      }
+
       return {
         label,
-        displayValue: displayValue.length > 0 ? displayValue.join(' ') : '',
-        rawValue: getRawValue(tabOptions[label], entry, docDetails),
+        displayValue: formattedDisplayValue,
+        rawValue,
       };
     })
     .filter((option) => !(option.label === 'Other Constraint' && option.displayValue === ''));
