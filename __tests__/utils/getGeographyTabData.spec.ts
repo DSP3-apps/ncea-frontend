@@ -18,7 +18,7 @@ describe('Geography tab data', () => {
       const result = getGeographicBoundaryHtml(coordinates);
       const { north = '', south = '', east = '', west = '' } = coordinates;
       expect(result).toEqual(
-        `<p>West bounding longitude: <span id="west">${west}</span></p><p>East bounding longitude: <span id="east">${east}</span></p><p>North bounding latitude: <span id="north">${north}</span></p><p>South bounding latitude: <span id="south">${south}</span></p>`,
+        `<p>Latitude from: 47.912775 to 51.245488</p><p>Longitude from: -15.320435 to -6.127928</p>`,
       );
     });
 
@@ -65,7 +65,7 @@ describe('Geography tab data', () => {
           east: 1.7,
           west: -6.2,
         },
-        geographicBoundaryHtml: `<p>West bounding longitude: <span id=\"west\">-6.2</span></p><p>East bounding longitude: <span id=\"east\">1.7</span></p><p>North bounding latitude: <span id=\"north\">58.7</span></p><p>South bounding latitude: <span id=\"south\">-50</span></p>`,
+        geographicBoundaryHtml: `<p>Latitude from: -50 to 58.7</p><p>Longitude from: -6.2 to 1.7</p>`,
         geographicCenter: '-2.25,4.350000000000001',
         geographicMarkers: '',
         verticalExtent: '',
