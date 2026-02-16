@@ -91,6 +91,7 @@ describe('Vision Plugin Configuration', () => {
       appVersion: process.env.npm_package_version,
       keyboardFiltersBaseUrl: '',
       isLocal: false,
+      featureFlag: false,
       headerNavigationLinks: [
         {
           text: 'Home',

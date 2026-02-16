@@ -55,7 +55,9 @@
       'data-do-quick-search': false
     }
   }) }}
-  {% include "partials/home_data_categories/template.njk" %}
+  {% if featureFlag %}
+    {% include "partials/home_data_categories/template.njk" %}
+  {% endif %}
     <article class="govuk-grid-row" role="article">
       <div class="govuk-grid-column-full educational-copy-container">
         <h1 class="govuk-heading-m govuk-\!-static-margin-0 educational-copy-container__heading-m">Data types and scope</h1>
