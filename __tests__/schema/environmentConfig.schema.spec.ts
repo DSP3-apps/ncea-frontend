@@ -57,6 +57,7 @@ describe('Environment Configuration Schema', () => {
         vocabularyApiUrl: 'https://example.com/api',
         categoryResultCountApiUrl: 'https://example.com/api',
         surveyIndexPreviewRecordId: '123',
+        featureFlag: true,
       };
 
       const { error, value } = environmentSchema.validate(validConfig);

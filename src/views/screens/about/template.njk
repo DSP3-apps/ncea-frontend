@@ -80,7 +80,9 @@
         </div>
       </section>
     {% endif %}
-    {% include "partials/home_data_categories/template.njk" %}
+    {% if featureFlag %}
+      {% include "partials/home_data_categories/template.njk" %}
+    {% endif %}
     <section class="landingPage__partnersLogo educational-copy-container__heading-m">
       <div class="landingPage__partnersLogo-leftsection">
         <h2 class="govuk-heading-m">Product Brochure</h2>

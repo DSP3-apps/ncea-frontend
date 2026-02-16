@@ -29,6 +29,7 @@ const config: EnvironmentConfig = {
   vocabularyApiUrl: process.env.VOCABULARY_API,
   categoryResultCountApiUrl: process.env.CATEGORY_RESULT_COUNT_API,
   surveyIndexPreviewRecordId: process.env.SURVEY_INDEX_PREVIEW_RECORD_ID,
+  featureFlag: process.env.FEATURE_FLAG === 'true',
 };
 
 const { error, value } = environmentSchema.validate(config);

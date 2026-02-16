@@ -112,6 +112,7 @@ const customHapiViews = {
       headerNavigationLinks: headerNavigationLinks,
       currentYear: new Date().getFullYear(),
       isLocal: environmentConfig.isLocal,
+      featureFlag: environmentConfig.featureFlag,
       ...getPostHogConfig(),
     },
   },

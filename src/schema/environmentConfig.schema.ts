@@ -61,4 +61,8 @@ export const environmentSchema: Joi.ObjectSchema = Joi.object({
   surveyIndexPreviewRecordId: Joi.string().messages({
     'string.base': 'Survey Index Preview Record ID must be a string',
   }),
+  featureFlag: Joi.boolean().valid(true, false).default(false).messages({
+    'boolean.base': 'Feature Flag must be a boolean value',
+    'any.only': 'Feature Flag is not valid',
+  }),
 });
