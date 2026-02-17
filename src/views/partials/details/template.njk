@@ -18,7 +18,7 @@
             {% set relatedRecords = option.rawValue or [] %}
             {% set relationKey = 'grandParent' %}
             {% if option.label == 'Child record(s)' %}
-              {% set relationKey = 'grandChildren' %}
+              {% set relationKey = 'grandChild' %}
             {% endif %}
             {% if relatedRecords and relatedRecords | length > 0 %}
               {% set hasAnyRecords = false %}
