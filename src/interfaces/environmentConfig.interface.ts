@@ -16,4 +16,6 @@ export interface EnvironmentConfig {
   categoryResultCountApiUrl: string | undefined;
   surveyIndexPreviewRecordId: string | undefined;
   featureFlag: boolean;
+  parentChildFeatureFlag: boolean;
+  enablePostHogFeatureFlag: boolean;
 }

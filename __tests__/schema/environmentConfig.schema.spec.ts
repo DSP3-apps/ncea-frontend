@@ -58,6 +58,8 @@ describe('Environment Configuration Schema', () => {
         categoryResultCountApiUrl: 'https://example.com/api',
         surveyIndexPreviewRecordId: '123',
         featureFlag: true,
+        parentChildFeatureFlag: true,
+        enablePostHogFeatureFlag: true,
       };
 
       const { error, value } = environmentSchema.validate(validConfig);

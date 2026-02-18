@@ -92,6 +92,8 @@ describe('Vision Plugin Configuration', () => {
       keyboardFiltersBaseUrl: '',
       isLocal: false,
       featureFlag: false,
+      parentChildFeatureFlag: false,
+      enablePostHogFeatureFlag: false,
       headerNavigationLinks: [
         {
           text: 'Home',

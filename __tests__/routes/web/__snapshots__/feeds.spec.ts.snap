@@ -28,6 +28,7 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <meta name="version" content="v1.31.7">
+  
 
     <meta name="description" content="Latest news from the Natural Capital and Ecosystem Assessment programme (NCEA) from Defra and Natural England">
 
@@ -528,6 +529,7 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
   </script>
   <script type="text/javascript" src="/natural-capital-ecosystem-assessment/assets/scripts/appinsights.js"></script>
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/customScripts.js"></script>
+  
 
   </body>
 </html>
