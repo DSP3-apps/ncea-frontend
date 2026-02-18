@@ -1,6 +1,5 @@
-import { environmentConfig } from '@/config/environmentConfig';
-
 import { ISearchFiltersProcessed } from './searchFilters';
+import { environmentConfig } from '../config/environmentConfig';
 import { TabOptions } from '../interfaces/detailsTab.interface';
 import { IFilterOptions } from '../interfaces/searchPayload.interface';
 
