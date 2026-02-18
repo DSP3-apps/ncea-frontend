@@ -48,7 +48,7 @@ describe('Environment environmentConfig', () => {
       const { environmentConfig } = require('../../src/config/environmentConfig');
       expect(environmentConfig).toBeDefined();
       expect(typeof environmentConfig).toBe('object');
-      expect(Object.keys(environmentConfig).length).toBe(17);
+      expect(Object.keys(environmentConfig).length).toBe(19);
     });
 
     it('should validate and export the configuration object', () => {
@@ -88,6 +88,8 @@ describe('Environment environmentConfig', () => {
         categoryResultCountApiUrl: Joi.string(),
         surveyIndexPreviewRecordId: Joi.string(),
         featureFlag: Joi.boolean().valid(true, false).default(false),
+        parentChildFeatureFlag: Joi.boolean().valid(true, false).default(false),
+        enablePostHogFeatureFlag: Joi.boolean().valid(true, false).default(false),
       });
 
       const { environmentConfig } = require('../../src/config/environmentConfig');

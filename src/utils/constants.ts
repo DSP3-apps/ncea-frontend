@@ -1,3 +1,5 @@
+import { environmentConfig } from '@/config/environmentConfig';
+
 import { ISearchFiltersProcessed } from './searchFilters';
 import { TabOptions } from '../interfaces/detailsTab.interface';
 import { IFilterOptions } from '../interfaces/searchPayload.interface';
@@ -170,8 +172,13 @@ export const detailsTabOptions: TabOptions = {
     'Resource type': 'resource_type_and_hierarchy',
     // 'Resource locators': 'resource_locators',
     'Contact information': 'contact_information',
-    'Parent record(s)': 'parent_records',
-    'Child record(s)': 'child_records',
+    'Parent identifier': 'ncea_group_reference',
+    ...(environmentConfig.parentChildFeatureFlag
+      ? {
+          'Parent record(s)': 'parent_records',
+          'Child record(s)': 'child_records',
+        }
+      : {}),
     // 'Metadata standard': 'metadata_standard',
     // 'Project number': 'project_number',
     'Metadata language': 'metadata_language',

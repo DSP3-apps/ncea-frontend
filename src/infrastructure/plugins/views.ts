@@ -113,6 +113,8 @@ const customHapiViews = {
       currentYear: new Date().getFullYear(),
       isLocal: environmentConfig.isLocal,
       featureFlag: environmentConfig.featureFlag,
+      parentChildFeatureFlag: environmentConfig.parentChildFeatureFlag,
+      enablePostHogFeatureFlag: environmentConfig.enablePostHogFeatureFlag,
       ...getPostHogConfig(),
     },
   },

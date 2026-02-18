@@ -30,6 +30,8 @@ const config: EnvironmentConfig = {
   categoryResultCountApiUrl: process.env.CATEGORY_RESULT_COUNT_API,
   surveyIndexPreviewRecordId: process.env.SURVEY_INDEX_PREVIEW_RECORD_ID,
   featureFlag: process.env.FEATURE_FLAG === 'true',
+  parentChildFeatureFlag: process.env.PARENT_CHILD_FEATURE_FLAG === 'true',
+  enablePostHogFeatureFlag: process.env.ENABLE_POSTHOG === 'true',
 };
 
 const { error, value } = environmentSchema.validate(config);
