@@ -92,7 +92,9 @@ const processMultipleEntries = (
   docDetails: ISearchItem | Record<string, unknown>,
 ): FormattedTabOption[] => {
   const results: FormattedTabOption[] = [];
-  const noOfOBjectInTab: number = Object.values(docDetails).filter((obj) => (obj as TabbedItem).tab === tabKey).length;
+  const noOfOBjectInTab: number = Object.values(docDetails).filter(
+    (obj) => typeof obj === 'object' && obj !== null && (obj as TabbedItem).tab === tabKey,
+  ).length;
 
   Object.keys(doc).forEach((key, index) => {
     const entry = doc[key] as Record<string, unknown>;
