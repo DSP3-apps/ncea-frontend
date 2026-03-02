@@ -1,0 +1,48 @@
+{% macro renderCommonTree(records, nestedKey, level) %}
+
+  {% set isGrandParent = nestedKey == 'grandParent' %}
+
+  {% if not isGrandParent %}
+      {% set rootul_class = 'govuk-list-child' %}
+      {% set rootul_id = 'clineage-tree' %}
+  {% else %} 
+      {% set rootul_class = 'govuk-list-parent' %} 
+      {% set rootul_id = 'plineage-tree' %}     
+  {% endif %}
+
+  {% if level === 1 %}
+      {% set isRoot = true %}
+  {% else %}
+      {% set isRoot = false %}
+  {% endif %}
+
+ {% if records is defined and records.length > 0 %} 
+  <ul {% if isRoot %} role="tree" id="{{ rootul_id }}" {% else %} role="group" {% endif %} class="{{ rootul_class }}">
+    {% for record in records %}
+        {% set childRecords = [] %}
+
+        <li role="treeitem" aria-level="{{ level }}" tabindex="-1" {% if childRecords.length > 0 %}
+            aria-expanded="false" {% endif %}>
+          <div class="list-item">
+            <span> &horbar; </span>         
+            <a class="govuk-link tab-content-label"
+              href="{{ homePage ~ '/search/' ~ record.id }}"
+              target="_blank"
+              rel="noopener noreferrer">
+              {{ record.title or record.id }}
+            </a>
+          </div>  
+          {% if record.grandParent is defined and record.grandParent.length > 0 %}
+            {% set childRecords = record.grandParent %}       
+          {% endif %}
+
+          {% if record.grandChild is defined and record.grandChild.length > 0 %}
+            {% set childRecords = record.grandChild %}       
+          {% endif %}
+          {{ renderCommonTree(childRecords, nestedKey, level + 1) }}          
+        </li> 
+    {% endfor %}
+  </ul> 
+  {% endif %}
+
+{% endmacro %}
