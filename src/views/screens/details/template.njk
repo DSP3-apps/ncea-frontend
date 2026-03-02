@@ -13,6 +13,7 @@
 {% block head %}
   {{ super() }}
   <link rel="stylesheet" href="{{ assetPath }}/css/ol.css">
+  <link rel="stylesheet" href="{{ assetPath }}/css/tree_view.css">
   <meta name="description" content="Natural Capital search results with options to filter results further and view on a map">
 {% endblock %}
 
@@ -150,4 +151,5 @@
   <script type="module" src="{{ assetPath }}/scripts/location.js"></script>
   <script type="module" src="{{ assetPath }}/scripts/details.js"></script>
   <script type="module" src="{{ assetPath }}/scripts/moreInfo.js"></script>
+  <script type="module" src="{{ assetPath }}/scripts/treeView.js"></script>
 {% endblock %}
