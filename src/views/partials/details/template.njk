@@ -2,81 +2,71 @@
 {%- from "govuk/components/accordion/macro.njk" import govukAccordion -%}
 
 {% from "macros/ncea-contribution.njk" import nceaContribution %}
+{% from "macros/record-tree.njk" import renderTree %}
 
-{% if params.options and params.hasData %}
+{% if params.options and params.hasData %}  
   <div class='tab-content-container'>
+    {% set hasPRecords = false %}
+    {% set hasCRecords = false %} 
+    {% set lineageRecords = [] %}
+    {% set lineageRecords_r = [] %}
     {% for option in params.options %}
+      {% set isParent = option.label === 'Parent record(s)' %}
+      {% set isChild = option.label === 'Child record(s)' %}
       {% if option.label and option.label !== 'map' %}
         <div class='tab-content-row'>
           {% if option.label === 'nceaContribution' and params.assetPath %}
             {% if option.displayValue !== '' %}
               <h2 class='tab-content-label'></h2>
               <div class='tab-content-value'>{{nceaContribution (params.assetPath, option.displayValue )}}</div>
-            {% endif %}
-          {% elseif option.label === 'Parent record(s)' or option.label === 'Child record(s)' %}
-            <h2 class='tab-content-label'>{{ option.label | safe }}</h2>
-            {% set relatedRecords = option.rawValue or [] %}
-            {% set relationKey = 'grandParent' %}
-            {% if option.label == 'Child record(s)' %}
-              {% set relationKey = 'grandChild' %}
-            {% endif %}
-            {% if relatedRecords and relatedRecords | length > 0 %}
-              {% set hasAnyRecords = false %}
-              {% for record in relatedRecords %}
-                {% set nestedItems = record[relationKey] %}
-                {% if nestedItems and nestedItems | length > 0 %}
-                  {% set hasAnyRecords = true %}
+            {% endif %}          
+          {% elseif isParent or isChild %} 
+
+                {% if isParent %}                    
+                    {% set parentRecords = option.rawValue or [] %} 
+                    {% set lineageRecords = lineageRecords | merge({ parents: parentRecords }) %}
+                   
+                {% elseif isChild %}                  
+                  {% set childRecords = option.rawValue or [] %} 
+                    {% set lineageRecords = lineageRecords | merge({ childs: childRecords }) %}                    
+                   <div class="lineageContainer" id="lineageTree"> 
+                      <h2 class='tab-content-label'>Lineage</h2>
+                          {% set parentRecords = lineageRecords['parents'] or [] %} 
+                          {% set childRecords = lineageRecords['childs'] or [] %}
+                          
+                          <div class="tree" role="tree" aria-label="Lineage">
+                            {% if parentRecords and parentRecords | length > 0 %} 
+                              {% set hasPRecords = true %} 
+                                {{ renderTree(parentRecords, "grandParent", params.homePage) }}
+                              <div class="section-title">{{ params.hasData | truncate(70) }}</div>                                               
+                            {% endif %} 
+
+                            {% if childRecords and (childRecords | length) > 0 %}
+                              {% set hasCRecords = true %}                            
+                                {% if not hasPRecords %}
+                                  <div class="section-title">
+                                    {{ params.hasData | truncate(70) }}
+                                  </div>
+                                {% endif %}
+                                {{ renderTree(childRecords, "grandChild", params.homePage) }}                            
+                            {% endif %} 
+                          </div>
+                   </div>                      
+
+                  {% if not hasPRecords and not hasCRecords %}
+                    {{ govukTag({
+                      text: "Unavailable",
+                      classes: "govuk-tag--grey tab-content-value__not-provided"
+                    }) }}
+                  {% endif %}  
+
                 {% else %}
-                  {% if record.id %}
-                    {% set hasAnyRecords = true %}
-                  {% endif %}
-                {% endif %}
-              {% endfor %}
-              {% if hasAnyRecords %}
-                <div class='tab-content-value'>
-                  {% for record in relatedRecords %}
-                    {% set nestedItems = record[relationKey] %}
-                    {% if nestedItems and nestedItems | length > 0 %}
-                      {% set accordionItems = [] %}
-                      {% set nestedLinks = [] %}
-                      {% for nested in nestedItems %}
-                        {% set link = '<li><a class="govuk-link tab-content-label" href="' ~ params.homePage ~'/search/' ~ nested.id ~ '" target="_blank" rel="noopener noreferrer">' ~ (nested.title or nested.id) ~ '</a></li>' %}
-                        {% set nestedLinks = nestedLinks.concat([link]) %}
-                      {% endfor %}
-                      {% set contentHtml = '<ul class="govuk-list govuk-list--bullet">' ~ nestedLinks | join('') ~ '</ul>' %}
-                      {% set headingFallback = 'Parent record' %}
-                      {% if option.label == 'Child record(s)' %}
-                        {% set headingFallback = 'Child record' %}
-                      {% endif %}
-                      {% set headingText = (record.title or record.id or headingFallback) | escape %}
-                      {% set accordionItems = accordionItems.concat([{
-                        heading: { html: '<span class="tab-content-label">' ~ headingText ~ '</span>' },
-                        content: { html: contentHtml }
-                      }]) %}
-                      {% set accordionId = (option.label | lower | replace(' ', '-') ) ~ '-accordion-' ~ loop.index %}
-                      {{ govukAccordion({
-                        id: accordionId,
-                        items: accordionItems,
-                        hideAllSections: true,
-                        showAllSections: false
-                      }) }}
-                    {% else %}
-                      <div class="record-link-item"><a class="govuk-link tab-content-label" href="{{ params.homePage }}/search/{{ record.id }}" target="_blank" rel="noopener noreferrer">{{ record.title or record.id }}</a></div>
-                    {% endif %}
-                  {% endfor %}
-                </div>
-              {% else %}
-                {{govukTag({
+                {{ govukTag({
                   text: "Unavailable",
                   classes: "govuk-tag--grey tab-content-value__not-provided"
-                })}}
+                }) }}
               {% endif %}
-            {% else %}
-              {{govukTag({
-                text: "Unavailable",
-                classes: "govuk-tag--grey tab-content-value__not-provided"
-              })}}
-            {% endif %}
+            
           {% else %}
             <h2 class='tab-content-label'>{{ option.label | safe }}</h2>
             {% if option.displayValue %}
