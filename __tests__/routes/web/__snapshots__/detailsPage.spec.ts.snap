@@ -31,6 +31,7 @@ exports[`Details route template Document details with data Check status code and
   
 
   <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
+  <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/tree_view.css">
   <meta name="description" content="Natural Capital search results with options to filter results further and view on a map">
 
     
@@ -172,7 +173,7 @@ exports[`Details route template Document details with data Check status code and
           <span class="text">Data Services Platform</span>
         </a>
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A39891%2Fnatural-capital-ecosystem-assessment%2Fsearch%2F%257B1234-56789213123-1233-1234%257D' class='govuk-link divider'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A33635%2Fnatural-capital-ecosystem-assessment%2Fsearch%2F%257B1234-56789213123-1233-1234%257D' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">
@@ -436,6 +437,11 @@ exports[`Details route template Document details with data Check status code and
   
     <div class='tab-content-container'>
         
+         
+        
+        
+          
+          
           
             <div class='tab-content-row'>
               
@@ -452,15 +458,19 @@ exports[`Details route template Document details with data Check status code and
           
         
           
+          
+          
             <div class='tab-content-row'>
               
-                
+                          
               
     
             </div>
           
           
         
+          
+          
           
             <div class='tab-content-row'>
               
@@ -477,6 +487,8 @@ exports[`Details route template Document details with data Check status code and
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Topic categories</h2>
@@ -492,6 +504,8 @@ exports[`Details route template Document details with data Check status code and
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Keywords</h2>
@@ -506,6 +520,8 @@ exports[`Details route template Document details with data Check status code and
           
           
         
+          
+          
           
             <div class='tab-content-row'>
               
@@ -530,6 +546,11 @@ exports[`Details route template Document details with data Check status code and
   
     <div class='tab-content-container'>
         
+         
+        
+        
+          
+          
           
             <div class='tab-content-row'>
               
@@ -546,6 +567,8 @@ exports[`Details route template Document details with data Check status code and
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Resource Identifier</h2>
@@ -560,6 +583,8 @@ exports[`Details route template Document details with data Check status code and
           
           
         
+          
+          
           
             <div class='tab-content-row'>
               
@@ -576,6 +601,8 @@ exports[`Details route template Document details with data Check status code and
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Contact information</h2>
@@ -590,6 +617,8 @@ exports[`Details route template Document details with data Check status code and
           
           
         
+          
+          
           
             <div class='tab-content-row'>
               
@@ -607,6 +636,8 @@ exports[`Details route template Document details with data Check status code and
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Metadata language</h2>
@@ -621,6 +652,8 @@ exports[`Details route template Document details with data Check status code and
           
           
         
+          
+          
           
             <div class='tab-content-row'>
               
@@ -669,6 +702,11 @@ exports[`Details route template Document details with data Check status code and
   
     <div class='tab-content-container'>
         
+         
+        
+        
+          
+          
           
             <div class='tab-content-row'>
               
@@ -685,6 +723,8 @@ exports[`Details route template Document details with data Check status code and
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Date of creation</h2>
@@ -699,6 +739,8 @@ exports[`Details route template Document details with data Check status code and
           
           
         
+          
+          
           
             <div class='tab-content-row'>
               
@@ -715,6 +757,8 @@ exports[`Details route template Document details with data Check status code and
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Metadata date</h2>
@@ -730,6 +774,8 @@ exports[`Details route template Document details with data Check status code and
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Lineage</h2>
@@ -744,6 +790,8 @@ exports[`Details route template Document details with data Check status code and
           
           
         
+          
+          
           
             <div class='tab-content-row'>
               
@@ -761,6 +809,8 @@ exports[`Details route template Document details with data Check status code and
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Frequency of update</h2>
@@ -775,6 +825,8 @@ exports[`Details route template Document details with data Check status code and
           
           
         
+          
+          
           
             <div class='tab-content-row'>
               
@@ -799,6 +851,11 @@ exports[`Details route template Document details with data Check status code and
   
     <div class='tab-content-container'>
         
+         
+        
+        
+          
+          
           
             <div class='tab-content-row'>
               
@@ -815,6 +872,8 @@ exports[`Details route template Document details with data Check status code and
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Spatial referencing system</h2>
@@ -829,6 +888,8 @@ exports[`Details route template Document details with data Check status code and
           
           
         
+          
+          
           
             <div class='tab-content-row'>
               
@@ -846,6 +907,8 @@ exports[`Details route template Document details with data Check status code and
         
           
           
+          
+          
             <div id="coordinate-map" class="detail-map" style="height: 335px;"></div>
           
         
@@ -858,6 +921,11 @@ exports[`Details route template Document details with data Check status code and
   
     <div class='tab-content-container'>
         
+         
+        
+        
+          
+          
           
             <div class='tab-content-row'>
               
@@ -875,6 +943,8 @@ exports[`Details route template Document details with data Check status code and
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Limitations on public access -<br /> Access constraints</h2>
@@ -890,6 +960,8 @@ exports[`Details route template Document details with data Check status code and
           
           
         
+          
+          
           
             <div class='tab-content-row'>
               
@@ -907,6 +979,8 @@ exports[`Details route template Document details with data Check status code and
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Conditions for access and use -<br /> Other constraints</h2>
@@ -922,6 +996,8 @@ exports[`Details route template Document details with data Check status code and
           
           
         
+          
+          
           
             <div class='tab-content-row'>
               
@@ -1161,6 +1237,7 @@ exports[`Details route template Document details with data Check status code and
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/location.js"></script>
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/details.js"></script>
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/moreInfo.js"></script>
+  <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/treeView.js"></script>
 
   </body>
 </html>
@@ -1198,6 +1275,7 @@ exports[`Details route template Document details with partial data Check status 
   
 
   <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/ol.css">
+  <link rel="stylesheet" href="/natural-capital-ecosystem-assessment/assets/css/tree_view.css">
   <meta name="description" content="Natural Capital search results with options to filter results further and view on a map">
 
     
@@ -1339,7 +1417,7 @@ exports[`Details route template Document details with partial data Check status 
           <span class="text">Data Services Platform</span>
         </a>
        </span>
-        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A38837%2Fnatural-capital-ecosystem-assessment%2Fsearch%2F%257B1234-56789213123-1233-1234%257D' class='govuk-link divider'>Login</a></span></div>
+        <div class="navLinks service-links"><span>Welcome, Guest&nbsp; <a href='/login?redirect_uri=http%3A%2F%2F127.0.0.1%3A44329%2Fnatural-capital-ecosystem-assessment%2Fsearch%2F%257B1234-56789213123-1233-1234%257D' class='govuk-link divider'>Login</a></span></div>
     </div>
 
     <div class="header__secondary">
@@ -1594,6 +1672,11 @@ exports[`Details route template Document details with partial data Check status 
   
     <div class='tab-content-container'>
         
+         
+        
+        
+          
+          
           
             <div class='tab-content-row'>
               
@@ -1611,15 +1694,19 @@ exports[`Details route template Document details with partial data Check status 
           
         
           
+          
+          
             <div class='tab-content-row'>
               
-                
+                          
               
     
             </div>
           
           
         
+          
+          
           
             <div class='tab-content-row'>
               
@@ -1637,6 +1724,8 @@ exports[`Details route template Document details with partial data Check status 
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Topic categories</h2>
@@ -1653,6 +1742,8 @@ exports[`Details route template Document details with partial data Check status 
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Keywords</h2>
@@ -1668,6 +1759,8 @@ exports[`Details route template Document details with partial data Check status 
           
           
         
+          
+          
           
             <div class='tab-content-row'>
               
@@ -1692,6 +1785,11 @@ exports[`Details route template Document details with partial data Check status 
   
     <div class='tab-content-container'>
         
+         
+        
+        
+          
+          
           
             <div class='tab-content-row'>
               
@@ -1708,6 +1806,8 @@ exports[`Details route template Document details with partial data Check status 
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Resource Identifier</h2>
@@ -1722,6 +1822,8 @@ exports[`Details route template Document details with partial data Check status 
           
           
         
+          
+          
           
             <div class='tab-content-row'>
               
@@ -1738,6 +1840,8 @@ exports[`Details route template Document details with partial data Check status 
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Contact information</h2>
@@ -1752,6 +1856,8 @@ exports[`Details route template Document details with partial data Check status 
           
           
         
+          
+          
           
             <div class='tab-content-row'>
               
@@ -1769,6 +1875,8 @@ exports[`Details route template Document details with partial data Check status 
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Metadata language</h2>
@@ -1783,6 +1891,8 @@ exports[`Details route template Document details with partial data Check status 
           
           
         
+          
+          
           
             <div class='tab-content-row'>
               
@@ -1821,6 +1931,11 @@ exports[`Details route template Document details with partial data Check status 
   
     <div class='tab-content-container'>
         
+         
+        
+        
+          
+          
           
             <div class='tab-content-row'>
               
@@ -1838,6 +1953,8 @@ exports[`Details route template Document details with partial data Check status 
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Date of creation</h2>
@@ -1853,6 +1970,8 @@ exports[`Details route template Document details with partial data Check status 
           
           
         
+          
+          
           
             <div class='tab-content-row'>
               
@@ -1870,6 +1989,8 @@ exports[`Details route template Document details with partial data Check status 
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Metadata date</h2>
@@ -1884,6 +2005,8 @@ exports[`Details route template Document details with partial data Check status 
           
           
         
+          
+          
           
             <div class='tab-content-row'>
               
@@ -1901,6 +2024,8 @@ exports[`Details route template Document details with partial data Check status 
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Distribution formats</h2>
@@ -1917,6 +2042,8 @@ exports[`Details route template Document details with partial data Check status 
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Frequency of update</h2>
@@ -1932,6 +2059,8 @@ exports[`Details route template Document details with partial data Check status 
           
           
         
+          
+          
           
             <div class='tab-content-row'>
               
@@ -1956,6 +2085,11 @@ exports[`Details route template Document details with partial data Check status 
   
     <div class='tab-content-container'>
         
+         
+        
+        
+          
+          
           
             <div class='tab-content-row'>
               
@@ -1973,6 +2107,8 @@ exports[`Details route template Document details with partial data Check status 
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Spatial referencing system</h2>
@@ -1988,6 +2124,8 @@ exports[`Details route template Document details with partial data Check status 
           
           
         
+          
+          
           
             <div class='tab-content-row'>
               
@@ -2005,6 +2143,8 @@ exports[`Details route template Document details with partial data Check status 
         
           
           
+          
+          
         
       </div>
   
@@ -2015,6 +2155,11 @@ exports[`Details route template Document details with partial data Check status 
   
     <div class='tab-content-container'>
         
+         
+        
+        
+          
+          
           
             <div class='tab-content-row'>
               
@@ -2032,6 +2177,8 @@ exports[`Details route template Document details with partial data Check status 
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Limitations on public access -<br /> Access constraints</h2>
@@ -2047,6 +2194,8 @@ exports[`Details route template Document details with partial data Check status 
           
           
         
+          
+          
           
             <div class='tab-content-row'>
               
@@ -2064,6 +2213,8 @@ exports[`Details route template Document details with partial data Check status 
           
         
           
+          
+          
             <div class='tab-content-row'>
               
                 <h2 class='tab-content-label'>Conditions for access and use -<br /> Other constraints</h2>
@@ -2079,6 +2230,8 @@ exports[`Details route template Document details with partial data Check status 
           
           
         
+          
+          
           
             <div class='tab-content-row'>
               
@@ -2271,6 +2424,7 @@ exports[`Details route template Document details with partial data Check status 
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/location.js"></script>
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/details.js"></script>
   <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/moreInfo.js"></script>
+  <script type="module" src="/natural-capital-ecosystem-assessment/assets/scripts/treeView.js"></script>
 
   </body>
 </html>

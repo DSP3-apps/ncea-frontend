@@ -2,6 +2,8 @@
 
 import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 
+import { environmentConfig } from '@/config/environmentConfig';
+
 import { allowedRedirectHosts, jwtCookieName, jwtCookieOptions } from '../../infrastructure/plugins/auth';
 import { Credentials } from '../../interfaces/auth';
 import { IGuidedSearchStepsMatrix, IStepRouteMatrix } from '../../interfaces/guidedSearch.interface';
@@ -17,6 +19,7 @@ import {
 } from '../../utils/constants';
 import { readQueryParams, removeDuplicatesValues, upsertQueryParams } from '../../utils/queryStringHelper';
 
+const today = new Date().toISOString().split('T')[0];
 /**
  * This code snippet exports a module named HomeController.
  * The renderHomeHandler method is an asynchronous function that takes a Request object and a ResponseToolkit object as parameters.
@@ -34,6 +37,10 @@ const HomeController = {
       quickSearchFID,
       searchInputError: undefined,
       encaUrl,
+      today: today,
+      surveyBannerStartDate: environmentConfig.surveyBannerStartDate,
+      surveyBannerEndDate: environmentConfig.surveyBannerEndDate,
+      surveyBannerLink: environmentConfig.surveyBannerLink,
     });
   },
   intermediateHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
