@@ -32,6 +32,9 @@ const config: EnvironmentConfig = {
   featureFlag: process.env.FEATURE_FLAG === 'true',
   parentChildFeatureFlag: process.env.PARENT_CHILD_FEATURE_FLAG === 'true',
   enablePostHogFeatureFlag: process.env.ENABLE_POSTHOG === 'true',
+  surveyBannerStartDate: process.env.SURVEY_BANNER_START_DATE,
+  surveyBannerEndDate: process.env.SURVEY_BANNER_END_DATE,
+  surveyBannerLink: process.env.SURVEY_BANNER_LINK,
 };
 
 const { error, value } = environmentSchema.validate(config);

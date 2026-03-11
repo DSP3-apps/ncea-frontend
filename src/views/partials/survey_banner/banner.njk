@@ -1,0 +1,19 @@
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% set startDate = surveyBannerStartDate %}
+{% set endDate = surveyBannerEndDate %}
+{% set today = today %}
+
+{% if today >= startDate and today <= endDate %}
+    {% set surveyBannerHtml %}
+        <p class="govuk-body"><strong>Help us shape data discovery</strong></p>
+        <p class="govuk-body">Launched in June 2025, the NCEA 'Find Natural Capital Data' search service catalogues NCEA and Defra's natural capital relevant data and makes if findable through a structured natural capital search as well as familiar keyword search.  We're conducting user research to further improve data access - please complete our brief survey.</p>
+        <a class="govuk-link" rel="noreferrer noopener" target="_blank" href="{{ surveyBannerLink }}">
+            Go to survey
+        </a>
+    {% endset %}
+
+    {{ govukInsetText({
+        html: surveyBannerHtml
+    }) }}
+{% endif %}

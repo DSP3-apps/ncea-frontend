@@ -28,7 +28,7 @@ const getSamplingResolution = (distanceObject: { distance?: string }, scale: num
 const getGeographicBoundaryHtml = (coordinates: IAccumulatedCoordinates): string => {
   if (Object.keys(coordinates).length > 0) {
     const { north = '', south = '', east = '', west = '' } = coordinates;
-    return `<p>Latitude from: ${south} to ${north}</p><p>Longitude from: ${west} to ${east}</p>`;
+    return `<p>Latitude from: <span id="south">${south}</span> to <span id="north">${north}</span></p><p>Longitude from: <span id="west">${west}</span> to <span id="east">${east}</span></p>`;
   }
   return '';
 };

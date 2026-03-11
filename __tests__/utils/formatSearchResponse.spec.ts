@@ -93,7 +93,8 @@ describe('Format the search response', () => {
       spatialReferencingSystem: 'http://www.opengis.net/def/crs/EPSG/0/27700',
       geographicLocations: '',
       geographicBoundary: { north: 58.7, south: -50, east: 1.7, west: -6.2 },
-      geographicBoundaryHtml: '<p>Latitude from: -50 to 58.7</p><p>Longitude from: -6.2 to 1.7</p>',
+      geographicBoundaryHtml:
+        '<p>Latitude from: <span id="south">-50</span> to <span id="north">58.7</span></p><p>Longitude from: <span id="west">-6.2</span> to <span id="east">1.7</span></p>',
       geographicCenter: '-2.25,4.350000000000001',
       geographicMarkers: '',
       verticalExtent: '',
