@@ -73,13 +73,17 @@ export const environmentSchema: Joi.ObjectSchema = Joi.object({
     'boolean.base': 'Posthog Feature Flag must be a boolean value',
     'any.only': 'Posthog Feature Flag is not valid',
   }),
-  surveyBannerStartDate: Joi.string().allow('').default('').messages({
+  announcementFeatureFlag: Joi.boolean().valid(true, false).default(false).messages({
+    'boolean.base': 'Announcement Feature Flag must be a boolean value',
+    'any.only': 'Announcement Feature Flag is not valid',
+  }),
+  announcementStartDate: Joi.string().allow('').default('').messages({
     'string.base': 'The survey banner start date must be a string.',
   }),
-  surveyBannerEndDate: Joi.string().allow('').default('').messages({
+  announcementEndDate: Joi.string().allow('').default('').messages({
     'string.base': 'The survey banner end date must be a string.',
   }),
-  surveyBannerLink: Joi.string().allow('').default('').messages({
+  announcementSurveyLink: Joi.string().allow('').default('').messages({
     'string.base': 'The survey banner link must be a string.',
   }),
 });

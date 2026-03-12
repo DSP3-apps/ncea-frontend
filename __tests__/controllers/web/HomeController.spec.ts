@@ -91,9 +91,10 @@ describe('Deals with Home Controller', () => {
         user: null,
         today: new Date().toISOString().split('T')[0],
         encaUrl,
-        surveyBannerStartDate: environmentConfig.surveyBannerStartDate,
-        surveyBannerEndDate: environmentConfig.surveyBannerEndDate,
-        surveyBannerLink: environmentConfig.surveyBannerLink,
+        announcementStartDate: environmentConfig.announcementStartDate,
+        announcementEndDate: environmentConfig.announcementEndDate,
+        announcementSurveyLink: environmentConfig.announcementSurveyLink,
+        announcementFeatureFlag: environmentConfig.announcementFeatureFlag,
       });
     });
     it('should call the home view with context with logged in user', async () => {
@@ -111,9 +112,10 @@ describe('Deals with Home Controller', () => {
         user: expect.objectContaining({ email: 'test@test.com' }),
         today: new Date().toISOString().split('T')[0],
         encaUrl,
-        surveyBannerStartDate: environmentConfig.surveyBannerStartDate,
-        surveyBannerEndDate: environmentConfig.surveyBannerEndDate,
-        surveyBannerLink: environmentConfig.surveyBannerLink,
+        announcementStartDate: environmentConfig.announcementStartDate,
+        announcementEndDate: environmentConfig.announcementEndDate,
+        announcementSurveyLink: environmentConfig.announcementSurveyLink,
+        announcementFeatureFlag: environmentConfig.announcementFeatureFlag,
       });
     });
   });
