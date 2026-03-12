@@ -2,8 +2,7 @@
 
 import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 
-import { environmentConfig } from '@/config/environmentConfig';
-
+import { environmentConfig } from '../../config/environmentConfig';
 import { allowedRedirectHosts, jwtCookieName, jwtCookieOptions } from '../../infrastructure/plugins/auth';
 import { Credentials } from '../../interfaces/auth';
 import { IGuidedSearchStepsMatrix, IStepRouteMatrix } from '../../interfaces/guidedSearch.interface';
