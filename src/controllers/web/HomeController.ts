@@ -38,9 +38,10 @@ const HomeController = {
       searchInputError: undefined,
       encaUrl,
       today: today,
-      surveyBannerStartDate: environmentConfig.surveyBannerStartDate,
-      surveyBannerEndDate: environmentConfig.surveyBannerEndDate,
-      surveyBannerLink: environmentConfig.surveyBannerLink,
+      announcementStartDate: environmentConfig.announcementStartDate,
+      announcementEndDate: environmentConfig.announcementEndDate,
+      announcementSurveyLink: environmentConfig.announcementSurveyLink,
+      announcementFeatureFlag: environmentConfig.announcementFeatureFlag,
     });
   },
   intermediateHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
