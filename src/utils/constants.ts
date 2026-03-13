@@ -504,3 +504,9 @@ export const naturalCapitalEvaluation = {
 
 export const encaUrl = 'https://www.gov.uk/guidance/enabling-a-natural-capital-approach-enca';
 export const feedbackLinkUrl = 'https://defragroup.eu.qualtrics.com/jfe/form/SV_02KhhVirzVmY0QK';
+
+export const surveyBanner = {
+  startDate: '2026-04-10',
+  endDate: '2026-04-15',
+  link: 'https://forms.office.com/Pages/ResponsePage.aspx?id=UCQKdycCYkyQx044U38RAgr3OOICeehPupk_o1lTA_pUM1dDNUw2RFRTWVE4Q0ZNVU9DOTBDMjQyQi4u',
+};

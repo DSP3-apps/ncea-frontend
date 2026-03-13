@@ -18,7 +18,7 @@ describe('Geography tab data', () => {
       const result = getGeographicBoundaryHtml(coordinates);
       const { north = '', south = '', east = '', west = '' } = coordinates;
       expect(result).toEqual(
-        `<p>Latitude from: 47.912775 to 51.245488</p><p>Longitude from: -15.320435 to -6.127928</p>`,
+        `<p>Latitude from: <span id="south">${south}</span> to <span id="north">${north}</span></p><p>Longitude from: <span id="west">${west}</span> to <span id="east">${east}</span></p>`,
       );
     });
 
@@ -53,7 +53,7 @@ describe('Geography tab data', () => {
   describe('getGeographyTabData function', () => {
     it('should return correct data when all properties are present', () => {
       const result = getGeographyTabData(MORE_INFO_MOCK_DATA);
-
+      console.log('result', result.geographicBoundaryHtml);
       expect(result).toEqual({
         spatialDataService: '',
         spatialRepresentationService: 'vector',
@@ -65,7 +65,8 @@ describe('Geography tab data', () => {
           east: 1.7,
           west: -6.2,
         },
-        geographicBoundaryHtml: `<p>Latitude from: -50 to 58.7</p><p>Longitude from: -6.2 to 1.7</p>`,
+        geographicBoundaryHtml:
+          '<p>Latitude from: <span id="south">-50</span> to <span id="north">58.7</span></p><p>Longitude from: <span id="west">-6.2</span> to <span id="east">1.7</span></p>',
         geographicCenter: '-2.25,4.350000000000001',
         geographicMarkers: '',
         verticalExtent: '',

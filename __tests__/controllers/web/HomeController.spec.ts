@@ -16,6 +16,7 @@ import { getSearchResultsCount } from '../../../src/services/handlers/searchApi'
 import { readQueryParams, upsertQueryParams } from '../../../src/utils/queryStringHelper';
 import { authSchema, jwtCookieName } from '../../../src/infrastructure/plugins/auth';
 import { requestMockData } from '../../data/requestData';
+import { environmentConfig } from '../../../src/config/environmentConfig';
 
 jest.mock('../../../src/services/handlers/searchApi', () => ({
   getSearchResultsCount: jest.fn(),
@@ -88,7 +89,11 @@ describe('Deals with Home Controller', () => {
         quickSearchFID,
         searchInputError: undefined,
         user: null,
+        today: new Date().toISOString().split('T')[0],
         encaUrl,
+        surveyBannerStartDate: environmentConfig.surveyBannerStartDate,
+        surveyBannerEndDate: environmentConfig.surveyBannerEndDate,
+        surveyBannerLink: environmentConfig.surveyBannerLink,
       });
     });
     it('should call the home view with context with logged in user', async () => {
@@ -104,7 +109,11 @@ describe('Deals with Home Controller', () => {
         searchInputError: undefined,
         // We only want a partial match on the jwt as it contains lots of keys
         user: expect.objectContaining({ email: 'test@test.com' }),
+        today: new Date().toISOString().split('T')[0],
         encaUrl,
+        surveyBannerStartDate: environmentConfig.surveyBannerStartDate,
+        surveyBannerEndDate: environmentConfig.surveyBannerEndDate,
+        surveyBannerLink: environmentConfig.surveyBannerLink,
       });
     });
   });

@@ -18,4 +18,7 @@ export interface EnvironmentConfig {
   featureFlag: boolean;
   parentChildFeatureFlag: boolean;
   enablePostHogFeatureFlag: boolean;
+  surveyBannerStartDate?: string | undefined;
+  surveyBannerEndDate?: string | undefined;
+  surveyBannerLink?: string | undefined;
 }

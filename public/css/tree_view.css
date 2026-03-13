@@ -2,36 +2,51 @@
     list-style: none;
     margin: 0em 2.0em;
     position: relative;
-    padding: 0.4em; 
-  }    
+    padding: 0.4em;
+  }
   .tree .govuk-list-parent li::before,
   .tree .govuk-list-parent li div:first-child::before {
     content: "";
     position: absolute;
-    top: 15px;
+    top: 14px;
     border-left: 2px solid #686767;
     height: calc(100%);
   }
 
-  .tree .govuk-list-parent li:first-child::before, 
+  .tree .govuk-list-parent li:first-child::before,
   .tree .govuk-list-child li:last-child::before {
     height: calc(0%);
-  } 
+  }
 
-  .tree .govuk-list-child li::before, 
+  .tree .govuk-list-child li::before,
   .tree .govuk-list-child li div:last-child::before,
   .tree .govuk-list-child li:first-child div::before  {
     content: "";
     position: absolute;
     top: -10px;
     border-left: 2px solid #686767;
+    height: calc(100% + 25px);
+  }
+  .tree ul.govuk-list-child > li:last-child a[aria-level="2"]::after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: -2px;
+    border-left: 5px solid #fff;
+    height: calc(100% - 0px);
+  } 
+  .tree ul.govuk-list-child > li:has(a[aria-level="1"]):not(:has(~ li a[aria-level="1"])) a[aria-level="1"]::after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: -2px;
+    border-left: 5px solid #fff;
     height: calc(100% - 0px);
   }
-
+  
   .tree .govuk-list-child li:first-child div::before {
     height: calc(100%);
   }
-  
   .tree li {
     position: relative;
     display: flex;
@@ -44,33 +59,44 @@
     align-items: baseline;
     gap: .3em;
     position: relative;
+    padding-bottom: 08px;
   }
 
   .tree .govuk-list-parent li {
-    position: relative; 
+    position: relative;
   }
 
   .govuk-list-parent > li {
     display: flex;
     flex-direction: column-reverse;
   }
-  
+
   .section-title {
-    font-weight: bold;
     margin: 10px 0 12px 23px;
     background:#fff;
     position:relative;
-  } 
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+  }
 
   .lineageContainer {
     display: flex;
     align-items: flex-start;
-    gap: 2px; 
+    gap: 2px;
   }
-  
+
   @media (max-width: 768px) {
     .lineageContainer {
       flex-direction: column;
+    }
+    .tree .govuk-list-parent li::before,
+    .tree .govuk-list-parent li div:first-child::before {
+      content: "";
+      position: absolute;
+      top: 12px;
+      border-left: 2px solid #686767;
+      height: calc(100%);
     }
   }
 
@@ -83,4 +109,12 @@
     vertical-align: top;
     color: #000;
     margin: 0px;
+}
+
+.lineageContainer .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
 }

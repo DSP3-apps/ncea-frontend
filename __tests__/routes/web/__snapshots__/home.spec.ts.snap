@@ -290,7 +290,15 @@ exports[`Home Screen Home > Sanpshot verification should match the home screen s
         <span class="govuk-caption-l banner-container__caption-l">Use this service to search for data and information relevant to a natural capital approach.</span>
         <span class="govuk-caption-l banner-container__caption-l">Explore outputs from the Natural Capital and Ecosystem Assessment programme, and other natural capital data.</span>
       </div>
-    </header>
+    </header>    
+    
+
+
+
+
+
+
+
     
 
 <div class="govuk-grid-row">
