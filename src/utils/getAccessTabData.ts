@@ -201,7 +201,7 @@ export const extractFileFormat = (url: string | null) => {
 };
 
 export const createDownloadsTableRow = (payload, recordId) => {
-  const { distributionFormat, name, url } = payload;
+  const { distributionFormat, name, url, type } = payload;
   const dataSetName = isEmpty(name) ? 'N/A' : name;
   const fileType = isEmpty(distributionFormat) ? extractFileFormat(url) : distributionFormat[0].toString();
 
@@ -209,7 +209,7 @@ export const createDownloadsTableRow = (payload, recordId) => {
     return `
    <tr>
     <td>${dataSetName}</td>
-    <td>${fileType}</td>
+    <td>${type === DATA_DOWNLOADS_TYPES.EIDC_DOCUMENT ? 'N/A' : fileType}</td>
     <td>N/A</td>
   </tr>
   `;
@@ -217,7 +217,7 @@ export const createDownloadsTableRow = (payload, recordId) => {
   return `
    <tr>
     <td>${dataSetName}</td>
-    <td>${fileType}</td>
+    <td>${type === DATA_DOWNLOADS_TYPES.EIDC_DOCUMENT ? 'N/A' : fileType}</td>
     <td>
       <button data-url="${url}" data-id="${recordId}" class="download-resource govuk-button copy-link-btn" type="button">Download</button>
     </td>

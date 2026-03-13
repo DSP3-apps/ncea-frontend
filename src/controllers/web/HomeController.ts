@@ -2,8 +2,7 @@
 
 import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 
-import { environmentConfig } from '@/config/environmentConfig';
-
+import { environmentConfig } from '../../config/environmentConfig';
 import { allowedRedirectHosts, jwtCookieName, jwtCookieOptions } from '../../infrastructure/plugins/auth';
 import { Credentials } from '../../interfaces/auth';
 import { IGuidedSearchStepsMatrix, IStepRouteMatrix } from '../../interfaces/guidedSearch.interface';
@@ -38,9 +37,10 @@ const HomeController = {
       searchInputError: undefined,
       encaUrl,
       today: today,
-      surveyBannerStartDate: environmentConfig.surveyBannerStartDate,
-      surveyBannerEndDate: environmentConfig.surveyBannerEndDate,
-      surveyBannerLink: environmentConfig.surveyBannerLink,
+      announcementStartDate: environmentConfig.announcementStartDate,
+      announcementEndDate: environmentConfig.announcementEndDate,
+      announcementSurveyLink: environmentConfig.announcementSurveyLink,
+      announcementFeatureFlag: environmentConfig.announcementFeatureFlag,
     });
   },
   intermediateHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {

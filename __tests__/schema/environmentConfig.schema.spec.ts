@@ -60,9 +60,10 @@ describe('Environment Configuration Schema', () => {
         featureFlag: true,
         parentChildFeatureFlag: true,
         enablePostHogFeatureFlag: true,
-        surveyBannerStartDate: '',
-        surveyBannerEndDate: '',
-        surveyBannerLink: '',
+        announcementFeatureFlag: true,
+        announcementStartDate: '',
+        announcementEndDate: '',
+        announcementSurveyLink: '',
       };
 
       const { error, value } = environmentSchema.validate(validConfig);

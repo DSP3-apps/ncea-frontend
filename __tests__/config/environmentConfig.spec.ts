@@ -48,7 +48,7 @@ describe('Environment environmentConfig', () => {
       const { environmentConfig } = require('../../src/config/environmentConfig');
       expect(environmentConfig).toBeDefined();
       expect(typeof environmentConfig).toBe('object');
-      expect(Object.keys(environmentConfig).length).toBe(22);
+      expect(Object.keys(environmentConfig).length).toBe(23);
     });
 
     it('should validate and export the configuration object', () => {
@@ -65,9 +65,10 @@ describe('Environment environmentConfig', () => {
         VOCABULARY_API: 'https://vocabulary-api.com',
         SURVEY_INDEX_PREVIEW_RECORD_ID: '123',
         FEATURE_FLAG: 'true',
-        SURVEY_BANNER_START_DATE: '2026-03-10',
-        SURVEY_BANNER_END_DATE: '2026-03-15',
-        SURVEY_BANNER_LINK:
+        ANNOUNCEMENT_FEATURE_FLAG: 'true',
+        ANNOUNCEMENT_START_DATE: '2026-03-10',
+        ANNOUNCEMENT_END_DATE: '2026-03-15',
+        ANNOUNCEMENT_SURVEY_LINK:
           'https://forms.office.com/Pages/ResponsePage.aspx?id=UCQKdycCYkyQx044U38RAgr3OOICeehPupk_o1lTA_pUM1dDNUw2RFRTWVE4Q0ZNVU9DOTBDMjQyQi4us',
       };
       process.env = { ...mockConfig };
@@ -94,9 +95,10 @@ describe('Environment environmentConfig', () => {
         featureFlag: Joi.boolean().valid(true, false).default(false),
         parentChildFeatureFlag: Joi.boolean().valid(true, false).default(false),
         enablePostHogFeatureFlag: Joi.boolean().valid(true, false).default(false),
-        surveyBannerStartDate: Joi.string().allow('').default(''),
-        surveyBannerEndDate: Joi.string().allow('').default(''),
-        surveyBannerLink: Joi.string().allow('').default(''),
+        announcementFeatureFlag: Joi.boolean().valid(true, false).default(false),
+        announcementStartDate: Joi.string().allow('').default(''),
+        announcementEndDate: Joi.string().allow('').default(''),
+        announcementSurveyLink: Joi.string().allow('').default(''),
       });
 
       const { environmentConfig } = require('../../src/config/environmentConfig');
