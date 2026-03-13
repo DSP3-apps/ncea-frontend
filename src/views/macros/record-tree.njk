@@ -1,6 +1,7 @@
 {% from "macros/common-view-tree.njk" import renderCommonTree %}
 
-{% macro renderTree(records, nestedKey, homePage) %}
+{% macro renderTree(records, nestedKey, homePage) %} 
+
   {{ renderCommonTree(records, nestedKey, homePage, level = 1) }}
 
 {% endmacro %}
