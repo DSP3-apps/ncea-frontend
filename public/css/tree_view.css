@@ -2,14 +2,14 @@
     list-style: none;
     margin: 0em 2.0em;
     position: relative;
-    padding: 0.4em;
+    padding: 0.41em;
   }
   .tree .govuk-list-parent li::before,
   .tree .govuk-list-parent li div:first-child::before {
     content: "";
     position: absolute;
-    top: 15px;
-    border-left: 2px solid #686767;
+    top: 14px;
+    border-left: 2px solid #777575;
     height: calc(100%);
   }
 
@@ -24,14 +24,29 @@
     content: "";
     position: absolute;
     top: -10px;
-    border-left: 2px solid #686767;
+    border-left: 2px solid #777575;
+    height: calc(100% + 25px);
+  }
+  .tree ul.govuk-list-child > li:last-child a[aria-level="2"]::after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: -2px;
+    border-left: 5px solid #fff;
+    height: calc(100% - 0px);
+  } 
+  .tree ul.govuk-list-child > li:has(a[aria-level="1"]):not(:has(~ li a[aria-level="1"])) a[aria-level="1"]::after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: -2px;
+    border-left: 5px solid #fff;
     height: calc(100% - 0px);
   }
-
+  
   .tree .govuk-list-child li:first-child div::before {
     height: calc(100%);
   }
-
   .tree li {
     position: relative;
     display: flex;
@@ -44,6 +59,7 @@
     align-items: baseline;
     gap: .3em;
     position: relative;
+    padding-bottom: 08px;
   }
 
   .tree .govuk-list-parent li {
@@ -74,7 +90,28 @@
     .lineageContainer {
       flex-direction: column;
     }
+
+    .tree .govuk-list-parent li::before,
+    .tree .govuk-list-parent li div:first-child::before {
+      content: "";
+      position: absolute;
+      top: 13px;
+      border-left: 2px solid #777575;   
+      height: calc(100%);
+    }    
   }
+
+  @media (max-width: 640px) {
+  .tree ul.govuk-list-child > li:last-child a[aria-level="2"]::after,
+  .tree ul.govuk-list-child > li:has(a[aria-level="1"]):not(:has(~ li a[aria-level="1"])) a[aria-level="1"]::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: -2px;
+    border-left: 5px solid #fff;
+    height: calc(100% - 10px);
+  }
+}
 
 .tree-tab-content-label {
     font-size: 1rem;
@@ -85,4 +122,12 @@
     vertical-align: top;
     color: #000;
     margin: 0px;
+}
+
+.lineageContainer .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
 }
