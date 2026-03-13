@@ -22,35 +22,39 @@
           {% elseif isParent or isChild %} 
 
                 {% if isParent %}                    
-                    {% set parentRecords = option.rawValue or [] %}                     
+                    {% set parentRecords = option.rawValue or [] %} 
                     {% set lineageRecords = lineageRecords | merge({ parents: parentRecords }) %}
                    
                 {% elseif isChild %}                  
-                  {% set childRecords = option.rawValue or [] %}                    
+                  {% set childRecords = option.rawValue or [] %}
                   {% set lineageRecords = lineageRecords | merge({ childs: childRecords }) %}                    
                    <div class="lineageContainer" id="lineageTree"> 
-                      <h2 class='tab-content-label'>Lineage</h2>
+                      <h2 class='tab-content-label'>Related</h2>
                           {% set parentRecords = lineageRecords['parents'] or [] %} 
                           {% set childRecords = lineageRecords['childs'] or [] %}
                           
-                          <div class="tree" aria-label="Lineage">
-                            {% if parentRecords and parentRecords | length > 0 %} 
-                              {% set hasParentRecords = true %} 
-                                {{ renderTree(parentRecords, "grandParent", params.homePage) }}
-                              <div class="section-title" tabindex="0">
-                              {{ params.hasData }}
-                              </div>                                               
-                            {% endif %} 
+                          <div class="tree">
+                            <nav aria-label="Related">
+                              {% if parentRecords and parentRecords | length > 0 %} 
+                                {% set hasParentRecords = true %} 
+                                  {{ renderTree(parentRecords, "grandParent", params.homePage) }}
+                                <div class="section-title" tabindex="0">
+                                <span class="visually-hidden">Current dataset: </span>
+                                {{ params.hasData }}
+                                </div>                                               
+                              {% endif %} 
 
-                            {% if childRecords and (childRecords | length) > 0 %}
-                              {% set hasChildRecords = true %}                            
-                                {% if not hasParentRecords %}
-                                  <div class="section-title" tabindex="0">
-                                    {{ params.hasData }}
-                                  </div>
-                                {% endif %}
-                                {{ renderTree(childRecords, "grandChild", params.homePage) }}                            
-                            {% endif %} 
+                              {% if childRecords and (childRecords | length) > 0 %}
+                                {% set hasChildRecords = true %}                            
+                                  {% if not hasParentRecords %}
+                                    <div class="section-title" tabindex="0">
+                                      <span class="visually-hidden">Current dataset: </span>
+                                      {{ params.hasData }}
+                                    </div>
+                                  {% endif %}
+                                  {{ renderTree(childRecords, "grandChild", params.homePage) }}                            
+                              {% endif %} 
+                            </nav>  
                           </div>
                    </div>                      
 
