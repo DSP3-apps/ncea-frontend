@@ -276,6 +276,11 @@ export const searchFilters: ISearchFilters = [
         scope: DataScope.NCEA,
       },
       {
+        name: 'Environmental Information Data Centre',
+        value: 'Environmental Information Data Centre',
+        scope: DataScope.ALL,
+      },
+      {
         name: 'Forestry Commission',
         value: 'Forestry Commission',
         scope: DataScope.NCEA,
