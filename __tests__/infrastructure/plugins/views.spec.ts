@@ -35,7 +35,7 @@ describe('Vision Plugin Configuration', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
-  it.skip('should configure nunjucks and return the plugin configuration', async () => {
+  it('should configure nunjucks and return the plugin configuration', async () => {
     const nunjucksMock = jest.requireMock('nunjucks');
     const { options } = customHapiViews;
     nunjucksMock.configure.mockImplementation(() => ({ addFilter: jest.fn() }));

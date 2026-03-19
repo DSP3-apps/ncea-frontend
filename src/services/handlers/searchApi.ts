@@ -4,11 +4,22 @@ import { Credentials } from '../../interfaces/auth';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { IFilterFlags } from '../../interfaces/searchPayload.interface';
 import { IAggregationOptions, ISearchResponse, ISearchResults } from '../../interfaces/searchResponse.interface';
+import { getUrlAndAuthHeader } from '../../utils/authHeader';
 import { defaultFilterOptions } from '../../utils/constants';
 import { formatSearchResponse, transformSearchResponse } from '../../utils/formatSearchResponse';
 import { isEmpty } from '../../utils/isEmpty';
 import { generateSearchQuery } from '../../utils/queryBuilder';
 import { ISearchFiltersProcessed } from '../../utils/searchFilters';
+
+type HeadersMap = Record<string, string>;
+
+const requireUrl = (value: string | undefined, name: string): string => {
+  if (!value) {
+    throw new Error(`${name} is not configured`);
+  }
+
+  return value;
+};
 
 const getSearchResults = async (
   searchFieldsObject: ISearchPayload,
@@ -21,15 +32,23 @@ const getSearchResults = async (
     if (Object.keys(searchFieldsObject.fields).length) {
       const payload = generateSearchQuery(searchFieldsObject, filters);
 
-      const headers = credentials ? { Authorization: `Bearer ${credentials?.jwt}` } : null;
-      const agmApiResponse = await fetch(
-        `${environmentConfig.searchApiUrl}?sortBy=${searchFieldsObject?.sort ?? 'most_relevant'}`,
-        {
-          method: 'POST',
-          ...(headers && { headers }),
-          body: JSON.stringify(payload),
-        },
-      );
+      const searchApiUrl = requireUrl(environmentConfig.searchApiUrl, 'SEARCH_API');
+      const { url, authHeader } = getUrlAndAuthHeader(searchApiUrl);
+
+      const headers: HeadersMap = {};
+
+      // Prefer basic auth if the URL contained credentials; fall back to JWT otherwise.
+      if (authHeader) {
+        headers.Authorization = authHeader;
+      } else if (credentials) {
+        headers.Authorization = `Bearer ${credentials.jwt}`;
+      }
+
+      const agmApiResponse = await fetch(`${url}?sortBy=${searchFieldsObject?.sort ?? 'most_relevant'}`, {
+        method: 'POST',
+        ...(Object.keys(headers).length ? { headers } : {}),
+        body: JSON.stringify(payload),
+      });
 
       if (!agmApiResponse.ok) {
         throw new Error(`Error fetching results: ${agmApiResponse.statusText}`);
@@ -52,10 +71,23 @@ const getSearchResults = async (
 const getSearchResultsCount = async (parent: string, credentials: Credentials): Promise<{ totalResults: number }> => {
   try {
     if (!isEmpty(parent)) {
-      const headers = credentials ? { Authorization: `Bearer ${credentials?.jwt}` } : null;
-      const agmApiResponse = await fetch(`${environmentConfig.categoryResultCountApiUrl}`, {
+      const categoryResultCountApiUrl = requireUrl(
+        environmentConfig.categoryResultCountApiUrl,
+        'CATEGORY_RESULT_COUNT_API',
+      );
+      const { url, authHeader } = getUrlAndAuthHeader(categoryResultCountApiUrl);
+
+      const headers: HeadersMap = {};
+
+      if (authHeader) {
+        headers.Authorization = authHeader;
+      } else if (credentials) {
+        headers.Authorization = `Bearer ${credentials.jwt}`;
+      }
+
+      const agmApiResponse = await fetch(`${url}`, {
         method: 'POST',
-        ...(headers && { headers }),
+        ...(Object.keys(headers).length ? { headers } : {}),
         body: JSON.stringify(parent.split(',')),
       });
 
@@ -84,20 +116,8 @@ const getFilterOptions = async (
   try {
     const { isStudyPeriod = false } = filterFlags as IFilterFlags;
     if (Object.keys(searchFieldsObject.fields).length) {
-      // const searchBuilderPayload: ISearchBuilderPayload = {
-      //   searchFieldsObject,
-      //   isAggregation: true,
-      //   ...(isQuickSearchJourney && {
-      //     fieldsToSearch: quickSearchTargetFields,
-      //   }),
-      // };
-      // const payload = generateFilterQuery(searchBuilderPayload, {
-      //   isStudyPeriod,
-      // });
-      // payload.terminate_after = 10000;
-      // const response = await performQuery<estypes.SearchResponse>(payload);
-      // const finalResponse: IAggregationOptions = await formatAggregationResponse(response, defaultFilterOptions);
       let finalResponse;
+
       if (isStudyPeriod) {
         finalResponse = QUICK_SEARCH_STUDY_PERIOD_FILTERS;
       } else {
@@ -119,15 +139,34 @@ const getFilterOptions = async (
 
 const getDocumentDetails = async (docId: string, credentials: Credentials): Promise<any> => {
   try {
-    const headers = credentials ? { Authorization: `Bearer ${credentials?.jwt}` } : null;
+    const searchApiUrl = requireUrl(environmentConfig.searchApiUrl, 'SEARCH_API');
+    const { url, authHeader } = getUrlAndAuthHeader(searchApiUrl);
+
+    const searchHeaders: HeadersMap = {};
+
+    if (authHeader) {
+      searchHeaders.Authorization = authHeader;
+    } else if (credentials) {
+      searchHeaders.Authorization = `Bearer ${credentials.jwt}`;
+    }
+
+    const vocabularyApiUrl = requireUrl(environmentConfig.vocabularyApiUrl, 'VOCABULARY_API');
+    const { url: vocabUrl, authHeader: vocabAuthHeader } = getUrlAndAuthHeader(vocabularyApiUrl);
+
+    const classifierApiKey = requireUrl(environmentConfig.classifierApiKey, 'CLASSIFIER_API_KEY');
+    const vocabHeaders: HeadersMap = { 'X-API-Key': classifierApiKey };
+    if (vocabAuthHeader) {
+      vocabHeaders.Authorization = vocabAuthHeader;
+    }
+
     const [agmApiSearchResponse, agmApiVocabalaryResponse] = await Promise.all([
-      fetch(`${environmentConfig.searchApiUrl}/${docId}`, {
+      fetch(`${url}/${docId}`, {
         method: 'GET',
-        ...(headers && { headers }),
+        ...(Object.keys(searchHeaders).length ? { headers: searchHeaders } : {}),
       }),
-      fetch(`${environmentConfig.vocabularyApiUrl}`, {
+      fetch(`${vocabUrl}`, {
         method: 'GET',
-        headers: { 'X-API-Key': environmentConfig.classifierApiKey } as HeadersInit,
+        headers: vocabHeaders,
       }),
     ]);
 

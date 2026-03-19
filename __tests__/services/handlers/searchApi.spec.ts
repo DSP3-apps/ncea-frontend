@@ -7,7 +7,7 @@ import { IAggregationOptions } from '../../../src/interfaces/searchResponse.inte
 import { QUICK_SEARCH_RESPONSE } from '../../../src/services/handlers/mocks/quick-search';
 import { applyMockFilters, DataScope } from '../../../src/utils/searchFilters';
 import { requestMockData } from '../../data/requestData';
-import { processDSPFilterOptions } from '../../../src/utils//processFilterRSortOptions';
+import { environmentConfig } from '../../../src/config/environmentConfig';
 import {
   categoryFilteredData,
   defaultQuery,
@@ -203,6 +203,9 @@ describe('Search API', () => {
   });
 
   describe('Search API - To fetch the search results count', () => {
+    beforeEach(() => {
+      environmentConfig.categoryResultCountApiUrl = 'https://example.com/category-results';
+    });
     it('should return the total results count', async () => {
       global.fetch = jest.fn().mockResolvedValue({
         ok: true,
