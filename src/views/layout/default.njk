@@ -24,17 +24,6 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <meta name="version" content="v{{appVersion}}">
-  <script>
-    const searchApiUrl = {{ searchApiUrl | tojson | safe }};
-    const categoryResultCountApiUrl = {{ categoryResultCountApiUrl | tojson | safe }};
-    const classifierApiUrl = {{ classifierApiUrl | tojson | safe }};
-    const vocabularyApiUrl = {{ vocabularyApiUrl | tojson | safe }};
-
-    console.info('searchApiUrl:', searchApiUrl);
-    console.info('categoryResultCountApiUrl:', categoryResultCountApiUrl);
-    console.info('classifierApiUrl:', classifierApiUrl);
-    console.info('vocabularyApiUrl:', vocabularyApiUrl);
-  </script>
   {% if enablePostHogFeatureFlag %}
     <script>
       window.posthogEnabled = {{ posthogEnabled | default(false) }};
