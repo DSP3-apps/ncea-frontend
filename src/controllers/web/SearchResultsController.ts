@@ -3,6 +3,7 @@
 import { Lifecycle, Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
 import Joi from 'joi';
 
+import { environmentConfig } from '../../config/environmentConfig';
 import { Credentials } from '../../interfaces/auth';
 import { FormattedTabOptions } from '../../interfaces/detailsTab.interface';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
@@ -28,6 +29,7 @@ import {
 } from '../../utils/queryStringHelper';
 import { DataScope, buildFilterResetUrl, filterNames } from '../../utils/searchFilters';
 
+const today = new Date().toISOString().split('T')[0];
 const SearchResultsController = {
   renderSearchResultsHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
     const { quickSearchFID } = formIds;
@@ -92,6 +94,11 @@ const SearchResultsController = {
         resetStudyPeriodLink,
         backLinkPath: '#',
         backLinkClasses: 'back-link-search-result',
+        announcementStartDate: environmentConfig.announcementStartDate,
+        announcementEndDate: environmentConfig.announcementEndDate,
+        announcementSurveyLink: environmentConfig.announcementSurveyLink,
+        announcementFeatureFlag: environmentConfig.announcementFeatureFlag,
+        today,
       });
     } catch (error) {
       return response.view('screens/results/template', {
@@ -99,6 +106,11 @@ const SearchResultsController = {
         error,
         hasError: true,
         isQuickSearchJourney,
+        announcementStartDate: environmentConfig.announcementStartDate,
+        announcementEndDate: environmentConfig.announcementEndDate,
+        announcementSurveyLink: environmentConfig.announcementSurveyLink,
+        announcementFeatureFlag: environmentConfig.announcementFeatureFlag,
+        today,
       });
     }
   },

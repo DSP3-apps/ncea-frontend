@@ -17,6 +17,9 @@
       <img alt="Department for Environment Food &amp; Rural Affairs Logo" src="{{ assetPath }}/images/NCEA-logo-landscape.webp" class="banner-container__ncea-logo">
     </div>
   </header>
+  {% if announcementFeatureFlag %}
+    {% include "partials/survey_banner/banner.njk" %}
+  {% endif %}
   <section class="landingPage__articles">
     <h2 class="govuk-heading-m">Featured articles</h2>
     <div class="landingPage__articles-container">
