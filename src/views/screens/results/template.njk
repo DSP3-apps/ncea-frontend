@@ -14,6 +14,9 @@
     {% include "partials/guided_search_breadcrumb/template.njk" %}
   {% endblock %}
   {% block content %}
+    {% if announcementFeatureFlag %}
+      {% include "partials/survey_banner/banner.njk" %}
+    {% endif %}
     <h1 class="govuk-heading-l ">Search results</h1>
     {% if dspFilterOptions.hasDSPFiltersRemoved %}
       <p  class="govuk-body-m">You have reduced the search scope to NCEA programme only. Some filter items have been removed as they do not apply. See the filter summary to confirm the current filter choices.</p>

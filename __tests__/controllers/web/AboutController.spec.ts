@@ -4,6 +4,7 @@ import { Request, ResponseToolkit, ResponseObject } from '@hapi/hapi';
 import { AboutController } from '../../../src/controllers/web/AboutController';
 import { landingPageData } from '../../../src/utils/constants';
 import { getFeedsData } from '../../../src/utils/getFeedsData';
+import { environmentConfig } from '../../../src/config/environmentConfig';
 
 // Mock getFeedsData
 jest.mock('../../../src/utils/getFeedsData');
@@ -34,6 +35,11 @@ describe('AboutController.AboutController', () => {
     const result = await AboutController.renderAboutHandler(request as Request, response as ResponseToolkit);
     expect(response.view).toHaveBeenCalledWith('screens/about/template', {
       displayFeedsPanel: true,
+      announcementStartDate: environmentConfig.announcementStartDate,
+      announcementEndDate: environmentConfig.announcementEndDate,
+      announcementSurveyLink: environmentConfig.announcementSurveyLink,
+      announcementFeatureFlag: environmentConfig.announcementFeatureFlag,
+      today: new Date().toISOString().split('T')[0],
       feedsList: {
         title: feedData.title,
         article: feedData.articles[0],
