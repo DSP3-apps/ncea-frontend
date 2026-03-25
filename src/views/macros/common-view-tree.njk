@@ -39,12 +39,12 @@
             {% set main_stream = parent_stream %}  
         {% endif %}
 
-        <li {% if childRecords.length > 0 %}
+        <li role="treeitem" aria-level="{{ level }}" {% if childRecords.length > 0 %}
             aria-expanded="true" {% endif %}>
           <div class="list-item">
             <span class="visually-hidden">{{ main_stream }}</span>
             <span class="horizontal-line"></span>         
-            <a role="treeitem" aria-expanded="true" aria-level="{{ level }}" class="govuk-link tree-tab-content-label"
+            <a class="govuk-link tree-tab-content-label"
               href="{{ homePage ~ '/search/' ~ record.id }}"
               target="_blank"
               rel="noopener noreferrer">
