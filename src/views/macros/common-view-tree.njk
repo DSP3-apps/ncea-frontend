@@ -7,24 +7,43 @@
       {% set rootul_id = 'clineage-tree' %}
   {% else %} 
       {% set rootul_class = 'govuk-list-parent' %} 
-      {% set rootul_id = 'plineage-tree' %}     
+      {% set rootul_id = 'plineage-tree' %}    
   {% endif %}
 
-  {% if level === 1 %}
+  {% if level == 1 %}
       {% set isRoot = true %}
   {% else %}
       {% set isRoot = false %}
-  {% endif %}
+  {% endif %} 
 
  {% if records is defined and records.length > 0 %} 
   <ul {% if isRoot %} id="{{ rootul_id }}" role="tree" {% else %} role="group" {% endif %} class="{{ rootul_class }}">
     {% for record in records %}
         {% set childRecords = [] %}
 
+        {% if isGrandParent and  level == 2 %}
+            {% set parent_stream = 'Upstream grandparent dataset:' %}
+        {% else %}
+            {% set parent_stream = 'Upstream parent dataset:' %}
+        {% endif %}
+
+        {% if not isGrandParent and  level == 2 %}
+            {% set child_stream = 'Downstream grandchild dataset:' %}
+        {% else %}
+            {% set child_stream = 'Downstream child dataset:' %}
+        {% endif %}
+
+        {% if not isGrandParent %}
+            {% set main_stream = child_stream %}
+        {% else %}
+            {% set main_stream = parent_stream %}  
+        {% endif %}
+
         <li {% if childRecords.length > 0 %}
             aria-expanded="true" {% endif %}>
           <div class="list-item">
-            <span> &horbar; </span>         
+            <span class="visually-hidden">{{ main_stream }}</span>
+            <span class="horizontal-line"></span>         
             <a role="treeitem" aria-expanded="true" aria-level="{{ level }}" class="govuk-link tree-tab-content-label"
               href="{{ homePage ~ '/search/' ~ record.id }}"
               target="_blank"
@@ -33,13 +52,13 @@
             </a>
           </div>  
           {% if record.grandParent is defined and record.grandParent.length > 0 %}
-            {% set childRecords = record.grandParent %}       
+            {% set childRecords = record.grandParent %}              
           {% endif %}
 
           {% if record.grandChild is defined and record.grandChild.length > 0 %}
-            {% set childRecords = record.grandChild %}       
+            {% set childRecords = record.grandChild %}
           {% endif %}
-          {{ renderCommonTree(childRecords, nestedKey, homePage, level + 1) }}          
+          {{ renderCommonTree(childRecords, nestedKey, homePage, level + 1) }}         
         </li> 
     {% endfor %}
   </ul> 
