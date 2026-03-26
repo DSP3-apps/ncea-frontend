@@ -4,6 +4,7 @@ import { RequestQuery } from '@hapi/hapi';
 import { BASE_PATH, FILTER_VALUES, webRoutePaths } from './constants';
 import { convertToDate } from './dates';
 import { getClearFilterUrl, readQueryParams } from './queryStringHelper';
+import { environmentConfig } from '../config/environmentConfig';
 
 export const filterNames = {
   scope: 'scope',
@@ -275,6 +276,15 @@ export const searchFilters: ISearchFilters = [
         value: 'Environment Agency',
         scope: DataScope.NCEA,
       },
+      ...(environmentConfig.featureFlag
+        ? [
+            {
+              name: 'Environmental Information Data Centre',
+              value: 'Environmental Information Data Centre',
+              scope: DataScope.ALL,
+            },
+          ]
+        : []),
       {
         name: 'Forestry Commission',
         value: 'Forestry Commission',
