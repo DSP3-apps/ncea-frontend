@@ -25,6 +25,13 @@ import {
 
 const DATE_FORMAT = 'd MMMM yyyy';
 
+// Safely parse date strings to avoid RangeError on invalid/empty values
+const toValidDate = (value?: string | null): Date | null => {
+  if (!value) return null;
+  const parsed = new Date(value);
+  return Number.isNaN(parsed.getTime()) ? null : parsed;
+};
+
 // const getResourceLocatorURL = (data: string | string[]): string => {
 //   if (Array.isArray(data) && data.length) {
 //     return data[0] as string;
@@ -78,20 +85,17 @@ export const transformSearchResponse = (response: ISearchResponse, isMapResults:
     };
   }
   const items = response.results.map((result: ISearchResult) => {
-    const start = result.temporalExtent.beginPosition;
-    const end = result.temporalExtent.endPosition;
-
-    const startDate = new Date(start);
-    const endDate = new Date(end);
+    const startDate = toValidDate(result?.temporalExtent?.beginPosition);
+    const endDate = toValidDate(result?.temporalExtent?.endPosition);
 
     const searchResponse = {
       id: result.id,
       title: result.title,
       content: toggleContent(result.abstract, `abstract_content-${result.id}`),
-      studyPeriodStart: start ? format(startDate, DATE_FORMAT) : undefined,
-      studyPeriodEnd: end ? format(endDate, DATE_FORMAT) : undefined,
-      startYear: startDate.getFullYear().toString(),
-      toYear: endDate.getFullYear().toString(),
+      studyPeriodStart: startDate ? format(startDate, DATE_FORMAT) : undefined,
+      studyPeriodEnd: endDate ? format(endDate, DATE_FORMAT) : undefined,
+      startYear: startDate ? startDate.getFullYear().toString() : '',
+      toYear: endDate ? endDate.getFullYear().toString() : '',
       resourceLocator: result?.resource?.url ?? '',
       organisationName: '',
       publishedBy: result?.organisation ?? '',
@@ -114,8 +118,8 @@ export const transformSearchResponse = (response: ISearchResponse, isMapResults:
       } else {
         searchResponse.dataSetReferenceLabel = DATASET_CREATION_DATE_LABEL;
       }
-      const dataSetReferenceDate = new Date(dataSetPublicationDate ?? dataSetRevisionDate ?? dataSetCreationDate);
-      searchResponse.displayDataSetReferenceDate = true;
+      const dataSetReferenceDate = toValidDate(dataSetPublicationDate ?? dataSetRevisionDate ?? dataSetCreationDate);
+      searchResponse.displayDataSetReferenceDate = Boolean(dataSetReferenceDate);
       searchResponse.dataSetReferenceDate = dataSetReferenceDate ? format(dataSetReferenceDate, DATE_FORMAT) : '';
     }
 
