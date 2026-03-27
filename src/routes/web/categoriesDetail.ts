@@ -5,7 +5,7 @@ import { CategoriesDetailController } from '../../controllers/web/CategoriesDeta
 const categoriesDetail = [
   {
     method: 'GET',
-    path: '/categoriesDetail',
+    path: '/categoriesDetail/{category}',
     handler: CategoriesDetailController.renderCategoriesDetailHandler,
   },
 ];

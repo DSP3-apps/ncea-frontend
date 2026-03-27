@@ -7,9 +7,10 @@ import { landingPageData, pageTitles } from '../../utils/constants';
 const CategoriesDetailController = {
   renderCategoriesDetailHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
     try {
+      const category = request.params.category || null;
       return response.view('screens/categories_detail/template', {
         displayFeedsPanel: true,
-        type: request.query.type,
+        category: category,
         pageTitle: pageTitles.categoryDetail,
         ...landingPageData,
       });
