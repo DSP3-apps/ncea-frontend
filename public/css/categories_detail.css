@@ -133,10 +133,10 @@
 }
 
 .case_study {
-  border-top: 1.5px solid #b1b4b6;  
+  border-top: 1.5px solid #b1b4b6;
 }
 
-.landingPage__partnersLogo-wrapper {  
+.landingPage__partnersLogo-wrapper {
   margin-top: 20px;
 }
 
@@ -144,9 +144,22 @@
   border-top: 1.5px solid #b1b4b6;
 }
 
-.landingPage .cate-featured-datasets p {  
+.landingPage .cate-featured-datasets p {
   margin-top: 10px;
 }
+
 .top-para {
   margin-top: 20px;
+}
+
+.grey-line {
+   border-top: 1.5px solid #b1b4b6;
+}
+
+.margin-top-10 {
+  margin-top: 15px;
+}
+
+.margin-bottom-10 {
+  margin-bottom: 15px;
 }
