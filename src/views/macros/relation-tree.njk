@@ -1,0 +1,23 @@
+{% macro renderTree(nodes, homePage, categoryClass) %}
+<ul class="relation-tree {{categoryClass}} " role="list">
+
+  {% for node in nodes %}
+    <li role="listitem" class="level_{{node.level}}" >
+      <div>
+        <a class="govuk-link tree-tab-content-label"
+          href="{{ homePage ~ '/search/' ~ node.id }}"
+          target="_blank"
+          rel="noopener noreferrer">
+          {{ node.title or node.id }}
+        </a>
+        
+      </div>
+      {% if node.children and node.children.length %}
+          {{ renderTree(node.children, homePage, categoryClass) }}
+        {% endif %}
+
+    </li>
+  {% endfor %}
+
+</ul>
+{% endmacro %}

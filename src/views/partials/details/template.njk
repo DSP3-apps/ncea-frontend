@@ -2,7 +2,7 @@
 {%- from "govuk/components/accordion/macro.njk" import govukAccordion -%}
 
 {% from "macros/ncea-contribution.njk" import nceaContribution %}
-{% from "macros/record-tree.njk" import renderTree %}
+{% from "macros/relation-tree.njk" import renderTree %}
 
 {% if params.options and params.hasData %}  
   <div class='tab-content-container'>
@@ -27,34 +27,39 @@
                    
                 {% elseif isChild %}                  
                   {% set childRecords = option.rawValue or [] %}
-                  {% set lineageRecords = lineageRecords | merge({ childs: childRecords }) %}                    
+                  {% set lineageRecords = lineageRecords | merge({ childs: childRecords }) %}
+                  <h2 class='tab-content-label'>Related</h2>                    
                    <div class="lineageContainer" id="lineageTree"> 
-                      <h2 class='tab-content-label'>Related</h2>
                           {% set parentRecords = lineageRecords['parents'] or [] %} 
                           {% set childRecords = lineageRecords['childs'] or [] %}
-                          
-                          <div class="tree">
-                            <nav aria-label="Related">
-                              {% if parentRecords and parentRecords | length > 0 %} 
-                                {% set hasParentRecords = true %} 
-                                  {{ renderTree(parentRecords, "grandParent", params.homePage) }}
-                                <div class="section-title" tabindex="0">
-                                <span class="visually-hidden">Current dataset: </span>
-                                {{ params.hasData }}
-                                </div>                                               
-                              {% endif %} 
-
-                              {% if childRecords and (childRecords | length) > 0 %}
-                                {% set hasChildRecords = true %}                            
-                                  {% if not hasParentRecords %}
-                                    <div class="section-title" tabindex="0">
-                                      <span class="visually-hidden">Current dataset: </span>
-                                      {{ params.hasData }}
+                          <div class="tree-container">
+                            {# ---------- PARENTS (TOP) ---------- #}
+                            <section class="parent-section">
+                              {% if params.datasets.showTopTree %}
+                                {% set hasParentRecords = true %}
+                                <span class="visually-hidden">Parent Datasets</span> 
+                                <div class="relation-top">
+                                  {{ renderTree(params.datasets.topTree, params.homePage, "parent") }}
+                                </div>
+                              {% endif %}
+                              </section>
+                              {# ---------- CURRENT DATASET ---------- #}
+                              <section class="section-title" >
+                                <div  class="current-dataset" >
+                                  <span class="visually-hidden">Current Dataset</span>
+                                  <span tabindex="0">{{ params.datasets.current.title }}</span>
+                                </div>
+                                </section>
+                                {# ---------- CHILDREN (BOTTOM) ---------- #}
+                                {% if params.datasets.showBottomTree %}
+                                  <section class="child-section">
+                                    <div class="relation-bottom">
+                                      {% set hasChildRecords = true %}
+                                      <span class="visually-hidden">Child Datasets</span> 
+                                      {{ renderTree(params.datasets.bottomTree, params.homePage, "child") }}
                                     </div>
-                                  {% endif %}
-                                  {{ renderTree(childRecords, "grandChild", params.homePage) }}                            
-                              {% endif %} 
-                            </nav>  
+                                  </section>
+                                {% endif %}
                           </div>
                    </div>                      
 

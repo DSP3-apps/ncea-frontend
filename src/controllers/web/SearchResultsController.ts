@@ -27,6 +27,7 @@ import {
   readQueryParams,
   upsertQueryParams,
 } from '../../utils/queryStringHelper';
+import { type RelationUI, buildRelationUI } from '../../utils/relationHelper';
 import { DataScope, buildFilterResetUrl, filterNames } from '../../utils/searchFilters';
 
 const today = new Date().toISOString().split('T')[0];
@@ -192,6 +193,11 @@ const SearchResultsController = {
       const docDetails: ISearchItem = await getDocumentDetails(docId, request.auth.credentials as Credentials);
       const queryString: string = readQueryParams(request.query);
       const detailsTabOptions: FormattedTabOptions = await processDetailsTabData(docDetails);
+
+      const relationListData: RelationUI = buildRelationUI({
+        options: detailsTabOptions.access ?? [],
+        hasData: docDetails.title,
+      });
       return response.view('screens/details/template', {
         pageTitle: docDetails.title,
         docDetails,
@@ -199,6 +205,7 @@ const SearchResultsController = {
         queryString,
         pageTitles,
         authenticated: request.auth.isAuthenticated,
+        datasets: relationListData,
       });
     } catch (error) {
       return response.view('screens/details/template', {
