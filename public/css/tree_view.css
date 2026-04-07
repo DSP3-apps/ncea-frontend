@@ -1,114 +1,259 @@
-.tree ul {
+.relation-tree {
+  margin: 0px;
   list-style: none;
-  margin: 0em 2.5em;
+  padding: 0em 0em;
+}
+
+.single-parents-section~.section-title,
+.single-parent-no-grand~.section-title {
+  margin: 0em 0em 1em 1em;
   position: relative;
-  padding: 0em;
-  overflow: hidden;
+  padding-left: 1.5em;
 }
 
 
-.tree .govuk-list-parent li:first-child::before,
-.tree .govuk-list-child li:last-child::before {
-  height: calc(0%);
-}
 
-
-.tree .govuk-list-parent li div::before {
+.single-parent-no-grand~.section-title .current-dataset::after {
   content: "";
   position: absolute;
-  border-left: 2px solid #777575;
-  height: calc(100%);
-  margin-top: .5em;
-}
-
-.tree .govuk-list-parent li div::after {
-  content: "";
-  position: absolute;
-  border-bottom: 2px solid #777575;
-  top: 0%;
-  width: 25px;
   left: 0;
-  margin-top: .5em;
+  width: 1em;
+  border-bottom: 2px solid gray;
+  top: 50%;
 }
 
-.tree .govuk-list-child li div::before {
+.single-parent-no-grand~.section-title .current-dataset::before .single-child-no-grand .relation-tree li::before {
   content: "";
   position: absolute;
-  border-left: 2px solid #777575;
-  height: calc(100%);
-  bottom: 40%;
-}
-
-.tree .govuk-list-child li div::after {
-  content: "";
-  position: absolute;
-  border-bottom: 2px solid #777575;
-  bottom: 40%;
-  width: 25px;
   left: 0;
+  border-left: 2px solid gray;
+  bottom: 50%;
+  min-height: 30px;
+  height: 50%;
 }
 
 
-.tree li {
-  position: relative;
+/* level-1  */
+
+.parent-level-1-grand~.section-title {
+  margin: .5em 0em;
+
+}
+
+.parent-level-1-grand .relation-tree,
+.child-level-1-grand .relation-tree {
+  overflow-y: hidden;
+}
+
+.parent-level-1-grand .relation-tree li {
   display: flex;
-  flex-direction: column;
-
-}
-
-.list-item {
-  display: flex;
-  align-items: baseline;
-  position: relative;
-  padding-bottom: .5em;
-}
-
-.govuk-list-parent>li {
   flex-direction: column-reverse;
 }
 
-.section-title {
-  margin: .5em .5em;
-  background: #fff;
-  position: relative;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 700;
-}
-
-.lineageContainer {
+.child-level-1-grand .relation-tree li {
   display: flex;
-  align-items: flex-start;
-  gap: 2px;
+  flex-direction: column;
 }
 
-.tree-tab-content-label {
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px;
-  text-align: left;
-  vertical-align: top;
-  color: #000;
-  margin: 0px;
-  padding-left: .5em;
+.parent-level-1-grand .relation-tree li,
+.child-level-1-grand .relation-tree li {
+  position: relative;
 }
 
-.lineageContainer .visually-hidden {
+.parent-level-1-grand .relation-tree li div,
+.child-level-1-grand .relation-tree li div {
+  padding-left: 1.5em;
+  position: relative;
+  padding-bottom: 1.5em;
+}
+
+.child-level-1-grand .relation-tree li div {
+  padding-top: 1.5em;
+  padding-bottom: 0em;
+}
+
+
+
+.parent-level-1-grand .relation-tree:first-child {
+  position: relative;
+  padding-top: 0px;
+}
+
+.parent-level-1-grand .relation-tree:first-child::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  border-top: 2px solid gray;
+  width: 1em;
+  top: 10px;
+}
+
+
+
+.parent-level-1-grand .relation-tree::before,
+.child-level-1-grand .relation-tree::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  border-left: 2px solid gray;
+  height: 100%;
+  top: 10px;
+  bottom: 0;
+}
+
+.parent-level-1-grand .relation-tree li div::before,
+.child-level-1-grand .relation-tree li div::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  border-left: 2px solid gray;
+  height: 100%;
+  top: 10px;
+}
+
+.child-level-1-grand .relation-tree li div::before {
+  top: auto;
+  bottom: 10px;
+}
+
+.parent-level-1-grand .relation-tree,
+.parent-level-1-grand .relation-tree li .relation-tree,
+.child-level-1-grand .relation-tree,
+.child-level-1-grand .relation-tree li .relation-tree {
+  margin: 0em 1.5em;
+
+}
+
+.parent-level-1-grand .relation-tree li div::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 1em;
+  border-bottom: 2px solid gray;
+  top: 10px;
+}
+
+.child-level-1-grand .relation-tree li div::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 1em;
+  border-bottom: 2px solid gray;
+  bottom: 10px;
+}
+
+.parent-level-1-grand>.relation-top>ul,
+.child-level-1-grand>.relation-bottom>ul {
+  margin-left: 1em;
+}
+
+.parent-level-1-grand~.section-title {
+  margin-bottom: .5em;
+}
+
+
+/* single-parent-single-grand */
+
+.single-parents-section {
+  width: max-content;
+  max-width: 100%;
+}
+
+.single-parents-section .relation-tree li div,
+.single-childs-section .relation-tree li div {
+  max-width: 400px;
+}
+
+.single-parents-section .relation-tree li div,
+.single-childs-section .relation-tree li div {
+  padding-left: 1.5em;
+  position: relative;
+}
+
+
+
+.single-parents-section .relation-tree li div::before,
+.single-parents-section~.section-title .current-dataset::before,
+.single-childs-section .relation-tree li div::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  border-left: 2px solid gray;
+  height: 30px;
+  top: 10px;
+  transform: translate(0px, -30px);
+}
+
+.single-parents-section .relation-tree li div::after,
+.single-parents-section~.section-title .current-dataset::after,
+.single-childs-section .relation-tree li div::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 1em;
+  border-bottom: 2px solid gray;
+  top: 10px;
+}
+
+
+.single-parents-section~.section-title {
+  margin-left: 1em;
+}
+
+.single-parents-section .relation-tree {
+  margin-bottom: 1.5em;
+}
+
+.single-childs-section .relation-tree {
+  margin-top: 1.5em;
+}
+
+.single-parents-section .relation-tree {
+  margin-left: -1.5em;
+
+}
+
+.single-childs-section .relation-tree .relation-tree {
+  margin-left: 1.5em;
+
+}
+
+.single-parents-section .relation-tree li div a,
+.single-childs-section .relation-tree li div a {
+  margin-bottom: .3em;
+  display: inline-block;
+}
+
+.single-parents-section .relation-tree li:not(:has(ul)) div::before,
+.single-parents-section .relation-tree li:not(:has(ul)) div::after {
+  display: none;
+}
+
+.single-parents-section~.section-title .current-dataset::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  border-left: 2px solid gray;
+  bottom: 50%;
+  height: 30px;
+}
+
+.visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
+  margin: -1px;
+  padding: 0;
   overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-}
-
-.horizontal-line {
-  width: 25px;
-  min-width: 25px;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 @media (max-width: 768px) {
-  .lineageContainer {
-    flex-direction: column;
+
+  .single-parents-section .relation-tree li div a,
+  .single-childs-section .relation-tree li div a {
+    display: table-caption;
   }
 }

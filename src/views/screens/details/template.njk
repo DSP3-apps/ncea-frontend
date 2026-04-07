@@ -49,7 +49,7 @@
 {% block content %}
     {% if docDetails !== undefined and docDetails.title %}
       {% set generalHTML = details({options: detailsTabOptions.general, hasData: docDetails.title, assetPath: assetPath, homePage: routes.homePage}) %}
-      {% set accessHtml = details({options: detailsTabOptions.access, hasData: docDetails.title, homePage: routes.homePage}) %}
+      {% set accessHtml = details({options: detailsTabOptions.access, hasData: docDetails.title, homePage: routes.homePage, datasets: datasets}) %}
       {% set naturalHtml = detailsHeaderTable({options: detailsTabOptions.natural,  hasData: docDetails.title}) %}
       {% set qualityHtml = details({options: detailsTabOptions.quality, hasData: docDetails.title, homePage: routes.homePage}) %}
       {% set governanceHtml = details({options: detailsTabOptions.governance, hasData: docDetails.title, homePage: routes.homePage}) %}
