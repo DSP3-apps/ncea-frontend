@@ -5,6 +5,7 @@ import remarkGfm from 'remark-gfm';
 import remarkHtml from 'remark-html';
 
 import { formatDate } from './dates';
+import { removeDuplicatesValues } from './queryStringHelper';
 import { IGeneralItem, ITemporalExtent } from '../interfaces/searchResponse.interface';
 
 export const getStudyPeriodDetails = (dateRanges: ITemporalExtent): string => {
@@ -30,7 +31,7 @@ const getGeneralTabData = (payload: IGeneralItem) => ({
   content: formatContent(payload?.abstract ?? ''),
   studyPeriod: payload?.temporalExtent ? getStudyPeriodDetails(payload.temporalExtent) : '',
   topicCategories: payload?.topicCategories?.join(', ') ?? '',
-  keywords: payload?.keywords?.join(', ') ?? '',
+  keywords: payload?.keywords ? removeDuplicatesValues(payload.keywords.join(', ').toLowerCase()) : '',
   language: payload?.metadata?.language?.toLocaleUpperCase() ?? '',
 });
 
