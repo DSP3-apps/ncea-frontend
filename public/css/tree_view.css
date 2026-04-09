@@ -250,10 +250,78 @@
   border: 0;
 }
 
+/* single-l0-multiple-l1-no-l2 */
+
+
+
+.single-l0-multiple-l1-no-l2 .relation-tree li .relation-tree li:last-child div::before {
+  display: none;
+}
+
+.single-l0-multiple-l1-no-l2 .relation-tree::before,
+.single-l0-multiple-l1-no-l2 .relation-tree::after {
+  display: none;
+}
+
+.single-l0-multiple-l1-no-l2 .relation-tree,
+.single-l0-multiple-l1-no-l2 .relation-tree li .relation-tree {
+  margin-left: 0em !important;
+}
+
+.single-l0-multiple-l1-no-l2 .relation-tree .level_0>div::before {
+  top: -20px;
+  height: 30px;
+}
+
+.single-l0-multiple-l1-no-l2 .relation-tree .level_0>div {
+  margin-left: 1.5em;
+}
+
+.single-l0-multiple-l1-no-l2~.section-title {
+  margin-left: 0em;
+}
+
+.single-l0-multiple-l1-no-l2~.section-title {
+  margin: 0em 0em 1em 3em;
+  position: relative;
+  padding-left: 1.5em;
+}
+
+.single-l0-multiple-l1-no-l2~.section-title .current-dataset::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  border-left: 2px solid gray;
+  top: -20px;
+  height: 30px;
+}
+
+.single-l0-multiple-l1-no-l2~.section-title .current-dataset::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 1em;
+  border-bottom: 2px solid gray;
+  top: 10px;
+}
+
+.single-l0-multiple-l1-no-l2~.child-section .relation-bottom {
+  margin-left: 3.5em;
+}
+
+
+/* .single-l0-multiple-l1-no-l2-child */
+
+.single-l0-multiple-l1-no-l2-child>.relation-bottom>.relation-tree:has(> li:only-child > ul) .relation-tree:before {
+  display: none;
+}
+
+
 @media (max-width: 768px) {
 
   .single-parents-section .relation-tree li div a,
   .single-childs-section .relation-tree li div a {
     display: table-caption;
+    width: 100vw;
   }
 }
