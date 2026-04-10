@@ -41,10 +41,19 @@ const getRecordsDates = (data: string): string => {
   return formatDate(data, false, false);
 };
 
-export const getDistributionFormats = (resources): string => {
-  if (resources?.length > 0) {
+export const getDistributionFormats = (payload: IQualityItem): string => {
+  const resources = payload?.resources ?? [];
+  if (resources.length > 0) {
     const formats = resources.flatMap((item) => item.distributionFormat || []).filter(Boolean);
-    return [...new Set(formats ?? [])].join(', ');
+    const resourceFormats = [...new Set(formats)].join(', ');
+    if (resourceFormats) {
+      return resourceFormats;
+    }
+    const dataFormats = payload?.dataFormats ?? [];
+    if (dataFormats.length > 0) {
+      const formats = dataFormats.map((format) => format.name).filter(Boolean);
+      return [...new Set(formats)].join(', ');
+    }
   }
   return '';
 };
@@ -55,7 +64,7 @@ const getQualityTabData = (payload: IQualityItem): IQuality => ({
   revisionInformation: getRecordsDates(payload?.datasetReferenceDate?.revision ?? ''),
   metadataDate: getRecordsDates(payload?.datasetReferenceDate?.metadata ?? ''),
   lineage: payload?.lineage ?? '',
-  available_formats: getDistributionFormats(payload.resources ?? []),
+  available_formats: getDistributionFormats(payload ?? []),
   frequency_of_update: payload?.license?.frequencyOfUpdate ?? payload?.license?.accrualPeriodicity,
   character_encoding: 'utf8',
 });

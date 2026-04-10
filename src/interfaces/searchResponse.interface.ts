@@ -139,6 +139,7 @@ export interface IQualityItem {
   datasetReferenceDate: IDataSetReferenceDate;
   license?: ILicenseItem;
   resources?: IResources[] | undefined;
+  dataFormats?: DataFormat[] | undefined;
 }
 
 export interface IQuality {
@@ -412,4 +413,9 @@ export interface NceaClassifier {
 
 export interface ServiceOptions {
   [key: string]: string;
+}
+
+export interface DataFormat {
+  name: string;
+  version?: string;
 }

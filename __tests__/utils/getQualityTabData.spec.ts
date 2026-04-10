@@ -1,6 +1,6 @@
 'use strict';
 
-import { IQuality } from '../../src/interfaces/searchResponse.interface';
+import { IQuality, IQualityItem } from '../../src/interfaces/searchResponse.interface';
 import { getQualityTabData, getRecordsDates, getDistributionFormats } from '../../src/utils/getQualityTabData';
 import { MORE_INFO_MOCK_DATA } from '../../src/services/handlers/mocks/more-info-response';
 
@@ -31,7 +31,12 @@ describe('Quality tab fields', () => {
   });
 
   it('should call getDistributionFormats and create a list of distribution formats', () => {
-    const resources = [
+  const payload: IQualityItem = {
+    datasetReferenceDate: {
+      creation: '',
+      revision: '',
+    },
+    resources: [
       {
         url: 'https://environment-test.data.gov.uk/explore/9bceae16-607b-49d6-a980-289289fc4643?download=true',
         name: 'Living England Segmentation (2019) Download',
@@ -53,10 +58,29 @@ describe('Quality tab fields', () => {
         language: 'eng',
         distributionFormat: ['PDF'],
       },
-    ];
-    expect(getDistributionFormats(resources)).toEqual('ZIP, PDF');
+    ],
+      dataFormats: [],
+    };
+    expect(getDistributionFormats(payload)).toEqual('ZIP, PDF');
   });
-  it('should call getDistributionFormats and create a list of empty string if distributionFormat is null', () => {
-    expect(getDistributionFormats(MORE_INFO_MOCK_DATA.resources)).toEqual('');
+  
+  it('should return empty string when resource formats are empty and no fallback', () => {
+  const payload: IQualityItem = {
+    datasetReferenceDate: {
+      creation: '',
+      revision: '',
+    },
+    resources: [
+      {
+        url: '',
+        name: '',
+        type: '',
+        language: '',
+        distributionFormat: [''],
+      },
+    ],
+    dataFormats: [],
+    };
+    expect(getDistributionFormats(payload)).toEqual('');
   });
 });
