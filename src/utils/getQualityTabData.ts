@@ -41,11 +41,23 @@ const getRecordsDates = (data: string): string => {
   return formatDate(data, false, false);
 };
 
-export const getDistributionFormats = (resources): string => {
-  if (resources?.length > 0) {
-    const formats = resources.flatMap((item) => item.distributionFormat || []).filter(Boolean);
-    return [...new Set(formats ?? [])].join(', ');
+const getUniqueFormats = (formats: string[]): string => {
+  return [...new Set(formats)].join(', ');
+};
+
+export const getDistributionFormats = (resources, dataFormats): string => {
+  const resourceFormats = (resources ?? []).flatMap((item) => item.distributionFormat || []).filter(Boolean);
+
+  if (resourceFormats.length > 0) {
+    return getUniqueFormats(resourceFormats);
   }
+
+  const fallbackFormats = (dataFormats ?? []).map((item) => item?.dataFormat).filter(Boolean);
+
+  if (fallbackFormats.length > 0) {
+    return getUniqueFormats(fallbackFormats);
+  }
+
   return '';
 };
 
@@ -55,7 +67,7 @@ const getQualityTabData = (payload: IQualityItem): IQuality => ({
   revisionInformation: getRecordsDates(payload?.datasetReferenceDate?.revision ?? ''),
   metadataDate: getRecordsDates(payload?.datasetReferenceDate?.metadata ?? ''),
   lineage: payload?.lineage ?? '',
-  available_formats: getDistributionFormats(payload.resources ?? []),
+  available_formats: getDistributionFormats(payload.resources ?? [], payload?.dataFormats ?? []),
   frequency_of_update: payload?.license?.frequencyOfUpdate ?? payload?.license?.accrualPeriodicity,
   character_encoding: 'utf8',
 });
