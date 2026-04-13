@@ -7,6 +7,42 @@ function updateTreeStyles() {
   const parentUL = document.querySelectorAll('.parent');
   const childUL = document.querySelectorAll('.child');
 
+  const totalParentLevel0Count = Array.from(parentUL).reduce(
+    (count, ul) => count + ul.querySelectorAll(':scope > li.level_0').length,
+    0,
+  );
+  const totalParentLevel1Count = Array.from(parentUL).reduce(
+    (count, ul) => count + ul.querySelectorAll(':scope > li.level_1').length,
+    0,
+  );
+  const totalParentLevel2Count = Array.from(parentUL).reduce(
+    (count, ul) => count + ul.querySelectorAll(':scope > li.level_2').length,
+    0,
+  );
+
+  const totalChildLevel0Count = Array.from(childUL).reduce(
+    (count, ul) => count + ul.querySelectorAll(':scope > li.level_0').length,
+    0,
+  );
+  const totalChildLevel1Count = Array.from(childUL).reduce(
+    (count, ul) => count + ul.querySelectorAll(':scope > li.level_1').length,
+    0,
+  );
+  const totalChildLevel2Count = Array.from(childUL).reduce(
+    (count, ul) => count + ul.querySelectorAll(':scope > li.level_2').length,
+    0,
+  );
+
+  const isSingleL0MultipleL1NoL2 =
+    totalParentLevel0Count === 1 &&
+    totalParentLevel1Count > 1 &&
+    totalParentLevel2Count === 0;
+
+  const isSingleL0MultipleL1NoL2Child =
+    totalChildLevel0Count === 1 &&
+    totalChildLevel1Count > 1 &&
+    totalChildLevel2Count === 0;
+
   const hasSingleParentsSection = parentUL.length > 0
     && Array.from(parentUL).every((ul) => ul.querySelectorAll(':scope > li').length === 1);
   const hasSingleChildsSection = childUL.length > 0
@@ -83,9 +119,13 @@ function updateTreeStyles() {
       childSections[0].style.marginLeft = (lastEmValue + 1) + 'em';
     }
   } else {
-    parentSections[0]?.classList.add('parent-level-1-grand');
-  }
 
+    if (isSingleL0MultipleL1NoL2) {
+      parentSections[0]?.classList.add('parent-level-1-grand', 'single-l0-multiple-l1-no-l2');
+    } else {
+      parentSections[0]?.classList.add('parent-level-1-grand');
+    }
+  }
 
   if (hasSingleChildsSection) {
     childSections[0]?.classList.add('single-childs-section');
@@ -108,7 +148,11 @@ function updateTreeStyles() {
     });
 
   } else {
-    childSections[0]?.classList.add('child-level-1-grand');
+    if (isSingleL0MultipleL1NoL2Child) {
+      childSections[0]?.classList.add('child-level-1-grand', 'single-l0-multiple-l1-no-l2-child');
+    } else {
+      childSections[0]?.classList.add('child-level-1-grand');
+    }
   }
 
 }

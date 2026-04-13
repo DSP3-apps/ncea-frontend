@@ -6,8 +6,8 @@
 
 {% if params.options and params.hasData %}  
   <div class='tab-content-container'>
-    {% set hasParentRecords = false %}
-    {% set hasChildRecords = false %} 
+    {% set hasParentRecords = params.datasets.showTopTree or false %}
+    {% set hasChildRecords = params.datasets.showBottomTree or false %}
     {% set lineageRecords = [] %}
     {% for option in params.options %}
       {% set isParent = option.label === 'Parent record(s)' %}
@@ -28,7 +28,8 @@
                 {% elseif isChild %}                  
                   {% set childRecords = option.rawValue or [] %}
                   {% set lineageRecords = lineageRecords | merge({ childs: childRecords }) %}
-                  <h2 class='tab-content-label'>Related</h2>                    
+                  <h2 class='tab-content-label'>Related</h2>
+                  {% if hasParentRecords or hasChildRecords %}                    
                    <div class="lineageContainer" id="lineageTree"> 
                           {% set parentRecords = lineageRecords['parents'] or [] %} 
                           {% set childRecords = lineageRecords['childs'] or [] %}
@@ -44,11 +45,11 @@
                               {% endif %}
                               </section>
                               {# ---------- CURRENT DATASET ---------- #}
-                              <section class="section-title" >
-                                <div  class="current-dataset" >
-                                  <span class="visually-hidden">Current Dataset</span>
-                                  <span tabindex="0">{{ params.datasets.current.title }}</span>
-                                </div>
+                                <section class="section-title" >
+                                  <div  class="current-dataset" >
+                                    <span class="visually-hidden">Current Dataset</span>
+                                    <span tabindex="0">{{ params.datasets.current.title }}</span>
+                                  </div>
                                 </section>
                                 {# ---------- CHILDREN (BOTTOM) ---------- #}
                                 {% if params.datasets.showBottomTree %}
@@ -62,7 +63,7 @@
                                 {% endif %}
                           </div>
                    </div>                      
-
+                  {% endif %}
                   {% if not hasParentRecords and not hasChildRecords %}
                     {{ govukTag({
                       text: "Unavailable",
