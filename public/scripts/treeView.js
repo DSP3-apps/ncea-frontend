@@ -34,8 +34,14 @@ function updateTreeStyles() {
   );
 
   const isSingleL0MultipleL1NoL2 =
-    totalParentLevel0Count === 1 &&
-    totalParentLevel1Count > 1 &&
+    (totalParentLevel0Count === 1 &&
+      totalParentLevel1Count > 1 &&
+      totalParentLevel2Count === 0) || (totalParentLevel0Count > 0 &&
+        totalParentLevel1Count === 0 &&
+        totalParentLevel2Count === 0);
+
+  const isMultipleL0NoL1NoL2 = totalParentLevel0Count > 1 &&
+    totalParentLevel1Count === 0 &&
     totalParentLevel2Count === 0;
 
   const isSingleL0MultipleL1NoL2Child =
@@ -121,6 +127,9 @@ function updateTreeStyles() {
   } else {
 
     if (isSingleL0MultipleL1NoL2) {
+      if (isMultipleL0NoL1NoL2) {
+        parentSections[0]?.classList.add('parent-level-1-grand', 'single-l0-multiple-l1-no-l2', 'multiple-l0-no-l1-no-l2');
+      }
       parentSections[0]?.classList.add('parent-level-1-grand', 'single-l0-multiple-l1-no-l2');
     } else {
       parentSections[0]?.classList.add('parent-level-1-grand');
