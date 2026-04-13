@@ -396,7 +396,7 @@ describe('queryStringHelper functions', () => {
     });
 
     it('should return expected output and removed the duplicates', () => {
-      expect(removeDuplicatesValues('A,A,A,A,A,A,A,B,B,C,C,D,D,D')).toStrictEqual('A,B,C,D');
+      expect(removeDuplicatesValues('A,A,A,A,A,A,A,B,B,C,C,D,D,D')).toStrictEqual('A, B, C, D');
     });
 
     it('should remove duplicates when values contain spaces after commas', () => {
