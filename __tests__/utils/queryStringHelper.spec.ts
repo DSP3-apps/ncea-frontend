@@ -394,8 +394,18 @@ describe('queryStringHelper functions', () => {
     it('should return empty string if the input value is passed as empty or null', () => {
       expect(removeDuplicatesValues('')).toStrictEqual('');
     });
+
     it('should return expected output and removed the duplicates', () => {
       expect(removeDuplicatesValues('A,A,A,A,A,A,A,B,B,C,C,D,D,D')).toStrictEqual('A,B,C,D');
+    });
+
+    it('should remove duplicates when values contain spaces after commas', () => {
+      const input =
+        'soil, broad habitat, loss on ignition, parent material model, organic matter, loss on ignition, carbon, habitat, soil, countryside survey';
+
+      expect(removeDuplicatesValues(input)).toStrictEqual(
+        'soil, broad habitat, loss on ignition, parent material model, organic matter, carbon, habitat, countryside survey',
+      );
     });
   });
 });

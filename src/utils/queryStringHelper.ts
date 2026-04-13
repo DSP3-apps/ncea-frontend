@@ -223,7 +223,14 @@ const appendPublication = (resourceTypes: string): string => {
 
 const removeDuplicatesValues = (data: string) => {
   if (!isEmpty(data)) {
-    return [...new Set(data.split(','))].join(',');
+    return [
+      ...new Set(
+        data
+          .split(',')
+          .map((value) => value.trim())
+          .filter(Boolean),
+      ),
+    ].join(', ');
   }
   return '';
 };
