@@ -132,6 +132,10 @@ export interface IRecordDates {
   metadata?: null | undefined | string;
 }
 
+interface IDataFormat {
+  dataFormat: string;
+}
+
 export interface IQualityItem {
   metadataDate?: string;
   lineage?: string;
@@ -139,6 +143,7 @@ export interface IQualityItem {
   datasetReferenceDate: IDataSetReferenceDate;
   license?: ILicenseItem;
   resources?: IResources[] | undefined;
+  dataFormats?: IDataFormat[] | undefined;
 }
 
 export interface IQuality {
@@ -315,6 +320,7 @@ export interface IResources {
   language: string | null;
   distributionFormat?: undefined | null | [string];
 }
+
 interface SpatialItem {
   dataService?: string;
   representationService?: string;

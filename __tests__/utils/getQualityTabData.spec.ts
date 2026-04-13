@@ -54,9 +54,56 @@ describe('Quality tab fields', () => {
         distributionFormat: ['PDF'],
       },
     ];
-    expect(getDistributionFormats(resources)).toEqual('ZIP, PDF');
+    expect(getDistributionFormats(resources, [])).toEqual('ZIP, PDF');
   });
+
   it('should call getDistributionFormats and create a list of empty string if distributionFormat is null', () => {
-    expect(getDistributionFormats(MORE_INFO_MOCK_DATA.resources)).toEqual('');
+    expect(getDistributionFormats(MORE_INFO_MOCK_DATA.resources, [])).toEqual('');
+  });
+
+  it('should call getDistributionFormats and fallback to dataFormats when resource formats are null', () => {
+    const resources = [
+      {
+        url: 'https://data-package.ceh.ac.uk/data/9e4451f8-23d3-40dc-9302-73e30ad3dd76',
+        name: 'Download a copy of this data',
+        type: 'EIDC Document',
+        language: 'eng',
+        distributionFormat: null,
+      },
+      {
+        url: 'https://data-package.ceh.ac.uk/sd/9e4451f8-23d3-40dc-9302-73e30ad3dd76.zip',
+        name: 'Supporting information available to assist in re-use of this dataset',
+        type: 'EIDC Document',
+        language: 'eng',
+        distributionFormat: null,
+      },
+      {
+        url: 'https://catalogue.ceh.ac.uk/maps/6372b558-ba64-4fbe-8766-019e01535b37?request=getCapabilities&service=wms',
+        name: 'This link returns a WMS GetCapabilities response in XML format',
+        type: 'EIDC Document',
+        language: 'eng',
+        distributionFormat: null,
+      },
+    ];
+
+    const dataFormats = [
+      {
+        dataFormat: 'Shapefile',
+        version: 'unknown',
+      },
+    ];
+
+    expect(getDistributionFormats(resources, dataFormats)).toEqual('Shapefile');
+  });
+
+  it('should call getDistributionFormats and fallback to dataFormats when resources are empty', () => {
+    const dataFormats = [
+      {
+        dataFormat: 'Shapefile',
+        version: 'unknown',
+      },
+    ];
+
+    expect(getDistributionFormats([], dataFormats)).toEqual('Shapefile');
   });
 });
