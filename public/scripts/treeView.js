@@ -132,7 +132,12 @@ function updateTreeStyles() {
       }
       parentSections[0]?.classList.add('parent-level-1-grand', 'single-l0-multiple-l1-no-l2');
     } else {
-      parentSections[0]?.classList.add('parent-level-1-grand');
+      if (totalParentLevel0Count === 0) {
+        parentSections[0]?.classList.add('no-parents');
+      } else {
+        parentSections[0]?.classList.add('parent-level-1-grand');
+      }
+
     }
   }
 

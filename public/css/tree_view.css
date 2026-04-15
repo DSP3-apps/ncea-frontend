@@ -339,11 +339,15 @@
 }
 
 
+.no-parents~.child-section {
+  margin-left: -1em;
+}
+
 @media (max-width: 768px) {
 
   .single-parents-section .relation-tree li div a,
   .single-childs-section .relation-tree li div a {
     display: table-caption;
-    width: 100vw;
+    width: calc(90vw - 80px);
   }
 }
