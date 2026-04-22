@@ -85,8 +85,8 @@ export const transformSearchResponse = (response: ISearchResponse, isMapResults:
     };
   }
   const items = response.results.map((result: ISearchResult) => {
-    const startDate = toValidDate(result?.temporalExtent?.beginPosition);
-    const endDate = toValidDate(result?.temporalExtent?.endPosition);
+    const startDate = toValidDate(result?.temporalExtent?.begin);
+    const endDate = toValidDate(result?.temporalExtent?.end);
 
     const searchResponse = {
       id: result.id,
@@ -170,8 +170,8 @@ export const formatSearchResponse = (payload: IMoreInfoSearchItem, vocabularyDat
     id: payload?.id,
     title: payload?.title ?? '',
     publishedBy: payload?.organisation ?? '',
-    startYear: getYear(payload?.temporalExtent?.beginPosition ?? ''),
-    toYear: getYear(payload?.temporalExtent?.endPosition ?? ''),
+    startYear: getYear(payload?.temporalExtent?.begin ?? ''),
+    toYear: getYear(payload?.temporalExtent?.end ?? ''),
     // resourceLocator: resourceUrl,
     organisationName: payload?.organisation ?? '',
     ncea_group_reference: '',
@@ -180,7 +180,7 @@ export const formatSearchResponse = (payload: IMoreInfoSearchItem, vocabularyDat
     ...getGeneralTabData(payload),
     ...getAccessTabData(payload),
     ...getQualityTabData(payload),
-    ...getLicenseTabData(payload.license ?? {}),
+    ...getLicenseTabData(payload.licence ?? {}),
     ...getNaturalTab(payload, vocabularyData),
     ...getGovernanceTabData(payload.contacts ?? []),
     ...getGeographyTabData(payload),

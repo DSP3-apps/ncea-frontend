@@ -1,4 +1,4 @@
-import { formatDate } from '../../src/utils/dates';
+import { convertTimestampToIsoString, formatDate } from '../../src/utils/dates';
 
 describe('Format the given date', () => {
   it('should format date without time correctly', () => {
@@ -40,5 +40,24 @@ describe('Format the given date', () => {
     expect(formatDate('')).toBe('');
     expect(formatDate('invalid date')).toBe('');
     expect(formatDate('2022-13-01T00:00:00.000Z')).toBe('');
+  });
+});
+
+describe('convertTimestampToIsoString', () => {
+  it('should convert a valid millisecond timestamp number to readable date format', () => {
+    expect(convertTimestampToIsoString(1504224000000)).toBe('1 September 2017');
+  });
+
+  it('should convert a valid millisecond timestamp string to readable date format', () => {
+    expect(convertTimestampToIsoString('1504224000000')).toBe('1 September 2017');
+  });
+
+  it('should return empty string for invalid timestamp input', () => {
+    expect(convertTimestampToIsoString('invalid-timestamp')).toBe('');
+    expect(convertTimestampToIsoString(Number.NaN)).toBe('');
+  });
+
+  it('should return empty string for out-of-range numeric values', () => {
+    expect(convertTimestampToIsoString('999999999999999999999999')).toBe('');
   });
 });

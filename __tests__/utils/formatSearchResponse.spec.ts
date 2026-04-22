@@ -1,10 +1,37 @@
 import { formatSearchResponse } from '../../src/utils/formatSearchResponse';
 import { MORE_INFO_MOCK_DATA, MOCK_VOCABULARY_DATA } from '../../src/services/handlers/mocks/more-info-response';
 import { naturalTabStaticData } from '../../src/utils/constants';
+import { IMoreInfoSearchItem } from '../../src/interfaces/searchResponse.interface';
 
 describe('Format the search response', () => {
   it('should format the search response correctly', async () => {
-    const result = await formatSearchResponse(MORE_INFO_MOCK_DATA, MOCK_VOCABULARY_DATA);
+    const payload: IMoreInfoSearchItem = {
+      ...MORE_INFO_MOCK_DATA,
+      description: MORE_INFO_MOCK_DATA.abstract,
+      temporalExtent: {
+        begin: MORE_INFO_MOCK_DATA.temporalExtent.beginPosition,
+        end: MORE_INFO_MOCK_DATA.temporalExtent.endPosition,
+      },
+      topics: MORE_INFO_MOCK_DATA.topicCategories,
+      taxonomyKeywords: (MORE_INFO_MOCK_DATA.keywords ?? []).map((value) => ({ valueLabel: value })),
+      metadataLanguage: MORE_INFO_MOCK_DATA.metadata.language,
+      licence: {
+        useLimitationStatement: MORE_INFO_MOCK_DATA.license.publicAccessAccessContraints,
+        publicAccessOtherConstraints: MORE_INFO_MOCK_DATA.license.publicAccessOtherConstraints,
+        attributionStatement: MORE_INFO_MOCK_DATA.license.attributionStatement,
+      },
+      accrualPeriodicity: MORE_INFO_MOCK_DATA.license.frequencyOfUpdate,
+      createdAt: 1678406400000,
+      published: 1486771200000,
+      modified: 1717977600000,
+      metadataModified: Number.NaN,
+      publicContact: {
+        emailAddress: MORE_INFO_MOCK_DATA.contactEmail,
+      },
+      spatialRepresentationType: MORE_INFO_MOCK_DATA.spatial.representationService,
+      coordinateReferenceSystemId: MORE_INFO_MOCK_DATA.spatial.referencingSystem,
+    };
+    const result = await formatSearchResponse(payload, MOCK_VOCABULARY_DATA);
     const expectedResponse = {
       '0': {
         tab: 'governance',
@@ -78,7 +105,7 @@ describe('Format the search response', () => {
       lineage: 'An RDF Vocabulary to described data on exotic notifiable disease investigations.',
       limitation_on_public_access: 'Open Government Licence<br>©Crown Copyright, APHA 2016',
       limitation_on_public_access_otherconstraint: 'otherRestrictions<br>license<br>copyright',
-      conditions_for_access_and_use_useConstraints: '',
+      conditions_for_access_and_use_useConstraints: 'Open Government Licence<br>©Crown Copyright, APHA 2016',
       conditions_for_access_and_useOtherConstraints: '',
       other_constraint: '',
       attribution_statement: '',

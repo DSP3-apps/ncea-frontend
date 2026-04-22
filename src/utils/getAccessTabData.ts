@@ -285,15 +285,15 @@ const getAccessTabData = (payload: IAccessItem): IAccess => ({
   ncea_catalogue_number: payload.id ?? '', // file identifier
   host_catalogue_number: payload.id ?? '', // resource identifier
   host_catalogue_entry: '',
-  resource_type_and_hierarchy: payload?.resourceType ?? '',
+  resource_type_and_hierarchy: payload?.entryType ?? '',
   // resource_locators: '', // keeps as empty as its value is not available from AGM side
-  contact_information: payload.contactEmail ?? '',
+  contact_information: payload.publicContact?.emailAddress ?? '',
   catalogue_number: '',
   // metadata_standard: payload?.metadata?.standard ?? '',
-  metadata_language: payload?.metadata?.language?.toUpperCase() ?? '',
-  resourceWebsite: generateResourceWebsiteTable(payload.resources ?? [], payload.id),
-  parent_records: validateParentChildRecords(payload.parentRecords),
-  child_records: validateParentChildRecords(payload.childRecords),
+  metadata_language: payload?.metadataLanguage?.toUpperCase() ?? '',
+  resourceWebsite: '',
+  parent_records: [],
+  child_records: [],
 });
 
 export { getAccessTabData, getResourceLocators, getCoupledResource, getContactInformation, validateParentChildRecords };
