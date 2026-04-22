@@ -5,7 +5,12 @@ import { environmentConfig } from '../../config/environmentConfig';
 import { Credentials } from '../../interfaces/auth';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { IFilterFlags } from '../../interfaces/searchPayload.interface';
-import { IAggregationOptions, ISearchResponse, ISearchResults } from '../../interfaces/searchResponse.interface';
+import {
+  IAggregationOptions,
+  IMoreInfoSearchItem,
+  ISearchResponse,
+  ISearchResults,
+} from '../../interfaces/searchResponse.interface';
 import { getUrlAndAuthHeader } from '../../utils/authHeader';
 import { defaultFilterOptions } from '../../utils/constants';
 import { formatSearchResponse, transformSearchResponse } from '../../utils/formatSearchResponse';
@@ -183,26 +188,17 @@ const getDocumentDetails = async (docId: string, credentials: Credentials): Prom
 
     const catalogService = await getCatalogService();
 
-    const [agmApiSearchResponse, agmApiVocabalaryResponse] = await Promise.all([
-      fetch(`${url}/${docId}`, {
-        method: 'GET',
-        ...(Object.keys(searchHeaders).length ? { headers: searchHeaders } : {}),
-      }),
+    const [searchData, agmApiVocabalaryResponse] = await Promise.all([
+      catalogService.getCatalogueEntry(docId, credentials?.jwt ?? null) as Promise<IMoreInfoSearchItem>,
       fetch(`${vocabUrl}`, {
         method: 'GET',
         headers: vocabHeaders,
       }),
     ]);
-    const searchData1 = await catalogService.getCatalogueEntry(docId, credentials?.jwt ?? null);
-    console.log('searchData1', searchData1);
-    if (!agmApiSearchResponse.ok) {
-      throw new Error(`Error fetching results: ${agmApiSearchResponse.statusText}`);
-    }
 
     if (!agmApiVocabalaryResponse.ok) {
       throw new Error(`Error fetching vocabulary data: ${agmApiVocabalaryResponse.statusText}`);
     }
-    const searchData = await agmApiSearchResponse.json();
     const vocabularyData = await agmApiVocabalaryResponse.json();
     const finalResponse = formatSearchResponse(searchData, vocabularyData);
 
