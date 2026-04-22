@@ -28,6 +28,11 @@ const searchResultsRoutes = [
   },
   {
     method: 'GET',
+    path: '/file-download',
+    handler: SearchResultsController.getFileDownloadUrlHandler,
+  },
+  {
+    method: 'GET',
     path: webRoutePaths.getMapResults,
     handler: SearchResultsController.getMapResultsHandler,
   },

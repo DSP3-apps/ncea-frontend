@@ -11,6 +11,9 @@ import {
   generateQueryBuilderPayload,
   deleteQueryParams,
   removeDuplicatesValues,
+  getUniqueValues,
+  escapeHtmlAttribute,
+  buildJwtDownloadHandler,
 } from '../../src/utils/queryStringHelper';
 
 describe('queryStringHelper functions', () => {
@@ -406,6 +409,84 @@ describe('queryStringHelper functions', () => {
       expect(removeDuplicatesValues(input)).toStrictEqual(
         'soil, broad habitat, loss on ignition, parent material model, organic matter, carbon, habitat, countryside survey',
       );
+    });
+  });
+
+  describe('getUniqueValues', () => {
+    it('should return empty string when given an empty array', () => {
+      expect(getUniqueValues([])).toBe('');
+    });
+
+    it('should return a single keyword unchanged', () => {
+      expect(getUniqueValues(['flood'])).toBe('flood');
+    });
+
+    it('should join multiple unique keywords with a comma and space', () => {
+      expect(getUniqueValues(['flood', 'environment', 'habitat'])).toBe('flood, environment, habitat');
+    });
+
+    it.each([
+      [['flood', 'flood', 'flood'], 'flood'],
+      [['Flood', 'flood'], 'Flood'],
+      [['environment', 'Environment'], 'environment'],
+      [['Flood', 'environment', 'flood', 'Environment'], 'Flood, environment'],
+      [['HABITAT', 'habitat', 'Habitat'], 'HABITAT'],
+    ])('should deduplicate case-insensitively and preserve first-seen casing: %j → %s', (input, expected) => {
+      expect(getUniqueValues(input)).toBe(expected);
+    });
+  });
+
+  describe('escapeHtmlAttribute', () => {
+    it('should return the same value when no escapable characters are present', () => {
+      expect(escapeHtmlAttribute('dataset-file-name.zip')).toBe('dataset-file-name.zip');
+    });
+
+    it('should escape ampersands', () => {
+      expect(escapeHtmlAttribute('A & B')).toBe('A &amp; B');
+    });
+
+    it('should escape double quotes', () => {
+      expect(escapeHtmlAttribute('say "hello"')).toBe('say &quot;hello&quot;');
+    });
+
+    it('should escape single quotes', () => {
+      expect(escapeHtmlAttribute("it's data")).toBe('it&#39;s data');
+    });
+
+    it('should escape angle brackets', () => {
+      expect(escapeHtmlAttribute('<script>alert(1)</script>')).toBe('&lt;script&gt;alert(1)&lt;/script&gt;');
+    });
+
+    it('should escape mixed HTML special characters in order', () => {
+      const input = `<a href="https://example.com?a=1&b=2">it's "test"</a>`;
+      const expected = '&lt;a href=&quot;https://example.com?a=1&amp;b=2&quot;&gt;it&#39;s &quot;test&quot;&lt;/a&gt;';
+
+      expect(escapeHtmlAttribute(input)).toBe(expected);
+    });
+  });
+
+  describe('buildJwtDownloadHandler', () => {
+    it('should generate an inline handler starting with preventDefault and async wrapper', () => {
+      const handler = buildJwtDownloadHandler('/natural-capital-ecosystem-assessment');
+
+      expect(handler).toContain('event.preventDefault();');
+      expect(handler).toContain('(async()=>{');
+      expect(handler).toContain("const rawUrl=(this.dataset.url||'').trim();");
+      expect(handler).toContain("const jwt=this.dataset.jwt||'';");
+    });
+
+    it('should include dataset/file extraction and proxy URL interpolation with provided base path', () => {
+      const basePath = '/natural-capital-ecosystem-assessment';
+      const handler = buildJwtDownloadHandler(basePath);
+
+      expect(handler).toContain('rawUrl.match(/\\/data-sets\\/([^/]+)\\/files\\/([^/?#]+)/i)');
+      expect(handler).toContain(
+        `window.location.origin+'${basePath}/file-download?dataSetId='+encodeURIComponent(dataSetId)+'&fileName='+encodeURIComponent(fileName)`,
+      );
+      expect(handler).toContain(
+        'fetch(fileDownloadUrl,{...(jwt&&{headers:{Authorization:`Bearer ${jwt}`}})})',
+      );
+      expect(handler).toContain('window.location.href=fallbackUrl;');
     });
   });
 });

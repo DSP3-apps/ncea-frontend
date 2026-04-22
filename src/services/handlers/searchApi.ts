@@ -5,7 +5,12 @@ import { environmentConfig } from '../../config/environmentConfig';
 import { Credentials } from '../../interfaces/auth';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { IFilterFlags } from '../../interfaces/searchPayload.interface';
-import { IAggregationOptions, ISearchResponse, ISearchResults } from '../../interfaces/searchResponse.interface';
+import {
+  IAggregationOptions,
+  IMoreInfoSearchItem,
+  ISearchResponse,
+  ISearchResults,
+} from '../../interfaces/searchResponse.interface';
 import { getUrlAndAuthHeader } from '../../utils/authHeader';
 import { defaultFilterOptions } from '../../utils/constants';
 import { formatSearchResponse, transformSearchResponse } from '../../utils/formatSearchResponse';
@@ -21,6 +26,13 @@ type CatalogServiceInstance = {
 
 let catalogServicePromise: Promise<CatalogServiceInstance> | null = null;
 
+type FileManagementServiceInstance = {
+  listFilesOnDataSet: (dataSetId: string, jwt: string | null) => Promise<unknown>;
+  getFileDownloadUrl: (dataSetId: string, fileName: string, jwt: string | null) => Promise<unknown>;
+};
+
+let fileManagementServicePromise: Promise<FileManagementServiceInstance> | null = null;
+
 const getServicesConfigKey = (): ConfigEnv => {
   return environmentConfig.env === 'live' ? 'defraLive' : 'defraTest';
 };
@@ -33,6 +45,16 @@ const getCatalogService = async (): Promise<CatalogServiceInstance> => {
   }
 
   return catalogServicePromise;
+};
+
+const getFileManagementService = async (): Promise<FileManagementServiceInstance> => {
+  if (!fileManagementServicePromise) {
+    fileManagementServicePromise = import('@agrimetrics/services').then(({ FileManagementService }) => {
+      return new FileManagementService(getServicesConfigKey()) as FileManagementServiceInstance;
+    });
+  }
+
+  return fileManagementServicePromise;
 };
 
 const requireUrl = (value: string | undefined, name: string): string => {
@@ -183,33 +205,62 @@ const getDocumentDetails = async (docId: string, credentials: Credentials): Prom
 
     const catalogService = await getCatalogService();
 
-    const [agmApiSearchResponse, agmApiVocabalaryResponse] = await Promise.all([
-      fetch(`${url}/${docId}`, {
-        method: 'GET',
-        ...(Object.keys(searchHeaders).length ? { headers: searchHeaders } : {}),
-      }),
+    const fileManagementService = await getFileManagementService();
+
+    const [searchData, agmApiVocabalaryResponse] = await Promise.all([
+      catalogService.getCatalogueEntry(docId, credentials?.jwt ?? null) as Promise<IMoreInfoSearchItem>,
       fetch(`${vocabUrl}`, {
         method: 'GET',
         headers: vocabHeaders,
       }),
     ]);
-    const searchData1 = await catalogService.getCatalogueEntry(docId, credentials?.jwt ?? null);
-    console.log('searchData1', searchData1);
-    if (!agmApiSearchResponse.ok) {
-      throw new Error(`Error fetching results: ${agmApiSearchResponse.statusText}`);
-    }
 
     if (!agmApiVocabalaryResponse.ok) {
       throw new Error(`Error fetching vocabulary data: ${agmApiVocabalaryResponse.statusText}`);
     }
-    const searchData = await agmApiSearchResponse.json();
     const vocabularyData = await agmApiVocabalaryResponse.json();
+    const fileDataSetId = searchData?.dataSet?.id?.trim() ?? '';
+    if (fileDataSetId) {
+      const fileList = await fileManagementService.listFilesOnDataSet(fileDataSetId, credentials?.jwt ?? null);
+      searchData.files = fileList as IMoreInfoSearchItem['files'];
+    }
     const finalResponse = formatSearchResponse(searchData, vocabularyData);
-
+    const testJwt = credentials?.jwt ?? null;
+    // console.log('Test JWT in getDocumentDetails:', testJwt);
     return finalResponse;
   } catch (error: any) {
     throw new Error(`Error fetching results: ${error.message}`);
   }
 };
 
-export { getDocumentDetails, getFilterOptions, getSearchResultsCount, getSearchResults };
+const getFileDownloadUrl = async (
+  dataSetId: string,
+  fileName: string,
+  credentials: Credentials,
+): Promise<{ url: string }> => {
+  try {
+    const searchApiUrl = requireUrl(environmentConfig.searchApiUrl, 'SEARCH_API');
+    const { url: baseUrl, authHeader } = getUrlAndAuthHeader(searchApiUrl);
+    const origin = new URL(baseUrl).origin;
+    const fileDownloadUrl = `${origin}/file-management-open/data-sets/${encodeURIComponent(dataSetId)}/files/${encodeURIComponent(fileName)}/download-url`;
+    const headers: HeadersMap = {};
+    if (authHeader) {
+      headers.Authorization = authHeader;
+    } else if (credentials?.jwt) {
+      headers.Authorization = `Bearer ${credentials.jwt}`;
+    }
+
+    const response = await fetch(fileDownloadUrl, { method: 'GET', headers });
+
+    if (!response.ok) {
+      throw new Error(`Upstream returned ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data as { url: string };
+  } catch (error: any) {
+    throw new Error(`Error fetching download URL: ${error.message}`);
+  }
+};
+
+export { getDocumentDetails, getFileDownloadUrl, getFilterOptions, getSearchResultsCount, getSearchResults };

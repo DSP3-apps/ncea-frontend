@@ -235,6 +235,45 @@ const removeDuplicatesValues = (data: string) => {
   return '';
 };
 
+export const getUniqueValues = (keywords: string[]): string => {
+  const alreadyExist = new Map<string, string>();
+  keywords.forEach((k) => {
+    const lower = k.toLowerCase();
+    if (!alreadyExist.has(lower)) alreadyExist.set(lower, k);
+  });
+  return [...alreadyExist.values()].join(', ');
+};
+
+const escapeHtmlAttribute = (value: string): string => {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+};
+
+const buildJwtDownloadHandler = (localBasePath: string): string => {
+  return [
+    'event.preventDefault();',
+    '(async()=>{',
+    "const rawUrl=(this.dataset.url||'').trim();",
+    "const jwt=this.dataset.jwt||'';",
+    'if(!rawUrl){return;}',
+    'const pathMatch=rawUrl.match(/\\/data-sets\\/([^/]+)\\/files\\/([^/?#]+)/i);',
+    'if(!pathMatch){window.location.href=rawUrl;return;}',
+    'const dataSetId=decodeURIComponent(pathMatch[1]);',
+    'const fileName=decodeURIComponent(pathMatch[2]);',
+    `const fileDownloadUrl=window.location.origin+'${localBasePath}/file-download?dataSetId='+encodeURIComponent(dataSetId)+'&fileName='+encodeURIComponent(fileName);`,
+    'const fallbackUrl=rawUrl;',
+    'try{',
+    'const response=await fetch(fileDownloadUrl,{...(jwt&&{headers:{Authorization:`Bearer ${jwt}`}})});',
+    'if(response.ok){const data=await response.json();window.location.href=data.url;}else{window.location.href=fallbackUrl;}',
+    '}catch{window.location.href=fallbackUrl;}',
+    '})();',
+  ].join('');
+};
+
 export {
   getQueryStringParams,
   upsertQueryParams,
@@ -251,4 +290,6 @@ export {
   appendPublication,
   getClearFilterUrl,
   removeDuplicatesValues,
+  escapeHtmlAttribute,
+  buildJwtDownloadHandler,
 };

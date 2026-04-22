@@ -1,8 +1,9 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 'use strict';
 
-import { formatDate } from './dates';
-import { IQuality, IQualityItem } from '../interfaces/searchResponse.interface';
+import { convertTimestampToIsoString, formatDate } from './dates';
+import { getUniqueValues } from './queryStringHelper';
+import { IDataFormat, IQuality, IQualityItem } from '../interfaces/searchResponse.interface';
 
 const checkAtLeastOnePropertyValueExists = (sourceObject: Record<string, any>): boolean => {
   return sourceObject?.title || sourceObject?.pass || sourceObject?.explanation;
@@ -41,34 +42,22 @@ const getRecordsDates = (data: string): string => {
   return formatDate(data, false, false);
 };
 
-const getUniqueFormats = (formats: string[]): string => {
-  return [...new Set(formats)].join(', ');
-};
-
-export const getDistributionFormats = (resources, dataFormats): string => {
-  const resourceFormats = (resources ?? []).flatMap((item) => item.distributionFormat || []).filter(Boolean);
-
+export const getDistributionFormats = (dataFormats: IDataFormat[]): string => {
+  const resourceFormats = (dataFormats ?? []).map((item) => item?.dataFormat).filter(Boolean);
   if (resourceFormats.length > 0) {
-    return getUniqueFormats(resourceFormats);
+    return getUniqueValues(resourceFormats);
   }
-
-  const fallbackFormats = (dataFormats ?? []).map((item) => item?.dataFormat).filter(Boolean);
-
-  if (fallbackFormats.length > 0) {
-    return getUniqueFormats(fallbackFormats);
-  }
-
   return '';
 };
 
 const getQualityTabData = (payload: IQualityItem): IQuality => ({
-  publicationInformation: getRecordsDates(payload?.datasetReferenceDate?.publication ?? ''),
-  creationInformation: getRecordsDates(payload?.datasetReferenceDate?.creation ?? ''),
-  revisionInformation: getRecordsDates(payload?.datasetReferenceDate?.revision ?? ''),
-  metadataDate: getRecordsDates(payload?.datasetReferenceDate?.metadata ?? ''),
+  publicationInformation: convertTimestampToIsoString(payload?.published ?? ''),
+  creationInformation: convertTimestampToIsoString(payload?.createdAt ?? ''),
+  revisionInformation: convertTimestampToIsoString(payload?.modified ?? ''),
+  metadataDate: convertTimestampToIsoString(payload?.metadataModified ?? ''),
   lineage: payload?.lineage ?? '',
-  available_formats: getDistributionFormats(payload.resources ?? [], payload?.dataFormats ?? []),
-  frequency_of_update: payload?.license?.frequencyOfUpdate ?? payload?.license?.accrualPeriodicity,
+  available_formats: getDistributionFormats(payload?.dataFormats ?? []),
+  frequency_of_update: payload?.accrualPeriodicity ?? '',
   character_encoding: 'utf8',
 });
 
