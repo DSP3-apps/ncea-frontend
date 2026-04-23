@@ -11,6 +11,7 @@ import {
   generateQueryBuilderPayload,
   deleteQueryParams,
   removeDuplicatesValues,
+  getUniqueValues,
 } from '../../src/utils/queryStringHelper';
 
 describe('queryStringHelper functions', () => {
@@ -406,6 +407,30 @@ describe('queryStringHelper functions', () => {
       expect(removeDuplicatesValues(input)).toStrictEqual(
         'soil, broad habitat, loss on ignition, parent material model, organic matter, carbon, habitat, countryside survey',
       );
+    });
+  });
+
+  describe('getUniqueValues', () => {
+    it('should return empty string when given an empty array', () => {
+      expect(getUniqueValues([])).toBe('');
+    });
+
+    it('should return a single keyword unchanged', () => {
+      expect(getUniqueValues(['flood'])).toBe('flood');
+    });
+
+    it('should join multiple unique keywords with a comma and space', () => {
+      expect(getUniqueValues(['flood', 'environment', 'habitat'])).toBe('flood, environment, habitat');
+    });
+
+    it.each([
+      [['flood', 'flood', 'flood'], 'flood'],
+      [['Flood', 'flood'], 'Flood'],
+      [['environment', 'Environment'], 'environment'],
+      [['Flood', 'environment', 'flood', 'Environment'], 'Flood, environment'],
+      [['HABITAT', 'habitat', 'Habitat'], 'HABITAT'],
+    ])('should deduplicate case-insensitively and preserve first-seen casing: %j → %s', (input, expected) => {
+      expect(getUniqueValues(input)).toBe(expected);
     });
   });
 });

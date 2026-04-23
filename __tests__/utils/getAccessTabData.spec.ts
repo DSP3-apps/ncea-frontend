@@ -19,14 +19,19 @@ jest.mock('../../src/config/environmentConfig', () => ({
 describe('getAccessTabData functions', () => {
   describe('getAccessTabData result', () => {
     it('should return an object with all properties when searchItem is valid', () => {
-      const result = getAccessTabData(MORE_INFO_MOCK_DATA);
+      const result = getAccessTabData({
+        ...MORE_INFO_MOCK_DATA,
+        publicContact: {
+          emailAddress: MORE_INFO_MOCK_DATA.contactEmail,
+        },
+      });
       expect(result).toEqual({
         host_catalogue_entry: '',
         resource_type_and_hierarchy: '',
         ncea_catalogue_number: 'c9d7e118-d057-48f9-b520-76de8e51e014',
         contact_information: 'Peter.Walker@naturalengland.org.uk',
         catalogue_number: '',
-        metadata_language: 'ENG',
+        metadata_language: '',
         resourceWebsite: expect.any(String),
         host_catalogue_number: 'c9d7e118-d057-48f9-b520-76de8e51e014',
         child_records: [],

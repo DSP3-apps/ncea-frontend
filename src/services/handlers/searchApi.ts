@@ -1,9 +1,16 @@
+import type { ConfigEnv } from '@agrimetrics/services';
+
 import { QUICK_SEARCH_RESOURCE_TYPE_FILTERS, QUICK_SEARCH_STUDY_PERIOD_FILTERS } from './mocks/quick-search-filters';
 import { environmentConfig } from '../../config/environmentConfig';
 import { Credentials } from '../../interfaces/auth';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { IFilterFlags } from '../../interfaces/searchPayload.interface';
-import { IAggregationOptions, ISearchResponse, ISearchResults } from '../../interfaces/searchResponse.interface';
+import {
+  IAggregationOptions,
+  IMoreInfoSearchItem,
+  ISearchResponse,
+  ISearchResults,
+} from '../../interfaces/searchResponse.interface';
 import { getUrlAndAuthHeader } from '../../utils/authHeader';
 import { defaultFilterOptions } from '../../utils/constants';
 import { formatSearchResponse, transformSearchResponse } from '../../utils/formatSearchResponse';
@@ -12,6 +19,26 @@ import { generateSearchQuery } from '../../utils/queryBuilder';
 import { ISearchFiltersProcessed } from '../../utils/searchFilters';
 
 type HeadersMap = Record<string, string>;
+
+type CatalogServiceInstance = {
+  getCatalogueEntry: (docId: string, jwt: string | null) => Promise<unknown>;
+};
+
+let catalogServicePromise: Promise<CatalogServiceInstance> | null = null;
+
+const getServicesConfigKey = (): ConfigEnv => {
+  return environmentConfig.env === 'live' ? 'defraLive' : 'defraTest';
+};
+
+const getCatalogService = async (): Promise<CatalogServiceInstance> => {
+  if (!catalogServicePromise) {
+    catalogServicePromise = import('@agrimetrics/services').then(({ CatalogService }) => {
+      return new CatalogService(getServicesConfigKey()) as CatalogServiceInstance;
+    });
+  }
+
+  return catalogServicePromise;
+};
 
 const requireUrl = (value: string | undefined, name: string): string => {
   if (!value) {
@@ -159,25 +186,19 @@ const getDocumentDetails = async (docId: string, credentials: Credentials): Prom
       vocabHeaders.Authorization = vocabAuthHeader;
     }
 
-    const [agmApiSearchResponse, agmApiVocabalaryResponse] = await Promise.all([
-      fetch(`${url}/${docId}`, {
-        method: 'GET',
-        ...(Object.keys(searchHeaders).length ? { headers: searchHeaders } : {}),
-      }),
+    const catalogService = await getCatalogService();
+
+    const [searchData, agmApiVocabalaryResponse] = await Promise.all([
+      catalogService.getCatalogueEntry(docId, credentials?.jwt ?? null) as Promise<IMoreInfoSearchItem>,
       fetch(`${vocabUrl}`, {
         method: 'GET',
         headers: vocabHeaders,
       }),
     ]);
 
-    if (!agmApiSearchResponse.ok) {
-      throw new Error(`Error fetching results: ${agmApiSearchResponse.statusText}`);
-    }
-
     if (!agmApiVocabalaryResponse.ok) {
       throw new Error(`Error fetching vocabulary data: ${agmApiVocabalaryResponse.statusText}`);
     }
-    const searchData = await agmApiSearchResponse.json();
     const vocabularyData = await agmApiVocabalaryResponse.json();
     const finalResponse = formatSearchResponse(searchData, vocabularyData);
 

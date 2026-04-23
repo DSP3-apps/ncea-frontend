@@ -235,6 +235,15 @@ const removeDuplicatesValues = (data: string) => {
   return '';
 };
 
+export const getUniqueValues = (keywords: string[]): string => {
+  const alreadyExist = new Map<string, string>();
+  keywords.forEach((k) => {
+    const lower = k.toLowerCase();
+    if (!alreadyExist.has(lower)) alreadyExist.set(lower, k);
+  });
+  return [...alreadyExist.values()].join(', ');
+};
+
 export {
   getQueryStringParams,
   upsertQueryParams,

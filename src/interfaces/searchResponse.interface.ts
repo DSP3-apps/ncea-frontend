@@ -16,15 +16,26 @@ export interface IBaseItem {
   dataSetReferenceLabel?: string;
 }
 
+export interface ITaxonomyKeyword {
+  sourceUri?: string;
+  sourceLabel?: string;
+  valueUri?: string;
+  valueLabel: string;
+}
+
 export interface IGeneralItem {
   alternateTitle?: string;
   topicCategories?: string[];
   language?: string;
   keywords?: string[];
+  taxonomyKeywords?: ITaxonomyKeyword[];
   abstract?: string;
   metadata?: IMetaData;
   temporalExtent?: ITemporalExtent;
   resources?: IResources[];
+  description?: string;
+  topics?: string[];
+  metadataLanguage?: string;
 }
 
 export interface IIdentifiers {
@@ -44,6 +55,14 @@ export interface ChildRecords extends IRelatedRecordBase {
   grandChildren?: ChildRecords[];
 }
 
+export interface IPublicContact {
+  organisationName?: string;
+  role?: string;
+  emailAddress?: string;
+  url?: string;
+  urlLabel?: string;
+}
+
 export interface IAccessItem {
   id: string;
   contacts?: Contact[];
@@ -52,8 +71,11 @@ export interface IAccessItem {
   resourceType?: string;
   resources?: IResources[] | undefined;
   contactEmail?: string;
+  publicContact?: IPublicContact;
   parentRecords?: ParentsRecords[];
   childRecords?: ChildRecords[];
+  metadataLanguage?: string;
+  entryType?: string;
 }
 
 export interface IAccess {
@@ -100,6 +122,8 @@ export interface ILicense {
 }
 
 export interface ILicenseItem {
+  text?: string;
+  url?: string;
   publicAccessAccessContraints?: string | undefined | null;
   publicAccessOtherConstraints?: string[];
   publicUseUseConstraints?: string | undefined | null;
@@ -107,6 +131,7 @@ export interface ILicenseItem {
   frequencyOfUpdate?: string;
   accrualPeriodicity?: string;
   attributionStatement?: string | undefined | null;
+  useLimitationStatement?: string | undefined | null;
 }
 
 export interface IGovernance {
@@ -132,7 +157,7 @@ export interface IRecordDates {
   metadata?: null | undefined | string;
 }
 
-interface IDataFormat {
+export interface IDataFormat {
   dataFormat: string;
 }
 
@@ -144,6 +169,11 @@ export interface IQualityItem {
   license?: ILicenseItem;
   resources?: IResources[] | undefined;
   dataFormats?: IDataFormat[] | undefined;
+  accrualPeriodicity?: string;
+  createdAt: number;
+  published: number;
+  modified: number;
+  metadataModified: number;
 }
 
 export interface IQuality {
@@ -236,8 +266,8 @@ export interface ISearchResults {
 }
 
 export interface ITemporalExtent {
-  beginPosition: string;
-  endPosition: string;
+  begin: string;
+  end: string;
 }
 export interface IGeometry {
   westBoundLongitude: number;
@@ -338,6 +368,8 @@ export interface IGeographyItem {
   spatial: SpatialItem;
   geospatialExtent?: IGeographyBoundry;
   geographicLocations?: string | undefined | null;
+  spatialRepresentationType: string;
+  coordinateReferenceSystemId?: string;
 }
 
 export interface INaturalItem {
@@ -351,7 +383,7 @@ export interface IMoreInfoSearchItem extends IGeographyItem, IQualityItem, IGene
   title?: string;
   resources: IResources[];
   temporalExtent: ITemporalExtent;
-  license: ILicenseItem;
+  licence: ILicenseItem;
   organisation?: string;
   nceaContribution: string;
 }
