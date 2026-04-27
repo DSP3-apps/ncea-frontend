@@ -235,6 +235,27 @@ const removeDuplicatesValues = (data: string) => {
   return '';
 };
 
+const appendUtmSource = (url: string): string => {
+  if (!url) {
+    return url;
+  }
+
+  const UTM_PARAM = 'utm_source=ncea';
+
+  // If utm_source already exists, return as is
+  if (/[?&]utm_source=/.test(url)) {
+    return url;
+  }
+
+  // If no query params, add ?utm_source=ncea
+  if (!url.includes('?')) {
+    return `${url}?${UTM_PARAM}`;
+  }
+
+  // If query params exist, append with &
+  return `${url}&${UTM_PARAM}`;
+};
+
 export {
   getQueryStringParams,
   upsertQueryParams,
@@ -251,4 +272,5 @@ export {
   appendPublication,
   getClearFilterUrl,
   removeDuplicatesValues,
+  appendUtmSource,
 };
