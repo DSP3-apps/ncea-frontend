@@ -11,6 +11,7 @@ import {
   generateQueryBuilderPayload,
   deleteQueryParams,
   removeDuplicatesValues,
+  appendUtmSource,
 } from '../../src/utils/queryStringHelper';
 
 describe('queryStringHelper functions', () => {
@@ -406,6 +407,27 @@ describe('queryStringHelper functions', () => {
       expect(removeDuplicatesValues(input)).toStrictEqual(
         'soil, broad habitat, loss on ignition, parent material model, organic matter, carbon, habitat, countryside survey',
       );
+    });
+  });
+
+  describe('appendUtmSource', () => {
+    it('should return the same value when url is empty', () => {
+      expect(appendUtmSource('')).toBe('');
+    });
+
+    it('should return the same url when utm_source is already present as first query param', () => {
+      const url = 'https://example.com/page?utm_source=ncea&q=test';
+      expect(appendUtmSource(url)).toBe(url);
+    });
+
+    it('should append utm_source when url has no query params', () => {
+      const url = 'https://example.com/page';
+      expect(appendUtmSource(url)).toBe('https://example.com/page?utm_source=ncea');
+    });
+
+    it('should append utm_source using & when url already has query params', () => {
+      const url = 'https://example.com/page?q=test';
+      expect(appendUtmSource(url)).toBe('https://example.com/page?q=test&utm_source=ncea');
     });
   });
 });

@@ -5,6 +5,7 @@ import { DATA_DOWNLOADS_TYPES, DATA_SERVICES_TYPES } from './constants';
 import { capitalizeWords } from './formatAggregationResponse';
 import { getOrganisationDetails } from './getOrganisationDetails';
 import { isEmpty } from './isEmpty';
+import { appendUtmSource } from './queryStringHelper';
 import { environmentConfig } from '../config/environmentConfig';
 import {
   Contact,
@@ -219,16 +220,17 @@ export const createDownloadsTableRow = (payload, recordId) => {
     <td>${dataSetName}</td>
     <td>${type === DATA_DOWNLOADS_TYPES.EIDC_DOCUMENT ? 'N/A' : fileType}</td>
     <td>
-      <button data-url="${url}" data-id="${recordId}" class="download-resource govuk-button copy-link-btn" type="button">Download</button>
+      <button data-url="${appendUtmSource(url)}" data-id="${recordId}" class="download-resource govuk-button copy-link-btn" type="button">Download</button>
     </td>
   </tr>
   `;
 };
 
 const renderCopyLinkButton = (downloadLink: boolean, url: string): string => {
+  console.log('renderCopyLinkButton called with downloadLink:', downloadLink, 'and url:', url);
   return downloadLink
     ? 'N/A'
-    : `<button class="govuk-button copy-link-btn copy-link" value="${url}" data-module="govuk-button">Copy Link</button>`;
+    : `<button class="govuk-button copy-link-btn copy-link" value="${appendUtmSource(url)}" data-module="govuk-button">Copy Link</button>`;
 };
 
 const renderActionLink = (url: string, recordId: string) => {
@@ -237,7 +239,7 @@ const renderActionLink = (url: string, recordId: string) => {
   }
 
   if (url.includes('spatialdata/survey-index-files/wms')) {
-    return `<a class="govuk-link" href="/explore/${environmentConfig.surveyIndexPreviewRecordId}" rel="noopener noreferrer" target="_blank">Preview<span class="govuk-visually-hidden">(opens in a new tab)</span></a>`;
+    return `<a class="govuk-link" href="/explore/${environmentConfig.surveyIndexPreviewRecordId}?utm_source=ncea" rel="noopener noreferrer" target="_blank">Preview<span class="govuk-visually-hidden">(opens in a new tab)</span></a>`;
   }
 
   if (url.includes('/wfs')) {
@@ -245,10 +247,10 @@ const renderActionLink = (url: string, recordId: string) => {
   }
 
   if (url.includes('/wms')) {
-    return `<a class="govuk-link" href="/explore/${recordId}" rel="noopener noreferrer" target="_blank">Preview<span class="govuk-visually-hidden">(opens in a new tab)</span></a>`;
+    return `<a class="govuk-link" href="/explore/${recordId}?utm_source=ncea" rel="noopener noreferrer" target="_blank">Preview<span class="govuk-visually-hidden">(opens in a new tab)</span></a>`;
   }
 
-  return `<a class="govuk-link" href="${url}">Open Link</a>`;
+  return `<a class="govuk-link" href="${appendUtmSource(url)}">Open Link</a>`;
 };
 
 const validateParentChildRecords = (dataset?: ParentsRecords[]): ParentsRecords[] => {

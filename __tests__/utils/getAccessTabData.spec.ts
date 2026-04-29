@@ -58,7 +58,7 @@ describe('getAccessTabData functions', () => {
         'c9d7e118-d057-48f9-b520-76de8e51e014',
       );
       expect(output).toContain(
-        '<a class="govuk-link" href="/explore/c9d7e118-d057-48f9-b520-76de8e51e014" rel="noopener noreferrer" target="_blank">Preview<span class="govuk-visually-hidden">(opens in a new tab)</span></a>',
+        '<a class="govuk-link" href="/explore/c9d7e118-d057-48f9-b520-76de8e51e014?utm_source=ncea" rel="noopener noreferrer" target="_blank">Preview<span class="govuk-visually-hidden">(opens in a new tab)</span></a>',
       );
     });
 
@@ -76,7 +76,7 @@ describe('getAccessTabData functions', () => {
         'c9d7e118-d057-48f9-b520-76de8e51e014',
       );
       expect(output).toContain(
-        `<a class="govuk-link" href="/explore/${environmentConfig.surveyIndexPreviewRecordId}" rel="noopener noreferrer" target="_blank">Preview<span class="govuk-visually-hidden">(opens in a new tab)</span></a>`,
+        `<a class="govuk-link" href="/explore/${environmentConfig.surveyIndexPreviewRecordId}?utm_source=ncea" rel="noopener noreferrer" target="_blank">Preview<span class="govuk-visually-hidden">(opens in a new tab)</span></a>`,
       );
     });
   });
