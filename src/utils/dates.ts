@@ -113,4 +113,15 @@ const convertToDate = (day: string, month: string, year: string): Date | null =>
   }
 };
 
-export { formatDate, getYear, validateDate, convertToDate };
+const convertTimestampToIsoString = (timestamp: number | string): string => {
+  try {
+    const ms = typeof timestamp === 'string' ? parseInt(timestamp, 10) : timestamp;
+    if (isNaN(ms)) return '';
+    const isoString = new Date(ms).toISOString();
+    return formatDate(isoString, false, false);
+  } catch {
+    return '';
+  }
+};
+
+export { formatDate, getYear, validateDate, convertToDate, convertTimestampToIsoString };

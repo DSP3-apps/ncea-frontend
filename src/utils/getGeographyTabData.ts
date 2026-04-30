@@ -71,8 +71,8 @@ const getGeographyTabData = (payload: IGeographyItem): IGeography => {
 
   return {
     spatialDataService: payload?.spatial?.dataService ?? '',
-    spatialRepresentationService: payload?.spatial?.representationService ?? '',
-    spatialReferencingSystem: payload?.spatial?.referencingSystem ?? '',
+    spatialRepresentationService: payload?.spatialRepresentationType ?? '',
+    spatialReferencingSystem: payload?.coordinateReferenceSystemId ?? '',
     geographicLocations: '',
     geographicBoundary: coordinatesData?.coordinates ?? '',
     geographicBoundaryHtml: getGeographicBoundaryHtml(coordinatesData?.coordinates ?? ({} as IAccumulatedCoordinates)),
