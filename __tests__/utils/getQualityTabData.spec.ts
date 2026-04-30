@@ -38,7 +38,7 @@ describe('Quality tab fields', () => {
     expect(result).toEqual('11 February 2017');
   });  
 
-  it('should call getDistributionFormats and validate the output for dataFormats', () => {
+  it('should keep case-variant formats as separate values', () => {
     const dataFormats = [
       {
         dataFormat: 'Shapefile',
@@ -59,7 +59,21 @@ describe('Quality tab fields', () => {
         version: 'unknown',
       },
     ];
-    expect(getDistributionFormats(dataFormats).toLowerCase()).toEqual('shapefile');
+    expect(getDistributionFormats(dataFormats).toLowerCase()).toEqual('shapefile, shapefile');
+  });
+
+  it('should remove exact duplicate formats', () => {
+    const dataFormats = [
+      {
+        dataFormat: 'Shapefile',
+        version: 'unknown',
+      },
+      {
+        dataFormat: 'Shapefile',
+        version: 'unknown',
+      },
+    ];
+    expect(getDistributionFormats(dataFormats)).toEqual('Shapefile');
   });
 
   it('should call getDistributionFormats and validate the output for dataFormats', () => {

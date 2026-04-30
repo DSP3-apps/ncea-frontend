@@ -2,7 +2,7 @@
 'use strict';
 
 import { convertTimestampToIsoString, formatDate } from './dates';
-import { getUniqueValues } from './queryStringHelper';
+import { removeDuplicatesValues } from './queryStringHelper';
 import { IDataFormat, IQuality, IQualityItem } from '../interfaces/searchResponse.interface';
 
 const checkAtLeastOnePropertyValueExists = (sourceObject: Record<string, any>): boolean => {
@@ -45,7 +45,7 @@ const getRecordsDates = (data: string): string => {
 export const getDistributionFormats = (dataFormats: IDataFormat[]): string => {
   const resourceFormats = (dataFormats ?? []).map((item) => item?.dataFormat).filter(Boolean);
   if (resourceFormats.length > 0) {
-    return getUniqueValues(resourceFormats);
+    return removeDuplicatesValues(resourceFormats.join(','));
   }
   return '';
 };

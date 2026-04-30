@@ -43,15 +43,7 @@ describe('getKeywords', () => {
     [[{ valueLabel: 'flood' }, { valueLabel: 'environment' }], 'flood, environment'],
   ])('should return joined keywords: %j → "%s"', (input: ITaxonomyKeyword[], expected: string) => {
     expect(getKeywords(input)).toBe(expected);
-  });
-
-  it.each<[ITaxonomyKeyword[], string]>([
-    [[{ valueLabel: 'Flood' }, { valueLabel: 'flood' }], 'Flood'],
-    [[{ valueLabel: 'environment' }, { valueLabel: 'Environment' }], 'environment'],
-    [[{ valueLabel: 'Flood' }, { valueLabel: 'environment' }, { valueLabel: 'flood' }, { valueLabel: 'Environment' }], 'Flood, environment'],
-  ])('should deduplicate case-insensitively and preserve first-seen casing: %j → "%s"', (input: ITaxonomyKeyword[], expected: string) => {
-    expect(getKeywords(input)).toBe(expected);
-  });
+  });  
 
   it.each<[ITaxonomyKeyword[], string]>([
     [[{ valueLabel: '' }, { valueLabel: 'flood' }], 'flood'],

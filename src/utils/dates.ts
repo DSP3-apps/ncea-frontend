@@ -114,14 +114,13 @@ const convertToDate = (day: string, month: string, year: string): Date | null =>
 };
 
 const convertTimestampToIsoString = (timestamp: number | string): string => {
-  try {
-    const ms = typeof timestamp === 'string' ? parseInt(timestamp, 10) : timestamp;
-    if (isNaN(ms)) return '';
-    const isoString = new Date(ms).toISOString();
-    return formatDate(isoString, false, false);
-  } catch {
+  const milliSeconds = Number(timestamp);
+  if (!Number.isFinite(milliSeconds)) {
     return '';
   }
+
+  const isoString = new Date(milliSeconds).toISOString();
+  return formatDate(isoString, false, false);
 };
 
 export { formatDate, getYear, validateDate, convertToDate, convertTimestampToIsoString };

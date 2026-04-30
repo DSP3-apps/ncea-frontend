@@ -51,8 +51,27 @@ const hasDataSetId = (
   return Object.prototype.toString.call(dataSetId) === '[object String]' && String(dataSetId).trim().length > 0;
 };
 
-const isObject = (value: object | null | undefined): value is object => {
+const isObject = (value: unknown): value is object => {
   return Object.prototype.toString.call(value) === '[object Object]';
+};
+
+const getErrorMessage = (error: unknown): string => {
+  if (Object.prototype.toString.call(error) === '[object String]' && String(error).trim().length > 0) {
+    return error as string;
+  }
+
+  if (error instanceof Error && error.message.trim().length > 0) {
+    return error.message;
+  }
+
+  if (isObject(error) && 'message' in error) {
+    const message = (error as { message?: string }).message;
+    if (Object.prototype.toString.call(message) === '[object String]' && String(message).trim().length > 0) {
+      return message as string;
+    }
+  }
+
+  return 'Unknown error';
 };
 
 const isMoreInfoSearchItem = (value: object): value is SearchDataWithOptionalFiles => {
@@ -197,7 +216,7 @@ const getSearchResults = async (
       return Promise.resolve({ total: 0, items: [], hasSpatialData: false });
     }
   } catch (error) {
-    const message = error instanceof Error ? error.message : 'Unknown error';
+    const message = getErrorMessage(error);
     throw new Error(`Error fetching results: ${message}`);
   }
 };
@@ -235,7 +254,7 @@ const getSearchResultsCount = async (parent: string, credentials: Credentials): 
     }
     return { totalResults: 0 };
   } catch (error) {
-    const message = error instanceof Error ? error.message : 'Unknown error';
+    const message = getErrorMessage(error);
     throw new Error(`Error fetching category record count results: ${message}`);
   }
 };
@@ -266,7 +285,7 @@ const getFilterOptions = async (
       return Promise.resolve(fallbackResolve);
     }
   } catch (error) {
-    const message = error instanceof Error ? error.message : 'Unknown error';
+    const message = getErrorMessage(error);
     throw new Error(`Error fetching results: ${message}`);
   }
 };
@@ -315,20 +334,28 @@ const getDocumentDetails = async (
 
     let formattedSearchData = searchDataResponse;
     if (fileDataSetId) {
-      const fileListResponse = await fileManagementService.listFilesOnDataSet(fileDataSetId, credentials?.jwt ?? null);
-      const files = getResourceFiles(fileListResponse);
-      if (files.length > 0) {
-        formattedSearchData = {
-          ...searchDataResponse,
-          files,
-        };
+      try {
+        const fileListResponse = await fileManagementService.listFilesOnDataSet(
+          fileDataSetId,
+          credentials?.jwt ?? null,
+        );
+        const files = getResourceFiles(fileListResponse);
+        if (files.length > 0) {
+          formattedSearchData = {
+            ...searchDataResponse,
+            files,
+          };
+        }
+      } catch {
+        // Some datasets may not exist in file management; return details without file links.
+        formattedSearchData = searchDataResponse;
       }
     }
     const finalResponse = formatSearchResponse(formattedSearchData, vocabularyData);
 
     return finalResponse;
   } catch (error) {
-    const message = error instanceof Error ? error.message : 'Unknown error';
+    const message = getErrorMessage(error);
     throw new Error(`Error fetching results: ${message}`);
   }
 };

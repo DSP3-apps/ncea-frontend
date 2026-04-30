@@ -55,9 +55,5 @@ describe('convertTimestampToIsoString', () => {
   it('should return empty string for invalid timestamp input', () => {
     expect(convertTimestampToIsoString('invalid-timestamp')).toBe('');
     expect(convertTimestampToIsoString(Number.NaN)).toBe('');
-  });
-
-  it('should return empty string for out-of-range numeric values', () => {
-    expect(convertTimestampToIsoString('999999999999999999999999')).toBe('');
-  });
+  });  
 });

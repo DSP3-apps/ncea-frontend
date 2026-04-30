@@ -5,7 +5,7 @@ import remarkGfm from 'remark-gfm';
 import remarkHtml from 'remark-html';
 
 import { formatDate } from './dates';
-import { getUniqueValues } from './queryStringHelper';
+import { removeDuplicatesValues } from './queryStringHelper';
 import { IGeneralItem, ITaxonomyKeyword, ITemporalExtent } from '../interfaces/searchResponse.interface';
 
 export const getStudyPeriodDetails = (dateRanges: ITemporalExtent): string => {
@@ -30,7 +30,7 @@ const formatContent = (content: string): string => {
 export const getKeywords = (keywords: ITaxonomyKeyword[]): string => {
   const taxonomyKeywords = (keywords ?? []).map((item) => item.valueLabel || '').filter(Boolean);
   if (taxonomyKeywords.length > 0) {
-    return getUniqueValues(taxonomyKeywords);
+    return removeDuplicatesValues(taxonomyKeywords.join(','));
   }
   return '';
 };
@@ -38,7 +38,7 @@ export const getKeywords = (keywords: ITaxonomyKeyword[]): string => {
 const getGeneralTabData = (payload: IGeneralItem) => ({
   content: formatContent(payload?.description ?? ''),
   studyPeriod: payload?.temporalExtent ? getStudyPeriodDetails(payload.temporalExtent) : '',
-  topicCategories: getUniqueValues(payload?.topics ?? []),
+  topicCategories: removeDuplicatesValues(payload?.topics?.join(',') ?? ''),
   keywords: getKeywords(payload?.taxonomyKeywords ?? []),
   language: payload?.metadataLanguage?.toLocaleUpperCase() ?? '',
 });

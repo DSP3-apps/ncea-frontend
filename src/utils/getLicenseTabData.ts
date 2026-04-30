@@ -10,18 +10,15 @@ const formmatLicenseData = (licenseData: string[]) => {
   return '';
 };
 
-export const ConcateValues = (text: string, attributionStatement: string): string => {
-  if (text && attributionStatement) {
-    return `${text}<br>${attributionStatement}`;
-  }
-  return text || attributionStatement || '';
+export const concateValues = (text: string, attributionStatement: string): string => {
+  return text && attributionStatement ? `${text}<br>${attributionStatement}` : text || attributionStatement || '';
 };
 
 const getLicenseTabData = (licence: ILicenseItem): ILicense => {
   return {
     limitation_on_public_access: licence?.useLimitationStatement ?? '',
     limitation_on_public_access_otherconstraint: formmatLicenseData(licence?.publicAccessOtherConstraints ?? []),
-    conditions_for_access_and_useOtherConstraints: ConcateValues(
+    conditions_for_access_and_useOtherConstraints: concateValues(
       licence?.text ?? '',
       licence?.attributionStatement ?? '',
     ),
