@@ -289,7 +289,6 @@ const getAccessTabData = (payload: IAccessItem): IAccess => ({
   // resource_locators: '', // keeps as empty as its value is not available from AGM side
   contact_information: payload.publicContact?.emailAddress ?? '',
   catalogue_number: '',
-  // metadata_standard: payload?.metadata?.standard ?? '',
   metadata_language: payload?.metadataLanguage?.toUpperCase() ?? '',
   resourceWebsite: '',
   parent_records: [],
