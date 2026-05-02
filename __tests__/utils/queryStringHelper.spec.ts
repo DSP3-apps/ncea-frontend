@@ -12,6 +12,7 @@ import {
   deleteQueryParams,
   removeDuplicatesValues,
   getUniqueValues,
+  escapeHtmlAttribute,
 } from '../../src/utils/queryStringHelper';
 
 describe('queryStringHelper functions', () => {
@@ -431,6 +432,34 @@ describe('queryStringHelper functions', () => {
       [['HABITAT', 'habitat', 'Habitat'], 'HABITAT'],
     ])('should deduplicate case-insensitively and preserve first-seen casing: %j → %s', (input, expected) => {
       expect(getUniqueValues(input)).toBe(expected);
+    });
+  });
+
+  describe('escapeHtmlAttribute', () => {
+    it('should return the same value when no escapable characters are present', () => {
+      expect(escapeHtmlAttribute('dataset-file-name.zip')).toBe('dataset-file-name.zip');
+    });
+
+    it('should escape ampersands', () => {
+      expect(escapeHtmlAttribute('A & B')).toBe('A &amp; B');
+    });
+
+    it('should escape double quotes', () => {
+      expect(escapeHtmlAttribute('say "hello"')).toBe('say &quot;hello&quot;');
+    });
+
+    it('should escape single quotes', () => {
+      expect(escapeHtmlAttribute("it's data")).toBe('it&#39;s data');
+    });
+
+    it('should escape angle brackets', () => {
+      expect(escapeHtmlAttribute('<script>alert(1)</script>')).toBe('&lt;script&gt;alert(1)&lt;/script&gt;');
+    });
+
+    it('should escape mixed HTML special characters in order', () => {
+      const input = `<a href="https://example.com?a=1&b=2">it's "test"</a>`;
+      const expected = '&lt;a href=&quot;https://example.com?a=1&amp;b=2&quot;&gt;it&#39;s &quot;test&quot;&lt;/a&gt;';
+      expect(escapeHtmlAttribute(input)).toBe(expected);
     });
   });
 });

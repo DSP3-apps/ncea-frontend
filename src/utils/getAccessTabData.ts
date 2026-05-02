@@ -1,10 +1,11 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 'use strict';
 
-import { DATA_DOWNLOADS_TYPES, DATA_SERVICES_TYPES } from './constants';
+import { DATA_DOWNLOADS_TYPES } from './constants';
 import { capitalizeWords } from './formatAggregationResponse';
 import { getOrganisationDetails } from './getOrganisationDetails';
 import { isEmpty } from './isEmpty';
+import { escapeHtmlAttribute } from './queryStringHelper';
 import { environmentConfig } from '../config/environmentConfig';
 import {
   Contact,
@@ -112,20 +113,29 @@ export const validateDataSetServiceTypes = (options: ServiceOptions, value: stri
   return lowerCaseServiceTypesSet.has(value.toLowerCase());
 };
 
-export const generateResourceWebsiteTable = (resources: IResources[], recordId: string) => {
-  if (Array.isArray(resources) && resources.length > 0) {
-    const filterDataServicesSet = resources.filter(({ type }) =>
-      validateDataSetServiceTypes(DATA_SERVICES_TYPES, type),
-    );
-    const filterDataDownloadSet = resources.filter(
-      ({ type }) => type !== null && validateServiceTypes(DATA_DOWNLOADS_TYPES, type),
-    );
-    const dataServicesTable = generateDataServicesTable(filterDataServicesSet, recordId);
-    const dataDownloadTable = generateDataDownloadsTable(filterDataDownloadSet, filterDataServicesSet, recordId);
+export const generateResourceWebsiteTable = (
+  filterDataServicesSet: IResources[],
+  recordId: string,
+  filterDataDownloadSet: IResources[] | { files?: IResources[] } = [],
+) => {
+  let dataServicesTable = '';
+  let dataDownloadTable = '';
 
-    return `${dataServicesTable}${dataDownloadTable}`;
+  if (Array.isArray(filterDataServicesSet) && filterDataServicesSet.length > 0) {
+    dataServicesTable = generateDataServicesTable(filterDataServicesSet, recordId);
   }
-  return '';
+
+  const files = Array.isArray(filterDataDownloadSet)
+    ? filterDataDownloadSet
+    : Array.isArray(filterDataDownloadSet?.files)
+      ? filterDataDownloadSet.files
+      : [];
+
+  if (files.length > 0) {
+    dataDownloadTable = generateDataDownloadsTable(files, filterDataServicesSet, recordId);
+  }
+
+  return `${dataServicesTable}${dataDownloadTable}`;
 };
 
 const generateDataServicesTable = (dataServices: IResources[], recordId: string) => {
@@ -201,11 +211,11 @@ export const extractFileFormat = (url: string | null) => {
 };
 
 export const createDownloadsTableRow = (payload, recordId) => {
-  const { distributionFormat, name, url, type } = payload;
+  const { distributionFormat, name, url, fileURI, type } = payload;
+  const fileUrl = url ?? fileURI ?? '';
   const dataSetName = isEmpty(name) ? 'N/A' : name;
-  const fileType = isEmpty(distributionFormat) ? extractFileFormat(url) : distributionFormat[0].toString();
-
-  if (isEmpty(url)) {
+  const fileType = isEmpty(distributionFormat) ? extractFileFormat(fileUrl) : distributionFormat[0].toString();
+  if (isEmpty(fileUrl)) {
     return `
    <tr>
     <td>${dataSetName}</td>
@@ -219,7 +229,13 @@ export const createDownloadsTableRow = (payload, recordId) => {
     <td>${dataSetName}</td>
     <td>${type === DATA_DOWNLOADS_TYPES.EIDC_DOCUMENT ? 'N/A' : fileType}</td>
     <td>
-      <button data-url="${url}" data-id="${recordId}" class="download-resource govuk-button copy-link-btn" type="button">Download</button>
+      <button
+        data-url="${escapeHtmlAttribute(fileUrl)}"
+        data-id="${escapeHtmlAttribute(recordId)}"
+        class="download-resource govuk-button copy-link-btn"
+        type="button">
+        Download
+      </button>      
     </td>
   </tr>
   `;
@@ -281,18 +297,23 @@ const createTableRow = (name: string, url: string, recordId: string) => {
   `;
 };
 
-const getAccessTabData = (payload: IAccessItem): IAccess => ({
-  ncea_catalogue_number: payload.id ?? '', // file identifier
-  host_catalogue_number: payload.id ?? '', // resource identifier
-  host_catalogue_entry: '',
-  resource_type_and_hierarchy: payload?.entryType ?? '',
-  // resource_locators: '', // keeps as empty as its value is not available from AGM side
-  contact_information: payload.publicContact?.emailAddress ?? '',
-  catalogue_number: '',
-  metadata_language: payload?.metadataLanguage?.toUpperCase() ?? '',
-  resourceWebsite: '',
-  parent_records: [],
-  child_records: [],
-});
+const getAccessTabData = (payload: IAccessItem): IAccess => {
+  const downloadFiles = (payload as { files?: IResources[] }).files ?? [];
+
+  return {
+    ncea_catalogue_number: payload.id ?? '', // file identifier
+    host_catalogue_number: payload.id ?? '', // resource identifier
+    host_catalogue_entry: '',
+    resource_type_and_hierarchy: payload?.entryType ?? '',
+    // resource_locators: '', // keeps as empty as its value is not available from AGM side
+    contact_information: payload.publicContact?.emailAddress ?? '',
+    catalogue_number: '',
+    // metadata_standard: payload?.metadata?.standard ?? '',
+    metadata_language: payload?.metadataLanguage?.toUpperCase() ?? '',
+    resourceWebsite: generateResourceWebsiteTable(payload.resources ?? [], payload.id, downloadFiles),
+    parent_records: [],
+    child_records: [],
+  };
+};
 
 export { getAccessTabData, getResourceLocators, getCoupledResource, getContactInformation, validateParentChildRecords };

@@ -8,7 +8,7 @@ import { Credentials } from '../../interfaces/auth';
 import { FormattedTabOptions } from '../../interfaces/detailsTab.interface';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { ISearchItem, ISearchResults } from '../../interfaces/searchResponse.interface';
-import { getDocumentDetails, getSearchResults } from '../../services/handlers/searchApi';
+import { getDocumentDetails, getFileDownloadUrl, getSearchResults } from '../../services/handlers/searchApi';
 import {
   BASE_PATH,
   formIds,
@@ -233,6 +233,27 @@ const SearchResultsController = {
     };
     const queryString: string = upsertQueryParams(request.query, queryParamsObject, false);
     return response.redirect(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
+  },
+  getFileDownloadUrlHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
+    try {
+      type Query = {
+        dataSetId?: string;
+        fileName?: string;
+      };
+
+      const query = request.query as Query;
+      const dataSetId = query.dataSetId;
+      const fileName = query.fileName;
+      if (!dataSetId || !fileName) {
+        return response.response({ error: 'Missing dataSetId or fileName' }).code(400);
+      }
+      const result = await getFileDownloadUrl(dataSetId, fileName, request.auth.credentials as Credentials);
+      return response.response({ url: result.url }).code(200);
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'Failed to get download URL';
+      console.error('[FileDownload] Error:', message);
+      return response.response({ error: message }).code(500);
+    }
   },
   filterStudyPeriodHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
     const payload = request.payload as Record<string, string>;

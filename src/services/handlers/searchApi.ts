@@ -8,6 +8,7 @@ import { IFilterFlags } from '../../interfaces/searchPayload.interface';
 import {
   IAggregationOptions,
   IMoreInfoSearchItem,
+  IResources,
   ISearchResponse,
   ISearchResults,
 } from '../../interfaces/searchResponse.interface';
@@ -26,6 +27,13 @@ type CatalogServiceInstance = {
 
 let catalogServicePromise: Promise<CatalogServiceInstance> | null = null;
 
+type FileManagementServiceInstance = {
+  listFilesOnDataSet: (dataSetId: string, jwt: string | null) => Promise<unknown>;
+  getFileDownloadUrl: (dataSetId: string, fileName: string, jwt: string | null) => Promise<unknown>;
+};
+
+let fileManagementServicePromise: Promise<FileManagementServiceInstance> | null = null;
+
 const getServicesConfigKey = (): ConfigEnv => {
   return environmentConfig.env === 'live' ? 'defraLive' : 'defraTest';
 };
@@ -38,6 +46,16 @@ const getCatalogService = async (): Promise<CatalogServiceInstance> => {
   }
 
   return catalogServicePromise;
+};
+
+const getFileManagementService = async (): Promise<FileManagementServiceInstance> => {
+  if (!fileManagementServicePromise) {
+    fileManagementServicePromise = import('@agrimetrics/services').then(({ FileManagementService }) => {
+      return new FileManagementService(getServicesConfigKey()) as FileManagementServiceInstance;
+    });
+  }
+
+  return fileManagementServicePromise;
 };
 
 const requireUrl = (value: string | undefined, name: string): string => {
@@ -188,6 +206,8 @@ const getDocumentDetails = async (docId: string, credentials: Credentials): Prom
 
     const catalogService = await getCatalogService();
 
+    const fileManagementService = await getFileManagementService();
+
     const [searchData, agmApiVocabalaryResponse] = await Promise.all([
       catalogService.getCatalogueEntry(docId, credentials?.jwt ?? null) as Promise<IMoreInfoSearchItem>,
       fetch(`${vocabUrl}`, {
@@ -200,7 +220,17 @@ const getDocumentDetails = async (docId: string, credentials: Credentials): Prom
       throw new Error(`Error fetching vocabulary data: ${agmApiVocabalaryResponse.statusText}`);
     }
     const vocabularyData = await agmApiVocabalaryResponse.json();
-    const finalResponse = formatSearchResponse(searchData, vocabularyData);
+    const searchDataWithFiles = searchData as IMoreInfoSearchItem & {
+      dataSet?: { id?: string };
+      files?: IResources[];
+    };
+
+    const fileDataSetId = searchDataWithFiles?.dataSet?.id?.trim() ?? searchDataWithFiles.id?.trim() ?? '';
+    if (fileDataSetId) {
+      const fileList = await fileManagementService.listFilesOnDataSet(fileDataSetId, credentials?.jwt ?? null);
+      searchDataWithFiles.files = fileList as IResources[];
+    }
+    const finalResponse = formatSearchResponse(searchDataWithFiles, vocabularyData);
 
     return finalResponse;
   } catch (error: any) {
@@ -208,4 +238,31 @@ const getDocumentDetails = async (docId: string, credentials: Credentials): Prom
   }
 };
 
-export { getDocumentDetails, getFilterOptions, getSearchResultsCount, getSearchResults };
+const getFileDownloadUrl = async (
+  dataSetId: string,
+  fileName: string,
+  credentials: Credentials,
+): Promise<{ url: string }> => {
+  const searchApiUrl = requireUrl(environmentConfig.searchApiUrl, 'SEARCH_API');
+  const { url: baseUrl, authHeader } = getUrlAndAuthHeader(searchApiUrl);
+  const origin = new URL(baseUrl).origin;
+  const fileDownloadUrl = `${origin}/file-management-open/data-sets/${encodeURIComponent(dataSetId)}/files/${encodeURIComponent(fileName)}/download-url`;
+
+  const headers: HeadersMap = {};
+  if (authHeader) {
+    headers.Authorization = authHeader;
+  } else if (credentials?.jwt) {
+    headers.Authorization = `Bearer ${credentials.jwt}`;
+  }
+
+  const response = await fetch(fileDownloadUrl, { method: 'GET', headers });
+
+  if (!response.ok) {
+    const body = await response.text().catch(() => String(response.status));
+    throw new Error(`Upstream /file-management-open returned ${response.status}: ${body}`);
+  }
+
+  return (await response.json()) as { url: string };
+};
+
+export { getDocumentDetails, getFileDownloadUrl, getFilterOptions, getSearchResultsCount, getSearchResults };
