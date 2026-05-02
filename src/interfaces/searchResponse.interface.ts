@@ -259,6 +259,37 @@ export interface TabbedItem {
   tab?: string;
 }
 
+export type Query = {
+  dataSetId?: string;
+  fileName?: string;
+};
+
+export type HeadersMap = Record<string, string>;
+
+export type SearchDataWithOptionalFiles = IMoreInfoSearchItem & {
+  dataSet?: { id?: string };
+  files?: IResources[];
+};
+
+export type FileDownloadUrlResponse = {
+  url: string;
+};
+
+export type FileManagementFile = {
+  fileURI?: string;
+  name: string;
+  type: string;
+};
+
+export type CatalogServiceInstance = {
+  getCatalogueEntry: (docId: string, jwt: string | null) => Promise<object>;
+};
+
+export type FileManagementServiceInstance = {
+  listFilesOnDataSet: (dataSetId: string, jwt: string | null) => Promise<object>;
+  getFileDownloadUrl: (dataSetId: string, fileName: string, jwt: string | null) => Promise<object>;
+};
+
 export interface ISearchResults {
   total: number;
   items: ISearchItem[];

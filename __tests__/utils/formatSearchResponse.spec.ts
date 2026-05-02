@@ -132,6 +132,7 @@ describe('Format the search response', () => {
       host_catalogue_number: 'c9d7e118-d057-48f9-b520-76de8e51e014',
       child_records: [],
       parent_records: [],
+      resourceLocator: 'https://environment-test.data.gov.uk/explore/9bceae16-607b-49d6-a980-289289fc4643?download=true',
     };
     expect(result).toEqual(expectedResponse);
   });

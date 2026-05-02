@@ -165,14 +165,14 @@ export const transformSearchResponse = (response: ISearchResponse, isMapResults:
 };
 
 export const formatSearchResponse = (payload: IMoreInfoSearchItem, vocabularyData: NaturalCapitalTheme[]) => {
-  // const resourceUrl = getResourceLocatorURL(payload?.resources[0]?.url ?? '');
+  const resourceLocator = payload?.resources?.[0]?.url ?? '';
   return {
     id: payload?.id,
     title: payload?.title ?? '',
     publishedBy: payload?.organisation ?? '',
     startYear: getYear(payload?.temporalExtent?.begin ?? ''),
     toYear: getYear(payload?.temporalExtent?.end ?? ''),
-    // resourceLocator: resourceUrl,
+    resourceLocator,
     organisationName: payload?.organisation ?? '',
     ncea_group_reference: '',
     project_number: '',
