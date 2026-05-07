@@ -17,7 +17,7 @@ export interface EnvironmentConfig {
   surveyIndexPreviewRecordId: string | undefined;
   featureFlag: boolean;
   parentChildFeatureFlag: boolean;
-  enablePostHogFeatureFlag: boolean;
+  enableClarityFeatureFlag: boolean;
   announcementFeatureFlag: boolean;
   announcementStartDate?: string | undefined;
   announcementEndDate?: string | undefined;

@@ -94,7 +94,7 @@ describe('Environment environmentConfig', () => {
         surveyIndexPreviewRecordId: Joi.string(),
         featureFlag: Joi.boolean().valid(true, false).default(false),
         parentChildFeatureFlag: Joi.boolean().valid(true, false).default(false),
-        enablePostHogFeatureFlag: Joi.boolean().valid(true, false).default(false),
+        enableClarityFeatureFlag: Joi.boolean().valid(true, false).default(false),
         announcementFeatureFlag: Joi.boolean().valid(true, false).default(false),
         announcementStartDate: Joi.string().allow('').default(''),
         announcementEndDate: Joi.string().allow('').default(''),

@@ -6,6 +6,7 @@ import nunjucks from 'nunjucks';
 import dateFilter from 'nunjucks-date-filter';
 
 import { environmentConfig } from '../../config/environmentConfig';
+import { getClarityConfig } from '../../utils/clarityConfig';
 import {
   BASE_PATH,
   accessibilityStatementUrl,
@@ -17,7 +18,6 @@ import {
   termsAndConditionsUrl,
   webRoutePaths,
 } from '../../utils/constants';
-import { getPostHogConfig } from '../../utils/postHogConfig';
 
 const packageJsonPath = path.join(process.cwd(), 'package.json');
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
@@ -114,8 +114,8 @@ const customHapiViews = {
       isLocal: environmentConfig.isLocal,
       featureFlag: environmentConfig.featureFlag,
       parentChildFeatureFlag: environmentConfig.parentChildFeatureFlag,
-      enablePostHogFeatureFlag: environmentConfig.enablePostHogFeatureFlag,
-      ...getPostHogConfig(),
+      enableClarityFeatureFlag: environmentConfig.enableClarityFeatureFlag,
+      ...getClarityConfig(),
     },
   },
 };
