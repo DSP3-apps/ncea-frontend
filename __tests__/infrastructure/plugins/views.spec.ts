@@ -12,7 +12,7 @@ import {
 } from '../../../src/utils/constants';
 import nunjucks, { Environment } from 'nunjucks';
 import { customHapiViews } from '../../../src/infrastructure/plugins/views';
-import { getPostHogConfig } from '../../../src/utils/postHogConfig';
+import { getClarityConfig } from '../../../src/utils/clarityConfig';
 
 jest.mock('nunjucks');
 
@@ -93,7 +93,7 @@ describe('Vision Plugin Configuration', () => {
       isLocal: false,
       featureFlag: false,
       parentChildFeatureFlag: false,
-      enablePostHogFeatureFlag: false,
+      enableClarityFeatureFlag: false,
       headerNavigationLinks: [
         {
           text: 'Home',
@@ -112,7 +112,7 @@ describe('Vision Plugin Configuration', () => {
         },
       ],
       currentYear: new Date().getFullYear(),
-      ...getPostHogConfig(),
+      ...getClarityConfig(),
     });
     expect(mockEnvironment.addFilter).toHaveBeenCalledTimes(3);
   });
