@@ -12,11 +12,11 @@ const formmatLicenseData = (licenseData: string[]) => {
 
 const getLicenseTabData = (license: ILicenseItem): ILicense => {
   return {
-    limitation_on_public_access: license?.publicAccessAccessContraints ?? '',
-    limitation_on_public_access_otherconstraint: formmatLicenseData(license?.publicAccessOtherConstraints ?? []),
+    limitation_on_public_access: license?.publicUseUseConstraints ?? '',
+    limitation_on_public_access_otherconstraint: formmatLicenseData(license?.publicAccessAccessContraints ?? []),
     conditions_for_access_and_useOtherConstraints: license?.publicUseOtherContraints ?? '',
-    conditions_for_access_and_use_useConstraints: license?.publicUseUseConstraints ?? '',
-    other_constraint: '', // Need to test once data is availble from AGM side
+    conditions_for_access_and_use_useConstraints: formmatLicenseData(license?.publicAccessOtherConstraints ?? []),
+    other_constraint: '',
     attribution_statement: license?.attributionStatement ?? '',
   };
 };

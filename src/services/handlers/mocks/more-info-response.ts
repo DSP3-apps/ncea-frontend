@@ -136,7 +136,7 @@ export const MORE_INFO_MOCK_DATA = {
   },
   verticalExtent: null,
   license: {
-    publicAccessAccessContraints: 'Open Government Licence<br>©Crown Copyright, APHA 2016',
+    publicAccessAccessContraints: ['Open Government Licence<br>©Crown Copyright, APHA 2016'],
     publicAccessOtherConstraints: ['otherRestrictions', 'license', 'copyright'],
     publicUseUseConstraints: null,
     publicUseOtherContraints: null,
