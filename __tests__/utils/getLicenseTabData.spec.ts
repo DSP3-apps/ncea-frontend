@@ -4,12 +4,12 @@ import { MORE_INFO_MOCK_DATA } from '../../src/services/handlers/mocks/more-info
 describe('getLicenseTabData', () => {
   it('should return correct license tab data', () => {
     const expectedData = {
-      limitation_on_public_access: 'Open Government Licence<br>©Crown Copyright, APHA 2016',
-      limitation_on_public_access_otherconstraint: 'otherRestrictions<br>license<br>copyright',
-      conditions_for_access_and_use_useConstraints: '',
+      limitation_on_public_access: '',
+      limitation_on_public_access_otherconstraint: 'Open Government Licence<br>©Crown Copyright, APHA 2016',
+      conditions_for_access_and_use_useConstraints: 'otherRestrictions<br>license<br>copyright',
       conditions_for_access_and_useOtherConstraints: '',
       other_constraint: '',
-      attribution_statement: "",
+      attribution_statement: '',
     };
     expect(getLicenseTabData(MORE_INFO_MOCK_DATA.license)).toEqual(expectedData);
   });
