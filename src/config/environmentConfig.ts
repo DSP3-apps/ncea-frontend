@@ -31,7 +31,7 @@ const config: EnvironmentConfig = {
   surveyIndexPreviewRecordId: process.env.SURVEY_INDEX_PREVIEW_RECORD_ID,
   featureFlag: process.env.FEATURE_FLAG === 'true',
   parentChildFeatureFlag: process.env.PARENT_CHILD_FEATURE_FLAG === 'true',
-  enableClarityFeatureFlag: process.env.ENABLE_CLARITY === 'true',
+  enablePostHogFeatureFlag: process.env.ENABLE_POSTHOG === 'true',
   announcementFeatureFlag: process.env.ANNOUNCEMENT_FEATURE_FLAG === 'true',
   announcementStartDate: process.env.ANNOUNCEMENT_START_DATE,
   announcementEndDate: process.env.ANNOUNCEMENT_END_DATE,

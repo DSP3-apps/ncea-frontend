@@ -59,7 +59,7 @@ describe('Environment Configuration Schema', () => {
         surveyIndexPreviewRecordId: '123',
         featureFlag: true,
         parentChildFeatureFlag: true,
-        enableClarityFeatureFlag: true,
+        enablePostHogFeatureFlag: true,
         announcementFeatureFlag: true,
         announcementStartDate: '',
         announcementEndDate: '',

@@ -69,9 +69,9 @@ export const environmentSchema: Joi.ObjectSchema = Joi.object({
     'boolean.base': 'Parent Child Feature Flag must be a boolean value',
     'any.only': 'Parent Child Flag is not valid',
   }),
-  enableClarityFeatureFlag: Joi.boolean().valid(true, false).default(false).messages({
-    'boolean.base': 'Clarity Feature Flag must be a boolean value',
-    'any.only': 'Clarity Feature Flag is not valid',
+  enablePostHogFeatureFlag: Joi.boolean().valid(true, false).default(false).messages({
+    'boolean.base': 'Posthog Feature Flag must be a boolean value',
+    'any.only': 'Posthog Feature Flag is not valid',
   }),
   announcementFeatureFlag: Joi.boolean().valid(true, false).default(false).messages({
     'boolean.base': 'Announcement Feature Flag must be a boolean value',
