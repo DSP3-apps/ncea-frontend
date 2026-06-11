@@ -124,10 +124,6 @@
   border-top: 1.5px solid #b1b4b6;
 }
 
-.landingPage ul li.cat-dts-li a:link{
-  color: #0b0c0c;
-}
-
 .landingPage .cate-featured-datasets ul {
   margin-left: 0px;
 }
@@ -162,4 +158,14 @@
 
 .margin-bottom-10 {
   margin-bottom: 15px;
+}
+.landingPage .margin-top-zero {
+  margin-top: 0px;
+}
+.categories-img-captions {
+  display: block;
+  text-align: right;  
+  margin-top: 2px;
+  font-size: 0.795rem;
+  font-weight: 500;
 }
