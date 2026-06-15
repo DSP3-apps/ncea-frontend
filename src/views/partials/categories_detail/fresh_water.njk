@@ -1,7 +1,9 @@
+{% from "macros/image-caption.njk" import categorieImageCaption %}
 <section class="landingPage__articles">
     <h2 class="govuk-heading-m">Fresh water</h2>
     <div class="landingPage__intro-content">
     <img src="{{ assetPath }}/images/Fresh-Water-img.jpg" width="100%" height="533" alt="Fresh water" >
+    {{ categorieImageCaption() }}
     <p class="govuk-body govuk-!-margin-bottom-6 top-para">
       Through a mix of field survey, in situ telemetered monitoring and earth observation, the NCEA programme provides national, unbiased monitoring of condition of rivers, small streams, lakes, groundwater, estuaries, coasts and atmospheric deposition.
     </p>
@@ -13,7 +15,7 @@
 
   <section class="landingPage__intro">
     <div class="landingPage__intro-content">
-      <h2 class="govuk-heading-m educational-copy-container__heading-m">NCEA fresh water products and datasets</h2>
+      <h2 class="govuk-heading-m educational-copy-container__heading-m">NCEA fresh water products and data set</h2>
       <div class="grey-line">
         <h3 class="govuk-heading-s govuk-!-margin-bottom-1 margin-top-10">
           <a class="govuk-link data-categories__link" href="/natural-capital-ecosystem-assessment/search/21763290-f395-4ca1-bcf6-884c2e7548d4">River Surveillance Network</a>

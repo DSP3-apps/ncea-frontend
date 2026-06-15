@@ -1,7 +1,9 @@
+{% from "macros/image-caption.njk" import categorieImageCaption %}
 <section class="landingPage__articles">
     <h2 class="govuk-heading-m">Trees and woodland</h2>
     <div class="landingPage__intro-content">
     <img src="{{ assetPath }}/images/Trees-Woodland-img.jpg" width="100%" height="533" alt="Trees and woodland" >
+    {{ categorieImageCaption() }}
     <p class="govuk-body govuk-!-margin-bottom-6 top-para">
       The NCEA programme strengthens national understanding of England’s trees and forestry by mapping the extent, location and condition of ancient woodland, wood pasture and parkland, woodlands, trees outside of woodlands, and young trees in England.
     </p>
@@ -16,13 +18,13 @@
 
   <section class="landingPage__intro">
     <div class="landingPage__intro-content">
-      <h2 class="govuk-heading-m educational-copy-container__heading-m">NCEA trees and forestry products and datasets</h2>
+      <h2 class="govuk-heading-m educational-copy-container__heading-m">NCEA trees and forestry products and data set</h2>
       <div class="grey-line">
         <h3 class="govuk-heading-s govuk-!-margin-bottom-1 margin-top-10">
           <a class="govuk-link data-categories__link" target="_blank" href="https://www.data.gov.uk/dataset/9461f463-c363-4309-ae77-fdcd7e9df7d3/ancient-woodland-england">Ancient Woodland Inventory</a>
         </h3>
         <p class="govuk-body margin-bottom-10">
-          The Ancient Woodland Inventory (AWI) is a national GIS dataset mapping ancient woodland sites over 0.25 hectares, including ancient wood pasture and parkland. It identifies more than 52,000 sites across England and is currently being updated to expand and modernise this core evidence base on woodland extent and condition.
+          The Ancient Woodland Inventory is a national geospatial data set mapping ancient woodland sites over 0.25 hectares, including ancient wood pasture and parkland. It identifies more than 52,000 sites across England and is currently being updated to expand and modernise this core evidence base on woodland extent and condition.
         </p>
       </div>
       <div class="grey-line">
