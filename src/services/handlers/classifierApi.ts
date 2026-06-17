@@ -1,5 +1,6 @@
 import { environmentConfig } from '../../config/environmentConfig';
 import { Classifiers, Classify } from '../../interfaces/classifierSearch.interface';
+import { getUrlAndAuthHeader } from '../../utils/authHeader';
 import { monetaryCategory, naturalCapitalEvaluation, nonMonetaryCategory } from '../../utils/constants';
 
 const transformClassifierDetails = (classifiers: Classify[]): Classify[] => {
@@ -26,14 +27,16 @@ const transformClassifierLevel3Details = (Level2Classifiers: Classify[]): Classi
 };
 
 const invokeClassifierApi = async (level: string, parents: string = '') => {
-  let url = `${environmentConfig.classifierApiUrl}api/classifiers?level=${level}`;
+  let classifierUrl = `${environmentConfig.classifierApiUrl}api/classifiers?level=${level}`;
 
   if (parents) {
-    url = url + `&Parents=${parents}`;
+    classifierUrl = classifierUrl + `&Parents=${parents}`;
   }
+
+  const { url, authHeader } = getUrlAndAuthHeader(classifierUrl);
   const response = await fetch(url, {
     method: 'GET',
-    headers: { 'X-API-Key': environmentConfig.classifierApiKey } as HeadersInit,
+    headers: { 'X-API-Key': environmentConfig.classifierApiKey, Authorization: authHeader } as HeadersInit,
   });
   const data = await response.json();
   return data;
