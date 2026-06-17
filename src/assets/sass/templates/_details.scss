@@ -1,3 +1,9 @@
+.category-detail_marine-image {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
 .details {
   &-title {
     @include font-style-stack(36px, 40px);
