@@ -4,14 +4,12 @@ import { Credentials } from '../../interfaces/auth';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
 import { IFilterFlags } from '../../interfaces/searchPayload.interface';
 import { IAggregationOptions, ISearchResponse, ISearchResults } from '../../interfaces/searchResponse.interface';
-import { getUrlAndAuthHeader } from '../../utils/authHeader';
+import { buildSearchApiHeaders, getUrlAndAuthHeader } from '../../utils/authHeader';
 import { defaultFilterOptions } from '../../utils/constants';
 import { formatSearchResponse, transformSearchResponse } from '../../utils/formatSearchResponse';
 import { isEmpty } from '../../utils/isEmpty';
 import { generateSearchQuery } from '../../utils/queryBuilder';
 import { ISearchFiltersProcessed } from '../../utils/searchFilters';
-
-type HeadersMap = Record<string, string>;
 
 const requireUrl = (value: string | undefined, name: string): string => {
   if (!value) {
@@ -33,16 +31,9 @@ const getSearchResults = async (
       const payload = generateSearchQuery(searchFieldsObject, filters);
 
       const searchApiUrl = requireUrl(environmentConfig.searchApiUrl, 'SEARCH_API');
-      const { url, authHeader } = getUrlAndAuthHeader(searchApiUrl);
+      const { url, authHeader, isNCEATestEnv } = getUrlAndAuthHeader(searchApiUrl);
 
-      const headers: HeadersMap = {};
-
-      // Prefer basic auth if the URL contained credentials; fall back to JWT otherwise.
-      if (authHeader) {
-        headers.Authorization = authHeader;
-      } else if (credentials) {
-        headers.Authorization = `Bearer ${credentials.jwt}`;
-      }
+      const headers = buildSearchApiHeaders(authHeader, credentials, isNCEATestEnv);
 
       const agmApiResponse = await fetch(`${url}?sortBy=${searchFieldsObject?.sort ?? 'most_relevant'}`, {
         method: 'POST',
@@ -75,15 +66,9 @@ const getSearchResultsCount = async (parent: string, credentials: Credentials): 
         environmentConfig.categoryResultCountApiUrl,
         'CATEGORY_RESULT_COUNT_API',
       );
-      const { url, authHeader } = getUrlAndAuthHeader(categoryResultCountApiUrl);
+      const { url, authHeader, isNCEATestEnv } = getUrlAndAuthHeader(categoryResultCountApiUrl);
 
-      const headers: HeadersMap = {};
-
-      if (authHeader) {
-        headers.Authorization = authHeader;
-      } else if (credentials) {
-        headers.Authorization = `Bearer ${credentials.jwt}`;
-      }
+      const headers = buildSearchApiHeaders(authHeader, credentials, isNCEATestEnv);
 
       const agmApiResponse = await fetch(`${url}`, {
         method: 'POST',
@@ -140,21 +125,15 @@ const getFilterOptions = async (
 const getDocumentDetails = async (docId: string, credentials: Credentials): Promise<any> => {
   try {
     const searchApiUrl = requireUrl(environmentConfig.searchApiUrl, 'SEARCH_API');
-    const { url, authHeader } = getUrlAndAuthHeader(searchApiUrl);
+    const { url, authHeader, isNCEATestEnv } = getUrlAndAuthHeader(searchApiUrl);
 
-    const searchHeaders: HeadersMap = {};
-
-    if (authHeader) {
-      searchHeaders.Authorization = authHeader;
-    } else if (credentials) {
-      searchHeaders.Authorization = `Bearer ${credentials.jwt}`;
-    }
+    const searchHeaders = buildSearchApiHeaders(authHeader, credentials, isNCEATestEnv);
 
     const vocabularyApiUrl = requireUrl(environmentConfig.vocabularyApiUrl, 'VOCABULARY_API');
     const { url: vocabUrl, authHeader: vocabAuthHeader } = getUrlAndAuthHeader(vocabularyApiUrl);
 
     const classifierApiKey = requireUrl(environmentConfig.classifierApiKey, 'CLASSIFIER_API_KEY');
-    const vocabHeaders: HeadersMap = { 'X-API-Key': classifierApiKey };
+    const vocabHeaders: Record<string, string> = { 'X-API-Key': classifierApiKey, 'content-type': 'application/json' };
     if (vocabAuthHeader) {
       vocabHeaders.Authorization = vocabAuthHeader;
     }
