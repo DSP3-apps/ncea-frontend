@@ -20,15 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const rawUrl = event.target.dataset.url;
       const datasetId = event.target.dataset.id;
-      let url = `${baseUrl}/${rawUrl}`;
-
+      const normalizedPath = rawUrl.startsWith('/') ? rawUrl : `/${rawUrl}`;
+      let url = `${baseUrl}${normalizedPath}`;
+      
       if (/^https?:\/\//i.test(rawUrl)) {
         forceDownload(rawUrl);
         return;
       }
 
       if (rawUrl.includes('/file-management-open/')) {
-        url = `${baseUrl}/${rawUrl}`;
+        url = `${baseUrl}${normalizedPath}`;
       }
 
       try {
