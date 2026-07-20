@@ -95,7 +95,7 @@ describe('Home Screen', () => {
     describe('Search container content elements', () => {
       it('should render 3 child elements', async () => {
         const bannerContainer = document?.querySelector('.quick_search-container');
-        expect(bannerContainer?.childElementCount).toEqual(3);
+        expect(bannerContainer?.childElementCount).toEqual(4);
       });
 
       it('should render caption on home screen', async () => {
@@ -138,17 +138,17 @@ describe('Home Screen', () => {
 
     describe('Search container input field', () => {
       it('does render the input wrapper', () => {
-        const wrapper = document?.querySelector('.govuk-form-group > .govuk-input__wrapper');
+        const wrapper = document?.querySelector('.govuk-form-group');
         expect(wrapper).toBeTruthy();
       });
 
       it('should render the input element', async () => {
-        const inputElement = document?.querySelector('.govuk-form-group > .govuk-input__wrapper')?.firstElementChild;
+        const inputElement = document?.querySelector('.govuk-form-group > .search-block__input');
         expect(inputElement?.tagName.toLowerCase()).toBe('input');
       });
 
       it('should renders with custom class', () => {
-        const inputElement = document?.querySelector('.govuk-form-group > .govuk-input__wrapper')?.firstElementChild;
+        const inputElement = document?.querySelector('.govuk-form-group > .search-block__input');
         expect(inputElement?.classList.contains('search-block__input')).toBeTruthy();
       });
 
@@ -173,24 +173,20 @@ describe('Home Screen', () => {
       });
     });
 
-    describe('Search container when it includes a suffix', () => {
-      it('should renders the suffix inside the wrapper', () => {
+    describe('Search container submit button', () => {
+      it('should not render a suffix inside the input wrapper', () => {
         const suffix = document?.querySelector('.govuk-form-group > .govuk-input__wrapper > .govuk-input__suffix');
-        expect(suffix).toBeTruthy();
+        expect(suffix).toBeFalsy();
       });
 
-      it('should renders a button in the suffix', () => {
-        const buttonElement = document?.querySelector(
-          '.govuk-form-group > .govuk-input__wrapper > .govuk-input__suffix',
-        )?.firstElementChild;
+      it('should render a submit button below the input', () => {
+        const buttonElement = document?.querySelector('.search-block__form > .govuk-button');
         expect(buttonElement?.tagName?.toLowerCase()).toBe('button');
       });
 
-      it('should renders a button with custom class in the suffix', () => {
-        const buttonElement = document?.querySelector(
-          '.govuk-form-group > .govuk-input__wrapper > .govuk-input__suffix',
-        )?.firstElementChild;
-        expect(buttonElement?.classList?.contains('search-block__button')).toBeTruthy();
+      it('should render the button with home search class', () => {
+        const buttonElement = document?.querySelector('.search-block__form > .govuk-button');
+        expect(buttonElement?.classList?.contains('home-search-button')).toBeTruthy();
       });
     });
   });
@@ -212,7 +208,9 @@ describe('Home Screen', () => {
 
   describe('Natural capital container block heading', () => {
     it('should render the Natural capital container heading', async () => {
-      expect(document?.querySelectorAll('.govuk-heading-m')?.[2]?.textContent?.trim()).toBe('Natural capital');
+      expect(document?.querySelector('.educational-copy-container__heading-m')?.textContent?.trim()).toBe(
+        'Natural capital',
+      );
     });
 
     it('should not render the custom large class for heading', async () => {
