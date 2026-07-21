@@ -8,24 +8,17 @@
       font-size: 36px;
     }
   }
-
-  &__caption-m {
-    @include font-style-stack(19px, 25px, 300);
-    color: $govuk-text-colour;
-    padding-top: 30px;
-  }
-
-  @media screen and (max-width: 799px) {
-    &__caption-m {
-      width: 100%;
-    }
-  }
 }
 
 .search-block {
+  .search-result-input-spacing {
+    margin-bottom: 25px;
+  }
+
   &__form {
     position: relative;
-    width: 630px;
+    width: 100%;
+    max-width: 630px;
     margin-bottom: 20px;
   }
 
@@ -49,23 +42,37 @@
     white-space: nowrap !important;
   }
 
-  &__button {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    border: 0;
-    background-color: $gov-defra-color-websafe;
-    color: govuk-colour('white');
-    cursor: pointer;
-    padding: 0;
-    width: 40px;
-    height: inherit;
-    background-image: govuk-image-url('search-icon.png');
-    background-repeat: no-repeat;
-    background-position: 10px 50%;
-    text-indent: -5000px;
-    overflow: hidden;
+}
+
+.home-search-divider {
+  border-color: #008938;
+  border-width: 2px;
+}
+
+.home-search-button,
+.home-guided-start-button {
+  font-size: 1.125rem;
+  line-height: 1;
+  font-weight: 400;
+  background-color: #008938;
+  box-shadow: 0 2px 0 #005a30;
+}
+
+@media (min-width: 40.0625em) {
+  .home-search-button,
+  .home-guided-start-button {
+    font-size: 1.5rem;
   }
+}
+
+.home-search-button:hover,
+.home-guided-start-button:hover {
+  background-color: #007a31;
+}
+
+.home-search-button[disabled]:hover,
+.home-guided-start-button[disabled]:hover {
+  background-color: #008938;
 }
 
 .data-container {

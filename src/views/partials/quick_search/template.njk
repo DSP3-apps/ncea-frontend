@@ -1,4 +1,5 @@
 {% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full quick_search-container">
@@ -6,19 +7,17 @@
         Quick search
     </h1>
     {% if not params.isResultPage %}
-      <span class="govuk-caption-m quick_search-container__caption-m">You can search by keyword, theme, title or project code, for example: “peat”, “community supported fisheries”, “AE0101”.</span>
+      <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-top-0 govuk-!-margin-bottom-4 home-search-divider">
+      <p class="govuk-body quick_search-container__caption-m govuk-!-margin-bottom-4">You can search by keyword, theme, title or project code, for example: “peat”, “community supported fisheries”, “AE0101”.</p>
     {% endif %}
     <div class="search-block" data-module="search">
-      <form action="{{params.searchPath}}" id="{{params.formId}}" data-do-browser-storage method="post" role="search" class="search-block__form govuk-!-margin-top-6">
+      <form action="{{params.searchPath}}" id="{{params.formId}}" data-do-browser-storage method="post" role="search" class="search-block__form">
         {{ govukInput({
           id: 'search_term',
           name: 'search_term',
           label: {
             text: 'Search',
             classes: 'search-block__label'
-          },
-          suffix: {
-            html: '<button type="submit" class="search-block__button" data-do-quick-search="true">Search</button>'
           },
           classes: 'govuk-input govuk-!-margin-bottom-0 search-block__input',
           spellcheck: false,
@@ -32,6 +31,13 @@
           errorMessage: params.searchInputError,
           formGroup: {
             classes: 'search-result-input-spacing'
+          }
+        }) }}
+        {{ govukButton({
+          text: 'Search',
+          classes: '' if params.isResultPage else 'home-search-button',
+          attributes: {
+            'data-do-quick-search': true
           }
         }) }}
         <input type="hidden" name="pageName" value="{% if not params.isResultPage %}home{% else %}results{% endif %}">
