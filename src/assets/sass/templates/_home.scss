@@ -6,26 +6,264 @@
   margin-bottom: 20px;
 }
 
+@media (max-width: 640px) {
+  .full-width-banner {
+    margin-bottom: 8px;
+  }
+}
+
 .banner-container {
-  padding-top: 14px;
+  padding-top: 8px;
   padding-bottom: 30px;
+
+  &__app-path {
+    @include font-style-stack(11px, 14px, 400);
+    color: govuk-colour("white");
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 18px;
+  }
+
+  &__app-path-item {
+    opacity: 1;
+
+    &--green {
+      &:link,
+      &:visited,
+      &:hover,
+      &:active {
+        color: govuk-colour("white");
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+      }
+
+      &:hover {
+        text-decoration-color: govuk-colour("black");
+        text-decoration-thickness: 2px;
+      }
+    }
+  }
+
+  &__app-path-separator {
+    font-weight: 700;
+    opacity: 1;
+  }
+
+  &__hero-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    width: 100%;
+    max-width: 860px;
+  }
+
+  &__content {
+    flex: 1 1 320px;
+    min-width: 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.45);
+    padding-left: 14px;
+  }
 
   &__heading-xl {
     @include font-style-stack(36px, 40px);
     color: govuk-colour("white");
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   &__caption-l {
     @include font-style-stack(19px, 30px, 300);
     color: govuk-colour("white");
+    display: block;
+    margin-bottom: 4px;
+
+    &--single-line {
+      white-space: nowrap;
+    }
   }
 
   &__ncea-logo {
-    height: 88px;
-    gap: 0px;
-    opacity: 0px;
-    margin-bottom: 14px;
+    display: block;
+    flex: 0 0 auto;
+    width: clamp(220px, 23vw, 280px);
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 0;
+  }
+
+  @include govuk-media-query($until: desktop) {
+    &__hero-row {
+      gap: 12px;
+      max-width: 100%;
+    }
+
+    &__content {
+      padding-left: 12px;
+    }
+
+    &__heading-xl {
+      @include font-style-stack(32px, 36px);
+      margin-bottom: 8px;
+    }
+
+    &__caption-l {
+      @include font-style-stack(18px, 27px, 300);
+
+      &--single-line {
+        white-space: normal;
+      }
+    }
+
+    &__ncea-logo {
+      width: clamp(205px, 23vw, 240px);
+      min-width: 205px;
+      max-width: 240px;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 934px) {
+    &__hero-row {
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+    }
+
+    &__content {
+      flex: 1 1 280px;
+      border-left: 1px solid rgba(255, 255, 255, 0.45);
+      padding-left: 12px;
+    }
+
+    &__ncea-logo {
+      flex: 0 0 210px;
+      width: 210px;
+      min-width: 210px;
+      max-width: 210px;
+      margin-bottom: 0;
+    }
+
+    &__heading-xl {
+      @include font-style-stack(30px, 34px);
+      margin-bottom: 6px;
+    }
+
+    &__caption-l {
+      @include font-style-stack(16px, 24px, 300);
+
+      &--single-line {
+        white-space: normal;
+      }
+    }
+  }
+
+  @media (min-width: 641px) and (max-width: 768px) {
+    &__ncea-logo {
+      flex: 0 1 auto;
+      width: clamp(220px, 27vw, 255px);
+      min-width: 0;
+      max-width: 255px;
+    }
+  }
+
+  @media (min-width: 935px) and (max-width: 1010px) {
+    &__hero-row {
+      gap: 10px;
+    }
+
+    &__content {
+      flex: 1 1 300px;
+      padding-left: 12px;
+    }
+
+    &__ncea-logo {
+      flex: 0 0 210px;
+      width: 210px;
+      min-width: 210px;
+      max-width: 210px;
+    }
+
+    &__heading-xl {
+      @include font-style-stack(30px, 34px);
+      margin-bottom: 6px;
+    }
+
+    &__caption-l {
+      @include font-style-stack(16px, 24px, 300);
+    }
+  }
+
+  @include govuk-media-query($until: tablet) {
+    margin-bottom: 24px;
+    padding-top: 10px;
+    padding-bottom: 44px;
+
+    &__app-path {
+      @include font-style-stack(12px, 16px, 400);
+      gap: 6px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    &__hero-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    &__content {
+      flex: none;
+      width: 100%;
+      border-left: 0;
+      padding-left: 0;
+      margin-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.45);
+      padding-top: 8px;
+    }
+
+    &__ncea-logo {
+      width: auto;
+      min-width: 0;
+      max-width: 235px;
+      margin-bottom: 0;
+    }
+
+    &__caption-l {
+      &--single-line {
+        white-space: normal;
+      }
+    }
+  }
+
+  @media (max-width: 640px) {
+    margin-bottom: 8px;
+    padding-top: 4px;
+    padding-bottom: 24px;
+
+    &__app-path {
+      margin-bottom: 6px;
+      gap: 3px;
+    }
+
+    &__hero-row {
+      gap: 0;
+    }
+
+    &__heading-xl {
+      @include font-style-stack(26px, 30px);
+      margin-bottom: 0;
+    }
+
+    &__caption-l {
+      @include font-style-stack(16px, 24px, 300);
+      margin-bottom: 0;
+    }
+
+    &__ncea-logo {
+      max-width: 215px;
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -47,6 +285,11 @@
     padding-bottom: 30px;
     margin: 0px;
     border-top: 1.5px solid $govuk-border-colour;
+
+    &--green-divider {
+      border-top-width: 2px;
+      border-top-color: $gov-defra-color-websafe;
+    }
   }
 }
 
