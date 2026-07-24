@@ -28,6 +28,7 @@
 
   &__app-path-item {
     opacity: 1;
+    font-size: 1.0075rem;
 
     &--green {
       &:link,
@@ -36,18 +37,20 @@
       &:active {
         color: govuk-colour("white");
         text-decoration: underline;
-        text-underline-offset: 0.2em;
+        text-underline-offset: 0.25em;
+        font-size: 1.0075rem;
       }
 
       &:hover {
         text-decoration-color: govuk-colour("black");
-        text-decoration-thickness: 2px;
+        text-decoration-thickness: 3px;
       }
     }
   }
 
   &__app-path-separator {
     font-weight: 700;
+    font-size: 1.2rem;
     opacity: 1;
   }
 
