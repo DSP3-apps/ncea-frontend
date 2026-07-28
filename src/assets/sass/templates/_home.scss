@@ -17,7 +17,7 @@
   padding-bottom: 30px;
 
   &__app-path {
-    @include font-style-stack(11px, 14px, 400);
+    @include font-style-stack(19px, 30px, 300);
     color: govuk-colour("white");
     display: flex;
     align-items: center;
@@ -27,8 +27,9 @@
   }
 
   &__app-path-item {
-    opacity: 1;
-    font-size: 1.0075rem;
+    opacity: 1;    
+    font-weight: 300;
+    font-family: "GDS Transport", arial, sans-serif;
 
     &--green {
       &:link,
@@ -38,7 +39,6 @@
         color: govuk-colour("white");
         text-decoration: underline;
         text-underline-offset: 0.25em;
-        font-size: 1.0075rem;
       }
 
       &:hover {
@@ -60,7 +60,7 @@
     flex-wrap: wrap;
     gap: 14px;
     width: 100%;
-    max-width: 860px;
+    max-width: 100%;
   }
 
   &__content {
@@ -68,12 +68,17 @@
     min-width: 0;
     border-left: 1px solid rgba(255, 255, 255, 0.45);
     padding-left: 14px;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   &__heading-xl {
     @include font-style-stack(36px, 40px);
     color: govuk-colour("white");
     margin-bottom: 10px;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   &__caption-l {
@@ -81,19 +86,22 @@
     color: govuk-colour("white");
     display: block;
     margin-bottom: 4px;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
 
     &--single-line {
-      white-space: nowrap;
+      white-space: normal;
+      overflow-wrap: break-word;
     }
   }
 
-  &__ncea-logo {
+  .banner-container__ncea-logo {
     display: block;
     flex: 0 0 auto;
-    width: clamp(220px, 23vw, 280px);
+    width: 240px;
     max-width: 100%;
     height: auto;
-    margin-bottom: 0;
   }
 
   @include govuk-media-query($until: desktop) {
@@ -119,10 +127,30 @@
       }
     }
 
-    &__ncea-logo {
-      width: clamp(205px, 23vw, 240px);
-      min-width: 205px;
-      max-width: 240px;
+    &__app-path {
+      @include font-style-stack(18px, 27px, 300);
+    }
+  }
+
+  @media (min-width: 641px) and (max-width: 1200px) {
+  .banner-container {
+      &__hero-row {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 24px;
+      }
+
+      &__ncea-logo {
+        flex: 0 0 220px;
+        width: 220px;
+        max-width: 220px;
+      }
+
+      &__content {
+        flex: 1;
+        min-width: 0;
+      }
     }
   }
 
@@ -139,14 +167,6 @@
       padding-left: 12px;
     }
 
-    &__ncea-logo {
-      flex: 0 0 210px;
-      width: 210px;
-      min-width: 210px;
-      max-width: 210px;
-      margin-bottom: 0;
-    }
-
     &__heading-xl {
       @include font-style-stack(30px, 34px);
       margin-bottom: 6px;
@@ -159,14 +179,9 @@
         white-space: normal;
       }
     }
-  }
 
-  @media (min-width: 641px) and (max-width: 768px) {
-    &__ncea-logo {
-      flex: 0 1 auto;
-      width: clamp(220px, 27vw, 255px);
-      min-width: 0;
-      max-width: 255px;
+    &__app-path {
+      @include font-style-stack(16px, 24px, 300);
     }
   }
 
@@ -178,13 +193,6 @@
     &__content {
       flex: 1 1 300px;
       padding-left: 12px;
-    }
-
-    &__ncea-logo {
-      flex: 0 0 210px;
-      width: 210px;
-      min-width: 210px;
-      max-width: 210px;
     }
 
     &__heading-xl {
@@ -203,7 +211,7 @@
     padding-bottom: 44px;
 
     &__app-path {
-      @include font-style-stack(12px, 16px, 400);
+      @include font-style-stack(14px, 20px, 300);
       gap: 6px;
       margin-bottom: 14px;
       flex-wrap: wrap;
@@ -226,9 +234,11 @@
     }
 
     &__ncea-logo {
+      display: block;
       width: auto;
       min-width: 0;
       max-width: 235px;
+      height: auto;
       margin-bottom: 0;
     }
 
@@ -245,12 +255,13 @@
     padding-bottom: 24px;
 
     &__app-path {
+      @include font-style-stack(16px, 24px, 300);
       margin-bottom: 6px;
       gap: 3px;
     }
 
     &__hero-row {
-      gap: 0;
+      gap: 8px;
     }
 
     &__heading-xl {
@@ -264,7 +275,11 @@
     }
 
     &__ncea-logo {
+      display: block;
+      width: auto;
+      min-width: 0;
       max-width: 215px;
+      height: auto;
       margin-bottom: 0;
     }
   }
@@ -406,4 +421,9 @@
   &__link {
     display: inline-block;
   }
+}
+
+.font-small-h1 {
+  font-size: 1.5rem;
+  line-height: 1.25;
 }
