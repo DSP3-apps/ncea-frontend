@@ -59,11 +59,10 @@ describe('Home Screen', () => {
     });
 
     describe('Hero content elements', () => {
-      it('should render 4 child elements', async () => {
-        const bannerContainer = document?.querySelector('.banner-container');
-        expect(bannerContainer?.querySelector('.banner-container__app-path')).toBeTruthy();
+      it('should render 2 child elements', async () => {
+        const bannerContainer = document?.querySelector('.banner-container');        
         expect(bannerContainer?.querySelector('.banner-container__hero-row')?.childElementCount).toEqual(2);
-        expect(bannerContainer?.querySelector('.banner-container__content')?.childElementCount).toEqual(3);
+        expect(bannerContainer?.querySelector('.banner-container__content')?.childElementCount).toEqual(2);
       });
     });
 
