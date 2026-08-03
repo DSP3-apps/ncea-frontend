@@ -139,11 +139,10 @@ describe('Results Screen', () => {
     });
 
     describe('Hero content elements', () => {
-      it('should render 4 child elements', async () => {
-        const bannerContainer = document?.querySelector('.banner-container');
-        expect(bannerContainer?.querySelector('.banner-container__app-path')).toBeTruthy();
+      it('should render 2 child elements', async () => {
+        const bannerContainer = document?.querySelector('.banner-container');        
         expect(bannerContainer?.querySelector('.banner-container__hero-row')?.childElementCount).toEqual(2);
-        expect(bannerContainer?.querySelector('.banner-container__content')?.childElementCount).toEqual(3);
+        expect(bannerContainer?.querySelector('.banner-container__content')?.childElementCount).toEqual(2);
       });
     });
 
@@ -173,7 +172,7 @@ describe('Results Screen', () => {
     });
 
     describe('Search container content elements', () => {
-      it('should render 3 child elements', async () => {
+      it('should render 4 child elements', async () => {
         const bannerContainer = document?.querySelector('.quick_search-container');
         expect(bannerContainer?.childElementCount).toEqual(4);
       });

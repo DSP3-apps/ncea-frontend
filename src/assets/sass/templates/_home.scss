@@ -14,45 +14,7 @@
 
 .banner-container {
   padding-top: 8px;
-  padding-bottom: 30px;
-
-  &__app-path {
-    @include font-style-stack(19px, 30px, 300);
-    color: govuk-colour("white");
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 0 0 18px;
-  }
-
-  &__app-path-item {
-    opacity: 1;    
-    font-weight: 300;
-    font-family: "GDS Transport", arial, sans-serif;
-
-    &--green {
-      &:link,
-      &:visited,
-      &:hover,
-      &:active {
-        color: govuk-colour("white");
-        text-decoration: underline;
-        text-underline-offset: 0.25em;
-      }
-
-      &:hover {
-        text-decoration-color: govuk-colour("black");
-        text-decoration-thickness: 3px;
-      }
-    }
-  }
-
-  &__app-path-separator {
-    font-weight: 700;
-    font-size: 1.2rem;
-    opacity: 1;
-  }
+  padding-bottom: 10px;  
 
   &__hero-row {
     display: flex;
@@ -66,7 +28,7 @@
   &__content {
     flex: 1;
     min-width: 0;
-    border-left: 1px solid rgba(255, 255, 255, 0.45);
+    border-left: 2px solid rgba(255, 255, 255, 0.802);
     padding-left: 14px;
     overflow-wrap: break-word;
     word-break: break-word;
@@ -127,11 +89,7 @@
       &--single-line {
         white-space: normal;
       }
-    }
-
-    &__app-path {
-      @include font-style-stack(18px, 27px, 300);
-    }
+    }        
   }  
 
   @media (min-width: 641px) and (max-width: 1200px) {
@@ -166,7 +124,7 @@
 
     &__content {
       flex: 1 1 280px;
-      border-left: 1px solid rgba(255, 255, 255, 0.45);
+      border-left: 2px solid rgba(255, 255, 255, 0.802);
       padding-left: 12px;
     }
 
@@ -181,10 +139,6 @@
       &--single-line {
         white-space: normal;
       }
-    }
-
-    &__app-path {
-      @include font-style-stack(16px, 24px, 300);
     }
   }
 
