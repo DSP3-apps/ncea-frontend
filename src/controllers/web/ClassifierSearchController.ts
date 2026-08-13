@@ -14,7 +14,7 @@ const ClassifierSearchController = {
     const formId: string = formIds.classifierSearch;
     const level: number = Number(readQueryParams(request.query, 'level'));
     const parent: string = readQueryParams(request.query, 'parent[]') || '';
-    const parentIds = removeDuplicatesValues(parent);
+    const parentIds = removeDuplicatesValues(parent, ',');
     const nextLevel: string = (level + 1).toString();
     const payloadQuery = {
       ...request.query,

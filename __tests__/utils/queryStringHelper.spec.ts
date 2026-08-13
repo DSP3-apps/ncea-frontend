@@ -410,6 +410,21 @@ describe('queryStringHelper functions', () => {
     });
   });
 
+  describe('removeDuplicatesValues with custom separator', () => {
+    it('should return expected output and removed the duplicates without spaces after commas', () => {
+      expect(removeDuplicatesValues('A,A,A,A,A,A,A,B,B,C,C,D,D,D', ',')).toStrictEqual('A,B,C,D');
+    });
+
+    it('should remove duplicates and normalize values without spaces after commas', () => {
+      const input =
+        'soil, broad habitat, loss on ignition, parent material model, organic matter, loss on ignition, carbon, habitat, soil, countryside survey';
+
+      expect(removeDuplicatesValues(input, ',')).toStrictEqual(
+        'soil,broad habitat,loss on ignition,parent material model,organic matter,carbon,habitat,countryside survey',
+      );
+    });
+  });
+
   describe('appendUtmSource', () => {
     it('should return the same value when url is empty', () => {
       expect(appendUtmSource('')).toBe('');

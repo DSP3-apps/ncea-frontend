@@ -221,7 +221,7 @@ const appendPublication = (resourceTypes: string): string => {
   return resourceTypes;
 };
 
-const removeDuplicatesValues = (data: string) => {
+const removeDuplicatesValues = (data: string, separator: string = ', ') => {
   if (!isEmpty(data)) {
     return [
       ...new Set(
@@ -230,7 +230,7 @@ const removeDuplicatesValues = (data: string) => {
           .map((value) => value.trim())
           .filter(Boolean),
       ),
-    ].join(', ');
+    ].join(separator);
   }
   return '';
 };
