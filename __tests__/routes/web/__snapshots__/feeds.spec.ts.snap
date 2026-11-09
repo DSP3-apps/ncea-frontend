@@ -292,46 +292,13 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
       <ul class="govuk-list">
         
           <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">Major milestone: NCEA publishes new datasets on England&#039;s environment</h3>
+            <h3 class="govuk-heading-s">Defra - NCEA article</h3>
             <div class="captions-section">
-              <small><b>Author: </b>David Jones</small>
-              <small><b>Published on : </b>15 December 2025</small>
+              <small><b>Author: </b>Test Author</small>
+              <small><b>Published on : </b>05 February 2025</small>
             </div>
-            <p class="govuk-body">Today, a major milestone for the programme has been announced – the first release of Analysis Ready Data from the UK’s largest ever field surveys have been published.  The NCEA programme is all about turbocharging nature's recovery through delivering robust and up to date evidence on the terrestrial and freshwater environment. Read this blog post to find out more.</p>
-            <a class="govuk-link" href="https://defraenvironment.blog.gov.uk/2025/12/15/major-milestone-ncea-publishes-new-datasets-on-englands-environment/" target="_blank">Major milestone: NCEA publishes new datasets on England&#039;s environment</a>
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-          </li>
-        
-          <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">Living England: a national habitat map for everyone </h3>
-            <div class="captions-section">
-              <small><b>Author: </b>Amy Woodget</small>
-              <small><b>Published on : </b>18 December 2024</small>
-            </div>
-            <p class="govuk-body">Amy Woodget is the Communications and Engagement Lead for the Living England project. In this post, she introduces the latest release of Natural England’s ‘Living England’ dataset – a digital map providing information on England’s broad habitats.</p>
-            <a class="govuk-link" href="https://defraenvironment.blog.gov.uk/2024/12/18/living-england-a-national-habitat-map-for-everyone/" target="_blank">Living England: a national habitat map for everyone </a>
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-          </li>
-        
-          <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">Why monitoring matters: showcasing the Natural Capital and Ecosystem Assessment programme</h3>
-            <div class="captions-section">
-              <small><b>Author: </b>David Jones</small>
-              <small><b>Published on : </b>16 October 2024</small>
-            </div>
-            <p class="govuk-body">In this post, David Jones, Senior Responsible Owner for the terrestrial arm of Defra’s largest research and development programme - the NCEA, shares reflections from the recent stakeholder showcase event.</p>
-            <a class="govuk-link" href="https://defraenvironment.blog.gov.uk/2024/10/16/why-monitoring-matters-showcasing-the-natural-capital-and-ecosystem-assessment-programme/" target="_blank">Why monitoring matters: showcasing the Natural Capital and Ecosystem Assessment programme</a>
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-          </li>
-        
-          <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">Mapping our natural assets: the Natural Capital and Ecosystem Assessment programme</h3>
-            <div class="captions-section">
-              <small><b>Author: </b>Sarah Adcock</small>
-              <small><b>Published on : </b>28 March 2024</small>
-            </div>
-            <p class="govuk-body">Sarah Adcock and David Jones, Senior Responsible Owners for Defra's Natural Capital and Ecosystem Assessment programme explain why building a picture of our natural assets and their benefits is the first, crucial step in protecting our environment.</p>
-            <a class="govuk-link" href="https://defraenvironment.blog.gov.uk/2024/03/28/mapping-our-natural-assets-the-natural-capital-and-ecosystem-assessment-programme/" target="_blank">Mapping our natural assets: the Natural Capital and Ecosystem Assessment programme</a>
+            <p class="govuk-body">Test article summary</p>
+            <a class="govuk-link" href="https://example.com/article-1" target="_blank">Defra - NCEA article</a>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
           </li>
         
@@ -346,35 +313,13 @@ exports[`Feeds Screen Feeds > Sanpshot verification should match the Feeds scree
       <ul class="govuk-list">
         
           <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">A new peat map for England </h3>
+            <h3 class="govuk-heading-s">Natural England - NCEA article</h3>
             <div class="captions-section">
-              <small><b>Author: </b>Natural England</small>
-              <small><b>Published on : </b>12 May 2025</small>
+              <small><b>Author: </b>Test Author</small>
+              <small><b>Published on : </b>05 February 2025</small>
             </div>
-            <p class="govuk-body">By Dr Ruth Waters, Director for Evidence, Natural England, and David Jones, Senior Responsible Officer for the Natural Capital and Ecosystem Assessment, Defra England’s peat deposits are one of our most valuable national assets. They’re our largest carbon store, they …</p>
-            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2025/05/12/a-new-peat-map-for-england/" target="_blank">A new peat map for England </a>
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-          </li>
-        
-          <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">How new technologies are helping us monitor one of England’s largest grey seal colonies </h3>
-            <div class="captions-section">
-              <small><b>Author: </b>Natural England</small>
-              <small><b>Published on : </b>26 February 2025</small>
-            </div>
-            <p class="govuk-body">By Gabriella Fasoli and Nick Tomline (AI specialists), Emma Milner (marine mammal specialist) and Elizabeth Mitchell (engagement), all on the marine Natural Capital and Ecosystem Assessment (mNCEA) programme Documenting Norfolk's biggest beach party On a windy day in December, something …</p>
-            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2025/02/26/how-new-technologies-are-helping-us-monitor-one-of-englands-largest-grey-seal-colonies/" target="_blank">How new technologies are helping us monitor one of England’s largest grey seal colonies </a>
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-          </li>
-        
-          <li class="govuk-width-container feed-container">
-            <h3 class="govuk-heading-s">Mapping our green and blue spaces: the green infrastructure mapping project</h3>
-            <div class="captions-section">
-              <small><b>Author: </b>Natural England</small>
-              <small><b>Published on : </b>31 October 2024</small>
-            </div>
-            <p class="govuk-body">Martin Moss, senior officer for green infrastructure mapping, and Sarah Parrott, higher officer for engagement and impact If you looked at a map of your local area, could you identify the accessible green spaces? What about the blue ones? If …</p>
-            <a class="govuk-link" href="https://naturalengland.blog.gov.uk/2024/10/31/mapping-our-green-and-blue-spaces-the-green-infrastructure-mapping-project/" target="_blank">Mapping our green and blue spaces: the green infrastructure mapping project</a>
+            <p class="govuk-body">Test article summary</p>
+            <a class="govuk-link" href="https://example.com/article-1" target="_blank">Natural England - NCEA article</a>
             <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
           </li>
         
