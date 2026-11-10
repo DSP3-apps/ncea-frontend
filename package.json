@@ -20,7 +20,7 @@
     "sass:compile:build": "sass --no-source-map --load-path=node_modules/govuk-frontend/dist/ --quiet-deps src/assets/sass/_root.scss public/css/application.css",
     "format:check": "prettier --ignore-path .gitignore --check \"./src/**/*.+(js|ts|jsx|tsx)\"",
     "test": "jest --watchAll -u",
-    "test:ci": "jest --coverage -u",
+    "test:ci": "jest --coverage -u --maxWorkers=2",
     "release": "semantic-release",
     "prepare": "husky"
   },
