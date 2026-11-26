@@ -1,4 +1,4 @@
-import { IAccumulatedCoordinates } from '../../src/interfaces/searchResponse.interface';
+import { IAccumulatedCoordinates, IGeographyItem } from '../../src/interfaces/searchResponse.interface';
 import {
   getGeographicBoundaryHtml,
   getGeographicMarkers,
@@ -52,8 +52,12 @@ describe('Geography tab data', () => {
 
   describe('getGeographyTabData function', () => {
     it('should return correct data when all properties are present', () => {
-      const result = getGeographyTabData(MORE_INFO_MOCK_DATA);
-      console.log('result', result.geographicBoundaryHtml);
+      const payload: IGeographyItem = {
+        ...MORE_INFO_MOCK_DATA,
+        spatialRepresentationType: MORE_INFO_MOCK_DATA.spatial.representationService,
+        coordinateReferenceSystemId: MORE_INFO_MOCK_DATA.spatial.referencingSystem,
+      };
+      const result = getGeographyTabData(payload);
       expect(result).toEqual({
         spatialDataService: '',
         spatialRepresentationService: 'vector',

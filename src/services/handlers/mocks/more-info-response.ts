@@ -44,7 +44,7 @@ export const MORE_INFO_MOCK_DATA = {
       country: null,
       city: null,
       postcode: null,
-      aministrativeArea: null,
+      administrativeArea: null,
       role: 'pointOfContact',
     },
     {
@@ -57,7 +57,7 @@ export const MORE_INFO_MOCK_DATA = {
       country: null,
       city: null,
       postcode: null,
-      aministrativeArea: null,
+      administrativeArea: null,
       role: 'custodian',
     },
     {
@@ -70,7 +70,7 @@ export const MORE_INFO_MOCK_DATA = {
       country: null,
       city: null,
       postcode: null,
-      aministrativeArea: null,
+      administrativeArea: null,
       role: 'publisher',
     },
   ],

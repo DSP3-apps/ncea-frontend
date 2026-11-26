@@ -1,4 +1,4 @@
-import { formatDate } from '../../src/utils/dates';
+import { convertTimestampToIsoString, formatDate } from '../../src/utils/dates';
 
 describe('Format the given date', () => {
   it('should format date without time correctly', () => {
@@ -41,4 +41,29 @@ describe('Format the given date', () => {
     expect(formatDate('invalid date')).toBe('');
     expect(formatDate('2022-13-01T00:00:00.000Z')).toBe('');
   });
+});
+
+describe('convertTimestampToIsoString', () => {
+  it('should convert a valid millisecond timestamp number to readable date format', () => {
+    expect(convertTimestampToIsoString(1504224000000)).toBe('1 September 2017');
+  });
+
+  it('should convert a valid millisecond timestamp string to readable date format', () => {
+    expect(convertTimestampToIsoString('1504224000000')).toBe('1 September 2017');
+  });
+
+  it('should return an empty string for blank timestamps', () => {
+    expect(convertTimestampToIsoString('')).toBe('');
+    expect(convertTimestampToIsoString('  ')).toBe('');
+  });
+
+  it('should retain the epoch for zero timestamps', () => {
+    expect(convertTimestampToIsoString(0)).toBe('1 January 1970');
+    expect(convertTimestampToIsoString('0')).toBe('1 January 1970');
+  });
+
+  it('should return empty string for invalid timestamp input', () => {
+    expect(convertTimestampToIsoString('invalid-timestamp')).toBe('');
+    expect(convertTimestampToIsoString(Number.NaN)).toBe('');
+  });  
 });

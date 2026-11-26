@@ -7,8 +7,8 @@ import { environmentConfig } from '../../config/environmentConfig';
 import { Credentials } from '../../interfaces/auth';
 import { FormattedTabOptions } from '../../interfaces/detailsTab.interface';
 import { ISearchPayload } from '../../interfaces/queryBuilder.interface';
-import { ISearchItem, ISearchResults } from '../../interfaces/searchResponse.interface';
-import { getDocumentDetails, getSearchResults } from '../../services/handlers/searchApi';
+import { ISearchResults, Query } from '../../interfaces/searchResponse.interface';
+import { getDocumentDetails, getFileDownloadUrl, getSearchResults } from '../../services/handlers/searchApi';
 import {
   BASE_PATH,
   formIds,
@@ -190,7 +190,7 @@ const SearchResultsController = {
   renderSearchDetailsHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
     try {
       const docId = request.params.id;
-      const docDetails: ISearchItem = await getDocumentDetails(docId, request.auth.credentials as Credentials);
+      const docDetails = await getDocumentDetails(docId, request.auth.credentials as Credentials);
       const queryString: string = readQueryParams(request.query);
       const detailsTabOptions: FormattedTabOptions = await processDetailsTabData(docDetails);
 
@@ -233,6 +233,22 @@ const SearchResultsController = {
     };
     const queryString: string = upsertQueryParams(request.query, queryParamsObject, false);
     return response.redirect(`${BASE_PATH}${webRoutePaths.results}?${queryString}`);
+  },
+  getFileDownloadUrlHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
+    try {
+      const query = request.query as Query;
+      const dataSetId = query.dataSetId;
+      const fileName = query.fileName;
+      if (!dataSetId || !fileName) {
+        return response.response({ error: 'Missing dataSetId or fileName' }).code(400);
+      }
+      const result = await getFileDownloadUrl(dataSetId, fileName, request.auth.credentials as Credentials);
+      return response.response({ url: result.url }).code(200);
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'Failed to get download URL';
+      console.error('[FileDownload] Error:', message);
+      return response.response({ error: message }).code(500);
+    }
   },
   filterStudyPeriodHandler: async (request: Request, response: ResponseToolkit): Promise<ResponseObject> => {
     const payload = request.payload as Record<string, string>;

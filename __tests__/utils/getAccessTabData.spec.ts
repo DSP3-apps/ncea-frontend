@@ -19,14 +19,19 @@ jest.mock('../../src/config/environmentConfig', () => ({
 describe('getAccessTabData functions', () => {
   describe('getAccessTabData result', () => {
     it('should return an object with all properties when searchItem is valid', () => {
-      const result = getAccessTabData(MORE_INFO_MOCK_DATA);
+      const result = getAccessTabData({
+        ...MORE_INFO_MOCK_DATA,
+        publicContact: {
+          emailAddress: MORE_INFO_MOCK_DATA.contactEmail,
+        },
+      });
       expect(result).toEqual({
         host_catalogue_entry: '',
         resource_type_and_hierarchy: '',
         ncea_catalogue_number: 'c9d7e118-d057-48f9-b520-76de8e51e014',
         contact_information: 'Peter.Walker@naturalengland.org.uk',
         catalogue_number: '',
-        metadata_language: 'ENG',
+        metadata_language: '',
         resourceWebsite: expect.any(String),
         host_catalogue_number: 'c9d7e118-d057-48f9-b520-76de8e51e014',
         child_records: [],
@@ -94,6 +99,23 @@ describe('getAccessTabData functions', () => {
       );
       expect(output).toContain('<td>Notifiable Disease Datasets: Additional Information</td>');
       expect(output).toContain('<td>ODT</td>');
+    });
+
+    it('should append the UTM source and escape download button attributes', () => {
+      const output = createDownloadsTableRow(
+        {
+          url: 'https://example.com/file.zip?version=1&format=zip',
+          name: 'Dataset file',
+          type: 'file',
+          distributionFormat: null,
+        },
+        'dataset"1',
+      );
+
+      expect(output).toContain(
+        'data-url="https://example.com/file.zip?version=1&amp;format=zip&amp;utm_source=ncea"',
+      );
+      expect(output).toContain('data-id="dataset&quot;1"');
     });
   });
 

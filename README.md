@@ -82,9 +82,16 @@ git config core.autocrlf true
 
 - By now, we should have completed the prerequisite section.
 - Have completed the git configuration and be in the project root directory.
+- Configure npm to use GitHub Packages for `@agrimetrics` and authenticate with a token
+  that has `read:packages` access to `@agrimetrics/services`. Keep the token in your
+  user-level npm configuration, not in the repository.
 - Run the following commands.
 
 ```bash
+# Configure the scoped registry and sign in to GitHub Packages
+npm config set @agrimetrics:registry https://npm.pkg.github.com/ --location=user
+npm login --registry=https://npm.pkg.github.com --scope=@agrimetrics --auth-type=legacy
+
 # Install the NPM dependencies (ignoring the optional dependencies)
 npm install --no-optional
 
@@ -93,6 +100,11 @@ npm run start:dev
 ```
 
 - The server should be running at: https://dev-ncea-search.azure.defra.cloud
+
+GitHub Actions requires an `AGM_GITHUB_PACKAGES_TOKEN` secret with access to
+`@agrimetrics/services`. Fork pull requests do not receive repository secrets.
+For Docker builds, export `GITHUB_PACKAGES_TOKEN` and pass it to Docker BuildKit
+with `docker build --secret id=github_packages_token,env=GITHUB_PACKAGES_TOKEN .`.
 
 ## Technology
 

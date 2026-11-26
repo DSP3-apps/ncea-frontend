@@ -17,6 +17,19 @@ import {
   restrictiveFilteredData,
 } from '../../data/quickSearch';
 
+jest.mock(
+  '@agrimetrics/services',
+  () => ({
+    CatalogService: jest.fn().mockImplementation(() => ({
+      getCatalogueEntry: jest.fn().mockResolvedValue({ id: 'catalog-id', dataSet: { id: 'file-id' } }),
+    })),
+    FileManagementService: jest.fn().mockImplementation(() => ({
+      listFilesOnDataSet: jest.fn().mockResolvedValue({ files: [] }),
+    })),
+  }),
+  { virtual: true },
+);
+
 jest.mock('../../../src/utils/formatSearchResponse', () => ({
   formatSearchResponse: jest.fn((apiResponse) => ({
     total: apiResponse?.hits?.total?.value,
@@ -244,6 +257,33 @@ describe('Search API', () => {
         [uniqueResourceTypesKey]: [],
       };
       expect(result).toEqual(filterOptionsResponse);
+    });
+  });
+
+  describe('Search API service environments', () => {
+    afterEach(() => {
+      jest.restoreAllMocks();
+    });
+
+    it.each([
+      ['prod', 'defraLive'],
+      ['test', 'defraTest'],
+    ])('maps %s to %s for both services', async (env, expectedConfig) => {
+      await jest.isolateModulesAsync(async () => {
+        const { environmentConfig } = require('../../../src/config/environmentConfig');
+        const { CatalogService, FileManagementService } = require('@agrimetrics/services');
+        const { getDocumentDetails } = require('../../../src/services/handlers/searchApi');
+
+        environmentConfig.env = env;
+        environmentConfig.vocabularyApiUrl = 'https://example.com/vocabulary';
+        environmentConfig.classifierApiKey = 'test-key';
+        jest.spyOn(global, 'fetch').mockResolvedValue(new Response('[]'));
+
+        await getDocumentDetails('catalog-id', CREDENTIALS);
+
+        expect(CatalogService).toHaveBeenCalledWith(expectedConfig);
+        expect(FileManagementService).toHaveBeenCalledWith(expectedConfig);
+      });
     });
   });
 });

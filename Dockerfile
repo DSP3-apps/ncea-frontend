@@ -6,8 +6,15 @@ WORKDIR /app
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install
+# Install dependencies using a BuildKit secret instead of storing the token in an image layer
+RUN --mount=type=secret,id=github_packages_token,required=true \
+    set -eu; \
+    token="$(cat /run/secrets/github_packages_token)"; \
+    test -n "$token" || { echo "GitHub Packages token is required" >&2; exit 1; }; \
+    export NPM_CONFIG_USERCONFIG=/tmp/npmrc; \
+    trap 'rm -f "$NPM_CONFIG_USERCONFIG"' EXIT; \
+    printf '@agrimetrics:registry=https://npm.pkg.github.com/\n//npm.pkg.github.com/:_authToken=%s\n' "$token" > "$NPM_CONFIG_USERCONFIG"; \
+    npm ci
 
 # Copy the entire source code into the container
 COPY . .

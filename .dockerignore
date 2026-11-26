@@ -1,0 +1,8 @@
+.npmrc
+**/.npmrc
+.env
+.env.*
+.git
+node_modules
+build
+coverage

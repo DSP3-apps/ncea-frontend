@@ -16,15 +16,26 @@ export interface IBaseItem {
   dataSetReferenceLabel?: string;
 }
 
+export interface ITaxonomyKeyword {
+  sourceUri?: string;
+  sourceLabel?: string;
+  valueUri?: string;
+  valueLabel: string;
+}
+
 export interface IGeneralItem {
   alternateTitle?: string;
   topicCategories?: string[];
   language?: string;
   keywords?: string[];
+  taxonomyKeywords?: ITaxonomyKeyword[];
   abstract?: string;
   metadata?: IMetaData;
   temporalExtent?: ITemporalExtent;
   resources?: IResources[];
+  description?: string;
+  topics?: string[];
+  metadataLanguage?: string;
 }
 
 export interface IIdentifiers {
@@ -44,6 +55,14 @@ export interface ChildRecords extends IRelatedRecordBase {
   grandChildren?: ChildRecords[];
 }
 
+export interface IPublicContact {
+  organisationName?: string;
+  role?: string;
+  emailAddress?: string;
+  url?: string;
+  urlLabel?: string;
+}
+
 export interface IAccessItem {
   id: string;
   contacts?: Contact[];
@@ -52,8 +71,11 @@ export interface IAccessItem {
   resourceType?: string;
   resources?: IResources[] | undefined;
   contactEmail?: string;
+  publicContact?: IPublicContact;
   parentRecords?: ParentsRecords[];
   childRecords?: ChildRecords[];
+  metadataLanguage?: string;
+  entryType?: string;
 }
 
 export interface IAccess {
@@ -76,16 +98,20 @@ export interface IAccess {
 }
 
 export interface Contact {
+  individualName?: string;
+  organisationName?: string;
+  positionName?: string;
+  emailAddress?: string;
   name?: string;
   email?: string;
-  phone: undefined | null | string;
-  address: undefined | null | string;
-  url: undefined | null | string;
-  delivery: undefined | null | string;
-  country: undefined | null | string;
-  city: undefined | null | string;
-  postcode: undefined | null | string;
-  aministrativeArea: undefined | null | string;
+  phone?: undefined | null | string;
+  address?: undefined | null | string;
+  url?: undefined | null | string;
+  delivery?: undefined | null | string;
+  country?: undefined | null | string;
+  city?: undefined | null | string;
+  postcode?: undefined | null | string;
+  administrativeArea?: undefined | null | string;
   organisation?: string;
   role?: string;
 }
@@ -100,6 +126,8 @@ export interface ILicense {
 }
 
 export interface ILicenseItem {
+  text?: string;
+  url?: string;
   publicAccessAccessContraints?: string[] | undefined | null;
   publicAccessOtherConstraints?: string[];
   publicUseUseConstraints?: string | undefined | null;
@@ -107,6 +135,8 @@ export interface ILicenseItem {
   frequencyOfUpdate?: string;
   accrualPeriodicity?: string;
   attributionStatement?: string | undefined | null;
+  useLimitationStatement?: string | undefined | null;
+  useConstraints?: string;
 }
 
 export interface IGovernance {
@@ -132,7 +162,7 @@ export interface IRecordDates {
   metadata?: null | undefined | string;
 }
 
-interface IDataFormat {
+export interface IDataFormat {
   dataFormat: string;
 }
 
@@ -144,6 +174,11 @@ export interface IQualityItem {
   license?: ILicenseItem;
   resources?: IResources[] | undefined;
   dataFormats?: IDataFormat[] | undefined;
+  accrualPeriodicity?: string;
+  createdAt?: number;
+  published?: number;
+  modified?: number;
+  metadataModified?: number;
 }
 
 export interface IQuality {
@@ -229,6 +264,37 @@ export interface TabbedItem {
   tab?: string;
 }
 
+export type Query = {
+  dataSetId?: string;
+  fileName?: string;
+};
+
+export type HeadersMap = Record<string, string>;
+
+export type SearchDataWithOptionalFiles = IMoreInfoSearchItem & {
+  dataSet?: { id?: string };
+  files?: IResources[];
+};
+
+export type FileDownloadUrlResponse = {
+  url: string;
+};
+
+export type FileManagementFile = {
+  fileURI?: string;
+  name: string;
+  type: string;
+};
+
+export type CatalogServiceInstance = {
+  getCatalogueEntry: (docId: string, jwt: string | null) => Promise<object>;
+};
+
+export type FileManagementServiceInstance = {
+  listFilesOnDataSet: (dataSetId: string, jwt: string | null) => Promise<object>;
+  getFileDownloadUrl: (dataSetId: string, fileName: string, jwt: string | null) => Promise<object>;
+};
+
 export interface ISearchResults {
   total: number;
   items: ISearchItem[];
@@ -236,8 +302,8 @@ export interface ISearchResults {
 }
 
 export interface ITemporalExtent {
-  beginPosition: string;
-  endPosition: string;
+  begin: string;
+  end: string;
 }
 export interface IGeometry {
   westBoundLongitude: number;
@@ -338,6 +404,8 @@ export interface IGeographyItem {
   spatial: SpatialItem;
   geospatialExtent?: IGeographyBoundry;
   geographicLocations?: string | undefined | null;
+  spatialRepresentationType: string;
+  coordinateReferenceSystemId?: string;
 }
 
 export interface INaturalItem {
@@ -351,7 +419,7 @@ export interface IMoreInfoSearchItem extends IGeographyItem, IQualityItem, IGene
   title?: string;
   resources: IResources[];
   temporalExtent: ITemporalExtent;
-  license: ILicenseItem;
+  licence: ILicenseItem;
   organisation?: string;
   nceaContribution: string;
 }

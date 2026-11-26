@@ -85,8 +85,8 @@ export const transformSearchResponse = (response: ISearchResponse, isMapResults:
     };
   }
   const items = response.results.map((result: ISearchResult) => {
-    const startDate = toValidDate(result?.temporalExtent?.beginPosition);
-    const endDate = toValidDate(result?.temporalExtent?.endPosition);
+    const startDate = toValidDate(result?.temporalExtent?.begin);
+    const endDate = toValidDate(result?.temporalExtent?.end);
 
     const searchResponse = {
       id: result.id,
@@ -165,14 +165,14 @@ export const transformSearchResponse = (response: ISearchResponse, isMapResults:
 };
 
 export const formatSearchResponse = (payload: IMoreInfoSearchItem, vocabularyData: NaturalCapitalTheme[]) => {
-  // const resourceUrl = getResourceLocatorURL(payload?.resources[0]?.url ?? '');
+  const resourceLocator = payload?.resources?.[0]?.url ?? '';
   return {
     id: payload?.id,
     title: payload?.title ?? '',
     publishedBy: payload?.organisation ?? '',
-    startYear: getYear(payload?.temporalExtent?.beginPosition ?? ''),
-    toYear: getYear(payload?.temporalExtent?.endPosition ?? ''),
-    // resourceLocator: resourceUrl,
+    startYear: getYear(payload?.temporalExtent?.begin ?? ''),
+    toYear: getYear(payload?.temporalExtent?.end ?? ''),
+    resourceLocator,
     organisationName: payload?.organisation ?? '',
     ncea_group_reference: '',
     project_number: '',
@@ -180,7 +180,7 @@ export const formatSearchResponse = (payload: IMoreInfoSearchItem, vocabularyDat
     ...getGeneralTabData(payload),
     ...getAccessTabData(payload),
     ...getQualityTabData(payload),
-    ...getLicenseTabData(payload.license ?? {}),
+    ...getLicenseTabData(payload.licence ?? {}),
     ...getNaturalTab(payload, vocabularyData),
     ...getGovernanceTabData(payload.contacts ?? []),
     ...getGeographyTabData(payload),
