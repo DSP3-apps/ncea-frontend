@@ -255,6 +255,14 @@ const appendUtmSource = (url: string): string => {
   // If query params exist, append with &
   return `${url}&${UTM_PARAM}`;
 };
+const escapeHtmlAttribute = (value: string): string => {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+};
 
 export {
   getQueryStringParams,
@@ -273,4 +281,5 @@ export {
   getClearFilterUrl,
   removeDuplicatesValues,
   appendUtmSource,
+  escapeHtmlAttribute,
 };

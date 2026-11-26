@@ -32,7 +32,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-      - run: npm ci
+          registry-url: https://npm.pkg.github.com
+          scope: '@agrimetrics'
+      - name: Install dependencies
+        run: |
+          test -n "$NODE_AUTH_TOKEN" || { echo "AGM_GITHUB_PACKAGES_TOKEN is required to install @agrimetrics packages" >&2; exit 1; }
+          npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.AGM_GITHUB_PACKAGES_TOKEN }}
       - run: npm run test:ci
 
       - name: Log in to DEV registry
@@ -72,3 +79,5 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          secrets: |
+            github_packages_token=${{ secrets.AGM_GITHUB_PACKAGES_TOKEN }}

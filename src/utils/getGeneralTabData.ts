@@ -6,12 +6,12 @@ import remarkHtml from 'remark-html';
 
 import { formatDate } from './dates';
 import { removeDuplicatesValues } from './queryStringHelper';
-import { IGeneralItem, ITemporalExtent } from '../interfaces/searchResponse.interface';
+import { IGeneralItem, ITaxonomyKeyword, ITemporalExtent } from '../interfaces/searchResponse.interface';
 
 export const getStudyPeriodDetails = (dateRanges: ITemporalExtent): string => {
-  const { beginPosition, endPosition } = dateRanges;
-  const startDate: string = beginPosition ? formatDate(beginPosition) : '';
-  const endDate: string = endPosition ? formatDate(endPosition) : '';
+  const { begin, end } = dateRanges;
+  const startDate: string = begin ? formatDate(begin) : '';
+  const endDate: string = end ? formatDate(end) : '';
 
   if (!startDate && !endDate) return '';
   if (!startDate) return `${endDate}`;
@@ -27,12 +27,20 @@ const formatContent = (content: string): string => {
   return String(result);
 };
 
+export const getKeywords = (keywords: ITaxonomyKeyword[]): string => {
+  const taxonomyKeywords = (keywords ?? []).map((item) => item.valueLabel || '').filter(Boolean);
+  if (taxonomyKeywords.length > 0) {
+    return removeDuplicatesValues(taxonomyKeywords.join(','));
+  }
+  return '';
+};
+
 const getGeneralTabData = (payload: IGeneralItem) => ({
-  content: formatContent(payload?.abstract ?? ''),
+  content: formatContent(payload?.description ?? ''),
   studyPeriod: payload?.temporalExtent ? getStudyPeriodDetails(payload.temporalExtent) : '',
-  topicCategories: payload?.topicCategories?.join(', ') ?? '',
-  keywords: payload?.keywords ? removeDuplicatesValues(payload.keywords.join(', ').toLowerCase()) : '',
-  language: payload?.metadata?.language?.toLocaleUpperCase() ?? '',
+  topicCategories: removeDuplicatesValues(payload?.topics?.join(',') ?? ''),
+  keywords: getKeywords(payload?.taxonomyKeywords ?? []),
+  language: payload?.metadataLanguage?.toLocaleUpperCase() ?? '',
 });
 
 export { getGeneralTabData };

@@ -10,14 +10,21 @@ const formmatLicenseData = (licenseData: string[]) => {
   return '';
 };
 
-const getLicenseTabData = (license: ILicenseItem): ILicense => {
+export const concateValues = (text: string, attributionStatement: string): string => {
+  return text && attributionStatement ? `${text}<br>${attributionStatement}` : text || attributionStatement || '';
+};
+
+const getLicenseTabData = (licence: ILicenseItem): ILicense => {
   return {
-    limitation_on_public_access: license?.publicUseUseConstraints ?? '',
-    limitation_on_public_access_otherconstraint: formmatLicenseData(license?.publicAccessAccessContraints ?? []),
-    conditions_for_access_and_useOtherConstraints: license?.publicUseOtherContraints ?? '',
-    conditions_for_access_and_use_useConstraints: formmatLicenseData(license?.publicAccessOtherConstraints ?? []),
-    other_constraint: '',
-    attribution_statement: license?.attributionStatement ?? '',
+    limitation_on_public_access: licence?.useLimitationStatement ?? '',
+    limitation_on_public_access_otherconstraint: formmatLicenseData(licence?.publicAccessOtherConstraints ?? []),
+    conditions_for_access_and_useOtherConstraints: concateValues(
+      licence?.text ?? '',
+      licence?.attributionStatement ?? '',
+    ),
+    conditions_for_access_and_use_useConstraints: licence?.useConstraints ?? '',
+    other_constraint: '', // Need to test once data is availble from AGM side
+    attribution_statement: licence?.attributionStatement ?? '',
   };
 };
 export { getLicenseTabData, formmatLicenseData };
